@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+# Android
+local.properties
+.gradle/
+build/
+.idea/
+# macOS
+.DS_Store
+
+# Saída gerada — `uv run python -m hoquei.cli despejar` reconstrói em ~40s
+data-samples/json/
+# Snapshots da sonda: ~80KB cada, centenas por dia de jogos. Os achados ficam nos .jsonl;
+# se um snapshot em concreto for prova de algo, copia-o para data-samples/paginas/.
+data-samples/sondagem/html/

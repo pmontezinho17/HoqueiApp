@@ -1,0 +1,382 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Associa&ccedil;&atilde;o de Patinagem de Lisboa</title>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed|Titillium+Web|Roboto);
+
+body {
+	font-family:"Roboto"; font-size:10px; background-color:#e9eaed; margin:10px 0px;
+}
+ul {
+	list-style-type:none;
+}
+a {
+	color:#000; text-decoration:none;
+}
+table {
+	border-collapse:collapse;
+}
+div#contenido {
+	width:100%;
+}
+div#cabecera {
+	width:100%;
+}
+div#cabecera img {
+	margin:0px auto; display:block;
+}
+div#menu {
+	width:100%; margin-top:10px; border-top:#0c426f 5px solid; background-color:#3f3f3f; color:#fff; height:37px;
+}
+div#menu ul {
+	margin:10px auto; text-align:center; font-size:14px;
+}
+div#menu ul li {
+	margin:0px; padding:10px; display:inline; background-color:#3f3f3f;
+}
+div#menu ul li a {
+	display:inline; background-color:#3f3f3f; color:#fff;
+}
+div#menu .menu_activo {
+	background-color:#0c426f;
+}
+div#menu .menu_activo a {
+	background-color:#0c426f;
+}
+div#principal {
+	width:100%-40px; padding:2px 20px; text-align:center;
+}
+div#titulo {
+	width:100%;	margin:10px 0px; background-position:left center; background-repeat:repeat-x; background-image:url(../imagenes/ribbon.png); text-align:center;
+}
+div#titulo h1 {
+	padding:0px 15px; font-size:36px; text-align:center; margin:0px auto; font-weight:normal; background-color:#e9eaed; display:inline-block;
+}
+div#equipos {
+	display:inline-block; width:100%; border-bottom:#0c426f 1px solid; margin:1em auto; text-align:center;
+}
+.equipos_logo {
+	display:inline-block; padding:4px 5px 4px 5px; background-color:#f0f0f0; margin:5px 3px 5px 2px; box-shadow:1px 2px 5px -1px #000; border-radius:20px 20px 20px 20px;
+}
+.equipos_logo_activo {
+	display:inline-block; padding:4px 5px 7px 5px; background-color:#b0e0e6; margin:-1px 3px 8px 2px; box-shadow:1px 2px 5px -1px #000; border-radius:20px 20px 20px 20px;
+}
+.equipos_logo img {
+	height:30px; display:block;
+}
+.equipos_logo:hover {
+	background-color:#b0e0e6;
+}
+.boxJornada {
+	width:100%; border:#0c426f 1px solid; margin:5px auto; background-color:#fff; display:block; max-width:980px;
+}
+.boxJornadaAct {
+	width:540px; border:#0c426f 1px solid; margin:5px; background-color:#fff; display:inline-block;
+}
+.boxDatos {
+	width:950px; border:#0c426f 1px solid; margin:5px; background-color:#fff; display:inline-block;
+}
+.boxHead {
+	background-color:#0c426f; color:#fff; padding:5px; font-size:12px; text-align:center;
+}
+.boxBody {
+	padding:5px;
+}
+.jornada {
+	width:100%;
+}
+.jornada tr {
+	border-bottom:#3f3f3f 1px solid;
+}
+.jornada td {
+	padding:2px 0px;
+}
+.jornada tr:last-child {
+	border-bottom:none;
+}
+.jornada tr:hover {
+    background-color:rgba(32,128,0,.2); cursor: pointer;
+}
+.jornada .tdJogo {
+	font-size:12px; width:40px; padding:0px; text-align:center; line-height:18px;
+}
+.jornada .tdDatos {
+	font-size:12px; width:75px; padding:0px; text-align:left; line-height:18px;
+}
+.jornada .tdLogo {
+	vertical-align:middle; width:24px; text-align:center;
+}
+.jornada .tdLogo img {
+	margin:0px auto; height:16px; width:16px;
+}
+.jornada .tdNombre{
+	font-size:12px; text-align:left; width:22%; line-height:18px;
+}
+.jornada .tdGol {
+	font-size:12px; text-align:center; line-height:18px;
+}
+
+.tbDatos {
+	width:100%;
+}
+.tbDatos tr {
+	border-bottom:#3f3f3f 1px solid;
+}
+.tbDatos td {
+	padding:2px 5px;
+}
+.tbDatos tr:first-child {
+	border-bottom:none; background-color:#0c426f; color:#fff;
+}
+.tbDatos tr:last-child {
+	border-bottom:none;
+}
+.tbDatos tr:hover {
+    background-color:rgba(32,128,0,.2); cursor: pointer;
+}
+.tbDatos .tdNombre{
+	font-size:12px; line-height:18px; text-align:left;
+}
+.tbDatos .tdLogo {
+	vertical-align:middle; width:20px; text-align:center;
+}
+.tbDatos .tdLogo img {
+	margin:0px auto; height:16px; width:16px;
+}
+.tbDatos .tdnLic{
+	font-size:12px; line-height:18px; width:50px; text-align:center;
+}
+.tbDatos .tdValor{
+	font-size:12px; line-height:18px; width:30px; text-align:center;
+}
+
+/*Competiciones*/
+.boxCompeticion {
+	display:block; box-sizing: border-box; width:100%; max-width:980px; margin:0.5em auto; padding:5px; border:#ccc 1px solid; border-radius:5px 5px 5px 5px; box-shadow:3px 3px 4px -1px #333; cursor:pointer;
+}
+.boxCompeticionNom {
+	font-size:12px; font-weight:bold; color:#000; margin:2px; padding:0px;
+}
+.boxCompeticionAge {
+	background-color:#d2ffff;
+}
+.boxCompeticionAct {
+	background-color:#d2ffd2;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="contenido">
+<div id="cabecera"><img src="../imagenes/banner.png" height="90" border="0"></div>
+
+<script language="javascript" type="text/javascript">
+<!--
+function enviar(){
+  id=document.getElementById('temporada').options[document.getElementById('temporada').selectedIndex].value;
+  location.href='./?seccion=competiciones&id_temp='+id+'&id_modal=1';
+}
+function verComp(id){
+	if(document.getElementById("c"+id).style.display=="none") document.getElementById("c"+id).style.display="block"; else document.getElementById("c"+id).style.display="none";
+}
+//-->
+</script>
+<div id="menu"><ul><li class="menu_activo">TEMPORADA 2026/27</li></ul></div>
+<div id="principal">
+<div style="width:100%; margin:0px; padding:0px; text-align:left;">
+<p style="text-align:right; margin-top:5px; font-size:14px;">Temporada: <select name="temporada" id="temporada" onchange="enviar();">
+<option value="5">2026/27</option>
+
+<option value="5">2026/27</option>
+
+<option value="4">2025/26</option>
+
+<option value="3">2024/25</option>
+
+<option value="2">2023/24</option>
+
+<option value="1">2022/23</option>
+</select></p>
+
+<div class="boxCompeticion boxCompeticionAge">
+<p class="boxCompeticionNom"><a href="./?seccion=agenda&id_temp=5&id_modal=1">AGENDA DEPORTIVA</a></p></div>
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(52);">
+<p class="boxCompeticionNom">SENIORES MASCULINOS</p></div>
+<div class="boxJornada" id="c52" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=432&id_temp=5&id_modal=1';">
+    <td class="tdNombre">TAÇA JESUS CORREIA - SENIORES MASCULINOS</td></tr>
+</tbody></table></div></div>
+
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(53);">
+<p class="boxCompeticionNom">SENIORES FEMININOS</p></div>
+<div class="boxJornada" id="c53" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=433&id_temp=5&id_modal=1';">
+    <td class="tdNombre">TAÇA PROF. JOAO CAMPELO - SENIORES FEMININOS</td></tr>
+</tbody></table></div></div>
+
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(54);">
+<p class="boxCompeticionNom">SUB-19</p></div>
+<div class="boxJornada" id="c54" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=435&id_temp=5&id_modal=1';">
+    <td class="tdNombre">SUPERTAÇA APL SUB-19</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=439&id_temp=5&id_modal=1';">
+    <td class="tdNombre">TORNEIO ABERTURA APL SUB-19</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=457&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-19 - 1ª FASE - SERIE A</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=458&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-19 - 1ª FASE - SERIE B</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=459&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-19 - 1ª FASE - SERIE C</td></tr>
+</tbody></table></div></div>
+
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(55);">
+<p class="boxCompeticionNom">SUB-17</p></div>
+<div class="boxJornada" id="c55" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=436&id_temp=5&id_modal=1';">
+    <td class="tdNombre">SUPERTAÇA APL SUB-17</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=440&id_temp=5&id_modal=1';">
+    <td class="tdNombre">TORNEIO ABERTURA APL SUB-17</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=451&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-17 - 1ª FASE - SERIE A</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=452&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-17 - 1ª FASE - SERIE B</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=453&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-17 - 1ª FASE - SERIE C</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=454&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-17 - 1ª FASE - SERIE D</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=455&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-17 - 1ª FASE - SERIE E</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=456&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-17 - 1ª FASE - SERIE F</td></tr>
+</tbody></table></div></div>
+
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(56);">
+<p class="boxCompeticionNom">SUB-15</p></div>
+<div class="boxJornada" id="c56" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=437&id_temp=5&id_modal=1';">
+    <td class="tdNombre">SUPERTAÇA APL SUB-15</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=441&id_temp=5&id_modal=1';">
+    <td class="tdNombre">TORNEIO ABERTURA APL SUB-15</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=447&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-15 - 1ª FASE - SERIE A</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=448&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-15 - 1ª FASE - SERIE B</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=449&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-15 - 1ª FASE - SERIE C</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=450&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-15 - 1ª FASE - SERIE D</td></tr>
+</tbody></table></div></div>
+
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(57);">
+<p class="boxCompeticionNom">SUB-13</p></div>
+<div class="boxJornada" id="c57" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=438&id_temp=5&id_modal=1';">
+    <td class="tdNombre">SUPERTAÇA APL SUB-13</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=442&id_temp=5&id_modal=1';">
+    <td class="tdNombre">TORNEIO ABERTURA APL SUB-13</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=443&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-13 - 1ª FASE - SERIE A</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=444&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-13 - 1ª FASE - SERIE B</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=445&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-13 - 1ª FASE - SERIE C</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=446&id_temp=5&id_modal=1';">
+    <td class="tdNombre">CAMP. REG. SUB-13 - 1ª FASE - SERIE D</td></tr>
+</tbody></table></div></div>
+
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(58);">
+<p class="boxCompeticionNom">ESCOLARES</p></div>
+<div class="boxJornada" id="c58" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=460&id_temp=5&id_modal=1';">
+    <td class="tdNombre">ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE A</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=461&id_temp=5&id_modal=1';">
+    <td class="tdNombre">ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE B</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=462&id_temp=5&id_modal=1';">
+    <td class="tdNombre">ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE C</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=463&id_temp=5&id_modal=1';">
+    <td class="tdNombre">ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE D</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=464&id_temp=5&id_modal=1';">
+    <td class="tdNombre">ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE E</td></tr>
+</tbody></table></div></div>
+
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(59);">
+<p class="boxCompeticionNom">BENJAMINS</p></div>
+<div class="boxJornada" id="c59" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=465&id_temp=5&id_modal=1';">
+    <td class="tdNombre">ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=466&id_temp=5&id_modal=1';">
+    <td class="tdNombre">ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE B</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=467&id_temp=5&id_modal=1';">
+    <td class="tdNombre">ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE C</td></tr>
+</tbody></table></div></div>
+
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(51);">
+<p class="boxCompeticionNom">TORNEIOS PARTICULARES</p></div>
+<div class="boxJornada" id="c51" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=431&id_temp=5&id_modal=1';">
+    <td class="tdNombre">JOGO TREINO</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=434&id_temp=5&id_modal=1';">
+    <td class="tdNombre">ZECA PINTO</td></tr>
+</tbody></table></div></div>
+
+</div></body></html>
