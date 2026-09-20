@@ -1,6 +1,11 @@
 # Onde retomar
 
-**Última sessão:** 18/09/2026 (noite) · **Estado:** scraper a funcionar (competições + calendário), testado e validado contra a fonte real. App por começar.
+**Última sessão:** 20/09/2026 · **Estado:** scraper a funcionar; cliente decidido como **PWA**
+(era Android nativo). Cliente por começar.
+
+> ⚠️ **Mudança de rumo a 20/09:** o cliente passa de app Android nativa para **PWA** (SvelteKit +
+> Cloudflare Pages). Chega a Android e iPhone ao mesmo tempo, publica-se por link e corrige-se em
+> minutos. O backend **não muda nada**. Ver Decisão 2 em [02-arquitetura-e-stack.md](02-arquitetura-e-stack.md).
 
 ## O que já está feito
 
@@ -19,12 +24,12 @@ documentos de planeamento:
 3. **Cada jogo tem ~80KB de detalhe** em `partido.asp?id=N`: cronologia com marcador e assistente
    de cada golo, faltas de equipa, descontos de tempo e boletim oficial completo.
 
-## 2 decisões em aberto (a tua vez)
+## Decisões — as duas que estavam em aberto ficaram resolvidas
 
-| # | Decisão | Recomendação minha |
+| # | Decisão | Resolução |
 |---|---|---|
-| 1 | Adicionar jogos ao calendário: **feed ICS subscritível** (atualiza-se sozinho, sem confirmação) ou **escrita no calendário local** (permite pedir confirmação a cada alteração)? | Ambos, com o ICS como principal. Ver a nota em B4.11 |
-| 2 | Confirmar a interpretação de *"notificações de alterações de jogos, com alteração após confirmação do utilizador"* — assumi: avisar da alteração e só mexer no calendário do utilizador depois de ele confirmar (A5.11–A5.13) | Manter a interpretação assumida |
+| 1 | Feed ICS *vs* escrita no calendário do telefone | ✅ **Resolvida pela plataforma.** A web não pode escrever no calendário → só há feed ICS (B4.11 + W4.12) |
+| 2 | "Alteração após confirmação do utilizador" | ⚠️ **Muda de forma.** O ICS corrige-se sozinho, logo não há evento nosso para confirmar. Passa a: notificar + ecrã de "alterações recentes" com antes → depois (W5.9–W5.11). **Confirma se te serve assim** |
 
 ## Feito na sessão de 18/09 (noite)
 
@@ -54,13 +59,14 @@ categoria. A ligação correta é explícita: `onclick="verComp(N)"` → `div#cN
 ## Próximo passo concreto
 
 ```
-B1.9   Parser da ficha de jogo (#resultado + #jugadores)
-B1.9a  Parser da cronologia (#desarrollo)  ← o bloco que dá mais valor à app
-B1.9b  Normalizar o relógio decrescente em minuto absoluto
-B1.8   Parser da classificação (amostra já gravada)
+B1.9  + B1.9a   parser da ficha de jogo e da cronologia   ← maior valor, já há dados reais
+W0.7  + W2.1    esqueleto SvelteKit a correr localmente
+W2.3  + W2.5    primeira lista de jogos reais no browser
+W2.8  + W2.10   instalável e publicada num URL
 ```
 
-Depois `A2.1 → A2.5` põe isto no telemóvel.
+Ao fim disto há **um link para partilhar**, que qualquer pessoa abre no telemóvel e instala.
+Estimativa até um lançamento útil: **~2,5 semanas** (eram ~4 no plano Android).
 
 ## A época já começou — a janela de validação está aberta (18/09/2026)
 
@@ -77,7 +83,13 @@ Indício novo a favor: uma ficha de jogo *por disputar* já devolve a cronologia
 relógio no início (`20:00 Jogo não iniciado`). A plataforma tem estado por jogo e a vista pública
 reflete-o. Falta a prova com um jogo a decorrer.
 
-**A janela é sábado 19/09.** A 1ª jornada da Taça Jesus Correia (seniores masculinos) tem 7 jogos,
+**A janela de 19/09 falhou — a sonda não chegou a correr.** A próxima é sábado 26/09.
+
+Os 7 jogos de 19/09 terminaram todos, com cronologias de 26 a 51 eventos (confirmado a 20/09),
+pelo que os dados pós-jogo estão ricos. O que continua por medir é a **latência**: quanto tempo
+demora a fonte a refletir um golo enquanto o jogo decorre.
+
+A jornada de 19/09 era esta: A 1ª jornada da Taça Jesus Correia (seniores masculinos) tem 7 jogos,
 identificados com o scraper novo:
 
 | Hora | Jogo | id |
@@ -90,7 +102,11 @@ identificados com o scraper novo:
 | 18:30 | UD VILAFRANQUENSE — SC TORRES | 9296 |
 | 19:30 | A STUART HCM — PAREDE FC | 9302 |
 
-Correr a sonda a partir das ~09:50 de sábado (a 60 s para medir a latência com precisão):
+Para 26/09, obter os ids novos e correr a sonda a partir de ~09:50:
+
+```bash
+cd scraper && uv run python -m hoquei.cli jogos --de 2026-09-26 --ate 2026-09-27
+```
 
 ```bash
 ./scripts/sondar_atualizacao.py --tenant aplisboa --ids 9289 9295 9301 9290 9308 9296 9302 --intervalo 60 --ate 21:30

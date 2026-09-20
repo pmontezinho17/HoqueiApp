@@ -1,12 +1,16 @@
 # hoqueiAPP
 
-App Android para acompanhar hóquei em patins em Portugal — resultados, calendários, classificações
+PWA para acompanhar hóquei em patins em Portugal — resultados, calendários, classificações
 e fichas de jogo das competições nacionais (FPP) e regionais.
 
 ## Estado
 
 🛠️ **Scraper a funcionar.** Competições, equipas e calendários já saem em JSON, com testes.
-Ficha de jogo e app Android por fazer. Ver [docs/00-onde-retomar.md](docs/00-onde-retomar.md).
+Ficha de jogo e cliente por fazer.
+
+O cliente é uma **PWA** (SvelteKit + Cloudflare Pages), decidido a 20/09 em vez de app Android
+nativa: chega a Android e iPhone ao mesmo tempo e publica-se por link. As lojas ficam para depois,
+via TWA/Capacitor, se houver confiança para isso. Ver [docs/00-onde-retomar.md](docs/00-onde-retomar.md).
 
 ```bash
 cd scraper && uv sync && uv run pytest              # 9 testes, sem rede
@@ -29,8 +33,8 @@ uv run python -m hoquei.cli jogos --de 2026-09-19 --ate 2026-09-20
 - Cada jogo tem ~80 KB de detalhe: cronologia com marcador e assistente de cada golo, faltas de
   equipa, descontos de tempo e o boletim oficial completo.
 - Um **scraper em Python** (GitHub Actions, cron) normaliza tudo para **JSON estático em CDN**.
-- A app **Kotlin + Jetpack Compose** só consome JSON. Nunca faz scraping.
-- Primeiro incremento: uma semana até ter os resultados reais do Campeonato Nacional no telemóvel.
+- A **PWA (SvelteKit)** só consome JSON, servida do mesmo domínio — sem CORS. Nunca faz scraping.
+- Primeiro incremento: um link partilhável com resultados reais, instalável no telemóvel.
 
 ## Estrutura prevista
 
@@ -41,7 +45,7 @@ uv run python -m hoquei.cli jogos --de 2026-09-19 --ate 2026-09-20
   src/hoquei/parsers/        competições, calendário  (ficha de jogo por fazer)
   src/hoquei/cli.py          `jogos` e `despejar`
   tests/                     testes contra HTML gravado
-/android       App Android (Kotlin, Jetpack Compose)                por começar
+/web           PWA (SvelteKit, adapter-static, vite-plugin-pwa)      por começar
 /data-samples  HTML gravado da fonte + JSON gerado
   paginas/                   amostras usadas nos testes
   sondagem/                  sondas da fonte durante jogos a decorrer

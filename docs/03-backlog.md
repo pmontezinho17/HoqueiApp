@@ -1,277 +1,263 @@
-# Backlog — App de Hóquei em Patins (Android)
+# Backlog — hoqueiAPP (PWA)
+
+> **Revisto a 20/09/2026.** O cliente passou de app Android nativa para PWA. Os itens `A*`
+> (Android) foram substituídos por `W*` (web). **Todos os `B*` do backend ficam iguais** — é a
+> prova de que a Decisão 1 (a app nunca faz scraping) valeu a pena.
 
 ## Como ler este backlog
 
-- **IDs**: `B` = backend/dados, `A` = app Android, `Q` = qualidade, `L` = lançamento.
-- **Estimativas** (calibradas para quem está a aprender mobile, não para um sénior):
-  `XS` < 1h · `S` 1–3h · `M` ~meio dia · `L` 1–2 dias · `XL` > 2 dias.
+- **IDs**: `B` = backend/dados, `W` = PWA, `Q` = qualidade, `L` = lançamento, `F` = futuro.
+- **Estimativas**: `XS` < 1h · `S` 1–3h · `M` ~meio dia · `L` 1–2 dias · `XL` > 2 dias.
 - **Cada item tem um critério de aceitação verificável.** Se não se consegue testar, não está pronto.
-- As fases estão ordenadas para que **no fim de cada uma haja algo que funciona e se pode ver**.
-  Não avançar de fase com itens `must` da fase anterior abertos.
-- `must` = a app não faz sentido sem isto · `should` = falta notar-se · `could` = extra.
-
-**Regra de ouro para a primeira app:** a Fase 2 existe para atravessar toda a stack com o mínimo
-possível (1 ecrã, 1 lista, dados reais). Só depois se acrescenta largura. Resistir à tentação de
-construir 8 ecrãs antes de o primeiro funcionar.
+- `must` = não faz sentido sem isto · `should` = falta notar-se · `could` = extra.
+- No fim de cada fase há algo que funciona e se pode ver. Não avançar com `must` da fase anterior aberto.
 
 ---
 
-## Fase 0 — Preparação (~1 dia)
+## Fase 0 — Preparação ✅ feito (a parte Android caiu)
 
-| ID | Item | Prio | Est. | Critério de aceitação |
+| ID | Item | Prio | Est. | Estado |
 |---|---|---|---|---|
-| B0.1 | Instalar Android Studio + SDK + criar emulador (Pixel, API 34) | must | S | Emulador arranca e mostra o ecrã inicial do Android |
-| B0.2 | Correr o template "Empty Compose Activity" no emulador | must | XS | Aparece "Hello Android" no emulador |
-| B0.3 | Correr a mesma app no telemóvel Android físico via USB (modo desenvolvedor) | must | S | A app abre no telemóvel real |
-| B0.4 | Estrutura do repositório (`/scraper`, `/android`, `/docs`, `/data-samples`) + `.gitignore` | must | XS | `git status` limpo depois do primeiro commit |
-| B0.5 | Guardar amostras de HTML da fonte em `/data-samples`: lista de competições, calendário, classificação e **três fichas de jogo** — um jogo de seniores (2 partes), um de formação (4 partes) e um jogo suspenso/sem cronologia | must | M | 6 ficheiros `.html` no repo, usados depois nos testes do parser |
-| B0.6 | Descobrir os subdomínios das restantes associações regionais em `*.assyssoftware.es` | could | S | Lista documentada em `docs/01-fonte-de-dados.md` |
+| ~~B0.1–B0.3~~ | ~~Android Studio, SDK, emulador, telemóvel físico~~ | — | — | ❌ **Já não é preciso** |
+| B0.4 | Estrutura do repositório | must | XS | ✅ `scraper/`, `docs/`, `scripts/`, `data-samples/` |
+| B0.5 | Amostras de HTML para os testes | must | M | ✅ `data-samples/paginas/` (falta 1 ficha de formação, 4 partes) |
+| B0.6 | Descobrir subdomínios das outras associações | could | S | aberto |
+| W0.7 | Node LTS + `npm create svelte@latest` a correr localmente | must | S | Página em branco no browser em `localhost:5173` |
+| W0.8 | Conta Cloudflare + projeto Pages ligado ao repo GitHub | must | S | Push na `main` publica automaticamente |
 
-> B0.5 é mais importante do que parece: permite testar o parser sem bater no servidor da federação
-> e detetar quando o HTML muda (o teste falha contra a amostra nova).
+> A Fase 0 encolheu de ~1 dia para ~2 horas. É o primeiro dividendo da PWA: não há SDK, emulador,
+> keystore nem conta de programador a instalar antes de escrever a primeira linha.
 
 ---
 
-## Fase 1 — Backend: scraper + JSON (~3–4 dias)
+## Fase 1 — Backend: scraper + JSON (a maior parte já feita)
 
-Objetivo: no fim da fase existe um URL público que devolve JSON limpo com os jogos reais.
+**Sem qualquer alteração face ao plano anterior.**
 
-| ID | Item | Prio | Est. | Critério de aceitação |
+| ID | Item | Prio | Est. | Estado |
 |---|---|---|---|---|
-| B1.1 | Projeto Python (`uv`/`venv`), `httpx`, `selectolax`, `pytest` | must | S | `pytest` corre (sem testes ainda) |
-| B1.2 | Cliente HTTP com rate limit (1 req/s), retries, timeout, `User-Agent` identificável | must | S | 20 pedidos sequenciais sem erro e sem exceder 1 req/s |
-| B1.3 | Tratamento de encoding por endpoint (UTF-8 vs ISO-8859-1 no `partido.asp`) | must | S | "CD PAÇO ARCOS" lido corretamente das duas origens |
-| B1.4 | Parser: temporadas (`<select id="temporada">`) por tenant | must | S | Devolve `[{id:10,label:"2025/2026"}...]` para a FPP e `[{id:4,...}]` para APLisboa |
-| B1.5 | Parser: lista de competições (`?seccion=competiciones`) com escalão/categoria | must | M | 46 competições da FPP em 2025/26, com `id_comp` e categoria |
-| B1.6 | Parser: calendário (`?seccion=calendario`) — jornadas, data, hora, equipas, resultado, recinto, `id_jogo` | must | L | Todos os jogos do `id_comp=300` extraídos; jogos sem resultado marcados como agendados |
-| B1.7 | Parser: equipas de uma competição (`div#equipos`) — id, nome, logo | must | S | 16 equipas da Taça Jesus Correia com `id_equipo` |
-| B1.8 | Parser: classificação (`?seccion=clasificacion`), com suporte a múltiplos grupos | must | M | Tabela do `id_comp=300` igual à do site, incluindo GA e GM/GS |
-| B1.9 | Parser: ficha de jogo (`partido.asp?id=`), bloco `#resultado` + `#jugadores` — resultado, faltas de equipa, estado, árbitros, estatística por jogador | should | L | Ficha do jogo `6873` reproduzida por completo |
-| B1.9a | Parser: cronologia `#desarrollo` — golos com marcador/assistente/resultado corrente, faltas de equipa numeradas, descontos de tempo, livres diretos, início/fim de parte | should | L | Jogo `8627` devolve 12 eventos na ordem correta (a fonte lista do mais recente para o mais antigo — inverter) |
-| B1.9b | Normalizar o relógio da cronologia: converter o tempo decrescente por parte em minuto absoluto de jogo, com nº e duração de partes variável por escalão | should | M | Golo aos `6:01` da 1ª parte de um jogo de escolares (4×8min) → minuto 2; num jogo de seniores (2×25min) → minuto 19 |
-| B1.9c | Parser: boletim oficial `#acta` — equipa de arbitragem completa, resultado por parte/prolongamento/grandes penalidades, horas reais, posição e presença por parte, suspensões e expulsões | could | L | Boletim do jogo `8627` reproduzido; parciais 4+2=6 conferem com o resultado final |
-| B1.9d | Flag `has_timeline` por jogo, para a app saber se vale a pena abrir o ecrã de cronologia | should | XS | Jogos antigos sem cronologia vêm com `false` |
-| B1.19 | Crawl incremental das fichas de jogo: só buscar `partido.asp` de jogos novos ou cujo resultado mudou desde a última execução | must | M | 2ª execução seguida faz 0 pedidos a `partido.asp` |
-| B1.20 | Agregação de marcadores por competição/equipa/temporada → `scorers.json` (golos, assistências, jogos, média) | should | L | Top 10 do Nacional Placard confere com a soma manual de 3 jornadas |
-| B1.21 | Filtro RGPD na agregação: escalões abaixo de sub-17 não geram estatísticas individuais | must | S | `scorers.json` de uma competição de escolares vem vazio com `reason: "age_restricted"` |
-| B1.10 | Modelo de dados normalizado (dataclasses/pydantic) + escrita dos JSON de `docs/02` | must | M | Ficheiros gerados validam contra o esquema |
-| B1.11 | Testes do parser contra as amostras de B0.5 | must | M | `pytest` verde; alterar 1 byte na amostra faz falhar |
-| B1.12 | Deteção de mudanças por hash — só reescrever ficheiro se o conteúdo mudou | should | S | Segunda execução seguida não produz diffs |
-| B1.13 | Normalização de nomes de clubes (`SL BENFICA` → `SL Benfica`) + slug estável | should | M | Mesma equipa em competições diferentes tem o mesmo slug |
-| B1.14 | GitHub Action com cron (a cada 15 min na época, 1x/dia fora dela) | must | M | Action corre sozinha e comita JSON alterado |
-| B1.15 | Publicação dos JSON num URL público (R2/Pages ou raw+CDN) com CORS e cache curto | must | M | `curl` ao URL devolve JSON válido |
-| B1.16 | `meta.json` com `generated_at`, versão do parser e estado | must | XS | Campo `generated_at` atualiza a cada execução |
-| B1.17 | Alerta de quebra do parser (Action falha → email/notificação) | should | S | Sabotar a amostra faz chegar o alerta |
-| B1.18 | Backfill de temporadas anteriores (FPP tem desde 2016/17) | could | M | JSON de 2024/25 gerado e acessível |
+| B1.1 | Projeto Python (`uv`, httpx, selectolax, pytest) | must | S | ✅ |
+| B1.2 | Cliente HTTP com rate limit, retries, UA identificável | must | S | ✅ 1 req/s, 3 tentativas |
+| B1.3 | Encoding por endpoint (UTF-8 vs cp1252) | must | S | ✅ |
+| B1.4 | Parser de temporadas | must | S | ✅ lê do `<select>` |
+| B1.5 | Parser de competições | must | M | ✅ 37 competições com categoria |
+| B1.6 | Parser do calendário | must | L | ✅ 87 jogos com id, data, recinto |
+| B1.7 | Parser de equipas | must | S | ✅ 16 equipas com logótipo |
+| B1.8 | Parser da classificação (múltiplos grupos) | must | M | aberto (amostra gravada) |
+| B1.9 | Parser da ficha de jogo: `#resultado` + `#jugadores` | must | L | aberto |
+| B1.9a | Parser da cronologia `#desarrollo` | must | L | aberto — **o bloco que dá mais valor** |
+| B1.9b | Normalizar o relógio decrescente em minuto absoluto | must | M | aberto |
+| B1.9c | Parser do boletim oficial `#acta` | could | L | aberto |
+| B1.9d | Flag `has_timeline` por jogo | should | XS | aberto |
+| B1.10 | Modelo normalizado + escrita dos JSON do contrato | must | M | parcial (falta jogo/classificação) |
+| B1.11 | Testes do parser contra amostras | must | M | ✅ 9 testes, sem rede |
+| B1.12 | Deteção de mudanças por hash | should | S | aberto |
+| B1.13 | Normalização de nomes de clubes + slug estável | should | M | aberto |
+| B1.14 | GitHub Action com cron (15 min na época, 1x/dia fora) | must | M | aberto |
+| B1.15 | Publicação dos JSON **no mesmo domínio da PWA** (Cloudflare Pages) | must | M | aberto — ver nota |
+| B1.16 | `meta.json` com `generated_at` e estado | must | XS | aberto |
+| B1.17 | Alerta de quebra do parser | should | S | aberto |
+| B1.18 | Backfill de temporadas anteriores | could | M | aberto |
+| B1.19 | Crawl incremental das fichas de jogo | must | M | aberto |
+| B1.20 | Agregação de marcadores → `scorers.json` | should | L | aberto |
+| B1.21 | Filtro RGPD: sem estatística individual abaixo de sub-17 | must | S | aberto |
 
-> **Nota de volume (importante para B1.19):** as fichas de jogo são o único sítio onde o crawl
-> cresce. 46 competições na FPP × dezenas de jornadas dá alguns milhares de páginas de ~80 KB por
-> temporada. A 1 req/s isso é horas — inaceitável a cada 15 minutos. Por isso B1.19 é `must` e não
-> `should`: em regime normal só há que buscar as fichas dos jogos que acabaram de ser disputados
-> (algumas dezenas por fim de semana). O backfill histórico (B1.18) corre uma vez, devagar, à noite.
-
----
-
-## Fase 2 — Primeira app a funcionar de ponta a ponta (~2–3 dias)
-
-Objetivo: **um único ecrã** com jogos reais vindos do backend. É aqui que se aprende Compose.
-
-| ID | Item | Prio | Est. | Critério de aceitação |
-|---|---|---|---|---|
-| A2.1 | Projeto Android: Kotlin, Compose, min SDK 26, Gradle KTS | must | S | Compila e corre |
-| A2.2 | Retrofit/Ktor + `kotlinx.serialization` + modelos de dados espelhando o JSON | must | M | Teste unitário desserializa um JSON de amostra |
-| A2.3 | Permissão de INTERNET + primeiro GET real ao backend, resultado num log | must | S | Logcat mostra o número de jogos recebidos |
-| A2.4 | `ViewModel` + `StateFlow` com os 3 estados: loading / erro / conteúdo | must | M | Os 3 estados são atingíveis (desligar o Wi-Fi mostra o erro) |
-| A2.5 | Ecrã "Resultados": `LazyColumn` de jogos agrupados por jornada | must | L | Lista real no emulador, com scroll fluido |
-| A2.6 | Componente `MatchRow` (equipas, resultado, data/hora, recinto) | must | M | Jogo agendado mostra hora; jogo terminado mostra resultado |
-| A2.7 | Pull-to-refresh | should | S | Gesto recarrega e o indicador desaparece no fim |
-| A2.8 | Estado vazio ("sem jogos nesta jornada") e mensagem de erro com botão "tentar de novo" | must | S | Ambos visíveis sem crashar |
-| A2.9 | Tema base (cores, tipografia, Material 3) + modo escuro | should | M | Alternar o tema do sistema não deixa texto ilegível |
-
----
-
-## Fase 3 — Núcleo de consulta (~4–5 dias)
-
-| ID | Item | Prio | Est. | Critério de aceitação |
-|---|---|---|---|---|
-| A3.1 | Navegação (Navigation Compose) + bottom bar: Jogos · Classificações · Golos · O Meu Clube · Mais | must | M | Navegar entre os 5 e voltar atrás mantém o estado |
-| A3.2 | Seletor de competição (nacional 1ª/2ª/3ª, taças, escalões, regional) | must | L | Escolher competição atualiza jogos e classificação |
-| A3.3 | Seletor de temporada | should | S | Mudar para 2024/25 mostra dados históricos |
-| A3.4 | Ecrã Classificação com tabela ordenável e destaque do clube favorito | must | L | Tabela igual à do site; scroll horizontal se não couber |
-| A3.5 | Ecrã Detalhe de Jogo com tabs: **Resumo · Cronologia · Ficha · Boletim** | must | XL | Abrir um jogo terminado mostra as 4 tabs com dados reais |
-| A3.5a | Tab Cronologia: timeline vertical de eventos com ícones (golo, falta, desconto de tempo), separadores de parte e resultado corrente | must | L | Jogo `8627` mostra os 6 golos em ordem cronológica, com marcador e assistente |
-| A3.5b | Tab Ficha: tabela de jogadores por equipa (G/AG/D/Pe/LD), equipa técnica, faltas de equipa | must | L | Totais por equipa coincidem com o resultado |
-| A3.5c | Tab Boletim: arbitragem, resultado por parte, prolongamento/grandes penalidades | could | M | Mostra os 4 parciais e a equipa de arbitragem |
-| A3.5d | Esconder a tab Cronologia quando `has_timeline = false`, em vez de mostrar um ecrã vazio | should | XS | Jogo sem cronologia não mostra a tab |
-| A3.6 | Ecrã Equipa: próximos jogos, últimos resultados, posição, plantel | should | L | Chegar lá clicando no nome da equipa em qualquer sítio |
-| A3.7 | Navegação por jornada (anterior/seguinte) com scroll automático para a jornada atual | should | M | Ao abrir, a app posiciona-se na jornada em curso |
-| A3.8 | Ecrã "Sobre": atribuição da fonte, última atualização, versão | must | S | Mostra `generated_at` do `meta.json` |
-| A3.9 | Indicador visível de "dados de há X min" quando os dados estão velhos (> 1h) | should | S | Simular backend parado mostra o aviso |
-| A3.10 | **Ecrã Golos** — quadro de melhores marcadores da competição (golos, assistências, jogos, média), com filtro por competição e equipa | must | L | Top 10 do Nacional Placard com foto/iniciais, clube e nº de golos |
-| A3.11 | Golos: alternar entre "melhores marcadores" e "melhores assistências" | should | S | Toggle reordena a lista |
-| A3.12 | Golos: mensagem clara em competições de formação ("não disponível em escalões de formação") em vez de lista vazia | must | XS | Escolher uma competição de sub-13 mostra a explicação |
-
----
-
-## Fase 4 — Equipas favoritas e calendário (~4 dias)
-
-Tudo local-first: funciona sem conta e sem rede depois da 1ª sincronização.
-
-| ID | Item | Prio | Est. | Critério de aceitação |
-|---|---|---|---|---|
-| A4.1 | Onboarding: escolher **equipas favoritas** na 1ª abertura, com pesquisa por nome de clube | must | M | Escolha persiste depois de fechar a app |
-| A4.2 | Persistência local de preferências (DataStore) | must | S | Reinstalar limpa; reabrir mantém |
-| A4.3 | **Favoritos por clube+escalão**, não só por clube (ex. só os sub-15 do Paço de Arcos) | must | M | Seguir "Paço de Arcos sub-15" não traz os jogos dos seniores |
-| A4.4 | Seguir várias equipas ao mesmo tempo | must | M | Três equipas seguidas aparecem todas no ecrã inicial, ordenadas por data do próximo jogo |
-| A4.5 | Ecrã inicial "O Meu Clube": próximo jogo em destaque, último resultado, posição na tabela | must | L | Abre direto neste ecrã se já houver favoritos |
-| A4.6 | Gerir favoritos nas definições (adicionar/remover/reordenar) | must | S | Alteração reflete-se imediatamente |
-| A4.7 | **Ecrã Calendário**: vista mensal com os jogos das equipas seguidas, e vista de lista com "próximos" / "anteriores" | must | L | Mês de outubro mostra os jogos nos dias certos; tocar num dia abre a lista |
-| A4.8 | Calendário de qualquer clube (não só dos favoritos), a partir do ecrã Equipa | must | M | Chegar ao calendário do Benfica sem o seguir |
-| A4.9 | Destaque visual de jogos em casa vs fora, e do recinto | should | S | Jogo em casa distingue-se num relance |
-| A4.10 | Partilhar resultado ou jogo (texto + link) | could | S | Sheet de partilha nativa abre com texto correto |
-
-### Exportar para o calendário do telefone
-
-Duas abordagens, e **recomendo fazer as duas** — resolvem problemas diferentes:
-
-| ID | Item | Prio | Est. | Critério de aceitação |
-|---|---|---|---|---|
-| B4.11 | **Feed ICS por equipa** gerado pelo backend: `/v1/{tenant}/{season}/team/{id}.ics` | must | M | Subscrever o URL no Google Calendar mostra todos os jogos da equipa |
-| A4.12 | Botão "Subscrever no Google Calendar" que abre o feed ICS da equipa | must | S | Um toque e os jogos aparecem no calendário do utilizador |
-| A4.13 | Adicionar **um** jogo ao calendário via Intent do Android (sem permissões) | should | S | Evento criado com data, hora, equipas e recinto |
-| A4.14 | Adicionar **todos** os jogos de uma equipa/escalão ao calendário local, num calendário próprio da app | should | L | Cria um calendário "Hóquei — Paço Arcos sub-15" com N eventos, sem duplicar em execuções repetidas |
-
-> **Porque é que o feed ICS é a melhor peça deste bloco:** um feed subscrito atualiza-se **sozinho
-> para sempre**. Quando a federação adia um jogo, o Google Calendar do utilizador corrige-se no
-> próximo refresh, sem a app fazer nada, sem permissões de calendário, e mesmo que o utilizador
-> desinstale a app. O custo é ~meio dia de trabalho no backend. A escrita direta no calendário
-> (A4.14) só vale para quem quer os jogos offline no calendário local, e traz permissões,
-> deduplicação e sincronização de alterações — muito mais trabalho por menos benefício.
+> **B1.15 mudou de forma com a PWA.** Antes os JSON iam para um sítio qualquer com CORS aberto.
+> Agora vão para o **mesmo projeto Cloudflare Pages que serve a PWA**, debaixo de `/v1/`. Sem CORS,
+> cache trivial, e o service worker trata dados e código com o mesmo mecanismo.
 >
-> ⚠️ Nota: o ICS auto-atualiza **sem** pedir confirmação ao utilizador, o que colide com o pedido
-> de "alteração após confirmação". Ver a nota na Fase 5 — as duas coisas coexistem, mas em canais
-> diferentes.
+> **Nota de volume (B1.19):** as fichas de jogo são o único sítio onde o crawl cresce — milhares de
+> páginas de ~80 KB por temporada. Em regime normal só se buscam as dos jogos acabados de disputar
+> (algumas dezenas por fim de semana). O backfill corre uma vez, de noite.
 
 ---
 
-## Fase 5 — Notificações e conta Google (~5–6 dias)
+## Fase 2 — Primeira PWA a funcionar de ponta a ponta (~1–2 dias)
 
-> **É aqui que a arquitetura muda.** Até à Fase 4 tudo é JSON estático num CDN: nada com estado,
-> zero custo, nada para manter. Notificações e contas obrigam a guardar tokens e preferências de
-> utilizadores — passa a haver um serviço com estado, uma base de dados, e obrigações de RGPD e de
-> política da Play Store. É trabalho real e recorrente, por isso está isolado numa fase própria e
-> depois de a app já ser útil sem isto.
-
-### Deteção de alterações no backend (a base de tudo)
+Objetivo: **um ecrã** com jogos reais, no telemóvel, instalável. É aqui que se aprende SvelteKit.
 
 | ID | Item | Prio | Est. | Critério de aceitação |
 |---|---|---|---|---|
-| B5.1 | **Diff entre execuções do scraper**: detetar jogo novo, resultado final, data/hora alterada, recinto alterado, jogo adiado ou suspenso | must | L | Adiar um jogo na amostra produz um evento `match_rescheduled` com valor antigo e novo |
-| B5.2 | Histórico de eventos persistido (`events.json` ou tabela), com `event_id` idempotente por `match_id` + tipo + valores | must | M | Reexecutar o scraper 3× produz o mesmo `event_id`, não 3 eventos |
-| B5.3 | Não notificar em avalanche no primeiro arranque nem depois de um backfill | must | S | Backfill de uma temporada inteira não dispara nenhuma notificação |
+| W2.1 | Projeto SvelteKit + `adapter-static` + TypeScript | must | S | `npm run build` produz estáticos |
+| W2.2 | Tipos TS espelhando o contrato de dados | must | S | Um JSON de amostra tipa sem erros |
+| W2.3 | Carregar `comp/{id}.json` num `load` e listar os jogos | must | M | Lista real no browser |
+| W2.4 | Os 3 estados: a carregar / erro / conteúdo | must | M | Desligar a rede mostra o erro, não um ecrã em branco |
+| W2.5 | Componente `JogoLinha` (equipas, resultado, data/hora, recinto) | must | M | Jogo agendado mostra hora; disputado mostra resultado |
+| W2.6 | Agrupamento por jornada, com a jornada atual em foco ao abrir | must | M | Abre posicionado na jornada em curso |
+| W2.7 | **Mobile-first**: legível e utilizável a 360px sem scroll horizontal | must | M | DevTools em 360×640 sem overflow |
+| W2.8 | `manifest.webmanifest` + ícones + `vite-plugin-pwa` | must | M | Chrome oferece "Instalar"; abre sem barra de endereço |
+| W2.9 | Service worker a pré-carregar o shell (offline básico) | must | M | Modo avião: abre e mostra o último estado |
+| W2.10 | Publicado em Cloudflare Pages, acessível por URL público | must | S | Abre no teu telemóvel pelo link |
+| W2.11 | Tema claro/escuro seguindo o sistema | should | M | Alternar o tema não deixa texto ilegível |
 
-### Notificações push
+> Ao contrário do plano Android, **no fim da Fase 2 já há um link para partilhar**. Não é preciso
+> esperar pela Fase 7 para alguém ver aquilo.
 
-| ID | Item | Prio | Est. | Critério de aceitação |
-|---|---|---|---|---|
-| A5.4 | Firebase Cloud Messaging na app + pedido de permissão de notificações (Android 13+) | must | M | Notificação de teste da consola Firebase chega ao telefone |
-| A5.5 | Subscrição de tópicos FCM por equipa seguida (`/topics/team-{id}-{escalao}`) — sem servidor de tokens | must | M | Deixar de seguir uma equipa cancela a subscrição |
-| B5.6 | Envio das notificações a partir do próprio job do scraper (FCM HTTP v1 por tópico) | must | M | Evento novo → notificação no telefone em < 2 min |
-| B5.7 | Notificação de **resultado final** do jogo de uma equipa seguida | must | S | Chega uma vez, com o resultado certo |
-| B5.8 | Notificação de **alteração de jogo** (data, hora, recinto, adiamento) — ver bloco seguinte | must | M | Alterar a hora na amostra produz "Jogo adiado: nova data 12/10 às 18h00" |
-| B5.9 | Notificação "o teu jogo começa em 1h" | should | M | Chega no timing certo e não chega para jogos já terminados |
-| A5.10 | Definições de notificações: ligar/desligar por tipo (resultado, alteração, pré-jogo) | must | S | Desligar impede a receção |
+---
 
-### "Alteração após confirmação do utilizador"
-
-> **Interpretação assumida** (confirma-me se não é isto): quando a federação altera a data, hora ou
-> recinto de um jogo que já está no calendário do utilizador, a app **notifica e pede confirmação
-> antes de mexer no calendário dele** — não altera o evento silenciosamente.
+## Fase 3 — Núcleo de consulta (~4 dias)
 
 | ID | Item | Prio | Est. | Critério de aceitação |
 |---|---|---|---|---|
-| A5.11 | Notificação de alteração com ações "Atualizar no calendário" / "Ignorar" | must | M | Tocar em "Atualizar" muda o evento local; "Ignorar" não mexe em nada |
-| A5.12 | Ecrã "Alterações pendentes": lista de mudanças ainda não confirmadas, com antes → depois | should | M | Duas alterações pendentes aparecem as duas; confirmar remove da lista |
-| A5.13 | Registo do que a app criou no calendário, para poder atualizar o evento certo | must | M | Atualizar não cria duplicado nem mexe em eventos que não foram criados pela app |
+| W3.1 | Navegação e rotas: `/jogos`, `/classificacoes`, `/golos`, `/equipa/[id]`, `/jogo/[id]` | must | M | Cada ecrã tem URL próprio e partilhável |
+| W3.2 | Barra de navegação inferior (Jogos · Classificações · Golos · O Meu Clube · Mais) | must | M | Navegar e voltar atrás mantém o estado |
+| W3.3 | Seletor de competição (nacional, taças, escalões, regional) | must | L | Escolher competição atualiza jogos e classificação |
+| W3.4 | Seletor de temporada | should | S | Mudar para 2025/26 mostra dados históricos |
+| W3.5 | Ecrã Classificação, com o clube favorito em destaque | must | L | Tabela igual à da fonte; scroll horizontal se não couber |
+| W3.6 | Ecrã Detalhe de Jogo com tabs: Resumo · Cronologia · Ficha · Boletim | must | XL | As 4 tabs com dados reais |
+| W3.6a | Tab Cronologia: timeline vertical com ícones, separadores de parte, resultado corrente | must | L | Um jogo real mostra os golos em ordem cronológica, com marcador e assistente |
+| W3.6b | Tab Ficha: jogadores por equipa (G/AG/D/Pe/LD), equipa técnica, faltas | must | L | Totais coincidem com o resultado |
+| W3.6c | Tab Boletim: arbitragem, resultado por parte, prolongamento | could | M | Mostra os parciais e a equipa de arbitragem |
+| W3.6d | Esconder a tab Cronologia quando `has_timeline = false` | should | XS | Jogo sem cronologia não mostra a tab |
+| W3.7 | Ecrã Equipa: próximos jogos, últimos resultados, posição, plantel | should | L | Chega-se lá clicando no nome da equipa em qualquer sítio |
+| W3.8 | Ecrã Golos: melhores marcadores, com filtro por competição | must | L | Top 10 com clube e nº de golos |
+| W3.9 | Golos: alternar marcadores / assistências | should | S | Toggle reordena |
+| W3.10 | Golos: explicação clara em competições de formação, em vez de lista vazia | must | XS | Sub-13 mostra o motivo |
+| W3.11 | Ecrã Sobre: atribuição da fonte, última atualização, versão | must | S | Mostra o `generated_at` do `meta.json` |
+| W3.12 | Aviso de dados velhos (> 1h) | should | S | Backend parado mostra o aviso |
+| W3.13 | Pré-visualização em partilhas (Open Graph por jogo) | could | M | Colar o link de um jogo no WhatsApp mostra as equipas e o resultado |
 
-> ⚠️ **Isto só se aplica a A4.14** (eventos escritos no calendário local pela app). O feed ICS
-> (B4.11) por definição atualiza-se sozinho sem confirmação — é o compromisso de quem o subscreve.
-> Se quiseres confirmação sempre, então A4.14 é o caminho principal e o ICS é a alternativa
-> "põe-e-esquece" para quem preferir. Vale a pena dizer isto claramente na UI.
+> W3.13 não existia no plano Android e é das coisas mais valiosas da web aqui: o link de um jogo
+> partilhado num grupo de WhatsApp mostra logo o resultado, mesmo a quem não abrir.
+
+---
+
+## Fase 4 — Favoritos e calendário (~3 dias)
+
+Local-first: funciona sem conta e sem rede depois da primeira visita.
+
+| ID | Item | Prio | Est. | Critério de aceitação |
+|---|---|---|---|---|
+| W4.1 | Escolher **equipas favoritas** na 1ª visita, com pesquisa | must | M | Escolha persiste depois de fechar o browser |
+| W4.2 | Persistência em `localStorage` | must | S | Recarregar mantém |
+| W4.3 | Favoritos por **clube + escalão**, não só por clube | must | M | Seguir "Paço de Arcos sub-15" não traz os seniores |
+| W4.4 | Seguir várias equipas | must | M | Três equipas aparecem todas, ordenadas pelo próximo jogo |
+| W4.5 | Ecrã inicial "O Meu Clube": próximo jogo, último resultado, posição | must | L | Abre aqui se já houver favoritos |
+| W4.6 | Gerir favoritos nas definições | must | S | Alteração reflete-se de imediato |
+| W4.7 | Ecrã Calendário: vista mensal + lista de próximos/anteriores | must | L | Tocar num dia abre os jogos desse dia |
+| W4.8 | Calendário de qualquer clube, a partir do ecrã Equipa | must | M | Chega-se ao calendário do Benfica sem o seguir |
+| W4.9 | Distinguir casa/fora visualmente | should | S | Nota-se num relance |
+| W4.10 | Partilhar jogo ou resultado (Web Share API) | should | S | Abre o menu de partilha nativo do telemóvel |
+| B4.11 | **Feed ICS por equipa**: `/v1/{tenant}/{season}/team/{id}.ics` | must | M | Subscrever o URL no Google Calendar mostra todos os jogos |
+| W4.12 | Botão "Adicionar ao meu calendário" com o URL do feed + instruções | must | M | Um toque e os jogos entram no calendário do utilizador |
+| W4.13 | Descarregar um jogo isolado como `.ics` | should | S | Ficheiro abre no calendário com data, hora e recinto |
+| ~~A4.14~~ | ~~Escrever todos os jogos no calendário local da app~~ | — | — | ❌ **Impossível na web.** Substituído por B4.11 + W4.12 |
+
+---
+
+## Fase 5 — Notificações e conta (~4–5 dias)
+
+> **É aqui que a arquitetura muda.** Até ao fim da Fase 4 é tudo estático: nada com estado, custo
+> zero. As notificações obrigam a guardar subscrições de browsers, e isso traz base de dados, RGPD
+> e manutenção permanente.
+>
+> ⚠️ **Correção ao plano anterior.** Com FCM nativo bastavam tópicos e não era preciso servidor.
+> **O Web Push não tem tópicos** — cada browser dá um endpoint de subscrição que temos de guardar e
+> a quem temos de enviar individualmente. Na web, notificar exige mesmo um componente com estado.
+
+### Deteção de alterações (backend, sem mudanças)
+
+| ID | Item | Prio | Est. | Critério de aceitação |
+|---|---|---|---|---|
+| B5.1 | Diff entre execuções: jogo novo, resultado final, data/hora/recinto alterados, adiamento | must | L | Adiar um jogo na amostra produz `match_rescheduled` com antes e depois |
+| B5.2 | Histórico de eventos com `event_id` idempotente | must | M | Reexecutar 3× produz o mesmo `event_id` |
+| B5.3 | Não notificar em avalanche no 1º arranque nem em backfill | must | S | Backfill de uma época não dispara nada |
+
+### Web Push
+
+| ID | Item | Prio | Est. | Critério de aceitação |
+|---|---|---|---|---|
+| W5.4 | Subscrição Web Push (VAPID) no service worker + pedido de permissão em bom momento | must | L | Notificação de teste chega ao Android |
+| B5.5 | Armazenamento das subscrições (Cloudflare D1 ou KV) com equipas seguidas | must | L | Remover favorito deixa de receber |
+| B5.6 | Envio a partir do job do scraper, com limpeza de subscrições expiradas (410/404) | must | L | Evento novo → notificação em < 2 min; endpoints mortos são apagados |
+| B5.7 | Notificação de resultado final de equipa seguida | must | S | Chega uma vez, com o resultado certo |
+| B5.8 | Notificação de alteração de jogo (data, hora, recinto, adiamento) | must | M | "Jogo adiado: nova data 12/10 às 18h00" |
+| W5.9 | Ecrã "Alterações recentes" com antes → depois | must | M | Duas alterações aparecem as duas |
+| W5.10 | Marcar alteração como vista | should | S | Sai da lista de não vistas |
+| W5.11 | Explicar na UI que o calendário subscrito já se corrigiu sozinho | must | XS | Texto claro junto da alteração |
+| W5.12 | Definições de notificações por tipo | must | S | Desligar impede a receção |
+| W5.13 | **Ecrã de instalação para iOS**: explicar Partilhar → Adicionar ao ecrã principal | must | M | Num iPhone, quem tenta ativar notificações vê as instruções |
+| W5.14 | Detetar iOS não instalado e não oferecer push (evita erro sem explicação) | must | S | Safari sem instalar não mostra o botão, mostra o motivo |
+| B5.15 | Notificação "o teu jogo começa em 1h" | should | M | Chega no timing certo e não para jogos terminados |
 
 ### Conta Google (opcional, nunca obrigatória)
 
 | ID | Item | Prio | Est. | Critério de aceitação |
 |---|---|---|---|---|
-| A5.14 | Login com Google (Credential Manager + Firebase Auth) | should | L | Login e logout funcionam; a app continua utilizável sem login |
-| A5.15 | **Nunca bloquear a app atrás do login** — entrar é sempre opcional, com "continuar sem conta" | must | S | Instalação nova permite chegar a todos os ecrãs sem autenticar |
-| A5.16 | Sincronizar equipas favoritas e preferências na conta (Firestore) | should | L | Instalar noutro telefone e entrar recupera os favoritos |
-| A5.17 | Resolução de conflitos entre favoritos locais e da conta no 1º login | should | M | União dos dois conjuntos, sem perder escolhas locais |
-| L5.18 | **Eliminação de conta dentro da app** (exigência da Play Store para apps com login) | must | M | Botão apaga conta e dados; confirmado por email/diálogo |
-| L5.19 | Política de privacidade atualizada: que dados da conta são guardados, onde e por quanto tempo | must | M | Coerente com o formulário `Data safety` (L7.3) |
+| W5.16 | Login com Google (Google Identity Services) | should | M | Login e logout funcionam; o site continua utilizável sem |
+| W5.17 | **Nunca bloquear nada atrás do login** | must | S | Visita nova chega a todos os ecrãs sem autenticar |
+| B5.18 | Sincronizar favoritos na conta | should | L | Abrir noutro dispositivo e entrar recupera os favoritos |
+| W5.19 | Conflito entre favoritos locais e da conta no 1º login → união | should | M | Não perde escolhas locais |
+| L5.20 | Eliminação de conta e dados dentro da app | must | M | Apaga conta, subscrições e preferências |
+| L5.21 | Política de privacidade a cobrir conta e subscrições push | must | M | Coerente com o que o site faz |
 
 ---
 
-## Fase 6 — Robustez e qualidade (~3 dias)
+## Fase 6 — Qualidade e desempenho (~2–3 dias)
 
 | ID | Item | Prio | Est. | Critério de aceitação |
 |---|---|---|---|---|
-| Q6.1 | Cache offline com Room — a app abre com os últimos dados sem rede | should | L | Modo avião: a app mostra dados e um aviso de "offline" |
-| Q6.2 | Testes unitários dos ViewModels e do mapeamento de dados | should | M | `./gradlew test` verde |
-| Q6.3 | Teste de UI (Compose) do ecrã principal | could | M | Teste instrumentado passa em CI |
-| Q6.4 | Crash reporting (Firebase Crashlytics) | should | S | Crash forçado aparece na consola |
-| Q6.5 | Acessibilidade: `contentDescription`, tamanhos de toque ≥ 48dp, escala de fonte 200% | should | M | TalkBack lê a lista de jogos de forma compreensível |
-| Q6.6 | Rotação de ecrã e mudança de configuração sem perder estado | must | S | Rodar não recarrega nem crasha |
-| Q6.7 | Ecrãs testados em 3 tamanhos (telefone pequeno, grande, tablet) | should | M | Sem overflow nem texto cortado |
-| Q6.8 | CI: build + testes em cada push | should | S | PR mostra o resultado do build |
+| Q6.1 | Offline a sério: cache dos dados das equipas seguidas | should | L | Modo avião mostra os jogos do meu clube |
+| Q6.2 | Estratégia de cache explícita (stale-while-revalidate nos dados) | must | M | Abre instantâneo e atualiza em segundo plano |
+| Q6.3 | Aviso de "nova versão disponível" quando o service worker atualiza | must | S | Publicar nova versão oferece recarregar |
+| Q6.4 | Lighthouse ≥ 90 em Performance, Acessibilidade, Best Practices e PWA | should | M | Relatório no CI |
+| Q6.5 | Orçamento de bundle (< 150 KB JS comprimido na 1ª carga) | should | M | Build falha se exceder |
+| Q6.6 | Acessibilidade: contraste, focus visível, alvos ≥ 44px, leitor de ecrã | should | M | VoiceOver lê a lista de jogos de forma compreensível |
+| Q6.7 | Testes unitários do mapeamento de dados e dos componentes (Vitest) | should | M | `npm test` verde |
+| Q6.8 | Teste end-to-end do percurso principal (Playwright) | could | M | Passa no CI |
+| Q6.9 | Relatório de erros no cliente (Sentry ou equivalente) | should | S | Erro forçado aparece |
+| Q6.10 | CI: build + testes + Lighthouse em cada push | should | M | PR mostra o resultado |
+| Q6.11 | Testado em Safari iOS e Chrome Android reais, não só no emulador | must | M | Sem bug de layout em nenhum |
 
 ---
 
-## Fase 7 — Lançamento (~2 dias)
+## Fase 7 — Lançamento (~1 dia)
+
+Muito mais leve do que o plano Android: sem loja, sem revisão, sem conta de programador.
 
 | ID | Item | Prio | Est. | Critério de aceitação |
 |---|---|---|---|---|
-| L7.1 | Contactar FPP/APL: informar, pedir autorização de uso dos dados e dos logótipos | must | S | Resposta escrita arquivada |
-| L7.2 | Ícone, splash e nome da app | must | M | Ícone adaptativo correto no launcher |
-| L7.3 | Política de privacidade publicada (URL) + `Data safety` da Play Store | must | M | Formulário submetido e coerente com o que a app faz |
-| L7.4 | Conta Play Console (25 USD, uma vez) + assinatura da app (keystore guardada em segurança!) | must | M | Build assinado gerado |
-| L7.5 | Teste interno com 5–10 pessoas reais (pais, treinadores, adeptos) | must | M | Feedback recolhido e triado no backlog |
-| L7.6 | Ficha da loja: descrição, screenshots, feature graphic | must | M | Rascunho aprovado na Play Console |
-| L7.7 | Release fechada → aberta → produção | must | M | Instalável a partir da Play Store |
+| L7.1 | **Contactar FPP/APL**: informar, pedir autorização dos dados e dos logótipos | must | S | Resposta escrita arquivada |
+| L7.2 | Domínio próprio apontado ao Cloudflare Pages | should | S | Abre em `hoquei.<algo>` com HTTPS |
+| L7.3 | Ícones, nome e cor do tema no manifest | must | M | Ícone correto no ecrã principal em Android e iOS |
+| L7.4 | Política de privacidade publicada | must | M | URL acessível a partir do rodapé |
+| L7.5 | Atribuição visível da fonte em todas as páginas | must | XS | "Dados: Federação de Patinagem de Portugal" no rodapé |
+| L7.6 | Teste com 5–10 pessoas reais (pais, treinadores, adeptos) | must | M | Feedback recolhido e triado |
+| L7.7 | Partilhar o link nos grupos dos clubes | must | XS | Primeiros utilizadores a usar |
 
-> ⚠️ L7.1 antes de L7.7. Publicar uma app que raspa dados de uma federação sem falar com ela é o
-> risco não-técnico mais provável deste projeto. Um email de 10 linhas resolve quase sempre.
+> ~~Conta Play Console, keystore, ficha de loja, releases faseadas~~ — **tudo isto desapareceu.**
+> A Fase 7 passou de ~2 dias para ~1, e sem custo monetário.
 
 ---
 
-## Fase 8 — Futuro / ideias
+## Fase 8 — Futuro
 
 | ID | Item | Nota |
 |---|---|---|
-| F8.1 | Live scores (refresh ~1 min) migrando o scraper para Cloudflare Workers + Cron Triggers | A fonte tem a cronologia com relógio, mas o auto-refresh dela é um stub morto (`actualizar()` não faz nada) — **falta validar se a cronologia é preenchida durante o jogo ou só no fim**. Testar em setembro num jogo a decorrer antes de prometer live scores |
-| F8.2 | ~~Quadro de marcadores~~ | **Promovido para a v1** — ver B1.20 e A3.10 |
-| F8.2a | Perfil de jogador: golos por jornada, jogos, cartões, evolução ao longo da época | Extensão natural de A3.10. Só sub-17 para cima |
-| F8.2b | Melhores guarda-redes (defesas por jogo) | A coluna `D` da ficha de jogo já traz isto |
-| F8.3 | Histórico e head-to-head entre clubes | O histórico dos JSON no git já dá a base |
-| F8.4 | Widget de ecrã inicial com o próximo jogo | Glance API |
-| F8.5 | Suporte às outras associações regionais e a outras modalidades (`id_modal`) | Parser já é multi-tenant |
-| F8.6 | Notificações de golo em tempo real | Depende de F8.1 |
-| F8.7 | iOS (KMP ou SwiftUI a consumir o mesmo backend) | Backend já está pronto para isso |
-| F8.8 | Competições internacionais (World Skate / Euroliga) | Fonte diferente, nova investigação |
+| F8.1 | Live scores (refresh ~1 min) | **Ainda por validar** — sonda de 26/09. A fonte tem cronologia com relógio, mas o auto-refresh dela é um stub morto |
+| F8.2 | Perfil de jogador: golos por jornada, evolução | Só sub-17 para cima |
+| F8.3 | Histórico e head-to-head entre clubes | O histórico dos JSON em git já dá a base |
+| F8.4 | Suporte às restantes associações regionais e outras modalidades (`id_modal`) | O parser já é multi-tenant |
+| F8.5 | **Play Store via TWA** | Invólucro fino sobre a PWA. Dias, não semanas |
+| F8.6 | **App Store via Capacitor** | A Apple rejeita invólucros vazios — precisa de integração nativa a sério |
+| F8.7 | App nativa a sério (Kotlin / Swift) | Só se forem precisos widgets, background ou push sem fricção no iOS |
+| F8.8 | Competições internacionais (World Skate) | Fonte diferente, nova investigação |
 
 ---
 
-## Rastreabilidade — funcionalidades pedidas → itens do backlog
+## Rastreabilidade — funcionalidades pedidas → backlog
 
 | Funcionalidade pedida | Onde está | Fase |
 |---|---|---|
-| Opção de entrar com conta Google | A5.14–A5.17, L5.18–L5.19 (opcional, nunca obrigatória) | 5 |
-| Possibilidade de escolher equipas favoritas | A4.1, A4.3 (por clube **e** escalão), A4.4, A4.6 | 4 |
-| Quadro com golos gerais | B1.19–B1.21 (backend), A3.10–A3.12 (ecrã) | 1 + 3 |
-| Informação disponível das fichas de jogo | B1.9–B1.9d (parser), A3.5–A3.5d (4 tabs) | 1 + 3 |
-| Calendário com os jogos de cada clube e do meu clube | A4.7 (vista mensal), A4.8 (qualquer clube), A4.5 (o meu clube) | 4 |
-| Notificações de alterações de jogos, com alteração após confirmação | B5.1–B5.3 (deteção), B5.8 (notificação), A5.11–A5.13 (confirmação) | 5 |
-| Adicionar ao calendário os jogos de um clube e escalão | B4.11 + A4.12 (feed ICS), A4.14 (escrita no calendário local) | 4 |
+| Entrar com conta Google | W5.16–W5.19, L5.20–L5.21 (opcional) | 5 |
+| Escolher equipas favoritas | W4.1, W4.3 (clube **e** escalão), W4.4, W4.6 | 4 |
+| Quadro com golos gerais | B1.19–B1.21, W3.8–W3.10 | 1 + 3 |
+| Informação das fichas de jogo | B1.9–B1.9d, W3.6–W3.6d | 1 + 3 |
+| Calendário de cada clube e do meu clube | W4.7, W4.8, W4.5 | 4 |
+| Notificações de alterações, com confirmação | B5.1–B5.3, B5.8, W5.9–W5.11 — **muda de forma**, ver Decisão 4 | 5 |
+| Adicionar ao calendário jogos de um clube/escalão | B4.11 + W4.12 (feed ICS) | 4 |
+
+---
 
 ## Riscos
 
@@ -279,17 +265,27 @@ Duas abordagens, e **recomendo fazer as duas** — resolvem problemas diferentes
 |---|---|---|
 | HTML da fonte muda e o parser quebra | Alto | Parser no backend, testes com amostras, alerta automático (B1.11, B1.17) |
 | Federação pede para parar | Alto | Contacto antecipado (L7.1), atribuição visível, scraping educado |
-| Uso de logótipos de clubes | Médio | Não usar até haver autorização; placeholders na v1 |
-| Dados de menores nas fichas e cronologias de formação | **Alto** | A fonte expõe nomes completos de crianças com golos/assistências associados. Uma app pública que agregue e torne isto pesquisável é um problema diferente do site da federação. Decisão explícita antes da v1: sem estatísticas individuais abaixo de sub-17 |
-| Âmbito a crescer (multi-modalidade, iOS, live) antes da v1 | Alto | Fase 8 existe para isso: nada de lá sai antes do lançamento |
-| Contas de utilizador arrastam RGPD, base de dados sempre de pé e eliminação de conta obrigatória na Play Store | Médio | Login opcional e só na Fase 5; favoritos local-first; notificações por tópicos FCM, que não precisam de identidade |
-| Notificações em avalanche (backfill, 1º arranque, parser a re-detetar tudo) | Médio | Idempotência por `event_id` (B5.2) e supressão explícita em backfill (B5.3) |
-| Crawl das fichas de jogo a crescer para milhares de páginas | Médio | Crawl incremental obrigatório (B1.19); backfill só uma vez, de noite |
-| Fonte só atualiza no dia seguinte ao jogo | Médio | Validar cedo (durante a época) antes de prometer "live scores" |
+| Logótipos de clubes | Médio | Não usar sem autorização; iniciais na v1 |
+| Dados de menores nas fichas de formação | **Alto** | Sem estatística individual abaixo de sub-17 (B1.21) |
+| **Push no iPhone exige instalação manual** | **Médio** | W5.13/W5.14: explicar, e não oferecer o que não funciona |
+| **Web Push obriga a guardar subscrições** | Médio | Isolado na Fase 5; tudo antes disso é estático |
+| Utilizadores não perceberem que se instala | Médio | Convite a instalar em bom momento, e instruções próprias para iOS |
+| Âmbito a crescer antes da v1 | Alto | Fase 8 existe para isso |
+| Crawl das fichas a crescer | Médio | Crawl incremental obrigatório (B1.19) |
 
-## Primeiro incremento sugerido
+---
 
-`B0.1 → B0.5 → B1.1 → B1.6 → A2.1 → A2.5`
+## Próximo incremento
 
-Uma semana de trabalho e já há um telemóvel a mostrar os resultados verdadeiros do Campeonato
-Nacional. Tudo o resto é largura sobre essa base.
+```
+B1.9  + B1.9a   parser da ficha de jogo e da cronologia   ← maior valor, e já há dados reais
+W0.7  + W2.1    esqueleto SvelteKit a correr localmente
+W2.3  + W2.5    primeira lista de jogos reais no browser
+W2.8  + W2.10   instalável e publicada num URL
+```
+
+Ao fim disto existe **um link para partilhar** com jogos reais, que qualquer pessoa abre no
+telemóvel e instala. No plano Android isso só acontecia na Fase 7.
+
+**Estimativa total até um lançamento útil: ~2,5 semanas** (era ~4 no plano nativo), e as Fases 0–4
+(~1,5 semanas) já dão um site completo sem nada com estado.
