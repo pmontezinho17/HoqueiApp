@@ -10,7 +10,9 @@ from dataclasses import dataclass
 
 import httpx
 
-UA = "hoqueiAPP/0.1 (+pedro.montezinho@devoteam.com)"
+# Contacto por URL e não por email: o repo é público e um email no código é
+# spam garantido. A federação continua a ter por onde chegar a nós.
+UA = "hoqueiAPP/0.1 (+https://github.com/pmontezinho17/HoqueiApp)"
 BASE = "https://{tenant}.assyssoftware.es/intranet/web/"
 
 # id_modal=1 é hóquei em patins. Outros valores são artística, velocidade, etc.

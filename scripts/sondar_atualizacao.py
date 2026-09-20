@@ -14,7 +14,7 @@ snapshot do HTML sempre que o hash muda, em data-samples/sondagem/html/.
 import argparse, hashlib, json, os, pathlib, re, ssl, sys, time, urllib.request
 from datetime import datetime, timezone
 
-UA = "hoqueiAPP-research/0.1 (+pedro.montezinho@devoteam.com)"
+UA = "hoqueiAPP-research/0.1 (+https://github.com/pmontezinho17/HoqueiApp)"
 BASE = "https://{tenant}.assyssoftware.es/intranet/web/partido.asp?id={id}"
 RAIZ = pathlib.Path(__file__).resolve().parent.parent / "data-samples" / "sondagem"
 
