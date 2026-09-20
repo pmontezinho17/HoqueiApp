@@ -69,3 +69,73 @@ def para_dicionario(obj) -> dict:
             return [converter(x) for x in v]
         return v
     return converter(asdict(obj))
+
+
+# --- ficha de jogo (partido.asp) -------------------------------------------
+
+@dataclass(frozen=True)
+class EventoJogo:
+    """Uma linha da cronologia (`#desarrollo`).
+
+    O relógio da fonte é decrescente dentro de cada parte ("25:00" = início da parte,
+    "0:00" = fim). `minuto` é a conversão para minuto corrido de jogo, para se poder
+    desenhar uma timeline sem ter de conhecer as regras do escalão.
+    """
+    ordem: int                    # 0 = primeiro acontecimento do jogo
+    tipo: str                     # golo | falta_equipa | cartao | desconto_tempo |
+                                  # penalti_falhado | livre_direto_falhado |
+                                  # inicio_parte | fim_parte | fim_jogo | desconhecido
+    relogio: str | None           # como a fonte mostra: "3:23"; None em FIN
+    parte: int | None
+    minuto: int | None            # minuto corrido do jogo (B1.9b)
+    equipa: str | None
+    jogador: str | None
+    assistencia: str | None
+    variante: str | None          # livre_direto | penalti | amarelo | azul | vermelho
+    numero: int | None            # nº da falta de equipa, ou ordem do cartão
+    golos_casa: int | None        # resultado imediatamente após o evento
+    golos_fora: int | None
+    texto: str                    # texto original, para nada se perder em silêncio
+
+
+@dataclass(frozen=True)
+class LinhaJogador:
+    numero: str | None
+    nome: str
+    titular: bool                 # coluna "5I" (cinco inicial)
+    golos: int | None
+    assistencias: int | None
+    defesas: int | None
+    penalidades: str | None       # "1/2" (marcadas/tentadas)
+    livres_diretos: str | None
+    papel: str | None             # None = jogador; D/T/T2/MAS para equipa técnica
+
+
+@dataclass
+class EquipaFicha:
+    nome: str
+    jogadores: list[LinhaJogador] = field(default_factory=list)
+
+
+@dataclass
+class FichaJogo:
+    id: int
+    competicao: str | None
+    casa: str
+    fora: str
+    golos_casa: int | None
+    golos_fora: int | None
+    estado: str | None            # "Jogo Terminado", "Jogo Suspendido", None se por disputar
+    data: date | None
+    hora: time | None
+    recinto: str | None
+    arbitros: list[str] = field(default_factory=list)
+    faltas: tuple[int | None, int | None] = (None, None)
+    equipas: list[EquipaFicha] = field(default_factory=list)
+    cronologia: list[EventoJogo] = field(default_factory=list)
+
+    @property
+    def tem_cronologia(self) -> bool:
+        """B1.9d: a app usa isto para não abrir uma tab vazia."""
+        marcadores = {"fim_jogo", "inicio_parte", "fim_parte", "por_iniciar"}
+        return any(e.tipo not in marcadores for e in self.cronologia)

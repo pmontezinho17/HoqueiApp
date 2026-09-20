@@ -20,7 +20,7 @@
 |---|---|---|---|---|
 | ~~B0.1–B0.3~~ | ~~Android Studio, SDK, emulador, telemóvel físico~~ | — | — | ❌ **Já não é preciso** |
 | B0.4 | Estrutura do repositório | must | XS | ✅ `scraper/`, `docs/`, `scripts/`, `data-samples/` |
-| B0.5 | Amostras de HTML para os testes | must | M | ✅ `data-samples/paginas/` (falta 1 ficha de formação, 4 partes) |
+| B0.5 | Amostras de HTML para os testes | must | M | ✅ 6 amostras, incluindo ficha de seniores (2 partes), de escolares (4 partes, anonimizada) e jogo por disputar |
 | B0.6 | Descobrir subdomínios das outras associações | could | S | aberto |
 | W0.7 | Node LTS + `npm create svelte@latest` a correr localmente | must | S | Página em branco no browser em `localhost:5173` |
 | W0.8 | Conta Cloudflare + projeto Pages ligado ao repo GitHub | must | S | Push na `main` publica automaticamente |
@@ -44,13 +44,13 @@
 | B1.6 | Parser do calendário | must | L | ✅ 87 jogos com id, data, recinto |
 | B1.7 | Parser de equipas | must | S | ✅ 16 equipas com logótipo |
 | B1.8 | Parser da classificação (múltiplos grupos) | must | M | aberto (amostra gravada) |
-| B1.9 | Parser da ficha de jogo: `#resultado` + `#jugadores` | must | L | aberto |
-| B1.9a | Parser da cronologia `#desarrollo` | must | L | aberto — **o bloco que dá mais valor** |
-| B1.9b | Normalizar o relógio decrescente em minuto absoluto | must | M | aberto |
+| B1.9 | Parser da ficha de jogo: `#resultado` + `#jugadores` | must | L | ✅ cabeçalho, árbitros, faltas, jogadores e equipa técnica |
+| B1.9a | Parser da cronologia `#desarrollo` | must | L | ✅ 11 tipos de evento, 0 por classificar em 9 jogos reais |
+| B1.9b | Normalizar o relógio decrescente em minuto absoluto | must | M | ✅ nº e duração das partes lidos da fonte (2×25min, 2×15min, 4×8min confirmados) |
 | B1.9c | Parser do boletim oficial `#acta` | could | L | aberto |
-| B1.9d | Flag `has_timeline` por jogo | should | XS | aberto |
+| B1.9d | Flag `has_timeline` por jogo | should | XS | ✅ `FichaJogo.tem_cronologia` |
 | B1.10 | Modelo normalizado + escrita dos JSON do contrato | must | M | parcial (falta jogo/classificação) |
-| B1.11 | Testes do parser contra amostras | must | M | ✅ 9 testes, sem rede |
+| B1.11 | Testes do parser contra amostras | must | M | ✅ 24 testes, sem rede |
 | B1.12 | Deteção de mudanças por hash | should | S | aberto |
 | B1.13 | Normalização de nomes de clubes + slug estável | should | M | aberto |
 | B1.14 | GitHub Action com cron (15 min na época, 1x/dia fora) | must | M | aberto |
@@ -278,7 +278,7 @@ Muito mais leve do que o plano Android: sem loja, sem revisão, sem conta de pro
 ## Próximo incremento
 
 ```
-B1.9  + B1.9a   parser da ficha de jogo e da cronologia   ← maior valor, e já há dados reais
+B1.8            parser da classificação (amostra gravada)
 W0.7  + W2.1    esqueleto SvelteKit a correr localmente
 W2.3  + W2.5    primeira lista de jogos reais no browser
 W2.8  + W2.10   instalável e publicada num URL

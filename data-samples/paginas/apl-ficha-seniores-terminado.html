@@ -1,0 +1,1836 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Associa&ccedil;&atilde;o de Patinagem de Lisboa</title>
+<link href="./estilos.css" rel="stylesheet" type="text/css" /></head>
+<script language="javascript" type="text/javascript">
+<!--
+function noFoto(id){
+	id.src='../imagenes/foto.gif';
+}
+//-->
+</script>
+<style>
+<!--
+body {
+	background-color:#e9eaed; margin:0px !important; padding:0px !important;
+}
+#contenedor {
+	background-color:#fff; margin:0px auto !important; padding:0px !important;
+}
+#contenido {
+	margin:0px !important; padding:0px !important;
+}
+div#resultado {
+	margin:0px auto; padding:0.5em 0px 0px; width:100%; background-color:#0c426f; color:#fff; /* background-image:url(../imagenes/fondo_cab_par.jpg);*/
+}
+div#jugadores {
+	margin-top:2em; padding:0px 0px 0.5em 0.5em; width:59%; float:left;
+}
+div#desarrollo {
+	width:39.5%; height:60em; overflow:auto; float:right; margin-top:0.5em; font-size:1.1em; padding-right:0.5em; margin-bottom:0.5em;
+}
+div#acta {
+	padding:0.5em;
+}
+div.estadisticas {
+	margin-bottom:1em; padding:0px; width:100%; font-size:1.1em;
+}
+div.estadisticas table {
+	border-collapse:collapse; border:#ccc 1px solid;
+}
+div.estadisticas table td {
+	padding:0.2em;
+}
+table.comentarios {
+	border-collapse:collapse;
+}
+table.comentarios td {
+	padding:0.5em;
+}
+div#menu {
+	display:inline-block; width:100%; border-bottom:#ccc 2px solid; height:32px; font-size:1.2em; margin-top:0.5em;
+}
+.menu_block {
+	float:left; background-color:#e0e0e0; margin:8px 3px 4px; padding:5px 10px 4px; border-right:#ccc 1px solid; border-radius:5px 5px 0px 0px; box-shadow:0px -2px 3px -1px #666; height:15px;
+}
+.menu_activo {
+	background-color:#fff; margin:2px 4px 0px; border-bottom:#fff 7px solid; border-top:#ccc 1px solid; border-left:#ccc 1px solid; box-shadow:3px 0px 4px -2px #000;
+}
+.menu_block a {
+	color:#6c6c6c;
+}
+.menu_activo a {
+	color:#000;
+}
+.fondo1 {
+	/*color:#ffffff;*/ padding:0.5em; /*background-image:url(../imagenes/fondo_cab.jpg);*/
+}
+.fondo2 {
+	border:#e8e8e8 1px solid;
+}
+.fondo3 {
+	background-color:#d6d6d6; border:#e8e8e8 1px solid;
+}
+.fondo4 {
+	background-color:#f6f6f6; border:#e8e8e8 1px solid;
+}
+
+.estilo1 { font-size:12pt; }
+.estilo2 { font-size:10pt; }
+.estilo3 { font-size:8pt; }
+.estilo4 { font-size:6pt; }
+
+.tabla1 { border-collapse:collapse; border:#000 1px solid; margin-bottom:0.2em; }
+.tabla1 td { padding:0.1em }
+.tabla2 { border-collapse:collapse; margin-bottom:0.2em; }
+.tabla2 td { border:#000 1px solid; padding:0.1em }
+
+.box_tiempo {
+	background-color:#ccc; padding:2px 5px; border-radius:10px; font-weight:500;
+}
+.box_result {
+	background-color:#888; padding:2px 5px; border-radius:5px; color:#fff; clear:both; margin-top:2px;
+}
+.box_faltas {
+	background:url(../imagenes/faltas.png) no-repeat; background-size:32px; font-size:1.5em; height:32px;
+}
+.box_faltas p {
+	padding-top:11px; text-align:center;
+}
+.bandera_jugador {
+	height:12px; /*width:14px;*/ /*border-radius:7px;*/
+}
+-->
+</style>
+
+<script language="javascript" type="text/javascript">
+<!--
+function actualizar(){
+	miFecha = new Date();
+	cod = miFecha.getYear().toString() + miFecha.getMonth().toString() + miFecha.getDate().toString() + miFecha.getHours().toString() + miFecha.getMinutes().toString() + miFecha.getSeconds().toString();
+	
+}
+function acta(){
+  document.getElementById("acta").style.display='block';
+  document.getElementById("ficha_partido").style.display='none';
+  document.getElementById("menu_ficha").className='menu_block';
+  document.getElementById("menu_acta").className='menu_block menu_activo';
+}
+function ficha(){
+  document.getElementById("acta").style.display='none';
+  document.getElementById("ficha_partido").style.display='block';
+  document.getElementById("menu_ficha").className='menu_block menu_activo';
+  document.getElementById("menu_acta").className='menu_block';
+}
+//-->
+</script>
+
+<body onload="javascript:setTimeout('actualizar()',60000);">
+<div id="contenedor">
+<div id="contenido">
+
+<div id="resultado">
+
+<table width="100%"><tbody>
+<tr valign="top">
+  <td rowspan="3" width="10%"><img src="/intranet/logos/9.png" width="80" border="0" /></td>
+  <td align="right" width="30%" valign="middle"><span style="font-size:1.6em;"><b>FSE/AJ SALESIANA</b></span></td>
+  <td width="5%"><div class="box_faltas" style="background-position:8px 0px; color:#000;"><p>7</p></div></td>
+  <td width="10%" align="center"><span style="background-color:#000000; color:#ffffff; font-size:2.4em; padding-left:0.2em; padding-right:0.2em; border-radius:10px;"><b>2 - 6</b></span></td>
+  <!--<td align="right" width="5%"><span style="background-color:#000000; color:#ffffff; font-size:2.4em; padding-left:0.2em; padding-right:0.2em;"><b>2</b></span></td>
+  <td width="5%"><span style="background-color:#000000; color:#ffffff; font-size:2.4em; padding-left:0.2em; padding-right:0.2em;"><b>6</b></span></td>-->
+  <td width="5%"><div class="box_faltas" style="background-position:7px 0px; color:#000;"><p>17</p></div></td>
+  <td width="30%" valign="middle" valign="middle"><span style="font-size:1.6em;"><b>GRF MURCHES</b></span></td>
+  <td rowspan="3" align="right" width="10%"><img src="/intranet/logos/31.png" width="80" border="0" /></td></tr>
+<tr valign="top">
+  <td colspan="5" align="center" style="border-bottom:#fff 2px solid;"><span style="font-size:1.5em;"><b>Jogo Terminado</b></span></td></tr>
+<tr valign="top">
+  <td colspan="2"><span style="font-size:1.2em;"><b>TAÇA JESUS CORREIA - SENIORES MASCULINOS</b></span><br />S&aacute;bado, 19 de setembro de 2026 | 18.00</td>
+  <td colspan="3" align="right"><b>Recinto:</b>PAV. SALESIANA <br /><b>&Aacute;rbitros: </b>RUI MATOSO, HENRIQUE MATIAS, </td></tr></tbody></table>
+<!-- MENU -->
+<div id="menu">
+  <div id="menu_ficha" class="menu_block menu_activo"><a href="#" onclick="ficha();"><b>FICHA DE JOGO</b></a></div>
+  <div id="menu_acta" class="menu_block"><a href="#" onclick="acta();"><b>BOLETIM DE JOGO</b></a></div></div>
+</div>
+<!-- FICHA PARTIDO -->
+<div id="ficha_partido">
+<div id="jugadores">
+<!-- ESTADISTICAS LOCAL-->
+<div class="estadisticas">
+<table width="100%"><tbody>
+<tr>
+  <td class="fondo1" colspan="12"><img src="/intranet/logos/9.png" width="30" border="0" style="float:left; margin-right:0.5em;" /> <span style="font-size:1.5em;"><b>FSE/AJ SALESIANA</b></span></td></tr>
+<tr>
+  <td class="fondo3" align="center" width="5%"><b>n&ordm;</b></td>
+  <td class="fondo3" align="center" width="5%"><b>5I</b></td>
+  <td class="fondo3" width="5%">&nbsp;</td>
+  <td class="fondo3"><b>Nome</b></td>
+  <td class="fondo3" align="center" width="6%"><b>G</b></td>
+  <td class="fondo3" align="center" width="6%"><b>AG</b></td>
+  <td class="fondo3" align="center" width="6%"><b>D</b></td>
+  <td class="fondo3" align="center" width="8%"><b>Pe</b></td>
+  <td class="fondo3" align="center" width="8%"><b>LD</b></td>
+  <td class="fondo3" align="center" width="6%"><img src="../imagenes/tamarilla.gif" border="0"></td>
+  <td class="fondo3" align="center" width="6%"><img src="../imagenes/tazul.gif" border="0"></td>
+  <td class="fondo3" align="center" width="6%"><img src="../imagenes/troja.gif" border="0"></td></tr>
+
+<tr>
+  <td class="fondo2" align="center">45</td>
+  <td class="fondo2" align="center">J</td>
+  <td class="fondo2" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo2"><a href="#">LOURENÇO SOARES</a></td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0/0</td>
+  <td class="fondo2" align="center">0/0</td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo4" align="center">2</td>
+  <td class="fondo4" align="center">J</td>
+  <td class="fondo4" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo4"><a href="#">FILIPE REIS</a></td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0/0</td>
+  <td class="fondo4" align="center">0/0</td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo2" align="center">3</td>
+  <td class="fondo2" align="center">X</td>
+  <td class="fondo2" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo2"><a href="#">VASCO TEIXEIRA&nbsp;&copy;</a></td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0/0</td>
+  <td class="fondo2" align="center">0/0</td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo4" align="center">4</td>
+  <td class="fondo4" align="center">J</td>
+  <td class="fondo4" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo4"><a href="#">ANDRE COSTA</a></td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0/0</td>
+  <td class="fondo4" align="center">0/0</td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">1</td>
+  <td class="fondo4" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo2" align="center">6</td>
+  <td class="fondo2" align="center">X</td>
+  <td class="fondo2" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo2"><a href="#">ANTÓNIO NISA</a></td>
+  
+  <td class="fondo2" align="center">2</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0/0</td>
+  <td class="fondo2" align="center">2/2</td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo4" align="center">9</td>
+  <td class="fondo4" align="center">J</td>
+  <td class="fondo4" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo4"><a href="#">DIOGO BERNARDES</a></td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0/0</td>
+  <td class="fondo4" align="center">0/0</td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo2" align="center">11</td>
+  <td class="fondo2" align="center">X</td>
+  <td class="fondo2" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo2"><a href="#">RODRIGO SIMÕES</a></td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0/0</td>
+  <td class="fondo2" align="center">0/0</td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo4" align="center">22</td>
+  <td class="fondo4" align="center">J</td>
+  <td class="fondo4" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo4"><a href="#">DIOGO SERRANO</a></td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0/0</td>
+  <td class="fondo4" align="center">0/0</td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo2" align="center">89</td>
+  <td class="fondo2" align="center">X</td>
+  <td class="fondo2" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo2"><a href="#">DIOGO GOUVEIA</a></td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0/1</td>
+  <td class="fondo2" align="center">0/0</td>
+  
+  <td class="fondo2" align="center">1</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo4" align="center">65</td>
+  <td class="fondo4" align="center">X</td>
+  <td class="fondo4" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo4"><a href="#">JOÃO MATOS</a></td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0/0</td>
+  <td class="fondo4" align="center">0/0</td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td></tr>
+
+<tr>
+  <td colspan="12" class="fondo3"><b>T&eacute;cnicos</b></td></tr>
+
+<tr>
+  <td class="fondo2" colspan="2" align="center">
+  D</td>
+  <td class="fondo2" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo2"><a href="#">JOÃO MAXIMIANO</a></td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo4" colspan="2" align="center">
+  T</td>
+  <td class="fondo4" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo4"><a href="#">RUI BRAVO</a></td>
+  <td class="fondo4" align="center">--</td>
+  <td class="fondo4" align="center">--</td>
+  <td class="fondo4" align="center">--</td>
+  <td class="fondo4" align="center">--</td>
+  <td class="fondo4" align="center">--</td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo2" colspan="2" align="center">
+  MAS</td>
+  <td class="fondo2" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo2"><a href="#">JOSÉ SILVA</a></td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo3">&nbsp;</td>
+  <td class="fondo3">&nbsp;</td>
+  <td class="fondo3">&nbsp;</td>
+  <td class="fondo3"><b>Total da equipa</b></td>
+  <td class="fondo3" align="center"><b>2</b></td>
+  <td class="fondo3" align="center"><b>0</b></td>
+  <td class="fondo3" align="center"><b>0</b></td>
+  <td class="fondo3" align="center"><b>0/1</b></td>
+  <td class="fondo3" align="center"><b>2/2</b></td>
+  <td class="fondo3" align="center"><b>1</b></td>
+  <td class="fondo3" align="center"><b>1</b></td>
+  <td class="fondo3" align="center"><b>0</b></td></tr></tbody></table></div>
+<!-- ESTADISTICAS VISITANTE -->
+<div class="estadisticas" style="margin-top:1em;">
+<table width="100%"><tbody>
+<tr>
+  <td class="fondo1" colspan="12"><img src="/intranet/logos/31.png" width="30" border="0" style="float:left; margin-right:0.5em;"> <span style="font-size:1.5em;"><b>GRF MURCHES</b></span></td></tr>
+<tr>
+  <td class="fondo3" align="center" width="5%"><b>n&ordm;</b></td>
+  <td class="fondo3" align="center" width="5%"><b>5I</b></td>
+  <td class="fondo3" width="5%">&nbsp;</td>
+  <td class="fondo3"><b>Nome</b></td>
+  <td class="fondo3" align="center" width="6%"><b>G</b></td>
+  <td class="fondo3" align="center" width="6%"><b>AG</b></td>
+  <td class="fondo3" align="center" width="6%"><b>D</b></td>
+  <td class="fondo3" align="center" width="8%"><b>Pe</b></td>
+  <td class="fondo3" align="center" width="8%"><b>LD</b></td>
+  <td class="fondo3" align="center" width="6%"><img src="../imagenes/tamarilla.gif" border="0"></td>
+  <td class="fondo3" align="center" width="6%"><img src="../imagenes/tazul.gif" border="0"></td>
+  <td class="fondo3" align="center" width="6%"><img src="../imagenes/troja.gif" border="0"></td></tr>
+
+<tr>
+  <td class="fondo2" align="center">10</td>
+  <td class="fondo2" align="center">X</td>
+  <td class="fondo2" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>  
+  <td class="fondo2"><a href="#">GONÇALO GASPAR</a></td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0/0</td>
+  <td class="fondo2" align="center">0/0</td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo4" align="center">3</td>
+  <td class="fondo4" align="center">X</td>
+  <td class="fondo4" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>  
+  <td class="fondo4"><a href="#">AFONSO ESTEVES</a></td>
+  
+  <td class="fondo4" align="center">1</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0/0</td>
+  <td class="fondo4" align="center">0/0</td>
+  
+  <td class="fondo4" align="center">1</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo2" align="center">20</td>
+  <td class="fondo2" align="center">J</td>
+  <td class="fondo2" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>  
+  <td class="fondo2"><a href="#">ANDRÉ LOPES</a></td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0/0</td>
+  <td class="fondo2" align="center">0/0</td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo4" align="center">29</td>
+  <td class="fondo4" align="center">J</td>
+  <td class="fondo4" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>  
+  <td class="fondo4"><a href="#">TIAGO COSTA</a></td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0/0</td>
+  <td class="fondo4" align="center">0/0</td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo2" align="center">43</td>
+  <td class="fondo2" align="center">X</td>
+  <td class="fondo2" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>  
+  <td class="fondo2"><a href="#">MIGUEL ALVES</a></td>
+  
+  <td class="fondo2" align="center">1</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0/0</td>
+  <td class="fondo2" align="center">0/0</td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo4" align="center">55</td>
+  <td class="fondo4" align="center">X</td>
+  <td class="fondo4" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>  
+  <td class="fondo4"><a href="#">JOÃO SARDO</a></td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0/1</td>
+  <td class="fondo4" align="center">0/0</td>
+  
+  <td class="fondo4" align="center">1</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo2" align="center">57</td>
+  <td class="fondo2" align="center">X</td>
+  <td class="fondo2" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>  
+  <td class="fondo2"><a href="#">ANDRÉ GASPAR&nbsp;&copy;</a></td>
+  
+  <td class="fondo2" align="center">2</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0/0</td>
+  <td class="fondo2" align="center">0/0</td>
+  
+  <td class="fondo2" align="center">1</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo4" align="center">79</td>
+  <td class="fondo4" align="center">J</td>
+  <td class="fondo4" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>  
+  <td class="fondo4"><a href="#">DIOGO CORREIA</a></td>
+  
+  <td class="fondo4" align="center">2</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0/0</td>
+  <td class="fondo4" align="center">0/0</td>
+  
+  <td class="fondo4" align="center">1</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo2" align="center">95</td>
+  <td class="fondo2" align="center">J</td>
+  <td class="fondo2" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>  
+  <td class="fondo2"><a href="#">FRANCISCO ROCHA</a></td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0/0</td>
+  <td class="fondo2" align="center">0/0</td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo4" align="center">23</td>
+  <td class="fondo4" align="center">J</td>
+  <td class="fondo4" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>  
+  <td class="fondo4"><a href="#">GUSTAVO OLIVEIRA</a></td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0/0</td>
+  <td class="fondo4" align="center">0/0</td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td></tr>
+
+<tr>
+  <td colspan="12" class="fondo3"><b>T&eacute;cnicos</b></td></tr>
+
+<tr>
+  <td class="fondo2" colspan="2" align="center">
+  D</td>
+  <td class="fondo2" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo2"><a href="#">JOSÉ VIEIRA</a></td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo4" colspan="2" align="center">
+  T</td>
+  <td class="fondo4" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo4"><a href="#">ANTÓNIO PINTO</a></td>
+  <td class="fondo4" align="center">--</td>
+  <td class="fondo4" align="center">--</td>
+  <td class="fondo4" align="center">--</td>
+  <td class="fondo4" align="center">--</td>
+  <td class="fondo4" align="center">--</td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo2" colspan="2" align="center">
+  T2</td>
+  <td class="fondo2" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo2"><a href="#">PEDRO POSSIDÓNIO</a></td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  <td class="fondo2" align="center">--</td>
+  
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td>
+  <td class="fondo2" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo4" colspan="2" align="center">
+  MAS</td>
+  <td class="fondo4" align="center"><img src="/intranet/imagenes/banderas/PT.png" border="0" class="bandera_jugador"></td>
+  <td class="fondo4"><a href="#">ARTUR ESTEVES</a></td>
+  <td class="fondo4" align="center">--</td>
+  <td class="fondo4" align="center">--</td>
+  <td class="fondo4" align="center">--</td>
+  <td class="fondo4" align="center">--</td>
+  <td class="fondo4" align="center">--</td>
+  
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td>
+  <td class="fondo4" align="center">0</td></tr>
+
+<tr>
+  <td class="fondo3">&nbsp;</td>
+  <td class="fondo3">&nbsp;</td>
+  <td class="fondo3">&nbsp;</td>
+  <td class="fondo3"><b>Total da equipa</b></td>
+  <td class="fondo3" align="center"><b>6</b></td>
+  <td class="fondo3" align="center"><b>0</b></td>
+  <td class="fondo3" align="center"><b>0</b></td>
+  <td class="fondo3" align="center"><b>0/1</b></td>
+  <td class="fondo3" align="center"><b>0/0</b></td>
+  <td class="fondo3" align="center"><b>4</b></td>
+  <td class="fondo3" align="center"><b>0</b></td>
+  <td class="fondo3" align="center"><b>0</b></td></tr></tbody></table></div>
+<p><b><i>Legenda:</i></b> <b>G:</b> Golos | <b>AG:</b> Assist&ecirc;ncia para golo | <b>D:</b> Defesas | <b>Pe:</b> Pen&aacute;lties | <b>LD:</b> Livres Diretos<br><img src="../imagenes/tamarilla.gif" border="0" style="position:relative; top:2px;">: Cart&otilde;es Amarelo | <img src="../imagenes/tazul.gif" border="0" style="position:relative; top:2px;">: Cart&otilde;es Azuis | <img src="../imagenes/troja.gif" border="0" style="position:relative; top:2px;">: Cart&otilde;es Vermelhos </p></div>
+
+<div id="desarrollo">
+ 
+  <table width="99.9%" class="comentarios"><tbody>
+  <tr>
+    <td colspan="3" class="fondo3"><b>INCIDENCIAS</b></td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">FIN</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/reloj.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2">Jogo Terminado
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">0:35</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 17 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">0:53</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 7 para FSE/AJ SALESIANA</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">1:15</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 16 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">3:23</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><div style="padding:0.3em;"><span style="background:#ff8800; padding:0.3em; border-radius:5px;">LD</span></div></b>
+	  <div class="box_result"><b>2-6</b></div></td>
+	  <td align="left" class="fondo2"><span style="color:#09b; font-size:1.1em;"><b>Golo para FSE/AJ SALESIANA de Livre Direto</b></span><br>Marcado por ANTÓNIO NISA
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">3:28</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><span style="background:#ff0; padding:0.3em; border-radius:5px;">&nbsp;&nbsp;</span></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">1&ordm; Cart&atilde;o Amarelo - GRF MURCHES</span><br>DIOGO CORREIA
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">3:28</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 15 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">3:40</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 14 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">3:54</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 6 para FSE/AJ SALESIANA</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">3:58</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/gol.png" border="0" width="20" style="display:block; margin:0px;"></b>
+	  <div class="box_result"><b>1-6</b></div></td>
+	  <td align="left" class="fondo2"><span style="color:#09b; font-size:1.1em;"><b>Golo para GRF MURCHES</b></span><br>DIOGO CORREIA
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">4:21</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/gol.png" border="0" width="20" style="display:block; margin:0px;"></b>
+	  <div class="box_result"><b>1-5</b></div></td>
+	  <td align="left" class="fondo2"><span style="color:#09b; font-size:1.1em;"><b>Golo para GRF MURCHES</b></span><br>ANDRÉ GASPAR
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">4:49</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 13 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">7:07</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 5 para FSE/AJ SALESIANA</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">7:08</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/reloj.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2">DESCONTO DE TEMPO <br>GRF MURCHES
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">7:22</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><div style="padding:0.3em;"><span style="background:#ff8800; padding:0.3em; border-radius:5px;">&nbsp;P&nbsp;</span></div></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#888;"><b>Pen&aacute;lti para FSE/AJ SALESIANA</b></span><br>Falhado por DIOGO GOUVEIA
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">7:59</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/reloj.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2">DESCONTO DE TEMPO <br>FSE/AJ SALESIANA
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">9:28</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 12 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">10:06</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/gol.png" border="0" width="20" style="display:block; margin:0px;"></b>
+	  <div class="box_result"><b>1-4</b></div></td>
+	  <td align="left" class="fondo2"><span style="color:#09b; font-size:1.1em;"><b>Golo para GRF MURCHES</b></span><br>AFONSO ESTEVES
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">10:46</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><span style="background:#00f; padding:0.3em; border-radius:5px;">&nbsp;&nbsp;</span></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">1&ordm; Cart&atilde;o Azul - FSE/AJ SALESIANA</span><br>ANDRE COSTA
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">14:19</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/reloj.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2">DESCONTO DE TEMPO <br>FSE/AJ SALESIANA
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">16:53</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 11 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">17:51</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><div style="padding:0.3em;"><span style="background:#ff8800; padding:0.3em; border-radius:5px;">&nbsp;P&nbsp;</span></div></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#888;"><b>Pen&aacute;lti para GRF MURCHES</b></span><br>Falhado por JOÃO SARDO
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">17:52</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/reloj.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2">DESCONTO DE TEMPO <br>GRF MURCHES
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">18:17</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><div style="padding:0.3em;"><span style="background:#ff8800; padding:0.3em; border-radius:5px;">LD</span></div></b>
+	  <div class="box_result"><b>1-3</b></div></td>
+	  <td align="left" class="fondo2"><span style="color:#09b; font-size:1.1em;"><b>Golo para FSE/AJ SALESIANA de Livre Direto</b></span><br>Marcado por ANTÓNIO NISA
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">18:21</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><span style="background:#ff0; padding:0.3em; border-radius:5px;">&nbsp;&nbsp;</span></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">1&ordm; Cart&atilde;o Amarelo - GRF MURCHES</span><br>JOÃO SARDO
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">18:21</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 10 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">20:38</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/gol.png" border="0" width="20" style="display:block; margin:0px;"></b>
+	  <div class="box_result"><b>0-3</b></div></td>
+	  <td align="left" class="fondo2"><span style="color:#09b; font-size:1.1em;"><b>Golo para GRF MURCHES</b></span><br>MIGUEL ALVES
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">21:15</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 4 para FSE/AJ SALESIANA</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">21:27</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 3 para FSE/AJ SALESIANA</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">22:23</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 9 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">25:00</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/reloj.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2">In&iacute;cio da 2&ordf; parte
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">0:00</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/reloj.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2">Final da 1&ordf; parte
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">1:19</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 8 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">1:46</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><span style="background:#ff0; padding:0.3em; border-radius:5px;">&nbsp;&nbsp;</span></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">1&ordm; Cart&atilde;o Amarelo - GRF MURCHES</span><br>AFONSO ESTEVES
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">1:46</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 2 para FSE/AJ SALESIANA</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">3:10</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 7 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">3:47</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 1 para FSE/AJ SALESIANA</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">3:55</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 6 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">7:53</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 5 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">7:58</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 4 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">8:07</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/gol.png" border="0" width="20" style="display:block; margin:0px;"></b>
+	  <div class="box_result"><b>0-2</b></div></td>
+	  <td align="left" class="fondo2"><span style="color:#09b; font-size:1.1em;"><b>Golo para GRF MURCHES</b></span><br>DIOGO CORREIA
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">9:32</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/reloj.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2">DESCONTO DE TEMPO <br>GRF MURCHES
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">10:32</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/reloj.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2">DESCONTO DE TEMPO <br>FSE/AJ SALESIANA
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">10:32</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/gol.png" border="0" width="20" style="display:block; margin:0px;"></b>
+	  <div class="box_result"><b>0-1</b></div></td>
+	  <td align="left" class="fondo2"><span style="color:#09b; font-size:1.1em;"><b>Golo para GRF MURCHES</b></span><br>ANDRÉ GASPAR
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">11:53</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 3 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">13:54</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/reloj.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2">DESCONTO DE TEMPO <br>GRF MURCHES
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">18:54</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><span style="background:#ff0; padding:0.3em; border-radius:5px;">&nbsp;&nbsp;</span></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">1&ordm; Cart&atilde;o Amarelo - GRF MURCHES</span><br>ANDRÉ GASPAR
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">18:54</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><span style="background:#ff0; padding:0.3em; border-radius:5px;">&nbsp;&nbsp;</span></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">1&ordm; Cart&atilde;o Amarelo - FSE/AJ SALESIANA</span><br>DIOGO GOUVEIA
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">19:44</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/reloj.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2">DESCONTO DE TEMPO <br>FSE/AJ SALESIANA
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">20:28</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 2 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">22:20</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/silbato.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2"><span style="color:#f00;">Falta 1 para GRF MURCHES</span>
+	  </td></tr>
+
+	<tr>
+	  <td width="12%" align="center" class="fondo2"><span class="box_tiempo">25:00</span></td>
+	  <td width="15%" align="center" class="fondo2"><b><img src="../imagenes/reloj.png" border="0" width="20"></b>
+	  </td>
+	  <td align="left" class="fondo2">In&iacute;cio da 1&ordf; Parte
+	  </td></tr>
+</tbody></table></div>
+</div>
+<!-- FIN FICHA PARTIDO 
+ACTA -->
+<div id="acta" style="display:none;">
+
+<!--ACTA DEL PARTIDO-->
+<table width="100%" class="tabla2"><tbody>
+<tr>
+  <td rowspan="13" style="border:none; vertical-align:top;" class="estilo3"><img src="../imagenes/logo.png" border="0" width="60"><br><span class="estilo4">Associa&ccedil;&atilde;o de<br />Patinagem de<br />Lisboa</td>
+  <td colspan="7" style="text-align:center; border:none;"><span class="estilo1"><b>H&oacute;quei em Patins - Boletim Oficial de Jogo da AP Lisboa</b></span></td></tr>
+<tr>
+  <td colspan="2" style="text-align:center; width:33%;" class="estilo3"><b>Prova</b></td>
+  <td style="text-align:center; width:12%;" class="estilo3"><b>Data</b></td>
+  <td colspan="3" style="text-align:center; background-color:#cccccc;" class="estilo3"><b>Equipas intervenientes no Jogo</b></td>
+  <td style="text-align:center; background-color:#cccccc;" class="estilo3"><b>Jogo n&ordm;</b></td></tr>
+<tr>
+  <td colspan="2" style="text-align:center;" class="estilo3">TAÇA JESUS CORREIA - SENIORES MASCULINOS</td>
+  <td style="text-align:center;" class="estilo3">19/09/2026</td>
+  <td style="text-align:center;" class="estilo3"><b>Visitada:</b></td>
+  <td colspan="2" class="estilo3">FSE/AJ SALESIANA</td>
+  <td style="text-align:center;" class="estilo3">20</td></tr>
+<tr>
+  <td colspan="3" class="estilo3"><b>Rinque/Localidade: </b>PAV. SALESIANA &nbsp;/&nbsp;</td>
+  <td style="text-align:center;" class="estilo3"><b>Visitante:</b></td>
+  <td colspan="2" class="estilo3">GRF MURCHES</td>
+  <td rowspan="10" style="text-align:center; vertical-align:middle; background-color:#cccccc;" class="estilo3"><i>original<br>para<br>AP Lisboa</i></td></tr>
+<tr>
+  <td style="text-align:center; width:18%;" class="estilo3"><b>&Aacute;rbitro 1 (ch. dupla):</b></td>
+  <td colspan="2" class="estilo3">RUI MATOSO</td>
+  <td colspan="2" class="estilo3">N&ordm;/CA ***</td>
+  <td class="estilo3">Categoria: ARBITRO</td></tr>
+<tr>
+  <td style="text-align:center;" class="estilo3"><b>&Aacute;rbitro 2:</b></td>
+  <td colspan="2" class="estilo3">HENRIQUE MATIAS</td>
+  <td colspan="2" class="estilo3">N&ordm;/CA ***</td>
+  <td class="estilo3">Categoria: ARBITRO</td></tr>
+
+<tr>
+  <td style="text-align:center;" class="estilo3"><b>&Aacute;rbitro Auxiliar:</b></td>
+  <td colspan="2" class="estilo3">Ana Teresa Teixeira</td>
+  <td colspan="3" class="estilo3">LICEN&Ccedil;A 132373</td></tr>
+
+<tr>
+  <td style="text-align:center;" class="estilo3"><b>&Aacute;rbitro Auxiliar 2:</b></td>
+  <td colspan="2" class="estilo3"></td>
+  <td colspan="2" class="estilo3">N&ordm;/CA ***</td>
+  <td class="estilo3">Categoria: </td></tr>
+<tr>
+  <td style="text-align:center;" class="estilo3"><b>Cronometrista:</b></td>
+  <td colspan="2" class="estilo3">ALEXANDRE SIMÕES</td>
+  <td colspan="3" class="estilo3">LICEN&Ccedil;A ***</td></tr>
+<tr>
+  <td style="text-align:center;" class="estilo3"><b>Auxiliar 45 Seg.:</b></td>
+  <td colspan="2" class="estilo3">LUÍS SILVESTRE</td>
+  <td colspan="3" class="estilo3">LICEN&Ccedil;A ***</td></tr>
+<tr>
+  <td style="text-align:center;" class="estilo3"><b>Delegado T&eacute;cnico:</b></td>
+  <td colspan="2" class="estilo3"></td>
+  <td colspan="3" class="estilo3">N&ordm;/CA ***</td></tr>
+<tr>
+  <td style="text-align:center;" class="estilo3"><b>Diretor de campo:</b></td>
+  <td colspan="2" class="estilo3"></td>
+  <td colspan="3" class="estilo3">LICEN&Ccedil;A ***</td></tr>
+<tr>
+  <td style="text-align:center;" class="estilo3"><b>Gestor de seguran&ccedil;a:</b></td>
+  <td colspan="2" class="estilo3">PEDRO SANTOS</td>
+  <td colspan="3" class="estilo3">LICEN&Ccedil;A ***</td></tr></tbody></table>
+
+<!-- BLOQUE DE TIEMPOS Y RESULTADO-->
+
+<table width="100%" class="tabla2"><tbody>
+<tr>
+  <td colspan="3" rowspan="2" class="estilo3" style="background-color:#cccccc; text-align:center;"><b>DESCONTOS DE TEMPO<br>no tempo NORMAL de jogo</b></td>
+  <td rowspan="7" class="estilo3" style="background-color:#cccccc;"></td>
+  <td colspan="7" class="estilo3" style="background-color:#cccccc; text-align:center;"><b>DEFINI&Ccedil;&Atilde;O DO RESULTADO DO JOGO</b></td></tr>
+<tr>
+  <td rowspan="2" class="estilo3" style="background-color:#cccccc; text-align:center"><b>EQUIPAS<br>DO JOGO</b></td>
+  <td colspan="2" class="estilo4" style="text-align:center;"><b>Tempo Normal</b></td>
+  <td colspan="2" class="estilo4" style="background-color:#cccccc; text-align:center;"><b>Prolongamento</b></td>
+  <td rowspan="2" class="estilo4" style="background-color:#cccccc; text-align:center;"><b>Desempate<br>gr. penal.</b></td>
+  <td rowspan="2" class="estilo4" style="text-align:center;"><b>Resultado<br>final</b></td></tr>
+<tr>
+  <td class="estilo4" style="background-color:#cccccc; text-align:center"><b>Equipas</b></td>
+  <td class="estilo4" style="text-align:center"><b>1&ordf; parte</b></td>
+  <td class="estilo4" style="text-align:center"><b>2&ordf; parte</b></td>
+  <td class="estilo4" style="text-align:center"><b>1&ordf; parte</b></td>
+  <td class="estilo4" style="text-align:center"><b>2&ordf; parte</b></td>
+  <td class="estilo4" style="text-align:center"><b>1&ordf; parte</b></td>
+  <td class="estilo4" style="text-align:center"><b>2&ordf; parte</b></td></tr>
+<tr>
+  <td class="estilo4" style="text-align:center"><b>Visitada</b></td>
+  <td class="estilo3" style="text-align:center">(X)&nbsp;&nbsp;(X)</td>
+  <td class="estilo3" style="text-align:center">(X)&nbsp;&nbsp;(X)</td>
+  <td rowspan="2" class="estilo4" style="text-align:center"><b>Visitada</b></td>
+  <td rowspan="2" class="estilo3" style="text-align:center">0</td>
+  <td rowspan="2" class="estilo3" style="text-align:center">2</td>
+  <td rowspan="2" class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td rowspan="2" class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td rowspan="2" class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td rowspan="2" class="estilo3" style="text-align:center"><b>2</b></td></tr>
+<tr>
+  <td class="estilo4" style="text-align:center"><b>Visitante</b></td>
+  <td class="estilo3" style="text-align:center">(X)&nbsp;&nbsp;(X)</td>
+  <td class="estilo3" style="text-align:center">(X)&nbsp;&nbsp;(X)</td></tr>
+<tr>
+  <td colspan="3" class="estilo3" style="text-align:center"><b>HORAS da ENTRADA EM PISTA</b></td>
+  <td rowspan="2" class="estilo4" style="text-align:center"><b>Visitante</b></td>
+  <td rowspan="2" class="estilo3" style="text-align:center">2</td>
+  <td rowspan="2" class="estilo3" style="text-align:center">4</td>
+  <td rowspan="2" class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td rowspan="2" class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td rowspan="2" class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td rowspan="2" class="estilo3" style="text-align:center"><b>6</b></td></tr>
+<tr>
+  <td class="estilo4" style="text-align:center"><b>&Aacute;rbitro</b></td>
+  <td class="estilo3" style="text-align:center">17:50</td>
+  <td class="estilo3" style="text-align:center">18:50</td></tr>
+<tr>
+  <td class="estilo4" style="text-align:center; background-color:#cccccc;"><b>Eq. Visitada</b></td>
+  <td class="estilo3" style="text-align:center">17:55</td>
+  <td class="estilo3" style="text-align:center">18:52</td>
+  <td rowspan="2" class="estilo4" style="text-align:center; background-color:#cccccc;"><b>Controlo<br> dos tempos</b></td>
+  <td class="estilo4" style="text-align:center"><b>Hora/inicio</b></td>
+  <td class="estilo3" style="text-align:center">18:00</td>
+  <td class="estilo3" style="text-align:center;">18:54</td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td></tr>
+<tr>
+  <td class="estilo4" style="text-align:center; background-color:#cccccc;"><b>Eq. Visitante</b></td>
+  <td class="estilo3" style="text-align:center">17:55</td>
+  <td class="estilo3" style="text-align:center">18:52</td>
+  <td class="estilo4" style="text-align:center"><b>Hora/termo</b></td>
+  <td class="estilo3" style="text-align:center">18:44</td>
+  <td class="estilo3" style="text-align:center;">19:52</td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td></tr></tbody></table>
+
+<!--FALTAS-->
+
+
+<!-- JUGADORES/TECNICOS EQUIPO 1-->
+<table width="100%" class="tabla2"><tbody>
+
+<tr>
+  <td colspan="17" class="estilo3" style="text-align:center;"><b>Clube Visitado - Ficha T&eacute;cnica e Estat&iacute;stica do Jogo</b></td></tr>
+<tr>
+  <td colspan="7" class="estilo4" style="text-align:center;"><b>Identifica&ccedil;&atilde;o dos Jogadores e outros elementos inscritos para este Jogo</b></td>
+  
+  <td class="estilo4" rowspan="2" style="text-align:center;" width="4%">AM</td>
+  <td colspan="3" class="estilo4" style="text-align:center;">SUSPENSOES</td>
+  <td colspan="2" class="estilo4" style="text-align:center;">EXPULSOES</td>
+  <td colspan="4" class="estilo4" style="text-align:center;">GOLOS MARCADOS</td></tr>
+<tr>
+ <td class="estilo4" style="text-align:center;" width="10%">Licen&ccedil;a/B.Id.</td>
+ <td colspan="3" class="estilo4" style="text-align:center;">Nome e Apelido</td>
+ 
+ <td class="estilo4" style="text-align:center;" width="4%">cap.</td>
+ <td class="estilo4" style="text-align:center;" width="4%">n&ordm;</td>
+ <td class="estilo4" style="text-align:center;" width="4%">5I</td>
+ 
+ <td class="estilo4" style="text-align:center;" width="4%">1&ordf;</td>
+ <td class="estilo4" style="text-align:center;" width="4%">2&ordf;</td>
+ <td class="estilo4" style="text-align:center;" width="4%">3&ordf;</td>
+ <td class="estilo4" style="text-align:center;" width="4%">a.c.</td>
+ <td class="estilo4" style="text-align:center;" width="4%">dir.</td>
+ <td class="estilo4" style="text-align:center;" width="10%">t. normal</td>
+ <td class="estilo4" style="text-align:center;" width="5%">prol.</td>
+ <td class="estilo4" style="text-align:center;" width="5%">des.g.p</td>
+ <td class="estilo4" style="text-align:center;" width="5%">total</td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">LOURENÇO SOARES</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">45</td>
+  <td class="estilo3" style="text-align:center;">J</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">FILIPE REIS</td>
+  
+  <td class="estilo3" style="text-align:center;">S</td>
+  <td class="estilo3" style="text-align:center;">2</td>
+  <td class="estilo3" style="text-align:center;">J</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">VASCO TEIXEIRA</td>
+  
+  <td class="estilo3" style="text-align:center;">C</td>
+  <td class="estilo3" style="text-align:center;">3</td>
+  <td class="estilo3" style="text-align:center;">X</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">ANDRE COSTA</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">4</td>
+  <td class="estilo3" style="text-align:center;">J</td>
+  
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">X</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">ANTÓNIO NISA</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">6</td>
+  <td class="estilo3" style="text-align:center;">X</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+
+  <td class="estilo3" style="text-align:center;">2</td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;">2</td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">DIOGO BERNARDES</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">9</td>
+  <td class="estilo3" style="text-align:center;">J</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">RODRIGO SIMÕES</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">11</td>
+  <td class="estilo3" style="text-align:center;">X</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">DIOGO SERRANO</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">22</td>
+  <td class="estilo3" style="text-align:center;">J</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">DIOGO GOUVEIA</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">89</td>
+  <td class="estilo3" style="text-align:center;">X</td>
+  
+  <td class="estilo3" style="text-align:center;">1</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">JOÃO MATOS</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">65</td>
+  <td class="estilo3" style="text-align:center;">X</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">JOÃO MAXIMIANO</td>
+  <td colspan="3" class="estilo4" style="text-align:center;">
+  Delegado
+  </td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td colspan="4" class="estilo4" style="text-align:center; background-color:#cccccc;"><b>Desempate g.p.-N&ordm;s dos executantes</b></td></tr>
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">RUI BRAVO</td>
+  <td colspan="3" class="estilo4" style="text-align:center;">
+  Treinador
+  </td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo4" style="text-align:center;">1&ordf; s&eacute;rie</td>
+  <td colspan="3" class="estilo3" style="text-align:center;">&nbsp;</td></tr>
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">&nbsp;</td>
+  <td colspan="3" class="estilo4" style="text-align:center;">
+  2&ordm; Trein./Prep. F&iacute;sico
+  </td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td rowspan="4" class="estilo4" style="text-align:center; background-color:#cccccc;">s&eacute;ries<br>restantes</td>
+  <td rowspan="2" colspan="3" class="estilo3" style="text-align:center;">&nbsp;</td></tr>
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">&nbsp;</td>
+  <td colspan="3" class="estilo4" style="text-align:center;">
+  M&eacute;dico/Fisiolog.
+  </td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  </tr>
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">JOSÉ SILVA</td>
+  <td colspan="3" class="estilo4" style="text-align:center;">
+  Enf./Fisiot./Mass.
+  </td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td rowspan="2" colspan="3" class="estilo3" style="text-align:center;">&nbsp;</td></tr>
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">&nbsp;</td>
+  <td colspan="3" class="estilo4" style="text-align:center;">
+  Mecanico
+  </td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  </tr>
+<tr>
+  <td colspan="2" rowspan="2" width="20%" class="estilo4" style="text-align:center;"><b>TOTAL DE FALTAS<br>DE EQUIPA</b></td>
+  <td rowspan="2" class="estilo4" style="text-align:center;"><b>TEMPO NORMAL</b></td>
+  <td colspan="4" class="estilo4" style="text-align:center;"><b>1&ordf; PARTE</b></td>
+  <td colspan="4" class="estilo3" style="text-align:center;">2</td>
+  <td colspan="3" rowspan="2" class="estilo4" style="text-align:center;"><b>PROLONGAMENTO</b></td>
+  <td class="estilo4" style="text-align:center;"><b>1&ordf; PARTE</b></td>
+  <td colspan="3" class="estilo3" style="text-align:center;"></td></tr>
+<tr>
+  <td colspan="4" class="estilo4" style="text-align:center;"><b>2&ordf; PARTE</b></td>
+  <td colspan="4" class="estilo3" style="text-align:center;">5</td>
+  <td class="estilo4" style="text-align:center;"><b>2&ordf; PARTE</b></td>
+  <td colspan="3" class="estilo3" style="text-align:center;"></td></tr>
+<tr>
+  <td colspan="2" rowspan="2" class="estilo4" style="text-align:center; background-color:#cccccc;"><b>Declara&ccedil;ao de conformidade<br>e exactid&atilde;o dos<br>registros efectuados</b></td>
+  <td colspan="8" class="estilo4" style="text-align:center; background-color:#cccccc;"><b>Assinatura do Delegado</b></td>
+  <td colspan="7" class="estilo4" style="text-align:center; background-color:#cccccc;"><b>Assinatura do Capit&atilde;o de Equipa</b></td></tr>
+<tr>
+  <td colspan="8" class="estilo3">(@DEL.L)</td>
+  <td colspan="7" class="estilo3">(@CAP.L)</td></tr></tbody></table>
+
+<!-- JUGADORES/TECNICOS EQUIPO 2-->
+<table width="100%" class="tabla2"><tbody>
+<tr>
+  <td colspan="18" class="estilo3" style="text-align:center;"><b>Clube Visitante - Ficha T&eacute;cnica e Estat&iacute;stica do Jogo</b></td></tr>
+<tr>
+  <td colspan="7" class="estilo4" style="text-align:center;"><b>Identifica&ccedil;&atilde;o dos Jogadores e outros elementos inscritos para este Jogo</b></td>
+  
+  <td rowspan="2" class="estilo4" style="text-align:center;" width="4%">AM</td>
+  <td colspan="3" class="estilo4" style="text-align:center;">SUSPENSOES</td>
+  <td colspan="2" class="estilo4" style="text-align:center;">EXPULSOES</td>
+  <td colspan="4" class="estilo4" style="text-align:center;">GOLOS MARCADOS</td></tr>
+<tr>
+ <td class="estilo4" style="text-align:center;" width="10%">Licen&ccedil;a/B.Id.</td>
+ <td colspan="3" class="estilo4" style="text-align:center;">Nome e Apelido</td>
+ 
+ <td class="estilo4" style="text-align:center;" width="4%">cap.</td>
+ <td class="estilo4" style="text-align:center;" width="4%">n&ordm;</td>
+ <td class="estilo4" style="text-align:center;" width="4%">5I</td>
+ 
+ <td class="estilo4" style="text-align:center;" width="4%">1&ordf;</td>
+ <td class="estilo4" style="text-align:center;" width="4%">2&ordf;</td>
+ <td class="estilo4" style="text-align:center;" width="4%">3&ordf;</td>
+ <td class="estilo4" style="text-align:center;" width="4%">a.c.</td>
+ <td class="estilo4" style="text-align:center;" width="4%">dir.</td>
+ <td class="estilo4" style="text-align:center;" width="10%">t. normal</td>
+ <td class="estilo4" style="text-align:center;" width="5%">prol.</td>
+ <td class="estilo4" style="text-align:center;" width="5%">des.g.p</td>
+ <td class="estilo4" style="text-align:center;" width="5%">total</td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">GONÇALO GASPAR</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">10</td>
+  <td class="estilo3" style="text-align:center;">X</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">AFONSO ESTEVES</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">3</td>
+  <td class="estilo3" style="text-align:center;">X</td>
+  
+  <td class="estilo3" style="text-align:center;">1</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+
+  <td class="estilo3" style="text-align:center;">1</td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;">1</td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">ANDRÉ LOPES</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">20</td>
+  <td class="estilo3" style="text-align:center;">J</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">TIAGO COSTA</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">29</td>
+  <td class="estilo3" style="text-align:center;">J</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">MIGUEL ALVES</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">43</td>
+  <td class="estilo3" style="text-align:center;">X</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+
+  <td class="estilo3" style="text-align:center;">1</td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;">1</td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">JOÃO SARDO</td>
+  
+  <td class="estilo3" style="text-align:center;">S</td>
+  <td class="estilo3" style="text-align:center;">55</td>
+  <td class="estilo3" style="text-align:center;">X</td>
+  
+  <td class="estilo3" style="text-align:center;">1</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">ANDRÉ GASPAR</td>
+  
+  <td class="estilo3" style="text-align:center;">C</td>
+  <td class="estilo3" style="text-align:center;">57</td>
+  <td class="estilo3" style="text-align:center;">X</td>
+  
+  <td class="estilo3" style="text-align:center;">1</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+
+  <td class="estilo3" style="text-align:center;">2</td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;">2</td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">DIOGO CORREIA</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">79</td>
+  <td class="estilo3" style="text-align:center;">J</td>
+  
+  <td class="estilo3" style="text-align:center;">1</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+  <td class="estilo3" style="text-align:center;">&nbsp;</td>
+
+  <td class="estilo3" style="text-align:center;">2</td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;">2</td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">FRANCISCO ROCHA</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">95</td>
+  <td class="estilo3" style="text-align:center;">J</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">GUSTAVO OLIVEIRA</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;">23</td>
+  <td class="estilo3" style="text-align:center;">J</td>
+  
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td></tr>
+
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">JOSÉ VIEIRA</td>
+  <td colspan="3" class="estilo4" style="text-align:center;">
+  Delegado
+  </td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td colspan="4" class="estilo4" style="text-align:center; background-color:#cccccc;"><b>Desempate g.p.-N&ordm;s dos executantes</b></td></tr>
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">ANTÓNIO PINTO</td>
+  <td colspan="3" class="estilo4" style="text-align:center;">
+  Treinador
+  </td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo4" style="text-align:center;">1&ordf; s&eacute;rie</td>
+  <td colspan="3" class="estilo3" style="text-align:center;">&nbsp;</td></tr>
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">PEDRO POSSIDÓNIO</td>
+  <td colspan="3" class="estilo4" style="text-align:center;">
+  2&ordm; Trein./Prep. F&iacute;sico
+  </td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td rowspan="4" class="estilo4" style="text-align:center; background-color:#cccccc;">s&eacute;ries<br>restantes</td>
+  <td rowspan="2" colspan="3" class="estilo3" style="text-align:center;">&nbsp;</td></tr>
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">&nbsp;</td>
+  <td colspan="3" class="estilo4" style="text-align:center;">
+  M&eacute;dico/Fisiolog.
+  </td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  </tr>
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">ARTUR ESTEVES</td>
+  <td colspan="3" class="estilo4" style="text-align:center;">
+  Enf./Fisiot./Mass.
+  </td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td rowspan="2" colspan="3" class="estilo4" style="text-align:center;">&nbsp;</td></tr>
+<tr>
+  <td class="estilo3">******</td>
+  <td colspan="3" class="estilo3">&nbsp;</td>
+  <td colspan="3" class="estilo4" style="text-align:center;">
+  Mecanico
+  </td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center; background-color:#cccccc;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  <td class="estilo3" style="text-align:center;"></td>
+  </tr>
+<tr>
+  <td colspan="2" rowspan="2" width="20%" class="estilo4" style="text-align:center;"><b>TOTAL DE FALTAS<br>DE EQUIPA</b></td>
+  <td rowspan="2" class="estilo4" style="text-align:center;"><b>TEMPO NORMAL</b></td>
+  <td colspan="4" class="estilo4" style="text-align:center;"><b>1&ordf; PARTE</b></td>
+  <td colspan="4" class="estilo3" style="text-align:center;">8</td>
+  <td colspan="3" rowspan="2" class="estilo4" style="text-align:center;"><b>PROLONGAMENTO</b></td>
+  <td class="estilo4" style="text-align:center;"><b>1&ordf; PARTE</b></td>
+  <td colspan="3" class="estilo3" style="text-align:center;"></td></tr>
+<tr>
+  <td colspan="4" class="estilo4" style="text-align:center;"><b>2&ordf; PARTE</b></td>
+  <td colspan="4" class="estilo3" style="text-align:center;">9</td>
+  <td class="estilo4" style="text-align:center;"><b>2&ordf; PARTE</b></td>
+  <td colspan="3" class="estilo3" style="text-align:center;"></td></tr>
+<tr>
+  <td colspan="2" rowspan="2" class="estilo4" style="text-align:center; background-color:#cccccc;"><b>Declara&ccedil;ao de conformidade<br>e exactid&atilde;o dos<br>registros efectuados</b></td>
+  <td colspan="8" class="estilo4" style="text-align:center; background-color:#cccccc;"><b>Assinatura do Delegado</b></td>
+  <td colspan="7" class="estilo4" style="text-align:center; background-color:#cccccc;"><b>Assinatura do Capit&atilde;o de Equipa</b></td></tr>
+<tr>
+  <td colspan="8" class="estilo3">(@DEL.V)</td>
+  <td colspan="7" class="estilo3">(@CAP.V)</td></tr></tbody></table>
+
+</div>
+<!-- FIN ACTA -->
+<div style="clear:both;"></div>
+</div></div></body></html>

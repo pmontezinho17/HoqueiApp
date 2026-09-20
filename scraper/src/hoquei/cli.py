@@ -15,6 +15,7 @@ from .fonte import Fonte
 from .modelos import para_dicionario
 from .parsers.calendario import calendario
 from .parsers.competicoes import competicoes, temporadas
+from .parsers.jogo import ficha
 
 
 def _temporada_corrente(fonte: Fonte) -> int:
@@ -68,6 +69,26 @@ def comando_despejar(args) -> int:
     return 0
 
 
+def comando_jogo(args) -> int:
+    """Despeja a ficha completa de um jogo: cabeçalho, jogadores e cronologia."""
+    with Fonte(args.tenant) as fonte:
+        fx = ficha(fonte.jogo(args.id).html, args.id)
+    if args.destino:
+        pathlib.Path(args.destino).write_text(
+            json.dumps(para_dicionario(fx), ensure_ascii=False, indent=1))
+        print(f"{args.destino}: {len(fx.cronologia)} eventos")
+        return 0
+    print(f"{fx.casa} {fx.golos_casa}-{fx.golos_fora} {fx.fora}   {fx.estado or 'por disputar'}")
+    print(f"{fx.competicao}   {fx.data} {fx.hora}   {fx.recinto}")
+    print(f"Árbitros: {', '.join(fx.arbitros)}   Faltas: {fx.faltas[0]}-{fx.faltas[1]}\n")
+    for e in fx.cronologia:
+        marca = {"golo": "⚽", "cartao": "▮", "falta_equipa": "·", "desconto_tempo": "⏱"}.get(e.tipo, " ")
+        res = f"{e.golos_casa}-{e.golos_fora}" if e.golos_casa is not None else ""
+        minuto = f"{e.minuto}'" if e.minuto is not None else ""
+        print(f"  {marca} {minuto:>5} {(e.relogio or ''):>6} {res:>5}  {e.texto[:72]}")
+    return 0
+
+
 def main(argv=None) -> int:
     # num parser-pai partilhado, para que --tenant funcione antes OU depois do subcomando
     comum = argparse.ArgumentParser(add_help=False)
@@ -81,6 +102,11 @@ def main(argv=None) -> int:
     j.add_argument("--de", required=True)
     j.add_argument("--ate", required=True)
     j.set_defaults(func=comando_jogos)
+
+    g = sub.add_parser("jogo", parents=[comum], help="ficha completa de um jogo")
+    g.add_argument("--id", type=int, required=True)
+    g.add_argument("--destino", default=None, help="escrever JSON em vez de imprimir")
+    g.set_defaults(func=comando_jogo)
 
     d = sub.add_parser("despejar", parents=[comum], help="escrever todas as competições em JSON")
     d.add_argument("--destino", required=True)

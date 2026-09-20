@@ -1,7 +1,14 @@
 # Onde retomar
 
-**Última sessão:** 20/09/2026 · **Estado:** scraper a funcionar; cliente decidido como **PWA**
-(era Android nativo). Cliente por começar.
+**Última sessão:** 20/09/2026 (noite) · **Estado:** scraper lê competições, calendário **e a ficha
+de jogo completa com cronologia**. Cliente (PWA) por começar.
+
+Feito nesta sessão: B1.9, B1.9a, B1.9b e B1.9d. A cronologia sai com 11 tipos de evento (golos com
+marcador e assistente, variantes de livre direto e penálti, cartões amarelo/azul/vermelho, faltas
+de equipa numeradas, descontos de tempo, lances falhados, início/fim de parte), o relógio
+decrescente convertido em minuto corrido, e a estatística por jogador. 24 testes, sem rede.
+
+Experimenta: `cd scraper && uv run python -m hoquei.cli jogo --id 9308`
 
 > ⚠️ **Mudança de rumo a 20/09:** o cliente passa de app Android nativa para **PWA** (SvelteKit +
 > Cloudflare Pages). Chega a Android e iPhone ao mesmo tempo, publica-se por link e corrige-se em
@@ -59,7 +66,7 @@ categoria. A ligação correta é explícita: `onclick="verComp(N)"` → `div#cN
 ## Próximo passo concreto
 
 ```
-B1.9  + B1.9a   parser da ficha de jogo e da cronologia   ← maior valor, já há dados reais
+B1.8            parser da classificação (amostra já gravada)
 W0.7  + W2.1    esqueleto SvelteKit a correr localmente
 W2.3  + W2.5    primeira lista de jogos reais no browser
 W2.8  + W2.10   instalável e publicada num URL
