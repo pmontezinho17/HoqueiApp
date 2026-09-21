@@ -14,6 +14,7 @@ from datetime import date
 from .fonte import Fonte
 from .modelos import para_dicionario
 from .parsers.calendario import calendario
+from .parsers.classificacao import classificacao
 from .parsers.competicoes import competicoes, temporadas
 from .parsers.jogo import ficha
 
@@ -23,13 +24,18 @@ def _temporada_corrente(fonte: Fonte) -> int:
     return temporadas(fonte.seccao("competiciones").html)[0].id
 
 
-def _tudo(fonte: Fonte, id_temp: int):
-    """Percorre as competições da época e devolve (competicao, calendario)."""
+def _tudo(fonte: Fonte, id_temp: int, com_classificacao: bool = False):
+    """Percorre as competições da época e devolve (competicao, calendario, classificacao)."""
     provas = competicoes(fonte.seccao("competiciones", id_temp=id_temp).html)
     for i, prova in enumerate(provas, 1):
         print(f"  [{i}/{len(provas)}] {prova.categoria} · {prova.nome}", file=sys.stderr)
         html = fonte.seccao("calendario", id_comp=prova.id, id_temp=id_temp, grupo="").html
-        yield prova, calendario(html, prova.id, id_temp)
+        tabela = None
+        if com_classificacao:
+            tabela = classificacao(
+                fonte.seccao("clasificacion", id_comp=prova.id, id_temp=id_temp).html,
+                prova.id, id_temp)
+        yield prova, calendario(html, prova.id, id_temp), tabela
 
 
 def comando_jogos(args) -> int:
@@ -38,7 +44,7 @@ def comando_jogos(args) -> int:
         id_temp = args.id_temp or _temporada_corrente(fonte)
         print(f"temporada {id_temp} em '{args.tenant}'", file=sys.stderr)
         linhas = []
-        for prova, cal in _tudo(fonte, id_temp):
+        for prova, cal, _ in _tudo(fonte, id_temp):
             for j in cal.jogos:
                 if j.data and de <= j.data <= ate:
                     linhas.append((j, prova))
@@ -58,10 +64,13 @@ def comando_despejar(args) -> int:
     with Fonte(args.tenant) as fonte:
         id_temp = args.id_temp or _temporada_corrente(fonte)
         provas, total = [], 0
-        for prova, cal in _tudo(fonte, id_temp):
+        for prova, cal, tabela in _tudo(fonte, id_temp, com_classificacao=True):
             provas.append(para_dicionario(prova))
+            conteudo = {"competicao": para_dicionario(prova),
+                        **para_dicionario(cal),
+                        "classificacao": para_dicionario(tabela)["grupos"] if tabela else []}
             (destino / "comp" / f"{prova.id}.json").write_text(
-                json.dumps(para_dicionario(cal), ensure_ascii=False, indent=1))
+                json.dumps(conteudo, ensure_ascii=False, indent=1))
             total += len(cal.jogos)
     (destino / "competitions.json").write_text(
         json.dumps({"temporada": id_temp, "competicoes": provas}, ensure_ascii=False, indent=1))

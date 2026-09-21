@@ -1,0 +1,133 @@
+{
+ "competicao": {
+  "id": 446,
+  "nome": "CAMP. REG. SUB-13 - 1ª FASE - SERIE D",
+  "categoria": "SUB-13"
+ },
+ "competicao_id": 446,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 1946,
+   "nome": "AD OEIRAS B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/6.png"
+  },
+  {
+   "id": 1945,
+   "nome": "AE FISICA D B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1942,
+   "nome": "CACO B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/26.png"
+  },
+  {
+   "id": 1944,
+   "nome": "CD PAÇO ARCOS B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/7.png"
+  },
+  {
+   "id": 1943,
+   "nome": "PAREDE FC B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/3.png"
+  },
+  {
+   "id": 1947,
+   "nome": "SPORTING CP B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": [
+  {
+   "nome": null,
+   "linhas": [
+    {
+     "posicao": 1,
+     "equipa": "AD OEIRAS B",
+     "logo": "/intranet/logos/6.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 2,
+     "equipa": "AE FISICA D B",
+     "logo": "/intranet/logos/11.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 3,
+     "equipa": "CACO B",
+     "logo": "/intranet/logos/26.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 4,
+     "equipa": "CD PAÇO ARCOS B",
+     "logo": "/intranet/logos/7.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 5,
+     "equipa": "PAREDE FC B",
+     "logo": "/intranet/logos/3.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 6,
+     "equipa": "SPORTING CP B",
+     "logo": "/intranet/logos/2.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    }
+   ]
+  }
+ ]
+}

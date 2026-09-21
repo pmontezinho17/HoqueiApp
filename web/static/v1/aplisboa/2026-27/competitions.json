@@ -1,0 +1,190 @@
+{
+ "temporada": 5,
+ "competicoes": [
+  {
+   "id": 432,
+   "nome": "TAÇA JESUS CORREIA - SENIORES MASCULINOS",
+   "categoria": "SENIORES MASCULINOS"
+  },
+  {
+   "id": 433,
+   "nome": "TAÇA PROF. JOAO CAMPELO - SENIORES FEMININOS",
+   "categoria": "SENIORES FEMININOS"
+  },
+  {
+   "id": 435,
+   "nome": "SUPERTAÇA APL SUB-19",
+   "categoria": "SUB-19"
+  },
+  {
+   "id": 439,
+   "nome": "TORNEIO ABERTURA APL SUB-19",
+   "categoria": "SUB-19"
+  },
+  {
+   "id": 457,
+   "nome": "CAMP. REG. SUB-19 - 1ª FASE - SERIE A",
+   "categoria": "SUB-19"
+  },
+  {
+   "id": 458,
+   "nome": "CAMP. REG. SUB-19 - 1ª FASE - SERIE B",
+   "categoria": "SUB-19"
+  },
+  {
+   "id": 459,
+   "nome": "CAMP. REG. SUB-19 - 1ª FASE - SERIE C",
+   "categoria": "SUB-19"
+  },
+  {
+   "id": 436,
+   "nome": "SUPERTAÇA APL SUB-17",
+   "categoria": "SUB-17"
+  },
+  {
+   "id": 440,
+   "nome": "TORNEIO ABERTURA APL SUB-17",
+   "categoria": "SUB-17"
+  },
+  {
+   "id": 451,
+   "nome": "CAMP. REG. SUB-17 - 1ª FASE - SERIE A",
+   "categoria": "SUB-17"
+  },
+  {
+   "id": 452,
+   "nome": "CAMP. REG. SUB-17 - 1ª FASE - SERIE B",
+   "categoria": "SUB-17"
+  },
+  {
+   "id": 453,
+   "nome": "CAMP. REG. SUB-17 - 1ª FASE - SERIE C",
+   "categoria": "SUB-17"
+  },
+  {
+   "id": 454,
+   "nome": "CAMP. REG. SUB-17 - 1ª FASE - SERIE D",
+   "categoria": "SUB-17"
+  },
+  {
+   "id": 455,
+   "nome": "CAMP. REG. SUB-17 - 1ª FASE - SERIE E",
+   "categoria": "SUB-17"
+  },
+  {
+   "id": 456,
+   "nome": "CAMP. REG. SUB-17 - 1ª FASE - SERIE F",
+   "categoria": "SUB-17"
+  },
+  {
+   "id": 437,
+   "nome": "SUPERTAÇA APL SUB-15",
+   "categoria": "SUB-15"
+  },
+  {
+   "id": 441,
+   "nome": "TORNEIO ABERTURA APL SUB-15",
+   "categoria": "SUB-15"
+  },
+  {
+   "id": 447,
+   "nome": "CAMP. REG. SUB-15 - 1ª FASE - SERIE A",
+   "categoria": "SUB-15"
+  },
+  {
+   "id": 448,
+   "nome": "CAMP. REG. SUB-15 - 1ª FASE - SERIE B",
+   "categoria": "SUB-15"
+  },
+  {
+   "id": 449,
+   "nome": "CAMP. REG. SUB-15 - 1ª FASE - SERIE C",
+   "categoria": "SUB-15"
+  },
+  {
+   "id": 450,
+   "nome": "CAMP. REG. SUB-15 - 1ª FASE - SERIE D",
+   "categoria": "SUB-15"
+  },
+  {
+   "id": 438,
+   "nome": "SUPERTAÇA APL SUB-13",
+   "categoria": "SUB-13"
+  },
+  {
+   "id": 442,
+   "nome": "TORNEIO ABERTURA APL SUB-13",
+   "categoria": "SUB-13"
+  },
+  {
+   "id": 443,
+   "nome": "CAMP. REG. SUB-13 - 1ª FASE - SERIE A",
+   "categoria": "SUB-13"
+  },
+  {
+   "id": 444,
+   "nome": "CAMP. REG. SUB-13 - 1ª FASE - SERIE B",
+   "categoria": "SUB-13"
+  },
+  {
+   "id": 445,
+   "nome": "CAMP. REG. SUB-13 - 1ª FASE - SERIE C",
+   "categoria": "SUB-13"
+  },
+  {
+   "id": 446,
+   "nome": "CAMP. REG. SUB-13 - 1ª FASE - SERIE D",
+   "categoria": "SUB-13"
+  },
+  {
+   "id": 460,
+   "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE A",
+   "categoria": "ESCOLARES"
+  },
+  {
+   "id": 461,
+   "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE B",
+   "categoria": "ESCOLARES"
+  },
+  {
+   "id": 462,
+   "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE C",
+   "categoria": "ESCOLARES"
+  },
+  {
+   "id": 463,
+   "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE D",
+   "categoria": "ESCOLARES"
+  },
+  {
+   "id": 464,
+   "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE E",
+   "categoria": "ESCOLARES"
+  },
+  {
+   "id": 465,
+   "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
+   "categoria": "BENJAMINS"
+  },
+  {
+   "id": 466,
+   "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE B",
+   "categoria": "BENJAMINS"
+  },
+  {
+   "id": 467,
+   "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE C",
+   "categoria": "BENJAMINS"
+  },
+  {
+   "id": 431,
+   "nome": "JOGO TREINO",
+   "categoria": "TORNEIOS PARTICULARES"
+  },
+  {
+   "id": 434,
+   "nome": "ZECA PINTO",
+   "categoria": "TORNEIOS PARTICULARES"
+  }
+ ]
+}

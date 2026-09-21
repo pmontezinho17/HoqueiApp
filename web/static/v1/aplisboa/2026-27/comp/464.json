@@ -1,0 +1,38 @@
+{
+ "competicao": {
+  "id": 464,
+  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE E",
+  "categoria": "ESCOLARES"
+ },
+ "competicao_id": 464,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 2043,
+   "nome": "AE FISICA D B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 2041,
+   "nome": "CACO B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/26.png"
+  },
+  {
+   "id": 2039,
+   "nome": "FSE/AJ SALESIANA B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/9.png"
+  },
+  {
+   "id": 2040,
+   "nome": "PAREDE FC B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/3.png"
+  },
+  {
+   "id": 2042,
+   "nome": "UD VILAFRANQUENSE B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/15.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": []
+}

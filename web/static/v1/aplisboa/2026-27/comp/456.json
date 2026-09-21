@@ -1,0 +1,114 @@
+{
+ "competicao": {
+  "id": 456,
+  "nome": "CAMP. REG. SUB-17 - 1ª FASE - SERIE F",
+  "categoria": "SUB-17"
+ },
+ "competicao_id": 456,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 2001,
+   "nome": "CD BOLIQUEIME",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/69.png"
+  },
+  {
+   "id": 1999,
+   "nome": "CF ESTREMOZ",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/0.png"
+  },
+  {
+   "id": 1998,
+   "nome": "FC CASTRENSE",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/0.png"
+  },
+  {
+   "id": 1997,
+   "nome": "HC PORTIMÃO",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/62.png"
+  },
+  {
+   "id": 2000,
+   "nome": "HC VASCO GAMA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/18.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": [
+  {
+   "nome": null,
+   "linhas": [
+    {
+     "posicao": 1,
+     "equipa": "CD BOLIQUEIME",
+     "logo": "/intranet/logos/69.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 2,
+     "equipa": "CF ESTREMOZ",
+     "logo": "/intranet/logos/0.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 3,
+     "equipa": "FC CASTRENSE",
+     "logo": "/intranet/logos/0.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 4,
+     "equipa": "HC PORTIMÃO",
+     "logo": "/intranet/logos/62.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 5,
+     "equipa": "HC VASCO GAMA",
+     "logo": "/intranet/logos/18.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    }
+   ]
+  }
+ ]
+}

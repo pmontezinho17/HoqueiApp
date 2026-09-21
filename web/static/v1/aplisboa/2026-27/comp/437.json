@@ -1,0 +1,33 @@
+{
+ "competicao": {
+  "id": 437,
+  "nome": "SUPERTAÇA APL SUB-15",
+  "categoria": "SUB-15"
+ },
+ "competicao_id": 437,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 1840,
+   "nome": "CACO",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/26.png"
+  },
+  {
+   "id": 1839,
+   "nome": "CD PAÇO ARCOS",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/7.png"
+  },
+  {
+   "id": 1838,
+   "nome": "SL BENFICA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/1.png"
+  },
+  {
+   "id": 1837,
+   "nome": "SPORTING CP",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": []
+}

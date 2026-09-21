@@ -139,3 +139,34 @@ class FichaJogo:
         """B1.9d: a app usa isto para não abrir uma tab vazia."""
         marcadores = {"fim_jogo", "inicio_parte", "fim_parte", "por_iniciar"}
         return any(e.tipo not in marcadores for e in self.cronologia)
+
+
+# --- classificação ---------------------------------------------------------
+
+@dataclass(frozen=True)
+class LinhaClassificacao:
+    posicao: int
+    equipa: str
+    logo: str | None
+    jogos: int
+    vitorias: int
+    empates: int
+    derrotas: int
+    golos_marcados: int
+    golos_sofridos: int
+    diferenca: int
+    racio: float | None       # GM/GS; None quando ainda não sofreu golos (a fonte põe "-")
+    pontos: int
+
+
+@dataclass
+class GrupoClassificacao:
+    nome: str | None          # "SERIE A"; None quando a prova tem um só grupo
+    linhas: list[LinhaClassificacao] = field(default_factory=list)
+
+
+@dataclass
+class Classificacao:
+    competicao_id: int
+    temporada_id: int
+    grupos: list[GrupoClassificacao] = field(default_factory=list)

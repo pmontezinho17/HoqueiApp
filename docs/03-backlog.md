@@ -22,7 +22,7 @@
 | B0.4 | Estrutura do repositório | must | XS | ✅ `scraper/`, `docs/`, `scripts/`, `data-samples/` |
 | B0.5 | Amostras de HTML para os testes | must | M | ✅ 6 amostras, incluindo ficha de seniores (2 partes), de escolares (4 partes, anonimizada) e jogo por disputar |
 | B0.6 | Descobrir subdomínios das outras associações | could | S | aberto |
-| W0.7 | Node LTS + `npm create svelte@latest` a correr localmente | must | S | Página em branco no browser em `localhost:5173` |
+| W0.7 | Node LTS + SvelteKit a correr localmente | must | S | ✅ Node 24, `npm run dev` em `localhost:5173` |
 | W0.8 | Conta Cloudflare + projeto Pages ligado ao repo GitHub | must | S | Push na `main` publica automaticamente |
 
 > A Fase 0 encolheu de ~1 dia para ~2 horas. É o primeiro dividendo da PWA: não há SDK, emulador,
@@ -43,14 +43,14 @@
 | B1.5 | Parser de competições | must | M | ✅ 37 competições com categoria |
 | B1.6 | Parser do calendário | must | L | ✅ 87 jogos com id, data, recinto |
 | B1.7 | Parser de equipas | must | S | ✅ 16 equipas com logótipo |
-| B1.8 | Parser da classificação (múltiplos grupos) | must | M | aberto (amostra gravada) |
+| B1.8 | Parser da classificação (múltiplos grupos) | must | M | ✅ 4 grupos, com invariantes aritméticos testados |
 | B1.9 | Parser da ficha de jogo: `#resultado` + `#jugadores` | must | L | ✅ cabeçalho, árbitros, faltas, jogadores e equipa técnica |
 | B1.9a | Parser da cronologia `#desarrollo` | must | L | ✅ 11 tipos de evento, 0 por classificar em 9 jogos reais |
 | B1.9b | Normalizar o relógio decrescente em minuto absoluto | must | M | ✅ nº e duração das partes lidos da fonte (2×25min, 2×15min, 4×8min confirmados) |
 | B1.9c | Parser do boletim oficial `#acta` | could | L | aberto |
 | B1.9d | Flag `has_timeline` por jogo | should | XS | ✅ `FichaJogo.tem_cronologia` |
 | B1.10 | Modelo normalizado + escrita dos JSON do contrato | must | M | parcial (falta jogo/classificação) |
-| B1.11 | Testes do parser contra amostras | must | M | ✅ 24 testes, sem rede |
+| B1.11 | Testes do parser contra amostras | must | M | ✅ 32 testes, sem rede, incluindo cruzamento entre parsers |
 | B1.12 | Deteção de mudanças por hash | should | S | aberto |
 | B1.13 | Normalização de nomes de clubes + slug estável | should | M | aberto |
 | B1.14 | GitHub Action com cron (15 min na época, 1x/dia fora) | must | M | aberto |
@@ -78,15 +78,15 @@ Objetivo: **um ecrã** com jogos reais, no telemóvel, instalável. É aqui que 
 
 | ID | Item | Prio | Est. | Critério de aceitação |
 |---|---|---|---|---|
-| W2.1 | Projeto SvelteKit + `adapter-static` + TypeScript | must | S | `npm run build` produz estáticos |
-| W2.2 | Tipos TS espelhando o contrato de dados | must | S | Um JSON de amostra tipa sem erros |
-| W2.3 | Carregar `comp/{id}.json` num `load` e listar os jogos | must | M | Lista real no browser |
-| W2.4 | Os 3 estados: a carregar / erro / conteúdo | must | M | Desligar a rede mostra o erro, não um ecrã em branco |
-| W2.5 | Componente `JogoLinha` (equipas, resultado, data/hora, recinto) | must | M | Jogo agendado mostra hora; disputado mostra resultado |
-| W2.6 | Agrupamento por jornada, com a jornada atual em foco ao abrir | must | M | Abre posicionado na jornada em curso |
-| W2.7 | **Mobile-first**: legível e utilizável a 360px sem scroll horizontal | must | M | DevTools em 360×640 sem overflow |
-| W2.8 | `manifest.webmanifest` + ícones + `vite-plugin-pwa` | must | M | Chrome oferece "Instalar"; abre sem barra de endereço |
-| W2.9 | Service worker a pré-carregar o shell (offline básico) | must | M | Modo avião: abre e mostra o último estado |
+| W2.1 | Projeto SvelteKit + `adapter-static` + TypeScript | must | S | ✅ build estático em `web/build` |
+| W2.2 | Tipos TS espelhando o contrato de dados | must | S | ✅ `src/lib/tipos.ts` |
+| W2.3 | Carregar `comp/{id}.json` num `load` e listar os jogos | must | M | ✅ com seletor de competição |
+| W2.4 | Os 3 estados: a carregar / erro / conteúdo | must | M | ✅ barra de progresso + `+error.svelte` com botão de repetir |
+| W2.5 | Componente `JogoLinha` (equipas, resultado, data/hora, recinto) | must | M | ✅ vencedor a negrito, por disputar com `–` |
+| W2.6 | Agrupamento por jornada, com a jornada atual em foco ao abrir | must | M | ✅ badge "em curso" + scroll automático |
+| W2.7 | **Mobile-first**: legível e utilizável a 360px sem scroll horizontal | must | M | ✅ verificado a 375×812, sem scroll horizontal |
+| W2.8 | `manifest.webmanifest` + ícones + `vite-plugin-pwa` | must | M | ✅ manifest + ícones 192/512/maskable (provisórios, ver L7.3) |
+| W2.9 | Service worker a pré-carregar o shell (offline básico) | must | M | ✅ 19 entradas (122 KiB) + stale-while-revalidate em `/v1/` |
 | W2.10 | Publicado em Cloudflare Pages, acessível por URL público | must | S | Abre no teu telemóvel pelo link |
 | W2.11 | Tema claro/escuro seguindo o sistema | should | M | Alternar o tema não deixa texto ilegível |
 
@@ -278,10 +278,9 @@ Muito mais leve do que o plano Android: sem loja, sem revisão, sem conta de pro
 ## Próximo incremento
 
 ```
-B1.8            parser da classificação (amostra gravada)
-W0.7  + W2.1    esqueleto SvelteKit a correr localmente
-W2.3  + W2.5    primeira lista de jogos reais no browser
-W2.8  + W2.10   instalável e publicada num URL
+W2.10           publicar em Cloudflare Pages  ← falta só isto para fechar a Fase 2
+B1.14 + B1.15   GitHub Action com cron a regenerar e publicar os JSON
+W3.1  + W3.6    rotas e o ecrã de detalhe de jogo com a cronologia
 ```
 
 Ao fim disto existe **um link para partilhar** com jogos reais, que qualquer pessoa abre no

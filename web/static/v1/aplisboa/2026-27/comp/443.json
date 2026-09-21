@@ -1,0 +1,133 @@
+{
+ "competicao": {
+  "id": 443,
+  "nome": "CAMP. REG. SUB-13 - 1ª FASE - SERIE A",
+  "categoria": "SUB-13"
+ },
+ "competicao_id": 443,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 1928,
+   "nome": "AD OEIRAS A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/6.png"
+  },
+  {
+   "id": 1925,
+   "nome": "APAC TOJAL",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/12.png"
+  },
+  {
+   "id": 1924,
+   "nome": "CACO A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/26.png"
+  },
+  {
+   "id": 1929,
+   "nome": "CD PAÇO ARCOS A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/7.png"
+  },
+  {
+   "id": 1927,
+   "nome": "HC SINTRA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/8.png"
+  },
+  {
+   "id": 1926,
+   "nome": "SC TORRES",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/25.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": [
+  {
+   "nome": null,
+   "linhas": [
+    {
+     "posicao": 1,
+     "equipa": "AD OEIRAS A",
+     "logo": "/intranet/logos/6.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 2,
+     "equipa": "APAC TOJAL",
+     "logo": "/intranet/logos/12.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 3,
+     "equipa": "CACO A",
+     "logo": "/intranet/logos/26.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 4,
+     "equipa": "CD PAÇO ARCOS A",
+     "logo": "/intranet/logos/7.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 5,
+     "equipa": "HC SINTRA",
+     "logo": "/intranet/logos/8.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 6,
+     "equipa": "SC TORRES",
+     "logo": "/intranet/logos/25.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    }
+   ]
+  }
+ ]
+}

@@ -22,8 +22,17 @@ def test_jogos_lidos_com_data_hora_e_recinto(html_calendario):
     assert j.jornada == "1ª JORNADA - 1ª FASE"
 
 
-def test_jogo_por_disputar_nao_inventa_resultado(html_calendario):
+def test_jogo_disputado_traz_resultado(html_calendario):
     j = next(x for x in jogos(html_calendario) if x.id == 9289)
+    assert (j.golos_casa, j.golos_fora) == (1, 1)
+    assert j.disputado
+
+
+def test_jogo_por_disputar_nao_inventa_resultado(html_calendario):
+    """A amostra é um snapshot coerente com a da classificação: 7 jogados, 17 por jogar."""
+    js = jogos(html_calendario)
+    assert (sum(j.disputado for j in js), sum(not j.disputado for j in js)) == (7, 17)
+    j = next(x for x in js if x.id == 9307)
     assert (j.golos_casa, j.golos_fora) == (None, None)
     assert not j.disputado
 

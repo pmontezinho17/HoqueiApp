@@ -1,0 +1,33 @@
+{
+ "competicao": {
+  "id": 438,
+  "nome": "SUPERTAÇA APL SUB-13",
+  "categoria": "SUB-13"
+ },
+ "competicao_id": 438,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 1835,
+   "nome": "A STUART HCM",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/10.png"
+  },
+  {
+   "id": 1836,
+   "nome": "CACO",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/26.png"
+  },
+  {
+   "id": 1833,
+   "nome": "SL BENFICA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/1.png"
+  },
+  {
+   "id": 1834,
+   "nome": "SPORTING CP",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": []
+}

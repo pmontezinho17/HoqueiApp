@@ -1,0 +1,38 @@
+{
+ "competicao": {
+  "id": 466,
+  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE B",
+  "categoria": "BENJAMINS"
+ },
+ "competicao_id": 466,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 2053,
+   "nome": "AD OEIRAS B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/6.png"
+  },
+  {
+   "id": 2052,
+   "nome": "AE FISICA D B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 2054,
+   "nome": "CD PAÇO ARCOS B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/7.png"
+  },
+  {
+   "id": 2055,
+   "nome": "CRIAR-T GD",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/17.png"
+  },
+  {
+   "id": 2056,
+   "nome": "S ALENQUER BENFICA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/5.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": []
+}

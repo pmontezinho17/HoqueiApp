@@ -1,0 +1,38 @@
+{
+ "competicao": {
+  "id": 463,
+  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE D",
+  "categoria": "ESCOLARES"
+ },
+ "competicao_id": 463,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 2034,
+   "nome": "A STUART HCM B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/10.png"
+  },
+  {
+   "id": 2036,
+   "nome": "AD OEIRAS B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/6.png"
+  },
+  {
+   "id": 2037,
+   "nome": "CD PAÇO ARCOS B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/7.png"
+  },
+  {
+   "id": 2035,
+   "nome": "SC TORRES",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/25.png"
+  },
+  {
+   "id": 2038,
+   "nome": "SPORTING CP B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": []
+}

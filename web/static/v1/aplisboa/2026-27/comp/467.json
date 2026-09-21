@@ -1,0 +1,43 @@
+{
+ "competicao": {
+  "id": 467,
+  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE C",
+  "categoria": "BENJAMINS"
+ },
+ "competicao_id": 467,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 2059,
+   "nome": "APAC TOJAL",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/12.png"
+  },
+  {
+   "id": 2058,
+   "nome": "CACO B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/26.png"
+  },
+  {
+   "id": 2061,
+   "nome": "HC LOURINHÃ",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/21.png"
+  },
+  {
+   "id": 2062,
+   "nome": "PAREDE FC",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/3.png"
+  },
+  {
+   "id": 2060,
+   "nome": "SPORTING CP",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
+  },
+  {
+   "id": 2057,
+   "nome": "UD VILAFRANQUENSE",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/15.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": []
+}

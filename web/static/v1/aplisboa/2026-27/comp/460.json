@@ -1,0 +1,33 @@
+{
+ "competicao": {
+  "id": 460,
+  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE A",
+  "categoria": "ESCOLARES"
+ },
+ "competicao_id": 460,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 2022,
+   "nome": "AD OEIRAS A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/6.png"
+  },
+  {
+   "id": 2020,
+   "nome": "FSE/AJ SALESIANA A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/9.png"
+  },
+  {
+   "id": 2021,
+   "nome": "S ALENQUER BENFICA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/5.png"
+  },
+  {
+   "id": 2023,
+   "nome": "SPORTING CP A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": []
+}

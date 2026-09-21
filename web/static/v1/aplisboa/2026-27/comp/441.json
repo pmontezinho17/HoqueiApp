@@ -1,0 +1,578 @@
+{
+ "competicao": {
+  "id": 441,
+  "nome": "TORNEIO ABERTURA APL SUB-15",
+  "categoria": "SUB-15"
+ },
+ "competicao_id": 441,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 1877,
+   "nome": "A STUART HCM A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/10.png"
+  },
+  {
+   "id": 1874,
+   "nome": "A STUART HCM B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/10.png"
+  },
+  {
+   "id": 1880,
+   "nome": "AD OEIRAS A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/6.png"
+  },
+  {
+   "id": 1870,
+   "nome": "AD OEIRAS B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/6.png"
+  },
+  {
+   "id": 1873,
+   "nome": "AE FISICA A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1868,
+   "nome": "AE FISICA B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1871,
+   "nome": "APAC TOJAL",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/12.png"
+  },
+  {
+   "id": 1882,
+   "nome": "CD PAÇO ARCOS B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/7.png"
+  },
+  {
+   "id": 1867,
+   "nome": "CRIAR-T GD",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/17.png"
+  },
+  {
+   "id": 1872,
+   "nome": "FSE/AJ SALESIANA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/9.png"
+  },
+  {
+   "id": 1879,
+   "nome": "HC LOURINHA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/21.png"
+  },
+  {
+   "id": 1876,
+   "nome": "HC SINTRA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/8.png"
+  },
+  {
+   "id": 1875,
+   "nome": "PAREDE FC",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/3.png"
+  },
+  {
+   "id": 1878,
+   "nome": "SL BENFICA B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/1.png"
+  },
+  {
+   "id": 1869,
+   "nome": "SPORTING CP B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
+  },
+  {
+   "id": 1881,
+   "nome": "UD VILAFRANQUENSE",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/15.png"
+  }
+ ],
+ "jogos": [
+  {
+   "id": 9379,
+   "numero": "79",
+   "grupo": "A",
+   "jornada": "1ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "12:00:00",
+   "casa": "CRIAR-T GD",
+   "fora": "SPORTING CP B",
+   "golos_casa": 0,
+   "golos_fora": 6,
+   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+  },
+  {
+   "id": 9382,
+   "numero": "82",
+   "grupo": "B",
+   "jornada": "1ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "12:15:00",
+   "casa": "AD OEIRAS B",
+   "fora": "FSE/AJ SALESIANA",
+   "golos_casa": 2,
+   "golos_fora": 1,
+   "recinto": "PAV. A.P.A.C.TOJAL"
+  },
+  {
+   "id": 9385,
+   "numero": "85",
+   "grupo": "C",
+   "jornada": "1ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "10:45:00",
+   "casa": "AE FISICA A",
+   "fora": "PAREDE FC",
+   "golos_casa": 2,
+   "golos_fora": 0,
+   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+  },
+  {
+   "id": 9388,
+   "numero": "88",
+   "grupo": "D",
+   "jornada": "1ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "10:00:00",
+   "casa": "HC SINTRA",
+   "fora": "SL BENFICA B",
+   "golos_casa": 0,
+   "golos_fora": 4,
+   "recinto": "PAV.S.ALENQUER E BENFICA"
+  },
+  {
+   "id": 9391,
+   "numero": "91",
+   "grupo": "E",
+   "jornada": "1ª JORNADA",
+   "data": "2026-09-11",
+   "hora": "21:45:00",
+   "casa": "HC LOURINHA",
+   "fora": "UD VILAFRANQUENSE",
+   "golos_casa": 2,
+   "golos_fora": 4,
+   "recinto": "PAV. VILAFRANQUENSE"
+  },
+  {
+   "id": 9394,
+   "numero": "94",
+   "grupo": "E",
+   "jornada": "1ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "10:15:00",
+   "casa": "CD PAÇO ARCOS B",
+   "fora": "HC LOURINHA",
+   "golos_casa": 2,
+   "golos_fora": 1,
+   "recinto": "PAV. VILAFRANQUENSE"
+  },
+  {
+   "id": 9380,
+   "numero": "80",
+   "grupo": "A",
+   "jornada": "2ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "09:30:00",
+   "casa": "AE FISICA B",
+   "fora": "CRIAR-T GD",
+   "golos_casa": 4,
+   "golos_fora": 4,
+   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+  },
+  {
+   "id": 9383,
+   "numero": "83",
+   "grupo": "B",
+   "jornada": "2ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "09:30:00",
+   "casa": "APAC TOJAL",
+   "fora": "AD OEIRAS B",
+   "golos_casa": 2,
+   "golos_fora": 4,
+   "recinto": "PAV. A.P.A.C.TOJAL"
+  },
+  {
+   "id": 9386,
+   "numero": "86",
+   "grupo": "C",
+   "jornada": "2ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "17:00:00",
+   "casa": "A STUART HCM B",
+   "fora": "AE FISICA A",
+   "golos_casa": 0,
+   "golos_fora": 17,
+   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+  },
+  {
+   "id": 9389,
+   "numero": "89",
+   "grupo": "D",
+   "jornada": "2ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "14:00:00",
+   "casa": "A STUART HCM A",
+   "fora": "HC SINTRA",
+   "golos_casa": 9,
+   "golos_fora": 0,
+   "recinto": "PAV.S.ALENQUER E BENFICA"
+  },
+  {
+   "id": 9392,
+   "numero": "92",
+   "grupo": "E",
+   "jornada": "2ª JORNADA",
+   "data": "2026-09-11",
+   "hora": "20:30:00",
+   "casa": "AD OEIRAS A",
+   "fora": "CD PAÇO ARCOS B",
+   "golos_casa": 4,
+   "golos_fora": 1,
+   "recinto": "PAV. VILAFRANQUENSE"
+  },
+  {
+   "id": 9395,
+   "numero": "95",
+   "grupo": "E",
+   "jornada": "2ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "16:45:00",
+   "casa": "UD VILAFRANQUENSE",
+   "fora": "CD PAÇO ARCOS B",
+   "golos_casa": 2,
+   "golos_fora": 4,
+   "recinto": "PAV. VILAFRANQUENSE"
+  },
+  {
+   "id": 9381,
+   "numero": "81",
+   "grupo": "A",
+   "jornada": "3ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "15:45:00",
+   "casa": "SPORTING CP B",
+   "fora": "AE FISICA B",
+   "golos_casa": 3,
+   "golos_fora": 1,
+   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+  },
+  {
+   "id": 9384,
+   "numero": "84",
+   "grupo": "B",
+   "jornada": "3ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "16:00:00",
+   "casa": "FSE/AJ SALESIANA",
+   "fora": "APAC TOJAL",
+   "golos_casa": 3,
+   "golos_fora": 5,
+   "recinto": "PAV. A.P.A.C.TOJAL"
+  },
+  {
+   "id": 9387,
+   "numero": "87",
+   "grupo": "C",
+   "jornada": "3ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "14:30:00",
+   "casa": "PAREDE FC",
+   "fora": "A STUART HCM B",
+   "golos_casa": 6,
+   "golos_fora": 2,
+   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+  },
+  {
+   "id": 9390,
+   "numero": "90",
+   "grupo": "D",
+   "jornada": "3ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "17:15:00",
+   "casa": "SL BENFICA B",
+   "fora": "A STUART HCM A",
+   "golos_casa": 5,
+   "golos_fora": 1,
+   "recinto": "PAV.S.ALENQUER E BENFICA"
+  },
+  {
+   "id": 9393,
+   "numero": "93",
+   "grupo": "E",
+   "jornada": "3ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "09:00:00",
+   "casa": "UD VILAFRANQUENSE",
+   "fora": "AD OEIRAS A",
+   "golos_casa": 0,
+   "golos_fora": 5,
+   "recinto": "PAV. VILAFRANQUENSE"
+  },
+  {
+   "id": 9396,
+   "numero": "96",
+   "grupo": "E",
+   "jornada": "3ª JORNADA",
+   "data": "2026-09-13",
+   "hora": "14:00:00",
+   "casa": "HC LOURINHA",
+   "fora": "AD OEIRAS A",
+   "golos_casa": 1,
+   "golos_fora": 6,
+   "recinto": "PAV. VILAFRANQUENSE"
+  }
+ ],
+ "classificacao": [
+  {
+   "nome": "SERIE A",
+   "linhas": [
+    {
+     "posicao": 1,
+     "equipa": "SPORTING CP B",
+     "logo": "/intranet/logos/2.png",
+     "jogos": 2,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 9,
+     "golos_sofridos": 1,
+     "diferenca": 8,
+     "racio": 9.0,
+     "pontos": 6
+    },
+    {
+     "posicao": 2,
+     "equipa": "AE FISICA B",
+     "logo": "/intranet/logos/11.png",
+     "jogos": 2,
+     "vitorias": 0,
+     "empates": 1,
+     "derrotas": 1,
+     "golos_marcados": 5,
+     "golos_sofridos": 7,
+     "diferenca": -2,
+     "racio": 0.71,
+     "pontos": 1
+    },
+    {
+     "posicao": 3,
+     "equipa": "CRIAR-T GD",
+     "logo": "/intranet/logos/17.png",
+     "jogos": 2,
+     "vitorias": 0,
+     "empates": 1,
+     "derrotas": 1,
+     "golos_marcados": 4,
+     "golos_sofridos": 10,
+     "diferenca": -6,
+     "racio": 0.4,
+     "pontos": 1
+    }
+   ]
+  },
+  {
+   "nome": "SERIE B",
+   "linhas": [
+    {
+     "posicao": 1,
+     "equipa": "AD OEIRAS B",
+     "logo": "/intranet/logos/6.png",
+     "jogos": 2,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 6,
+     "golos_sofridos": 3,
+     "diferenca": 3,
+     "racio": 2.0,
+     "pontos": 6
+    },
+    {
+     "posicao": 2,
+     "equipa": "APAC TOJAL",
+     "logo": "/intranet/logos/12.png",
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 7,
+     "golos_sofridos": 7,
+     "diferenca": 0,
+     "racio": 1.0,
+     "pontos": 3
+    },
+    {
+     "posicao": 3,
+     "equipa": "FSE/AJ SALESIANA",
+     "logo": "/intranet/logos/9.png",
+     "jogos": 2,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 4,
+     "golos_sofridos": 7,
+     "diferenca": -3,
+     "racio": 0.57,
+     "pontos": 0
+    }
+   ]
+  },
+  {
+   "nome": "SERIE C",
+   "linhas": [
+    {
+     "posicao": 1,
+     "equipa": "AE FISICA A",
+     "logo": "/intranet/logos/11.png",
+     "jogos": 2,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 19,
+     "golos_sofridos": 0,
+     "diferenca": 19,
+     "racio": null,
+     "pontos": 6
+    },
+    {
+     "posicao": 2,
+     "equipa": "PAREDE FC",
+     "logo": "/intranet/logos/3.png",
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 6,
+     "golos_sofridos": 4,
+     "diferenca": 2,
+     "racio": 1.5,
+     "pontos": 3
+    },
+    {
+     "posicao": 3,
+     "equipa": "A STUART HCM B",
+     "logo": "/intranet/logos/10.png",
+     "jogos": 2,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 2,
+     "golos_sofridos": 23,
+     "diferenca": -21,
+     "racio": 0.09,
+     "pontos": 0
+    }
+   ]
+  },
+  {
+   "nome": "SERIE D",
+   "linhas": [
+    {
+     "posicao": 1,
+     "equipa": "SL BENFICA B",
+     "logo": "/intranet/logos/1.png",
+     "jogos": 2,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 9,
+     "golos_sofridos": 1,
+     "diferenca": 8,
+     "racio": 9.0,
+     "pontos": 6
+    },
+    {
+     "posicao": 2,
+     "equipa": "A STUART HCM A",
+     "logo": "/intranet/logos/10.png",
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 10,
+     "golos_sofridos": 5,
+     "diferenca": 5,
+     "racio": 2.0,
+     "pontos": 3
+    },
+    {
+     "posicao": 3,
+     "equipa": "HC SINTRA",
+     "logo": "/intranet/logos/8.png",
+     "jogos": 2,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 0,
+     "golos_sofridos": 13,
+     "diferenca": -13,
+     "racio": 0.0,
+     "pontos": 0
+    }
+   ]
+  },
+  {
+   "nome": "SERIE E",
+   "linhas": [
+    {
+     "posicao": 1,
+     "equipa": "AD OEIRAS A",
+     "logo": "/intranet/logos/6.png",
+     "jogos": 3,
+     "vitorias": 3,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 15,
+     "golos_sofridos": 2,
+     "diferenca": 13,
+     "racio": 7.5,
+     "pontos": 9
+    },
+    {
+     "posicao": 2,
+     "equipa": "CD PAÇO ARCOS B",
+     "logo": "/intranet/logos/7.png",
+     "jogos": 3,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 7,
+     "golos_sofridos": 7,
+     "diferenca": 0,
+     "racio": 1.0,
+     "pontos": 6
+    },
+    {
+     "posicao": 3,
+     "equipa": "UD VILAFRANQUENSE",
+     "logo": "/intranet/logos/15.png",
+     "jogos": 3,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 6,
+     "golos_sofridos": 11,
+     "diferenca": -5,
+     "racio": 0.55,
+     "pontos": 3
+    },
+    {
+     "posicao": 4,
+     "equipa": "HC LOURINHA",
+     "logo": "/intranet/logos/21.png",
+     "jogos": 3,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 3,
+     "golos_marcados": 4,
+     "golos_sofridos": 12,
+     "diferenca": -8,
+     "racio": 0.33,
+     "pontos": 0
+    }
+   ]
+  }
+ ]
+}

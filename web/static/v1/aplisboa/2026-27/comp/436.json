@@ -1,0 +1,33 @@
+{
+ "competicao": {
+  "id": 436,
+  "nome": "SUPERTAÇA APL SUB-17",
+  "categoria": "SUB-17"
+ },
+ "competicao_id": 436,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 1844,
+   "nome": "AE FISICA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1842,
+   "nome": "CD PAÇO ARCOS",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/7.png"
+  },
+  {
+   "id": 1843,
+   "nome": "SL BENFICA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/1.png"
+  },
+  {
+   "id": 1841,
+   "nome": "SPORTING CP",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": []
+}

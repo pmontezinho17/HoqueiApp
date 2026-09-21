@@ -1,0 +1,123 @@
+{
+ "competicao": {
+  "id": 434,
+  "nome": "ZECA PINTO",
+  "categoria": "TORNEIOS PARTICULARES"
+ },
+ "competicao_id": 434,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 1829,
+   "nome": "AA COIMBRA (S15)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/43.png"
+  },
+  {
+   "id": 1814,
+   "nome": "AE FISICA D (B)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1816,
+   "nome": "AE FISICA D (E)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1825,
+   "nome": "AE FISICA D (S)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1818,
+   "nome": "AE FISICA D (S13)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1820,
+   "nome": "AE FISICA D (S15)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1822,
+   "nome": "AE FISICA D (S17)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1824,
+   "nome": "AE FISICA D (S19)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1815,
+   "nome": "AE FISICA D B (B)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1817,
+   "nome": "AE FISICA D B (E)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1819,
+   "nome": "AE FISICA D B (S13)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1821,
+   "nome": "AE FISICA D B (S15)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1823,
+   "nome": "AE FISICA D B (S17)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1912,
+   "nome": "CACO (S15)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/26.png"
+  },
+  {
+   "id": 1910,
+   "nome": "CACO A (S13)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/26.png"
+  },
+  {
+   "id": 1911,
+   "nome": "CACO B (S13)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/26.png"
+  },
+  {
+   "id": 1826,
+   "nome": "CD MAFRA (B)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/32.png"
+  },
+  {
+   "id": 1830,
+   "nome": "HC MEALHADA (S17)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/64.png"
+  },
+  {
+   "id": 1831,
+   "nome": "HC MEALHADA (S19)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/64.png"
+  },
+  {
+   "id": 1832,
+   "nome": "HC MEALHADA (S23)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/64.png"
+  },
+  {
+   "id": 1827,
+   "nome": "HC TURQUEL (B)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/32.png"
+  },
+  {
+   "id": 1828,
+   "nome": "HC TURQUEL (E)",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/32.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": []
+}

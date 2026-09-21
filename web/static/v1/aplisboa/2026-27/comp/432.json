@@ -1,0 +1,651 @@
+{
+ "competicao": {
+  "id": 432,
+  "nome": "TAÇA JESUS CORREIA - SENIORES MASCULINOS",
+  "categoria": "SENIORES MASCULINOS"
+ },
+ "competicao_id": 432,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 1801,
+   "nome": "A STUART HCM",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/10.png"
+  },
+  {
+   "id": 1807,
+   "nome": "AD OEIRAS",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/6.png"
+  },
+  {
+   "id": 1792,
+   "nome": "AE FISICA D",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 1800,
+   "nome": "APAC TOJAL",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/12.png"
+  },
+  {
+   "id": 1796,
+   "nome": "CD PAÇO ARCOS",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/7.png"
+  },
+  {
+   "id": 1805,
+   "nome": "FSE/AJ SALESIANA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/9.png"
+  },
+  {
+   "id": 1795,
+   "nome": "GDS CASCAIS",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/28.png"
+  },
+  {
+   "id": 1806,
+   "nome": "GRF MURCHES",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/31.png"
+  },
+  {
+   "id": 1804,
+   "nome": "HC LOURINHA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/21.png"
+  },
+  {
+   "id": 1793,
+   "nome": "HC SINTRA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/8.png"
+  },
+  {
+   "id": 1803,
+   "nome": "PAREDE FC",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/3.png"
+  },
+  {
+   "id": 1798,
+   "nome": "S ALENQUER B",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/5.png"
+  },
+  {
+   "id": 1799,
+   "nome": "SC TORRES",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/25.png"
+  },
+  {
+   "id": 1802,
+   "nome": "SL BENFICA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/1.png"
+  },
+  {
+   "id": 1794,
+   "nome": "SPORTING CP",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
+  },
+  {
+   "id": 1797,
+   "nome": "UD VILAFRANQUENSE",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/15.png"
+  }
+ ],
+ "jogos": [
+  {
+   "id": 9289,
+   "numero": "1",
+   "grupo": "A",
+   "jornada": "1ª JORNADA - 1ª FASE",
+   "data": "2026-09-19",
+   "hora": "10:00:00",
+   "casa": "AE FISICA D",
+   "fora": "SPORTING CP",
+   "golos_casa": 1,
+   "golos_fora": 1,
+   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+  },
+  {
+   "id": 9290,
+   "numero": "2",
+   "grupo": "A",
+   "jornada": "1ª JORNADA - 1ª FASE",
+   "data": "2026-09-19",
+   "hora": "18:00:00",
+   "casa": "HC SINTRA",
+   "fora": "GDS CASCAIS",
+   "golos_casa": 5,
+   "golos_fora": 3,
+   "recinto": "PAV. HC SINTRA"
+  },
+  {
+   "id": 9295,
+   "numero": "7",
+   "grupo": "B",
+   "jornada": "1ª JORNADA - 1ª FASE",
+   "data": "2026-09-19",
+   "hora": "17:00:00",
+   "casa": "CD PAÇO ARCOS",
+   "fora": "S ALENQUER B",
+   "golos_casa": 7,
+   "golos_fora": 2,
+   "recinto": "PAV. PAÇO DE ARCOS"
+  },
+  {
+   "id": 9296,
+   "numero": "8",
+   "grupo": "B",
+   "jornada": "1ª JORNADA - 1ª FASE",
+   "data": "2026-09-19",
+   "hora": "18:30:00",
+   "casa": "UD VILAFRANQUENSE",
+   "fora": "SC TORRES",
+   "golos_casa": 3,
+   "golos_fora": 2,
+   "recinto": "PAV. VILAFRANQUENSE"
+  },
+  {
+   "id": 9301,
+   "numero": "13",
+   "grupo": "C",
+   "jornada": "1ª JORNADA - 1ª FASE",
+   "data": "2026-09-19",
+   "hora": "17:00:00",
+   "casa": "APAC TOJAL",
+   "fora": "SL BENFICA",
+   "golos_casa": 0,
+   "golos_fora": 2,
+   "recinto": "PAV. A.P.A.C.TOJAL"
+  },
+  {
+   "id": 9302,
+   "numero": "14",
+   "grupo": "C",
+   "jornada": "1ª JORNADA - 1ª FASE",
+   "data": "2026-09-19",
+   "hora": "19:30:00",
+   "casa": "A STUART HCM",
+   "fora": "PAREDE FC",
+   "golos_casa": 1,
+   "golos_fora": 7,
+   "recinto": "PAV.PROF.JOÃO CAMPELO"
+  },
+  {
+   "id": 9307,
+   "numero": "19",
+   "grupo": "D",
+   "jornada": "1ª JORNADA - 1ª FASE",
+   "data": "2026-09-23",
+   "hora": "21:45:00",
+   "casa": "HC LOURINHA",
+   "fora": "AD OEIRAS",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. A.D.OEIRAS"
+  },
+  {
+   "id": 9308,
+   "numero": "20",
+   "grupo": "D",
+   "jornada": "1ª JORNADA - 1ª FASE",
+   "data": "2026-09-19",
+   "hora": "18:00:00",
+   "casa": "FSE/AJ SALESIANA",
+   "fora": "GRF MURCHES",
+   "golos_casa": 2,
+   "golos_fora": 6,
+   "recinto": "PAV. SALESIANA"
+  },
+  {
+   "id": 9291,
+   "numero": "3",
+   "grupo": "A",
+   "jornada": "2ª JORNADA - 1ª FASE",
+   "data": "2026-09-27",
+   "hora": "16:00:00",
+   "casa": "HC SINTRA",
+   "fora": "SPORTING CP",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. HC SINTRA"
+  },
+  {
+   "id": 9292,
+   "numero": "4",
+   "grupo": "A",
+   "jornada": "2ª JORNADA - 1ª FASE",
+   "data": "2026-09-25",
+   "hora": "22:00:00",
+   "casa": "GDS CASCAIS",
+   "fora": "AE FISICA D",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. CASCAIS"
+  },
+  {
+   "id": 9297,
+   "numero": "9",
+   "grupo": "B",
+   "jornada": "2ª JORNADA - 1ª FASE",
+   "data": "2026-09-26",
+   "hora": "18:30:00",
+   "casa": "UD VILAFRANQUENSE",
+   "fora": "S ALENQUER B",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. VILAFRANQUENSE"
+  },
+  {
+   "id": 9298,
+   "numero": "10",
+   "grupo": "B",
+   "jornada": "2ª JORNADA - 1ª FASE",
+   "data": "2026-09-27",
+   "hora": "16:00:00",
+   "casa": "SC TORRES",
+   "fora": "CD PAÇO ARCOS",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. SC TORRES"
+  },
+  {
+   "id": 9303,
+   "numero": "15",
+   "grupo": "C",
+   "jornada": "2ª JORNADA - 1ª FASE",
+   "data": "2026-09-25",
+   "hora": "21:30:00",
+   "casa": "APAC TOJAL",
+   "fora": "PAREDE FC",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. A.P.A.C.TOJAL"
+  },
+  {
+   "id": 9304,
+   "numero": "16",
+   "grupo": "C",
+   "jornada": "2ª JORNADA - 1ª FASE",
+   "data": "2026-09-25",
+   "hora": "21:45:00",
+   "casa": "A STUART HCM",
+   "fora": "SL BENFICA",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV.PROF.JOÃO CAMPELO"
+  },
+  {
+   "id": 9309,
+   "numero": "21",
+   "grupo": "D",
+   "jornada": "2ª JORNADA - 1ª FASE",
+   "data": "2026-09-27",
+   "hora": "16:00:00",
+   "casa": "FSE/AJ SALESIANA",
+   "fora": "AD OEIRAS",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. SALESIANA"
+  },
+  {
+   "id": 9310,
+   "numero": "22",
+   "grupo": "D",
+   "jornada": "2ª JORNADA - 1ª FASE",
+   "data": "2026-09-27",
+   "hora": "17:00:00",
+   "casa": "HC LOURINHA",
+   "fora": "GRF MURCHES",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+  },
+  {
+   "id": 9293,
+   "numero": "5",
+   "grupo": "A",
+   "jornada": "3ª JORNADA - 1ª FASE",
+   "data": "2026-10-03",
+   "hora": "20:00:00",
+   "casa": "GDS CASCAIS",
+   "fora": "SPORTING CP",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. CASCAIS"
+  },
+  {
+   "id": 9294,
+   "numero": "6",
+   "grupo": "A",
+   "jornada": "3ª JORNADA - 1ª FASE",
+   "data": "2026-10-03",
+   "hora": "18:00:00",
+   "casa": "HC SINTRA",
+   "fora": "AE FISICA D",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. HC SINTRA"
+  },
+  {
+   "id": 9299,
+   "numero": "11",
+   "grupo": "B",
+   "jornada": "3ª JORNADA - 1ª FASE",
+   "data": "2026-10-03",
+   "hora": "18:00:00",
+   "casa": "SC TORRES",
+   "fora": "S ALENQUER B",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. SC TORRES"
+  },
+  {
+   "id": 9300,
+   "numero": "12",
+   "grupo": "B",
+   "jornada": "3ª JORNADA - 1ª FASE",
+   "data": "2026-10-03",
+   "hora": "18:30:00",
+   "casa": "UD VILAFRANQUENSE",
+   "fora": "CD PAÇO ARCOS",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. VILAFRANQUENSE"
+  },
+  {
+   "id": 9305,
+   "numero": "17",
+   "grupo": "C",
+   "jornada": "3ª JORNADA - 1ª FASE",
+   "data": "2026-10-03",
+   "hora": "19:30:00",
+   "casa": "A STUART HCM",
+   "fora": "APAC TOJAL",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV.PROF.JOÃO CAMPELO"
+  },
+  {
+   "id": 9306,
+   "numero": "18",
+   "grupo": "C",
+   "jornada": "3ª JORNADA - 1ª FASE",
+   "data": "2026-09-22",
+   "hora": "21:45:00",
+   "casa": "PAREDE FC",
+   "fora": "SL BENFICA",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. PAREDE"
+  },
+  {
+   "id": 9311,
+   "numero": "23",
+   "grupo": "D",
+   "jornada": "3ª JORNADA - 1ª FASE",
+   "data": "2026-10-03",
+   "hora": "16:00:00",
+   "casa": "GRF MURCHES",
+   "fora": "AD OEIRAS",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. MURCHES"
+  },
+  {
+   "id": 9312,
+   "numero": "24",
+   "grupo": "D",
+   "jornada": "3ª JORNADA - 1ª FASE",
+   "data": "2026-10-03",
+   "hora": "19:30:00",
+   "casa": "HC LOURINHA",
+   "fora": "FSE/AJ SALESIANA",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+  }
+ ],
+ "classificacao": [
+  {
+   "nome": "SERIE A",
+   "linhas": [
+    {
+     "posicao": 1,
+     "equipa": "HC SINTRA",
+     "logo": "/intranet/logos/8.png",
+     "jogos": 1,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 5,
+     "golos_sofridos": 3,
+     "diferenca": 2,
+     "racio": 1.67,
+     "pontos": 3
+    },
+    {
+     "posicao": 2,
+     "equipa": "AE FISICA D",
+     "logo": "/intranet/logos/11.png",
+     "jogos": 1,
+     "vitorias": 0,
+     "empates": 1,
+     "derrotas": 0,
+     "golos_marcados": 1,
+     "golos_sofridos": 1,
+     "diferenca": 0,
+     "racio": 1.0,
+     "pontos": 1
+    },
+    {
+     "posicao": 3,
+     "equipa": "SPORTING CP",
+     "logo": "/intranet/logos/2.png",
+     "jogos": 1,
+     "vitorias": 0,
+     "empates": 1,
+     "derrotas": 0,
+     "golos_marcados": 1,
+     "golos_sofridos": 1,
+     "diferenca": 0,
+     "racio": 1.0,
+     "pontos": 1
+    },
+    {
+     "posicao": 4,
+     "equipa": "GDS CASCAIS",
+     "logo": "/intranet/logos/28.png",
+     "jogos": 1,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 3,
+     "golos_sofridos": 5,
+     "diferenca": -2,
+     "racio": 0.6,
+     "pontos": 0
+    }
+   ]
+  },
+  {
+   "nome": "SERIE B",
+   "linhas": [
+    {
+     "posicao": 1,
+     "equipa": "CD PAÇO ARCOS",
+     "logo": "/intranet/logos/7.png",
+     "jogos": 1,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 7,
+     "golos_sofridos": 2,
+     "diferenca": 5,
+     "racio": 3.5,
+     "pontos": 3
+    },
+    {
+     "posicao": 2,
+     "equipa": "UD VILAFRANQUENSE",
+     "logo": "/intranet/logos/15.png",
+     "jogos": 1,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 3,
+     "golos_sofridos": 2,
+     "diferenca": 1,
+     "racio": 1.5,
+     "pontos": 3
+    },
+    {
+     "posicao": 3,
+     "equipa": "SC TORRES",
+     "logo": "/intranet/logos/25.png",
+     "jogos": 1,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 2,
+     "golos_sofridos": 3,
+     "diferenca": -1,
+     "racio": 0.67,
+     "pontos": 0
+    },
+    {
+     "posicao": 4,
+     "equipa": "S ALENQUER B",
+     "logo": "/intranet/logos/5.png",
+     "jogos": 1,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 2,
+     "golos_sofridos": 7,
+     "diferenca": -5,
+     "racio": 0.29,
+     "pontos": 0
+    }
+   ]
+  },
+  {
+   "nome": "SERIE C",
+   "linhas": [
+    {
+     "posicao": 1,
+     "equipa": "PAREDE FC",
+     "logo": "/intranet/logos/3.png",
+     "jogos": 1,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 7,
+     "golos_sofridos": 1,
+     "diferenca": 6,
+     "racio": 7.0,
+     "pontos": 3
+    },
+    {
+     "posicao": 2,
+     "equipa": "SL BENFICA",
+     "logo": "/intranet/logos/1.png",
+     "jogos": 1,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 2,
+     "golos_sofridos": 0,
+     "diferenca": 2,
+     "racio": null,
+     "pontos": 3
+    },
+    {
+     "posicao": 3,
+     "equipa": "APAC TOJAL",
+     "logo": "/intranet/logos/12.png",
+     "jogos": 1,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 0,
+     "golos_sofridos": 2,
+     "diferenca": -2,
+     "racio": 0.0,
+     "pontos": 0
+    },
+    {
+     "posicao": 4,
+     "equipa": "A STUART HCM",
+     "logo": "/intranet/logos/10.png",
+     "jogos": 1,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 1,
+     "golos_sofridos": 7,
+     "diferenca": -6,
+     "racio": 0.14,
+     "pontos": 0
+    }
+   ]
+  },
+  {
+   "nome": "SERIE D",
+   "linhas": [
+    {
+     "posicao": 1,
+     "equipa": "GRF MURCHES",
+     "logo": "/intranet/logos/31.png",
+     "jogos": 1,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 6,
+     "golos_sofridos": 2,
+     "diferenca": 4,
+     "racio": 3.0,
+     "pontos": 3
+    },
+    {
+     "posicao": 2,
+     "equipa": "AD OEIRAS",
+     "logo": "/intranet/logos/6.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 3,
+     "equipa": "HC LOURINHA",
+     "logo": "/intranet/logos/21.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 4,
+     "equipa": "FSE/AJ SALESIANA",
+     "logo": "/intranet/logos/9.png",
+     "jogos": 1,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 2,
+     "golos_sofridos": 6,
+     "diferenca": -4,
+     "racio": 0.33,
+     "pontos": 0
+    }
+   ]
+  }
+ ]
+}

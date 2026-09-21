@@ -39,3 +39,8 @@ def ficha_escolares() -> str:
 @pytest.fixture(scope="session")
 def ficha_por_disputar() -> str:
     return _ler_ficha("apl-ficha-por-disputar.html")
+
+
+@pytest.fixture(scope="session")
+def html_classificacao() -> str:
+    return _ler("apl-classificacao-432.html")

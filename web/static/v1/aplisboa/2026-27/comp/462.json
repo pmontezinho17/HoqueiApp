@@ -1,0 +1,38 @@
+{
+ "competicao": {
+  "id": 462,
+  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE C",
+  "categoria": "ESCOLARES"
+ },
+ "competicao_id": 462,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 2030,
+   "nome": "A STUART HCM A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/10.png"
+  },
+  {
+   "id": 2029,
+   "nome": "APAC TOJAL",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/12.png"
+  },
+  {
+   "id": 2031,
+   "nome": "CRIAR-T GD",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/17.png"
+  },
+  {
+   "id": 2032,
+   "nome": "HC LOURINHÃ",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/21.png"
+  },
+  {
+   "id": 2033,
+   "nome": "PAREDE FC A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/3.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": []
+}

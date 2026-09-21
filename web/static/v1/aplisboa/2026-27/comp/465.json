@@ -1,0 +1,53 @@
+{
+ "competicao": {
+  "id": 465,
+  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
+  "categoria": "BENJAMINS"
+ },
+ "competicao_id": 465,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 2049,
+   "nome": "A STUART HCM",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/10.png"
+  },
+  {
+   "id": 2044,
+   "nome": "AD OEIRAS A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/6.png"
+  },
+  {
+   "id": 2051,
+   "nome": "AE FISICA D A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 2050,
+   "nome": "CACO A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/26.png"
+  },
+  {
+   "id": 2047,
+   "nome": "CD PAÇO ARCOS A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/7.png"
+  },
+  {
+   "id": 2048,
+   "nome": "FSE/AJ SALESIANA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/9.png"
+  },
+  {
+   "id": 2046,
+   "nome": "HC SINTRA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/8.png"
+  },
+  {
+   "id": 2045,
+   "nome": "SC TORRES",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/25.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": []
+}

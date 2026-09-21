@@ -1,0 +1,38 @@
+{
+ "competicao": {
+  "id": 461,
+  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE B",
+  "categoria": "ESCOLARES"
+ },
+ "competicao_id": 461,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 2024,
+   "nome": "AE FISICA D A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/11.png"
+  },
+  {
+   "id": 2026,
+   "nome": "CACO A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/26.png"
+  },
+  {
+   "id": 2028,
+   "nome": "CD PAÇO ARCOS A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/7.png"
+  },
+  {
+   "id": 2025,
+   "nome": "HC SINTRA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/8.png"
+  },
+  {
+   "id": 2027,
+   "nome": "UD VILAFRANQUENSE A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/15.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": []
+}

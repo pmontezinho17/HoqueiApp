@@ -1,0 +1,133 @@
+{
+ "competicao": {
+  "id": 459,
+  "nome": "CAMP. REG. SUB-19 - 1ª FASE - SERIE C",
+  "categoria": "SUB-19"
+ },
+ "competicao_id": 459,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 2017,
+   "nome": "A STUART HCM",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/10.png"
+  },
+  {
+   "id": 2019,
+   "nome": "CACO",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/26.png"
+  },
+  {
+   "id": 2016,
+   "nome": "CD PAÇO ARCOS A",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/7.png"
+  },
+  {
+   "id": 2015,
+   "nome": "FSE/AJ SALESIANA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/9.png"
+  },
+  {
+   "id": 2018,
+   "nome": "PAREDE FC",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/3.png"
+  },
+  {
+   "id": 2014,
+   "nome": "UF ENTRONCAMENTO",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/24.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": [
+  {
+   "nome": null,
+   "linhas": [
+    {
+     "posicao": 1,
+     "equipa": "A STUART HCM",
+     "logo": "/intranet/logos/10.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 2,
+     "equipa": "CACO",
+     "logo": "/intranet/logos/26.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 3,
+     "equipa": "CD PAÇO ARCOS A",
+     "logo": "/intranet/logos/7.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 4,
+     "equipa": "FSE/AJ SALESIANA",
+     "logo": "/intranet/logos/9.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 5,
+     "equipa": "PAREDE FC",
+     "logo": "/intranet/logos/3.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    },
+    {
+     "posicao": 6,
+     "equipa": "UF ENTRONCAMENTO",
+     "logo": "/intranet/logos/24.png",
+     "jogos": 0,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 0,
+     "golos_sofridos": 0,
+     "diferenca": 0,
+     "racio": null,
+     "pontos": 0
+    }
+   ]
+  }
+ ]
+}

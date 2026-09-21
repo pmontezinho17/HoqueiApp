@@ -1,0 +1,33 @@
+{
+ "competicao": {
+  "id": 435,
+  "nome": "SUPERTAÇA APL SUB-19",
+  "categoria": "SUB-19"
+ },
+ "competicao_id": 435,
+ "temporada_id": 5,
+ "equipas": [
+  {
+   "id": 1848,
+   "nome": "AD OEIRAS",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/6.png"
+  },
+  {
+   "id": 1847,
+   "nome": "PAREDE FC",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/3.png"
+  },
+  {
+   "id": 1845,
+   "nome": "SL BENFICA",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/1.png"
+  },
+  {
+   "id": 1846,
+   "nome": "SPORTING CP",
+   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
+  }
+ ],
+ "jogos": [],
+ "classificacao": []
+}
