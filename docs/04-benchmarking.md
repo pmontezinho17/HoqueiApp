@@ -134,9 +134,91 @@ quem sabe o que quer.
 - Selector de temporada na página da competição
 - Sincronizar com o calendário a partir da página da competição
 
+## Menu hamburger: a evidência diz o contrário do objectivo
+
+Pedido a 30/09 como forma de "apresentar o que é possível fazer na aplicação". O objectivo é
+válido; o instrumento faz o oposto.
+
+**Observação directa:** nem a FotMob nem a Sofascore têm hamburger. As duas põem os itens
+secundários como **ícones no canto superior direito** (FotMob: TV, procurar, engrenagem;
+Sofascore: engrenagem) e a navegação principal em separadores visíveis.
+
+**Medições publicadas:**
+
+- utilizadores são **2 a 3× menos prováveis** de descobrir funcionalidades escondidas num
+  hamburger do que em navegação visível;
+- a Spotify trocou o hamburger por separadores inferiores: **+9% de cliques no geral e +30% nos
+  próprios itens de menu**;
+- a recomendação corrente é separadores para **3–5 destinos primários** e hamburger apenas para
+  navegação secundária ou pouco usada.
+
+Ou seja: pôr as vistas num hamburger para as tornar descobertas reduz a descoberta a metade.
+
+**O que fazer em vez disso.** O problema real — dar a entender o que a app faz — resolve-se com:
+
+1. os 3 destinos primários **sempre visíveis** em separadores;
+2. procurar e definições como **ícones no cabeçalho**, como as duas referências fazem;
+3. um destino "Mais" para o secundário: sobre, fonte dos dados, feeds de calendário,
+   notificações, privacidade. Aqui um menu escondido é adequado, porque são coisas que se
+   configuram uma vez.
+
+## Página do clube: aqui o pedido melhora o plano
+
+Pedido a 30/09: "o meu clube, onde podíamos ver todas as informações e estatísticas do meu clube".
+
+Isto **corrige a minha proposta anterior**, que dissolvia O Meu Clube dentro dos Jogos. A
+FotMob tem exactamente uma página de equipa, com separadores próprios:
+
+`Overview · Table · Fixtures · Squad · Player stats · Team stats · Transfers · History`
+
+E mostra, para aquela equipa: posição na tabela, últimos resultados, próximos jogos **de todas
+as competições**, plantel por posição, melhores marcadores e assistentes **do clube**, treinador
+e recinto.
+
+Quase tudo isto já temos nos dados. Traduzido para a nossa realidade:
+
+| Separador | O que mostra | Dados |
+|---|---|---|
+| Resumo | próximo jogo, últimos resultados, posição em cada prova do escalão | ✔ já temos |
+| Calendário | todos os jogos da equipa, de todas as provas do escalão | ✔ já temos |
+| Plantel | jogadores que alinharam, com jogos, golos e assistências | ✔ das fichas |
+| Marcadores | quadro do clube: golos, assistências, defesas | ✔ agregação por equipa |
+| Recinto | pavilhão onde joga em casa | ✔ do campo recinto |
+
+**Decisão de desenho importante:** fazer disto a página **de qualquer clube**, não só dos
+favoritos. Chega-se a ela tocando no nome de uma equipa em qualquer lista, e "O Meu Clube" passa
+a ser um atalho para a tua. Mesmo código, muito mais utilidade — e é assim que as duas
+referências funcionam.
+
+## Estrutura final proposta
+
+Juntando tudo: **3 separadores visíveis, 2 ícones no cabeçalho.**
+
+```
+┌──────────────────────────────────────┐
+│ Hóquei            [procurar] [⚙]    │   ícones: secundário
+├──────────────────────────────────────┤
+│  Jogos   │  O Meu Clube  │ Competições│   3 destinos primários
+└──────────────────────────────────────┘
+```
+
+- **Jogos** (por omissão) — data no topo, as minhas equipas fixadas, competições como secções
+  colapsáveis com contador, fichas de escalão
+- **O Meu Clube** — a página do clube, com os 5 separadores acima; é a página genérica de clube
+  com a tua equipa por omissão
+- **Competições** — lista agrupada por séries → Classificação · Calendário · Marcadores
+- **⚙ (Mais)** — sobre, fonte, feeds de calendário, notificações, privacidade
+- **procurar** — equipas e, mais tarde, jogadores
+
+Cinco separadores que não cabiam passam a três que cabem. E nada do que o utilizador usa fica
+escondido atrás de um ícone.
+
 ## Fontes
 
 - [FotMob](https://www.fotmob.com) e [Sofascore](https://www.sofascore.com) — usadas diretamente a 375×812
 - [Página de liga da FotMob](https://www.fotmob.com/leagues/61/overview/premier-league) — estrutura de separadores
 - [Best Football Live Score Apps UK](https://www.thepunterspage.com/best-live-score-apps/) e
   [FotMob vs SofaScore vs Flashscore](https://www.tikitaka.gg/articles/fotmob-vs-sofascore-vs-flashscore-vs-tiki-taka-best-football) — classificações e avaliações
+- [Página de equipa da FotMob](https://www.fotmob.com/teams/9772/overview/sl-benfica) — separadores de uma página de clube
+- [Hamburger Menu vs Tab Bar](https://www.onething.design/post/hamburger-menu-vs-tab-bar) e
+  [The End of Hamburger Menus?](https://www.simantaparida.com/blog/end-of-hamburger-menus-mobile-navigation) — medições de descoberta e o caso da Spotify
