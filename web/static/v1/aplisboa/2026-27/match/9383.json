@@ -9,7 +9,9 @@
  "data": "2026-09-13",
  "hora": "09:30:00",
  "recinto": "PAV. A.P.A.C.TOJAL",
- "arbitros": [],
+ "arbitros": [
+  "RICARDO GOMES"
+ ],
  "faltas": [
   4,
   4
@@ -17,11 +19,277 @@
  "equipas": [
   {
    "nome": "APAC TOJAL",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "SOFIA VELOSO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "2",
+     "nome": "DANIEL BORGES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "3",
+     "nome": "DUARTE HENRIQUES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "SANTIAGO NICOLAU",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "5",
+     "nome": "LUKAS SOUSA",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "6",
+     "nome": "JOAO ROCHA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "DANIEL DIAS",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "RODRIGO GUERREIRO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "AFONSO MASSANO",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "1/1",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "RAFAEL LOURENÇO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "CLÁUDIA LOURENÇO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "JOÃO MENDES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    },
+    {
+     "numero": null,
+     "nome": "EUNICE DUARTE",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "MAS"
+    }
+   ]
   },
   {
    "nome": "AD OEIRAS B",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "GUILHERME NETO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "2",
+     "nome": "TOMAS DUARTE",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "3",
+     "nome": "DIOGO PINHO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "TOMÁS RIBEIRO",
+     "titular": true,
+     "golos": 3,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "5",
+     "nome": "FILIPE PASSARINHO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "SANTIAGO SILVA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "VICENTE SILVA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "RODRIGO MORAIS",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 3,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "DINIS MATOS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "INÊS NOGUEIRA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "NUNO HENRIQUES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    }
+   ]
   }
  ],
  "cronologia": [
@@ -47,13 +315,13 @@
    "parte": 1,
    "minuto": 1,
    "equipa": "AD OEIRAS B",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "TOMÁS RIBEIRO",
+   "assistencia": "RODRIGO MORAIS",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 1,
-   "texto": "Golo para AD OEIRAS B"
+   "texto": "Golo para AD OEIRAS B | TOMÁS RIBEIRO | Assistência por RODRIGO MORAIS"
   },
   {
    "ordem": 2,
@@ -62,13 +330,13 @@
    "parte": 1,
    "minuto": 3,
    "equipa": "AD OEIRAS B",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "TOMÁS RIBEIRO",
+   "assistencia": "RODRIGO MORAIS",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 2,
-   "texto": "Golo para AD OEIRAS B"
+   "texto": "Golo para AD OEIRAS B | TOMÁS RIBEIRO | Assistência por RODRIGO MORAIS"
   },
   {
    "ordem": 3,
@@ -107,13 +375,13 @@
    "parte": 1,
    "minuto": 10,
    "equipa": "APAC TOJAL",
-   "jogador": null,
+   "jogador": "JOAO ROCHA",
    "assistencia": null,
    "variante": "amarelo",
    "numero": 1,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "1º Cartão Amarelo - APAC TOJAL"
+   "texto": "1º Cartão Amarelo - APAC TOJAL | JOAO ROCHA"
   },
   {
    "ordem": 6,
@@ -137,13 +405,13 @@
    "parte": 1,
    "minuto": 14,
    "equipa": "AD OEIRAS B",
-   "jogador": null,
+   "jogador": "RODRIGO MORAIS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 3,
-   "texto": "Golo para AD OEIRAS B"
+   "texto": "Golo para AD OEIRAS B | RODRIGO MORAIS"
   },
   {
    "ordem": 8,
@@ -197,13 +465,13 @@
    "parte": 2,
    "minuto": 15,
    "equipa": "APAC TOJAL",
-   "jogador": null,
+   "jogador": "AFONSO MASSANO",
    "assistencia": null,
    "variante": "penalti",
    "numero": null,
    "golos_casa": 1,
    "golos_fora": 3,
-   "texto": "Golo para APAC TOJAL de Penálti"
+   "texto": "Golo para APAC TOJAL de Penálti | Marcado por AFONSO MASSANO"
   },
   {
    "ordem": 12,
@@ -242,13 +510,13 @@
    "parte": 2,
    "minuto": 18,
    "equipa": "AD OEIRAS B",
-   "jogador": null,
+   "jogador": "TOMÁS RIBEIRO",
    "assistencia": null,
    "variante": "azul",
    "numero": 1,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "1º Cartão Azul - AD OEIRAS B"
+   "texto": "1º Cartão Azul - AD OEIRAS B | TOMÁS RIBEIRO"
   },
   {
    "ordem": 15,
@@ -257,13 +525,13 @@
    "parte": 2,
    "minuto": 23,
    "equipa": "APAC TOJAL",
-   "jogador": null,
+   "jogador": "LUKAS SOUSA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 3,
-   "texto": "Golo para APAC TOJAL"
+   "texto": "Golo para APAC TOJAL | LUKAS SOUSA"
   },
   {
    "ordem": 16,
@@ -272,13 +540,13 @@
    "parte": 2,
    "minuto": 23,
    "equipa": "AD OEIRAS B",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "TOMÁS RIBEIRO",
+   "assistencia": "RODRIGO MORAIS",
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 4,
-   "texto": "Golo para AD OEIRAS B"
+   "texto": "Golo para AD OEIRAS B | TOMÁS RIBEIRO | Assistência por RODRIGO MORAIS"
   },
   {
    "ordem": 17,
@@ -326,6 +594,5 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 441,
- "individuais_omitidos": true
+ "competicao_id": 441
 }

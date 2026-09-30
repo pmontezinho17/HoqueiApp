@@ -1,0 +1,4 @@
+# As rotas de jogo (/jogo/123) não existem como ficheiro: são resolvidas no browser.
+# Sem isto, abrir ou recarregar o link directo de um jogo dava 404.
+# Os ficheiros estáticos (incluindo /v1/*.json) têm precedência sobre esta regra.
+/*    /index.html   200

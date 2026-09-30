@@ -1,0 +1,15 @@
+# Os dados mudam a cada corrida do cron; 5 min de cache com revalidação em fundo
+# chega para o site abrir instantâneo sem servir resultados velhos.
+/v1/*
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+
+# O SvelteKit versiona estes ficheiros no nome: nunca mudam de conteúdo.
+/_app/immutable/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/manifest.webmanifest
+  Cache-Control: public, max-age=3600
+
+# O service worker nunca pode ficar preso em cache, senão a app deixa de se actualizar.
+/sw.js
+  Cache-Control: no-cache

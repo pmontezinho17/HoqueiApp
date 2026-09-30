@@ -1,7 +1,7 @@
 # Onde retomar
 
-**Última sessão:** 30/09/2026 · **Estado:** PWA com três ecrãs a funcionar sobre dados reais,
-com filtro de privacidade e actualização automática. Falta publicar.
+**Última sessão:** 30/09/2026 · **Estado:** 🟢 **publicado em https://hoquei.pages.dev** —
+três ecrãs sobre dados reais, instalável, com actualização e publicação automáticas.
 
 Feito nesta sessão:
 
@@ -9,7 +9,9 @@ Feito nesta sessão:
 |---|---|
 | B1.10 | ✅ `publicar` gera a árvore `/v1` completa (competições, comp/, match/, meta) |
 | B1.19 | ✅ crawl incremental — 2ª execução: 0 fichas buscadas, 80 já actuais |
-| B1.21 | ✅ **filtro RGPD por escalão** — 36 de 80 fichas sem dados individuais |
+| B1.21 | ⚙️ filtro implementado e testado, mas **desligado por decisão do dono** (30/09) — flag `--anonimizar-formacao` |
+| W2.10 | ✅ **publicado em https://hoquei.pages.dev** (Cloudflare Pages, upload directo) |
+| B1.15 | ✅ a Action publica sozinha depois de comitar dados novos |
 | B1.14 | ✅ GitHub Action com cron (2h ao fim-de-semana, 6h nos dias úteis) |
 | W3.1–W3.3 | ✅ rotas, navegação e competição partilhada por `?comp=` |
 | W3.5 | ✅ ecrã de Classificação, vários grupos, coluna de equipa fixa |
@@ -29,7 +31,7 @@ Experimenta: `cd web && npm run dev` → `/jogo/9308?comp=432`
 ## Próximo passo concreto
 
 ```
-W2.10 + B1.15   publicar em Cloudflare Pages  ← precisa de ti: ligar a conta ao repo
+Segredos no GitHub  CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID  ← precisa de ti
 W3.7            ecrã de Equipa
 W3.8 + B1.20    quadro de melhores marcadores
 B1.9c           boletim oficial → 3ª tab no detalhe de jogo

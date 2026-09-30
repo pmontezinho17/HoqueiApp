@@ -9,7 +9,9 @@
  "data": "2026-09-12",
  "hora": "19:15:00",
  "recinto": "PAV. GIMNO. DA LOURINHÃ",
- "arbitros": [],
+ "arbitros": [
+  "GONÇALO RAMIRES"
+ ],
  "faltas": [
   1,
   4
@@ -17,11 +19,299 @@
  "equipas": [
   {
    "nome": "HC LOURINHA",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "3",
+     "nome": "ALEXANDRE CARRIERE",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 1,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "5",
+     "nome": "VALENTIM MARTINS",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "PEDRO REIS",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/1",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "13",
+     "nome": "PILAR JÚLIO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/1",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "17",
+     "nome": "SIMÃO GONÇALVES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "28",
+     "nome": "MARTIM DIONISIO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "33",
+     "nome": "RAFAEL RODRIGUES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "36",
+     "nome": "RAFAELA PINA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "99",
+     "nome": "MARTIM TORRÃO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "41",
+     "nome": "ANTÓNIO GARCIA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "DENISE TORRÃO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "FÁBIO GINHA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    },
+    {
+     "numero": null,
+     "nome": "MARTIM HENRIQUES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T2"
+    },
+    {
+     "numero": null,
+     "nome": "LUÍS MAURÍCIO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "MAS"
+    }
+   ]
   },
   {
    "nome": "PAREDE FC A",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "SIMÃO LOPES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 2,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "2",
+     "nome": "TIAGO RIBEIRO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/1",
+     "papel": null
+    },
+    {
+     "numero": "3",
+     "nome": "VICENTE ROCHA",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "ANA SEGADÃES",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "5",
+     "nome": "CARLOTA SEABRA",
+     "titular": true,
+     "golos": 2,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "6",
+     "nome": "SARA DANTAS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "SALVADOR MONTEZINHO",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "ISABELA PILÃO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "LOURENÇO FILIPE",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "SALVADOR RAMOS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "MARCO RIBEIRO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "NUNO CARRÃO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    }
+   ]
   }
  ],
  "cronologia": [
@@ -62,13 +352,13 @@
    "parte": 1,
    "minuto": 1,
    "equipa": "HC LOURINHA",
-   "jogador": null,
+   "jogador": "PEDRO REIS",
    "assistencia": null,
    "variante": "penalti",
    "numero": null,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "Penálti para HC LOURINHA"
+   "texto": "Penálti para HC LOURINHA | Falhado por PEDRO REIS | Defendido por SIMÃO LOPES"
   },
   {
    "ordem": 3,
@@ -77,13 +367,13 @@
    "parte": 1,
    "minuto": 4,
    "equipa": "PAREDE FC A",
-   "jogador": null,
+   "jogador": "LOURENÇO FILIPE",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 1,
-   "texto": "Golo para PAREDE FC A"
+   "texto": "Golo para PAREDE FC A | LOURENÇO FILIPE"
   },
   {
    "ordem": 4,
@@ -107,13 +397,13 @@
    "parte": 1,
    "minuto": 6,
    "equipa": "PAREDE FC A",
-   "jogador": null,
+   "jogador": "TIAGO RIBEIRO",
    "assistencia": null,
    "variante": "livre_direto",
    "numero": null,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "Livre Direto para PAREDE FC A"
+   "texto": "Livre Direto para PAREDE FC A | Falhado por TIAGO RIBEIRO | Defendido por ALEXANDRE CARRIERE"
   },
   {
    "ordem": 6,
@@ -122,13 +412,13 @@
    "parte": 1,
    "minuto": 6,
    "equipa": "PAREDE FC A",
-   "jogador": null,
+   "jogador": "CARLOTA SEABRA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 2,
-   "texto": "Golo para PAREDE FC A"
+   "texto": "Golo para PAREDE FC A | CARLOTA SEABRA"
   },
   {
    "ordem": 7,
@@ -143,7 +433,7 @@
    "numero": null,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "DESCONTO DE TEMPO"
+   "texto": "DESCONTO DE TEMPO | PAREDE FC A"
   },
   {
    "ordem": 8,
@@ -152,13 +442,13 @@
    "parte": 1,
    "minuto": 12,
    "equipa": "PAREDE FC A",
-   "jogador": null,
+   "jogador": "ANA SEGADÃES",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 3,
-   "texto": "Golo para PAREDE FC A"
+   "texto": "Golo para PAREDE FC A | ANA SEGADÃES"
   },
   {
    "ordem": 9,
@@ -212,13 +502,13 @@
    "parte": 2,
    "minuto": 16,
    "equipa": "HC LOURINHA",
-   "jogador": null,
+   "jogador": "MARTIM TORRÃO",
    "assistencia": null,
    "variante": "azul",
    "numero": 1,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "1º Cartão Azul - HC LOURINHA"
+   "texto": "1º Cartão Azul - HC LOURINHA | MARTIM TORRÃO"
   },
   {
    "ordem": 13,
@@ -227,13 +517,13 @@
    "parte": 2,
    "minuto": 19,
    "equipa": "PAREDE FC A",
-   "jogador": null,
+   "jogador": "LOURENÇO FILIPE",
    "assistencia": null,
    "variante": "azul",
    "numero": 1,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "1º Cartão Azul - PAREDE FC A"
+   "texto": "1º Cartão Azul - PAREDE FC A | LOURENÇO FILIPE"
   },
   {
    "ordem": 14,
@@ -242,13 +532,13 @@
    "parte": 2,
    "minuto": 19,
    "equipa": "HC LOURINHA",
-   "jogador": null,
+   "jogador": "ALEXANDRE CARRIERE",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 1,
    "golos_fora": 3,
-   "texto": "Golo para HC LOURINHA"
+   "texto": "Golo para HC LOURINHA | ALEXANDRE CARRIERE"
   },
   {
    "ordem": 15,
@@ -257,13 +547,13 @@
    "parte": 2,
    "minuto": 22,
    "equipa": "HC LOURINHA",
-   "jogador": null,
+   "jogador": "PILAR JÚLIO",
    "assistencia": null,
    "variante": "penalti",
    "numero": null,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "Penálti para HC LOURINHA"
+   "texto": "Penálti para HC LOURINHA | Falhado por PILAR JÚLIO | Defendido por SIMÃO LOPES"
   },
   {
    "ordem": 16,
@@ -278,7 +568,7 @@
    "numero": null,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "DESCONTO DE TEMPO"
+   "texto": "DESCONTO DE TEMPO | PAREDE FC A"
   },
   {
    "ordem": 17,
@@ -287,13 +577,13 @@
    "parte": 2,
    "minuto": 25,
    "equipa": "PAREDE FC A",
-   "jogador": null,
+   "jogador": "SALVADOR MONTEZINHO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 1,
    "golos_fora": 4,
-   "texto": "Golo para PAREDE FC A"
+   "texto": "Golo para PAREDE FC A | SALVADOR MONTEZINHO"
   },
   {
    "ordem": 18,
@@ -302,13 +592,13 @@
    "parte": 2,
    "minuto": 25,
    "equipa": "HC LOURINHA",
-   "jogador": null,
+   "jogador": "VALENTIM MARTINS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 4,
-   "texto": "Golo para HC LOURINHA"
+   "texto": "Golo para HC LOURINHA | VALENTIM MARTINS"
   },
   {
    "ordem": 19,
@@ -332,13 +622,13 @@
    "parte": 2,
    "minuto": 28,
    "equipa": "PAREDE FC A",
-   "jogador": null,
+   "jogador": "CARLOTA SEABRA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 5,
-   "texto": "Golo para PAREDE FC A"
+   "texto": "Golo para PAREDE FC A | CARLOTA SEABRA"
   },
   {
    "ordem": 21,
@@ -362,13 +652,13 @@
    "parte": 2,
    "minuto": 29,
    "equipa": "PAREDE FC A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "VICENTE ROCHA",
+   "assistencia": "ANA SEGADÃES",
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 6,
-   "texto": "Golo para PAREDE FC A"
+   "texto": "Golo para PAREDE FC A | VICENTE ROCHA | Assistência por ANA SEGADÃES"
   },
   {
    "ordem": 23,
@@ -386,6 +676,5 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 442,
- "individuais_omitidos": true
+ "competicao_id": 442
 }

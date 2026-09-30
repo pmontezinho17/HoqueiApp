@@ -9,7 +9,9 @@
  "data": "2026-09-12",
  "hora": "09:30:00",
  "recinto": "PAV. VILAFRANQUENSE",
- "arbitros": [],
+ "arbitros": [
+  "RICARDO GOMES"
+ ],
  "faltas": [
   3,
   1
@@ -17,11 +19,266 @@
  "equipas": [
   {
    "nome": "UD VILAFRANQUENSE",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "DAVID RAMOS",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "3",
+     "nome": "MARTIM CORREIA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "6",
+     "nome": "FRANCISCO CARVALHO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "FRANCISCO SOUSA",
+     "titular": false,
+     "golos": 2,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "14",
+     "nome": "LOURENÇO MACHADO",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "23",
+     "nome": "RICARDO HENRIQUES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "39",
+     "nome": "DUARTE VEIGA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "41",
+     "nome": "ENZO XAVIER",
+     "titular": true,
+     "golos": 2,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "50",
+     "nome": "DUARTE FRANCO",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "99",
+     "nome": "RAFAEL MARTINS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "CLAUDIA SOUSA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "RUI CORREIA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    },
+    {
+     "numero": null,
+     "nome": "RUI HENRIQUES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T2"
+    }
+   ]
   },
   {
    "nome": "APAC TOJAL",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "FR SOUSA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "3",
+     "nome": "GUSTAVO DUARTE",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "RODRIGO GUERREIRO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "15",
+     "nome": "GASTÃO BOTELHO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "18",
+     "nome": "TIAGO DIAS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "19",
+     "nome": "LUCAS MORGADO",
+     "titular": true,
+     "golos": 2,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "22",
+     "nome": "MANUEL MENDES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "49",
+     "nome": "GONÇALO OLIVEIRA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "ANA ALVES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "FÁBIO FERREIRA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    }
+   ]
   }
  ],
  "cronologia": [
@@ -47,13 +304,13 @@
    "parte": 1,
    "minuto": 6,
    "equipa": "UD VILAFRANQUENSE",
-   "jogador": null,
+   "jogador": "LOURENÇO MACHADO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 1,
    "golos_fora": 0,
-   "texto": "Golo para UD VILAFRANQUENSE"
+   "texto": "Golo para UD VILAFRANQUENSE | LOURENÇO MACHADO"
   },
   {
    "ordem": 2,
@@ -62,13 +319,13 @@
    "parte": 1,
    "minuto": 6,
    "equipa": "UD VILAFRANQUENSE",
-   "jogador": null,
+   "jogador": "DUARTE FRANCO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 0,
-   "texto": "Golo para UD VILAFRANQUENSE"
+   "texto": "Golo para UD VILAFRANQUENSE | DUARTE FRANCO"
   },
   {
    "ordem": 3,
@@ -77,13 +334,13 @@
    "parte": 1,
    "minuto": 7,
    "equipa": "APAC TOJAL",
-   "jogador": null,
+   "jogador": "LUCAS MORGADO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 1,
-   "texto": "Golo para APAC TOJAL"
+   "texto": "Golo para APAC TOJAL | LUCAS MORGADO"
   },
   {
    "ordem": 4,
@@ -92,13 +349,13 @@
    "parte": 1,
    "minuto": 11,
    "equipa": "UD VILAFRANQUENSE",
-   "jogador": null,
+   "jogador": "ENZO XAVIER",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 3,
    "golos_fora": 1,
-   "texto": "Golo para UD VILAFRANQUENSE"
+   "texto": "Golo para UD VILAFRANQUENSE | ENZO XAVIER"
   },
   {
    "ordem": 5,
@@ -152,13 +409,13 @@
    "parte": 2,
    "minuto": 17,
    "equipa": "UD VILAFRANQUENSE",
-   "jogador": null,
+   "jogador": "FRANCISCO SOUSA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 4,
    "golos_fora": 1,
-   "texto": "Golo para UD VILAFRANQUENSE"
+   "texto": "Golo para UD VILAFRANQUENSE | FRANCISCO SOUSA"
   },
   {
    "ordem": 9,
@@ -167,13 +424,13 @@
    "parte": 2,
    "minuto": 17,
    "equipa": "UD VILAFRANQUENSE",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "ENZO XAVIER",
+   "assistencia": "FRANCISCO CARVALHO",
    "variante": null,
    "numero": null,
    "golos_casa": 5,
    "golos_fora": 1,
-   "texto": "Golo para UD VILAFRANQUENSE"
+   "texto": "Golo para UD VILAFRANQUENSE | ENZO XAVIER | Assistência por FRANCISCO CARVALHO"
   },
   {
    "ordem": 10,
@@ -182,13 +439,13 @@
    "parte": 2,
    "minuto": 18,
    "equipa": "APAC TOJAL",
-   "jogador": null,
+   "jogador": "LUCAS MORGADO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 5,
    "golos_fora": 2,
-   "texto": "Golo para APAC TOJAL"
+   "texto": "Golo para APAC TOJAL | LUCAS MORGADO"
   },
   {
    "ordem": 11,
@@ -242,13 +499,13 @@
    "parte": 2,
    "minuto": 28,
    "equipa": "UD VILAFRANQUENSE",
-   "jogador": null,
+   "jogador": "FRANCISCO SOUSA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 6,
    "golos_fora": 2,
-   "texto": "Golo para UD VILAFRANQUENSE"
+   "texto": "Golo para UD VILAFRANQUENSE | FRANCISCO SOUSA"
   },
   {
    "ordem": 15,
@@ -266,6 +523,5 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 442,
- "individuais_omitidos": true
+ "competicao_id": 442
 }

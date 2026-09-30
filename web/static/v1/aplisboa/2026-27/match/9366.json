@@ -9,7 +9,9 @@
  "data": "2026-09-12",
  "hora": "11:00:00",
  "recinto": "PAV.S.ALENQUER E BENFICA",
- "arbitros": [],
+ "arbitros": [
+  "BRUNO HENRIQUES"
+ ],
  "faltas": [
   5,
   4
@@ -17,11 +19,266 @@
  "equipas": [
   {
    "nome": "CD PAÇO ARCOS A",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "TIAGO SILVA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "3",
+     "nome": "TOMAS SANTOS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "HENRIQUE GONÇALVES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "5",
+     "nome": "VERA REIS",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "IVO MATOS",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "FRANCISCO FATELA",
+     "titular": true,
+     "golos": 3,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "CARLOS ROCHA",
+     "titular": true,
+     "golos": 4,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "RAPHAEL SILVA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "SARA REIS",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "JOSÉ CALIFÓRNIA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    }
+   ]
   },
   {
    "nome": "S ALENQUER BENFICA",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "2",
+     "nome": "DIOGO PRAZERES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "MICAEL ANJOS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "AFONSO SILVA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "13",
+     "nome": "MAXÍM DANILIS",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "21",
+     "nome": "XAVIER MARTINS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "24",
+     "nome": "SANTIAGO CARVALHO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "60",
+     "nome": "GIL MARTINS",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "71",
+     "nome": "AFONSO BICA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "97",
+     "nome": "RODRIGO LEITE",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "16",
+     "nome": "JOSÉ VICENTE",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "INÊS GOMES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "ANTONIO MARQUES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    },
+    {
+     "numero": null,
+     "nome": "JOÃO SERRANO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T2"
+    }
+   ]
   }
  ],
  "cronologia": [
@@ -47,13 +304,13 @@
    "parte": 1,
    "minuto": 7,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "FRANCISCO FATELA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 1,
    "golos_fora": 0,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | FRANCISCO FATELA"
   },
   {
    "ordem": 2,
@@ -92,13 +349,13 @@
    "parte": 1,
    "minuto": 8,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "CARLOS ROCHA",
+   "assistencia": "FRANCISCO FATELA",
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 0,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | CARLOS ROCHA | Assistência por FRANCISCO FATELA"
   },
   {
    "ordem": 5,
@@ -107,13 +364,13 @@
    "parte": 1,
    "minuto": 8,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "FRANCISCO FATELA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 3,
    "golos_fora": 0,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | FRANCISCO FATELA"
   },
   {
    "ordem": 6,
@@ -227,13 +484,13 @@
    "parte": 2,
    "minuto": 24,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "CARLOS ROCHA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 4,
    "golos_fora": 0,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | CARLOS ROCHA"
   },
   {
    "ordem": 14,
@@ -272,13 +529,13 @@
    "parte": 2,
    "minuto": 27,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "CARLOS ROCHA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 5,
    "golos_fora": 0,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | CARLOS ROCHA"
   },
   {
    "ordem": 17,
@@ -287,13 +544,13 @@
    "parte": 2,
    "minuto": 29,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "FRANCISCO FATELA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 6,
    "golos_fora": 0,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | FRANCISCO FATELA"
   },
   {
    "ordem": 18,
@@ -302,13 +559,13 @@
    "parte": 2,
    "minuto": 29,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "CARLOS ROCHA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 7,
    "golos_fora": 0,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | CARLOS ROCHA"
   },
   {
    "ordem": 19,
@@ -317,13 +574,13 @@
    "parte": 2,
    "minuto": 29,
    "equipa": "S ALENQUER BENFICA",
-   "jogador": null,
+   "jogador": "RODRIGO LEITE",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 7,
    "golos_fora": 1,
-   "texto": "Golo para S ALENQUER BENFICA"
+   "texto": "Golo para S ALENQUER BENFICA | RODRIGO LEITE"
   },
   {
    "ordem": 20,
@@ -341,6 +598,5 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 442,
- "individuais_omitidos": true
+ "competicao_id": 442
 }

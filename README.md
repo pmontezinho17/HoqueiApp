@@ -5,9 +5,9 @@ e fichas de jogo das competições nacionais (FPP) e regionais.
 
 ## Estado
 
-🛠️ **PWA a funcionar sobre dados reais.** Três ecrãs — jogos, classificação e detalhe de jogo
-com cronologia jogada a jogada. Dados regenerados automaticamente por GitHub Action.
-Falta publicar num URL.
+🟢 **Ao vivo em [hoquei.pages.dev](https://hoquei.pages.dev).** Três ecrãs — jogos, classificação
+e detalhe de jogo com cronologia jogada a jogada. Instalável no telemóvel. Os dados são
+regenerados e publicados sozinhos por GitHub Action.
 
 O cliente é uma **PWA** (SvelteKit + Cloudflare Pages), decidido a 20/09 em vez de app Android
 nativa: chega a Android e iPhone ao mesmo tempo e publica-se por link. As lojas ficam para depois,
@@ -19,9 +19,16 @@ uv run python -m hoquei.cli jogo --id 9308      # ficha e cronologia de um jogo
 cd ../web && npm install && npm run dev         # a PWA em localhost:5173
 ```
 
-**Privacidade:** as fichas de escalões abaixo de sub-17 são publicadas sem nomes de atletas,
-árbitros ou equipa técnica. Fica o que aconteceu — golos, minutos, equipas, resultado — e sai
-quem o fez. Um escalão que o filtro não saiba ler é tratado como restrito.
+**Dados pessoais.** Desde 30/09/2026, por decisão do dono do projecto, os nomes de atletas são
+publicados em todos os escalões, incluindo os de formação, por a fonte já os expor publicamente.
+
+O filtro que os omite abaixo de sub-17 continua implementado e testado: activa-se com
+`uv run python -m hoquei.cli publicar --anonimizar-formacao ...`, sem alterar código. Existe
+para poder ser reposto depressa — por exemplo se a federação o pedir (ver L7.1 no backlog).
+
+Nota factual, para ficar registada: "já é público na fonte" não transfere a base legal do RGPD.
+Republicar é um tratamento novo, com finalidade própria, e o argumento é mais fraco justamente
+onde há agregação e pesquisa. Dados de menores têm protecção reforçada (art. 8.º).
 
 ## Documentação
 

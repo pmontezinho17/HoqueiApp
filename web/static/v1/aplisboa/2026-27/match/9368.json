@@ -9,7 +9,9 @@
  "data": "2026-09-12",
  "hora": "16:30:00",
  "recinto": "PAV.S.ALENQUER E BENFICA",
- "arbitros": [],
+ "arbitros": [
+  "MARCO LOPES"
+ ],
  "faltas": [
   4,
   0
@@ -17,11 +19,277 @@
  "equipas": [
   {
    "nome": "S ALENQUER BENFICA",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "2",
+     "nome": "DIOGO PRAZERES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "AFONSO SILVA",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "13",
+     "nome": "MAXÍM DANILIS",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "21",
+     "nome": "XAVIER MARTINS",
+     "titular": false,
+     "golos": 2,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "24",
+     "nome": "SANTIAGO CARVALHO",
+     "titular": true,
+     "golos": 2,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "57",
+     "nome": "FRANCISCO SALDANHA",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "60",
+     "nome": "GIL MARTINS",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "97",
+     "nome": "RODRIGO LEITE",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "16",
+     "nome": "JOSÉ VICENTE",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "INÊS GOMES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "ANTONIO MARQUES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    },
+    {
+     "numero": null,
+     "nome": "JOÃO SERRANO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T2"
+    },
+    {
+     "numero": null,
+     "nome": "TATIANA MONTEIRO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "MAS"
+    }
+   ]
   },
   {
    "nome": "CACO B",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "55",
+     "nome": "MATILDE SOARES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "GIL DUARTE",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "ANTÓNIO CABRAL",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "12",
+     "nome": "GABRIEL JOLIVET",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "17",
+     "nome": "FRANCISCO ANTUNES",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "29",
+     "nome": "GUILHERME SANTOS",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "49",
+     "nome": "DANIEL SIMÕES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "76",
+     "nome": "GUSTAVO ZURGA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "82",
+     "nome": "MARIA FERREIRA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "MIGUEL SANTOS",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "MARCO GRAÇA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    }
+   ]
   }
  ],
  "cronologia": [
@@ -47,13 +315,13 @@
    "parte": 1,
    "minuto": 2,
    "equipa": "S ALENQUER BENFICA",
-   "jogador": null,
+   "jogador": "GIL MARTINS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 1,
    "golos_fora": 0,
-   "texto": "Golo para S ALENQUER BENFICA"
+   "texto": "Golo para S ALENQUER BENFICA | GIL MARTINS"
   },
   {
    "ordem": 2,
@@ -62,13 +330,13 @@
    "parte": 1,
    "minuto": 5,
    "equipa": "S ALENQUER BENFICA",
-   "jogador": null,
+   "jogador": "MAXÍM DANILIS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 0,
-   "texto": "Golo para S ALENQUER BENFICA"
+   "texto": "Golo para S ALENQUER BENFICA | MAXÍM DANILIS"
   },
   {
    "ordem": 3,
@@ -77,13 +345,13 @@
    "parte": 1,
    "minuto": 6,
    "equipa": "S ALENQUER BENFICA",
-   "jogador": null,
+   "jogador": "XAVIER MARTINS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 3,
    "golos_fora": 0,
-   "texto": "Golo para S ALENQUER BENFICA"
+   "texto": "Golo para S ALENQUER BENFICA | XAVIER MARTINS"
   },
   {
    "ordem": 4,
@@ -92,13 +360,13 @@
    "parte": 1,
    "minuto": 9,
    "equipa": "CACO B",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "GUILHERME SANTOS",
+   "assistencia": "FRANCISCO ANTUNES",
    "variante": null,
    "numero": null,
    "golos_casa": 3,
    "golos_fora": 1,
-   "texto": "Golo para CACO B"
+   "texto": "Golo para CACO B | GUILHERME SANTOS | Assistência por FRANCISCO ANTUNES"
   },
   {
    "ordem": 5,
@@ -182,13 +450,13 @@
    "parte": 2,
    "minuto": 16,
    "equipa": "S ALENQUER BENFICA",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "SANTIAGO CARVALHO",
+   "assistencia": "RODRIGO LEITE",
    "variante": null,
    "numero": null,
    "golos_casa": 4,
    "golos_fora": 1,
-   "texto": "Golo para S ALENQUER BENFICA"
+   "texto": "Golo para S ALENQUER BENFICA | SANTIAGO CARVALHO | Assistência por RODRIGO LEITE"
   },
   {
    "ordem": 11,
@@ -197,13 +465,13 @@
    "parte": 2,
    "minuto": 17,
    "equipa": "CACO B",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "FRANCISCO ANTUNES",
+   "assistencia": "GUILHERME SANTOS",
    "variante": null,
    "numero": null,
    "golos_casa": 4,
    "golos_fora": 2,
-   "texto": "Golo para CACO B"
+   "texto": "Golo para CACO B | FRANCISCO ANTUNES | Assistência por GUILHERME SANTOS"
   },
   {
    "ordem": 12,
@@ -212,13 +480,13 @@
    "parte": 2,
    "minuto": 19,
    "equipa": "S ALENQUER BENFICA",
-   "jogador": null,
+   "jogador": "XAVIER MARTINS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 5,
    "golos_fora": 2,
-   "texto": "Golo para S ALENQUER BENFICA"
+   "texto": "Golo para S ALENQUER BENFICA | XAVIER MARTINS"
   },
   {
    "ordem": 13,
@@ -242,13 +510,13 @@
    "parte": 2,
    "minuto": 24,
    "equipa": "S ALENQUER BENFICA",
-   "jogador": null,
+   "jogador": "SANTIAGO CARVALHO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 6,
    "golos_fora": 2,
-   "texto": "Golo para S ALENQUER BENFICA"
+   "texto": "Golo para S ALENQUER BENFICA | SANTIAGO CARVALHO"
   },
   {
    "ordem": 15,
@@ -257,13 +525,13 @@
    "parte": 2,
    "minuto": 24,
    "equipa": "S ALENQUER BENFICA",
-   "jogador": null,
+   "jogador": "FRANCISCO SALDANHA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 7,
    "golos_fora": 2,
-   "texto": "Golo para S ALENQUER BENFICA"
+   "texto": "Golo para S ALENQUER BENFICA | FRANCISCO SALDANHA"
   },
   {
    "ordem": 16,
@@ -272,13 +540,13 @@
    "parte": 2,
    "minuto": 25,
    "equipa": "S ALENQUER BENFICA",
-   "jogador": null,
+   "jogador": "AFONSO SILVA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 8,
    "golos_fora": 2,
-   "texto": "Golo para S ALENQUER BENFICA"
+   "texto": "Golo para S ALENQUER BENFICA | AFONSO SILVA"
   },
   {
    "ordem": 17,
@@ -287,13 +555,13 @@
    "parte": 2,
    "minuto": 26,
    "equipa": "S ALENQUER BENFICA",
-   "jogador": null,
+   "jogador": "RODRIGO LEITE",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 9,
    "golos_fora": 2,
-   "texto": "Golo para S ALENQUER BENFICA"
+   "texto": "Golo para S ALENQUER BENFICA | RODRIGO LEITE"
   },
   {
    "ordem": 18,
@@ -311,6 +579,5 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 442,
- "individuais_omitidos": true
+ "competicao_id": 442
 }

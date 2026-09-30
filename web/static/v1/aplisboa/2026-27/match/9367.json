@@ -9,7 +9,9 @@
  "data": "2026-09-12",
  "hora": "13:30:00",
  "recinto": "PAV.S.ALENQUER E BENFICA",
- "arbitros": [],
+ "arbitros": [
+  "BRUNO HENRIQUES"
+ ],
  "faltas": [
   0,
   2
@@ -17,11 +19,244 @@
  "equipas": [
   {
    "nome": "CACO B",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "7",
+     "nome": "GIL DUARTE",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "ANTÓNIO CABRAL",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "12",
+     "nome": "GABRIEL JOLIVET",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "17",
+     "nome": "FRANCISCO ANTUNES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "29",
+     "nome": "GUILHERME SANTOS",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "49",
+     "nome": "DANIEL SIMÕES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "55",
+     "nome": "MATILDE SOARES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "76",
+     "nome": "GUSTAVO ZURGA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "82",
+     "nome": "MARIA FERREIRA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "MIGUEL SANTOS",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "MARCO GRAÇA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    }
+   ]
   },
   {
    "nome": "CD PAÇO ARCOS A",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "TIAGO SILVA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "3",
+     "nome": "TOMAS SANTOS",
+     "titular": false,
+     "golos": 3,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "HENRIQUE GONÇALVES",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 2,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "5",
+     "nome": "VERA REIS",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 2,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "IVO MATOS",
+     "titular": true,
+     "golos": 5,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "FRANCISCO FATELA",
+     "titular": true,
+     "golos": 4,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "CARLOS ROCHA",
+     "titular": true,
+     "golos": 4,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "RAPHAEL SILVA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "SARA REIS",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "JOSÉ CALIFÓRNIA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    }
+   ]
   }
  ],
  "cronologia": [
@@ -47,13 +282,13 @@
    "parte": 1,
    "minuto": 1,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "IVO MATOS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 1,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | IVO MATOS"
   },
   {
    "ordem": 2,
@@ -62,13 +297,13 @@
    "parte": 1,
    "minuto": 2,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "CARLOS ROCHA",
+   "assistencia": "FRANCISCO FATELA",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 2,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | CARLOS ROCHA | Assistência por FRANCISCO FATELA"
   },
   {
    "ordem": 3,
@@ -77,13 +312,13 @@
    "parte": 1,
    "minuto": 3,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "CARLOS ROCHA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 3,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | CARLOS ROCHA"
   },
   {
    "ordem": 4,
@@ -92,13 +327,13 @@
    "parte": 1,
    "minuto": 4,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "FRANCISCO FATELA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 4,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | FRANCISCO FATELA"
   },
   {
    "ordem": 5,
@@ -107,13 +342,13 @@
    "parte": 1,
    "minuto": 4,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "IVO MATOS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 5,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | IVO MATOS"
   },
   {
    "ordem": 6,
@@ -122,13 +357,13 @@
    "parte": 1,
    "minuto": 5,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "VERA REIS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 6,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | VERA REIS"
   },
   {
    "ordem": 7,
@@ -137,13 +372,13 @@
    "parte": 1,
    "minuto": 6,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "TOMAS SANTOS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 7,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | TOMAS SANTOS"
   },
   {
    "ordem": 8,
@@ -152,13 +387,13 @@
    "parte": 1,
    "minuto": 7,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "TOMAS SANTOS",
+   "assistencia": "HENRIQUE GONÇALVES",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 8,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | TOMAS SANTOS | Assistência por HENRIQUE GONÇALVES"
   },
   {
    "ordem": 9,
@@ -167,13 +402,13 @@
    "parte": 1,
    "minuto": 13,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "CARLOS ROCHA",
+   "assistencia": "HENRIQUE GONÇALVES",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 9,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | CARLOS ROCHA | Assistência por HENRIQUE GONÇALVES"
   },
   {
    "ordem": 10,
@@ -197,13 +432,13 @@
    "parte": 1,
    "minuto": 14,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "TOMAS SANTOS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 10,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | TOMAS SANTOS"
   },
   {
    "ordem": 12,
@@ -242,13 +477,13 @@
    "parte": 2,
    "minuto": 15,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "CARLOS ROCHA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 11,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | CARLOS ROCHA"
   },
   {
    "ordem": 15,
@@ -257,13 +492,13 @@
    "parte": 2,
    "minuto": 19,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "IVO MATOS",
+   "assistencia": "VERA REIS",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 12,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | IVO MATOS | Assistência por VERA REIS"
   },
   {
    "ordem": 16,
@@ -272,13 +507,13 @@
    "parte": 2,
    "minuto": 19,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "FRANCISCO FATELA",
+   "assistencia": "VERA REIS",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 13,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | FRANCISCO FATELA | Assistência por VERA REIS"
   },
   {
    "ordem": 17,
@@ -302,13 +537,13 @@
    "parte": 2,
    "minuto": 23,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "FRANCISCO FATELA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 14,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | FRANCISCO FATELA"
   },
   {
    "ordem": 19,
@@ -317,13 +552,13 @@
    "parte": 2,
    "minuto": 25,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "FRANCISCO FATELA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 15,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | FRANCISCO FATELA"
   },
   {
    "ordem": 20,
@@ -332,13 +567,13 @@
    "parte": 2,
    "minuto": 26,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "IVO MATOS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 16,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | IVO MATOS"
   },
   {
    "ordem": 21,
@@ -347,13 +582,13 @@
    "parte": 2,
    "minuto": 28,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "HENRIQUE GONÇALVES",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 17,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | HENRIQUE GONÇALVES"
   },
   {
    "ordem": 22,
@@ -362,13 +597,13 @@
    "parte": 2,
    "minuto": 29,
    "equipa": "CD PAÇO ARCOS A",
-   "jogador": null,
+   "jogador": "IVO MATOS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 18,
-   "texto": "Golo para CD PAÇO ARCOS A"
+   "texto": "Golo para CD PAÇO ARCOS A | IVO MATOS"
   },
   {
    "ordem": 23,
@@ -386,6 +621,5 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 442,
- "individuais_omitidos": true
+ "competicao_id": 442
 }

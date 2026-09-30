@@ -9,7 +9,9 @@
  "data": "2026-09-12",
  "hora": "16:30:00",
  "recinto": "PAV. MAFRA",
- "arbitros": [],
+ "arbitros": [
+  "RODRIGO AGULHAS"
+ ],
  "faltas": [
   2,
   1
@@ -17,11 +19,266 @@
  "equipas": [
   {
    "nome": "CD MAFRA",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "3",
+     "nome": "ELIO NUNES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "6",
+     "nome": "MIGUEL PACHECO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "14",
+     "nome": "BENEDITA AMORIM",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "17",
+     "nome": "VICENTE CRAVEIRO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "21",
+     "nome": "LUCAS ESTALAGEM",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "23",
+     "nome": "NATANAEL PRAZERES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "26",
+     "nome": "AFONSO DEODATO",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "HENRIQUE JANEIRO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "SUSANA NUNES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "NUNO BRÁS",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    },
+    {
+     "numero": null,
+     "nome": "PEDRO SOUSA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T2"
+    }
+   ]
   },
   {
    "nome": "HC SINTRA",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "10",
+     "nome": "GASPAR PEREIRA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "2",
+     "nome": "LEONOR MATA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "3",
+     "nome": "DUARTE GASPAR",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "5",
+     "nome": "JOÃO PEREIRA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "6",
+     "nome": "DANIEL LOURENÇO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "MARTIM SILVA",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/1",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "MATEUS SANTOS",
+     "titular": true,
+     "golos": 5,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "13",
+     "nome": "MARIA DORDIO",
+     "titular": true,
+     "golos": 2,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "23",
+     "nome": "DUARTE SILVA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "77",
+     "nome": "DAVID CRUZ",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "ANA CORREIA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "CRISTIANO AGULHAS",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    }
+   ]
   }
  ],
  "cronologia": [
@@ -47,13 +304,13 @@
    "parte": 1,
    "minuto": 2,
    "equipa": "HC SINTRA",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "MATEUS SANTOS",
+   "assistencia": "MARIA DORDIO",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 1,
-   "texto": "Golo para HC SINTRA"
+   "texto": "Golo para HC SINTRA | MATEUS SANTOS | Assistência por MARIA DORDIO"
   },
   {
    "ordem": 2,
@@ -62,13 +319,13 @@
    "parte": 1,
    "minuto": 4,
    "equipa": "HC SINTRA",
-   "jogador": null,
+   "jogador": "MATEUS SANTOS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 2,
-   "texto": "Golo para HC SINTRA"
+   "texto": "Golo para HC SINTRA | MATEUS SANTOS"
   },
   {
    "ordem": 3,
@@ -77,13 +334,13 @@
    "parte": 1,
    "minuto": 9,
    "equipa": "HC SINTRA",
-   "jogador": null,
+   "jogador": "MARIA DORDIO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 3,
-   "texto": "Golo para HC SINTRA"
+   "texto": "Golo para HC SINTRA | MARIA DORDIO"
   },
   {
    "ordem": 4,
@@ -137,13 +394,13 @@
    "parte": 2,
    "minuto": 15,
    "equipa": "CD MAFRA",
-   "jogador": null,
+   "jogador": "LUCAS ESTALAGEM",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 1,
    "golos_fora": 3,
-   "texto": "Golo para CD MAFRA"
+   "texto": "Golo para CD MAFRA | LUCAS ESTALAGEM"
   },
   {
    "ordem": 8,
@@ -152,13 +409,13 @@
    "parte": 2,
    "minuto": 16,
    "equipa": "CD MAFRA",
-   "jogador": null,
+   "jogador": "AFONSO DEODATO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 3,
-   "texto": "Golo para CD MAFRA"
+   "texto": "Golo para CD MAFRA | AFONSO DEODATO"
   },
   {
    "ordem": 9,
@@ -167,13 +424,13 @@
    "parte": 2,
    "minuto": 19,
    "equipa": "HC SINTRA",
-   "jogador": null,
+   "jogador": "MARTIM SILVA",
    "assistencia": null,
    "variante": "penalti",
    "numero": null,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "Penálti para HC SINTRA"
+   "texto": "Penálti para HC SINTRA | Falhado por MARTIM SILVA"
   },
   {
    "ordem": 10,
@@ -182,13 +439,13 @@
    "parte": 2,
    "minuto": 20,
    "equipa": "HC SINTRA",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "MARIA DORDIO",
+   "assistencia": "DUARTE GASPAR",
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 4,
-   "texto": "Golo para HC SINTRA"
+   "texto": "Golo para HC SINTRA | MARIA DORDIO | Assistência por DUARTE GASPAR"
   },
   {
    "ordem": 11,
@@ -197,13 +454,13 @@
    "parte": 2,
    "minuto": 21,
    "equipa": "HC SINTRA",
-   "jogador": null,
+   "jogador": "MARTIM SILVA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 5,
-   "texto": "Golo para HC SINTRA"
+   "texto": "Golo para HC SINTRA | MARTIM SILVA"
   },
   {
    "ordem": 12,
@@ -212,13 +469,13 @@
    "parte": 2,
    "minuto": 21,
    "equipa": "HC SINTRA",
-   "jogador": null,
+   "jogador": "MATEUS SANTOS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 6,
-   "texto": "Golo para HC SINTRA"
+   "texto": "Golo para HC SINTRA | MATEUS SANTOS"
   },
   {
    "ordem": 13,
@@ -242,13 +499,13 @@
    "parte": 2,
    "minuto": 24,
    "equipa": "HC SINTRA",
-   "jogador": null,
+   "jogador": "MATEUS SANTOS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 7,
-   "texto": "Golo para HC SINTRA"
+   "texto": "Golo para HC SINTRA | MATEUS SANTOS"
   },
   {
    "ordem": 15,
@@ -257,13 +514,13 @@
    "parte": 2,
    "minuto": 24,
    "equipa": "HC SINTRA",
-   "jogador": null,
+   "jogador": "MATEUS SANTOS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 8,
-   "texto": "Golo para HC SINTRA"
+   "texto": "Golo para HC SINTRA | MATEUS SANTOS"
   },
   {
    "ordem": 16,
@@ -296,6 +553,5 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 442,
- "individuais_omitidos": true
+ "competicao_id": 442
 }

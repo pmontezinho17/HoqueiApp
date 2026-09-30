@@ -9,7 +9,9 @@
  "data": "2026-09-13",
  "hora": "16:00:00",
  "recinto": "PAV. A.P.A.C.TOJAL",
- "arbitros": [],
+ "arbitros": [
+  "CARLOS ALMEIDA"
+ ],
  "faltas": [
   3,
   1
@@ -17,11 +19,277 @@
  "equipas": [
   {
    "nome": "FSE/AJ SALESIANA",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "NUNO GONZALEZ",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "2",
+     "nome": "SAMUEL SEQUEIRA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "DINIS LOPES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "5",
+     "nome": "PEDRO CUNHA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "6",
+     "nome": "PAULO BORDALO",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "1/1",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "LOURENÇO OLIVEIRA",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "DAVID SEQUEIRA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "GABRIEL CARDOSO",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "12",
+     "nome": "ENZO TINAS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "AFONSO BOAVENTURA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "JOSÉ LOPES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "NELSON MONTEIRO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    }
+   ]
   },
   {
    "nome": "APAC TOJAL",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "SOFIA VELOSO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "2",
+     "nome": "DANIEL BORGES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "3",
+     "nome": "LUCAS MORGADO",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "SANTIAGO NICOLAU",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "5",
+     "nome": "LUKAS SOUSA",
+     "titular": true,
+     "golos": 2,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "6",
+     "nome": "JOAO ROCHA",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "DANIEL DIAS",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "AFONSO MASSANO",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "RAFAEL LOURENÇO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "CLÁUDIA LOURENÇO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "JOÃO MENDES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    },
+    {
+     "numero": null,
+     "nome": "EUNICE DUARTE",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "MAS"
+    }
+   ]
   }
  ],
  "cronologia": [
@@ -47,13 +315,13 @@
    "parte": 1,
    "minuto": 5,
    "equipa": "APAC TOJAL",
-   "jogador": null,
+   "jogador": "AFONSO MASSANO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 1,
-   "texto": "Golo para APAC TOJAL"
+   "texto": "Golo para APAC TOJAL | AFONSO MASSANO"
   },
   {
    "ordem": 2,
@@ -62,13 +330,13 @@
    "parte": 1,
    "minuto": 6,
    "equipa": "FSE/AJ SALESIANA",
-   "jogador": null,
+   "jogador": "LOURENÇO OLIVEIRA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 1,
    "golos_fora": 1,
-   "texto": "Golo para FSE/AJ SALESIANA"
+   "texto": "Golo para FSE/AJ SALESIANA | LOURENÇO OLIVEIRA"
   },
   {
    "ordem": 3,
@@ -83,7 +351,7 @@
    "numero": null,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "DESCONTO DE TEMPO"
+   "texto": "DESCONTO DE TEMPO | FSE/AJ SALESIANA"
   },
   {
    "ordem": 4,
@@ -92,13 +360,13 @@
    "parte": 1,
    "minuto": 8,
    "equipa": "APAC TOJAL",
-   "jogador": null,
+   "jogador": "LUKAS SOUSA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 1,
    "golos_fora": 2,
-   "texto": "Golo para APAC TOJAL"
+   "texto": "Golo para APAC TOJAL | LUKAS SOUSA"
   },
   {
    "ordem": 5,
@@ -137,13 +405,13 @@
    "parte": 1,
    "minuto": 11,
    "equipa": "APAC TOJAL",
-   "jogador": null,
+   "jogador": "JOAO ROCHA",
    "assistencia": null,
    "variante": "azul",
    "numero": 1,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "1º Cartão Azul - APAC TOJAL"
+   "texto": "1º Cartão Azul - APAC TOJAL | JOAO ROCHA"
   },
   {
    "ordem": 8,
@@ -197,13 +465,13 @@
    "parte": 2,
    "minuto": 16,
    "equipa": "APAC TOJAL",
-   "jogador": null,
+   "jogador": "LUKAS SOUSA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 1,
    "golos_fora": 3,
-   "texto": "Golo para APAC TOJAL"
+   "texto": "Golo para APAC TOJAL | LUKAS SOUSA"
   },
   {
    "ordem": 12,
@@ -227,13 +495,13 @@
    "parte": 2,
    "minuto": 19,
    "equipa": "APAC TOJAL",
-   "jogador": null,
+   "jogador": "JOAO ROCHA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 1,
    "golos_fora": 4,
-   "texto": "Golo para APAC TOJAL"
+   "texto": "Golo para APAC TOJAL | JOAO ROCHA"
   },
   {
    "ordem": 14,
@@ -248,7 +516,7 @@
    "numero": null,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "DESCONTO DE TEMPO"
+   "texto": "DESCONTO DE TEMPO | FSE/AJ SALESIANA"
   },
   {
    "ordem": 15,
@@ -257,13 +525,13 @@
    "parte": 2,
    "minuto": 23,
    "equipa": "APAC TOJAL",
-   "jogador": null,
+   "jogador": "LUCAS MORGADO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 1,
    "golos_fora": 5,
-   "texto": "Golo para APAC TOJAL"
+   "texto": "Golo para APAC TOJAL | LUCAS MORGADO"
   },
   {
    "ordem": 16,
@@ -272,13 +540,13 @@
    "parte": 2,
    "minuto": 24,
    "equipa": "FSE/AJ SALESIANA",
-   "jogador": null,
+   "jogador": "PAULO BORDALO",
    "assistencia": null,
    "variante": "penalti",
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 5,
-   "texto": "Golo para FSE/AJ SALESIANA de Penálti"
+   "texto": "Golo para FSE/AJ SALESIANA de Penálti | Marcado por PAULO BORDALO"
   },
   {
    "ordem": 17,
@@ -287,13 +555,13 @@
    "parte": 2,
    "minuto": 28,
    "equipa": "FSE/AJ SALESIANA",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "GABRIEL CARDOSO",
+   "assistencia": "LOURENÇO OLIVEIRA",
    "variante": null,
    "numero": null,
    "golos_casa": 3,
    "golos_fora": 5,
-   "texto": "Golo para FSE/AJ SALESIANA"
+   "texto": "Golo para FSE/AJ SALESIANA | GABRIEL CARDOSO | Assistência por LOURENÇO OLIVEIRA"
   },
   {
    "ordem": 18,
@@ -311,6 +579,5 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 441,
- "individuais_omitidos": true
+ "competicao_id": 441
 }

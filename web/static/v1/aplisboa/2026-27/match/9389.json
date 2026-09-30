@@ -9,7 +9,9 @@
  "data": "2026-09-13",
  "hora": "14:00:00",
  "recinto": "PAV.S.ALENQUER E BENFICA",
- "arbitros": [],
+ "arbitros": [
+  "MARTIM GONÇALVES"
+ ],
  "faltas": [
   3,
   4
@@ -17,11 +19,277 @@
  "equipas": [
   {
    "nome": "A STUART HCM A",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "17",
+     "nome": "TIAGO REIS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "2",
+     "nome": "SANTIAGO ALMEIDA",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "JOÃO MARQUES",
+     "titular": false,
+     "golos": 2,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "GUSTAVO COSTA",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "20",
+     "nome": "SIMÃO RÉQUIO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "30",
+     "nome": "LOURENÇO BARRENTO",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "45",
+     "nome": "GIL ESPADA",
+     "titular": true,
+     "golos": 2,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "77",
+     "nome": "LUCAS HELENO",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "91",
+     "nome": "LEONARDO CHUVA",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "61",
+     "nome": "BERNARDO COSTA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "JOAO COSTA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "EDGAR MORAIS",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    }
+   ]
   },
   {
    "nome": "HC SINTRA",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "35",
+     "nome": "MARTIM MARQUES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "3",
+     "nome": "PEDRO GASPAR",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "MARTIM SILVA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "HENRIQUE SILVA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "27",
+     "nome": "RODRIGO DIOGO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "40",
+     "nome": "ARTUR FARIA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "56",
+     "nome": "DAVID PEREIRA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "99",
+     "nome": "ALEXANDRE LOURENÇO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "88",
+     "nome": "VICENTE CRUZ",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "ANA ÁGUA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "JOAO RAIMUNDO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    },
+    {
+     "numero": null,
+     "nome": "MÁRIO CRUZ",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "MEC"
+    }
+   ]
   }
  ],
  "cronologia": [
@@ -47,13 +315,13 @@
    "parte": 1,
    "minuto": 1,
    "equipa": "A STUART HCM A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "LUCAS HELENO",
+   "assistencia": "GIL ESPADA",
    "variante": null,
    "numero": null,
    "golos_casa": 1,
    "golos_fora": 0,
-   "texto": "Golo para A STUART HCM A"
+   "texto": "Golo para A STUART HCM A | LUCAS HELENO | Assistência por GIL ESPADA"
   },
   {
    "ordem": 2,
@@ -68,7 +336,7 @@
    "numero": null,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "DESCONTO DE TEMPO"
+   "texto": "DESCONTO DE TEMPO | A STUART HCM A"
   },
   {
    "ordem": 3,
@@ -77,13 +345,13 @@
    "parte": 1,
    "minuto": 4,
    "equipa": "A STUART HCM A",
-   "jogador": null,
+   "jogador": "LOURENÇO BARRENTO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 0,
-   "texto": "Golo para A STUART HCM A"
+   "texto": "Golo para A STUART HCM A | LOURENÇO BARRENTO"
   },
   {
    "ordem": 4,
@@ -92,13 +360,13 @@
    "parte": 1,
    "minuto": 5,
    "equipa": "A STUART HCM A",
-   "jogador": null,
+   "jogador": "JOÃO MARQUES",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 3,
    "golos_fora": 0,
-   "texto": "Golo para A STUART HCM A"
+   "texto": "Golo para A STUART HCM A | JOÃO MARQUES"
   },
   {
    "ordem": 5,
@@ -107,13 +375,13 @@
    "parte": 1,
    "minuto": 6,
    "equipa": "A STUART HCM A",
-   "jogador": null,
+   "jogador": "JOÃO MARQUES",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 4,
    "golos_fora": 0,
-   "texto": "Golo para A STUART HCM A"
+   "texto": "Golo para A STUART HCM A | JOÃO MARQUES"
   },
   {
    "ordem": 6,
@@ -122,13 +390,13 @@
    "parte": 1,
    "minuto": 8,
    "equipa": "A STUART HCM A",
-   "jogador": null,
+   "jogador": "LEONARDO CHUVA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 5,
    "golos_fora": 0,
-   "texto": "Golo para A STUART HCM A"
+   "texto": "Golo para A STUART HCM A | LEONARDO CHUVA"
   },
   {
    "ordem": 7,
@@ -143,7 +411,7 @@
    "numero": null,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "DESCONTO DE TEMPO"
+   "texto": "DESCONTO DE TEMPO | HC SINTRA"
   },
   {
    "ordem": 8,
@@ -152,13 +420,13 @@
    "parte": 1,
    "minuto": 11,
    "equipa": "A STUART HCM A",
-   "jogador": null,
+   "jogador": "GIL ESPADA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 6,
    "golos_fora": 0,
-   "texto": "Golo para A STUART HCM A"
+   "texto": "Golo para A STUART HCM A | GIL ESPADA"
   },
   {
    "ordem": 9,
@@ -182,13 +450,13 @@
    "parte": 1,
    "minuto": 14,
    "equipa": "A STUART HCM A",
-   "jogador": null,
+   "jogador": "GUSTAVO COSTA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 7,
    "golos_fora": 0,
-   "texto": "Golo para A STUART HCM A"
+   "texto": "Golo para A STUART HCM A | GUSTAVO COSTA"
   },
   {
    "ordem": 11,
@@ -227,13 +495,13 @@
    "parte": 2,
    "minuto": 17,
    "equipa": "A STUART HCM A",
-   "jogador": null,
+   "jogador": "SANTIAGO ALMEIDA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 8,
    "golos_fora": 0,
-   "texto": "Golo para A STUART HCM A"
+   "texto": "Golo para A STUART HCM A | SANTIAGO ALMEIDA"
   },
   {
    "ordem": 14,
@@ -293,7 +561,7 @@
    "numero": null,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "DESCONTO DE TEMPO"
+   "texto": "DESCONTO DE TEMPO | A STUART HCM A"
   },
   {
    "ordem": 18,
@@ -317,13 +585,13 @@
    "parte": 2,
    "minuto": 25,
    "equipa": "A STUART HCM A",
-   "jogador": null,
+   "jogador": "GIL ESPADA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 9,
    "golos_fora": 0,
-   "texto": "Golo para A STUART HCM A"
+   "texto": "Golo para A STUART HCM A | GIL ESPADA"
   },
   {
    "ordem": 20,
@@ -338,7 +606,7 @@
    "numero": null,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "DESCONTO DE TEMPO"
+   "texto": "DESCONTO DE TEMPO | A STUART HCM A"
   },
   {
    "ordem": 21,
@@ -362,13 +630,13 @@
    "parte": 2,
    "minuto": 28,
    "equipa": "A STUART HCM A",
-   "jogador": null,
+   "jogador": "LUCAS HELENO",
    "assistencia": null,
    "variante": "amarelo",
    "numero": 1,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "1º Cartão Amarelo - A STUART HCM A"
+   "texto": "1º Cartão Amarelo - A STUART HCM A | LUCAS HELENO"
   },
   {
    "ordem": 23,
@@ -401,6 +669,5 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 441,
- "individuais_omitidos": true
+ "competicao_id": 441
 }

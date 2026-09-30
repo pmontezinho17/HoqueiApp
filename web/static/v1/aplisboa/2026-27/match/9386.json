@@ -9,7 +9,9 @@
  "data": "2026-09-13",
  "hora": "17:00:00",
  "recinto": "PAV. FÍSICA TORRES VEDRAS",
- "arbitros": [],
+ "arbitros": [
+  "TIAGO ALVES"
+ ],
  "faltas": [
   3,
   4
@@ -17,11 +19,288 @@
  "equipas": [
   {
    "nome": "A STUART HCM B",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "01",
+     "nome": "TOMÁS GRÃOS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "RUI SILVA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "MARTIM JANEIRO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "11",
+     "nome": "BRUNA STABILE",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "18",
+     "nome": "SANTIAGO RODRIGUES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "29",
+     "nome": "GUILHERME SANTOS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "84",
+     "nome": "ANA RODRIGUES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "90",
+     "nome": "DUARTE AFONSO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "91",
+     "nome": "SANTIAGO CÂNDIDO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "GUSTAVO VEIGA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "MARCO JANEIRO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "FILIPE BERNARDO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    }
+   ]
   },
   {
    "nome": "AE FISICA A",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "HENRIQUE COSTA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "2",
+     "nome": "DAVID GRADE",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "3",
+     "nome": "JAIME FONSECA",
+     "titular": false,
+     "golos": 2,
+     "assistencias": 2,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "TOMÁS PEREIRA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "5",
+     "nome": "TIAGO ROLHAS",
+     "titular": false,
+     "golos": 2,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "6",
+     "nome": "DANIEL VIEIRA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "AFONSO COSTA",
+     "titular": true,
+     "golos": 8,
+     "assistencias": 2,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "HENRIQUE HERNANDEZ",
+     "titular": false,
+     "golos": 4,
+     "assistencias": 3,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "1/1",
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "MIGUEL MONTEIRO",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "RODRIGO LOUREIRO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "JUAN HERNANDEZ",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "FRANCISCO FERREIRA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    },
+    {
+     "numero": null,
+     "nome": "JOAO PEREIRA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "MAS"
+    }
+   ]
   }
  ],
  "cronologia": [
@@ -47,13 +326,13 @@
    "parte": 1,
    "minuto": 0,
    "equipa": "AE FISICA A",
-   "jogador": null,
+   "jogador": "AFONSO COSTA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 1,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | AFONSO COSTA"
   },
   {
    "ordem": 2,
@@ -62,13 +341,13 @@
    "parte": 1,
    "minuto": 1,
    "equipa": "A STUART HCM B",
-   "jogador": null,
+   "jogador": "RUI SILVA",
    "assistencia": null,
    "variante": "azul",
    "numero": 1,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "1º Cartão Azul - A STUART HCM B"
+   "texto": "1º Cartão Azul - A STUART HCM B | RUI SILVA"
   },
   {
    "ordem": 3,
@@ -77,13 +356,13 @@
    "parte": 1,
    "minuto": 3,
    "equipa": "AE FISICA A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "AFONSO COSTA",
+   "assistencia": "TOMÁS PEREIRA",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 2,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | AFONSO COSTA | Assistência por TOMÁS PEREIRA"
   },
   {
    "ordem": 4,
@@ -92,13 +371,13 @@
    "parte": 1,
    "minuto": 4,
    "equipa": "AE FISICA A",
-   "jogador": null,
+   "jogador": "MIGUEL MONTEIRO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 3,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | MIGUEL MONTEIRO"
   },
   {
    "ordem": 5,
@@ -137,13 +416,13 @@
    "parte": 1,
    "minuto": 9,
    "equipa": "AE FISICA A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "TIAGO ROLHAS",
+   "assistencia": "HENRIQUE HERNANDEZ",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 4,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | TIAGO ROLHAS | Assistência por HENRIQUE HERNANDEZ"
   },
   {
    "ordem": 8,
@@ -152,13 +431,13 @@
    "parte": 1,
    "minuto": 11,
    "equipa": "AE FISICA A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "HENRIQUE HERNANDEZ",
+   "assistencia": "JAIME FONSECA",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 5,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | HENRIQUE HERNANDEZ | Assistência por JAIME FONSECA"
   },
   {
    "ordem": 9,
@@ -167,13 +446,13 @@
    "parte": 1,
    "minuto": 12,
    "equipa": "AE FISICA A",
-   "jogador": null,
+   "jogador": "AFONSO COSTA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 6,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | AFONSO COSTA"
   },
   {
    "ordem": 10,
@@ -197,13 +476,13 @@
    "parte": 1,
    "minuto": 14,
    "equipa": "AE FISICA A",
-   "jogador": null,
+   "jogador": "AFONSO COSTA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 7,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | AFONSO COSTA"
   },
   {
    "ordem": 12,
@@ -242,13 +521,13 @@
    "parte": 2,
    "minuto": 15,
    "equipa": "AE FISICA A",
-   "jogador": null,
+   "jogador": "TIAGO ROLHAS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 8,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | TIAGO ROLHAS"
   },
   {
    "ordem": 15,
@@ -272,13 +551,13 @@
    "parte": 2,
    "minuto": 18,
    "equipa": "AE FISICA A",
-   "jogador": null,
+   "jogador": "AFONSO COSTA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 9,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | AFONSO COSTA"
   },
   {
    "ordem": 17,
@@ -332,13 +611,13 @@
    "parte": 2,
    "minuto": 24,
    "equipa": "AE FISICA A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "HENRIQUE HERNANDEZ",
+   "assistencia": "JAIME FONSECA",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 10,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | HENRIQUE HERNANDEZ | Assistência por JAIME FONSECA"
   },
   {
    "ordem": 21,
@@ -347,13 +626,13 @@
    "parte": 2,
    "minuto": 25,
    "equipa": "AE FISICA A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "JAIME FONSECA",
+   "assistencia": "HENRIQUE HERNANDEZ",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 11,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | JAIME FONSECA | Assistência por HENRIQUE HERNANDEZ"
   },
   {
    "ordem": 22,
@@ -362,13 +641,13 @@
    "parte": 2,
    "minuto": 25,
    "equipa": "AE FISICA A",
-   "jogador": null,
+   "jogador": "AFONSO COSTA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 12,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | AFONSO COSTA"
   },
   {
    "ordem": 23,
@@ -377,13 +656,13 @@
    "parte": 2,
    "minuto": 26,
    "equipa": "AE FISICA A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "JAIME FONSECA",
+   "assistencia": "AFONSO COSTA",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 13,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | JAIME FONSECA | Assistência por AFONSO COSTA"
   },
   {
    "ordem": 24,
@@ -392,13 +671,13 @@
    "parte": 2,
    "minuto": 26,
    "equipa": "AE FISICA A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "HENRIQUE HERNANDEZ",
+   "assistencia": "AFONSO COSTA",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 14,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | HENRIQUE HERNANDEZ | Assistência por AFONSO COSTA"
   },
   {
    "ordem": 25,
@@ -407,13 +686,13 @@
    "parte": 2,
    "minuto": 26,
    "equipa": "AE FISICA A",
-   "jogador": null,
+   "jogador": "HENRIQUE HERNANDEZ",
    "assistencia": null,
    "variante": "livre_direto",
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 15,
-   "texto": "Golo para AE FISICA A de Livre Direto"
+   "texto": "Golo para AE FISICA A de Livre Direto | Marcado por HENRIQUE HERNANDEZ"
   },
   {
    "ordem": 26,
@@ -422,13 +701,13 @@
    "parte": 2,
    "minuto": 26,
    "equipa": "AE FISICA A",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "AFONSO COSTA",
+   "assistencia": "HENRIQUE HERNANDEZ",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 16,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | AFONSO COSTA | Assistência por HENRIQUE HERNANDEZ"
   },
   {
    "ordem": 27,
@@ -437,13 +716,13 @@
    "parte": 2,
    "minuto": 27,
    "equipa": "AE FISICA A",
-   "jogador": null,
+   "jogador": "AFONSO COSTA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 17,
-   "texto": "Golo para AE FISICA A"
+   "texto": "Golo para AE FISICA A | AFONSO COSTA"
   },
   {
    "ordem": 28,
@@ -461,6 +740,5 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 441,
- "individuais_omitidos": true
+ "competicao_id": 441
 }

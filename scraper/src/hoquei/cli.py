@@ -132,7 +132,10 @@ def comando_publicar(args) -> int:
                 ensure_ascii=False, indent=1))
             total += len(cal.jogos)
 
-            publica_nomes = escalao_permite_individual(prova.categoria)
+            # Decisão do dono do projecto (30/09/2026): publicar nomes em todos os escalões,
+            # por a fonte já os expor publicamente. O filtro fica disponível em --anonimizar-formacao
+            # para poder ser reactivado sem alterar código — por exemplo se a federação o pedir.
+            publica_nomes = not args.anonimizar_formacao or escalao_permite_individual(prova.categoria)
             if not publica_nomes:
                 restritas += 1
             for jogo in cal.jogos:
@@ -161,7 +164,8 @@ def comando_publicar(args) -> int:
         "fonte": f"https://{args.tenant}.assyssoftware.es/intranet/web/",
     }, ensure_ascii=False, indent=1))
 
-    print(f"\n{len(provas)} competições ({restritas} sem dados individuais), {total} jogos"
+    nota = f"{restritas} sem dados individuais" if args.anonimizar_formacao else "nomes em todos os escalões"
+    print(f"\n{len(provas)} competições ({nota}), {total} jogos"
           f"\nfichas: {buscadas} buscadas, {saltadas} já actuais → {destino}")
     return 0
 
@@ -187,6 +191,8 @@ def main(argv=None) -> int:
 
     b = sub.add_parser("publicar", parents=[comum], help="gerar a árvore /v1 que a PWA consome")
     b.add_argument("--destino", required=True)
+    b.add_argument("--anonimizar-formacao", action="store_true",
+                   help="omitir nomes de atletas, árbitros e equipa técnica abaixo de sub-17")
     b.set_defaults(func=comando_publicar)
 
     d = sub.add_parser("despejar", parents=[comum], help="escrever todas as competições em JSON")

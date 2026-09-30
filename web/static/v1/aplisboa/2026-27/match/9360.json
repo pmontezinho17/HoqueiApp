@@ -9,7 +9,9 @@
  "data": "2026-09-12",
  "hora": "09:30:00",
  "recinto": "PAV. MAFRA",
- "arbitros": [],
+ "arbitros": [
+  "MIGUEL SOARES"
+ ],
  "faltas": [
   0,
   0
@@ -17,11 +19,233 @@
  "equipas": [
   {
    "nome": "AD OEIRAS A",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "PEDRO MONTEIRO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "2",
+     "nome": "TOMÁS DUARTE",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "MANUEL CAPELA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "5",
+     "nome": "XAVIER LOPES",
+     "titular": false,
+     "golos": 4,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "6",
+     "nome": "GUILHERME BARREIROS",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "DIOGO PINHO",
+     "titular": true,
+     "golos": 3,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "HENRIQUE RIBEIRO",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "DINIS MATOS",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "LUIS LOPES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "PEDRO CARVALHO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    }
+   ]
   },
   {
    "nome": "CD PAÇO ARCOS B",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "FELIPE RODRIGUES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "2",
+     "nome": "RODRIGO GARRANCHO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "BALTASAR PELIZ",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "6",
+     "nome": "ANTÓNIO ALVES DA CRUZ CORREIA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "TOMÁS PITA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "DIOGO POTIER",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "MARIA ROCHA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "FILIPE SANTOS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "ALVARO PELIZ",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "PEDRO RAMOS",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    }
+   ]
   }
  ],
  "cronologia": [
@@ -53,7 +277,7 @@
    "numero": null,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "DESCONTO DE TEMPO"
+   "texto": "DESCONTO DE TEMPO | AD OEIRAS A"
   },
   {
    "ordem": 2,
@@ -62,13 +286,13 @@
    "parte": 1,
    "minuto": 6,
    "equipa": "AD OEIRAS A",
-   "jogador": null,
+   "jogador": "TOMÁS DUARTE",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 1,
    "golos_fora": 0,
-   "texto": "Golo para AD OEIRAS A"
+   "texto": "Golo para AD OEIRAS A | TOMÁS DUARTE"
   },
   {
    "ordem": 3,
@@ -77,13 +301,13 @@
    "parte": 1,
    "minuto": 6,
    "equipa": "AD OEIRAS A",
-   "jogador": null,
+   "jogador": "DIOGO PINHO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 0,
-   "texto": "Golo para AD OEIRAS A"
+   "texto": "Golo para AD OEIRAS A | DIOGO PINHO"
   },
   {
    "ordem": 4,
@@ -92,13 +316,13 @@
    "parte": 1,
    "minuto": 6,
    "equipa": "AD OEIRAS A",
-   "jogador": null,
+   "jogador": "XAVIER LOPES",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 3,
    "golos_fora": 0,
-   "texto": "Golo para AD OEIRAS A"
+   "texto": "Golo para AD OEIRAS A | XAVIER LOPES"
   },
   {
    "ordem": 5,
@@ -107,13 +331,13 @@
    "parte": 1,
    "minuto": 7,
    "equipa": "AD OEIRAS A",
-   "jogador": null,
+   "jogador": "DIOGO PINHO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 4,
    "golos_fora": 0,
-   "texto": "Golo para AD OEIRAS A"
+   "texto": "Golo para AD OEIRAS A | DIOGO PINHO"
   },
   {
    "ordem": 6,
@@ -122,13 +346,13 @@
    "parte": 1,
    "minuto": 8,
    "equipa": "AD OEIRAS A",
-   "jogador": null,
+   "jogador": "XAVIER LOPES",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 5,
    "golos_fora": 0,
-   "texto": "Golo para AD OEIRAS A"
+   "texto": "Golo para AD OEIRAS A | XAVIER LOPES"
   },
   {
    "ordem": 7,
@@ -137,13 +361,13 @@
    "parte": 1,
    "minuto": 10,
    "equipa": "AD OEIRAS A",
-   "jogador": null,
+   "jogador": "XAVIER LOPES",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 6,
    "golos_fora": 0,
-   "texto": "Golo para AD OEIRAS A"
+   "texto": "Golo para AD OEIRAS A | XAVIER LOPES"
   },
   {
    "ordem": 8,
@@ -152,13 +376,13 @@
    "parte": 1,
    "minuto": 12,
    "equipa": "AD OEIRAS A",
-   "jogador": null,
+   "jogador": "GUILHERME BARREIROS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 7,
    "golos_fora": 0,
-   "texto": "Golo para AD OEIRAS A"
+   "texto": "Golo para AD OEIRAS A | GUILHERME BARREIROS"
   },
   {
    "ordem": 9,
@@ -167,13 +391,13 @@
    "parte": 1,
    "minuto": 13,
    "equipa": "AD OEIRAS A",
-   "jogador": null,
+   "jogador": "HENRIQUE RIBEIRO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 8,
    "golos_fora": 0,
-   "texto": "Golo para AD OEIRAS A"
+   "texto": "Golo para AD OEIRAS A | HENRIQUE RIBEIRO"
   },
   {
    "ordem": 10,
@@ -212,13 +436,13 @@
    "parte": 2,
    "minuto": 18,
    "equipa": "AD OEIRAS A",
-   "jogador": null,
+   "jogador": "DIOGO PINHO",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 9,
    "golos_fora": 0,
-   "texto": "Golo para AD OEIRAS A"
+   "texto": "Golo para AD OEIRAS A | DIOGO PINHO"
   },
   {
    "ordem": 13,
@@ -233,7 +457,7 @@
    "numero": null,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "DESCONTO DE TEMPO"
+   "texto": "DESCONTO DE TEMPO | CD PAÇO ARCOS B"
   },
   {
    "ordem": 14,
@@ -242,13 +466,13 @@
    "parte": 2,
    "minuto": 29,
    "equipa": "AD OEIRAS A",
-   "jogador": null,
+   "jogador": "XAVIER LOPES",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 10,
    "golos_fora": 0,
-   "texto": "Golo para AD OEIRAS A"
+   "texto": "Golo para AD OEIRAS A | XAVIER LOPES"
   },
   {
    "ordem": 15,
@@ -266,6 +490,5 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 442,
- "individuais_omitidos": true
+ "competicao_id": 442
 }

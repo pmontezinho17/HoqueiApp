@@ -37,13 +37,38 @@ jobs:
         run: uv run python -m hoquei.cli publicar --tenant aplisboa --destino ../web/static/v1/aplisboa/2026-27
 
       - name: Comitar se houver novidade
+        id: commit
         run: |
           if git diff --quiet -- web/static/v1; then
             echo "sem alterações nos dados"
+            echo "mudou=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+          echo "mudou=true" >> "$GITHUB_OUTPUT"
           git config user.name  "hoquei-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add web/static/v1
           git commit -m "Dados: $(date -u '+%Y-%m-%d %H:%M') UTC [skip ci]"
           git push
+
+      # Sem este passo o ciclo não fecha: a Action comitava dados novos e o site
+      # continuava a servir os antigos até alguém publicar à mão.
+      - uses: actions/setup-node@v4
+        if: steps.commit.outputs.mudou == 'true'
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Construir a PWA
+        if: steps.commit.outputs.mudou == 'true'
+        working-directory: web
+        run: npm ci && npm run build
+
+      - name: Publicar no Cloudflare Pages
+        if: steps.commit.outputs.mudou == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy web/build --project-name hoquei --branch main

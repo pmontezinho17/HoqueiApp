@@ -9,7 +9,9 @@
  "data": "2026-09-11",
  "hora": "21:45:00",
  "recinto": "PAV. VILAFRANQUENSE",
- "arbitros": [],
+ "arbitros": [
+  "JOSE MARTINS"
+ ],
  "faltas": [
   2,
   6
@@ -17,11 +19,288 @@
  "equipas": [
   {
    "nome": "HC LOURINHA",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "27",
+     "nome": "FRANCISCO SILVA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "GUILHERME CARVALHO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "MATTHEW MULLER",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "11",
+     "nome": "SALVADOR SANTOS",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "14",
+     "nome": "DUARTE SILVA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "21",
+     "nome": "GONÇALO SILVA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "22",
+     "nome": "VICENTE MATOS",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "44",
+     "nome": "GABRIEL INACIO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "55",
+     "nome": "HENRIQUE SANTOS",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "61",
+     "nome": "RODRIGO SILVA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "NATASHA MULLER",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "FILIPE PEDRO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    }
+   ]
   },
   {
    "nome": "UD VILAFRANQUENSE",
-   "jogadores": []
+   "jogadores": [
+    {
+     "numero": "20",
+     "nome": "TOMÁS FERNANDES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "JOÃO RIBEIRO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "6",
+     "nome": "EDUARDO SILVA",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "DINIS FERREIRA",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "37",
+     "nome": "RITA GONÇALVES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "43",
+     "nome": "FRANCISCO BATISTA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "80",
+     "nome": "TIAGO ESTEVES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "96",
+     "nome": "TIAGO GOMES",
+     "titular": true,
+     "golos": 2,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "98",
+     "nome": "RODRIGO FRANCISCO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": "64",
+     "nome": "PEDRO SIMÕES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "NUNO CARVALHO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "RUI HENRIQUES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T"
+    },
+    {
+     "numero": null,
+     "nome": "RUI CORREIA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "papel": "T2"
+    }
+   ]
   }
  ],
  "cronologia": [
@@ -137,13 +416,13 @@
    "parte": 2,
    "minuto": 16,
    "equipa": "UD VILAFRANQUENSE",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "TIAGO GOMES",
+   "assistencia": "DINIS FERREIRA",
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 1,
-   "texto": "Golo para UD VILAFRANQUENSE"
+   "texto": "Golo para UD VILAFRANQUENSE | TIAGO GOMES | Assistência por DINIS FERREIRA"
   },
   {
    "ordem": 8,
@@ -182,13 +461,13 @@
    "parte": 2,
    "minuto": 18,
    "equipa": "UD VILAFRANQUENSE",
-   "jogador": null,
+   "jogador": "TIAGO GOMES",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 2,
-   "texto": "Golo para UD VILAFRANQUENSE"
+   "texto": "Golo para UD VILAFRANQUENSE | TIAGO GOMES"
   },
   {
    "ordem": 11,
@@ -197,13 +476,13 @@
    "parte": 2,
    "minuto": 21,
    "equipa": "UD VILAFRANQUENSE",
-   "jogador": null,
+   "jogador": "DINIS FERREIRA",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 0,
    "golos_fora": 3,
-   "texto": "Golo para UD VILAFRANQUENSE"
+   "texto": "Golo para UD VILAFRANQUENSE | DINIS FERREIRA"
   },
   {
    "ordem": 12,
@@ -212,13 +491,13 @@
    "parte": 2,
    "minuto": 22,
    "equipa": "HC LOURINHA",
-   "jogador": null,
+   "jogador": "SALVADOR SANTOS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 1,
    "golos_fora": 3,
-   "texto": "Golo para HC LOURINHA"
+   "texto": "Golo para HC LOURINHA | SALVADOR SANTOS"
   },
   {
    "ordem": 13,
@@ -227,13 +506,13 @@
    "parte": 2,
    "minuto": 23,
    "equipa": "HC LOURINHA",
-   "jogador": null,
+   "jogador": "HENRIQUE SANTOS",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 3,
-   "texto": "Golo para HC LOURINHA"
+   "texto": "Golo para HC LOURINHA | HENRIQUE SANTOS"
   },
   {
    "ordem": 14,
@@ -257,13 +536,13 @@
    "parte": 2,
    "minuto": 28,
    "equipa": "UD VILAFRANQUENSE",
-   "jogador": null,
-   "assistencia": null,
+   "jogador": "EDUARDO SILVA",
+   "assistencia": "TIAGO GOMES",
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 4,
-   "texto": "Golo para UD VILAFRANQUENSE"
+   "texto": "Golo para UD VILAFRANQUENSE | EDUARDO SILVA | Assistência por TIAGO GOMES"
   },
   {
    "ordem": 16,
@@ -296,6 +575,5 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 441,
- "individuais_omitidos": true
+ "competicao_id": 441
 }
