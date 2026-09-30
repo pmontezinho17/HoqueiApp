@@ -1,0 +1,196 @@
+{
+ "competicao_id": 447,
+ "jogos_considerados": 3,
+ "jogadores": [
+  {
+   "nome": "JOÃO RAMOS",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 1,
+   "golos": 6,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 6
+  },
+  {
+   "nome": "FRANCISCO PASCOAL",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 1,
+   "golos": 5,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 5
+  },
+  {
+   "nome": "MANUEL CAPELA",
+   "equipa": "AD OEIRAS A",
+   "jogos": 1,
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "ALEXANDRE FARIAS",
+   "equipa": "AD OEIRAS A",
+   "jogos": 1,
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "MÁRIO FRANCISCO",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 1,
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "AFONSO HELFRICH",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "TIAGO PAIS",
+   "equipa": "AD OEIRAS A",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "AFONSO PIRES",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "GONÇALO CARVALHO",
+   "equipa": "AD OEIRAS A",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "SEBASTIÃO PAIVA",
+   "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "TOMÁS CABRAL",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "ANDRÉ LOPES",
+   "equipa": "AD OEIRAS A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "MANUEL HENRIQUES",
+   "equipa": "AD OEIRAS A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "BERNARDO ABREU",
+   "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DIANA BALÃO",
+   "equipa": "CRIAR-T GD",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MARTIM CHORINCAS",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MARTIM REIMÃO",
+   "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MIGUEL GODINHO",
+   "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "RAFAEL ALMEIDA",
+   "equipa": "AD OEIRAS A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "RAFAEL CARAPINHA",
+   "equipa": "CRIAR-T GD",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "TOMÁS ANGELINO",
+   "equipa": "CRIAR-T GD",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  }
+ ],
+ "tem_defesas": false
+}

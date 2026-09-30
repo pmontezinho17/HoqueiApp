@@ -3,6 +3,8 @@
 	let { equipas }: { equipas: EquipaFicha[] } = $props();
 	const jogadores = (e: EquipaFicha) => e.jogadores.filter((j) => !j.papel);
 	const tecnicos = (e: EquipaFicha) => e.jogadores.filter((j) => j.papel);
+	// "0/0" é o caso esmagador; só vale a pena destacar quem realmente rematou
+	const usou = (v: string | null) => !!v && v !== '0/0';
 </script>
 
 {#each equipas as equipa (equipa.nome)}
@@ -17,6 +19,8 @@
 						<th scope="col"><abbr title="Golos">G</abbr></th>
 						<th scope="col"><abbr title="Assistências">A</abbr></th>
 						<th scope="col"><abbr title="Defesas">D</abbr></th>
+						<th scope="col"><abbr title="Penalidades: convertidas/tentadas">Pe</abbr></th>
+						<th scope="col"><abbr title="Livres diretos: convertidos/tentados">LD</abbr></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -27,6 +31,8 @@
 							<td class:marcou={(j.golos ?? 0) > 0}>{j.golos ?? '–'}</td>
 							<td>{j.assistencias ?? '–'}</td>
 							<td>{j.defesas ?? '–'}</td>
+							<td class="lance" class:usou={usou(j.penalidades)}>{j.penalidades ?? '–'}</td>
+							<td class="lance" class:usou={usou(j.livres_diretos)}>{j.livres_diretos ?? '–'}</td>
 						</tr>
 					{/each}
 				</tbody>
@@ -55,6 +61,8 @@
 	.tit { color: var(--acento); margin-left: 0.15rem; }
 	.nome { text-align: left; width: 100%; font-weight: 500; }
 	.marcou { font-weight: 700; color: var(--acento); }
+	.lance { color: var(--suave); font-size: 0.76rem; }
+	.lance.usou { color: var(--texto); font-weight: 600; }
 	tbody tr + tr th, tbody tr + tr td { border-top: 1px solid var(--borda); }
 	.tecnicos { font-size: 0.72rem; color: var(--suave); margin: 0.4rem 0 0; }
 	.tecnicos span { font-weight: 600; }

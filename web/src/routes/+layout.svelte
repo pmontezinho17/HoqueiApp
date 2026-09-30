@@ -7,6 +7,7 @@
 
 	const emJogos = $derived(page.url.pathname === '/');
 	const emTabelas = $derived(page.url.pathname.startsWith('/classificacoes'));
+	const emQuadros = $derived(page.url.pathname.startsWith('/quadros'));
 	const consulta = $derived(`?comp=${data.escolhida.id}`);
 
 	function mudarCompeticao(e: Event) {
@@ -30,6 +31,7 @@
 	<nav aria-label="Secções">
 		<a href={`/${consulta}`} aria-current={emJogos ? 'page' : undefined}>Jogos</a>
 		<a href={`/classificacoes${consulta}`} aria-current={emTabelas ? 'page' : undefined}>Classificação</a>
+		<a href={`/quadros${consulta}`} aria-current={emQuadros ? 'page' : undefined}>Quadros</a>
 	</nav>
 </header>
 

@@ -77,6 +77,18 @@ export interface FicheiroCompeticao {
 
 export interface IndiceCompeticoes { temporada: number; competicoes: Competicao[]; }
 
+export interface TotaisJogador {
+	nome: string; equipa: string; jogos: number;
+	golos: number; assistencias: number; defesas: number; pontos: number;
+}
+export interface Quadro {
+	competicao_id: number;
+	jogos_considerados: number;
+	jogadores: TotaisJogador[];
+	/** a fonte só regista defesas numa minoria das fichas */
+	tem_defesas: boolean;
+}
+
 export interface Meta {
 	generated_at: string;
 	tenant: string;

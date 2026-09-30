@@ -1,0 +1,133 @@
+{
+ "competicao_id": 446,
+ "jogos_considerados": 3,
+ "jogadores": [
+  {
+   "nome": "MANUEL ANDRADE",
+   "equipa": "SPORTING CP B",
+   "jogos": 1,
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "HENRIQUE RIBEIRO",
+   "equipa": "AD OEIRAS B",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "MÁRIO SILVA",
+   "equipa": "AD OEIRAS B",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "SANTIAGO TOMÁS",
+   "equipa": "SPORTING CP B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "BALTASAR PELIZ",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MIGUEL ALMEIDA",
+   "equipa": "AD OEIRAS B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "RICARDO FERNANDES",
+   "equipa": "AD OEIRAS B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SANTIAGO DIAS",
+   "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SEBASTIAO GOMES",
+   "equipa": "AD OEIRAS B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SOFIA SILVA",
+   "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "TIAGO RIBEIRO",
+   "equipa": "PAREDE FC B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "TOMÁS PITA",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DUARTE DINIZ",
+   "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "RODRIGO GARRANCHO",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  }
+ ],
+ "tem_defesas": false
+}

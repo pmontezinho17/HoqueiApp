@@ -1,0 +1,124 @@
+{
+ "competicao_id": 448,
+ "jogos_considerados": 2,
+ "jogadores": [
+  {
+   "nome": "EDUARDO SILVA",
+   "equipa": "UD VILAFRANQUENSE A",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "TIAGO GOMES",
+   "equipa": "UD VILAFRANQUENSE A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "JOSE MATA",
+   "equipa": "SL BENFICA B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "AFONSO MASSANO",
+   "equipa": "APAC TOJAL",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "BERNARDO COSTA",
+   "equipa": "SL BENFICA B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "JOÃO RIBEIRO",
+   "equipa": "UD VILAFRANQUENSE A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MARTIM FERREIRA",
+   "equipa": "UD VILAFRANQUENSE A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DIOGO VILELA",
+   "equipa": "SL BENFICA B",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "TIAGO ESTEVES",
+   "equipa": "UD VILAFRANQUENSE A",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "GONÇALO SERRAS",
+   "equipa": "PAREDE FC",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0
+  },
+  {
+   "nome": "JOÃO CARVALHO",
+   "equipa": "UD VILAFRANQUENSE A",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0
+  },
+  {
+   "nome": "PEDRO SIMÕES",
+   "equipa": "UD VILAFRANQUENSE A",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0
+  },
+  {
+   "nome": "RAFAEL LOURENÇO",
+   "equipa": "APAC TOJAL",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0
+  }
+ ],
+ "tem_defesas": true
+}

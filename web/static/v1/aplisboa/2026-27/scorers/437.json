@@ -1,0 +1,124 @@
+{
+ "competicao_id": 437,
+ "jogos_considerados": 3,
+ "jogadores": [
+  {
+   "nome": "MÁRIO FRANCISCO",
+   "equipa": "CD PAÇO ARCOS",
+   "jogos": 2,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "RODRIGO MARTINHO",
+   "equipa": "SL BENFICA",
+   "jogos": 2,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "FRANCISCO PIÇARRA",
+   "equipa": "SL BENFICA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "JOSÉ SIMÕES",
+   "equipa": "SL BENFICA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "DUARTE GONÇALVES",
+   "equipa": "SPORTING CP",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MATIAS FELICIANO",
+   "equipa": "SPORTING CP",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DINIS MOREIRA",
+   "equipa": "SL BENFICA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "FRANCISCO PASCOAL",
+   "equipa": "CD PAÇO ARCOS",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "GUILHERME GOMES",
+   "equipa": "SL BENFICA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "AFONSO PIRES",
+   "equipa": "CD PAÇO ARCOS",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "RODRIGO REIS",
+   "equipa": "SPORTING CP",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ARTUR ALBINO",
+   "equipa": "SPORTING CP",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 7,
+   "pontos": 0
+  },
+  {
+   "nome": "TIAGO FERREIRA",
+   "equipa": "CD PAÇO ARCOS",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 7,
+   "pontos": 0
+  }
+ ],
+ "tem_defesas": true
+}

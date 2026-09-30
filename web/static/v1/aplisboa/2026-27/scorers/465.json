@@ -1,0 +1,214 @@
+{
+ "competicao_id": 465,
+ "jogos_considerados": 4,
+ "jogadores": [
+  {
+   "nome": "RODRIGO MESTRE",
+   "equipa": "HC SINTRA",
+   "jogos": 1,
+   "golos": 8,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 8
+  },
+  {
+   "nome": "ANTÓNIO GOMES",
+   "equipa": "AD OEIRAS A",
+   "jogos": 1,
+   "golos": 5,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 7
+  },
+  {
+   "nome": "JOÃO PEREIRA",
+   "equipa": "AD OEIRAS A",
+   "jogos": 1,
+   "golos": 5,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 5
+  },
+  {
+   "nome": "VASCO SANCHES",
+   "equipa": "AE FISICA D A",
+   "jogos": 1,
+   "golos": 5,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 5
+  },
+  {
+   "nome": "MIGUEL PAULINO",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 1,
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "MARTIM RODRIGUES",
+   "equipa": "CACO A",
+   "jogos": 1,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "VASCO SILVA",
+   "equipa": "AD OEIRAS A",
+   "jogos": 1,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "LOURENÇO CARVALHO",
+   "equipa": "AD OEIRAS A",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "MARTIM GOMES",
+   "equipa": "AD OEIRAS A",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "JOANA DUARTE",
+   "equipa": "AD OEIRAS A",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "JOAO NEVES",
+   "equipa": "AE FISICA D A",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "LEIGH XAVIER",
+   "equipa": "SC TORRES",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "SARA DIAS",
+   "equipa": "A STUART HCM",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "RODRIGO PEDRO",
+   "equipa": "SC TORRES",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "AFONSO RODRIGUES",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DINIS ALVES",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DUARTE ALMEIDA",
+   "equipa": "HC SINTRA",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "KHEMY XAVIER",
+   "equipa": "SC TORRES",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MARTIM RAMALHO",
+   "equipa": "HC SINTRA",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MATEUS TEIXEIRA",
+   "equipa": "AD OEIRAS A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SANTIAGO CANDEIAS",
+   "equipa": "HC SINTRA",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "VICENTE SERRANO",
+   "equipa": "SC TORRES",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ZE SANTOS",
+   "equipa": "SC TORRES",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  }
+ ],
+ "tem_defesas": false
+}

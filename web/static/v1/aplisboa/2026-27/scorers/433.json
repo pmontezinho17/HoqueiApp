@@ -1,0 +1,178 @@
+{
+ "competicao_id": 433,
+ "jogos_considerados": 4,
+ "jogadores": [
+  {
+   "nome": "SARA CORREIA",
+   "equipa": "HC SINTRA",
+   "jogos": 2,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "SARA FERNANDES",
+   "equipa": "CRIAR-T GD",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "MARIA DUARTE",
+   "equipa": "A STRUART HCM",
+   "jogos": 2,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "MADALENA CASIMIRO",
+   "equipa": "HC SINTRA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "MADALENA SANTANA",
+   "equipa": "CRIAR-T GD",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "VERA BOULLOSA",
+   "equipa": "PAREDE FC",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DIANA PINTO",
+   "equipa": "A STRUART HCM",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "LAURA ANTÂO",
+   "equipa": "HC SINTRA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "LEONOR SIMÕES",
+   "equipa": "PAREDE FC",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MICAELA JAMARDO",
+   "equipa": "A STRUART HCM",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "RAQUEL CORREIA",
+   "equipa": "HC SINTRA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "RITA DIEGUES",
+   "equipa": "A STRUART HCM",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "TATIANA OLHICOS",
+   "equipa": "PAREDE FC",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "GABRIELA CAETANO",
+   "equipa": "HC SINTRA",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ISA RICARDO",
+   "equipa": "A STRUART HCM",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MARIA SALVADO",
+   "equipa": "HC SINTRA",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SOFIA BOULLOSA",
+   "equipa": "PAREDE FC",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "INÊS CALDEIRA",
+   "equipa": "A STRUART HCM",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 3,
+   "pontos": 0
+  },
+  {
+   "nome": "MARIANA AGULHAS",
+   "equipa": "HC SINTRA",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0
+  }
+ ],
+ "tem_defesas": true
+}

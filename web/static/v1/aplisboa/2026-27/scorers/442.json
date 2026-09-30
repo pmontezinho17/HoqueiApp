@@ -1,0 +1,844 @@
+{
+ "competicao_id": 442,
+ "jogos_considerados": 25,
+ "jogadores": [
+  {
+   "nome": "FRANCISCO FATELA",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 5,
+   "golos": 10,
+   "assistencias": 4,
+   "defesas": 0,
+   "pontos": 14
+  },
+  {
+   "nome": "CARLOS ROCHA",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 5,
+   "golos": 10,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 11
+  },
+  {
+   "nome": "IVO MATOS",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 5,
+   "golos": 9,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 10
+  },
+  {
+   "nome": "MIGUEL GODINHO",
+   "equipa": "AE FISICA A",
+   "jogos": 4,
+   "golos": 7,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 10
+  },
+  {
+   "nome": "XAVIER LOPES",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "golos": 6,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 7
+  },
+  {
+   "nome": "MATEUS SANTOS",
+   "equipa": "HC SINTRA",
+   "jogos": 2,
+   "golos": 6,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 6
+  },
+  {
+   "nome": "GONÇALO SILVA",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "golos": 5,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 6
+  },
+  {
+   "nome": "GASPAR CASTRO",
+   "equipa": "AE FISICA A",
+   "jogos": 4,
+   "golos": 4,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 7
+  },
+  {
+   "nome": "DIEGO ALVES",
+   "equipa": "AE FISICA A",
+   "jogos": 4,
+   "golos": 4,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 6
+  },
+  {
+   "nome": "FRANCISCO SIMÕES",
+   "equipa": "SPORTING CP",
+   "jogos": 3,
+   "golos": 4,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 5
+  },
+  {
+   "nome": "DIOGO PINHO",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "SALVADOR MONTEZINHO",
+   "equipa": "PAREDE FC A",
+   "jogos": 4,
+   "golos": 3,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 5
+  },
+  {
+   "nome": "SANTIAGO TOMÁS",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "MANUEL CAPELA",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "ANA SEGADÃES",
+   "equipa": "PAREDE FC A",
+   "jogos": 4,
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "NANCY SOUSA",
+   "equipa": "AE FISICA A",
+   "jogos": 4,
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "TOMAS SANTOS",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 5,
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "LUCAS MORGADO",
+   "equipa": "APAC TOJAL",
+   "jogos": 2,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "GUILHERME BARREIROS",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "TOMÁS DUARTE",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "CARLOTA SEABRA",
+   "equipa": "PAREDE FC A",
+   "jogos": 4,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "GONÇALO MORAIS",
+   "equipa": "AE FISICA A",
+   "jogos": 4,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "XAVIER SILVA",
+   "equipa": "AE FISICA A",
+   "jogos": 4,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "VERA REIS",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 5,
+   "golos": 2,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 5
+  },
+  {
+   "nome": "MARIA DORDIO",
+   "equipa": "HC SINTRA",
+   "jogos": 2,
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "RODRIGO LEITE",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 2,
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "FRANCISCO SOUSA",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 3,
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "HENRIQUE RIBEIRO",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "DINIS RAMOS",
+   "equipa": "AE FISICA A",
+   "jogos": 4,
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "DUARTE DINIZ",
+   "equipa": "AE FISICA B",
+   "jogos": 2,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "MIGUEL ALMEIDA",
+   "equipa": "AD OEIRAS B",
+   "jogos": 2,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "SANTIAGO CARVALHO",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 2,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "TIAGO ALMEIDA",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "TOMÁS MARTINS",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "XAVIER MARTINS",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 2,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "ENZO XAVIER",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 3,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "LOURENÇO MACHADO",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 3,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "ISABELA PILÃO",
+   "equipa": "PAREDE FC A",
+   "jogos": 4,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "LOURENÇO FILIPE",
+   "equipa": "PAREDE FC A",
+   "jogos": 4,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "TIAGO RIBEIRO",
+   "equipa": "PAREDE FC A",
+   "jogos": 4,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "VICENTE ROCHA",
+   "equipa": "PAREDE FC A",
+   "jogos": 4,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "HENRIQUE GONÇALVES",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 5,
+   "golos": 1,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "FRANCISCO ANTUNES",
+   "equipa": "CACO B",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "GUILHERME SANTOS",
+   "equipa": "CACO B",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "DAVID MONTEIRO",
+   "equipa": "SPORTING CP",
+   "jogos": 3,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "BALTAZAR SILVA",
+   "equipa": "HC LOURINHA",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "FRANCISCO SALDANHA",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MANUEL RODRIGUES",
+   "equipa": "HC LOURINHA",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "VALENTIM MARTINS",
+   "equipa": "HC LOURINHA",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "AFONSO DEODATO",
+   "equipa": "CD MAFRA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "AFONSO SILVA",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ALEXANDRE CARRIERE",
+   "equipa": "HC LOURINHA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 1
+  },
+  {
+   "nome": "CONSTANÇA COSTA",
+   "equipa": "AD OEIRAS B",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DIANA BALÃO",
+   "equipa": "CRIAR-T GD",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DIOGO FONSECA",
+   "equipa": "PAREDE FC B",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "FRANCISCO GOMES",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "GIL MARTINS",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "GUSTAVO FAVINHA",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "LOURENÇO FURTADO",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "LUCAS ESTALAGEM",
+   "equipa": "CD MAFRA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MARCOS MOREIRA",
+   "equipa": "PAREDE FC B",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MARTIM SILVA",
+   "equipa": "HC SINTRA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MAXÍM DANILIS",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "PEDRO REIS",
+   "equipa": "HC LOURINHA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "RAFAELA PINA",
+   "equipa": "HC LOURINHA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "RODRIGO QUEIROS",
+   "equipa": "PAREDE FC B",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SEBASTIÃO GOMES",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SEBASTIÃO PILÃO",
+   "equipa": "PAREDE FC B",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "TOMÁS PITA",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "VICENTE MATOS",
+   "equipa": "PAREDE FC B",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "VICENTE QUINTELA",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ALEXANDRE ABRANTES",
+   "equipa": "SPORTING CP",
+   "jogos": 3,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ANDRE FARIA",
+   "equipa": "CRIAR-T GD",
+   "jogos": 3,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ANTONIO PEREIRA",
+   "equipa": "CRIAR-T GD",
+   "jogos": 3,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "BENEDITA MACHADO",
+   "equipa": "CRIAR-T GD",
+   "jogos": 3,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DUARTE FRANCO",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 3,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "GUILHERME PORFIRIO",
+   "equipa": "SPORTING CP",
+   "jogos": 3,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "JOSÉ SILVA",
+   "equipa": "SPORTING CP",
+   "jogos": 3,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SANTIAGO BANDEIRAS",
+   "equipa": "SPORTING CP",
+   "jogos": 3,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ANTÓNIO ALMEIDA",
+   "equipa": "AE FISICA A",
+   "jogos": 4,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SARA DANTAS",
+   "equipa": "PAREDE FC A",
+   "jogos": 4,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "JOÃO REIS",
+   "equipa": "SPORTING CP",
+   "jogos": 3,
+   "golos": 0,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "FRANCISCO CARVALHO",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ALEXANDRE CLÉRIGO",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DIOGO POTIER",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DUARTE GASPAR",
+   "equipa": "HC SINTRA",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "GUILHERME FILIPE AMORIM",
+   "equipa": "AD OEIRAS B",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MANUEL ANDRADE",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MARIO SILVA",
+   "equipa": "AD OEIRAS B",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SEBASTIAO GOMES",
+   "equipa": "AD OEIRAS B",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "GONÇALO POTRA",
+   "equipa": "A STUART HCM",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0
+  },
+  {
+   "nome": "SIMÃO LOPES",
+   "equipa": "PAREDE FC A",
+   "jogos": 4,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 2,
+   "pontos": 0
+  },
+  {
+   "nome": "TIAGO SILVA",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 5,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0
+  }
+ ],
+ "tem_defesas": true
+}

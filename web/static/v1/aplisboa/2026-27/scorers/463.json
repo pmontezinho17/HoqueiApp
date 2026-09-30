@@ -1,0 +1,61 @@
+{
+ "competicao_id": 463,
+ "jogos_considerados": 1,
+ "jogadores": [
+  {
+   "nome": "ALBERTO NÓVOA",
+   "equipa": "AD OEIRAS B",
+   "jogos": 1,
+   "golos": 4,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 7
+  },
+  {
+   "nome": "AFONSO COSTA",
+   "equipa": "AD OEIRAS B",
+   "jogos": 1,
+   "golos": 4,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 5
+  },
+  {
+   "nome": "SANTIAGO REIS",
+   "equipa": "AD OEIRAS B",
+   "jogos": 1,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "MANUEL FIRMO",
+   "equipa": "AD OEIRAS B",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "MATEUS RIBEIRO",
+   "equipa": "AD OEIRAS B",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "JOANA DUARTE",
+   "equipa": "AD OEIRAS B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 3
+  }
+ ],
+ "tem_defesas": false
+}

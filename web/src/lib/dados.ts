@@ -1,4 +1,4 @@
-import type { FicheiroCompeticao, FichaJogo, IndiceCompeticoes, Meta } from './tipos';
+import type { FicheiroCompeticao, FichaJogo, IndiceCompeticoes, Meta, Quadro } from './tipos';
 
 // Mesma origem que a app — sem CORS, e o service worker trata destes pedidos com o
 // mesmo mecanismo com que trata o código.
@@ -18,5 +18,8 @@ export const carregarCompeticao = (id: number, f: typeof fetch) =>
 
 export const carregarJogo = (id: number, f: typeof fetch) =>
 	json<FichaJogo>(`${BASE}/match/${id}.json`, f);
+
+export const carregarQuadro = (comp: number, f: typeof fetch) =>
+	json<Quadro>(`${BASE}/scorers/${comp}.json`, f);
 
 export const carregarMeta = (f: typeof fetch) => json<Meta>(`${BASE}/meta.json`, f);

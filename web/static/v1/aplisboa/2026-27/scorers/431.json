@@ -1,0 +1,403 @@
+{
+ "competicao_id": 431,
+ "jogos_considerados": 7,
+ "jogadores": [
+  {
+   "nome": "XAVIER LOURENÇO",
+   "equipa": "HC TURQUEL",
+   "jogos": 2,
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "GONÇALO OLIVEIRA",
+   "equipa": "AA COIMBRA",
+   "jogos": 2,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "DIOGO RUIVO",
+   "equipa": "AE FISICA D",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "LUIS OLIVEIRA",
+   "equipa": "AE FISICA D",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "MARIA SILVA",
+   "equipa": "CRIAR-T GD",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "RUBEN ALMEIDA",
+   "equipa": "GDS CASCAIS",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "FRANCISCA MORAIS",
+   "equipa": "BIBLIOTECA IR (SF)",
+   "jogos": 2,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "JOSÉ COSTA",
+   "equipa": "HC TURQUEL",
+   "jogos": 2,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "JOÃO MATIAS",
+   "equipa": "AA COIMBRA",
+   "jogos": 2,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "MIGUEL CUNHA",
+   "equipa": "AA COIMBRA",
+   "jogos": 2,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "ALESSANDRO VERONA",
+   "equipa": "SPORTING CP",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "PEDRO GOMES",
+   "equipa": "GDS CASCAIS",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "XAVIER RODRIGUES",
+   "equipa": "AE FISICA D",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "AFONSO PIMENTEL",
+   "equipa": "GDS CASCAIS",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ANDRÉ COIMBRA",
+   "equipa": "APAC TOJAL",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ANTÓNIO SILVA",
+   "equipa": "PAREDE FC (SM)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "BRUNA PINA",
+   "equipa": "BIBLIOTECA IR (SF)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DANIEL PASSOS",
+   "equipa": "HC TURQUEL",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DANIEL PIRES",
+   "equipa": "HC GRANDOLA",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DIOGO BARATA",
+   "equipa": "SPORTING CP",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "GONCALO BELO",
+   "equipa": "GDS CASCAIS",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "JOÃO PINA",
+   "equipa": "SPORTING CP",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "LARA PINTO",
+   "equipa": "PAREDE FC (SF)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MADALENA SANTANA",
+   "equipa": "CRIAR-T GD",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MARTIM SILVA",
+   "equipa": "PAREDE FC (SM)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "PEDRO LOPES",
+   "equipa": "PAREDE FC (SM)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SOFIA BOULLOSA",
+   "equipa": "PAREDE FC (SF)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "TIAGO DUARTE",
+   "equipa": "PAREDE FC (SM)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "TIAGO MATEUS",
+   "equipa": "HC TURQUEL",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "VERA BOULLOSA",
+   "equipa": "PAREDE FC (SF)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DIOGO NEVES",
+   "equipa": "HC TURQUEL",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "JOSÉ FLORES",
+   "equipa": "AA COIMBRA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MATILDE FREITAS",
+   "equipa": "BIBLIOTECA IR (SF)",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "PEDRO BEIRANTE",
+   "equipa": "AA COIMBRA",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "FRANCISCO FERREIRA",
+   "equipa": "AE FISICA D",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "JOÃO CORREIA",
+   "equipa": "HC GRANDOLA",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MANUEL CALAMBRA",
+   "equipa": "AE FISICA D",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MARTIM RAMOS",
+   "equipa": "GDS CASCAIS",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "RAFA",
+   "equipa": "BIBLIOTECA IR (SF)",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "RODRIGO MARREIROS",
+   "equipa": "GDS CASCAIS",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ÉRICA RICARDO",
+   "equipa": "BIBLIOTECA IR (SF)",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MIGUEL VICENTE",
+   "equipa": "HC TURQUEL",
+   "jogos": 2,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ANTÓNIO COSTA",
+   "equipa": "GDS CASCAIS",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0
+  },
+  {
+   "nome": "RODRIGO TEIXEIRA",
+   "equipa": "APAC TOJAL",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0
+  }
+ ],
+ "tem_defesas": true
+}

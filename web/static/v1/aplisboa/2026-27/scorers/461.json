@@ -1,0 +1,115 @@
+{
+ "competicao_id": 461,
+ "jogos_considerados": 2,
+ "jogadores": [
+  {
+   "nome": "MATEUS XAVIER",
+   "equipa": "UD VILAFRANQUENSE A",
+   "jogos": 1,
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "RICARDO HENRIQUES",
+   "equipa": "UD VILAFRANQUENSE A",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "GUSTAVO ZURGA",
+   "equipa": "CACO A",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "HENRIQUE VILELA",
+   "equipa": "CACO A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "DANIEL SIMÕES",
+   "equipa": "CACO A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "DUARTE GASPAR",
+   "equipa": "HC SINTRA",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "GUI SIMÃO",
+   "equipa": "HC SINTRA",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "HENRIQUE MARIANO",
+   "equipa": "CACO A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "JOANA ANDRADE",
+   "equipa": "UD VILAFRANQUENSE A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MATIAS MOREIRA",
+   "equipa": "UD VILAFRANQUENSE A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "TOMÁS LEITÃO",
+   "equipa": "UD VILAFRANQUENSE A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "INÊS MIRANDA",
+   "equipa": "AE FISICA D A",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0
+  }
+ ],
+ "tem_defesas": true
+}

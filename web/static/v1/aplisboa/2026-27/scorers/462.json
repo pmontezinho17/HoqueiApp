@@ -1,0 +1,88 @@
+{
+ "competicao_id": 462,
+ "jogos_considerados": 2,
+ "jogadores": [
+  {
+   "nome": "THÉO FURTADO",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "AFONSO NUNES",
+   "equipa": "CRIAR-T GD",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DIOGO REIS",
+   "equipa": "A STUART HCM A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "GONÇALO BORGES",
+   "equipa": "A STUART HCM A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "RODRIGO SILVA",
+   "equipa": "APAC TOJAL",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SANTIAGO LOPES",
+   "equipa": "CRIAR-T GD",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "TIAGO LAMEGO",
+   "equipa": "A STUART HCM A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "VALENTIM MARTINS",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "VASCO FRAÚSTO",
+   "equipa": "CRIAR-T GD",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  }
+ ],
+ "tem_defesas": false
+}

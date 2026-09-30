@@ -59,7 +59,7 @@
 | B1.17 | Alerta de quebra do parser | should | S | aberto |
 | B1.18 | Backfill de temporadas anteriores | could | M | aberto |
 | B1.19 | Crawl incremental das fichas de jogo | must | M | ✅ 2ª execução: 0 buscadas, 80 já actuais |
-| B1.20 | Agregação de marcadores → `scorers.json` | should | L | aberto |
+| B1.20 | Agregação por jogador → `scorers/{comp}.json` | should | L | ✅ soma por (equipa, nome); 93 jogadores na Taça Jesus Correia |
 | B1.21 | Filtro RGPD: sem estatística individual abaixo de sub-17 | must | S | ✅ `privacidade.py` — 36 de 80 fichas anonimizadas, escalão desconhecido é restrito por omissão |
 
 > **B1.15 mudou de forma com a PWA.** Antes os JSON iam para um sítio qualquer com CORS aberto.
@@ -110,13 +110,13 @@ Objetivo: **um ecrã** com jogos reais, no telemóvel, instalável. É aqui que 
 | W3.6c | Tab Boletim: arbitragem, resultado por parte, prolongamento | could | M | Mostra os parciais e a equipa de arbitragem |
 | W3.6d | Esconder tabs vazias | should | XS | ✅ sem cronologia ou sem ficha, a tab não aparece |
 | W3.7 | Ecrã Equipa: próximos jogos, últimos resultados, posição, plantel | should | L | Chega-se lá clicando no nome da equipa em qualquer sítio |
-| W3.8 | Ecrã Golos: melhores marcadores, com filtro por competição | must | L | Top 10 com clube e nº de golos |
-| W3.9 | Quadros: alternar entre **melhores marcadores, melhores assistências e melhores defesas** — os três campos já são recolhidos | should | M | Cada separador reordena e mostra a coluna certa |
-| W3.10 | Golos: explicação clara em competições de formação, em vez de lista vazia | must | XS | Sub-13 mostra o motivo |
+| W3.8 | Ecrã Quadros | must | L | ✅ top 50 com clube, total e média por jogo |
+| W3.9 | Quadros de marcadores, assistências e defesas | should | M | ✅ ecrã `/quadros`, com empates no mesmo lugar e média por jogo |
+| W3.10 | Explicação em vez de lista vazia | must | XS | ✅ competição sem fichas publicadas explica-o; a tab Defesas só aparece se houver defesas registadas |
 | W3.11 | Ecrã Sobre: atribuição da fonte, última atualização, versão | must | S | Mostra o `generated_at` do `meta.json` |
 | W3.12 | Aviso de dados velhos | should | S | ✅ idade no cabeçalho, destacada acima de 24h |
 | W3.13 | Pré-visualização em partilhas (Open Graph por jogo) | could | M | Colar o link de um jogo no WhatsApp mostra as equipas e o resultado |
-| W3.6e | Tab Ficha: acrescentar as colunas **Pe** (penalidades) e **LD** (livres diretos), que já vêm no JSON e não são mostradas | should | S | Um jogador com `1/2` em penalidades vê-o na ficha |
+| W3.6e | Tab Ficha: colunas **Pe** e **LD** | should | S | ✅ a cinzento quando `0/0`, destacadas quando houve remate |
 | W3.14 | **Ícone de golo**: bola de hóquei em patins em vez do ⚽ | should | S | ✅ SVG próprio (`Bola.svelte`), com aro claro para não desaparecer no tema escuro |
 | W3.15 | **Seletor de competição** em folha inferior, agrupado por escalão e com pesquisa, em vez do `<select>` com 37 entradas | should | M | Chegar a uma competição em dois toques sem ler a lista toda |
 

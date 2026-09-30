@@ -1,0 +1,547 @@
+{
+ "competicao_id": 434,
+ "jogos_considerados": 11,
+ "jogadores": [
+  {
+   "nome": "VICENTE JANEIRO",
+   "equipa": "CD MAFRA (B)",
+   "jogos": 1,
+   "golos": 9,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 9
+  },
+  {
+   "nome": "MANUEL MARTINHO",
+   "equipa": "AE FISICA D (B)",
+   "jogos": 1,
+   "golos": 5,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 5
+  },
+  {
+   "nome": "BERNARDO DIAS",
+   "equipa": "AE FISICA D (S17)",
+   "jogos": 1,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "DINIS NASCIMENTO",
+   "equipa": "AE FISICA D (S17)",
+   "jogos": 1,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "VASCO GONÇALVES",
+   "equipa": "AE FISICA D (S)",
+   "jogos": 1,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "VASCO SANCHES",
+   "equipa": "AE FISICA D (B)",
+   "jogos": 1,
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "GONÇALO FERNANDES",
+   "equipa": "AE FISICA D (S19)",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "GASPAR CASTRO",
+   "equipa": "AE FISICA D (E)",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "HENRIQUE SELAS",
+   "equipa": "HC MEALHADA (S23)",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "JAIME FONSECA",
+   "equipa": "AE FISICA D (S15)",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "MIGUEL MONTEIRO",
+   "equipa": "AE FISICA D (S15)",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "TIAGO VIEIRA",
+   "equipa": "AE FISICA D (S17)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 3
+  },
+  {
+   "nome": "AFONSO CARVALHEIRA",
+   "equipa": "CACO B (S13)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "MARTIM HORTA",
+   "equipa": "AE FISICA D (S17)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "VASCO GONÇALVES",
+   "equipa": "AE FISICA D (S19)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "AFONSO COSTA",
+   "equipa": "AE FISICA D (S15)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "AMARO GONÇALVES",
+   "equipa": "HC TURQUEL (B)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ANA CARREIRA",
+   "equipa": "HC TURQUEL (B)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ANDRE COSTA",
+   "equipa": "AE FISICA D B (S17)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ANDRÉ GOMES",
+   "equipa": "AE FISICA D B (S17)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ANTÓNIO CABRAL",
+   "equipa": "CACO B (S13)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ANTÓNIO PEDRAS",
+   "equipa": "HC TURQUEL (E)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "BERNARDO ABREU",
+   "equipa": "AE FISICA D B (S15)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "BERNARDO ROSMANINHO",
+   "equipa": "HC MEALHADA (S19)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DANIEL VIEIRA",
+   "equipa": "AE FISICA D (S15)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DAVID GRADE",
+   "equipa": "AE FISICA D (S15)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DIOGO RUIVO",
+   "equipa": "AE FISICA D (S)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DUARTE MAGALHÃES",
+   "equipa": "AE FISICA D (S19)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "FRANCISCO BASTOS",
+   "equipa": "HC MEALHADA (S17)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "FRANCISCO LEITE",
+   "equipa": "CACO A (S13)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "GONÇALO AFONSO",
+   "equipa": "AE FISICA D (B)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "IRIS VAZ",
+   "equipa": "HC TURQUEL (B)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "JOÃO VIEIRA",
+   "equipa": "AE FISICA D (S17)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "LAURA ESTALAGEM",
+   "equipa": "CD MAFRA (B)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "LAURA ROCHA",
+   "equipa": "HC TURQUEL (B)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "LEONARDO JALECO",
+   "equipa": "AE FISICA D B (S17)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "LUCAS PEDRO",
+   "equipa": "HC MEALHADA (S23)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MANUEL CAETANO",
+   "equipa": "AE FISICA D (S19)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MANUEL CALAMBRA",
+   "equipa": "AE FISICA D (S)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MIGUEL GODINHO",
+   "equipa": "AE FISICA D (S13)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MIGUEL REIMÃO",
+   "equipa": "AE FISICA D B (S15)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SALVADOR POIARES",
+   "equipa": "AA COIMBRA (S15)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SANTIAGO CASTRO",
+   "equipa": "AA COIMBRA (S15)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SANTIAGO FERREIRA",
+   "equipa": "AE FISICA D B (S13)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SANTIAGO FERREIRA",
+   "equipa": "AE FISICA D (S19)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SIMAO RAFAEL",
+   "equipa": "CACO A (S13)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "TOMÉ FERREIRA",
+   "equipa": "HC TURQUEL (B)",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DAVID MARQUES",
+   "equipa": "HC MEALHADA (S17)",
+   "jogos": 2,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ANTÓNIO GONÇALVES",
+   "equipa": "AE FISICA D (S17)",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "BERNARDO SILVA",
+   "equipa": "CD MAFRA (B)",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "HENRIQUE MAURICIO",
+   "equipa": "AE FISICA D (S19)",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "HENRIQUE MAURICIO",
+   "equipa": "AE FISICA D (S)",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "HENRIQUE VILELA",
+   "equipa": "CACO A (S13)",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "RODRIGO VALLE",
+   "equipa": "CACO B (S13)",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "TIAGO ROLHAS",
+   "equipa": "AE FISICA D (S15)",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ANTONIO LOUREIRO",
+   "equipa": "HC MEALHADA (S23)",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 2,
+   "pontos": 0
+  },
+  {
+   "nome": "BERNARDO OLIVAL",
+   "equipa": "CACO B (S13)",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0
+  },
+  {
+   "nome": "DUARTE CATARINO",
+   "equipa": "HC MEALHADA (S19)",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 2,
+   "pontos": 0
+  },
+  {
+   "nome": "JAIME FONSECA",
+   "equipa": "AE FISICA D B (S13)",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0
+  },
+  {
+   "nome": "SEBASTIÃO HENRIQUES",
+   "equipa": "AE FISICA D (S17)",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0
+  }
+ ],
+ "tem_defesas": true
+}

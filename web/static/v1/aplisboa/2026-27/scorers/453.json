@@ -1,0 +1,142 @@
+{
+ "competicao_id": 453,
+ "jogos_considerados": 3,
+ "jogadores": [
+  {
+   "nome": "TIAGO FERREIRA",
+   "equipa": "SL BENFICA A",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "AFONSO ANDRÉ",
+   "equipa": "SL BENFICA A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ANDRÉ COSTA",
+   "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "ANTÓNIO PEREIRA",
+   "equipa": "APAC TOJAL",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "JOSÉ SANTOS",
+   "equipa": "A STUART HCM",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "LUCAS SANTOS",
+   "equipa": "PAREDE FC",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MANUEL SOUSA",
+   "equipa": "SL BENFICA A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "NUNO ESTANISLAU",
+   "equipa": "PAREDE FC",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "PEDRO SOARES",
+   "equipa": "A STUART HCM",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "RICARDO SILVA",
+   "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "TIAGO BARATA",
+   "equipa": "A STUART HCM",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "DIOGO ATAÍDE",
+   "equipa": "SL BENFICA A",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "GONÇALO ESPADA",
+   "equipa": "A STUART HCM",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "RODRIGO GODINHO",
+   "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "RODRIGO SANTOS",
+   "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0
+  }
+ ],
+ "tem_defesas": true
+}

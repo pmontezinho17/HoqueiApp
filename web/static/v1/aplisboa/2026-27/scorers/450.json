@@ -1,0 +1,97 @@
+{
+ "competicao_id": 450,
+ "jogos_considerados": 2,
+ "jogadores": [
+  {
+   "nome": "FRANCISCO PIÇARRA",
+   "equipa": "SL BENFICA A",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 4
+  },
+  {
+   "nome": "DINIS MOREIRA",
+   "equipa": "SL BENFICA A",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "SANTIAGO DIAS",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "JOSÉ SIMÕES",
+   "equipa": "SL BENFICA A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "MATEUS BERNARDO",
+   "equipa": "SL BENFICA A",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "TIAGO MATOS",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "TOMÁS DUARTE",
+   "equipa": "AD OEIRAS B",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "FRANCISCO FATELA",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "FILIPA GONÇALVES",
+   "equipa": "SL BENFICA A",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "GABRIEL SANTOS",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 2,
+   "pontos": 0
+  }
+ ],
+ "tem_defesas": true
+}

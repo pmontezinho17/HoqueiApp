@@ -18,6 +18,7 @@ from .parsers.classificacao import classificacao
 from .parsers.competicoes import competicoes, temporadas
 from .parsers.jogo import ficha
 from .privacidade import anonimizar_ficha, escalao_permite_individual
+from .quadros import agregar
 
 
 def _temporada_corrente(fonte: Fonte) -> int:
@@ -117,8 +118,8 @@ def comando_publicar(args) -> int:
     uma federação.
     """
     destino = pathlib.Path(args.destino)
-    (destino / "comp").mkdir(parents=True, exist_ok=True)
-    (destino / "match").mkdir(parents=True, exist_ok=True)
+    for pasta in ("comp", "match", "scorers"):
+        (destino / pasta).mkdir(parents=True, exist_ok=True)
 
     with Fonte(args.tenant) as fonte:
         id_temp = args.id_temp or _temporada_corrente(fonte)
@@ -138,19 +139,26 @@ def comando_publicar(args) -> int:
             publica_nomes = not args.anonimizar_formacao or escalao_permite_individual(prova.categoria)
             if not publica_nomes:
                 restritas += 1
+            fichas_da_prova: list[dict] = []
             for jogo in cal.jogos:
                 if jogo.id is None or not jogo.disputado:
                     continue
                 alvo = destino / "match" / f"{jogo.id}.json"
                 if _resultado_conhecido(alvo) == (jogo.golos_casa, jogo.golos_fora, "Jogo Terminado"):
                     saltadas += 1
+                    fichas_da_prova.append(json.loads(alvo.read_text()))
                     continue
                 dados = para_dicionario(ficha(fonte.jogo(jogo.id).html, jogo.id))
                 dados["competicao_id"] = prova.id
                 if not publica_nomes:
                     dados = anonimizar_ficha(dados)
                 alvo.write_text(json.dumps(dados, ensure_ascii=False, indent=1))
+                fichas_da_prova.append(dados)
                 buscadas += 1
+
+            quadro = agregar(fichas_da_prova, prova.id)
+            (destino / "scorers" / f"{prova.id}.json").write_text(
+                json.dumps(para_dicionario(quadro), ensure_ascii=False, indent=1))
 
     (destino / "competitions.json").write_text(json.dumps(
         {"temporada": id_temp, "competicoes": provas}, ensure_ascii=False, indent=1))

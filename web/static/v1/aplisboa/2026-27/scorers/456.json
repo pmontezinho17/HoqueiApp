@@ -1,0 +1,88 @@
+{
+ "competicao_id": 456,
+ "jogos_considerados": 2,
+ "jogadores": [
+  {
+   "nome": "SANTIAGO EUSÉBIO",
+   "equipa": "CD BOLIQUEIME",
+   "jogos": 1,
+   "golos": 4,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 6
+  },
+  {
+   "nome": "RAFAEL MATOS",
+   "equipa": "CD BOLIQUEIME",
+   "jogos": 1,
+   "golos": 3,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 6
+  },
+  {
+   "nome": "CAROLINA MOLHA",
+   "equipa": "CD BOLIQUEIME",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "MARIANA LOURENÇO",
+   "equipa": "CD BOLIQUEIME",
+   "jogos": 1,
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "ALEXANDRE VIEGAS",
+   "equipa": "CD BOLIQUEIME",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2
+  },
+  {
+   "nome": "FRANCISCO MOURA",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "SEBASTIÃO COSTA",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 1,
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "LOURENÇO SILVA",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1
+  },
+  {
+   "nome": "PEDRO BANDOVAS",
+   "equipa": "CF ESTREMOZ",
+   "jogos": 1,
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0
+  }
+ ],
+ "tem_defesas": true
+}
