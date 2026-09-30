@@ -125,6 +125,7 @@ def comando_publicar(args) -> int:
         id_temp = args.id_temp or _temporada_corrente(fonte)
         provas, total, buscadas, saltadas, restritas = [], 0, 0, 0, 0
         equipas_por_escalao: dict[tuple[str, str], set[int]] = {}
+        agenda: list[dict] = []
 
         for prova, cal, tabela in _tudo(fonte, id_temp, com_classificacao=True):
             provas.append(para_dicionario(prova))
@@ -141,6 +142,20 @@ def comando_publicar(args) -> int:
             for nome_eq in {e.nome for e in cal.equipas} | {j.casa for j in cal.jogos} | {j.fora for j in cal.jogos}:
                 if nome_eq and nome_eq not in ("-", "--"):
                     equipas_por_escalao.setdefault((prova.categoria, nome_eq), set()).add(prova.id)
+
+            # Agenda transversal: o ecrã "próximos jogos" tem de cruzar as 37 competições,
+            # e fazê-lo no browser seriam 37 pedidos. Campos ao mínimo de propósito.
+            for j in cal.jogos:
+                if not j.data or not j.equipas_definidas:
+                    continue
+                agenda.append({
+                    "id": j.id, "data": j.data.isoformat(),
+                    "hora": j.hora.strftime("%H:%M") if j.hora else None,
+                    "casa": j.casa, "fora": j.fora,
+                    "gc": j.golos_casa, "gf": j.golos_fora,
+                    "recinto": j.recinto, "comp": prova.id,
+                    "prova": prova.nome, "cat": prova.categoria,
+                })
 
             publica_nomes = not args.anonimizar_formacao or escalao_permite_individual(prova.categoria)
             if not publica_nomes:
@@ -171,6 +186,9 @@ def comando_publicar(args) -> int:
 
     # Índice equipa+escalão → competições. É o que permite seguir "Paço de Arcos sub-15"
     # e ver tudo o que essa equipa joga, sem o cliente abrir as 37 competições.
+    agenda.sort(key=lambda j: (j["data"], j["hora"] or "99:99"))
+    (destino / "agenda.json").write_text(json.dumps({"jogos": agenda}, ensure_ascii=False))
+
     (destino / "teams.json").write_text(json.dumps(
         {"equipas": [{"equipa": eq, "categoria": cat, "competicoes": sorted(ids)}
                      for (cat, eq), ids in sorted(equipas_por_escalao.items())]},

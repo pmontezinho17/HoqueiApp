@@ -13,6 +13,7 @@
 	const emTabelas = $derived(page.url.pathname.startsWith('/classificacoes'));
 	const emQuadros = $derived(page.url.pathname.startsWith('/quadros'));
 	const emClube = $derived(page.url.pathname.startsWith('/clube'));
+	const emAgenda = $derived(page.url.pathname.startsWith('/agenda'));
 
 	$effect(() => favoritos.carregar());
 	const consulta = $derived(`?comp=${data.escolhida.id}`);
@@ -31,7 +32,8 @@
 		<a href="/clube" aria-current={emClube ? 'page' : undefined}>
 			O Meu Clube{#if favoritos.lista.length}<span class="conta">{favoritos.lista.length}</span>{/if}
 		</a>
-		<a href={`/${consulta}`} aria-current={emJogos ? 'page' : undefined}>Jogos</a>
+		<a href="/agenda" aria-current={emAgenda ? 'page' : undefined}>Agenda</a>
+		<a href={`/${consulta}`} aria-current={emJogos ? 'page' : undefined}>Calendário</a>
 		<a href={`/classificacoes${consulta}`} aria-current={emTabelas ? 'page' : undefined}>Classificação</a>
 		<a href={`/quadros${consulta}`} aria-current={emQuadros ? 'page' : undefined}>Quadros</a>
 	</nav>

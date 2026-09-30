@@ -141,10 +141,14 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 | W4.8 | Calendário de qualquer clube, a partir do ecrã Equipa | must | M | Chega-se ao calendário do Benfica sem o seguir |
 | W4.9 | Distinguir casa/fora visualmente | should | S | Nota-se num relance |
 | W4.10 | Partilhar jogo ou resultado (Web Share API) | should | S | Abre o menu de partilha nativo do telemóvel |
-| W4.15 | **Vista "Este fim-de-semana"**: todos os jogos das próximas 72h, de todas as 37 competições, agrupados por dia e com os das equipas seguidas em destaque | should | L | Abrir a app à sexta-feira responde "o que há este fim-de-semana" sem escolher competição nenhuma |
+| W4.15 | Vista Agenda, transversal às competições | should | L | ✅ `/agenda` com Próximos e Resultados, agrupado por dia, filtro "só as minhas equipas" ligado por omissão |
+| B4.16 | `agenda.json`: índice transversal de jogos para a vista Agenda | should | M | ✅ 791 jogos, 13,7 KB comprimido, num só pedido |
 | B4.11 | **Feed ICS por equipa**: `/v1/{tenant}/{season}/team/{id}.ics` | must | M | Subscrever o URL no Google Calendar mostra todos os jogos |
 | W4.12 | Botão "Adicionar ao meu calendário" com o URL do feed + instruções | must | M | Um toque e os jogos entram no calendário do utilizador |
 | W4.13 | Descarregar um jogo isolado como `.ics` | should | S | Ficheiro abre no calendário com data, hora e recinto |
+| W4.17 | **Logótipos dos clubes** nas listas de jogos, classificações e no detalhe | could | M | Cada equipa mostra o emblema, com recuo para iniciais quando não há |
+| B4.18 | Normalizar os URLs dos logótipos: o calendário dá-os absolutos e a classificação relativos (`/intranet/logos/8.png`) | should | S | Todos os logótipos no JSON são URLs absolutos ou todos relativos à nossa origem |
+| W4.19 | Recuo de iniciais num círculo com cor derivada do nome do clube, para equipas sem emblema | should | S | Nenhuma linha fica com um buraco onde devia estar um logótipo |
 | ~~A4.14~~ | ~~Escrever todos os jogos no calendário local da app~~ | — | — | ❌ **Impossível na web.** Substituído por B4.11 + W4.12 |
 
 ---
@@ -262,6 +266,24 @@ Muito mais leve do que o plano Android: sem loja, sem revisão, sem conta de pro
 | Adicionar ao calendário jogos de um clube/escalão | B4.11 + W4.12 (feed ICS) | 4 |
 
 ---
+
+## Nota sobre os logótipos dos clubes (W4.17)
+
+Registada a 30/09/2026. A ideia é boa e os dados já lá estão — o `logo` de cada equipa vem
+no JSON desde o início. Mas há três coisas a resolver antes, e a última não é técnica.
+
+**Onde carregá-los de.** Apontar diretamente para `aplisboa.assyssoftware.es` põe o servidor
+da associação a servir tráfego de imagens por cada visita da app, o que é exactamente o que a
+Decisão 1 evita para os dados. Copiá-los para o nosso lado resolve isso, mas passa a ser
+redistribuição.
+
+**Consistência.** O calendário devolve URLs absolutos e a classificação relativos — B4.18.
+
+**Propriedade.** Os emblemas são marcas dos clubes, não da federação. O site da APL mostrá-los
+é uma coisa; uma app de terceiros usá-los é outra. Isto não impede nada, mas emparelha com o
+**L7.1**: se o email à APL/FPP for feito, pergunta-se as duas coisas de uma vez. Enquanto não
+houver resposta, o recuo de iniciais (W4.19) dá 90% do efeito visual com 0% do risco — e é
+preciso de qualquer forma, porque nem todas as equipas têm emblema na fonte.
 
 ## Nota de desenho — a navegação está organizada no eixo errado
 

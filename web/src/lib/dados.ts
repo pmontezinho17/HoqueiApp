@@ -1,4 +1,4 @@
-import type { FicheiroCompeticao, FichaJogo, IndiceCompeticoes, IndiceEquipas, Meta, Quadro } from './tipos';
+import type { Agenda, FicheiroCompeticao, FichaJogo, IndiceCompeticoes, IndiceEquipas, Meta, Quadro } from './tipos';
 
 // Mesma origem que a app — sem CORS, e o service worker trata destes pedidos com o
 // mesmo mecanismo com que trata o código.
@@ -21,6 +21,9 @@ export const carregarJogo = (id: number, f: typeof fetch) =>
 
 export const carregarQuadro = (comp: number, f: typeof fetch) =>
 	json<Quadro>(`${BASE}/scorers/${comp}.json`, f);
+
+export const carregarAgenda = (f: typeof fetch) =>
+	json<Agenda>(`${BASE}/agenda.json`, f);
 
 export const carregarEquipas = (f: typeof fetch) =>
 	json<IndiceEquipas>(`${BASE}/teams.json`, f);

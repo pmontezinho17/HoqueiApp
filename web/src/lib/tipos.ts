@@ -77,6 +77,18 @@ export interface FicheiroCompeticao {
 
 export interface IndiceCompeticoes { temporada: number; competicoes: Competicao[]; }
 
+/** Linha da agenda transversal: campos ao mínimo, porque são ~800 numa só resposta. */
+export interface JogoAgenda {
+	id: number | null;
+	data: string;
+	hora: string | null;
+	casa: string; fora: string;
+	gc: number | null; gf: number | null;
+	recinto: string | null;
+	comp: number; prova: string; cat: string;
+}
+export interface Agenda { jogos: JogoAgenda[]; }
+
 export interface EquipaIndice { equipa: string; categoria: string; competicoes: number[]; }
 export interface IndiceEquipas { equipas: EquipaIndice[]; }
 

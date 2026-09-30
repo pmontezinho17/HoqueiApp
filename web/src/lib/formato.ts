@@ -35,3 +35,13 @@ export function porQuando(jogos: Jogo[]): Jogo[] {
 		`${a.data ?? "9999"}${a.hora ?? ""}`.localeCompare(`${b.data ?? "9999"}${b.hora ?? ""}`)
 	);
 }
+
+const DIAS_LONGOS = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira',
+	'quinta-feira', 'sexta-feira', 'sábado'];
+const MESES_LONGOS = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
+	'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+
+export function dataLonga(iso: string): string {
+	const d = new Date(`${iso}T00:00:00`);
+	return `${DIAS_LONGOS[d.getDay()]}, ${d.getDate()} de ${MESES_LONGOS[d.getMonth()]}`;
+}
