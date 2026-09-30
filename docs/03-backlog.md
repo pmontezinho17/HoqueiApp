@@ -336,6 +336,9 @@ apareciam no site móvel.
 | W6.5 | Seguir um **jogo** individual | could | S | Estrela em cada linha de jogo |
 | W6.6 | Selector de temporada no cabeçalho da competição | could | S | Passar para 2025/26 na própria página |
 | W6.7 | Destino **Mais** (ícone no cabeçalho): sobre, fonte, feeds ICS, notificações, privacidade | should | M | Nada do que se usa fica aqui escondido; só o que se configura uma vez |
+| W6.8 | **Interruptor de vistas da classificação** `Série · Escalão`, ao estilo dos modos da NHL | should | M | Mesmos dados reagrupados sem sair da página; nunca uma tabela fundida |
+| W6.9 | **Legenda** das cores e marcadores da classificação | should | XS | Nenhum marcador de cor sem explicação, como a NHL faz |
+| W6.10 | Declaração de frescura mais explícita que o indicador actual de idade | could | XS | "Actualizado após cada jogo; dados de 1 out, 00:00" em vez de só "há 3 dias" |
 
 ## Nota sobre os logótipos dos clubes (W4.17)
 

@@ -156,6 +156,97 @@ separadores inferior da app nativa**. O que vi no site móvel foi `Matches · Le
 (FotMob) e `Matches · Search · Fantasy · Favourites · Profile` (Sofascore). Fica como provável,
 não como verificado.
 
+## Fora do futebol: desportos dos EUA e desporto juvenil
+
+Acrescentado a 30/09 depois de outra crítica justa — só tinha olhado para futebol.
+
+| App | Nota | Reviews | Porquê interessa |
+|---|---|---|---|
+| theScore | **4,8★** iOS / 4,2★ Android | 854K / 202K | a mais bem avaliada; multi-desporto |
+| NHL | 4,7★ iOS / 4,5★ Android | 135K / 103K | **hóquei**; classificações com divisões |
+| ESPN | 4,6★ | 4,1M | a maior de todas |
+| TeamSnap / SportsEngine | 4,2★ | ~200 cada | desporto **juvenil**, utilizador = pai |
+
+### ⭐ A NHL resolve o nosso problema das séries — com um interruptor de vistas
+
+Verificado em nhl.com/standings a 375px. O URL revela-o: `/standings/2026-09-30/**wildcard**`.
+
+A classificação tem **quatro modos**, escolhidos pelo utilizador, sobre os mesmos dados:
+
+```
+[ Wild Card ]  [ Conference ]  [ Division ]  [ League ]
+```
+
+No modo `Wild Card` vê-se `Eastern → Atlantic`, `Eastern → Metropolitan`, `Eastern → Wild Card`,
+e o mesmo a oeste. Ou seja: **as mesmas equipas, reagrupadas de quatro formas diferentes**, sem
+sair da página.
+
+É exactamente o interruptor que o dono do projecto pediu, em produção, numa app de 4,5–4,7★ e
+no desporto mais próximo do nosso.
+
+### Mas corrijo-me num ponto, e a NHL é que me obriga a isso
+
+Eu disse que **agregar séries numa tabela única é impossível**. A NHL oferece precisamente isso
+no modo `League`. Tinha de explicar a diferença, e ela existe:
+
+| | NHL | Nós |
+|---|---|---|
+| Calendário | 82 jogos, cada equipa joga contra **todas** as divisões | cada série é um **grupo fechado** |
+| Divisões servem para | apuramento e seeding | definir **com quem se joga** |
+| Tabela única faz sentido? | **Sim** — registos comparáveis | **Não** — adversários disjuntos |
+
+Ou seja: a NHL pode fundir porque **partilham calendário**. A SERIE A de sub-17 nunca joga
+contra a SERIE F, logo uma tabela fundida compararia registos contra conjuntos de adversários
+que não se tocam.
+
+A conclusão mantém-se, mas agora sei **porquê** — e isso vale mais do que a afirmação original.
+Os nossos modos legítimos são dois, não quatro:
+
+- **`Série`** — só a série do meu clube (por omissão)
+- **`Escalão`** — todas as séries empilhadas
+
+E **não** um "Regional" fundido.
+
+### Outros achados dos desportos americanos
+
+**A NHL mostra 17 colunas numa tabela** (GP W L OT PTS P% RW ROW GF GA DIFF HOME AWAY S/O L10
+STRK) e resolve-o com scroll horizontal — ao contrário das fichas de densidade da FotMob. Os
+dois padrões coexistem em produção; a FotMob tem nota mais alta e a solução dela é melhor, mas
+fica registado que não há consenso.
+
+**A NHL tem uma legenda** (`X - Clinched Playoff spot`, `Y - Clinched Division`…) a explicar os
+marcadores da tabela. Nós não temos legenda nenhuma para as cores e não deveríamos ter marcadores
+sem uma.
+
+**Declaração explícita de frescura:** *"Standings update after each game ends and are current as
+of Oct 1, 12:00 AM"*. Valida o nosso indicador de idade dos dados, e é mais claro do que o nosso.
+
+**nhl.com no telemóvel usa `SCORES · STATS ⌄ · STANDINGS · ☰`** — três itens visíveis mais
+hamburger para o secundário. Terceiro exemplo do mesmo padrão: primário visível, secundário
+escondido.
+
+### ⭐ O desporto juvenil: a app que devíamos ser não existe
+
+A descoberta mais interessante desta parte é de **categoria**, não de interface.
+
+A TeamSnap e a SportsEngine, que servem desporto juvenil e têm o pai como utilizador, **não são
+apps de resultados** — são plataformas de **gestão**: convocatórias, presenças, pagamentos,
+comunicação do treinador com os pais. Não mostram classificações nem marcadores de uma
+competição regional.
+
+E as apps de resultados — FotMob, theScore, ESPN — só cobrem competições profissionais.
+
+**Ficamos num espaço vazio:** resultados, classificações e estatísticas a sério, para escalões de
+formação. Nenhuma das duas famílias faz isto. Não há referência directa a copiar, o que explica
+por que a organização não era óbvia — e também por que é que a app tem valor.
+
+Duas consequências práticas:
+
+1. Copiamos a **interface** das apps de resultados (são elas que resolvem "muitos jogos em muitas
+   competições") e o **utilizador-alvo** das de gestão (um pai, uma equipa, uma pergunta).
+2. Se algum dia isto crescer, o caminho de expansão natural não é mais estatística — é a parte de
+   gestão que a TeamSnap faz e que a APL não tem.
+
 ## Onde a nossa realidade é diferente
 
 Copiar sem pensar seria um erro. Três diferenças que importam:
@@ -289,7 +380,8 @@ Juntando tudo: **3 separadores visíveis, 2 ícones no cabeçalho.**
   com a tua equipa por omissão
 - **Competições** — lista agrupada por séries → sub-separadores `Classificação · Calendário ·
   Marcadores`, com **fichas de densidade `Simples · Completa`** na tabela em vez de scroll
-  horizontal, e as séries como **secções empilhadas** dentro da Classificação
+  horizontal, e um **interruptor de vistas `Série · Escalão`** ao estilo NHL, com as séries
+  empilhadas e nunca fundidas
 - **⚙ (Mais)** — sobre, fonte, feeds de calendário, notificações, privacidade
 - **procurar** — equipas e, mais tarde, jogadores
 
