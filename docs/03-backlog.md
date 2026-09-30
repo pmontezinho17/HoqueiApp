@@ -111,11 +111,14 @@ Objetivo: **um ecrã** com jogos reais, no telemóvel, instalável. É aqui que 
 | W3.6d | Esconder tabs vazias | should | XS | ✅ sem cronologia ou sem ficha, a tab não aparece |
 | W3.7 | Ecrã Equipa: próximos jogos, últimos resultados, posição, plantel | should | L | Chega-se lá clicando no nome da equipa em qualquer sítio |
 | W3.8 | Ecrã Golos: melhores marcadores, com filtro por competição | must | L | Top 10 com clube e nº de golos |
-| W3.9 | Golos: alternar marcadores / assistências | should | S | Toggle reordena |
+| W3.9 | Quadros: alternar entre **melhores marcadores, melhores assistências e melhores defesas** — os três campos já são recolhidos | should | M | Cada separador reordena e mostra a coluna certa |
 | W3.10 | Golos: explicação clara em competições de formação, em vez de lista vazia | must | XS | Sub-13 mostra o motivo |
 | W3.11 | Ecrã Sobre: atribuição da fonte, última atualização, versão | must | S | Mostra o `generated_at` do `meta.json` |
 | W3.12 | Aviso de dados velhos | should | S | ✅ idade no cabeçalho, destacada acima de 24h |
 | W3.13 | Pré-visualização em partilhas (Open Graph por jogo) | could | M | Colar o link de um jogo no WhatsApp mostra as equipas e o resultado |
+| W3.6e | Tab Ficha: acrescentar as colunas **Pe** (penalidades) e **LD** (livres diretos), que já vêm no JSON e não são mostradas | should | S | Um jogador com `1/2` em penalidades vê-o na ficha |
+| W3.14 | **Ícone de golo**: trocar o ⚽ (bola de futebol) por uma bola de hóquei em patins — preta, lisa, sem os pentágonos | should | S | Reconhecível a 16px, em tema claro e escuro |
+| W3.15 | **Seletor de competição** em folha inferior, agrupado por escalão e com pesquisa, em vez do `<select>` com 37 entradas | should | M | Chegar a uma competição em dois toques sem ler a lista toda |
 
 > W3.13 não existia no plano Android e é das coisas mais valiosas da web aqui: o link de um jogo
 > partilhado num grupo de WhatsApp mostra logo o resultado, mesmo a quem não abrir.
@@ -138,6 +141,7 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 | W4.8 | Calendário de qualquer clube, a partir do ecrã Equipa | must | M | Chega-se ao calendário do Benfica sem o seguir |
 | W4.9 | Distinguir casa/fora visualmente | should | S | Nota-se num relance |
 | W4.10 | Partilhar jogo ou resultado (Web Share API) | should | S | Abre o menu de partilha nativo do telemóvel |
+| W4.15 | **Vista "Este fim-de-semana"**: todos os jogos das próximas 72h, de todas as 37 competições, agrupados por dia e com os das equipas seguidas em destaque | should | L | Abrir a app à sexta-feira responde "o que há este fim-de-semana" sem escolher competição nenhuma |
 | B4.11 | **Feed ICS por equipa**: `/v1/{tenant}/{season}/team/{id}.ics` | must | M | Subscrever o URL no Google Calendar mostra todos os jogos |
 | W4.12 | Botão "Adicionar ao meu calendário" com o URL do feed + instruções | must | M | Um toque e os jogos entram no calendário do utilizador |
 | W4.13 | Descarregar um jogo isolado como `.ics` | should | S | Ficheiro abre no calendário com data, hora e recinto |
@@ -258,6 +262,34 @@ Muito mais leve do que o plano Android: sem loja, sem revisão, sem conta de pro
 | Adicionar ao calendário jogos de um clube/escalão | B4.11 + W4.12 (feed ICS) | 4 |
 
 ---
+
+## Nota de desenho — a navegação está organizada no eixo errado
+
+Registado a 30/09/2026, a propósito do seletor de competição ser difícil de usar.
+
+Hoje a app pede **primeiro a competição** e só depois mostra jogos. Mas as três coisas que
+alguém vem cá fazer não começam por aí:
+
+| O que a pessoa quer | Por onde ela começa |
+|---|---|
+| "Como é que o meu clube correu?" | pelo **clube** |
+| "O que há este fim-de-semana?" | pela **data** |
+| "Em que lugar está o meu clube?" | pelo **clube**, e a competição é consequência |
+
+Nos três casos a competição é o *resultado* da escolha, não o ponto de partida. Um `<select>`
+com 37 entradas é mau, mas trocá-lo por um melhor seletor resolve o sintoma e não a causa.
+
+**Ordem recomendada:**
+
+1. **W3.15** — folha inferior com escalões e pesquisa. Barato, resolve a dor imediata.
+2. **W4.1–W4.5 (favoritos)** — o verdadeiro remédio. Quem segue "Paço de Arcos sub-15" abre a
+   app já lá e quase nunca volta a abrir o seletor.
+3. **W4.15 — "Este fim-de-semana"** — a vista que a fonte não tem e que provavelmente se torna
+   o ecrã inicial de facto: todos os jogos das próximas 72h, de todas as competições. Para um
+   pai ou um adepto, é isto que responde à pergunta real.
+
+Depois disto o seletor de competição passa a ser o caminho de *exploração*, usado raramente,
+e não a porta de entrada obrigatória.
 
 ## Riscos
 
