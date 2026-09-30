@@ -39,8 +39,12 @@ jobs:
       - name: Comitar se houver novidade
         id: commit
         run: |
-          if git diff --quiet -- web/static/v1; then
+          # O meta.json tem um carimbo temporal que muda em TODAS as corridas, por isso
+          # não serve para decidir se houve novidade: sem o excluir, isto comitava e
+          # publicava de 2 em 2 horas para sempre, sem nada ter acontecido nos jogos.
+          if git diff --quiet -- web/static/v1 ':!web/static/v1/**/meta.json'; then
             echo "sem alterações nos dados"
+            git checkout -- web/static/v1
             echo "mudou=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
