@@ -44,3 +44,9 @@ def ficha_por_disputar() -> str:
 @pytest.fixture(scope="session")
 def html_classificacao() -> str:
     return _ler("apl-classificacao-432.html")
+
+
+@pytest.fixture(scope="session")
+def html_calendario_sem_grupo() -> str:
+    """Prova de série única: as linhas de jogo têm 9 colunas, sem a coluna de grupo."""
+    return _ler("apl-calendario-sem-grupo.html")

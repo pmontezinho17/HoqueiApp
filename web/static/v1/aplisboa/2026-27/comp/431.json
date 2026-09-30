@@ -73,6 +73,124 @@
    "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
   }
  ],
- "jogos": [],
+ "jogos": [
+  {
+   "id": 9320,
+   "numero": "32",
+   "grupo": null,
+   "jornada": "TROFEU STROMP - SENIORES MASC-",
+   "data": "2026-10-24",
+   "hora": "12:00:00",
+   "casa": "SPORTING CP",
+   "fora": "AD OERIAS",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAVILHÃO JOÃO ROCHA"
+  },
+  {
+   "id": 9445,
+   "numero": "145",
+   "grupo": null,
+   "jornada": "APRESENTAÇAO - SENIORES MASC.",
+   "data": "2026-09-05",
+   "hora": "19:30:00",
+   "casa": "APAC TOJAL",
+   "fora": "GDS CASCAIS",
+   "golos_casa": 1,
+   "golos_fora": 5,
+   "recinto": "PAV. A.P.A.C.TOJAL"
+  },
+  {
+   "id": 9447,
+   "numero": "147",
+   "grupo": null,
+   "jornada": "APRESENTAÇAO - SENIORES MASC.",
+   "data": "2026-09-26",
+   "hora": "19:00:00",
+   "casa": "PAREDE FC (SM)",
+   "fora": "HC GRANDOLA",
+   "golos_casa": 4,
+   "golos_fora": 1,
+   "recinto": "PAV. PAREDE"
+  },
+  {
+   "id": 9446,
+   "numero": "146",
+   "grupo": null,
+   "jornada": "APRESENTAÇAO - SENIORES FEM.",
+   "data": "2026-09-26",
+   "hora": "17:00:00",
+   "casa": "PAREDE FC (SF)",
+   "fora": "BIBLIOTECA IR (SF)",
+   "golos_casa": 3,
+   "golos_fora": 2,
+   "recinto": "PAV. PAREDE"
+  },
+  {
+   "id": 9452,
+   "numero": "152",
+   "grupo": null,
+   "jornada": "APRESENTAÇAO - SENIORES FEM.",
+   "data": "2026-09-13",
+   "hora": "18:30:00",
+   "casa": "CRIAR-T GD",
+   "fora": "BIBLIOTECA IR (SF)",
+   "golos_casa": 3,
+   "golos_fora": 2,
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+  },
+  {
+   "id": 9448,
+   "numero": "148",
+   "grupo": null,
+   "jornada": "SENIORES MASC.",
+   "data": "2026-10-21",
+   "hora": "15:00:00",
+   "casa": "SPORTING CP",
+   "fora": "CANDELARIA SC",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV.G.S.SACAVENENSE"
+  },
+  {
+   "id": 9449,
+   "numero": "149",
+   "grupo": null,
+   "jornada": "TORNEIO PEDRO ROSADO",
+   "data": "2026-09-19",
+   "hora": "12:00:00",
+   "casa": "HC TURQUEL",
+   "fora": "AA COIMBRA",
+   "golos_casa": 8,
+   "golos_fora": 5,
+   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+  },
+  {
+   "id": 9450,
+   "numero": "150",
+   "grupo": null,
+   "jornada": "TORNEIO PEDRO ROSADO",
+   "data": "2026-09-19",
+   "hora": "15:30:00",
+   "casa": "AE FISICA D",
+   "fora": "AA COIMBRA",
+   "golos_casa": 5,
+   "golos_fora": 4,
+   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+  },
+  {
+   "id": 9451,
+   "numero": "151",
+   "grupo": null,
+   "jornada": "TORNEIO PEDRO ROSADO",
+   "data": "2026-09-19",
+   "hora": "17:30:00",
+   "casa": "SPORTING CP",
+   "fora": "HC TURQUEL",
+   "golos_casa": 3,
+   "golos_fora": 1,
+   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+  }
+ ],
  "classificacao": []
 }

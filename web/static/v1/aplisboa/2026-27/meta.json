@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-09-30T16:04:34+00:00",
+ "generated_at": "2026-09-30T16:31:52+00:00",
  "tenant": "aplisboa",
  "temporada_id": 5,
  "competicoes": 37,
- "jogos": 87,
- "fichas_publicadas": 80,
+ "jogos": 801,
+ "fichas_publicadas": 188,
  "fonte": "https://aplisboa.assyssoftware.es/intranet/web/"
 }

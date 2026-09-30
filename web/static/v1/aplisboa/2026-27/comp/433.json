@@ -28,7 +28,125 @@
    "logo": "https://aplisboa.assyssoftware.es/intranet/logos/3.png"
   }
  ],
- "jogos": [],
+ "jogos": [
+  {
+   "id": 9321,
+   "numero": "33",
+   "grupo": null,
+   "jornada": "JORNADA 1",
+   "data": "2026-09-19",
+   "hora": "14:45:00",
+   "casa": "A STRUART HCM",
+   "fora": "CRIAR-T GD",
+   "golos_casa": 2,
+   "golos_fora": 0,
+   "recinto": "PAV.PROF.JOÃO CAMPELO"
+  },
+  {
+   "id": 9322,
+   "numero": "34",
+   "grupo": null,
+   "jornada": "JORNADA 1",
+   "data": "2026-09-20",
+   "hora": "16:30:00",
+   "casa": "PAREDE FC",
+   "fora": "HC SINTRA",
+   "golos_casa": 2,
+   "golos_fora": 4,
+   "recinto": "PAV. PAREDE"
+  },
+  {
+   "id": 9323,
+   "numero": "35",
+   "grupo": null,
+   "jornada": "JORNADA 2",
+   "data": "2026-09-27",
+   "hora": "18:00:00",
+   "casa": "CRIAR-T GD",
+   "fora": "PAREDE FC",
+   "golos_casa": 3,
+   "golos_fora": 1,
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+  },
+  {
+   "id": 9324,
+   "numero": "36",
+   "grupo": null,
+   "jornada": "JORNADA 2",
+   "data": "2026-09-27",
+   "hora": "18:00:00",
+   "casa": "HC SINTRA",
+   "fora": "A STRUART HCM",
+   "golos_casa": 2,
+   "golos_fora": 3,
+   "recinto": "PAV. HC SINTRA"
+  },
+  {
+   "id": 9325,
+   "numero": "37",
+   "grupo": null,
+   "jornada": "JORNADA 3",
+   "data": "2026-10-04",
+   "hora": "18:00:00",
+   "casa": "CRIAR-T GD",
+   "fora": "HC SINTRA",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+  },
+  {
+   "id": 9326,
+   "numero": "38",
+   "grupo": null,
+   "jornada": "JORNADA 3",
+   "data": "2026-10-03",
+   "hora": "18:00:00",
+   "casa": "A STRUART HCM",
+   "fora": "PAREDE FC",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV.PROF.JOÃO CAMPELO"
+  },
+  {
+   "id": 9327,
+   "numero": "39",
+   "grupo": null,
+   "jornada": "MEIA FINAL",
+   "data": "2026-10-10",
+   "hora": "00:00:00",
+   "casa": "-",
+   "fora": "-",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": null
+  },
+  {
+   "id": 9328,
+   "numero": "40",
+   "grupo": null,
+   "jornada": "MEIA FINAL",
+   "data": "2026-10-10",
+   "hora": "00:00:00",
+   "casa": "-",
+   "fora": "-",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": null
+  },
+  {
+   "id": 9329,
+   "numero": "41",
+   "grupo": null,
+   "jornada": "FINAL",
+   "data": "2026-10-18",
+   "hora": "00:00:00",
+   "casa": "-",
+   "fora": "-",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+  }
+ ],
  "classificacao": [
   {
    "nome": "SERIE A",

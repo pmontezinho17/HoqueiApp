@@ -1,0 +1,610 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Associa&ccedil;&atilde;o de Patinagem de Lisboa</title>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed|Titillium+Web|Roboto);
+
+body {
+	font-family:"Roboto"; font-size:10px; background-color:#e9eaed; margin:10px 0px;
+}
+ul {
+	list-style-type:none;
+}
+a {
+	color:#000; text-decoration:none;
+}
+table {
+	border-collapse:collapse;
+}
+div#contenido {
+	width:100%;
+}
+div#cabecera {
+	width:100%;
+}
+div#cabecera img {
+	margin:0px auto; display:block;
+}
+div#menu {
+	width:100%; margin-top:10px; border-top:#0c426f 5px solid; background-color:#3f3f3f; color:#fff; height:37px;
+}
+div#menu ul {
+	margin:10px auto; text-align:center; font-size:14px;
+}
+div#menu ul li {
+	margin:0px; padding:10px; display:inline; background-color:#3f3f3f;
+}
+div#menu ul li a {
+	display:inline; background-color:#3f3f3f; color:#fff;
+}
+div#menu .menu_activo {
+	background-color:#0c426f;
+}
+div#menu .menu_activo a {
+	background-color:#0c426f;
+}
+div#principal {
+	width:100%-40px; padding:2px 20px; text-align:center;
+}
+div#titulo {
+	width:100%;	margin:10px 0px; background-position:left center; background-repeat:repeat-x; background-image:url(../imagenes/ribbon.png); text-align:center;
+}
+div#titulo h1 {
+	padding:0px 15px; font-size:36px; text-align:center; margin:0px auto; font-weight:normal; background-color:#e9eaed; display:inline-block;
+}
+div#equipos {
+	display:inline-block; width:100%; border-bottom:#0c426f 1px solid; margin:1em auto; text-align:center;
+}
+.equipos_logo {
+	display:inline-block; padding:4px 5px 4px 5px; background-color:#f0f0f0; margin:5px 3px 5px 2px; box-shadow:1px 2px 5px -1px #000; border-radius:20px 20px 20px 20px;
+}
+.equipos_logo_activo {
+	display:inline-block; padding:4px 5px 7px 5px; background-color:#b0e0e6; margin:-1px 3px 8px 2px; box-shadow:1px 2px 5px -1px #000; border-radius:20px 20px 20px 20px;
+}
+.equipos_logo img {
+	height:30px; display:block;
+}
+.equipos_logo:hover {
+	background-color:#b0e0e6;
+}
+.boxJornada {
+	width:100%; border:#0c426f 1px solid; margin:5px auto; background-color:#fff; display:block; max-width:980px;
+}
+.boxJornadaAct {
+	width:540px; border:#0c426f 1px solid; margin:5px; background-color:#fff; display:inline-block;
+}
+.boxDatos {
+	width:950px; border:#0c426f 1px solid; margin:5px; background-color:#fff; display:inline-block;
+}
+.boxHead {
+	background-color:#0c426f; color:#fff; padding:5px; font-size:12px; text-align:center;
+}
+.boxBody {
+	padding:5px;
+}
+.jornada {
+	width:100%;
+}
+.jornada tr {
+	border-bottom:#3f3f3f 1px solid;
+}
+.jornada td {
+	padding:2px 0px;
+}
+.jornada tr:last-child {
+	border-bottom:none;
+}
+.jornada tr:hover {
+    background-color:rgba(32,128,0,.2); cursor: pointer;
+}
+.jornada .tdJogo {
+	font-size:12px; width:40px; padding:0px; text-align:center; line-height:18px;
+}
+.jornada .tdDatos {
+	font-size:12px; width:75px; padding:0px; text-align:left; line-height:18px;
+}
+.jornada .tdLogo {
+	vertical-align:middle; width:24px; text-align:center;
+}
+.jornada .tdLogo img {
+	margin:0px auto; height:16px; width:16px;
+}
+.jornada .tdNombre{
+	font-size:12px; text-align:left; width:22%; line-height:18px;
+}
+.jornada .tdGol {
+	font-size:12px; text-align:center; line-height:18px;
+}
+
+.tbDatos {
+	width:100%;
+}
+.tbDatos tr {
+	border-bottom:#3f3f3f 1px solid;
+}
+.tbDatos td {
+	padding:2px 5px;
+}
+.tbDatos tr:first-child {
+	border-bottom:none; background-color:#0c426f; color:#fff;
+}
+.tbDatos tr:last-child {
+	border-bottom:none;
+}
+.tbDatos tr:hover {
+    background-color:rgba(32,128,0,.2); cursor: pointer;
+}
+.tbDatos .tdNombre{
+	font-size:12px; line-height:18px; text-align:left;
+}
+.tbDatos .tdLogo {
+	vertical-align:middle; width:20px; text-align:center;
+}
+.tbDatos .tdLogo img {
+	margin:0px auto; height:16px; width:16px;
+}
+.tbDatos .tdnLic{
+	font-size:12px; line-height:18px; width:50px; text-align:center;
+}
+.tbDatos .tdValor{
+	font-size:12px; line-height:18px; width:30px; text-align:center;
+}
+
+/*Competiciones*/
+.boxCompeticion {
+	display:block; box-sizing: border-box; width:100%; max-width:980px; margin:0.5em auto; padding:5px; border:#ccc 1px solid; border-radius:5px 5px 5px 5px; box-shadow:3px 3px 4px -1px #333; cursor:pointer;
+}
+.boxCompeticionNom {
+	font-size:12px; font-weight:bold; color:#000; margin:2px; padding:0px;
+}
+.boxCompeticionAge {
+	background-color:#d2ffff;
+}
+.boxCompeticionAct {
+	background-color:#d2ffd2;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="contenido">
+<div id="cabecera"><img src="../imagenes/banner.png" height="90" border="0"></div>
+
+<!-- MENU -->
+<div id="menu"><ul>
+  <li><a href="./?seccion=competiciones&id_modal=1&id_temp=5">Competi&ccedil;&otilde;es</a></li><li class="menu_activo"><a href="./?seccion=calendario&id_comp=451&id_equipo=&id_modal=1&id_temp=5">Calend&aacute;rio</a></li><li><a href="./?seccion=clasificacion&id_comp=451&id_equipo=&id_modal=1&id_temp=5">Classifica&ccedil;&atilde;o</a></li><li><a href="./?seccion=goles&id_comp=451&id_equipo=&id_modal=1&id_temp=5">Golos</a></li>
+  <li><a href="./?seccion=asistencias&id_comp=451&id_equipo=&id_modal=1&id_temp=5">Assist&ecirc;ncias</a></li>
+  <li><a href="./?seccion=penalties&id_comp=451&id_equipo=&id_modal=1&id_temp=5">Penaltis</a></li>
+  <li><a href="./?seccion=directas&id_comp=451&id_equipo=&id_modal=1&id_temp=5">L.D.</a></li>
+  <li><a href="./?seccion=defensas&id_comp=451&id_equipo=&id_modal=1&id_temp=5">Defesas</a></li><li><a href="./?seccion=tarjetas&id_comp=451&id_equipo=&id_modal=1&id_temp=5">Cart&otilde;es</a></li><li><a href="./?seccion=plantillas&id_comp=451&id_equipo=&id_modal=1&id_temp=5">Tabelas</a></li></ul></div>
+<div id="principal">
+<div id="titulo"><h1>CAMP. REG. SUB-17 - 1ª FASE - SERIE A</h1></div>
+<!-- FILTRO EQUIPOS -->
+<div id="equipos">
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=451&id_equipo=1971&id_modal=1&id_temp=5"><img src="https://aplisboa.assyssoftware.es/intranet/logos/22.png" border="0" title="BIBLIOTECA IR A"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=451&id_equipo=1970&id_modal=1&id_temp=5"><img src="https://aplisboa.assyssoftware.es/intranet/logos/22.png" border="0" title="BIBLIOTECA IR B"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=451&id_equipo=1973&id_modal=1&id_temp=5"><img src="https://aplisboa.assyssoftware.es/intranet/logos/4.png" border="0" title="HC TURQUEL"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=451&id_equipo=1972&id_modal=1&id_temp=5"><img src="https://aplisboa.assyssoftware.es/intranet/logos/20.png" border="0" title="SC TOMAR"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=451&id_equipo=1969&id_modal=1&id_temp=5"><img src="https://aplisboa.assyssoftware.es/intranet/logos/24.png" border="0" title="UF ENTRONCAMENTO"></a></div>
+</div>
+<div class="boxJornada">
+<div class="boxHead">1ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Data</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitado</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Recinto</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9653');">
+  <td class="tdJogo">353</td>
+  
+  <td class="tdDatos">26/09/2026</td>
+  <td class="tdJogo">15.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">UF ENTRONCAMENTO</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR A</a></td>
+  <td class="tdGol">8 - 3</td>
+  <td class="tdNombre">PAV. A. MATEUS- ENTRONCAMENTO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9654');">
+  <td class="tdJogo">354</td>
+  
+  <td class="tdDatos">26/09/2026</td>
+  <td class="tdJogo">20.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR B</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">SC TOMAR</a></td>
+  <td class="tdGol">2 - 15</td>
+  <td class="tdNombre">PAV. VALADO DE FRADES</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">2ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Data</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitado</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Recinto</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9655');">
+  <td class="tdJogo">355</td>
+  
+  <td class="tdDatos">03/10/2026</td>
+  <td class="tdJogo">15.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR A</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">HC TURQUEL</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. VALADO DE FRADES</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9656');">
+  <td class="tdJogo">356</td>
+  
+  <td class="tdDatos">08/10/2026</td>
+  <td class="tdJogo">20.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">SC TOMAR</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">UF ENTRONCAMENTO</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV.JACOME RATTON</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">3ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Data</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitado</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Recinto</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9657');">
+  <td class="tdJogo">357</td>
+  
+  <td class="tdDatos">08/10/2026</td>
+  <td class="tdJogo">20.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR B</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR A</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. VALADO DE FRADES</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9658');">
+  <td class="tdJogo">358</td>
+  
+  <td class="tdDatos">10/10/2026</td>
+  <td class="tdJogo">17.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">HC TURQUEL</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">UF ENTRONCAMENTO</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. HC TURQUEL</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">4ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Data</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitado</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Recinto</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9659');">
+  <td class="tdJogo">359</td>
+  
+  <td class="tdDatos">05/10/2026</td>
+  <td class="tdJogo">15.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">UF ENTRONCAMENTO</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. A. MATEUS- ENTRONCAMENTO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9660');">
+  <td class="tdJogo">360</td>
+  
+  <td class="tdDatos">11/10/2026</td>
+  <td class="tdJogo">17.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">HC TURQUEL</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">SC TOMAR</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. HC TURQUEL</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">5ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Data</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitado</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Recinto</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9661');">
+  <td class="tdJogo">361</td>
+  
+  <td class="tdDatos">17/10/2026</td>
+  <td class="tdJogo">16.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">SC TOMAR</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR A</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV.JACOME RATTON</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9662');">
+  <td class="tdJogo">362</td>
+  
+  <td class="tdDatos">17/10/2026</td>
+  <td class="tdJogo">17.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR B</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">HC TURQUEL</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. VALADO DE FRADES</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">6ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Data</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitado</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Recinto</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9663');">
+  <td class="tdJogo">363</td>
+  
+  <td class="tdDatos">24/10/2026</td>
+  <td class="tdJogo">15.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR A</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">UF ENTRONCAMENTO</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. VALADO DE FRADES</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9664');">
+  <td class="tdJogo">364</td>
+  
+  <td class="tdDatos">24/10/2026</td>
+  <td class="tdJogo">16.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">SC TOMAR</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV.JACOME RATTON</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">7ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Data</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitado</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Recinto</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9665');">
+  <td class="tdJogo">365</td>
+  
+  <td class="tdDatos">31/10/2026</td>
+  <td class="tdJogo">16.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">HC TURQUEL</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR A</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. HC TURQUEL</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9666');">
+  <td class="tdJogo">366</td>
+  
+  <td class="tdDatos">31/10/2026</td>
+  <td class="tdJogo">16.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">UF ENTRONCAMENTO</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">SC TOMAR</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. A. MATEUS- ENTRONCAMENTO</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">8ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Data</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitado</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Recinto</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9667');">
+  <td class="tdJogo">367</td>
+  
+  <td class="tdDatos">05/11/2026</td>
+  <td class="tdJogo">20.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR A</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. VALADO DE FRADES</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9668');">
+  <td class="tdJogo">368</td>
+  
+  <td class="tdDatos">07/11/2026</td>
+  <td class="tdJogo">15.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">UF ENTRONCAMENTO</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">HC TURQUEL</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. A. MATEUS- ENTRONCAMENTO</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">9ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Data</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitado</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Recinto</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9669');">
+  <td class="tdJogo">369</td>
+  
+  <td class="tdDatos">14/11/2026</td>
+  <td class="tdJogo">15.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR B</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">UF ENTRONCAMENTO</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. VALADO DE FRADES</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9670');">
+  <td class="tdJogo">370</td>
+  
+  <td class="tdDatos">14/11/2026</td>
+  <td class="tdJogo">16.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">SC TOMAR</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">HC TURQUEL</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV.JACOME RATTON</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">10ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Data</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitado</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Recinto</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9671');">
+  <td class="tdJogo">371</td>
+  
+  <td class="tdDatos">21/11/2026</td>
+  <td class="tdJogo">16.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR A</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">SC TOMAR</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. VALADO DE FRADES</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=9672');">
+  <td class="tdJogo">372</td>
+  
+  <td class="tdDatos">21/11/2026</td>
+  <td class="tdJogo">16.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">HC TURQUEL</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">BIBLIOTECA IR B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. HC TURQUEL</td></tr>
+</tbody></table></div></div>
+</div>
+</div></body></html>

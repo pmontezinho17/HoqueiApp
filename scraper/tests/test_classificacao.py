@@ -55,7 +55,9 @@ def test_classificacao_bate_certo_com_o_calendario(tabela, html_calendario):
     têm de dar exatamente os golos marcados e sofridos da tabela."""
     marcados: dict[str, int] = {}
     sofridos: dict[str, int] = {}
-    for j in jogos(html_calendario):
+    lista, ignoradas = jogos(html_calendario)
+    assert ignoradas == 0
+    for j in lista:
         if not j.disputado:
             continue
         marcados[j.casa] = marcados.get(j.casa, 0) + j.golos_casa

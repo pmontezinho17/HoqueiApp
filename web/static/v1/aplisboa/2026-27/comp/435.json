@@ -28,6 +28,46 @@
    "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
   }
  ],
- "jogos": [],
+ "jogos": [
+  {
+   "id": 9351,
+   "numero": "51",
+   "grupo": null,
+   "jornada": "MEIA FINAL",
+   "data": "2026-09-13",
+   "hora": "11:30:00",
+   "casa": "SL BENFICA",
+   "fora": "PAREDE FC",
+   "golos_casa": 7,
+   "golos_fora": 2,
+   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+  },
+  {
+   "id": 9352,
+   "numero": "52",
+   "grupo": null,
+   "jornada": "MEIA FINAL",
+   "data": "2026-09-13",
+   "hora": "15:30:00",
+   "casa": "SPORTING CP",
+   "fora": "AD OEIRAS",
+   "golos_casa": 9,
+   "golos_fora": 1,
+   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+  },
+  {
+   "id": 9353,
+   "numero": "53",
+   "grupo": null,
+   "jornada": "FINAL",
+   "data": "2026-09-20",
+   "hora": "18:15:00",
+   "casa": "SL BENFICA",
+   "fora": "SPORTING CP",
+   "golos_casa": 4,
+   "golos_fora": 3,
+   "recinto": "PAV. A.D.OEIRAS"
+  }
+ ],
  "classificacao": []
 }

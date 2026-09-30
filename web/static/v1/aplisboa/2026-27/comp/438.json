@@ -28,6 +28,46 @@
    "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
   }
  ],
- "jogos": [],
+ "jogos": [
+  {
+   "id": 9342,
+   "numero": "42",
+   "grupo": null,
+   "jornada": "MEIA FINAL",
+   "data": "2026-09-12",
+   "hora": "17:00:00",
+   "casa": "SL BENFICA",
+   "fora": "A STUART HCM",
+   "golos_casa": 14,
+   "golos_fora": 0,
+   "recinto": "PAV.C.A.C.OURIQUE"
+  },
+  {
+   "id": 9343,
+   "numero": "43",
+   "grupo": null,
+   "jornada": "MEIA FINAL",
+   "data": "2026-09-12",
+   "hora": "20:00:00",
+   "casa": "SPORTING CP",
+   "fora": "CACO",
+   "golos_casa": 3,
+   "golos_fora": 4,
+   "recinto": "PAV.C.A.C.OURIQUE"
+  },
+  {
+   "id": 9344,
+   "numero": "44",
+   "grupo": null,
+   "jornada": "FINAL",
+   "data": "2026-09-19",
+   "hora": "16:30:00",
+   "casa": "SL BENFICA",
+   "fora": "CACO",
+   "golos_casa": 8,
+   "golos_fora": 0,
+   "recinto": "PAV. A.D.OEIRAS"
+  }
+ ],
  "classificacao": []
 }

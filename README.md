@@ -14,7 +14,7 @@ nativa: chega a Android e iPhone ao mesmo tempo e publica-se por link. As lojas 
 via TWA/Capacitor, se houver confiança para isso. Ver [docs/00-onde-retomar.md](docs/00-onde-retomar.md).
 
 ```bash
-cd scraper && uv sync && uv run pytest          # 37 testes, sem rede
+cd scraper && uv sync && uv run pytest          # 39 testes, sem rede
 uv run python -m hoquei.cli jogo --id 9308      # ficha e cronologia de um jogo
 cd ../web && npm install && npm run dev         # a PWA em localhost:5173
 ```

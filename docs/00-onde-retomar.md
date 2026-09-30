@@ -21,6 +21,18 @@ Feito nesta sessão:
 
 Experimenta: `cd web && npm run dev` → `/jogo/9308?comp=432`
 
+> 🐛 **O bug que mais custou, e o que o deixou passar (30/09):** o parser do calendário
+> assumia 10 colunas por linha de jogo. A fonte usa **dois layouts** — 10 colunas em provas
+> com grupo, **9 nas de série única**, que são a maioria. Resultado: 256 de 307 linhas
+> deitadas fora **em silêncio**, 32 das 37 competições a aparecerem vazias na app e a
+> "jornada em curso" a apontar para o sítio errado por lhe faltarem jogos. Depois de
+> corrigido: **87 → 801 jogos**.
+>
+> Passou porque havia **uma só amostra de calendário**, e calhou ser das poucas com grupo.
+> Um parser que descarta linhas sem se queixar é pior do que um que rebenta: `jogos()` passa
+> a devolver a contagem de ignoradas, o `calendario()` avisa no stderr, e há um teste que
+> exige que toda a linha com ligação a uma ficha vire um jogo.
+>
 > ⚠️ **Duas armadilhas desta stack, já documentadas em código:**
 > 1. Nesta versão do SvelteKit **toda** a configuração vive no `vite.config.ts`, dentro do
 >    plugin. Um `svelte.config.js` é ignorado em silêncio e o build sai com o adapter errado.

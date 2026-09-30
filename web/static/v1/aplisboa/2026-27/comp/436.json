@@ -28,6 +28,46 @@
    "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
   }
  ],
- "jogos": [],
+ "jogos": [
+  {
+   "id": 9348,
+   "numero": "48",
+   "grupo": null,
+   "jornada": "MEIA FINAL",
+   "data": "2026-09-12",
+   "hora": "10:45:00",
+   "casa": "SPORTING CP",
+   "fora": "SL BENFICA",
+   "golos_casa": 4,
+   "golos_fora": 3,
+   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+  },
+  {
+   "id": 9349,
+   "numero": "49",
+   "grupo": null,
+   "jornada": "MEIA FINAL",
+   "data": "2026-09-12",
+   "hora": "14:30:00",
+   "casa": "CD PAÇO ARCOS",
+   "fora": "AE FISICA",
+   "golos_casa": 3,
+   "golos_fora": 2,
+   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+  },
+  {
+   "id": 9350,
+   "numero": "50",
+   "grupo": null,
+   "jornada": "FINAL",
+   "data": "2026-09-19",
+   "hora": "18:15:00",
+   "casa": "SPORTING CP",
+   "fora": "CD PAÇO ARCOS",
+   "golos_casa": 4,
+   "golos_fora": 1,
+   "recinto": "PAV. A.D.OEIRAS"
+  }
+ ],
  "classificacao": []
 }
