@@ -1,7 +1,20 @@
 # Benchmarking — como as boas apps de desporto organizam isto
 
-Feito a 30/09/2026. **Evidência primária**: abri as apps em largura de telemóvel (375×812) e
-usei-as, em vez de ler artigos sobre elas. Onde uso fonte secundária, digo-o.
+Feito a 30/09/2026, **revisto no mesmo dia** depois de uma crítica justa: a primeira versão
+estudou só o **site móvel** destas apps, e são as **apps nativas** que têm as avaliações.
+
+O que fica de cada fonte:
+
+| Fonte | O que dá | Limite |
+|---|---|---|
+| Site móvel a 375×812, usado diretamente | navegação de topo, agrupamentos, filtros | não é o produto avaliado; é muitas vezes o parente pobre |
+| **Capturas oficiais nas lojas** | a interface nativa a sério | material de marketing: mostra ecrãs reais, mas escolhidos, e alguns aparecem cortados em baixo |
+| Comparativos independentes | quem vale a pena estudar | secundária |
+
+**Nota de honestidade sobre a primeira versão:** o viewport estava a 375×812 com user-agent e
+toque de telemóvel, portanto o que vi *era* o layout móvel — não a versão de computador. Mas o
+site móvel e a app nativa são produtos diferentes, e isso invalidava parte das conclusões. A
+secção "O que só se vê na app nativa" existe por causa disso.
 
 ## Quem estudei, e porquê
 
@@ -76,6 +89,73 @@ jogadores nos nossos dados, procurar é provavelmente a navegação mais valiosa
 
 A FotMob oferece isto na página da liga — valida o nosso feed ICS (B4.11), que ainda não fizemos.
 
+## O que só se vê na app nativa
+
+Evidência: capturas oficiais no Google Play. A **FotMob tem 4,9★ com 751 mil reviews e 50M+
+instalações**; a **Sofascore 4,1★ com 1,15M reviews e 100M+**. A diferença de nota é grande e
+aponta a FotMob como a referência de desenho.
+
+### 1. Fita de datas horizontal, não setas
+
+O site usa `‹ Today ›`. A app nativa usa uma **fita deslizável** com os dias adjacentes à vista:
+
+```
+…Aug │ Thu 20 Aug │ Yesterday │ [Today] │ Tomorrow │ Mon 24 Aug
+```
+
+Melhor num telemóvel: vê-se o contexto, navega-se por arrasto em vez de toques repetidos, e
+não é preciso abrir um calendário para saltar dois dias.
+
+### 2. ⭐ Densidade da tabela: `Short · Full · Form`
+
+**O achado mais útil de todo o estudo.** Na página de competição, a tabela de classificação tem
+três fichas que mudam quantas colunas aparecem:
+
+- `Short` — só o essencial (J, Pts)
+- `Full` — todas as colunas (Pl W D L +/- GD Pts)
+- `Form` — os últimos resultados
+
+Nós resolvemos o problema das 10 colunas num ecrã de 375px com **scroll horizontal**. A FotMob
+resolve-o deixando o utilizador escolher a densidade. **A solução deles é melhor**: ninguém
+descobre que uma tabela rola para o lado, mas todos vêem três fichas.
+
+### 3. ⭐ Grupos como secções dentro da mesma tabela
+
+A tabela da MLS tem um cabeçalho **"Eastern"** — a conferência — dentro do separador `Table`.
+As conferências **não são competições separadas**: são secções da mesma vista.
+
+Isto é exatamente o nosso problema das séries, resolvido por uma app com 4,9★, e da forma que
+eu tinha proposto: **tabelas empilhadas, nunca fundidas**. Já não é opinião minha; é o padrão de
+quem tem 50 milhões de instalações.
+
+### 4. Seguir uma competição, com campainha
+
+O cabeçalho da competição tem `← | 2026 ▾ | 🔔 | [Follow]`: selector de temporada, notificações
+**daquela competição** e um botão de seguir. A Sofascore mostra até o nº de seguidores.
+
+Nós só deixamos seguir equipas. Seguir uma competição inteira faz sentido para quem acompanha
+um escalão todo — um treinador, um dirigente.
+
+### 5. Sub-separadores horizontais com scroll
+
+`Table · Fixtures · News · Player stats · Team stats · …` — mais do que caberia, e rolam. A
+Sofascore igual: `Details · Matches · Standings · Knockout · Stats`.
+
+Valida os sub-separadores da página de competição, e mostra que **rolar sub-separadores é
+aceitável** quando os primários estão fixos. O erro era rolar os primários, como nós fazíamos.
+
+### 6. `⋮` no canto superior direito
+
+A FotMob nativa tem um menu de excesso no cabeçalho, ao lado de calendário e procurar. Ou seja:
+a tua intuição do menu **está certa para o secundário** — é só não ser a navegação principal.
+
+### O que NÃO consigo afirmar com esta evidência
+
+As capturas da loja cortam o rodapé em alguns ecrãs, por isso **não confirmo a barra de
+separadores inferior da app nativa**. O que vi no site móvel foi `Matches · Leagues · News`
+(FotMob) e `Matches · Search · Fantasy · Favourites · Profile` (Sofascore). Fica como provável,
+não como verificado.
+
 ## Onde a nossa realidade é diferente
 
 Copiar sem pensar seria um erro. Três diferenças que importam:
@@ -130,6 +210,7 @@ quem sabe o que quer.
 ### O que fica para depois, mas anotado
 
 - Seguir um **jogo** individual, não só uma equipa
+- **Seguir uma competição**, com notificações próprias
 - Contador de jogos por secção
 - Selector de temporada na página da competição
 - Sincronizar com o calendário a partir da página da competição
@@ -202,11 +283,13 @@ Juntando tudo: **3 separadores visíveis, 2 ícones no cabeçalho.**
 └──────────────────────────────────────┘
 ```
 
-- **Jogos** (por omissão) — data no topo, as minhas equipas fixadas, competições como secções
-  colapsáveis com contador, fichas de escalão
+- **Jogos** (por omissão) — **fita de datas deslizável** no topo, as minhas equipas fixadas,
+  competições como secções colapsáveis com contador, fichas de escalão
 - **O Meu Clube** — a página do clube, com os 5 separadores acima; é a página genérica de clube
   com a tua equipa por omissão
-- **Competições** — lista agrupada por séries → Classificação · Calendário · Marcadores
+- **Competições** — lista agrupada por séries → sub-separadores `Classificação · Calendário ·
+  Marcadores`, com **fichas de densidade `Simples · Completa`** na tabela em vez de scroll
+  horizontal, e as séries como **secções empilhadas** dentro da Classificação
 - **⚙ (Mais)** — sobre, fonte, feeds de calendário, notificações, privacidade
 - **procurar** — equipas e, mais tarde, jogadores
 

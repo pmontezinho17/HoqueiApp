@@ -322,6 +322,21 @@ secções. Estimo `M` no backend e `L` na app.
 | W5.26 | Quadros: agregado por grupo, com a série ao lado de cada jogador e o aviso de que as séries não se enfrentam | should | M | O rótulo não sugere que é um ranking único do campeonato |
 | W5.27 | Calendário: jogos de todas as séries do grupo, com a série visível | could | M | Filtrável por série |
 
+## Achados do benchmarking a converter em itens (30/09/2026)
+
+Ver [04-benchmarking.md](04-benchmarking.md). Os três primeiros vêm das apps nativas e não
+apareciam no site móvel.
+
+| ID | Item | Prio | Est. | Critério de aceitação |
+|---|---|---|---|---|
+| W6.1 | **Fita de datas deslizável** no ecrã de Jogos, em vez de lista corrida | should | M | Vê-se ontem, hoje e amanhã ao mesmo tempo; arrasta-se para os lados |
+| W6.2 | **Fichas de densidade na classificação** (`Simples · Completa`), em vez de scroll horizontal | should | M | A 375px a vista Simples não rola para o lado |
+| W6.3 | **Secções colapsáveis por competição** no ecrã de Jogos, com contador | should | M | Um sábado com 58 jogos abre com as secções fechadas e o contador visível |
+| W6.4 | Seguir uma **competição** inteira, com notificações próprias | could | M | Seguir o regional de sub-15 traz todos os jogos do escalão |
+| W6.5 | Seguir um **jogo** individual | could | S | Estrela em cada linha de jogo |
+| W6.6 | Selector de temporada no cabeçalho da competição | could | S | Passar para 2025/26 na própria página |
+| W6.7 | Destino **Mais** (ícone no cabeçalho): sobre, fonte, feeds ICS, notificações, privacidade | should | M | Nada do que se usa fica aqui escondido; só o que se configura uma vez |
+
 ## Nota sobre os logótipos dos clubes (W4.17)
 
 Registada a 30/09/2026. A ideia é boa e os dados já lá estão — o `logo` de cada equipa vem
