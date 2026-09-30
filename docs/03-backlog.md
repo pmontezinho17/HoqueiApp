@@ -339,6 +339,12 @@ apareciam no site móvel.
 | W6.8 | **Interruptor de vistas da classificação** `Série · Escalão`, ao estilo dos modos da NHL | should | M | Mesmos dados reagrupados sem sair da página; nunca uma tabela fundida |
 | W6.9 | **Legenda** das cores e marcadores da classificação | should | XS | Nenhum marcador de cor sem explicação, como a NHL faz |
 | W6.10 | Declaração de frescura mais explícita que o indicador actual de idade | could | XS | "Actualizado após cada jogo; dados de 1 out, 00:00" em vez de só "há 3 dias" |
+| W6.11 | Linha de jogo **plana** (separador de 1px) em vez de cartão com raio e margem | should | S | Medido: linha desce de 81,6px para ~58px |
+| W6.12 | Competição no **cabeçalho da secção**, não repetida em cada jogo | should | M | Poupa 25px por jogo; é a causa medida das nossas linhas serem 46% mais altas |
+| W6.13 | Tipo da lista a ~12px, com hierarquia feita por **peso e cor** e não por tamanho | should | M | Comparável à FotMob sem perder legibilidade a 375px |
+| W6.14 | Reduzir o cromado: 178px antes do 1º jogo são 22% do ecrã | should | M | Abaixo de 120px |
+| W6.15 | **Sub-cabeçalho de série** dentro da secção de competição, ao estilo `Group 2` da FotMob | should | M | Escalão → competição → série visível na própria lista de jogos |
+| W6.16 | Cabeçalho de secção discreto: peso normal, sem maiúsculas | could | XS | Menos ruído visual que o actual 12px/600 em maiúsculas |
 
 ## Nota sobre os logótipos dos clubes (W4.17)
 

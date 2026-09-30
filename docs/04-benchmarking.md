@@ -263,6 +263,97 @@ favoritos deviam pesar **mais** na nossa app do que nas delas, não menos.
 **Séries.** Elas não têm 6 séries do mesmo campeonato como competições separadas. Este problema
 é nosso e a resposta não vem do benchmarking — vem do agrupamento (ver W5.22 no backlog).
 
+## Layout gráfico — medido, não visto
+
+Acrescentado a 01/10 depois de uma pergunta directa: *"validaste a estrutura ou também o layout
+gráfico?"*. A resposta honesta era **só a estrutura**. Isto corrige-o, com `getComputedStyle`
+sobre a FotMob e sobre a nossa app, a 375×812.
+
+Limite da medição: os números vêm do **site móvel**, o único que consigo instrumentar. A
+linguagem visual das nativas vem das capturas das lojas.
+
+### Os números
+
+| | FotMob | hoquei.pages.dev |
+|---|---|---|
+| Altura de uma linha de jogo | **56 px** | **81,6 px** (76 + 5,6 de margem) |
+| Linhas por 812 px, em teoria | 14,5 | 10 |
+| Jogos visíveis no 1º ecrã, na prática | 5 | 7 |
+| Caixa | plana: `border-bottom: 1px`, sem raio, sem margem | cartão: `raio 10px`, `borda 1px`, `margem 5,6px`, `padding 8,8/11,2` |
+| Nome de equipa | 12 px / 400 | 13,8 px / 400 |
+| Hora | 12 px / 500, cinzento | 12,2 px / 400, cinzento |
+| Cabeçalho de secção | 14 px / 400 | 12 px / 600 maiúsculas |
+| Altura do cromado antes do conteúdo | 81 px | **178 px** (85 cabeçalho + 93 controlos) |
+
+### Onde a minha suposição estava meio errada
+
+Eu tinha dito que os nossos cartões custam densidade. **As linhas sim — são 46% mais altas.**
+Mas no primeiro ecrã mostramos *mais* jogos que a FotMob (7 contra 5), porque o cromado deles
+naquela vista é mais alto: cartão de datas, fichas de filtro e **dois níveis** de cabeçalho de
+secção.
+
+Ou seja, a conta não é "cartões = pior". É mais interessante do que isso.
+
+### ⭐ A causa real: o layout está a pagar o preço da estrutura
+
+As nossas linhas têm **três linhas de texto**, a terceira sendo
+`SUB-13 · CAMP. REG. SUB-13 - 1ª FASE - SERIE D` a 10,9 px.
+
+A FotMob não tem essa linha — porque **agrupa por competição**, e a competição aparece **uma
+vez** no cabeçalho da secção em vez de se repetir em cada jogo.
+
+Tirando essa terceira linha, as nossas linhas caem para ~58 px: praticamente as delas.
+
+**A densidade não se ganha a apertar píxeis, ganha-se a agrupar.** É o mesmo problema estrutural
+outra vez, agora medido em píxeis: 25 px por jogo desperdiçados a repetir o que devia ser um
+cabeçalho.
+
+### Dois níveis de agrupamento, com séries incluídas
+
+Na lista de jogos da FotMob vê-se:
+
+```
+🏆 UEFA Nations League A                    ▲
+   ┌ Group 2
+   │   Germany  🇩🇪  19:45  🇷🇸  Serbia
+   │   Greece   🇬🇷  19:45  🇳🇱  Netherlands
+   ┌ Group 4
+   │   Denmark  🇩🇰  19:45  🇵🇹  Portugal
+🏆 UEFA Nations League B                    ▲
+```
+
+Competição como secção colapsável, **grupo como sub-cabeçalho dentro dela**, jogos dentro do
+grupo. É a nossa hierarquia escalão → competição → série, já resolvida, na própria lista de jogos
+e não só na classificação.
+
+### Outras decisões visuais que elas tomam e nós não
+
+**Tipo mais pequeno, não maior.** 12 px contra os nossos 13,8. Contra-intuitivo, mas numa lista
+densa a hierarquia faz-se com peso e cor, não com tamanho. Nós aumentámos o tamanho e perdemos
+densidade sem ganhar clareza.
+
+**Linha simétrica, com a hora ao centro:** `Germany 🇩🇪 19:45 🇷🇸 Serbia`. Lê-se como um
+confronto. A nossa põe a hora numa coluna à esquerda e as equipas empilhadas — lê-se como um
+horário. Para um ecrã de "próximos jogos" o nosso talvez sirva melhor; para resultados, o deles
+é mais claro.
+
+**Cabeçalho de secção discreto:** 14 px, peso normal, sem maiúsculas. O nosso é 12 px, peso 600
+e maiúsculas — grita mais e diz menos.
+
+**Ícones de estado à direita** (auscultadores = áudio, TV = transmissão), pequenos e alinhados.
+Nós não temos nada equivalente, mas o padrão serve para "tem ficha de jogo", "tem cronologia".
+
+### O que isto acrescenta ao plano
+
+| ID | Item | Prio | Est. |
+|---|---|---|---|
+| W6.11 | Linha de jogo **plana** com separador de 1px, em vez de cartão com raio e margem | should | S |
+| W6.12 | Tirar a linha da competição de cada jogo e pô-la no **cabeçalho da secção** (−25 px por jogo) | should | M |
+| W6.13 | Reduzir o tipo da lista para ~12 px e refazer a hierarquia com **peso e cor** | should | M |
+| W6.14 | Reduzir o cromado: 178 px antes do primeiro jogo é 22% do ecrã | should | M |
+| W6.15 | **Sub-cabeçalho de série** dentro da secção de competição, ao estilo `Group 2` | should | M |
+| W6.16 | Cabeçalho de secção discreto (peso normal, sem maiúsculas) | could | XS |
+
 ## Proposta revista, com base nisto
 
 A minha proposta anterior (Início · Jogos · Competições) estava perto, mas com um erro: separava
