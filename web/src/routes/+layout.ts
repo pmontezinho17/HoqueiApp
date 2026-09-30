@@ -1,20 +1,18 @@
-import { carregarIndice, carregarCompeticao, carregarEmblemas, carregarMeta } from '$lib/dados';
+import { carregarAgenda, carregarEmblemas, carregarEquipas, carregarIndice, carregarMeta } from '$lib/dados';
 import type { LayoutLoad } from './$types';
 
 export const prerender = true;
 export const ssr = false;
 
-/** A competição escolhida vive no URL (`?comp=`) e é partilhada por Jogos e Classificações. */
-export const load: LayoutLoad = async ({ fetch, url }) => {
-	const [indice, meta, emblemas] = await Promise.all([
+/** Tudo o que é transversal aos ecrãs, num só lote. Os ficheiros são pequenos e a cache
+ *  do service worker serve-os de imediato nas visitas seguintes. */
+export const load: LayoutLoad = async ({ fetch }) => {
+	const [indice, meta, emblemas, equipas, agenda] = await Promise.all([
 		carregarIndice(fetch),
 		carregarMeta(fetch),
-		carregarEmblemas(fetch).catch(() => ({}) as Record<string, string>)
+		carregarEmblemas(fetch).catch(() => ({}) as Record<string, string>),
+		carregarEquipas(fetch).then((r) => r.equipas).catch(() => []),
+		carregarAgenda(fetch).then((r) => r.jogos)
 	]);
-	const pedido = Number(url.searchParams.get('comp'));
-	const escolhida =
-		indice.competicoes.find((c) => c.id === pedido) ??
-		indice.competicoes.find((c) => c.categoria === 'SENIORES MASCULINOS') ??
-		indice.competicoes[0];
-	return { indice, meta, emblemas, escolhida, dados: await carregarCompeticao(escolhida.id, fetch) };
+	return { indice, meta, emblemas, equipas, agenda };
 };

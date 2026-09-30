@@ -118,7 +118,7 @@ Objetivo: **um ecrã** com jogos reais, no telemóvel, instalável. É aqui que 
 | W3.13 | Pré-visualização em partilhas (Open Graph por jogo) | could | M | Colar o link de um jogo no WhatsApp mostra as equipas e o resultado |
 | W3.6e | Tab Ficha: colunas **Pe** e **LD** | should | S | ✅ a cinzento quando `0/0`, destacadas quando houve remate |
 | W3.14 | **Ícone de golo**: bola de hóquei em patins em vez do ⚽ | should | S | ✅ SVG próprio (`Bola.svelte`), com aro claro para não desaparecer no tema escuro |
-| W3.15 | Seletor de competição em folha inferior | should | M | ✅ agrupado por escalão, com pesquisa sem acentos e foco automático |
+| ~~W3.15~~ | ~~Seletor em folha inferior~~ | — | — | ❌ **Removido.** A reestruturação tornou-o desnecessário: as competições passaram a ser um destino de navegação, não um controlo de cabeçalho |
 
 > W3.13 não existia no plano Android e é das coisas mais valiosas da web aqui: o link de um jogo
 > partilhado num grupo de WhatsApp mostra logo o resultado, mesmo a quem não abrir.
@@ -315,12 +315,12 @@ secções. Estimo `M` no backend e `L` na app.
 
 | ID | Item | Prio | Est. | Critério de aceitação |
 |---|---|---|---|---|
-| B5.22 | Inventariar **todos** os padrões de sufixo de série nos tenants conhecidos, antes de escrever o agrupamento | must | S | Lista documentada; um nome fora dos padrões fica sem grupo em vez de ser agrupado a palpite |
-| B5.23 | Campo `grupo_de_provas` (id + nome + série) em `competitions.json` | should | M | As 6 séries de sub-17 partilham o mesmo id de grupo, com a série identificada |
-| W5.24 | Seletor passa a listar **grupos** e não séries soltas | should | M | O seletor cai de 37 para ~15 entradas |
-| W5.25 | Classificação: todas as tabelas das séries do grupo, empilhadas, com a série do clube seguido em primeiro | should | L | Nunca uma tabela fundida |
-| W5.26 | Quadros: agregado por grupo, com a série ao lado de cada jogador e o aviso de que as séries não se enfrentam | should | M | O rótulo não sugere que é um ranking único do campeonato |
-| W5.27 | Calendário: jogos de todas as séries do grupo, com a série visível | could | M | Filtrável por série |
+| B5.22 | Inventário dos padrões de série | must | S | ✅ na APL só existe `- SERIE X` (25 de 37); `NIVEL I/II` **não** é série, é nome base — verificado e documentado em `grupos.py` |
+| B5.23 | `grupo_id`, `grupo_nome` e `serie` no JSON | should | M | ✅ 37 competições → 20 grupos; 638 de 791 jogos com série |
+| W5.24 | `/competicoes` lista grupos | should | M | ✅ 20 entradas em vez de 37, agrupadas por escalão |
+| W5.25 | Classificação com séries empilhadas | should | L | ✅ as 6 séries de sub-17 numa vista, nunca fundidas |
+| W5.26 | Marcadores agregados com a série indicada | should | M | ✅ com aviso de que as séries não se enfrentam |
+| W5.27 | Calendário do grupo | could | M | ✅ por série e por jornada, com a jornada em curso marcada |
 
 ## Achados do benchmarking a converter em itens (30/09/2026)
 
@@ -329,22 +329,22 @@ apareciam no site móvel.
 
 | ID | Item | Prio | Est. | Critério de aceitação |
 |---|---|---|---|---|
-| W6.1 | **Fita de datas deslizável** no ecrã de Jogos, em vez de lista corrida | should | M | Vê-se ontem, hoje e amanhã ao mesmo tempo; arrasta-se para os lados |
-| W6.2 | **Fichas de densidade na classificação** (`Simples · Completa`), em vez de scroll horizontal | should | M | A 375px a vista Simples não rola para o lado |
-| W6.3 | **Secções colapsáveis por competição** no ecrã de Jogos, com contador | should | M | Um sábado com 58 jogos abre com as secções fechadas e o contador visível |
+| W6.1 | Fita de datas deslizável | should | M | ✅ janela de −10 a +35 dias, centrada no dia escolhido |
+| W6.2 | Classificação sem scroll horizontal | should | M | ✅ 5 colunas (#, equipa, J, DG, P) cabem a 375px; as restantes ficam para uma vista Completa a fazer |
+| W6.3 | Secções colapsáveis com contador | should | M | ✅ sábado 3/10 com 41 jogos abre em 6 secções fechadas, tudo num ecrã |
 | W6.4 | Seguir uma **competição** inteira, com notificações próprias | could | M | Seguir o regional de sub-15 traz todos os jogos do escalão |
 | W6.5 | Seguir um **jogo** individual | could | S | Estrela em cada linha de jogo |
 | W6.6 | Selector de temporada no cabeçalho da competição | could | S | Passar para 2025/26 na própria página |
-| W6.7 | Destino **Mais** (ícone no cabeçalho): sobre, fonte, feeds ICS, notificações, privacidade | should | M | Nada do que se usa fica aqui escondido; só o que se configura uma vez |
-| W6.8 | **Interruptor de vistas da classificação** `Série · Escalão`, ao estilo dos modos da NHL | should | M | Mesmos dados reagrupados sem sair da página; nunca uma tabela fundida |
+| W6.7 | Destino Mais | should | M | ✅ `/mais` com dados, fonte, aviso de não-oficial e contacto para remoção de nome |
+| W6.8 | Interruptor `Todas as séries · Só a minha` | should | M | ✅ aparece quando se segue uma equipa do grupo; nunca funde tabelas |
 | W6.9 | **Legenda** das cores e marcadores da classificação | should | XS | Nenhum marcador de cor sem explicação, como a NHL faz |
 | W6.10 | Declaração de frescura mais explícita que o indicador actual de idade | could | XS | "Actualizado após cada jogo; dados de 1 out, 00:00" em vez de só "há 3 dias" |
-| W6.11 | Linha de jogo **plana** (separador de 1px) em vez de cartão com raio e margem | should | S | Medido: linha desce de 81,6px para ~58px |
-| W6.12 | Competição no **cabeçalho da secção**, não repetida em cada jogo | should | M | Poupa 25px por jogo; é a causa medida das nossas linhas serem 46% mais altas |
-| W6.13 | Tipo da lista a ~12px, com hierarquia feita por **peso e cor** e não por tamanho | should | M | Comparável à FotMob sem perder legibilidade a 375px |
-| W6.14 | Reduzir o cromado: 178px antes do 1º jogo são 22% do ecrã | should | M | Abaixo de 120px |
-| W6.15 | **Sub-cabeçalho de série** dentro da secção de competição, ao estilo `Group 2` da FotMob | should | M | Escalão → competição → série visível na própria lista de jogos |
-| W6.16 | Cabeçalho de secção discreto: peso normal, sem maiúsculas | could | XS | Menos ruído visual que o actual 12px/600 em maiúsculas |
+| W6.11 | Linha de jogo plana | should | S | ✅ separador de 1px, sem raio nem margem |
+| W6.12 | Competição no cabeçalho da secção | should | M | ✅ deixou de ser repetida em cada linha |
+| W6.13 | Tipo a ~12px, hierarquia por peso e cor | should | M | ✅ |
+| W6.14 | Cromado reduzido | should | M | ✅ cabeçalho compacto, seletor de competição removido (passou a navegação) |
+| W6.15 | Sub-cabeçalho de série | should | M | ✅ `Série D` dentro da secção da competição, na lista de jogos |
+| W6.16 | Cabeçalho de secção discreto | could | XS | ✅ |
 
 ## Nota sobre os logótipos dos clubes (W4.17)
 

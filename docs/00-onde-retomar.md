@@ -1,66 +1,52 @@
 # Onde retomar
 
-**Última sessão:** 30/09/2026 · **Estado:** 🟢 **publicado em https://hoquei.pages.dev** —
-três ecrãs sobre dados reais, instalável, com actualização e publicação automáticas.
+**Última sessão:** 01/10/2026 · **Estado:** 🟢 https://hoquei.pages.dev — **reestruturado em três
+separadores** com base no benchmarking, e com as séries dos campeonatos regionais agrupadas.
 
-Feito nesta sessão:
+## A estrutura actual
 
-| Item | Estado |
+```
+┌──────────────────────────────────────┐
+│ Hóquei            [procurar]  [⋮]   │
+├──────────────────────────────────────┤
+│  Jogos   │ O Meu Clube │ Competições │
+└──────────────────────────────────────┘
+```
+
+| Ecrã | O que faz |
 |---|---|
-| B1.10 | ✅ `publicar` gera a árvore `/v1` completa (competições, comp/, match/, meta) |
-| B1.19 | ✅ crawl incremental — 2ª execução: 0 fichas buscadas, 80 já actuais |
-| B1.21 | ⚙️ filtro implementado e testado, mas **desligado por decisão do dono** (30/09) — flag `--anonimizar-formacao` |
-| W2.10 | ✅ **publicado em https://hoquei.pages.dev** (Cloudflare Pages, upload directo) |
-| B1.15 | ✅ a Action publica sozinha depois de comitar dados novos |
-| B1.14 | ✅ GitHub Action com cron (2h ao fim-de-semana, 6h nos dias úteis) |
-| W3.1–W3.3 | ✅ rotas, navegação e competição partilhada por `?comp=` |
-| W3.5 | ✅ ecrã de Classificação, vários grupos, coluna de equipa fixa |
-| W3.6–W3.6d | ✅ **detalhe de jogo com a cronologia** — o ecrã que dá substância à app |
-| W3.12 | ✅ aviso de dados velhos |
-| Q6.10 | ✅ CI em cada push |
+| `/` **Jogos** | fita de datas, equipas seguidas fixadas no topo, competições como secções colapsáveis com contador, séries como sub-cabeçalho |
+| `/clube` **O Meu Clube** | favoritos por clube+escalão, próximo jogo, último resultado, posições |
+| `/competicoes` | 20 grupos (eram 37 competições), por escalão |
+| `/competicoes/[grupo]` | Classificação · Calendário · Marcadores, com as séries empilhadas |
+| `/jogo/[id]` | cronologia, ficha, boletim |
+| `/procurar`, `/mais` | ícones do cabeçalho |
 
-Experimenta: `cd web && npm run dev` → `/jogo/9308?comp=432`
+**Porque três e não cinco:** ver [04-benchmarking.md](04-benchmarking.md). Nem a FotMob nem a
+Sofascore têm classificações ou marcadores como separadores de topo — vivem dentro da competição.
+E esconder navegação primária num menu corta a descoberta a metade (medido).
 
-> 🐛 **O bug que mais custou, e o que o deixou passar (30/09):** o parser do calendário
-> assumia 10 colunas por linha de jogo. A fonte usa **dois layouts** — 10 colunas em provas
-> com grupo, **9 nas de série única**, que são a maioria. Resultado: 256 de 307 linhas
-> deitadas fora **em silêncio**, 32 das 37 competições a aparecerem vazias na app e a
-> "jornada em curso" a apontar para o sítio errado por lhe faltarem jogos. Depois de
-> corrigido: **87 → 801 jogos**.
->
-> Passou porque havia **uma só amostra de calendário**, e calhou ser das poucas com grupo.
-> Um parser que descarta linhas sem se queixar é pior do que um que rebenta: `jogos()` passa
-> a devolver a contagem de ignoradas, o `calendario()` avisa no stderr, e há um teste que
-> exige que toda a linha com ligação a uma ficha vire um jogo.
->
-> ⚠️ **Duas armadilhas desta stack, já documentadas em código:**
-> 1. Nesta versão do SvelteKit **toda** a configuração vive no `vite.config.ts`, dentro do
->    plugin. Um `svelte.config.js` é ignorado em silêncio e o build sai com o adapter errado.
->    Por isso este projeto não tem esse ficheiro.
-> 2. A rota `/jogo/[id]` não é pré-renderizável (nascem fichas todas as semanas) — é servida
->    pelo fallback SPA do `adapter-static`.
+## O que este ficheiro já não precisa de dizer
 
-## Próximo passo concreto
+O histórico das sessões anteriores está nos commits e no backlog, que tem o estado item a item.
+Este documento fica só com o essencial para reentrar.
+
+## Próximo passo
 
 ```
-Segredos no GitHub  CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID  ← precisa de ti
-W3.7            ecrã de Equipa
-W3.8 + B1.20    quadro de melhores marcadores
-B1.9c           boletim oficial → 3ª tab no detalhe de jogo
+W6.2 (resto)   vista "Completa" da classificação, com as 10 colunas
+W6.4 / W6.5    seguir uma competição; seguir um jogo individual
+B1.9c          boletim oficial → 3ª tab do detalhe de jogo
+Fase 5         notificações (Web Push) — é onde entra estado no backend
 ```
 
-## ⚠️ A sondagem de live scores falhou duas vezes
+## ⚠️ Por fechar
 
-As janelas de **19/09 e 26/09 passaram sem a sonda correr**. A pergunta continua sem resposta:
-quanto tempo demora a fonte a reflectir um golo *enquanto o jogo decorre*.
+**A sonda de live scores nunca correu.** Falhou a 19/09 e a 26/09. Não bloqueia nada — só decide
+o F8.1 — mas não se resolve sozinha.
 
-Isto não bloqueia nada — só decide o F8.1 (live scores). Mas não se resolve sozinho: ou se
-agenda, ou falha uma terceira vez. Próxima janela: **sábado 03/10**.
-
-```bash
-cd scraper && uv run python -m hoquei.cli jogos --de 2026-10-03 --ate 2026-10-04
-./scripts/sondar_atualizacao.py --tenant aplisboa --ids <ids> --intervalo 60 --ate 21:30
-```
+**O email à APL/FPP (L7.1).** Mais relevante agora: o site está público, com nomes de atletas de
+formação e emblemas dos clubes. Perguntar as duas coisas de uma vez.
 
 ## O que já está feito
 

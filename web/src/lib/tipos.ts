@@ -1,6 +1,10 @@
 // Espelha o contrato em docs/02-arquitetura-e-stack.md.
 
-export interface Competicao { id: number; nome: string; categoria: string; }
+export interface Competicao {
+	id: number; nome: string; categoria: string;
+	/** séries da mesma prova partilham `grupo_id`; `serie` é null em prova de série única */
+	grupo_id?: string; grupo_nome?: string; serie?: string | null;
+}
 export interface Equipa { id: number; nome: string; logo: string | null; }
 
 export interface Jogo {
@@ -86,6 +90,7 @@ export interface JogoAgenda {
 	gc: number | null; gf: number | null;
 	recinto: string | null;
 	comp: number; prova: string; cat: string;
+	grupo_id?: string; grupo_nome?: string; serie?: string | null;
 }
 export interface Agenda { jogos: JogoAgenda[]; }
 

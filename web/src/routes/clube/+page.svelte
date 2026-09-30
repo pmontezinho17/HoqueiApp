@@ -2,9 +2,15 @@
 	import { carregarCompeticao } from '$lib/dados';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import Folha from '$lib/Folha.svelte';
-	import JogoLinha from '$lib/JogoLinha.svelte';
+	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import { porQuando } from '$lib/formato';
-	import { disputado, type FicheiroCompeticao, type Jogo } from '$lib/tipos';
+	import { disputado, type Favorito, type FicheiroCompeticao, type Jogo } from '$lib/tipos';
+
+	const paraAgenda = (j: Jogo, f: Favorito) => ({
+		id: j.id, data: j.data ?? '', hora: j.hora ? j.hora.slice(0, 5) : null,
+		casa: j.casa, fora: j.fora, gc: j.golos_casa, gf: j.golos_fora,
+		recinto: j.recinto, comp: f.competicoes[0], prova: '', cat: f.categoria
+	});
 
 	let { data } = $props();
 
@@ -88,11 +94,11 @@
 
 				{#if r.proximo}
 					<p class="rotulo">Próximo jogo</p>
-					<JogoLinha jogo={r.proximo} comp={r.fav.competicoes[0]} emblemas={data.emblemas} />
+					<LinhaJogo jogo={paraAgenda(r.proximo, r.fav)} emblemas={data.emblemas} />
 				{/if}
 				{#if r.ultimo}
 					<p class="rotulo">Último resultado</p>
-					<JogoLinha jogo={r.ultimo} comp={r.fav.competicoes[0]} emblemas={data.emblemas} />
+					<LinhaJogo jogo={paraAgenda(r.ultimo, r.fav)} emblemas={data.emblemas} />
 				{/if}
 				{#if !r.proximo && !r.ultimo}
 					<p class="vazio">Sem jogos publicados para esta equipa.</p>

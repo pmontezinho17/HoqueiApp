@@ -17,7 +17,7 @@
 
 <svelte:head><title>{f.casa} {f.golos_casa}–{f.golos_fora} {f.fora}</title></svelte:head>
 
-<a class="voltar" href={`/?comp=${f.competicao_id ?? ''}`}>← Jogos</a>
+<a class="voltar" href="/">← Jogos</a>
 
 <article class="cabecalho">
 	<p class="prova">{f.competicao ?? ''}</p>

@@ -21,6 +21,7 @@ from .parsers.competicoes import competicoes, temporadas
 from .parsers.jogo import ficha
 from .privacidade import anonimizar_ficha, escalao_permite_individual
 from .emblemas import caminho_publico, garantir, id_do_logo
+from .grupos import identificar
 from .quadros import agregar
 
 
@@ -77,7 +78,7 @@ def comando_despejar(args) -> int:
                     logos.setdefault(idl, f"https://{args.tenant}.assyssoftware.es/intranet/logos/{idl}.png")
                     emblema_da_equipa[eq.nome] = caminho_publico(idl)
 
-            provas.append(para_dicionario(prova))
+            provas.append({**para_dicionario(prova), **identificar(prova.categoria, prova.nome)})
             conteudo = {"competicao": para_dicionario(prova), **para_dicionario(cal),
                         "classificacao": para_dicionario(tabela)["grupos"] if tabela else []}
             # aponta os emblemas para a nossa origem; resolve de caminho a inconsistência
@@ -151,7 +152,7 @@ def comando_publicar(args) -> int:
                     logos.setdefault(idl, f"https://{args.tenant}.assyssoftware.es/intranet/logos/{idl}.png")
                     emblema_da_equipa[eq.nome] = caminho_publico(idl)
 
-            provas.append(para_dicionario(prova))
+            provas.append({**para_dicionario(prova), **identificar(prova.categoria, prova.nome)})
             conteudo = {"competicao": para_dicionario(prova), **para_dicionario(cal),
                         "classificacao": para_dicionario(tabela)["grupos"] if tabela else []}
             # aponta os emblemas para a nossa origem; resolve de caminho a inconsistência
@@ -183,6 +184,8 @@ def comando_publicar(args) -> int:
                     "gc": j.golos_casa, "gf": j.golos_fora,
                     "recinto": j.recinto, "comp": prova.id,
                     "prova": prova.nome, "cat": prova.categoria,
+                    **{k: v for k, v in identificar(prova.categoria, prova.nome).items()
+                       if k in ("grupo_id", "grupo_nome", "serie")},
                 })
 
             publica_nomes = not args.anonimizar_formacao or escalao_permite_individual(prova.categoria)

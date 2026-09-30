@@ -4,187 +4,298 @@
   {
    "id": 432,
    "nome": "TAÇA JESUS CORREIA - SENIORES MASCULINOS",
-   "categoria": "SENIORES MASCULINOS"
+   "categoria": "SENIORES MASCULINOS",
+   "grupo_id": "seniores-masculinos--taca-jesus-correia-seniores-masculinos",
+   "grupo_nome": "TAÇA JESUS CORREIA - SENIORES MASCULINOS",
+   "serie": null
   },
   {
    "id": 433,
    "nome": "TAÇA PROF. JOAO CAMPELO - SENIORES FEMININOS",
-   "categoria": "SENIORES FEMININOS"
+   "categoria": "SENIORES FEMININOS",
+   "grupo_id": "seniores-femininos--taca-prof-joao-campelo-seniores-femininos",
+   "grupo_nome": "TAÇA PROF. JOAO CAMPELO - SENIORES FEMININOS",
+   "serie": null
   },
   {
    "id": 435,
    "nome": "SUPERTAÇA APL SUB-19",
-   "categoria": "SUB-19"
+   "categoria": "SUB-19",
+   "grupo_id": "sub-19--supertaca-apl-sub-19",
+   "grupo_nome": "SUPERTAÇA APL SUB-19",
+   "serie": null
   },
   {
    "id": 439,
    "nome": "TORNEIO ABERTURA APL SUB-19",
-   "categoria": "SUB-19"
+   "categoria": "SUB-19",
+   "grupo_id": "sub-19--torneio-abertura-apl-sub-19",
+   "grupo_nome": "TORNEIO ABERTURA APL SUB-19",
+   "serie": null
   },
   {
    "id": 457,
    "nome": "CAMP. REG. SUB-19 - 1ª FASE - SERIE A",
-   "categoria": "SUB-19"
+   "categoria": "SUB-19",
+   "grupo_id": "sub-19--camp-reg-sub-19-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-19 - 1ª FASE",
+   "serie": "A"
   },
   {
    "id": 458,
    "nome": "CAMP. REG. SUB-19 - 1ª FASE - SERIE B",
-   "categoria": "SUB-19"
+   "categoria": "SUB-19",
+   "grupo_id": "sub-19--camp-reg-sub-19-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-19 - 1ª FASE",
+   "serie": "B"
   },
   {
    "id": 459,
    "nome": "CAMP. REG. SUB-19 - 1ª FASE - SERIE C",
-   "categoria": "SUB-19"
+   "categoria": "SUB-19",
+   "grupo_id": "sub-19--camp-reg-sub-19-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-19 - 1ª FASE",
+   "serie": "C"
   },
   {
    "id": 436,
    "nome": "SUPERTAÇA APL SUB-17",
-   "categoria": "SUB-17"
+   "categoria": "SUB-17",
+   "grupo_id": "sub-17--supertaca-apl-sub-17",
+   "grupo_nome": "SUPERTAÇA APL SUB-17",
+   "serie": null
   },
   {
    "id": 440,
    "nome": "TORNEIO ABERTURA APL SUB-17",
-   "categoria": "SUB-17"
+   "categoria": "SUB-17",
+   "grupo_id": "sub-17--torneio-abertura-apl-sub-17",
+   "grupo_nome": "TORNEIO ABERTURA APL SUB-17",
+   "serie": null
   },
   {
    "id": 451,
    "nome": "CAMP. REG. SUB-17 - 1ª FASE - SERIE A",
-   "categoria": "SUB-17"
+   "categoria": "SUB-17",
+   "grupo_id": "sub-17--camp-reg-sub-17-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-17 - 1ª FASE",
+   "serie": "A"
   },
   {
    "id": 452,
    "nome": "CAMP. REG. SUB-17 - 1ª FASE - SERIE B",
-   "categoria": "SUB-17"
+   "categoria": "SUB-17",
+   "grupo_id": "sub-17--camp-reg-sub-17-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-17 - 1ª FASE",
+   "serie": "B"
   },
   {
    "id": 453,
    "nome": "CAMP. REG. SUB-17 - 1ª FASE - SERIE C",
-   "categoria": "SUB-17"
+   "categoria": "SUB-17",
+   "grupo_id": "sub-17--camp-reg-sub-17-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-17 - 1ª FASE",
+   "serie": "C"
   },
   {
    "id": 454,
    "nome": "CAMP. REG. SUB-17 - 1ª FASE - SERIE D",
-   "categoria": "SUB-17"
+   "categoria": "SUB-17",
+   "grupo_id": "sub-17--camp-reg-sub-17-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-17 - 1ª FASE",
+   "serie": "D"
   },
   {
    "id": 455,
    "nome": "CAMP. REG. SUB-17 - 1ª FASE - SERIE E",
-   "categoria": "SUB-17"
+   "categoria": "SUB-17",
+   "grupo_id": "sub-17--camp-reg-sub-17-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-17 - 1ª FASE",
+   "serie": "E"
   },
   {
    "id": 456,
    "nome": "CAMP. REG. SUB-17 - 1ª FASE - SERIE F",
-   "categoria": "SUB-17"
+   "categoria": "SUB-17",
+   "grupo_id": "sub-17--camp-reg-sub-17-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-17 - 1ª FASE",
+   "serie": "F"
   },
   {
    "id": 437,
    "nome": "SUPERTAÇA APL SUB-15",
-   "categoria": "SUB-15"
+   "categoria": "SUB-15",
+   "grupo_id": "sub-15--supertaca-apl-sub-15",
+   "grupo_nome": "SUPERTAÇA APL SUB-15",
+   "serie": null
   },
   {
    "id": 441,
    "nome": "TORNEIO ABERTURA APL SUB-15",
-   "categoria": "SUB-15"
+   "categoria": "SUB-15",
+   "grupo_id": "sub-15--torneio-abertura-apl-sub-15",
+   "grupo_nome": "TORNEIO ABERTURA APL SUB-15",
+   "serie": null
   },
   {
    "id": 447,
    "nome": "CAMP. REG. SUB-15 - 1ª FASE - SERIE A",
-   "categoria": "SUB-15"
+   "categoria": "SUB-15",
+   "grupo_id": "sub-15--camp-reg-sub-15-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-15 - 1ª FASE",
+   "serie": "A"
   },
   {
    "id": 448,
    "nome": "CAMP. REG. SUB-15 - 1ª FASE - SERIE B",
-   "categoria": "SUB-15"
+   "categoria": "SUB-15",
+   "grupo_id": "sub-15--camp-reg-sub-15-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-15 - 1ª FASE",
+   "serie": "B"
   },
   {
    "id": 449,
    "nome": "CAMP. REG. SUB-15 - 1ª FASE - SERIE C",
-   "categoria": "SUB-15"
+   "categoria": "SUB-15",
+   "grupo_id": "sub-15--camp-reg-sub-15-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-15 - 1ª FASE",
+   "serie": "C"
   },
   {
    "id": 450,
    "nome": "CAMP. REG. SUB-15 - 1ª FASE - SERIE D",
-   "categoria": "SUB-15"
+   "categoria": "SUB-15",
+   "grupo_id": "sub-15--camp-reg-sub-15-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-15 - 1ª FASE",
+   "serie": "D"
   },
   {
    "id": 438,
    "nome": "SUPERTAÇA APL SUB-13",
-   "categoria": "SUB-13"
+   "categoria": "SUB-13",
+   "grupo_id": "sub-13--supertaca-apl-sub-13",
+   "grupo_nome": "SUPERTAÇA APL SUB-13",
+   "serie": null
   },
   {
    "id": 442,
    "nome": "TORNEIO ABERTURA APL SUB-13",
-   "categoria": "SUB-13"
+   "categoria": "SUB-13",
+   "grupo_id": "sub-13--torneio-abertura-apl-sub-13",
+   "grupo_nome": "TORNEIO ABERTURA APL SUB-13",
+   "serie": null
   },
   {
    "id": 443,
    "nome": "CAMP. REG. SUB-13 - 1ª FASE - SERIE A",
-   "categoria": "SUB-13"
+   "categoria": "SUB-13",
+   "grupo_id": "sub-13--camp-reg-sub-13-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-13 - 1ª FASE",
+   "serie": "A"
   },
   {
    "id": 444,
    "nome": "CAMP. REG. SUB-13 - 1ª FASE - SERIE B",
-   "categoria": "SUB-13"
+   "categoria": "SUB-13",
+   "grupo_id": "sub-13--camp-reg-sub-13-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-13 - 1ª FASE",
+   "serie": "B"
   },
   {
    "id": 445,
    "nome": "CAMP. REG. SUB-13 - 1ª FASE - SERIE C",
-   "categoria": "SUB-13"
+   "categoria": "SUB-13",
+   "grupo_id": "sub-13--camp-reg-sub-13-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-13 - 1ª FASE",
+   "serie": "C"
   },
   {
    "id": 446,
    "nome": "CAMP. REG. SUB-13 - 1ª FASE - SERIE D",
-   "categoria": "SUB-13"
+   "categoria": "SUB-13",
+   "grupo_id": "sub-13--camp-reg-sub-13-1-fase",
+   "grupo_nome": "CAMP. REG. SUB-13 - 1ª FASE",
+   "serie": "D"
   },
   {
    "id": 460,
    "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE A",
-   "categoria": "ESCOLARES"
+   "categoria": "ESCOLARES",
+   "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-i",
+   "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I",
+   "serie": "A"
   },
   {
    "id": 461,
    "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE B",
-   "categoria": "ESCOLARES"
+   "categoria": "ESCOLARES",
+   "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-i",
+   "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I",
+   "serie": "B"
   },
   {
    "id": 462,
    "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE C",
-   "categoria": "ESCOLARES"
+   "categoria": "ESCOLARES",
+   "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-i",
+   "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I",
+   "serie": "C"
   },
   {
    "id": 463,
    "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE D",
-   "categoria": "ESCOLARES"
+   "categoria": "ESCOLARES",
+   "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-ii",
+   "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II",
+   "serie": "D"
   },
   {
    "id": 464,
    "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE E",
-   "categoria": "ESCOLARES"
+   "categoria": "ESCOLARES",
+   "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-ii",
+   "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II",
+   "serie": "E"
   },
   {
    "id": 465,
    "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
-   "categoria": "BENJAMINS"
+   "categoria": "BENJAMINS",
+   "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-i",
+   "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I",
+   "serie": "A"
   },
   {
    "id": 466,
    "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE B",
-   "categoria": "BENJAMINS"
+   "categoria": "BENJAMINS",
+   "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-ii",
+   "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II",
+   "serie": "B"
   },
   {
    "id": 467,
    "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE C",
-   "categoria": "BENJAMINS"
+   "categoria": "BENJAMINS",
+   "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-ii",
+   "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II",
+   "serie": "C"
   },
   {
    "id": 431,
    "nome": "JOGO TREINO",
-   "categoria": "TORNEIOS PARTICULARES"
+   "categoria": "TORNEIOS PARTICULARES",
+   "grupo_id": "torneios-particulares--jogo-treino",
+   "grupo_nome": "JOGO TREINO",
+   "serie": null
   },
   {
    "id": 434,
    "nome": "ZECA PINTO",
-   "categoria": "TORNEIOS PARTICULARES"
+   "categoria": "TORNEIOS PARTICULARES",
+   "grupo_id": "torneios-particulares--zeca-pinto",
+   "grupo_nome": "ZECA PINTO",
+   "serie": null
   }
  ]
 }
