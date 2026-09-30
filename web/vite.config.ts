@@ -40,7 +40,14 @@ export default defineConfig({
 			},
 			workbox: {
 				globPatterns: ['**/*.{js,css,html,png,ico,svg}'],
+				// 31 emblemas × 2,3 KB = 70 KB: vale a pena tê-los offline na app instalada
 				runtimeCaching: [
+					{
+						// imutáveis: uma vez em cache nunca mais se vai à rede
+						urlPattern: ({ url }) => url.pathname.startsWith('/emblemas/'),
+						handler: 'CacheFirst',
+						options: { cacheName: 'emblemas', expiration: { maxEntries: 200 } }
+					},
 					{
 						// os dados mudam sozinhos no CDN: servir já o que está em cache e
 						// atualizar por trás, para a app abrir instantânea mesmo com 3G mau

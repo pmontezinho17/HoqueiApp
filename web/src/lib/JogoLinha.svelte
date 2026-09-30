@@ -1,8 +1,11 @@
 <script lang="ts">
+	import Emblema from './Emblema.svelte';
 	import { dataCurta, horaCurta } from './formato';
 	import { disputado, type Jogo } from './tipos';
 
-	let { jogo, comp }: { jogo: Jogo; comp: number } = $props();
+	let {
+		jogo, comp, emblemas = {}
+	}: { jogo: Jogo; comp: number; emblemas?: Record<string, string> } = $props();
 
 	const jogado = $derived(disputado(jogo));
 	const venceuCasa = $derived(jogado && jogo.golos_casa! > jogo.golos_fora!);
@@ -25,8 +28,12 @@
 		<span class="hora">{horaCurta(jogo.hora)}</span>
 	</div>
 	<div class="equipas">
-		<span class:vencedor={venceuCasa}>{jogo.casa}</span>
-		<span class:vencedor={venceuFora}>{jogo.fora}</span>
+		<span class:vencedor={venceuCasa}>
+			<Emblema equipa={jogo.casa} src={emblemas[jogo.casa]} />{jogo.casa}
+		</span>
+		<span class:vencedor={venceuFora}>
+			<Emblema equipa={jogo.fora} src={emblemas[jogo.fora]} />{jogo.fora}
+		</span>
 	</div>
 	<div class="resultado">
 		{#if jogado}
@@ -56,7 +63,8 @@
 	.hora { font-variant-numeric: tabular-nums; }
 	.equipas { grid-area: equipas; display: flex; flex-direction: column; gap: 0.15rem;
 		font-size: 0.92rem; min-width: 0; }
-	.equipas span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+	.equipas span { display: flex; align-items: center; gap: 0.4rem; min-width: 0; }
+	.equipas span :global(img), .equipas span :global(.iniciais) { flex: 0 0 auto; }
 	.resultado { grid-area: resultado; display: flex; flex-direction: column; gap: 0.15rem;
 		text-align: right; font-variant-numeric: tabular-nums; font-size: 0.92rem; }
 	.vencedor { font-weight: 700; }

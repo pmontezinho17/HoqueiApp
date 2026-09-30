@@ -10,32 +10,32 @@
   {
    "id": 2002,
    "nome": "BIBLIOTECA IR",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/22.png"
+   "logo": "/emblemas/22.webp"
   },
   {
    "id": 2005,
    "nome": "HC LOURINHÃ",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/21.png"
+   "logo": "/emblemas/21.webp"
   },
   {
    "id": 2006,
    "nome": "HC TURQUEL",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/4.png"
+   "logo": "/emblemas/4.webp"
   },
   {
    "id": 2004,
    "nome": "S ALENQUER BENFICA",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/5.png"
+   "logo": "/emblemas/5.webp"
   },
   {
    "id": 2003,
    "nome": "SL BENFICA",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/1.png"
+   "logo": "/emblemas/1.webp"
   },
   {
    "id": 2007,
    "nome": "UD VILAFRANQUENSE",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/15.png"
+   "logo": "/emblemas/15.webp"
   }
  ],
  "jogos": [

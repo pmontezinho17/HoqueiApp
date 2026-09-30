@@ -22,6 +22,10 @@ export const carregarJogo = (id: number, f: typeof fetch) =>
 export const carregarQuadro = (comp: number, f: typeof fetch) =>
 	json<Quadro>(`${BASE}/scorers/${comp}.json`, f);
 
+/** nome da equipa → caminho do emblema na nossa origem */
+export const carregarEmblemas = (f: typeof fetch) =>
+	json<Record<string, string>>(`${BASE}/emblemas.json`, f);
+
 export const carregarAgenda = (f: typeof fetch) =>
 	json<Agenda>(`${BASE}/agenda.json`, f);
 

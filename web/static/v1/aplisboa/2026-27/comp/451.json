@@ -10,27 +10,27 @@
   {
    "id": 1971,
    "nome": "BIBLIOTECA IR A",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/22.png"
+   "logo": "/emblemas/22.webp"
   },
   {
    "id": 1970,
    "nome": "BIBLIOTECA IR B",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/22.png"
+   "logo": "/emblemas/22.webp"
   },
   {
    "id": 1973,
    "nome": "HC TURQUEL",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/4.png"
+   "logo": "/emblemas/4.webp"
   },
   {
    "id": 1972,
    "nome": "SC TOMAR",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/20.png"
+   "logo": "/emblemas/20.webp"
   },
   {
    "id": 1969,
    "nome": "UF ENTRONCAMENTO",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/24.png"
+   "logo": "/emblemas/24.webp"
   }
  ],
  "jogos": [

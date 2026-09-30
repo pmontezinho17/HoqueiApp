@@ -27,7 +27,11 @@
 		<a class="marca" href={`/${consulta}`}>Hóquei<span>em patins</span></a>
 		<Desatualizado geradoEm={data.meta.generated_at} />
 	</div>
-	<SeletorCompeticao competicoes={data.indice.competicoes} escolhida={data.escolhida} />
+	<!-- só aparece onde tem efeito: a Agenda e O Meu Clube são transversais às
+	     competições, e um controlo visível que não faz nada é pior do que não existir -->
+	{#if !emAgenda && !emClube}
+		<SeletorCompeticao competicoes={data.indice.competicoes} escolhida={data.escolhida} />
+	{/if}
 	<nav aria-label="Secções">
 		<a href="/clube" aria-current={emClube ? 'page' : undefined}>
 			O Meu Clube{#if favoritos.lista.length}<span class="conta">{favoritos.lista.length}</span>{/if}

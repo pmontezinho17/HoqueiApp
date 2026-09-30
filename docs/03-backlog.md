@@ -146,9 +146,9 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 | B4.11 | **Feed ICS por equipa**: `/v1/{tenant}/{season}/team/{id}.ics` | must | M | Subscrever o URL no Google Calendar mostra todos os jogos |
 | W4.12 | Botão "Adicionar ao meu calendário" com o URL do feed + instruções | must | M | Um toque e os jogos entram no calendário do utilizador |
 | W4.13 | Descarregar um jogo isolado como `.ics` | should | S | Ficheiro abre no calendário com data, hora e recinto |
-| W4.17 | **Logótipos dos clubes** nas listas de jogos, classificações e no detalhe | could | M | Cada equipa mostra o emblema, com recuo para iniciais quando não há |
-| B4.18 | Normalizar os URLs dos logótipos: o calendário dá-os absolutos e a classificação relativos (`/intranet/logos/8.png`) | should | S | Todos os logótipos no JSON são URLs absolutos ou todos relativos à nossa origem |
-| W4.19 | Recuo de iniciais num círculo com cor derivada do nome do clube, para equipas sem emblema | should | S | Nenhuma linha fica com um buraco onde devia estar um logótipo |
+| W4.17 | Emblemas dos clubes | could | M | ✅ em jogos, agenda, classificação e O Meu Clube |
+| B4.18 | Emblemas servidos da nossa origem, encolhidos e normalizados | should | S | ✅ 31 WebP de 64px, 2,3 KB em média (eram 22,8 KB PNG) — 89,8% menos |
+| W4.19 | Recuo de iniciais | should | S | ✅ círculo com cor estável derivada do nome; também cobre um emblema que falhe a carregar |
 | ~~A4.14~~ | ~~Escrever todos os jogos no calendário local da app~~ | — | — | ❌ **Impossível na web.** Substituído por B4.11 + W4.12 |
 
 ---
@@ -266,6 +266,61 @@ Muito mais leve do que o plano Android: sem loja, sem revisão, sem conta de pro
 | Adicionar ao calendário jogos de um clube/escalão | B4.11 + W4.12 (feed ICS) | 4 |
 
 ---
+
+## Séries de um campeonato regional — vista agregada (W5.22)
+
+Pedido a 30/09/2026, com um pedido explícito de avaliação crítica. Aqui vai.
+
+### O problema não é de vista, é de modelo de dados
+
+A fonte **não tem o conceito** de "o campeonato regional de sub-17". Tem seis competições
+irmãs — `CAMP. REG. SUB-17 - 1ª FASE - SERIE A` até `- SERIE F` — sem nenhum campo que as
+ligue. O único sinal de que pertencem ao mesmo campeonato é o **prefixo do nome**.
+
+Logo, agrupar exige inferir a partir do nome. E aqui aplico a lição do bug dos dois layouts:
+**inventariar os padrões antes de escrever o regex**, não adivinhar pelo primeiro que aparece.
+Os que já vi na APL e na FPP: `- SERIE X`, `- NIVEL I/II` (escolares), `- ZONA NORTE/SUL`
+(nacional) e `- 1ª FASE` / `- FASE FINAL`. Um nome que não encaixe fica **sem grupo**, nunca
+agrupado por palpite.
+
+### Onde eu discordo do desenho proposto
+
+**Agregar classificações numa tabela única é impossível, e acho que já o sabes** — disseste
+"ver todas as tabelas das respetivas séries", que é a leitura correcta. Fica registado porque é
+o ponto onde isto se estraga facilmente: as equipas de séries diferentes **não jogam entre si**,
+e podem ter feito números diferentes de jogos. Somá-las numa tabela produziria uma ordenação
+sem significado. "Ver todas" em classificação = **todas as tabelas empilhadas**, nunca fundidas.
+
+**Agregar os quadros de marcadores é possível mas enganador.** Um melhor marcador da SERIE F
+com 12 golos não é comparável a um da SERIE A com 10: adversários diferentes, níveis
+possivelmente muito diferentes. O quadro agregado parece autoritativo e não é. Se se fizer:
+mostrar a série ao lado de cada jogador, e chamar-lhe "todas as séries" e não "campeonato".
+
+**O switch é o controlo errado se o padrão vier errado.** Proponho o inverso do que sugeriste:
+o **agrupado como vista primária**, porque é esse o modelo mental de quem usa ("o regional de
+sub-17"), com as séries como secções. E para quem quer só a sua série, o atalho não é um switch
+— são os **favoritos**: quem segue uma equipa quer a série dela, e isso já se sabe.
+
+### O argumento mais forte a favor, que não está no pedido
+
+Agrupar séries **encolhe o seletor de competições de 37 para cerca de 15**. Ou seja, isto não é
+só uma vista nova: é a correcção de raiz do problema que o W3.15 tapou com um seletor melhor.
+Por isso subo-lhe a prioridade acima de outras coisas da Fase 5.
+
+### Complexidade real
+
+Achas que talvez seja complexo; acho que é **moderado** e o risco está todo no inventário dos
+padrões de nome, não no código. O agrupamento é um regex mais um campo novo no JSON; a UI são
+secções. Estimo `M` no backend e `L` na app.
+
+| ID | Item | Prio | Est. | Critério de aceitação |
+|---|---|---|---|---|
+| B5.22 | Inventariar **todos** os padrões de sufixo de série nos tenants conhecidos, antes de escrever o agrupamento | must | S | Lista documentada; um nome fora dos padrões fica sem grupo em vez de ser agrupado a palpite |
+| B5.23 | Campo `grupo_de_provas` (id + nome + série) em `competitions.json` | should | M | As 6 séries de sub-17 partilham o mesmo id de grupo, com a série identificada |
+| W5.24 | Seletor passa a listar **grupos** e não séries soltas | should | M | O seletor cai de 37 para ~15 entradas |
+| W5.25 | Classificação: todas as tabelas das séries do grupo, empilhadas, com a série do clube seguido em primeiro | should | L | Nunca uma tabela fundida |
+| W5.26 | Quadros: agregado por grupo, com a série ao lado de cada jogador e o aviso de que as séries não se enfrentam | should | M | O rótulo não sugere que é um ranking único do campeonato |
+| W5.27 | Calendário: jogos de todas as séries do grupo, com a série visível | could | M | Filtrável por série |
 
 ## Nota sobre os logótipos dos clubes (W4.17)
 

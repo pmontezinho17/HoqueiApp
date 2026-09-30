@@ -88,11 +88,11 @@
 
 				{#if r.proximo}
 					<p class="rotulo">Próximo jogo</p>
-					<JogoLinha jogo={r.proximo} comp={r.fav.competicoes[0]} />
+					<JogoLinha jogo={r.proximo} comp={r.fav.competicoes[0]} emblemas={data.emblemas} />
 				{/if}
 				{#if r.ultimo}
 					<p class="rotulo">Último resultado</p>
-					<JogoLinha jogo={r.ultimo} comp={r.fav.competicoes[0]} />
+					<JogoLinha jogo={r.ultimo} comp={r.fav.competicoes[0]} emblemas={data.emblemas} />
 				{/if}
 				{#if !r.proximo && !r.ultimo}
 					<p class="vazio">Sem jogos publicados para esta equipa.</p>

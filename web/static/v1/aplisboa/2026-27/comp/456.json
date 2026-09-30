@@ -10,27 +10,27 @@
   {
    "id": 2001,
    "nome": "CD BOLIQUEIME",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/69.png"
+   "logo": "/emblemas/69.webp"
   },
   {
    "id": 1999,
    "nome": "CF ESTREMOZ",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/0.png"
+   "logo": "/emblemas/0.webp"
   },
   {
    "id": 1998,
    "nome": "FC CASTRENSE",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/0.png"
+   "logo": "/emblemas/0.webp"
   },
   {
    "id": 1997,
    "nome": "HC PORTIMÃO",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/62.png"
+   "logo": "/emblemas/62.webp"
   },
   {
    "id": 2000,
    "nome": "HC VASCO GAMA",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/18.png"
+   "logo": "/emblemas/18.webp"
   }
  ],
  "jogos": [

@@ -10,22 +10,22 @@
   {
    "id": 1840,
    "nome": "CACO",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/26.png"
+   "logo": "/emblemas/26.webp"
   },
   {
    "id": 1839,
    "nome": "CD PAÇO ARCOS",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/7.png"
+   "logo": "/emblemas/7.webp"
   },
   {
    "id": 1838,
    "nome": "SL BENFICA",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/1.png"
+   "logo": "/emblemas/1.webp"
   },
   {
    "id": 1837,
    "nome": "SPORTING CP",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
+   "logo": "/emblemas/2.webp"
   }
  ],
  "jogos": [

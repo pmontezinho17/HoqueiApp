@@ -13,3 +13,7 @@
 # O service worker nunca pode ficar preso em cache, senão a app deixa de se actualizar.
 /sw.js
   Cache-Control: no-cache
+
+# Emblemas: o nome é o id estável do clube na fonte e o conteúdo não muda.
+/emblemas/*
+  Cache-Control: public, max-age=31536000, immutable

@@ -31,7 +31,7 @@
 				{jornada}{#if jornada === atual}<span class="agora">em curso</span>{/if}
 			</h2>
 			{#each porQuando(jogos) as jogo (jogo.id ?? `${jogo.casa}-${jogo.fora}`)}
-				<JogoLinha {jogo} comp={data.escolhida.id} />
+				<JogoLinha {jogo} comp={data.escolhida.id} emblemas={data.emblemas} />
 			{/each}
 		</section>
 	{/each}

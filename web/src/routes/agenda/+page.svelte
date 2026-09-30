@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Emblema from '$lib/Emblema.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import { dataLonga } from '$lib/formato';
 	import type { JogoAgenda } from '$lib/tipos';
@@ -8,6 +9,19 @@
 	type Modo = 'proximos' | 'resultados';
 	let modo = $state<Modo>('proximos');
 	let soMinhas = $state(false);
+	let escalao = $state<string | null>(null);
+
+	// ordem de leitura natural, dos mais velhos para os mais novos
+	const ORDEM = ['SENIORES MASCULINOS', 'SENIORES FEMININOS', 'SUB-23', 'SUB-19',
+		'SUB-17', 'SUB-15', 'SUB-13', 'ESCOLARES', 'BENJAMINS', 'BAMBIS'];
+
+	const escaloes = $derived.by(() => {
+		const vistos = [...new Set(data.agenda.map((j: JogoAgenda) => j.cat))] as string[];
+		return vistos.sort((a, b) => {
+			const ia = ORDEM.indexOf(a), ib = ORDEM.indexOf(b);
+			return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b);
+		});
+	});
 
 	// o filtro liga-se sozinho para quem segue equipas: 58 jogos num sábado é ruído
 	$effect(() => {
@@ -30,6 +44,7 @@
 			modo === 'proximos' ? j.data >= hoje : j.data < hoje
 		);
 		if (modo === 'resultados') js = [...js].reverse();
+		if (escalao) js = js.filter((j) => j.cat === escalao);
 		if (soMinhas && seguidas.size) js = js.filter(segue);
 		return js.slice(0, 120);
 	});
@@ -54,6 +69,14 @@
 			Resultados
 		</button>
 	</div>
+	<div class="escaloes" role="group" aria-label="Filtrar por escalão">
+		<button class:activo={escalao === null} onclick={() => (escalao = null)}>Todos</button>
+		{#each escaloes as e (e)}
+			<button class:activo={escalao === e} onclick={() => (escalao = escalao === e ? null : e)}>
+				{e.replace('SENIORES ', 'SEN. ')}
+			</button>
+		{/each}
+	</div>
 	{#if favoritos.lista.length}
 		<label class="filtro">
 			<input type="checkbox" bind:checked={soMinhas} />
@@ -65,10 +88,10 @@
 {#if porDia.length === 0}
 	<p class="vazio">
 		{#if soMinhas}
-			Nenhuma das tuas equipas tem jogos {modo === 'proximos' ? 'marcados' : 'disputados'}.
-			<button class="limpar" onclick={() => (soMinhas = false)}>Ver todos</button>
+			Nenhuma das tuas equipas tem jogos {modo === 'proximos' ? 'marcados' : 'disputados'}{escalao ? ` em ${escalao.toLowerCase()}` : ''}.
+			<button class="limpar" onclick={() => { soMinhas = false; escalao = null; }}>Ver todos</button>
 		{:else}
-			Sem jogos {modo === 'proximos' ? 'marcados' : 'disputados'}.
+			Sem jogos {modo === 'proximos' ? 'marcados' : 'disputados'}{escalao ? ` em ${escalao.toLowerCase()}` : ''}.
 		{/if}
 	</p>
 {:else}
@@ -86,8 +109,12 @@
 				>
 					<span class="hora">{j.hora ?? '—'}</span>
 					<span class="equipas">
-						<span class:destaque={seguida(j.casa, j.cat)}>{j.casa}</span>
-						<span class:destaque={seguida(j.fora, j.cat)}>{j.fora}</span>
+						<span class:destaque={seguida(j.casa, j.cat)}>
+							<Emblema equipa={j.casa} src={data.emblemas[j.casa]} tamanho={20} />{j.casa}
+						</span>
+						<span class:destaque={seguida(j.fora, j.cat)}>
+							<Emblema equipa={j.fora} src={data.emblemas[j.fora]} tamanho={20} />{j.fora}
+						</span>
 					</span>
 					<span class="res">
 						{#if jogado(j)}
@@ -111,6 +138,18 @@
 		border: 1px solid var(--borda); background: var(--cartao); color: var(--suave);
 	}
 	.modos button[aria-selected='true'] { color: var(--acento); border-color: var(--acento); font-weight: 600; }
+	/* fila que rola: dez escalões não cabem a 360px, e empilhá-los comia o ecrã */
+	.escaloes { display: flex; gap: 0.3rem; margin-top: 0.6rem; overflow-x: auto;
+		padding-bottom: 0.2rem; scrollbar-width: none; }
+	.escaloes::-webkit-scrollbar { display: none; }
+	.escaloes button {
+		flex: 0 0 auto; min-height: 36px; padding: 0.3rem 0.7rem; font-size: 0.76rem;
+		white-space: nowrap; cursor: pointer; border-radius: 999px;
+		border: 1px solid var(--borda); background: var(--cartao); color: var(--suave);
+	}
+	.escaloes button.activo { background: var(--acento); border-color: var(--acento);
+		color: var(--cartao); font-weight: 600; }
+
 	.filtro { display: flex; align-items: center; gap: 0.45rem; margin-top: 0.6rem;
 		font-size: 0.82rem; color: var(--suave); min-height: 44px; cursor: pointer; }
 	.filtro input { width: 18px; height: 18px; accent-color: var(--acento); }
@@ -136,7 +175,8 @@
 		font-variant-numeric: tabular-nums; }
 	.equipas { grid-area: equipas; display: flex; flex-direction: column; gap: 0.1rem;
 		font-size: 0.86rem; min-width: 0; }
-	.equipas span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+	.equipas span { display: flex; align-items: center; gap: 0.35rem; min-width: 0; }
+	.equipas span :global(img), .equipas span :global(.iniciais) { flex: 0 0 auto; }
 	.destaque { font-weight: 700; }
 	.res { grid-area: res; display: flex; flex-direction: column; gap: 0.1rem;
 		text-align: right; font-size: 0.86rem; font-variant-numeric: tabular-nums; }

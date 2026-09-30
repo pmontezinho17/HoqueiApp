@@ -10,22 +10,22 @@
   {
    "id": 1835,
    "nome": "A STUART HCM",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/10.png"
+   "logo": "/emblemas/10.webp"
   },
   {
    "id": 1836,
    "nome": "CACO",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/26.png"
+   "logo": "/emblemas/26.webp"
   },
   {
    "id": 1833,
    "nome": "SL BENFICA",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/1.png"
+   "logo": "/emblemas/1.webp"
   },
   {
    "id": 1834,
    "nome": "SPORTING CP",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
+   "logo": "/emblemas/2.webp"
   }
  ],
  "jogos": [

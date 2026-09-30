@@ -10,22 +10,22 @@
   {
    "id": 1848,
    "nome": "AD OEIRAS",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/6.png"
+   "logo": "/emblemas/6.webp"
   },
   {
    "id": 1847,
    "nome": "PAREDE FC",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/3.png"
+   "logo": "/emblemas/3.webp"
   },
   {
    "id": 1845,
    "nome": "SL BENFICA",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/1.png"
+   "logo": "/emblemas/1.webp"
   },
   {
    "id": 1846,
    "nome": "SPORTING CP",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
+   "logo": "/emblemas/2.webp"
   }
  ],
  "jogos": [

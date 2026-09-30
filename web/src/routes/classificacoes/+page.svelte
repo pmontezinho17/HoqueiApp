@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Emblema from '$lib/Emblema.svelte';
+
 	let { data } = $props();
 	const grupos = $derived(data.dados.classificacao);
 </script>
@@ -32,7 +34,9 @@
 						{#each grupo.linhas as l (l.equipa)}
 							<tr>
 								<td class="pos">{l.posicao}</td>
-								<th class="eq" scope="row">{l.equipa}</th>
+								<th class="eq" scope="row">
+									<Emblema equipa={l.equipa} src={data.emblemas[l.equipa]} tamanho={20} />{l.equipa}
+								</th>
 								<td>{l.jogos}</td><td>{l.vitorias}</td><td>{l.empates}</td><td>{l.derrotas}</td>
 								<td>{l.golos_marcados}</td><td>{l.golos_sofridos}</td>
 								<td class:pos-dg={l.diferenca > 0} class:neg-dg={l.diferenca < 0}>
@@ -65,6 +69,7 @@
 	.pos { width: 1.6rem; text-align: center; color: var(--suave); }
 	.eq { text-align: left; width: 100%; font-weight: 500; position: sticky; left: 0;
 		background: var(--cartao); }
+	tbody .eq { display: flex; align-items: center; gap: 0.4rem; }
 	.tp { font-weight: 700; padding-right: 0.7rem; }
 	tbody tr + tr th, tbody tr + tr td { border-top: 1px solid var(--borda); }
 	.pos-dg { color: var(--acento); }

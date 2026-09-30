@@ -11,13 +11,16 @@ import pathlib
 import sys
 from datetime import date, datetime, timezone
 
-from .fonte import Fonte
+import httpx
+
+from .fonte import UA, Fonte
 from .modelos import para_dicionario
 from .parsers.calendario import calendario
 from .parsers.classificacao import classificacao
 from .parsers.competicoes import competicoes, temporadas
 from .parsers.jogo import ficha
 from .privacidade import anonimizar_ficha, escalao_permite_individual
+from .emblemas import caminho_publico, garantir, id_do_logo
 from .quadros import agregar
 
 
@@ -67,10 +70,21 @@ def comando_despejar(args) -> int:
         id_temp = args.id_temp or _temporada_corrente(fonte)
         provas, total = [], 0
         for prova, cal, tabela in _tudo(fonte, id_temp, com_classificacao=True):
+            # emblemas: guardamos o id da fonte e reescrevemos o campo para a nossa origem,
+            # o que também resolve a inconsistência de URLs absolutos vs relativos
+            for eq in cal.equipas:
+                if (idl := id_do_logo(eq.logo)):
+                    logos.setdefault(idl, f"https://{args.tenant}.assyssoftware.es/intranet/logos/{idl}.png")
+                    emblema_da_equipa[eq.nome] = caminho_publico(idl)
+
             provas.append(para_dicionario(prova))
-            conteudo = {"competicao": para_dicionario(prova),
-                        **para_dicionario(cal),
+            conteudo = {"competicao": para_dicionario(prova), **para_dicionario(cal),
                         "classificacao": para_dicionario(tabela)["grupos"] if tabela else []}
+            # aponta os emblemas para a nossa origem; resolve de caminho a inconsistência
+            # entre os URLs absolutos do calendário e os relativos da classificação
+            for eq in conteudo["equipas"]:
+                idl = id_do_logo(eq.get("logo"))
+                eq["logo"] = caminho_publico(idl) if idl else None
             (destino / "comp" / f"{prova.id}.json").write_text(
                 json.dumps(conteudo, ensure_ascii=False, indent=1))
             total += len(cal.jogos)
@@ -126,13 +140,27 @@ def comando_publicar(args) -> int:
         provas, total, buscadas, saltadas, restritas = [], 0, 0, 0, 0
         equipas_por_escalao: dict[tuple[str, str], set[int]] = {}
         agenda: list[dict] = []
+        logos: dict[str, str] = {}
+        emblema_da_equipa: dict[str, str] = {}
 
         for prova, cal, tabela in _tudo(fonte, id_temp, com_classificacao=True):
+            # emblemas: guardamos o id da fonte e reescrevemos o campo para a nossa origem,
+            # o que também resolve a inconsistência de URLs absolutos vs relativos
+            for eq in cal.equipas:
+                if (idl := id_do_logo(eq.logo)):
+                    logos.setdefault(idl, f"https://{args.tenant}.assyssoftware.es/intranet/logos/{idl}.png")
+                    emblema_da_equipa[eq.nome] = caminho_publico(idl)
+
             provas.append(para_dicionario(prova))
-            (destino / "comp" / f"{prova.id}.json").write_text(json.dumps(
-                {"competicao": para_dicionario(prova), **para_dicionario(cal),
-                 "classificacao": para_dicionario(tabela)["grupos"] if tabela else []},
-                ensure_ascii=False, indent=1))
+            conteudo = {"competicao": para_dicionario(prova), **para_dicionario(cal),
+                        "classificacao": para_dicionario(tabela)["grupos"] if tabela else []}
+            # aponta os emblemas para a nossa origem; resolve de caminho a inconsistência
+            # entre os URLs absolutos do calendário e os relativos da classificação
+            for eq in conteudo["equipas"]:
+                idl = id_do_logo(eq.get("logo"))
+                eq["logo"] = caminho_publico(idl) if idl else None
+            (destino / "comp" / f"{prova.id}.json").write_text(
+                json.dumps(conteudo, ensure_ascii=False, indent=1))
             total += len(cal.jogos)
 
             # Decisão do dono do projecto (30/09/2026): publicar nomes em todos os escalões,
@@ -186,6 +214,15 @@ def comando_publicar(args) -> int:
 
     # Índice equipa+escalão → competições. É o que permite seguir "Paço de Arcos sub-15"
     # e ver tudo o que essa equipa joga, sem o cliente abrir as 37 competições.
+    novos_emb, emb_existentes = garantir(
+        logos, pathlib.Path(args.emblemas or (destino / ".." / ".." / ".." / "emblemas")).resolve(),
+        lambda url: httpx.get(url, timeout=30, headers={"User-Agent": UA}).raise_for_status().content)
+
+    # mapa nome→emblema: a agenda e a classificação precisam do emblema sem carregar
+    # o ficheiro de cada competição
+    (destino / "emblemas.json").write_text(
+        json.dumps(emblema_da_equipa, ensure_ascii=False, indent=1))
+
     agenda.sort(key=lambda j: (j["data"], j["hora"] or "99:99"))
     (destino / "agenda.json").write_text(json.dumps({"jogos": agenda}, ensure_ascii=False))
 
@@ -204,7 +241,8 @@ def comando_publicar(args) -> int:
     }, ensure_ascii=False, indent=1))
 
     nota = f"{restritas} sem dados individuais" if args.anonimizar_formacao else "nomes em todos os escalões"
-    print(f"\n{len(provas)} competições ({nota}), {total} jogos"
+    print(f"\nemblemas: {novos_emb} convertidos, {emb_existentes} já existentes")
+    print(f"{len(provas)} competições ({nota}), {total} jogos"
           f"\nfichas: {buscadas} buscadas, {saltadas} já actuais → {destino}")
     return 0
 
@@ -230,6 +268,8 @@ def main(argv=None) -> int:
 
     b = sub.add_parser("publicar", parents=[comum], help="gerar a árvore /v1 que a PWA consome")
     b.add_argument("--destino", required=True)
+    b.add_argument("--emblemas", default=None,
+                   help="pasta dos emblemas (default: <destino>/../../../emblemas)")
     b.add_argument("--anonimizar-formacao", action="store_true",
                    help="omitir nomes de atletas, árbitros e equipa técnica abaixo de sub-17")
     b.set_defaults(func=comando_publicar)

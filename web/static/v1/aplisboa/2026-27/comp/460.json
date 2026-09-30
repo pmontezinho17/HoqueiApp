@@ -10,22 +10,22 @@
   {
    "id": 2022,
    "nome": "AD OEIRAS A",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/6.png"
+   "logo": "/emblemas/6.webp"
   },
   {
    "id": 2020,
    "nome": "FSE/AJ SALESIANA A",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/9.png"
+   "logo": "/emblemas/9.webp"
   },
   {
    "id": 2021,
    "nome": "S ALENQUER BENFICA",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/5.png"
+   "logo": "/emblemas/5.webp"
   },
   {
    "id": 2023,
    "nome": "SPORTING CP A",
-   "logo": "https://aplisboa.assyssoftware.es/intranet/logos/2.png"
+   "logo": "/emblemas/2.webp"
   }
  ],
  "jogos": [
