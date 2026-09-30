@@ -1,0 +1,1578 @@
+{
+ "equipas": [
+  {
+   "equipa": "A STUART HCM",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    465
+   ]
+  },
+  {
+   "equipa": "AD OEIRAS A",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    465
+   ]
+  },
+  {
+   "equipa": "AD OEIRAS B",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    466
+   ]
+  },
+  {
+   "equipa": "AE FISICA D A",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    465
+   ]
+  },
+  {
+   "equipa": "AE FISICA D B",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    466
+   ]
+  },
+  {
+   "equipa": "APAC TOJAL",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    467
+   ]
+  },
+  {
+   "equipa": "CACO A",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    465
+   ]
+  },
+  {
+   "equipa": "CACO B",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    467
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS A",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    465
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS B",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    466
+   ]
+  },
+  {
+   "equipa": "CRIAR-T GD",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    466
+   ]
+  },
+  {
+   "equipa": "FSE/AJ SALESIANA",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    465
+   ]
+  },
+  {
+   "equipa": "HC LOURINHÃ",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    467
+   ]
+  },
+  {
+   "equipa": "HC SINTRA",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    465
+   ]
+  },
+  {
+   "equipa": "PAREDE FC",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    467
+   ]
+  },
+  {
+   "equipa": "S ALENQUER BENFICA",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    466
+   ]
+  },
+  {
+   "equipa": "SC TORRES",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    465
+   ]
+  },
+  {
+   "equipa": "SPORTING CP",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    467
+   ]
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE",
+   "categoria": "BENJAMINS",
+   "competicoes": [
+    467
+   ]
+  },
+  {
+   "equipa": "A STUART HCM A",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    462
+   ]
+  },
+  {
+   "equipa": "A STUART HCM B",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    463
+   ]
+  },
+  {
+   "equipa": "AD OEIRAS A",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    460
+   ]
+  },
+  {
+   "equipa": "AD OEIRAS B",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    463
+   ]
+  },
+  {
+   "equipa": "AE FISICA D A",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    461
+   ]
+  },
+  {
+   "equipa": "AE FISICA D B",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    464
+   ]
+  },
+  {
+   "equipa": "APAC TOJAL",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    462
+   ]
+  },
+  {
+   "equipa": "CACO A",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    461
+   ]
+  },
+  {
+   "equipa": "CACO B",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    464
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS A",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    461
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS B",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    463
+   ]
+  },
+  {
+   "equipa": "CRIAR-T GD",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    462
+   ]
+  },
+  {
+   "equipa": "FSE/AJ SALESIANA A",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    460
+   ]
+  },
+  {
+   "equipa": "FSE/AJ SALESIANA B",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    464
+   ]
+  },
+  {
+   "equipa": "HC LOURINHÃ",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    462
+   ]
+  },
+  {
+   "equipa": "HC SINTRA",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    461
+   ]
+  },
+  {
+   "equipa": "PAREDE FC A",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    462
+   ]
+  },
+  {
+   "equipa": "PAREDE FC B",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    464
+   ]
+  },
+  {
+   "equipa": "S ALENQUER BENFICA",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    460
+   ]
+  },
+  {
+   "equipa": "SC TORRES",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    463
+   ]
+  },
+  {
+   "equipa": "SPORTING CP A",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    460
+   ]
+  },
+  {
+   "equipa": "SPORTING CP B",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    463
+   ]
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE A",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    461
+   ]
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE B",
+   "categoria": "ESCOLARES",
+   "competicoes": [
+    464
+   ]
+  },
+  {
+   "equipa": "A STRUART HCM",
+   "categoria": "SENIORES FEMININOS",
+   "competicoes": [
+    433
+   ]
+  },
+  {
+   "equipa": "CRIAR-T GD",
+   "categoria": "SENIORES FEMININOS",
+   "competicoes": [
+    433
+   ]
+  },
+  {
+   "equipa": "HC SINTRA",
+   "categoria": "SENIORES FEMININOS",
+   "competicoes": [
+    433
+   ]
+  },
+  {
+   "equipa": "PAREDE FC",
+   "categoria": "SENIORES FEMININOS",
+   "competicoes": [
+    433
+   ]
+  },
+  {
+   "equipa": "A STUART HCM",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "AD OEIRAS",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "AE FISICA D",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "APAC TOJAL",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "FSE/AJ SALESIANA",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "GDS CASCAIS",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "GRF MURCHES",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "HC LOURINHA",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "HC SINTRA",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "PAREDE FC",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "S ALENQUER B",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "SC TORRES",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "SL BENFICA",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "SPORTING CP",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE",
+   "categoria": "SENIORES MASCULINOS",
+   "competicoes": [
+    432
+   ]
+  },
+  {
+   "equipa": "A STUART HCM",
+   "categoria": "SUB-13",
+   "competicoes": [
+    438,
+    442,
+    445
+   ]
+  },
+  {
+   "equipa": "AD OEIRAS A",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442,
+    443
+   ]
+  },
+  {
+   "equipa": "AD OEIRAS B",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442,
+    446
+   ]
+  },
+  {
+   "equipa": "AE FISICA A",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442
+   ]
+  },
+  {
+   "equipa": "AE FISICA B",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442
+   ]
+  },
+  {
+   "equipa": "AE FISICA D A",
+   "categoria": "SUB-13",
+   "competicoes": [
+    445
+   ]
+  },
+  {
+   "equipa": "AE FISICA D B",
+   "categoria": "SUB-13",
+   "competicoes": [
+    446
+   ]
+  },
+  {
+   "equipa": "APAC TOJAL",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442,
+    443
+   ]
+  },
+  {
+   "equipa": "CACO",
+   "categoria": "SUB-13",
+   "competicoes": [
+    438
+   ]
+  },
+  {
+   "equipa": "CACO A",
+   "categoria": "SUB-13",
+   "competicoes": [
+    443
+   ]
+  },
+  {
+   "equipa": "CACO B",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442,
+    446
+   ]
+  },
+  {
+   "equipa": "CD MAFRA",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442,
+    445
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS A",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442,
+    443
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS B",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442,
+    446
+   ]
+  },
+  {
+   "equipa": "CRIAR-T GD",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442,
+    444
+   ]
+  },
+  {
+   "equipa": "FSE/AJ SALESIANA",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442,
+    445
+   ]
+  },
+  {
+   "equipa": "HC LOURINHA",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442
+   ]
+  },
+  {
+   "equipa": "HC LOURINHÃ",
+   "categoria": "SUB-13",
+   "competicoes": [
+    444
+   ]
+  },
+  {
+   "equipa": "HC SINTRA",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442,
+    443
+   ]
+  },
+  {
+   "equipa": "PAREDE FC A",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442,
+    445
+   ]
+  },
+  {
+   "equipa": "PAREDE FC B",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442,
+    446
+   ]
+  },
+  {
+   "equipa": "S ALENQUER BENFICA",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442,
+    444
+   ]
+  },
+  {
+   "equipa": "SC TORRES",
+   "categoria": "SUB-13",
+   "competicoes": [
+    443
+   ]
+  },
+  {
+   "equipa": "SL BENFICA",
+   "categoria": "SUB-13",
+   "competicoes": [
+    438,
+    444
+   ]
+  },
+  {
+   "equipa": "SPORTING CP",
+   "categoria": "SUB-13",
+   "competicoes": [
+    438,
+    442
+   ]
+  },
+  {
+   "equipa": "SPORTING CP A",
+   "categoria": "SUB-13",
+   "competicoes": [
+    445
+   ]
+  },
+  {
+   "equipa": "SPORTING CP B",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442,
+    446
+   ]
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE",
+   "categoria": "SUB-13",
+   "competicoes": [
+    442,
+    444
+   ]
+  },
+  {
+   "equipa": "A STUART HCM A",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441,
+    450
+   ]
+  },
+  {
+   "equipa": "A STUART HCM B",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441,
+    449
+   ]
+  },
+  {
+   "equipa": "AD OEIRAS A",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441,
+    447
+   ]
+  },
+  {
+   "equipa": "AD OEIRAS B",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441,
+    450
+   ]
+  },
+  {
+   "equipa": "AE FISICA A",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441
+   ]
+  },
+  {
+   "equipa": "AE FISICA B",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441
+   ]
+  },
+  {
+   "equipa": "AE FISICA D A",
+   "categoria": "SUB-15",
+   "competicoes": [
+    449
+   ]
+  },
+  {
+   "equipa": "AE FISICA D B",
+   "categoria": "SUB-15",
+   "competicoes": [
+    447
+   ]
+  },
+  {
+   "equipa": "APAC TOJAL",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441,
+    448
+   ]
+  },
+  {
+   "equipa": "CACO",
+   "categoria": "SUB-15",
+   "competicoes": [
+    437,
+    441,
+    449
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS",
+   "categoria": "SUB-15",
+   "competicoes": [
+    437
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS A",
+   "categoria": "SUB-15",
+   "competicoes": [
+    447
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS B",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441,
+    450
+   ]
+  },
+  {
+   "equipa": "CRIAR-T GD",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441,
+    447
+   ]
+  },
+  {
+   "equipa": "FSE/AJ SALESIANA",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441,
+    450
+   ]
+  },
+  {
+   "equipa": "HC LOURINHA",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441
+   ]
+  },
+  {
+   "equipa": "HC LOURINHÃ",
+   "categoria": "SUB-15",
+   "competicoes": [
+    449
+   ]
+  },
+  {
+   "equipa": "HC SINTRA",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441,
+    447
+   ]
+  },
+  {
+   "equipa": "PAREDE FC",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441,
+    448
+   ]
+  },
+  {
+   "equipa": "SL BENFICA",
+   "categoria": "SUB-15",
+   "competicoes": [
+    437
+   ]
+  },
+  {
+   "equipa": "SL BENFICA A",
+   "categoria": "SUB-15",
+   "competicoes": [
+    450
+   ]
+  },
+  {
+   "equipa": "SL BENFICA B",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441,
+    448
+   ]
+  },
+  {
+   "equipa": "SPORTING CP",
+   "categoria": "SUB-15",
+   "competicoes": [
+    437,
+    441
+   ]
+  },
+  {
+   "equipa": "SPORTING CP A",
+   "categoria": "SUB-15",
+   "competicoes": [
+    448
+   ]
+  },
+  {
+   "equipa": "SPORTING CP B",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441,
+    449
+   ]
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE",
+   "categoria": "SUB-15",
+   "competicoes": [
+    441
+   ]
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE A",
+   "categoria": "SUB-15",
+   "competicoes": [
+    448
+   ]
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE B",
+   "categoria": "SUB-15",
+   "competicoes": [
+    447
+   ]
+  },
+  {
+   "equipa": "A STUART HCM",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440,
+    453
+   ]
+  },
+  {
+   "equipa": "AD OEIRAS A",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440,
+    454
+   ]
+  },
+  {
+   "equipa": "AD OEIRAS B",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440,
+    455
+   ]
+  },
+  {
+   "equipa": "AE FISICA",
+   "categoria": "SUB-17",
+   "competicoes": [
+    436,
+    440
+   ]
+  },
+  {
+   "equipa": "AE FISICA B",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440
+   ]
+  },
+  {
+   "equipa": "AE FISICA C",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440
+   ]
+  },
+  {
+   "equipa": "AE FISICA D A",
+   "categoria": "SUB-17",
+   "competicoes": [
+    455
+   ]
+  },
+  {
+   "equipa": "AE FISICA D B",
+   "categoria": "SUB-17",
+   "competicoes": [
+    453
+   ]
+  },
+  {
+   "equipa": "APAC TOJAL",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440,
+    453
+   ]
+  },
+  {
+   "equipa": "BIBLIOTECA IR A",
+   "categoria": "SUB-17",
+   "competicoes": [
+    451
+   ]
+  },
+  {
+   "equipa": "BIBLIOTECA IR B",
+   "categoria": "SUB-17",
+   "competicoes": [
+    451
+   ]
+  },
+  {
+   "equipa": "CACO A",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440,
+    452
+   ]
+  },
+  {
+   "equipa": "CACO B",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440,
+    455
+   ]
+  },
+  {
+   "equipa": "CD BOLIQUEIME",
+   "categoria": "SUB-17",
+   "competicoes": [
+    456
+   ]
+  },
+  {
+   "equipa": "CD MAFRA",
+   "categoria": "SUB-17",
+   "competicoes": [
+    454
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS",
+   "categoria": "SUB-17",
+   "competicoes": [
+    436
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS A",
+   "categoria": "SUB-17",
+   "competicoes": [
+    452
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS B",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440,
+    453
+   ]
+  },
+  {
+   "equipa": "CF ESTREMOZ",
+   "categoria": "SUB-17",
+   "competicoes": [
+    456
+   ]
+  },
+  {
+   "equipa": "CRIAR-T GD",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440,
+    452
+   ]
+  },
+  {
+   "equipa": "FC CASTRENSE",
+   "categoria": "SUB-17",
+   "competicoes": [
+    456
+   ]
+  },
+  {
+   "equipa": "FSE/AJ SALESIANA A",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440,
+    455
+   ]
+  },
+  {
+   "equipa": "FSE/AJ SALESIANA B",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440,
+    452
+   ]
+  },
+  {
+   "equipa": "HC LOURINHA",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440
+   ]
+  },
+  {
+   "equipa": "HC LOURINHÃ",
+   "categoria": "SUB-17",
+   "competicoes": [
+    454
+   ]
+  },
+  {
+   "equipa": "HC PORTIMÃO",
+   "categoria": "SUB-17",
+   "competicoes": [
+    456
+   ]
+  },
+  {
+   "equipa": "HC SINTRA",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440,
+    455
+   ]
+  },
+  {
+   "equipa": "HC TURQUEL",
+   "categoria": "SUB-17",
+   "competicoes": [
+    451
+   ]
+  },
+  {
+   "equipa": "HC VASCO GAMA",
+   "categoria": "SUB-17",
+   "competicoes": [
+    456
+   ]
+  },
+  {
+   "equipa": "PAREDE FC",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440,
+    453
+   ]
+  },
+  {
+   "equipa": "S ALENQUER BENFICA",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440,
+    452
+   ]
+  },
+  {
+   "equipa": "SC TOMAR",
+   "categoria": "SUB-17",
+   "competicoes": [
+    451
+   ]
+  },
+  {
+   "equipa": "SL BENFICA",
+   "categoria": "SUB-17",
+   "competicoes": [
+    436,
+    440
+   ]
+  },
+  {
+   "equipa": "SL BENFICA A",
+   "categoria": "SUB-17",
+   "competicoes": [
+    453
+   ]
+  },
+  {
+   "equipa": "SL BENFICA B",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440,
+    452
+   ]
+  },
+  {
+   "equipa": "SPORTING CP",
+   "categoria": "SUB-17",
+   "competicoes": [
+    436
+   ]
+  },
+  {
+   "equipa": "SPORTING CP A",
+   "categoria": "SUB-17",
+   "competicoes": [
+    455
+   ]
+  },
+  {
+   "equipa": "SPORTING CP B",
+   "categoria": "SUB-17",
+   "competicoes": [
+    454
+   ]
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE",
+   "categoria": "SUB-17",
+   "competicoes": [
+    440,
+    454
+   ]
+  },
+  {
+   "equipa": "UF ENTRONCAMENTO",
+   "categoria": "SUB-17",
+   "competicoes": [
+    451
+   ]
+  },
+  {
+   "equipa": "A STUART HCM",
+   "categoria": "SUB-19",
+   "competicoes": [
+    439,
+    459
+   ]
+  },
+  {
+   "equipa": "AD OEIRAS",
+   "categoria": "SUB-19",
+   "competicoes": [
+    435,
+    439,
+    458
+   ]
+  },
+  {
+   "equipa": "AE FISICA",
+   "categoria": "SUB-19",
+   "competicoes": [
+    439
+   ]
+  },
+  {
+   "equipa": "AE FISICA D",
+   "categoria": "SUB-19",
+   "competicoes": [
+    458
+   ]
+  },
+  {
+   "equipa": "APAC TOJAL",
+   "categoria": "SUB-19",
+   "competicoes": [
+    439,
+    458
+   ]
+  },
+  {
+   "equipa": "BIBLIOTECA IR",
+   "categoria": "SUB-19",
+   "competicoes": [
+    457
+   ]
+  },
+  {
+   "equipa": "CACO",
+   "categoria": "SUB-19",
+   "competicoes": [
+    459
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS",
+   "categoria": "SUB-19",
+   "competicoes": [
+    439
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS A",
+   "categoria": "SUB-19",
+   "competicoes": [
+    459
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS B",
+   "categoria": "SUB-19",
+   "competicoes": [
+    458
+   ]
+  },
+  {
+   "equipa": "FSE/AJ SALESIANA",
+   "categoria": "SUB-19",
+   "competicoes": [
+    439,
+    459
+   ]
+  },
+  {
+   "equipa": "GD SESIMBRA",
+   "categoria": "SUB-19",
+   "competicoes": [
+    458
+   ]
+  },
+  {
+   "equipa": "HC LOURINHA",
+   "categoria": "SUB-19",
+   "competicoes": [
+    439
+   ]
+  },
+  {
+   "equipa": "HC LOURINHÃ",
+   "categoria": "SUB-19",
+   "competicoes": [
+    457
+   ]
+  },
+  {
+   "equipa": "HC TURQUEL",
+   "categoria": "SUB-19",
+   "competicoes": [
+    457
+   ]
+  },
+  {
+   "equipa": "PAREDE FC",
+   "categoria": "SUB-19",
+   "competicoes": [
+    435,
+    439,
+    459
+   ]
+  },
+  {
+   "equipa": "S ALENQUER BENFICA",
+   "categoria": "SUB-19",
+   "competicoes": [
+    439,
+    457
+   ]
+  },
+  {
+   "equipa": "SL BENFICA",
+   "categoria": "SUB-19",
+   "competicoes": [
+    435,
+    457
+   ]
+  },
+  {
+   "equipa": "SPORTING CP",
+   "categoria": "SUB-19",
+   "competicoes": [
+    435,
+    458
+   ]
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE",
+   "categoria": "SUB-19",
+   "competicoes": [
+    439,
+    457
+   ]
+  },
+  {
+   "equipa": "UF ENTRONCAMENTO",
+   "categoria": "SUB-19",
+   "competicoes": [
+    459
+   ]
+  },
+  {
+   "equipa": "AA COIMBRA",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
+   "equipa": "AA COIMBRA (S15)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "AD OERIAS",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
+   "equipa": "AE FISICA D",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
+   "equipa": "AE FISICA D (B)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "AE FISICA D (E)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "AE FISICA D (S)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "AE FISICA D (S13)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "AE FISICA D (S15)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "AE FISICA D (S17)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "AE FISICA D (S19)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "AE FISICA D B (B)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "AE FISICA D B (E)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "AE FISICA D B (S13)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "AE FISICA D B (S15)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "AE FISICA D B (S17)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "APAC TOJAL",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
+   "equipa": "BIBLIOTECA IR (SF)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
+   "equipa": "BIBLIOTECA IR (SM)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
+   "equipa": "CACO (S15)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "CACO A (S13)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "CACO B (S13)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "CANDELARIA SC",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
+   "equipa": "CD MAFRA (B)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "CRIAR-T GD",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
+   "equipa": "GDS CASCAIS",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
+   "equipa": "HC GRANDOLA",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
+   "equipa": "HC MEALHADA (S17)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "HC MEALHADA (S19)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "HC MEALHADA (S23)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "HC TURQUEL",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
+   "equipa": "HC TURQUEL (B)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "HC TURQUEL (E)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    434
+   ]
+  },
+  {
+   "equipa": "PAREDE FC (SF)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
+   "equipa": "PAREDE FC (SM)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
+   "equipa": "SPORTING CP",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  }
+ ]
+}

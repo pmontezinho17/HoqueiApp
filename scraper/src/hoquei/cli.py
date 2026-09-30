@@ -124,6 +124,7 @@ def comando_publicar(args) -> int:
     with Fonte(args.tenant) as fonte:
         id_temp = args.id_temp or _temporada_corrente(fonte)
         provas, total, buscadas, saltadas, restritas = [], 0, 0, 0, 0
+        equipas_por_escalao: dict[tuple[str, str], set[int]] = {}
 
         for prova, cal, tabela in _tudo(fonte, id_temp, com_classificacao=True):
             provas.append(para_dicionario(prova))
@@ -136,6 +137,11 @@ def comando_publicar(args) -> int:
             # Decisão do dono do projecto (30/09/2026): publicar nomes em todos os escalões,
             # por a fonte já os expor publicamente. O filtro fica disponível em --anonimizar-formacao
             # para poder ser reactivado sem alterar código — por exemplo se a federação o pedir.
+            # a equipa pode aparecer na lista de equipas da prova ou só nos jogos
+            for nome_eq in {e.nome for e in cal.equipas} | {j.casa for j in cal.jogos} | {j.fora for j in cal.jogos}:
+                if nome_eq and nome_eq not in ("-", "--"):
+                    equipas_por_escalao.setdefault((prova.categoria, nome_eq), set()).add(prova.id)
+
             publica_nomes = not args.anonimizar_formacao or escalao_permite_individual(prova.categoria)
             if not publica_nomes:
                 restritas += 1
@@ -162,6 +168,13 @@ def comando_publicar(args) -> int:
 
     (destino / "competitions.json").write_text(json.dumps(
         {"temporada": id_temp, "competicoes": provas}, ensure_ascii=False, indent=1))
+
+    # Índice equipa+escalão → competições. É o que permite seguir "Paço de Arcos sub-15"
+    # e ver tudo o que essa equipa joga, sem o cliente abrir as 37 competições.
+    (destino / "teams.json").write_text(json.dumps(
+        {"equipas": [{"equipa": eq, "categoria": cat, "competicoes": sorted(ids)}
+                     for (cat, eq), ids in sorted(equipas_por_escalao.items())]},
+        ensure_ascii=False, indent=1))
     (destino / "meta.json").write_text(json.dumps({
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "tenant": args.tenant,

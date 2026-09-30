@@ -77,6 +77,12 @@ export interface FicheiroCompeticao {
 
 export interface IndiceCompeticoes { temporada: number; competicoes: Competicao[]; }
 
+export interface EquipaIndice { equipa: string; categoria: string; competicoes: number[]; }
+export interface IndiceEquipas { equipas: EquipaIndice[]; }
+
+/** Seguir é por clube **e** escalão: quem segue os sub-15 não quer os seniores. */
+export interface Favorito { equipa: string; categoria: string; competicoes: number[]; }
+
 export interface TotaisJogador {
 	nome: string; equipa: string; jogos: number;
 	golos: number; assistencias: number; defesas: number; pontos: number;

@@ -1,19 +1,22 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import { page, navigating } from '$app/state';
 	import Desatualizado from '$lib/Desatualizado.svelte';
+	import SeletorCompeticao from '$lib/SeletorCompeticao.svelte';
+	import { favoritos } from '$lib/favoritos.svelte';
 
 	let { data, children } = $props();
+
+	// um sítio que publica nomes de menores tem de ter uma forma óbvia de pedir remoção
+	const CONTACTO = 'pedro.montezinho@gmail.com';
 
 	const emJogos = $derived(page.url.pathname === '/');
 	const emTabelas = $derived(page.url.pathname.startsWith('/classificacoes'));
 	const emQuadros = $derived(page.url.pathname.startsWith('/quadros'));
+	const emClube = $derived(page.url.pathname.startsWith('/clube'));
+
+	$effect(() => favoritos.carregar());
 	const consulta = $derived(`?comp=${data.escolhida.id}`);
 
-	function mudarCompeticao(e: Event) {
-		const id = (e.target as HTMLSelectElement).value;
-		goto(`${page.url.pathname}?comp=${id}`, { invalidateAll: true });
-	}
 </script>
 
 {#if navigating.to}<div class="progresso" role="status" aria-label="A carregar"></div>{/if}
@@ -23,12 +26,11 @@
 		<a class="marca" href={`/${consulta}`}>Hóquei<span>em patins</span></a>
 		<Desatualizado geradoEm={data.meta.generated_at} />
 	</div>
-	<select onchange={mudarCompeticao} value={String(data.escolhida.id)} aria-label="Competição">
-		{#each data.indice.competicoes as c (c.id)}
-			<option value={String(c.id)}>{c.categoria} · {c.nome}</option>
-		{/each}
-	</select>
+	<SeletorCompeticao competicoes={data.indice.competicoes} escolhida={data.escolhida} />
 	<nav aria-label="Secções">
+		<a href="/clube" aria-current={emClube ? 'page' : undefined}>
+			O Meu Clube{#if favoritos.lista.length}<span class="conta">{favoritos.lista.length}</span>{/if}
+		</a>
 		<a href={`/${consulta}`} aria-current={emJogos ? 'page' : undefined}>Jogos</a>
 		<a href={`/classificacoes${consulta}`} aria-current={emTabelas ? 'page' : undefined}>Classificação</a>
 		<a href={`/quadros${consulta}`} aria-current={emQuadros ? 'page' : undefined}>Quadros</a>
@@ -39,7 +41,10 @@
 
 <footer>
 	<p>Dados da Associação de Patinagem de Lisboa. Este site não é oficial.</p>
-	<p class="pequeno">Sem estatísticas individuais em escalões de formação.</p>
+	<p class="pequeno">
+		Dados públicos, republicados tal como a fonte os apresenta.
+		Para pedir a remoção de um nome, <a href={`mailto:${CONTACTO}?subject=hoquei.pages.dev`}>contacta-nos</a>.
+	</p>
 </footer>
 
 <style>
@@ -71,11 +76,6 @@
 	.topo { display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem; }
 	.marca { font-weight: 700; font-size: 1.05rem; text-decoration: none; }
 	.marca span { font-weight: 400; color: var(--suave); margin-left: 0.35rem; font-size: 0.8rem; }
-	select {
-		width: 100%; margin-top: 0.6rem; padding: 0.55rem; font-size: 0.9rem;
-		border-radius: 8px; border: 1px solid var(--borda);
-		background: var(--cartao); color: inherit;
-	}
 	nav { display: flex; gap: 0.25rem; margin-top: 0.6rem; }
 	nav a {
 		flex: 1; text-align: center; padding: 0.6rem 0.25rem; min-height: 44px;
@@ -83,6 +83,11 @@
 		border-bottom: 2px solid transparent;
 	}
 	nav a[aria-current='page'] { color: var(--acento); border-bottom-color: var(--acento); font-weight: 600; }
+	nav { overflow-x: auto; scrollbar-width: none; }
+	nav::-webkit-scrollbar { display: none; }
+	nav a { flex: 1 0 auto; white-space: nowrap; padding-inline: 0.6rem; }
+	.conta { margin-left: 0.3rem; padding: 0.05rem 0.35rem; border-radius: 999px;
+		background: var(--acento); color: var(--cartao); font-size: 0.68rem; }
 
 	main { max-width: 44rem; margin: 0 auto; padding: 1rem; }
 	footer {

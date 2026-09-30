@@ -118,7 +118,7 @@ Objetivo: **um ecrã** com jogos reais, no telemóvel, instalável. É aqui que 
 | W3.13 | Pré-visualização em partilhas (Open Graph por jogo) | could | M | Colar o link de um jogo no WhatsApp mostra as equipas e o resultado |
 | W3.6e | Tab Ficha: colunas **Pe** e **LD** | should | S | ✅ a cinzento quando `0/0`, destacadas quando houve remate |
 | W3.14 | **Ícone de golo**: bola de hóquei em patins em vez do ⚽ | should | S | ✅ SVG próprio (`Bola.svelte`), com aro claro para não desaparecer no tema escuro |
-| W3.15 | **Seletor de competição** em folha inferior, agrupado por escalão e com pesquisa, em vez do `<select>` com 37 entradas | should | M | Chegar a uma competição em dois toques sem ler a lista toda |
+| W3.15 | Seletor de competição em folha inferior | should | M | ✅ agrupado por escalão, com pesquisa sem acentos e foco automático |
 
 > W3.13 não existia no plano Android e é das coisas mais valiosas da web aqui: o link de um jogo
 > partilhado num grupo de WhatsApp mostra logo o resultado, mesmo a quem não abrir.
@@ -131,12 +131,12 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 
 | ID | Item | Prio | Est. | Critério de aceitação |
 |---|---|---|---|---|
-| W4.1 | Escolher **equipas favoritas** na 1ª visita, com pesquisa | must | M | Escolha persiste depois de fechar o browser |
-| W4.2 | Persistência em `localStorage` | must | S | Recarregar mantém |
-| W4.3 | Favoritos por **clube + escalão**, não só por clube | must | M | Seguir "Paço de Arcos sub-15" não traz os seniores |
-| W4.4 | Seguir várias equipas | must | M | Três equipas aparecem todas, ordenadas pelo próximo jogo |
-| W4.5 | Ecrã inicial "O Meu Clube": próximo jogo, último resultado, posição | must | L | Abre aqui se já houver favoritos |
-| W4.6 | Gerir favoritos nas definições | must | S | Alteração reflete-se de imediato |
+| W4.1 | Escolher equipas favoritas | must | M | ✅ folha de pesquisa sobre o índice de 216 pares equipa+escalão |
+| W4.2 | Persistência em `localStorage` | must | S | ✅ com try/catch — armazenamento bloqueado não parte a app |
+| W4.3 | Favoritos por clube + escalão | must | M | ✅ "Parede FC A" sub-13 não traz os seniores |
+| W4.4 | Seguir várias equipas | must | M | ✅ |
+| W4.5 | Ecrã "O Meu Clube" | must | L | ✅ próximo jogo, último resultado e posição em cada prova do escalão; é o `start_url` da app instalada |
+| W4.6 | Gerir favoritos | must | S | ✅ seguir/deixar de seguir no próprio ecrã |
 | W4.7 | Ecrã Calendário: vista mensal + lista de próximos/anteriores | must | L | Tocar num dia abre os jogos desse dia |
 | W4.8 | Calendário de qualquer clube, a partir do ecrã Equipa | must | M | Chega-se ao calendário do Benfica sem o seguir |
 | W4.9 | Distinguir casa/fora visualmente | should | S | Nota-se num relance |

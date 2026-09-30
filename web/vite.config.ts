@@ -26,7 +26,9 @@ export default defineConfig({
 				short_name: 'Hóquei',
 				description: 'Resultados, calendários e classificações de hóquei em patins em Portugal',
 				lang: 'pt-PT',
-				start_url: '/',
+				// a app instalada abre em O Meu Clube: com favoritos mostra-os, sem eles
+				// serve de onboarding em vez de um ecrã vazio
+				start_url: '/clube',
 				display: 'standalone',
 				background_color: '#0f1115',
 				theme_color: '#0a7d54',
