@@ -38,6 +38,7 @@ onde há agregação e pesquisa. Dados de menores têm protecção reforçada (a
 | [docs/01-fonte-de-dados.md](docs/01-fonte-de-dados.md) | Investigação da fonte de dados: onde `aplisboa.pt/resultados` vai buscar informação, endpoints, formatos, riscos |
 | [docs/02-arquitetura-e-stack.md](docs/02-arquitetura-e-stack.md) | Decisões de arquitetura e stack, com as alternativas rejeitadas e o porquê |
 | [docs/03-backlog.md](docs/03-backlog.md) | Backlog faseado, com critérios de aceitação e estimativas |
+| [docs/04-benchmarking.md](docs/04-benchmarking.md) | Como a FotMob e a Sofascore organizam este tipo de dados, e o que adaptamos |
 
 ## Resumo em 30 segundos
 
