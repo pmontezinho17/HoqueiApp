@@ -2,13 +2,24 @@
 	import { dataCurta, horaCurta } from './formato';
 	import { disputado, type Jogo } from './tipos';
 
-	let { jogo }: { jogo: Jogo } = $props();
+	let { jogo, comp }: { jogo: Jogo; comp: number } = $props();
+
 	const jogado = $derived(disputado(jogo));
 	const venceuCasa = $derived(jogado && jogo.golos_casa! > jogo.golos_fora!);
 	const venceuFora = $derived(jogado && jogo.golos_fora! > jogo.golos_casa!);
+	// só um jogo disputado tem ficha; os outros não têm para onde navegar
+	const destino = $derived(jogado && jogo.id ? `/jogo/${jogo.id}?comp=${comp}` : null);
 </script>
 
-<article>
+<svelte:element
+	this={destino ? 'a' : 'div'}
+	href={destino}
+	class="jogo"
+	class:ligavel={destino}
+	aria-label={jogado
+		? `${jogo.casa} ${jogo.golos_casa} ${jogo.fora} ${jogo.golos_fora}, ver ficha`
+		: `${jogo.casa} contra ${jogo.fora}, por disputar`}
+>
 	<div class="quando">
 		<span>{dataCurta(jogo.data)}</span>
 		<span class="hora">{horaCurta(jogo.hora)}</span>
@@ -22,24 +33,24 @@
 			<span class:vencedor={venceuCasa}>{jogo.golos_casa}</span>
 			<span class:vencedor={venceuFora}>{jogo.golos_fora}</span>
 		{:else}
-			<span class="porjogar" aria-label="por disputar">–</span>
+			<span class="porjogar" aria-hidden="true">–</span>
 		{/if}
 	</div>
 	{#if jogo.recinto}<div class="recinto">{jogo.recinto}</div>{/if}
-</article>
+</svelte:element>
 
 <style>
-	article {
+	.jogo {
 		display: grid;
 		grid-template-columns: 5.2rem 1fr auto;
 		grid-template-areas: 'quando equipas resultado' '. recinto recinto';
 		gap: 0.15rem 0.7rem;
 		padding: 0.65rem 0.75rem;
-		background: var(--cartao);
-		border: 1px solid var(--borda);
-		border-radius: 10px;
-		margin-bottom: 0.4rem;
+		background: var(--cartao); border: 1px solid var(--borda);
+		border-radius: 10px; margin-bottom: 0.4rem;
+		text-decoration: none; color: inherit;
 	}
+	.ligavel:hover, .ligavel:focus-visible { border-color: var(--acento); outline: none; }
 	.quando { grid-area: quando; font-size: 0.72rem; color: var(--suave);
 		display: flex; flex-direction: column; }
 	.hora { font-variant-numeric: tabular-nums; }

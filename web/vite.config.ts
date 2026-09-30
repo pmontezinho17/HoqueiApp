@@ -1,17 +1,20 @@
 import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { defineConfig } from 'vite';
 import { SvelteKitPWA } from '@vite-pwa/sveltekit';
 
 export default defineConfig({
 	plugins: [
 		sveltekit({
+			preprocess: vitePreprocess(),
 			compilerOptions: {
 				runes: ({ filename }) =>
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
-			// NOTA: nesta versão do SvelteKit o adapter vive aqui, dentro do plugin —
-			// pô-lo no svelte.config.js não dá erro nenhum, é simplesmente ignorado.
+			// NOTA: nesta versão do SvelteKit TODA a configuração vive aqui, dentro do
+			// plugin. Um svelte.config.js é ignorado em silêncio — o build corre na mesma
+			// e sai com o adapter errado. Por isso este projeto não tem esse ficheiro.
 			// Estáticos puros: a PWA e os JSON saem do mesmo projeto Cloudflare Pages,
 			// logo não há CORS e o service worker trata dos dois da mesma maneira.
 			adapter: adapter({ fallback: 'index.html', precompress: false })

@@ -1,0 +1,49 @@
+name: Actualizar dados
+
+# Porquê esta cadência e não mais: cada execução custa ~75 pedidos à fonte (a lista de
+# competições e um calendário + classificação por prova), e a fonte é um IIS partilhado de
+# uma federação, não uma API. A 2h aos fins-de-semana e 6h nos dias úteis dá uma média de
+# um pedido a cada dois minutos, e os resultados aparecem no site em menos de duas horas.
+# As fichas de jogo são incrementais: só se busca a de um jogo novo ou com resultado novo.
+on:
+  schedule:
+    - cron: '0 8-22/2 * * 6,0'   # fins-de-semana, de 2 em 2 horas (UTC)
+    - cron: '0 */6 * * 1-5'      # dias úteis, de 6 em 6 horas
+  workflow_dispatch:
+
+concurrency:
+  group: dados
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Testes do parser
+        working-directory: scraper
+        run: uv run pytest -q
+
+      - name: Regenerar /v1
+        working-directory: scraper
+        run: uv run python -m hoquei.cli publicar --tenant aplisboa --destino ../web/static/v1/aplisboa/2026-27
+
+      - name: Comitar se houver novidade
+        run: |
+          if git diff --quiet -- web/static/v1; then
+            echo "sem alterações nos dados"
+            exit 0
+          fi
+          git config user.name  "hoquei-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add web/static/v1
+          git commit -m "Dados: $(date -u '+%Y-%m-%d %H:%M') UTC [skip ci]"
+          git push

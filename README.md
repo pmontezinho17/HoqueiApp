@@ -5,17 +5,23 @@ e fichas de jogo das competições nacionais (FPP) e regionais.
 
 ## Estado
 
-🛠️ **Scraper a funcionar.** Competições, equipas e calendários já saem em JSON, com testes.
-Ficha de jogo e cliente por fazer.
+🛠️ **PWA a funcionar sobre dados reais.** Três ecrãs — jogos, classificação e detalhe de jogo
+com cronologia jogada a jogada. Dados regenerados automaticamente por GitHub Action.
+Falta publicar num URL.
 
 O cliente é uma **PWA** (SvelteKit + Cloudflare Pages), decidido a 20/09 em vez de app Android
 nativa: chega a Android e iPhone ao mesmo tempo e publica-se por link. As lojas ficam para depois,
 via TWA/Capacitor, se houver confiança para isso. Ver [docs/00-onde-retomar.md](docs/00-onde-retomar.md).
 
 ```bash
-cd scraper && uv sync && uv run pytest              # 9 testes, sem rede
-uv run python -m hoquei.cli jogos --de 2026-09-19 --ate 2026-09-20
+cd scraper && uv sync && uv run pytest          # 37 testes, sem rede
+uv run python -m hoquei.cli jogo --id 9308      # ficha e cronologia de um jogo
+cd ../web && npm install && npm run dev         # a PWA em localhost:5173
 ```
+
+**Privacidade:** as fichas de escalões abaixo de sub-17 são publicadas sem nomes de atletas,
+árbitros ou equipa técnica. Fica o que aconteceu — golos, minutos, equipas, resultado — e sai
+quem o fez. Um escalão que o filtro não saiba ler é tratado como restrito.
 
 ## Documentação
 

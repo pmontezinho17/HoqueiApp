@@ -49,18 +49,18 @@
 | B1.9b | Normalizar o relógio decrescente em minuto absoluto | must | M | ✅ nº e duração das partes lidos da fonte (2×25min, 2×15min, 4×8min confirmados) |
 | B1.9c | Parser do boletim oficial `#acta` | could | L | aberto |
 | B1.9d | Flag `has_timeline` por jogo | should | XS | ✅ `FichaJogo.tem_cronologia` |
-| B1.10 | Modelo normalizado + escrita dos JSON do contrato | must | M | parcial (falta jogo/classificação) |
+| B1.10 | Modelo normalizado + escrita dos JSON do contrato | must | M | ✅ `publicar` gera competitions, comp/, match/ e meta.json |
 | B1.11 | Testes do parser contra amostras | must | M | ✅ 32 testes, sem rede, incluindo cruzamento entre parsers |
 | B1.12 | Deteção de mudanças por hash | should | S | aberto |
 | B1.13 | Normalização de nomes de clubes + slug estável | should | M | aberto |
-| B1.14 | GitHub Action com cron (15 min na época, 1x/dia fora) | must | M | aberto |
+| B1.14 | GitHub Action com cron | must | M | ✅ 2h aos fins-de-semana, 6h nos dias úteis — ver nota de cadência |
 | B1.15 | Publicação dos JSON **no mesmo domínio da PWA** (Cloudflare Pages) | must | M | aberto — ver nota |
-| B1.16 | `meta.json` com `generated_at` e estado | must | XS | aberto |
+| B1.16 | `meta.json` com `generated_at` e estado | must | XS | ✅ |
 | B1.17 | Alerta de quebra do parser | should | S | aberto |
 | B1.18 | Backfill de temporadas anteriores | could | M | aberto |
-| B1.19 | Crawl incremental das fichas de jogo | must | M | aberto |
+| B1.19 | Crawl incremental das fichas de jogo | must | M | ✅ 2ª execução: 0 buscadas, 80 já actuais |
 | B1.20 | Agregação de marcadores → `scorers.json` | should | L | aberto |
-| B1.21 | Filtro RGPD: sem estatística individual abaixo de sub-17 | must | S | aberto |
+| B1.21 | Filtro RGPD: sem estatística individual abaixo de sub-17 | must | S | ✅ `privacidade.py` — 36 de 80 fichas anonimizadas, escalão desconhecido é restrito por omissão |
 
 > **B1.15 mudou de forma com a PWA.** Antes os JSON iam para um sítio qualquer com CORS aberto.
 > Agora vão para o **mesmo projeto Cloudflare Pages que serve a PWA**, debaixo de `/v1/`. Sem CORS,
@@ -99,22 +99,22 @@ Objetivo: **um ecrã** com jogos reais, no telemóvel, instalável. É aqui que 
 
 | ID | Item | Prio | Est. | Critério de aceitação |
 |---|---|---|---|---|
-| W3.1 | Navegação e rotas: `/jogos`, `/classificacoes`, `/golos`, `/equipa/[id]`, `/jogo/[id]` | must | M | Cada ecrã tem URL próprio e partilhável |
-| W3.2 | Barra de navegação inferior (Jogos · Classificações · Golos · O Meu Clube · Mais) | must | M | Navegar e voltar atrás mantém o estado |
-| W3.3 | Seletor de competição (nacional, taças, escalões, regional) | must | L | Escolher competição atualiza jogos e classificação |
+| W3.1 | Navegação e rotas | must | M | ✅ `/`, `/classificacoes`, `/jogo/[id]` — cada ecrã com URL partilhável |
+| W3.2 | Navegação entre secções | must | M | ✅ cabeçalho fixo com Jogos · Classificação e a competição partilhada |
+| W3.3 | Seletor de competição | must | L | ✅ no `+layout`, aplica-se às duas secções via `?comp=` |
 | W3.4 | Seletor de temporada | should | S | Mudar para 2025/26 mostra dados históricos |
-| W3.5 | Ecrã Classificação, com o clube favorito em destaque | must | L | Tabela igual à da fonte; scroll horizontal se não couber |
-| W3.6 | Ecrã Detalhe de Jogo com tabs: Resumo · Cronologia · Ficha · Boletim | must | XL | As 4 tabs com dados reais |
-| W3.6a | Tab Cronologia: timeline vertical com ícones, separadores de parte, resultado corrente | must | L | Um jogo real mostra os golos em ordem cronológica, com marcador e assistente |
-| W3.6b | Tab Ficha: jogadores por equipa (G/AG/D/Pe/LD), equipa técnica, faltas | must | L | Totais coincidem com o resultado |
+| W3.5 | Ecrã Classificação | must | L | ✅ vários grupos, coluna de equipa fixa, só a tabela rola (destaque do favorito fica para a Fase 4) |
+| W3.6 | Ecrã Detalhe de Jogo | must | XL | ✅ cabeçalho + tabs Cronologia e Ficha (Boletim depende de B1.9c) |
+| W3.6a | Tab Cronologia | must | L | ✅ timeline com minuto absoluto, ícones, partes, resultado corrente, marcador e assistente |
+| W3.6b | Tab Ficha | must | L | ✅ jogadores com G/A/D e equipa técnica |
 | W3.6c | Tab Boletim: arbitragem, resultado por parte, prolongamento | could | M | Mostra os parciais e a equipa de arbitragem |
-| W3.6d | Esconder a tab Cronologia quando `has_timeline = false` | should | XS | Jogo sem cronologia não mostra a tab |
+| W3.6d | Esconder tabs vazias | should | XS | ✅ sem cronologia ou sem ficha, a tab não aparece |
 | W3.7 | Ecrã Equipa: próximos jogos, últimos resultados, posição, plantel | should | L | Chega-se lá clicando no nome da equipa em qualquer sítio |
 | W3.8 | Ecrã Golos: melhores marcadores, com filtro por competição | must | L | Top 10 com clube e nº de golos |
 | W3.9 | Golos: alternar marcadores / assistências | should | S | Toggle reordena |
 | W3.10 | Golos: explicação clara em competições de formação, em vez de lista vazia | must | XS | Sub-13 mostra o motivo |
 | W3.11 | Ecrã Sobre: atribuição da fonte, última atualização, versão | must | S | Mostra o `generated_at` do `meta.json` |
-| W3.12 | Aviso de dados velhos (> 1h) | should | S | Backend parado mostra o aviso |
+| W3.12 | Aviso de dados velhos | should | S | ✅ idade no cabeçalho, destacada acima de 24h |
 | W3.13 | Pré-visualização em partilhas (Open Graph por jogo) | could | M | Colar o link de um jogo no WhatsApp mostra as equipas e o resultado |
 
 > W3.13 não existia no plano Android e é das coisas mais valiosas da web aqui: o link de um jogo
@@ -206,7 +206,7 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 | Q6.7 | Testes unitários do mapeamento de dados e dos componentes (Vitest) | should | M | `npm test` verde |
 | Q6.8 | Teste end-to-end do percurso principal (Playwright) | could | M | Passa no CI |
 | Q6.9 | Relatório de erros no cliente (Sentry ou equivalente) | should | S | Erro forçado aparece |
-| Q6.10 | CI: build + testes + Lighthouse em cada push | should | M | PR mostra o resultado |
+| Q6.10 | CI: build + testes em cada push | should | M | ✅ `.github/workflows/ci.yml` (Lighthouse por fazer) |
 | Q6.11 | Testado em Safari iOS e Chrome Android reais, não só no emulador | must | M | Sem bug de layout em nenhum |
 
 ---
@@ -278,10 +278,13 @@ Muito mais leve do que o plano Android: sem loja, sem revisão, sem conta de pro
 ## Próximo incremento
 
 ```
-W2.10           publicar em Cloudflare Pages  ← falta só isto para fechar a Fase 2
-B1.14 + B1.15   GitHub Action com cron a regenerar e publicar os JSON
-W3.1  + W3.6    rotas e o ecrã de detalhe de jogo com a cronologia
+W2.10 + B1.15   publicar em Cloudflare Pages  ← precisa de ti (ligar a conta ao repo)
+W3.7            ecrã de Equipa
+W3.8            quadro de melhores marcadores (B1.20 no backend)
+B1.9c           boletim oficial → 3ª tab no detalhe de jogo
 ```
+
+A Fase 3 está quase fechada. Falta o ecrã de Equipa, o quadro de golos e o boletim.
 
 Ao fim disto existe **um link para partilhar** com jogos reais, que qualquer pessoa abre no
 telemóvel e instala. No plano Android isso só acontecia na Fase 7.

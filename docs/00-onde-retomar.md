@@ -1,18 +1,52 @@
 # Onde retomar
 
-**Última sessão:** 20/09/2026 (noite) · **Estado:** scraper lê competições, calendário **e a ficha
-de jogo completa com cronologia**. Cliente (PWA) por começar.
+**Última sessão:** 30/09/2026 · **Estado:** PWA com três ecrãs a funcionar sobre dados reais,
+com filtro de privacidade e actualização automática. Falta publicar.
 
-Feito nesta sessão: B1.9, B1.9a, B1.9b e B1.9d. A cronologia sai com 11 tipos de evento (golos com
-marcador e assistente, variantes de livre direto e penálti, cartões amarelo/azul/vermelho, faltas
-de equipa numeradas, descontos de tempo, lances falhados, início/fim de parte), o relógio
-decrescente convertido em minuto corrido, e a estatística por jogador. 24 testes, sem rede.
+Feito nesta sessão:
 
-Experimenta: `cd scraper && uv run python -m hoquei.cli jogo --id 9308`
+| Item | Estado |
+|---|---|
+| B1.10 | ✅ `publicar` gera a árvore `/v1` completa (competições, comp/, match/, meta) |
+| B1.19 | ✅ crawl incremental — 2ª execução: 0 fichas buscadas, 80 já actuais |
+| B1.21 | ✅ **filtro RGPD por escalão** — 36 de 80 fichas sem dados individuais |
+| B1.14 | ✅ GitHub Action com cron (2h ao fim-de-semana, 6h nos dias úteis) |
+| W3.1–W3.3 | ✅ rotas, navegação e competição partilhada por `?comp=` |
+| W3.5 | ✅ ecrã de Classificação, vários grupos, coluna de equipa fixa |
+| W3.6–W3.6d | ✅ **detalhe de jogo com a cronologia** — o ecrã que dá substância à app |
+| W3.12 | ✅ aviso de dados velhos |
+| Q6.10 | ✅ CI em cada push |
 
-> ⚠️ **Mudança de rumo a 20/09:** o cliente passa de app Android nativa para **PWA** (SvelteKit +
-> Cloudflare Pages). Chega a Android e iPhone ao mesmo tempo, publica-se por link e corrige-se em
-> minutos. O backend **não muda nada**. Ver Decisão 2 em [02-arquitetura-e-stack.md](02-arquitetura-e-stack.md).
+Experimenta: `cd web && npm run dev` → `/jogo/9308?comp=432`
+
+> ⚠️ **Duas armadilhas desta stack, já documentadas em código:**
+> 1. Nesta versão do SvelteKit **toda** a configuração vive no `vite.config.ts`, dentro do
+>    plugin. Um `svelte.config.js` é ignorado em silêncio e o build sai com o adapter errado.
+>    Por isso este projeto não tem esse ficheiro.
+> 2. A rota `/jogo/[id]` não é pré-renderizável (nascem fichas todas as semanas) — é servida
+>    pelo fallback SPA do `adapter-static`.
+
+## Próximo passo concreto
+
+```
+W2.10 + B1.15   publicar em Cloudflare Pages  ← precisa de ti: ligar a conta ao repo
+W3.7            ecrã de Equipa
+W3.8 + B1.20    quadro de melhores marcadores
+B1.9c           boletim oficial → 3ª tab no detalhe de jogo
+```
+
+## ⚠️ A sondagem de live scores falhou duas vezes
+
+As janelas de **19/09 e 26/09 passaram sem a sonda correr**. A pergunta continua sem resposta:
+quanto tempo demora a fonte a reflectir um golo *enquanto o jogo decorre*.
+
+Isto não bloqueia nada — só decide o F8.1 (live scores). Mas não se resolve sozinho: ou se
+agenda, ou falha uma terceira vez. Próxima janela: **sábado 03/10**.
+
+```bash
+cd scraper && uv run python -m hoquei.cli jogos --de 2026-10-03 --ate 2026-10-04
+./scripts/sondar_atualizacao.py --tenant aplisboa --ids <ids> --intervalo 60 --ate 21:30
+```
 
 ## O que já está feito
 

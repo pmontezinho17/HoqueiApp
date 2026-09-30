@@ -9,7 +9,7 @@ import argparse
 import json
 import pathlib
 import sys
-from datetime import date
+from datetime import date, datetime, timezone
 
 from .fonte import Fonte
 from .modelos import para_dicionario
@@ -17,6 +17,7 @@ from .parsers.calendario import calendario
 from .parsers.classificacao import classificacao
 from .parsers.competicoes import competicoes, temporadas
 from .parsers.jogo import ficha
+from .privacidade import anonimizar_ficha, escalao_permite_individual
 
 
 def _temporada_corrente(fonte: Fonte) -> int:
@@ -98,6 +99,73 @@ def comando_jogo(args) -> int:
     return 0
 
 
+def _resultado_conhecido(caminho: pathlib.Path) -> tuple | None:
+    """Resultado já publicado para este jogo, ou None se ainda não existe ficheiro."""
+    try:
+        d = json.loads(caminho.read_text())
+    except (OSError, json.JSONDecodeError):
+        return None
+    return (d.get("golos_casa"), d.get("golos_fora"), d.get("estado"))
+
+
+def comando_publicar(args) -> int:
+    """Gera a árvore /v1 completa que a PWA consome.
+
+    O crawl das fichas é incremental (B1.19): só se busca `partido.asp` de um jogo que
+    ainda não tenha ficheiro ou cujo resultado tenha mudado. Sem isto seriam milhares de
+    páginas de ~80 KB a cada execução do cron, o que é indefensável contra o servidor de
+    uma federação.
+    """
+    destino = pathlib.Path(args.destino)
+    (destino / "comp").mkdir(parents=True, exist_ok=True)
+    (destino / "match").mkdir(parents=True, exist_ok=True)
+
+    with Fonte(args.tenant) as fonte:
+        id_temp = args.id_temp or _temporada_corrente(fonte)
+        provas, total, buscadas, saltadas, restritas = [], 0, 0, 0, 0
+
+        for prova, cal, tabela in _tudo(fonte, id_temp, com_classificacao=True):
+            provas.append(para_dicionario(prova))
+            (destino / "comp" / f"{prova.id}.json").write_text(json.dumps(
+                {"competicao": para_dicionario(prova), **para_dicionario(cal),
+                 "classificacao": para_dicionario(tabela)["grupos"] if tabela else []},
+                ensure_ascii=False, indent=1))
+            total += len(cal.jogos)
+
+            publica_nomes = escalao_permite_individual(prova.categoria)
+            if not publica_nomes:
+                restritas += 1
+            for jogo in cal.jogos:
+                if jogo.id is None or not jogo.disputado:
+                    continue
+                alvo = destino / "match" / f"{jogo.id}.json"
+                if _resultado_conhecido(alvo) == (jogo.golos_casa, jogo.golos_fora, "Jogo Terminado"):
+                    saltadas += 1
+                    continue
+                dados = para_dicionario(ficha(fonte.jogo(jogo.id).html, jogo.id))
+                dados["competicao_id"] = prova.id
+                if not publica_nomes:
+                    dados = anonimizar_ficha(dados)
+                alvo.write_text(json.dumps(dados, ensure_ascii=False, indent=1))
+                buscadas += 1
+
+    (destino / "competitions.json").write_text(json.dumps(
+        {"temporada": id_temp, "competicoes": provas}, ensure_ascii=False, indent=1))
+    (destino / "meta.json").write_text(json.dumps({
+        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "tenant": args.tenant,
+        "temporada_id": id_temp,
+        "competicoes": len(provas),
+        "jogos": total,
+        "fichas_publicadas": len(list((destino / "match").glob("*.json"))),
+        "fonte": f"https://{args.tenant}.assyssoftware.es/intranet/web/",
+    }, ensure_ascii=False, indent=1))
+
+    print(f"\n{len(provas)} competições ({restritas} sem dados individuais), {total} jogos"
+          f"\nfichas: {buscadas} buscadas, {saltadas} já actuais → {destino}")
+    return 0
+
+
 def main(argv=None) -> int:
     # num parser-pai partilhado, para que --tenant funcione antes OU depois do subcomando
     comum = argparse.ArgumentParser(add_help=False)
@@ -116,6 +184,10 @@ def main(argv=None) -> int:
     g.add_argument("--id", type=int, required=True)
     g.add_argument("--destino", default=None, help="escrever JSON em vez de imprimir")
     g.set_defaults(func=comando_jogo)
+
+    b = sub.add_parser("publicar", parents=[comum], help="gerar a árvore /v1 que a PWA consome")
+    b.add_argument("--destino", required=True)
+    b.set_defaults(func=comando_publicar)
 
     d = sub.add_parser("despejar", parents=[comum], help="escrever todas as competições em JSON")
     d.add_argument("--destino", required=True)
