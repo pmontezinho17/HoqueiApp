@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Bola from './Bola.svelte';
 	import type { EventoJogo } from './tipos';
 
 	let { eventos, casa, omitidos }: { eventos: EventoJogo[]; casa: string; omitidos: boolean } =
@@ -7,8 +8,9 @@
 	// as marcações de parte estruturam a timeline; não são acontecimentos em si
 	const ESTRUTURA = new Set(['inicio_parte', 'fim_parte', 'fim_jogo', 'por_iniciar']);
 
+	// o golo é desenhado (ver Bola.svelte); os restantes são texto
 	const ICONE: Record<string, string> = {
-		golo: '⚽', cartao: '▬', falta_equipa: '✋', desconto_tempo: '⏱',
+		cartao: '▬', falta_equipa: '✋', desconto_tempo: '⏱',
 		penalti_falhado: '✕', livre_direto_falhado: '✕'
 	};
 
@@ -43,7 +45,9 @@
 			<li class="evento" class:destaque={e.tipo === 'golo'}
 				class:fora={e.equipa !== null && e.equipa !== casa}>
 				<span class="minuto">{e.minuto !== null ? `${e.minuto}'` : ''}</span>
-				<span class="icone" aria-hidden="true">{ICONE[e.tipo] ?? '·'}</span>
+				<span class="icone" aria-hidden={e.tipo !== 'golo'}>
+					{#if e.tipo === 'golo'}<Bola />{:else}{ICONE[e.tipo] ?? '·'}{/if}
+				</span>
 				<span class="corpo">
 					<span class="que">
 						{descricao(e)}

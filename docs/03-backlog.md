@@ -117,7 +117,7 @@ Objetivo: **um ecrã** com jogos reais, no telemóvel, instalável. É aqui que 
 | W3.12 | Aviso de dados velhos | should | S | ✅ idade no cabeçalho, destacada acima de 24h |
 | W3.13 | Pré-visualização em partilhas (Open Graph por jogo) | could | M | Colar o link de um jogo no WhatsApp mostra as equipas e o resultado |
 | W3.6e | Tab Ficha: acrescentar as colunas **Pe** (penalidades) e **LD** (livres diretos), que já vêm no JSON e não são mostradas | should | S | Um jogador com `1/2` em penalidades vê-o na ficha |
-| W3.14 | **Ícone de golo**: trocar o ⚽ (bola de futebol) por uma bola de hóquei em patins — preta, lisa, sem os pentágonos | should | S | Reconhecível a 16px, em tema claro e escuro |
+| W3.14 | **Ícone de golo**: bola de hóquei em patins em vez do ⚽ | should | S | ✅ SVG próprio (`Bola.svelte`), com aro claro para não desaparecer no tema escuro |
 | W3.15 | **Seletor de competição** em folha inferior, agrupado por escalão e com pesquisa, em vez do `<select>` com 37 entradas | should | M | Chegar a uma competição em dois toques sem ler a lista toda |
 
 > W3.13 não existia no plano Android e é das coisas mais valiosas da web aqui: o link de um jogo
