@@ -5,6 +5,7 @@
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import { porQuando } from '$lib/formato';
+	import { caminhoEquipa } from '$lib/slug';
 	import { disputado, type Jogo, type TotaisJogador } from '$lib/tipos';
 
 	let { data } = $props();
@@ -12,6 +13,9 @@
 	type Aba = 'resumo' | 'jogos' | 'classificacao' | 'plantel';
 	let aba = $state<Aba>('resumo');
 	let vistaJogos = $state<'lista' | 'calendario'>('lista');
+	/** '' = todas. Só a lista de jogos permite todas; a classificação não. */
+	let provaJogos = $state('');
+	let tabelaEscolhida = $state('');
 
 	const hoje = new Date().toISOString().slice(0, 10);
 	const segue = $derived(favoritos.segue(data.equipa, data.categoria));
@@ -27,16 +31,48 @@
 	const proximos = $derived(jogos.filter((j: Jogo) => !disputado(j) && (j.data ?? '') >= hoje));
 	const anteriores = $derived([...jogos.filter(disputado)].reverse());
 
-	/** Posição em cada prova/série do escalão. */
-	const posicoes = $derived(
+	/** Uma opção por tabela em que a equipa aparece. Sem "todas": séries diferentes não se
+	 *  enfrentam, por isso uma tabela única não teria significado. */
+	const tabelas = $derived(
 		data.provas.flatMap((p) =>
-			p.dados.classificacao.flatMap((g) =>
-				g.linhas
-					.filter((l) => l.equipa === data.equipa)
-					.map((l) => ({ prova: p.dados.competicao, grupo: g.nome, linha: l }))
-			)
+			p.dados.classificacao
+				.filter((g) => g.linhas.some((l) => l.equipa === data.equipa))
+				.map((g, i) => {
+					const prova = p.dados.competicao;
+					// a série tanto vem no nome da competição (`- SERIE C`) como no grupo (`SERIE A`)
+					const serie = prova.serie
+						? `Série ${prova.serie}`
+						: g.nome?.replace(/^S[EÉ]RIE\s+/i, 'Série ');
+					return {
+						chave: `${p.id}:${g.nome ?? i}`,
+						rotulo: `${prova.grupo_nome ?? prova.nome}${serie ? ` · ${serie}` : ''}`,
+						grupoId: prova.grupo_id ?? String(prova.id),
+						linhas: g.linhas
+					};
+				})
 		)
 	);
+	$effect(() => {
+		if (tabelas.length && !tabelas.some((t) => t.chave === tabelaEscolhida))
+			tabelaEscolhida = tabelas[0].chave;
+	});
+	const tabela = $derived(tabelas.find((t) => t.chave === tabelaEscolhida) ?? tabelas[0]);
+
+	/** Provas para o filtro da lista de jogos — esse sim tem "todas". */
+	const provas = $derived(
+		data.provas.map((p) => ({
+			id: String(p.id),
+			rotulo: `${p.dados.competicao.grupo_nome ?? p.dados.competicao.nome}${p.dados.competicao.serie ? ` · Série ${p.dados.competicao.serie}` : ''}`,
+			ids: new Set(p.dados.jogos.map((j) => j.id))
+		}))
+	);
+	const filtrar = (lista: Jogo[]) => {
+		if (!provaJogos) return lista;
+		const p = provas.find((x) => x.id === provaJogos);
+		return p ? lista.filter((j) => p.ids.has(j.id)) : lista;
+	};
+	const proximosFiltrados = $derived(filtrar(proximos));
+	const anterioresFiltrados = $derived(filtrar(anteriores));
 
 	/** Plantel: quem alinhou, somado entre as provas do escalão. */
 	const plantel = $derived.by(() => {
@@ -133,37 +169,74 @@
 	</div>
 
 	{#if vistaJogos === 'calendario'}
+		<!-- sem filtro: o calendário mostra o mês da equipa inteiro, de todas as provas -->
 		<CalendarioMes {jogos} equipa={data.equipa} emblemas={data.emblemas} />
 	{:else}
-	{#if proximos.length}
-		<p class="rotulo">Por disputar</p>
-		{#each proximos as j (j.id ?? `${j.casa}${j.fora}`)}
-			<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} comData />
-		{/each}
-	{/if}
-	{#if anteriores.length}
-		<p class="rotulo">Resultados</p>
-		{#each anteriores as j (j.id ?? `${j.casa}${j.fora}`)}
-			<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} comData />
-		{/each}
-	{/if}
+		{#if provas.length > 1}
+			<select bind:value={provaJogos} aria-label="Competição">
+				<option value="">Todas as competições</option>
+				{#each provas as p (p.id)}<option value={p.id}>{p.rotulo}</option>{/each}
+			</select>
+		{/if}
+		{#if proximosFiltrados.length}
+			<p class="rotulo">Por disputar</p>
+			{#each proximosFiltrados as j (j.id ?? `${j.casa}${j.fora}`)}
+				<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} comData />
+			{/each}
+		{/if}
+		{#if anterioresFiltrados.length}
+			<p class="rotulo">Resultados</p>
+			{#each anterioresFiltrados as j (j.id ?? `${j.casa}${j.fora}`)}
+				<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} comData />
+			{/each}
+		{/if}
+		{#if proximosFiltrados.length + anterioresFiltrados.length === 0}
+			<p class="vazio">Sem jogos nesta competição.</p>
+		{/if}
 	{/if}
 {:else if aba === 'classificacao'}
-	{#each posicoes as p (p.prova.id + (p.grupo ?? ''))}
-		<section>
-			<p class="rotulo">{p.prova.grupo_nome ?? p.prova.nome}{p.prova.serie ? ` · Série ${p.prova.serie}` : ''}</p>
-			<a class="posicao" href={`/competicoes/${p.prova.grupo_id ?? p.prova.id}`}>
-				<span class="lugar">{p.linha.posicao}º</span>
-				<span class="detalhe">
-					{p.linha.jogos} jogos · {p.linha.vitorias}V {p.linha.empates}E {p.linha.derrotas}D
-					· {p.linha.golos_marcados}–{p.linha.golos_sofridos}
-				</span>
-				<span class="pts">{p.linha.pontos} pts</span>
-			</a>
-		</section>
-	{:else}
+	{#if tabelas.length === 0}
 		<p class="vazio">Esta equipa não tem classificação publicada.</p>
-	{/each}
+	{:else}
+		<!-- sem "todas as competições", de propósito: séries diferentes não se enfrentam e
+		     uma tabela fundida compararia adversários disjuntos -->
+		{#if tabelas.length > 1}
+			<select bind:value={tabelaEscolhida} aria-label="Competição">
+				{#each tabelas as t (t.chave)}<option value={t.chave}>{t.rotulo}</option>{/each}
+			</select>
+		{:else}
+			<p class="rotulo">{tabelas[0].rotulo}</p>
+		{/if}
+
+		<table>
+			<thead>
+				<tr>
+					<th class="p">#</th><th class="eq">Equipa</th>
+					<th><abbr title="Jogos">J</abbr></th>
+					<th><abbr title="Diferença de golos">DG</abbr></th>
+					<th class="ptst">P</th>
+				</tr>
+			</thead>
+			<tbody>
+				{#each tabela.linhas as l (l.equipa)}
+					<tr class:minha={l.equipa === data.equipa}>
+						<td class="p">{l.posicao}</td>
+						<th class="eq">
+							<a href={caminhoEquipa(l.equipa, data.categoria)}>
+								<Emblema equipa={l.equipa} src={data.emblemas[l.equipa]} tamanho={18} />{l.equipa}
+							</a>
+						</th>
+						<td>{l.jogos}</td>
+						<td class:pos={l.diferenca > 0} class:neg={l.diferenca < 0}>
+							{l.diferenca > 0 ? '+' : ''}{l.diferenca}
+						</td>
+						<td class="ptst">{l.pontos}</td>
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+		<a class="verProva" href={`/competicoes/${tabela.grupoId}`}>Ver a competição ›</a>
+	{/if}
 {:else}
 	{#if plantel.length === 0}
 		<p class="vazio">Ainda não há fichas de jogo publicadas para esta equipa.</p>
@@ -237,13 +310,26 @@
 		padding: 0.35rem 0; border-bottom: 1px solid var(--borda); }
 	.numeros dd.txt { font-size: 0.72rem; }
 
-	section { margin-bottom: 0.8rem; }
-	.posicao { display: grid; grid-template-columns: auto 1fr auto; align-items: baseline;
-		gap: 0.5rem; padding: 0.5rem 0.2rem; text-decoration: none;
+	select { width: 100%; padding: 0.5rem 0.6rem; margin-bottom: 0.7rem; font-size: 0.8rem;
+		border-radius: 8px; border: 1px solid var(--borda);
+		background: var(--cartao); color: inherit; }
+
+	table { width: 100%; border-collapse: collapse; font-size: 0.76rem;
+		font-variant-numeric: tabular-nums; }
+	table th, table td { padding: 0.4rem 0.25rem; text-align: right; }
+	thead th { font-size: 0.64rem; color: var(--suave); font-weight: 600;
 		border-bottom: 1px solid var(--borda); }
-	.lugar { font-size: 1rem; font-weight: 700; }
-	.detalhe { font-size: 0.68rem; color: var(--suave); }
-	.pts { font-size: 0.76rem; font-variant-numeric: tabular-nums; }
+	.p { width: 1.4rem; text-align: center; color: var(--suave); }
+	.eq { text-align: left; width: 100%; font-weight: 400; }
+	.eq a { display: flex; align-items: center; gap: 0.35rem; text-decoration: none; }
+	.ptst { font-weight: 700; }
+	tbody tr + tr th, tbody tr + tr td { border-top: 1px solid var(--borda); }
+	tbody tr.minha { background: var(--acento-fraco); }
+	tbody tr.minha .eq { font-weight: 600; }
+	.pos { color: var(--acento); }
+	.neg { color: var(--suave); }
+	.verProva { display: inline-block; margin-top: 0.7rem; font-size: 0.74rem;
+		color: var(--acento); text-decoration: none; }
 
 	.rolo { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 	.plantel { width: 100%; border-collapse: collapse; font-size: 0.76rem;
