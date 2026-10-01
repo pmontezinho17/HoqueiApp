@@ -137,7 +137,7 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 | W4.4 | Seguir várias equipas | must | M | ✅ |
 | W4.5 | Ecrã "O Meu Clube" | must | L | ✅ próximo jogo, último resultado e posição em cada prova do escalão; é o `start_url` da app instalada |
 | W4.6 | Gerir favoritos | must | S | ✅ seguir/deixar de seguir no próprio ecrã |
-| W4.7 | Ecrã Calendário: vista mensal + lista de próximos/anteriores | must | L | Tocar num dia abre os jogos desse dia |
+| ~~W4.7~~ | ~~Ecrã Calendário próprio~~ | — | — | ❌ **Substituído pelo W7.5**, que vive em O Meu Clube e é melhor: casa/fora codificado na célula |
 | W4.8 | Calendário de qualquer clube, a partir do ecrã Equipa | must | M | Chega-se ao calendário do Benfica sem o seguir |
 | W4.9 | Distinguir casa/fora visualmente | should | S | Nota-se num relance |
 | W4.10 | Partilhar jogo ou resultado (Web Share API) | should | S | Abre o menu de partilha nativo do telemóvel |
@@ -332,8 +332,8 @@ retorno: os três primeiros não precisam de backend nenhum.
 | W7.1 | Cronologia a dois lados | should | M | ✅ casa à esquerda, visitante à direita, golo com faixa destacada e pastilha de resultado ao centro |
 | W7.2 | Marcadores no cabeçalho | should | S | ✅ com minuto, por equipa, mais emblemas no placar |
 | W7.3 | Migalhas clicáveis | should | S | ✅ escalão › prova › série › jornada, com ligação à competição |
-| W7.4 | **Forma recente**: 5 últimos jogos como emblema + resultado em pastilha verde/vermelha | should | M | No ecrã da equipa, lê-se de relance |
-| W7.5 | **Calendário mensal** com emblema do adversário na célula e **casa/fora pela cor da célula**, com legenda | should | L | Substitui o W4.7; responde a "tenho de conduzir?" num relance |
+| W7.4 | Forma recente | should | M | ✅ 5 últimos com emblema do adversário, data e resultado em pastilha verde/vermelha/cinzenta |
+| W7.5 | Calendário mensal | should | L | ✅ emblema e hora na célula, casa/fora por cor **e marca `F`** — a cor sozinha inverte-se entre temas e exclui quem não a distingue |
 | W7.6 | Classificação: chips `Tudo · Em casa · Fora` | should | M | Os mesmos dados recalculados a partir do calendário |
 | W7.7 | Classificação: reduzir de 5 para **3 colunas** (J, DG, P) | could | XS | Ainda mais espaço para o nome do clube a 375px |
 | W7.8 | Página de equipa: bloco **Visão geral** (jogos, GM, GS, assistências) | should | M | Só o que os nossos dados sustentam |

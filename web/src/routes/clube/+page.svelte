@@ -2,6 +2,8 @@
 	import { carregarCompeticao } from '$lib/dados';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import Folha from '$lib/Folha.svelte';
+	import CalendarioMes from '$lib/CalendarioMes.svelte';
+	import FormaRecente from '$lib/FormaRecente.svelte';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import { porQuando } from '$lib/formato';
 	import { disputado, type Favorito, type FicheiroCompeticao, type Jogo } from '$lib/tipos';
@@ -16,6 +18,7 @@
 
 	let aberta = $state(false);
 	let procura = $state('');
+	let vista = $state<'resumo' | 'calendario'>('resumo');
 	let campo = $state<HTMLInputElement | null>(null);
 
 	// sem isto o teclado do telemóvel não aparece e a folha parece morta
@@ -55,6 +58,7 @@
 			);
 			return {
 				fav: f,
+				jogos: ordenados,
 				proximo: ordenados.find((j) => !disputado(j) && (j.data ?? '') >= hoje),
 				ultimo: [...ordenados].reverse().find(disputado),
 				posicoes
@@ -75,9 +79,21 @@
 		<button class="principal" onclick={() => (aberta = true)}>Escolher equipa</button>
 	</div>
 {:else}
+	<div class="vistas" role="tablist">
+		<button role="tab" aria-selected={vista === 'resumo'} onclick={() => (vista = 'resumo')}>Resumo</button>
+		<button role="tab" aria-selected={vista === 'calendario'} onclick={() => (vista = 'calendario')}>Calendário</button>
+	</div>
+
 	{#await resumir()}
 		<p class="vazio">A reunir os jogos…</p>
 	{:then resumos}
+		{#if vista === 'calendario'}
+			<CalendarioMes
+				jogos={resumos.flatMap((r) => r.jogos)}
+				equipas={new Set(favoritos.lista.map((f) => f.equipa))}
+				emblemas={data.emblemas}
+			/>
+		{:else}
 		{#each resumos as r (r.fav.equipa + r.fav.categoria)}
 			<section>
 				<header>
@@ -91,6 +107,8 @@
 						aria-label={`Deixar de seguir ${r.fav.equipa} ${r.fav.categoria}`}
 					>Deixar de seguir</button>
 				</header>
+
+				<FormaRecente jogos={r.jogos} equipa={r.fav.equipa} emblemas={data.emblemas} />
 
 				{#if r.proximo}
 					<p class="rotulo">Próximo jogo</p>
@@ -113,6 +131,7 @@
 				{/each}
 			</section>
 		{/each}
+		{/if}
 		<button class="secundaria" onclick={() => (aberta = true)}>Seguir outra equipa</button>
 	{/await}
 {/if}
@@ -145,6 +164,13 @@
 	}
 	.principal { background: var(--acento); color: var(--cartao); border: 0; }
 	.secundaria { width: 100%; background: none; color: var(--acento); margin-top: 0.5rem; }
+
+	.vistas { display: flex; gap: 0.25rem; margin-bottom: 0.9rem; }
+	.vistas button { flex: 1; min-height: 38px; font-size: 0.78rem; cursor: pointer;
+		border-radius: 8px; border: 1px solid var(--borda);
+		background: var(--cartao); color: var(--suave); }
+	.vistas button[aria-selected='true'] { color: var(--acento); border-color: var(--acento);
+		font-weight: 600; }
 
 	section { margin-bottom: 1.6rem; }
 	section header { display: flex; align-items: baseline; justify-content: space-between;

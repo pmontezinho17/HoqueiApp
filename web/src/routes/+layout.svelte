@@ -15,6 +15,10 @@
 	];
 	const activa = (href: string) =>
 		href === '/' ? page.url.pathname === '/' : page.url.pathname.startsWith(href);
+
+	// os favoritos vivem no localStorage e só existem no browser; sem isto a app abria
+	// sempre como se não se seguisse ninguém (perdido na reestruturação dos separadores)
+	$effect(() => favoritos.carregar());
 </script>
 
 {#if navigating.to}<div class="progresso" role="status" aria-label="A carregar"></div>{/if}
