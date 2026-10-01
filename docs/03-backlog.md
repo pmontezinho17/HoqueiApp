@@ -356,7 +356,7 @@ retorno: os três primeiros não precisam de backend nenhum.
 | W7.5 | Calendário mensal | should | L | ✅ emblema e hora na célula, casa/fora por cor **e marca `F`** — a cor sozinha inverte-se entre temas e exclui quem não a distingue |
 | W7.6 | Classificação: chips `Tudo · Em casa · Fora` | should | M | Os mesmos dados recalculados a partir do calendário |
 | W7.7 | Classificação: reduzir de 5 para **3 colunas** (J, DG, P) | could | XS | Ainda mais espaço para o nome do clube a 375px |
-| W8.10 | Cartões também no detalhe de jogo (tab Ficha), que já os tem no JSON | could | XS | aberto |
+| W8.10 | Cartões no detalhe de jogo (tab Ficha) | could | XS | ✅ mais nome e número fixos ao rolar — com dez colunas, perdia-se de vista de quem era a linha |
 | W7.8 | Visão geral da equipa | should | M | ✅ jogos, GM, GS, assistências e recinto onde joga em casa |
 | W7.9 | Plantel na página de equipa | should | M | ✅ ordenado por golos, com nº, G/A/D e jogos. Agrupar por posição fica pendente — a posição só vem do boletim (B1.9c) |
 | W7.10 | Quadros: **top-3 por categoria com "Ver tudo"** em vez de lista corrida de 50 | could | S | Dá a provar sem obrigar a percorrer |

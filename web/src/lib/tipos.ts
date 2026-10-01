@@ -50,7 +50,9 @@ export interface EventoJogo {
 export interface LinhaJogador {
 	numero: string | null; nome: string; titular: boolean;
 	golos: number | null; assistencias: number | null; defesas: number | null;
-	penalidades: string | null; livres_diretos: string | null; papel: string | null;
+	penalidades: string | null; livres_diretos: string | null;
+	cartoes_amarelos: number; cartoes_azuis: number; cartoes_vermelhos: number;
+	papel: string | null;
 }
 export interface EquipaFicha { nome: string; jogadores: LinhaJogador[]; }
 
