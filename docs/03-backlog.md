@@ -225,7 +225,7 @@ Muito mais leve do que o plano Android: sem loja, sem revisão, sem conta de pro
 
 | ID | Item | Prio | Est. | Critério de aceitação |
 |---|---|---|---|---|
-| L7.1 | **Contactar FPP/APL**: informar, pedir autorização dos dados e dos logótipos | must | S | Resposta escrita arquivada |
+| L7.1 | Contactar a APL | must | S | ✅ **enviado a 01/10/2026** para `info@aplisboa.pt`. Se não houver resposta até ~22/10, telefonar: 213 931 710 |
 | L7.2 | Domínio próprio apontado ao Cloudflare Pages | should | S | Abre em `hoquei.<algo>` com HTTPS |
 | L7.3 | Ícones, nome e cor do tema no manifest | must | M | Ícone correto no ecrã principal em Android e iOS |
 | L7.4 | Política de privacidade publicada | must | M | URL acessível a partir do rodapé |

@@ -45,8 +45,13 @@ Fase 5         notificações (Web Push) — é onde entra estado no backend
 **A sonda de live scores nunca correu.** Falhou a 19/09 e a 26/09. Não bloqueia nada — só decide
 o F8.1 — mas não se resolve sozinha.
 
-**O email à APL/FPP (L7.1).** Mais relevante agora: o site está público, com nomes de atletas de
-formação e emblemas dos clubes. Perguntar as duas coisas de uma vez.
+**~~O email à APL~~ — enviado a 01/10/2026.** Perguntou quatro coisas: se vêem inconveniente,
+nomes de atletas de formação, emblemas dos clubes, e acesso estruturado aos dados. **Se não
+houver resposta até cerca de 22/10, telefonar — 213 931 710.** Uma conversa de dois minutos
+resolve mais do que três emails.
+
+A resposta condiciona três coisas: divulgar a app a outros pais e clubes, manter ou não os nomes
+de formação (é uma flag, `--anonimizar-formacao`), e manter ou não os emblemas.
 
 ## O que já está feito
 
