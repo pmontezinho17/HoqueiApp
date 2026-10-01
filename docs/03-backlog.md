@@ -165,6 +165,11 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 
 ### Deteção de alterações (backend, sem mudanças)
 
+> **Dependência, identificada a 02/10:** isto assume um `events.json` que ninguém construiu, e
+> que não se pode construir sem guardar o estado da ronda anterior. Ver **Fase 9** — o B9.7 é
+> esta deteção, e depende do B9.4.
+
+
 | ID | Item | Prio | Est. | Critério de aceitação |
 |---|---|---|---|---|
 | B5.1 | Diff entre execuções: jogo novo, resultado final, data/hora/recinto alterados, adiamento | must | L | Adiar um jogo na amostra produz `match_rescheduled` com antes e depois |
@@ -451,6 +456,110 @@ com 37 entradas é mau, mas trocá-lo por um melhor seletor resolve o sintoma e 
 Depois disto o seletor de competição passa a ser o caminho de *exploração*, usado raramente,
 e não a porta de entrada obrigatória.
 
+## Fase 9 — Base de dados com histórico (proposta de 02/10/2026)
+
+> **Pedido:** *"ao invés de estar sempre a ler informação no formato JSON diretamente do site
+> da APL, montarmos um processo de ingestão de dados, tratamento com limpeza, e storage numa
+> BD, para que a nossa aplicação ficar mais robusta."*
+
+### Primeiro, uma correção de premissa
+
+**A app já não lê nada do site da APL.** É a Decisão 1 da arquitetura, de 18/09, e a cadeia
+actual é esta:
+
+```
+aplisboa.assyssoftware.es (HTML)
+   │   1 pedido por ronda, GitHub Action a cada 2h — nunca o telemóvel do utilizador
+   ▼
+scraper/ (Python)        ← a ingestão e a limpeza que o pedido descreve: já existem,
+   │                       com 61 testes contra HTML gravado
+   ▼
+web/static/v1/... (JSON) ← servido do NOSSO domínio em Cloudflare, não do da APL
+   ▼
+PWA
+```
+
+O `BASE` que a app consulta é `/v1/aplisboa/2026-27` — o nosso próprio origin. O que falta
+nesta cadeia não é a ingestão nem a limpeza: é **memória**.
+
+### E onde eu discordo: a BD não torna isto mais robusto. Torna-o menos.
+
+Para uma carga só de leitura, um ficheiro estático em CDN é a coisa mais robusta que existe:
+não tem processo a correr, não tem ligações a esgotar, não tem query a expirar, não tem
+factura, e o service worker guarda-o para funcionar no pavilhão sem rede. Uma BD **acrescenta**
+um modo de falha onde hoje não há nenhum. Se o argumento for robustez, a resposta honesta é
+que já estamos no ponto bom.
+
+Dimensão actual, medida a 02/10: **4,6 MB**, 801 jogos, 188 fichas, 5170 eventos de cronologia,
+4563 linhas de jogador — um inquilino, uma época. Não há aqui problema de escala a resolver.
+
+### Mas o item é para fazer, por outra razão: não temos passado
+
+Cada ronda **escreve por cima**. Daí resulta que não sabemos responder a nada disto:
+
+| Pergunta | Hoje |
+|---|---|
+| Qual era a classificação a 15 de outubro? | perdida |
+| Como evoluiu a forma deste atleta ao longo da época? | perdida |
+| O que mudou entre a ronda das 8h e a das 10h? | perdida |
+| Este jogo foi adiado ou mudou de recinto? | perdida |
+| A ronda de hoje trouxe menos linhas do que a de ontem? | **perdida — e é exactamente o bug de 89% de perda de dados que só apanhámos por o utilizador reparar** |
+
+Os 14 commits do Action de dados preservam alguma coisa por acidente, mas um histórico em
+git não se consulta: não se faz `SELECT` a um diff.
+
+### O desenho: a BD entra **atrás** da publicação, não em vez dela
+
+Isto é o ponto que decide se o trabalho vale ou se estraga o que está bom:
+
+```
+scraper → BD (sistema de registo, com histórico) → gera o JSON estático → CDN → PWA
+```
+
+A PWA **continua a não falar com a BD**. Ganha-se o histórico, a deteção de alterações e as
+perguntas novas; não se perde o offline, o custo zero, o contrato `/v1/` nem a ausência de
+servidor no caminho do utilizador. Trocar o JSON por chamadas a uma BD em tempo real seria
+pagar robustez para comprar conveniência — é o erro a evitar.
+
+### Tecnologia: SQLite num ficheiro, não um serviço
+
+A 10 mil linhas, um serviço gerido é overhead a sério. Um `hoquei.db` SQLite é um artefacto
+único que o Action lê, escreve e volta a guardar, com `datasette` para olhar para ele quando
+apetecer. **Cloudflare D1** (que é SQLite com API) só quando a app precisar mesmo de consultar
+ao vivo — pesquisa entre épocas, ou as subscrições de push.
+
+### A razão a sério para fazer isto agora: é o pré-requisito da Fase 5
+
+As notificações precisam de saber **o que mudou desde a última vez**, e isso é precisamente o
+estado que não guardamos. A Fase 5 está hoje a assumir um `events.json` que ninguém construiu.
+Esta fase não é um refactor — é a peça que falta antes das notificações.
+
+| # | Item | Prioridade | Esforço | Notas |
+|---|---|---|---|---|
+| B9.1 | Esquema SQLite: `competicao`, `equipa`, `jogo`, `ficha`, `evento`, `jogador_jogo`, `classificacao_linha` | must | M | chaves naturais da fonte (`id_comp`, `id` do jogo), como já fazemos no JSON |
+| B9.2 | **`ronda`** — uma linha por execução do scraper, com contagens por tabela | must | S | é o que permite comparar rondas; sem isto não há histórico, há só um instantâneo |
+| B9.3 | Carregar a BD a partir do que o scraper já produz, sem tocar nos parsers | must | M | os parsers estão testados e não se mexem; isto é uma camada de persistência |
+| B9.4 | **Escrita versionada**: cada ronda insere, não substitui, com `visto_em`/`valido_ate` | must | M | é a decisão que cria o histórico. Sem ela, uma BD é um JSON mais caro |
+| B9.5 | Gerar o JSON de `/v1/` **a partir da BD** | must | M | mantém o contrato e a PWA inalterados |
+| B9.6 | **Guarda de qualidade**: a ronda falha se as contagens caírem acima de um limiar | must | S | apanhava o bug das 9-vs-10 colunas (256 de 307 linhas) na ronda seguinte, em vez de 11 dias depois |
+| B9.7 | `events.json` gerado por diff entre rondas (adiamentos, mudanças de recinto, golos) | should | M | **desbloqueia a Fase 5**; substitui o `events.json` que o plano assumia |
+| B9.8 | Guardar a BD entre execuções do Action (artefacto ou R2) | must | S | um Action é efémero; sem isto o histórico morre a cada ronda |
+| B9.9 | Histórico de classificação na app — "era 3º, subiu a 1º" | could | M | o primeiro ganho visível para o utilizador, e só possível com B9.4 |
+| B9.10 | Várias épocas e vários inquilinos na mesma BD | could | M | o nacional (FPP) arranca a 07/11; hoje cada inquilino é uma árvore de ficheiros à parte |
+| B9.11 | `datasette` sobre a BD, para inspeção manual | could | XS | vale mais do que parece quando a fonte faz algo estranho |
+
+**Esforço total: ~3–4 dias.** Não entra antes do lançamento: o que está publicado funciona, e
+a Fase 9 não acrescenta uma única coisa que o utilizador veja (menos o B9.9). Entra **antes da
+Fase 5**, que depende dela.
+
+### O que eu faria primeiro, se quisesses só uma coisa desta lista
+
+O **B9.2 + B9.6** — registo de rondas com contagens, e falhar quando caem. São meio dia de
+trabalho e resolvem o risco que já nos morderam uma vez: uma mudança no HTML da fonte que
+passa em silêncio porque o parser não dá erro, só devolve menos.
+
+---
+
 ## Riscos
 
 | Risco | Impacto | Mitigação |
@@ -464,6 +573,8 @@ e não a porta de entrada obrigatória.
 | Utilizadores não perceberem que se instala | Médio | Convite a instalar em bom momento, e instruções próprias para iOS |
 | Âmbito a crescer antes da v1 | Alto | Fase 8 existe para isso |
 | Crawl das fichas a crescer | Médio | Crawl incremental obrigatório (B1.19) |
+| **Mudança silenciosa na fonte: o parser não falha, só devolve menos** | **Alto** | Aconteceu (9-vs-10 colunas, 83% das linhas perdidas, 11 dias sem ninguém dar por isso). Mitigação real é a guarda de contagens entre rondas — B9.2 + B9.6 |
+| **Escrever por cima a cada ronda: não há passado** | Médio | Fase 9 (B9.4). Sem histórico não há notificações nem auditoria |
 
 ---
 
