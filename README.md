@@ -40,6 +40,7 @@ onde há agregação e pesquisa. Dados de menores têm protecção reforçada (a
 | [docs/03-backlog.md](docs/03-backlog.md) | Backlog faseado, com critérios de aceitação e estimativas |
 | [docs/04-benchmarking.md](docs/04-benchmarking.md) | Como a FotMob e a Sofascore organizam este tipo de dados, e o que adaptamos |
 | [docs/05-sofascore-ecras.md](docs/05-sofascore-ecras.md) | Leitura ecrã a ecrã da app nativa da Sofascore, com o que os nossos dados sustentam e o que não |
+| [docs/06-email-apl.md](docs/06-email-apl.md) | Rascunho do email à APL (L7.1) e as razões de cada escolha |
 
 ## Resumo em 30 segundos
 
