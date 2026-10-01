@@ -2,6 +2,10 @@
 
 Rascunho para enviares. **Lê antes de mandar** — há escolhas aqui que são tuas, estão marcadas.
 
+> 📋 **Para copiar e colar:** usa [`email-apl.txt`](email-apl.txt), que é texto simples. Copiado
+> daqui (markdown renderizado) vem formatação atrás — fundo, tipos de letra — e cola mal no
+> cliente de email.
+
 **Para:** `info@aplisboa.pt`
 **Assunto:** `Aplicação não oficial de resultados — pedido de parecer`
 
