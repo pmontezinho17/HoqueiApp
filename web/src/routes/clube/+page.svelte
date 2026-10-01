@@ -1,70 +1,58 @@
 <script lang="ts">
+	import CalendarioMes from '$lib/CalendarioMes.svelte';
+	import Emblema from '$lib/Emblema.svelte';
+	import Folha from '$lib/Folha.svelte';
 	import { carregarCompeticao } from '$lib/dados';
 	import { favoritos } from '$lib/favoritos.svelte';
-	import Folha from '$lib/Folha.svelte';
-	import CalendarioMes from '$lib/CalendarioMes.svelte';
-	import FormaRecente from '$lib/FormaRecente.svelte';
-	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import { porQuando } from '$lib/formato';
-	import { disputado, type Favorito, type FicheiroCompeticao, type Jogo } from '$lib/tipos';
-
-	const paraAgenda = (j: Jogo, f: Favorito) => ({
-		id: j.id, data: j.data ?? '', hora: j.hora ? j.hora.slice(0, 5) : null,
-		casa: j.casa, fora: j.fora, gc: j.golos_casa, gf: j.golos_fora,
-		recinto: j.recinto, comp: f.competicoes[0], prova: '', cat: f.categoria
-	});
+	import { caminhoEquipa } from '$lib/slug';
+	import { disputado, type FicheiroCompeticao, type Jogo } from '$lib/tipos';
 
 	let { data } = $props();
 
 	let aberta = $state(false);
 	let procura = $state('');
-	let vista = $state<'resumo' | 'calendario'>('resumo');
 	let campo = $state<HTMLInputElement | null>(null);
+	let vista = $state<'equipas' | 'calendario'>('equipas');
 
-	// sem isto o teclado do telemóvel não aparece e a folha parece morta
-	$effect(() => {
-		if (aberta) campo?.focus();
-	});
+	$effect(() => { if (aberta) campo?.focus(); });
 
-	const normal = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
-
+	const normal = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 	const encontradas = $derived.by(() => {
 		const q = normal(procura.trim());
-		if (!q) return [];
+		if (q.length < 2) return [];
 		return data.equipas.filter((e) => normal(`${e.equipa} ${e.categoria}`).includes(q)).slice(0, 40);
 	});
 
-	/** Carrega as competições das equipas seguidas e resume cada uma. */
+	const hoje = new Date().toISOString().slice(0, 10);
+
+	/** Só o essencial por equipa: o detalhe vive na página de cada uma. */
 	async function resumir() {
 		const ids = [...new Set(favoritos.lista.flatMap((f) => f.competicoes))];
 		const provas = new Map<number, FicheiroCompeticao>();
-		await Promise.all(
-			ids.map(async (id) => {
-				try { provas.set(id, await carregarCompeticao(id, fetch)); } catch { /* ignora */ }
-			})
-		);
-		const hoje = new Date().toISOString().slice(0, 10);
+		await Promise.all(ids.map(async (id) => {
+			try { provas.set(id, await carregarCompeticao(id, fetch)); } catch { /* ignora */ }
+		}));
 		return favoritos.lista.map((f) => {
-			const seus: Jogo[] = f.competicoes
-				.flatMap((id) => provas.get(id)?.jogos ?? [])
-				.filter((j) => j.casa === f.equipa || j.fora === f.equipa);
-			const ordenados = porQuando(seus);
-			const posicoes = f.competicoes.flatMap((id) =>
-				(provas.get(id)?.classificacao ?? []).flatMap((g) =>
-					g.linhas.filter((l) => l.equipa === f.equipa).map((l) => ({
-						prova: provas.get(id)!.competicao.nome, grupo: g.nome, linha: l
-					}))
-				)
+			const seus = porQuando(
+				f.competicoes.flatMap((id) => provas.get(id)?.jogos ?? [])
+					.filter((j) => j.casa === f.equipa || j.fora === f.equipa)
 			);
 			return {
 				fav: f,
-				jogos: ordenados,
-				proximo: ordenados.find((j) => !disputado(j) && (j.data ?? '') >= hoje),
-				ultimo: [...ordenados].reverse().find(disputado),
-				posicoes
+				jogos: seus,
+				proximo: seus.find((j) => !disputado(j) && (j.data ?? '') >= hoje),
+				ultimo: [...seus].reverse().find(disputado)
 			};
 		});
 	}
+
+	const quando = (j: Jogo | undefined) => {
+		if (!j?.data) return '';
+		const d = new Date(`${j.data}T00:00:00`);
+		return `${d.getDate()}/${d.getMonth() + 1}${j.hora ? `, ${j.hora.slice(0, 5)}` : ''}`;
+	};
+	const adversario = (j: Jogo, equipa: string) => (j.casa === equipa ? j.fora : j.casa);
 </script>
 
 <svelte:head><title>O Meu Clube — Hóquei em Patins</title></svelte:head>
@@ -73,14 +61,14 @@
 	<div class="convite">
 		<h1>Segue as tuas equipas</h1>
 		<p>
-			Escolhe um clube e um escalão. A app passa a abrir aqui, com o próximo jogo,
-			o último resultado e a posição na tabela.
+			Escolhe um clube e um escalão. A app passa a abrir aqui, com os próximos jogos,
+			os resultados e a posição na tabela.
 		</p>
 		<button class="principal" onclick={() => (aberta = true)}>Escolher equipa</button>
 	</div>
 {:else}
 	<div class="vistas" role="tablist">
-		<button role="tab" aria-selected={vista === 'resumo'} onclick={() => (vista = 'resumo')}>Resumo</button>
+		<button role="tab" aria-selected={vista === 'equipas'} onclick={() => (vista = 'equipas')}>Equipas</button>
 		<button role="tab" aria-selected={vista === 'calendario'} onclick={() => (vista = 'calendario')}>Calendário</button>
 	</div>
 
@@ -94,62 +82,50 @@
 				emblemas={data.emblemas}
 			/>
 		{:else}
-		{#each resumos as r (r.fav.equipa + r.fav.categoria)}
-			<section>
-				<header>
-					<div>
-						<h2>{r.fav.equipa}</h2>
+			<!--
+			  Lançador, não painel: cada equipa leva à sua página, onde estão jogos,
+			  classificação e plantel. Empilhar tudo aqui não escala com várias equipas
+			  e dava um resumo fino em vez de uma página a sério.
+			-->
+			{#each resumos as r (r.fav.equipa + r.fav.categoria)}
+				<a class="cartao" href={caminhoEquipa(r.fav.equipa, r.fav.categoria)}>
+					<Emblema equipa={r.fav.equipa} src={data.emblemas[r.fav.equipa]} tamanho={32} />
+					<span class="quem">
+						<span class="nome">{r.fav.equipa}</span>
 						<span class="escalao">{r.fav.categoria}</span>
-					</div>
-					<button
-						class="deixar"
-						onclick={() => favoritos.alternar(r.fav.equipa, r.fav.categoria, r.fav.competicoes)}
-						aria-label={`Deixar de seguir ${r.fav.equipa} ${r.fav.categoria}`}
-					>Deixar de seguir</button>
-				</header>
-
-				<FormaRecente jogos={r.jogos} equipa={r.fav.equipa} emblemas={data.emblemas} />
-
-				{#if r.proximo}
-					<p class="rotulo">Próximo jogo</p>
-					<LinhaJogo jogo={paraAgenda(r.proximo, r.fav)} emblemas={data.emblemas} />
-				{/if}
-				{#if r.ultimo}
-					<p class="rotulo">Último resultado</p>
-					<LinhaJogo jogo={paraAgenda(r.ultimo, r.fav)} emblemas={data.emblemas} />
-				{/if}
-				{#if !r.proximo && !r.ultimo}
-					<p class="vazio">Sem jogos publicados para esta equipa.</p>
-				{/if}
-
-				{#each r.posicoes as p (p.prova + (p.grupo ?? ''))}
-					<p class="posicao">
-						<strong>{p.linha.posicao}º</strong>
-						<span>{p.prova}{p.grupo ? ` · ${p.grupo}` : ''}</span>
-						<span class="pts">{p.linha.pontos} pts</span>
-					</p>
-				{/each}
-			</section>
-		{/each}
+					</span>
+					<span class="jogo">
+						{#if r.proximo}
+							<span class="rot">próximo</span>
+							<span class="adv">{adversario(r.proximo, r.fav.equipa)}</span>
+							<span class="qd">{quando(r.proximo)}</span>
+						{:else if r.ultimo}
+							<span class="rot">último</span>
+							<span class="adv">{adversario(r.ultimo, r.fav.equipa)}</span>
+							<span class="qd">{r.ultimo.golos_casa}–{r.ultimo.golos_fora}</span>
+						{/if}
+					</span>
+					<span class="seta" aria-hidden="true">›</span>
+				</a>
+			{/each}
 		{/if}
 		<button class="secundaria" onclick={() => (aberta = true)}>Seguir outra equipa</button>
 	{/await}
 {/if}
 
 <Folha bind:aberta titulo="Seguir uma equipa">
-	<input bind:this={campo} type="search" bind:value={procura} placeholder="Nome do clube" aria-label="Procurar clube" />
+	<input bind:this={campo} type="search" bind:value={procura} placeholder="Nome do clube"
+		aria-label="Procurar clube" />
 	{#each encontradas as e (e.equipa + e.categoria)}
-		<button
-			class="opcao" class:activa={favoritos.segue(e.equipa, e.categoria)}
-			onclick={() => favoritos.alternar(e.equipa, e.categoria, e.competicoes)}
-		>
+		<button class="opcao" class:activa={favoritos.segue(e.equipa, e.categoria)}
+			onclick={() => favoritos.alternar(e.equipa, e.categoria, e.competicoes)}>
 			<span>{e.equipa}<span class="cat">{e.categoria}</span></span>
 			<span class="marca">{favoritos.segue(e.equipa, e.categoria) ? '✓' : '+'}</span>
 		</button>
 	{/each}
-	{#if procura.trim() && encontradas.length === 0}
+	{#if procura.trim().length >= 2 && encontradas.length === 0}
 		<p class="vazio">Nenhum clube encontrado.</p>
-	{:else if !procura.trim()}
+	{:else if procura.trim().length < 2}
 		<p class="vazio">Escreve o nome do clube — por exemplo “Parede” ou “Benfica”.</p>
 	{/if}
 </Folha>
@@ -157,13 +133,11 @@
 <style>
 	.convite { text-align: center; padding: 2.5rem 1rem; }
 	.convite h1 { font-size: 1.1rem; margin: 0 0 0.5rem; }
-	.convite p { color: var(--suave); font-size: 0.88rem; margin: 0 auto 1.4rem; max-width: 24rem; }
-	.principal, .secundaria {
-		min-height: 44px; padding: 0.7rem 1.4rem; font-size: 0.9rem; cursor: pointer;
-		border-radius: 8px; border: 1px solid var(--acento);
-	}
+	.convite p { color: var(--suave); font-size: 0.85rem; margin: 0 auto 1.4rem; max-width: 24rem; }
+	.principal, .secundaria { min-height: 44px; padding: 0.7rem 1.4rem; font-size: 0.88rem;
+		cursor: pointer; border-radius: 8px; border: 1px solid var(--acento); }
 	.principal { background: var(--acento); color: var(--cartao); border: 0; }
-	.secundaria { width: 100%; background: none; color: var(--acento); margin-top: 0.5rem; }
+	.secundaria { width: 100%; background: none; color: var(--acento); margin-top: 0.6rem; }
 
 	.vistas { display: flex; gap: 0.25rem; margin-bottom: 0.9rem; }
 	.vistas button { flex: 1; min-height: 38px; font-size: 0.78rem; cursor: pointer;
@@ -172,22 +146,22 @@
 	.vistas button[aria-selected='true'] { color: var(--acento); border-color: var(--acento);
 		font-weight: 600; }
 
-	section { margin-bottom: 1.6rem; }
-	section header { display: flex; align-items: baseline; justify-content: space-between;
-		gap: 0.6rem; margin-bottom: 0.6rem; }
-	h2 { font-size: 1rem; margin: 0; }
-	.escalao { font-size: 0.7rem; color: var(--acento); text-transform: uppercase;
-		letter-spacing: 0.05em; }
-	.deixar { background: none; border: 0; color: var(--suave); font-size: 0.74rem;
-		cursor: pointer; min-height: 44px; }
-	.rotulo { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em;
-		color: var(--suave); margin: 0.7rem 0 0.35rem; }
-	.posicao { display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.78rem;
-		color: var(--suave); margin: 0.45rem 0 0; }
-	.posicao strong { color: var(--texto); font-size: 0.9rem; }
-	.posicao span:nth-of-type(1) { flex: 1; overflow: hidden; text-overflow: ellipsis;
+	.cartao { display: grid; grid-template-columns: auto 1fr auto auto; align-items: center;
+		gap: 0.6rem; padding: 0.6rem 0.5rem; text-decoration: none;
+		border-bottom: 1px solid var(--borda); }
+	.cartao:hover, .cartao:focus-visible { background: var(--acento-fraco); outline: none; }
+	.quem { min-width: 0; }
+	.nome { display: block; font-size: 0.86rem; overflow: hidden; text-overflow: ellipsis;
 		white-space: nowrap; }
-	.pts { font-variant-numeric: tabular-nums; }
+	.escalao { display: block; font-size: 0.64rem; color: var(--acento); letter-spacing: 0.04em; }
+	.jogo { text-align: right; min-width: 0; }
+	.rot { display: block; font-size: 0.58rem; color: var(--suave); text-transform: uppercase;
+		letter-spacing: 0.05em; }
+	.adv { display: block; font-size: 0.7rem; overflow: hidden; text-overflow: ellipsis;
+		white-space: nowrap; max-width: 8rem; }
+	.qd { display: block; font-size: 0.66rem; color: var(--suave);
+		font-variant-numeric: tabular-nums; }
+	.seta { color: var(--suave); }
 
 	input { width: 100%; padding: 0.6rem 0.7rem; margin: 0.2rem 0 0.8rem; font-size: 0.9rem;
 		border-radius: 8px; border: 1px solid var(--borda); background: var(--cartao); color: inherit; }

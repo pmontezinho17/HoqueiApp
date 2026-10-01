@@ -322,6 +322,22 @@ secções. Estimo `M` no backend e `L` na app.
 | W5.26 | Marcadores agregados com a série indicada | should | M | ✅ com aviso de que as séries não se enfrentam |
 | W5.27 | Calendário do grupo | could | M | ✅ por série e por jornada, com a jornada em curso marcada |
 
+## Página de equipa (01/10/2026)
+
+Observação do dono: na Sofascore os favoritos são um **lançador**, não um painel — escolhe-se
+uma equipa e vê-se a página dela. Nós empilhávamos resumos de todas as equipas no mesmo ecrã.
+
+A observação apontava para uma lacuna real: **nunca tínhamos construído a página de equipa**,
+pedida há duas sessões. O `/clube` era um resumo fino, não uma página.
+
+| ID | Item | Prio | Est. | Critério de aceitação |
+|---|---|---|---|---|
+| W8.1 | **Página de equipa** `/equipa/[escalao]/[clube]` com Resumo · Jogos · Classificação · Plantel | must | L | ✅ feita |
+| W8.2 | `/clube` passa a **lançador**: cartão por equipa seguida com o próximo jogo, que liga à página | must | M | ✅ escala com várias equipas, ao contrário do painel empilhado |
+| W8.3 | Nomes de equipa **clicáveis** na classificação da competição | should | S | ✅ |
+| W8.4 | Nomes de equipa clicáveis também na agenda, no calendário e no detalhe de jogo | should | M | aberto |
+| W8.5 | Agrupar o plantel por posição (GR/JC) | could | M | aberto — a posição vem do boletim oficial, que ainda não é parseado (B1.9c) |
+
 ## Capturas da Sofascore nativa → itens (01/10/2026)
 
 Ver [05-sofascore-ecras.md](05-sofascore-ecras.md) para a leitura ecrã a ecrã. Ordenados por
@@ -336,8 +352,8 @@ retorno: os três primeiros não precisam de backend nenhum.
 | W7.5 | Calendário mensal | should | L | ✅ emblema e hora na célula, casa/fora por cor **e marca `F`** — a cor sozinha inverte-se entre temas e exclui quem não a distingue |
 | W7.6 | Classificação: chips `Tudo · Em casa · Fora` | should | M | Os mesmos dados recalculados a partir do calendário |
 | W7.7 | Classificação: reduzir de 5 para **3 colunas** (J, DG, P) | could | XS | Ainda mais espaço para o nome do clube a 375px |
-| W7.8 | Página de equipa: bloco **Visão geral** (jogos, GM, GS, assistências) | should | M | Só o que os nossos dados sustentam |
-| W7.9 | Página de equipa: **plantel por posição**, equipa técnica primeiro | should | M | GR/JC do boletim; sem idade, altura nem valor de mercado |
+| W7.8 | Visão geral da equipa | should | M | ✅ jogos, GM, GS, assistências e recinto onde joga em casa |
+| W7.9 | Plantel na página de equipa | should | M | ✅ ordenado por golos, com nº, G/A/D e jogos. Agrupar por posição fica pendente — a posição só vem do boletim (B1.9c) |
 | W7.10 | Quadros: **top-3 por categoria com "Ver tudo"** em vez de lista corrida de 50 | could | S | Dá a provar sem obrigar a percorrer |
 | W7.11 | **Barra de progresso da época** no cabeçalho da competição | could | XS | Primeira e última data de jogo da prova |
 | W7.12 | Cartão **"＋ Adicionar"** em vez de botão de texto, nas listas de favoritos | could | XS | Afordância mais clara |

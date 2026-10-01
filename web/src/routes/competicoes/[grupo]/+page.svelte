@@ -3,6 +3,7 @@
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import { jornadaAtual, porQuando } from '$lib/formato';
+	import { caminhoEquipa } from '$lib/slug';
 	import type { Jogo, TotaisJogador } from '$lib/tipos';
 
 	let { data } = $props();

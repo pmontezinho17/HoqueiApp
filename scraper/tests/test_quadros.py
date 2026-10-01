@@ -39,9 +39,11 @@ def test_fichas_anonimizadas_sao_ignoradas():
     assert q.jogadores == [] and q.jogos_considerados == 0
 
 
-def test_quem_nao_marcou_nem_assistiu_nem_defendeu_nao_ocupa_espaco():
+def test_inclui_quem_alinhou_sem_marcar():
+    """O plantel da página de equipa precisa de todos; o quadro de marcadores filtra."""
     q = agregar([ficha([("A", [jog("ANA", golos=1), jog("SEM NADA")])])], 1)
-    assert [j["nome"] for j in q.jogadores] == ["ANA"]
+    assert sorted(j["nome"] for j in q.jogadores) == ["ANA", "SEM NADA"]
+    assert [j["nome"] for j in q.jogadores if j["golos"]] == ["ANA"]
 
 
 def test_ordenado_por_golos_e_depois_assistencias():
