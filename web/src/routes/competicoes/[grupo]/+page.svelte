@@ -122,7 +122,7 @@
 				</p>
 				{#each jogos as j (j.id ?? `${j.casa}${j.fora}`)}
 					<LinhaJogo jogo={paraAgenda(j, p.competicao.id, data.escalao)}
-						emblemas={data.emblemas} seguida={destaque} />
+						emblemas={data.emblemas} seguida={destaque} comData />
 				{/each}
 			{/each}
 		</section>

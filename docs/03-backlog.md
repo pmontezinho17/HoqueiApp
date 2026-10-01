@@ -337,6 +337,8 @@ pedida há duas sessões. O `/clube` era um resumo fino, não uma página.
 | W8.3 | Nomes de equipa **clicáveis** na classificação da competição | should | S | ✅ |
 | W8.4 | Nomes de equipa clicáveis também na agenda, no calendário e no detalhe de jogo | should | M | aberto |
 | W8.5 | Agrupar o plantel por posição (GR/JC) | could | M | aberto — a posição vem do boletim oficial, que ainda não é parseado (B1.9c) |
+| W8.6 | **Calendário dentro da equipa**, não no lançador | must | M | ✅ `Lista · Calendário` na aba Jogos da equipa. Agregado, dois jogos no mesmo dia ficavam escondidos atrás de um `+1` que não se podia abrir |
+| W8.7 | Data nas listas corridas de jogos | should | S | ✅ uma lista de 15 jogos só com horas não diz de que dia é cada um |
 
 ## Capturas da Sofascore nativa → itens (01/10/2026)
 

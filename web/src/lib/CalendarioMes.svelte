@@ -2,9 +2,11 @@
 	import Emblema from './Emblema.svelte';
 	import { disputado, type Jogo } from './tipos';
 
+	// Uma equipa de cada vez, de propósito. Com várias, dois jogos no mesmo dia não cabiam
+	// na célula e acabavam escondidos atrás de um "+1" que não se podia abrir.
 	let {
-		jogos, equipas, emblemas
-	}: { jogos: Jogo[]; equipas: Set<string>; emblemas: Record<string, string> } = $props();
+		jogos, equipa, emblemas
+	}: { jogos: Jogo[]; equipa: string; emblemas: Record<string, string> } = $props();
 
 	const hoje = new Date().toISOString().slice(0, 10);
 	const MES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
@@ -38,8 +40,8 @@
 	}
 
 	// casa/fora pela cor da célula: para quem tem de conduzir, é *a* informação
-	const emCasa = (j: Jogo) => equipas.has(j.casa);
-	const adversario = (j: Jogo) => (equipas.has(j.casa) ? j.fora : j.casa);
+	const emCasa = (j: Jogo) => j.casa === equipa;
+	const adversario = (j: Jogo) => (j.casa === equipa ? j.fora : j.casa);
 </script>
 
 <div class="topo">
@@ -65,7 +67,9 @@
 									{Number(dia.slice(-2))}
 									{#if doDia.length && !emCasa(doDia[0])}<b class="f" title="Fora">F</b>{/if}
 								</span>
-								{#each doDia.slice(0, 1) as j (j.id ?? j.casa)}
+								<!-- todos, não só o primeiro: esconder um jogo atrás de um "+N"
+								     é tirar ao utilizador o que ele veio cá buscar -->
+								{#each doDia as j (j.id ?? j.casa)}
 									<svelte:element this={j.id && disputado(j) ? 'a' : 'div'}
 										href={j.id && disputado(j) ? `/jogo/${j.id}` : null} class="jogo">
 										<Emblema equipa={adversario(j)} src={emblemas[adversario(j)]} tamanho={18} />
@@ -74,7 +78,6 @@
 										</span>
 									</svelte:element>
 								{/each}
-								{#if doDia.length > 1}<span class="mais">+{doDia.length - 1}</span>{/if}
 							</div>
 						{/if}
 					</td>
@@ -115,7 +118,6 @@
 	.jogo { display: flex; flex-direction: column; align-items: center; gap: 0.05rem;
 		text-decoration: none; color: inherit; }
 	.hora { font-size: 0.56rem; font-variant-numeric: tabular-nums; }
-	.mais { font-size: 0.55rem; color: var(--suave); }
 
 	.legenda { display: flex; align-items: center; gap: 0.35rem; margin-top: 0.6rem;
 		font-size: 0.68rem; color: var(--suave); }

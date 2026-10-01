@@ -1,4 +1,5 @@
 <script lang="ts">
+	import CalendarioMes from '$lib/CalendarioMes.svelte';
 	import Emblema from '$lib/Emblema.svelte';
 	import FormaRecente from '$lib/FormaRecente.svelte';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
@@ -10,6 +11,7 @@
 
 	type Aba = 'resumo' | 'jogos' | 'classificacao' | 'plantel';
 	let aba = $state<Aba>('resumo');
+	let vistaJogos = $state<'lista' | 'calendario'>('lista');
 
 	const hoje = new Date().toISOString().slice(0, 10);
 	const segue = $derived(favoritos.segue(data.equipa, data.categoria));
@@ -106,11 +108,11 @@
 
 	{#if proximos.length}
 		<p class="rotulo">Próximo jogo</p>
-		<LinhaJogo jogo={paraAgenda(proximos[0])} emblemas={data.emblemas} seguida={destaque} />
+		<LinhaJogo jogo={paraAgenda(proximos[0])} emblemas={data.emblemas} seguida={destaque} comData />
 	{/if}
 	{#if anteriores.length}
 		<p class="rotulo">Último resultado</p>
-		<LinhaJogo jogo={paraAgenda(anteriores[0])} emblemas={data.emblemas} seguida={destaque} />
+		<LinhaJogo jogo={paraAgenda(anteriores[0])} emblemas={data.emblemas} seguida={destaque} comData />
 	{/if}
 
 	<p class="rotulo">Esta época</p>
@@ -122,17 +124,26 @@
 		{#if recinto}<dt>Joga em casa</dt><dd class="txt">{recinto}</dd>{/if}
 	</dl>
 {:else if aba === 'jogos'}
+	<div class="vistas" role="tablist">
+		<button role="tab" aria-selected={vistaJogos === 'lista'} onclick={() => (vistaJogos = 'lista')}>Lista</button>
+		<button role="tab" aria-selected={vistaJogos === 'calendario'} onclick={() => (vistaJogos = 'calendario')}>Calendário</button>
+	</div>
+
+	{#if vistaJogos === 'calendario'}
+		<CalendarioMes {jogos} equipa={data.equipa} emblemas={data.emblemas} />
+	{:else}
 	{#if proximos.length}
 		<p class="rotulo">Por disputar</p>
 		{#each proximos as j (j.id ?? `${j.casa}${j.fora}`)}
-			<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} />
+			<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} comData />
 		{/each}
 	{/if}
 	{#if anteriores.length}
 		<p class="rotulo">Resultados</p>
 		{#each anteriores as j (j.id ?? `${j.casa}${j.fora}`)}
-			<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} />
+			<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} comData />
 		{/each}
+	{/if}
 	{/if}
 {:else if aba === 'classificacao'}
 	{#each posicoes as p (p.prova.id + (p.grupo ?? ''))}
@@ -188,6 +199,13 @@
 		cursor: pointer; white-space: nowrap; border-radius: 8px;
 		border: 1px solid var(--borda); background: var(--cartao); color: var(--suave); }
 	.abas button[aria-selected='true'] { color: var(--acento); border-color: var(--acento); font-weight: 600; }
+
+	.vistas { display: flex; gap: 0.25rem; margin-bottom: 0.8rem; }
+	.vistas button { flex: 1; min-height: 34px; font-size: 0.74rem; cursor: pointer;
+		border-radius: 999px; border: 1px solid var(--borda);
+		background: none; color: var(--suave); }
+	.vistas button[aria-selected='true'] { border-color: var(--acento); color: var(--acento);
+		font-weight: 600; }
 
 	.rotulo { font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.06em;
 		color: var(--suave); margin: 0.9rem 0 0.3rem; }

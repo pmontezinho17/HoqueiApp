@@ -1,5 +1,4 @@
 <script lang="ts">
-	import CalendarioMes from '$lib/CalendarioMes.svelte';
 	import Emblema from '$lib/Emblema.svelte';
 	import Folha from '$lib/Folha.svelte';
 	import { carregarCompeticao } from '$lib/dados';
@@ -13,7 +12,6 @@
 	let aberta = $state(false);
 	let procura = $state('');
 	let campo = $state<HTMLInputElement | null>(null);
-	let vista = $state<'equipas' | 'calendario'>('equipas');
 
 	$effect(() => { if (aberta) campo?.focus(); });
 
@@ -67,21 +65,9 @@
 		<button class="principal" onclick={() => (aberta = true)}>Escolher equipa</button>
 	</div>
 {:else}
-	<div class="vistas" role="tablist">
-		<button role="tab" aria-selected={vista === 'equipas'} onclick={() => (vista = 'equipas')}>Equipas</button>
-		<button role="tab" aria-selected={vista === 'calendario'} onclick={() => (vista = 'calendario')}>Calendário</button>
-	</div>
-
 	{#await resumir()}
 		<p class="vazio">A reunir os jogos…</p>
 	{:then resumos}
-		{#if vista === 'calendario'}
-			<CalendarioMes
-				jogos={resumos.flatMap((r) => r.jogos)}
-				equipas={new Set(favoritos.lista.map((f) => f.equipa))}
-				emblemas={data.emblemas}
-			/>
-		{:else}
 			<!--
 			  Lançador, não painel: cada equipa leva à sua página, onde estão jogos,
 			  classificação e plantel. Empilhar tudo aqui não escala com várias equipas
@@ -108,7 +94,6 @@
 					<span class="seta" aria-hidden="true">›</span>
 				</a>
 			{/each}
-		{/if}
 		<button class="secundaria" onclick={() => (aberta = true)}>Seguir outra equipa</button>
 	{/await}
 {/if}
@@ -138,13 +123,6 @@
 		cursor: pointer; border-radius: 8px; border: 1px solid var(--acento); }
 	.principal { background: var(--acento); color: var(--cartao); border: 0; }
 	.secundaria { width: 100%; background: none; color: var(--acento); margin-top: 0.6rem; }
-
-	.vistas { display: flex; gap: 0.25rem; margin-bottom: 0.9rem; }
-	.vistas button { flex: 1; min-height: 38px; font-size: 0.78rem; cursor: pointer;
-		border-radius: 8px; border: 1px solid var(--borda);
-		background: var(--cartao); color: var(--suave); }
-	.vistas button[aria-selected='true'] { color: var(--acento); border-color: var(--acento);
-		font-weight: 600; }
 
 	.cartao { display: grid; grid-template-columns: auto 1fr auto auto; align-items: center;
 		gap: 0.6rem; padding: 0.6rem 0.5rem; text-decoration: none;

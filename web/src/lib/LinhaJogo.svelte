@@ -3,17 +3,24 @@
 	import type { JogoAgenda } from './tipos';
 
 	let {
-		jogo, emblemas, seguida
+		jogo, emblemas, seguida, comData = false
 	}: {
 		jogo: JogoAgenda;
 		emblemas: Record<string, string>;
 		seguida?: (equipa: string) => boolean;
+		/** numa lista agrupada por dia a data é redundante; numa lista corrida é essencial */
+		comData?: boolean;
 	} = $props();
 
 	const jogado = $derived(jogo.gc !== null && jogo.gf !== null);
 	const ganhouCasa = $derived(jogado && jogo.gc! > jogo.gf!);
 	const ganhouFora = $derived(jogado && jogo.gf! > jogo.gc!);
 	const destino = $derived(jogado && jogo.id ? `/jogo/${jogo.id}` : null);
+
+	const diaCurto = (iso: string) => {
+		const d = new Date(`${iso}T00:00:00`);
+		return `${d.getDate()}/${d.getMonth() + 1}`;
+	};
 </script>
 
 <!--
@@ -23,7 +30,10 @@
   custava 25px por jogo. Ver docs/04-benchmarking.md.
 -->
 <svelte:element this={destino ? 'a' : 'div'} href={destino} class="linha" class:ligavel={destino}>
-	<span class="hora">{jogo.hora ?? '—'}</span>
+	<span class="quando">
+		{#if comData && jogo.data}<span class="dia">{diaCurto(jogo.data)}</span>{/if}
+		<span class="hora">{jogo.hora ?? '—'}</span>
+	</span>
 
 	<span class="equipa casa" class:vencedor={ganhouCasa} class:minha={seguida?.(jogo.casa)}>
 		<span class="nome">{jogo.casa}</span>
@@ -57,7 +67,9 @@
 	}
 	.ligavel:hover, .ligavel:focus-visible { background: var(--acento-fraco); outline: none; }
 
-	.hora { color: var(--suave); font-variant-numeric: tabular-nums; font-size: 0.7rem; }
+	.quando { display: flex; flex-direction: column; line-height: 1.25; }
+	.dia, .hora { color: var(--suave); font-variant-numeric: tabular-nums; font-size: 0.7rem; }
+	.dia { font-weight: 600; }
 
 	.equipa { display: flex; align-items: center; gap: 0.35rem; min-width: 0; }
 	.equipa.casa { justify-content: flex-end; text-align: right; }
