@@ -1,0 +1,67 @@
+name: Sondar a fonte durante os jogos
+
+# Para quê: medir se a fonte reflecte golos e cartões ENQUANTO o jogo decorre, ou se o
+# boletim só é fechado no fim. A resposta decide se os live scores e as notificações de
+# golo são sequer possíveis (F8.1 e Fase 5).
+#
+# Porque é uma Action e não um comando na máquina de alguém: tentou-se à mão a 19/09 e a
+# 26/09 e falhou as duas vezes, porque depende de alguém se lembrar a um sábado de manhã.
+#
+# Um job longo em vez de um cron de N em N minutos: o agendador da GitHub tem granularidade
+# de 5 minutos e atrasa-se sob carga, o que estraga uma medição de latência. Assim o cron só
+# dá o arranque e o próprio script faz o compasso.
+on:
+  schedule:
+    - cron: '20 18 * * 5'      # sexta 19:20 WEST — jogos ao serão
+    - cron: '50 8  * * 6,0'    # fim-de-semana 09:50 WEST — jornada da manhã
+    - cron: '50 14 * * 6,0'    # fim-de-semana 15:50 WEST — jornada da tarde
+  workflow_dispatch:
+    inputs:
+      minutos:
+        description: Duração da sondagem em minutos
+        default: '240'
+      intervalo:
+        description: Segundos entre rondas
+        default: '180'
+      max_jogos:
+        description: Quantos jogos sondar
+        default: '3'
+
+concurrency:
+  group: sonda
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sondar:
+    runs-on: ubuntu-latest
+    # 4h de sondagem + margem; o limite da GitHub é 6h
+    timeout-minutes: 290
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sondar os jogos de hoje
+        run: |
+          python3 scripts/sondar_atualizacao.py \
+            --tenant aplisboa \
+            --da-agenda web/static/v1/aplisboa/2026-27/agenda.json \
+            --max-jogos "${{ inputs.max_jogos || 3 }}" \
+            --intervalo "${{ inputs.intervalo || 180 }}" \
+            --minutos "${{ inputs.minutos || 240 }}"
+
+      - name: Guardar o diário
+        if: always()
+        run: |
+          if git diff --quiet -- data-samples/sondagem; then
+            echo "nada sondado — sem jogos hoje"
+            exit 0
+          fi
+          git config user.name  "hoquei-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data-samples/sondagem
+          git commit -m "Sondagem: $(date -u '+%Y-%m-%d %H:%M') UTC [skip ci]"
+          # a Action dos dados pode ter comitado entretanto
+          git pull --rebase --autostash origin main
+          git push

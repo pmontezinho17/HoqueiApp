@@ -12,7 +12,7 @@ Escreve uma linha JSON por sondagem em data-samples/sondagem/{data}.jsonl e guar
 snapshot do HTML sempre que o hash muda, em data-samples/sondagem/html/.
 """
 import argparse, hashlib, json, os, pathlib, re, ssl, sys, time, urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 UA = "hoqueiAPP-research/0.1 (+https://github.com/pmontezinho17/HoqueiApp)"
 BASE = "https://{tenant}.assyssoftware.es/intranet/web/partido.asp?id={id}"
@@ -91,19 +91,55 @@ def hashes_conhecidos():
     return estado
 
 
+def jogos_de_hoje(caminho, maximo):
+    """Jogos de hoje por disputar, escolhidos a partir da agenda publicada.
+
+    Espalhados pelos horários em vez dos primeiros N: para medir latência interessa
+    cobrir a tarde toda, não sondar quatro jogos que começam à mesma hora.
+    """
+    agenda = json.loads(pathlib.Path(caminho).read_text())["jogos"]
+    hoje = datetime.now().strftime("%Y-%m-%d")
+    do_dia = sorted(
+        (j for j in agenda if j["data"] == hoje and j["id"] and j["gc"] is None),
+        key=lambda j: j["hora"] or "99:99",
+    )
+    if len(do_dia) <= maximo:
+        return [j["id"] for j in do_dia], do_dia
+    passo = len(do_dia) / maximo
+    escolhidos = [do_dia[int(i * passo)] for i in range(maximo)]
+    return [j["id"] for j in escolhidos], escolhidos
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--tenant", default="aplisboa")
-    p.add_argument("--ids", nargs="+", required=True, type=int)
+    p.add_argument("--ids", nargs="+", type=int, help="ids de jogo a sondar")
+    p.add_argument("--da-agenda", metavar="FICHEIRO",
+                   help="escolhe sozinha os jogos de hoje a partir de um agenda.json")
+    p.add_argument("--max-jogos", type=int, default=4,
+                   help="quantos jogos sondar quando vêm da agenda (default 4)")
+    p.add_argument("--minutos", type=int, default=None,
+                   help="correr durante N minutos e sair (para correr em CI)")
     p.add_argument("--intervalo", type=int, default=120, help="segundos entre rondas (default 120)")
     p.add_argument("--ate", default=None, help="hora local de fim, HH:MM (tem de ser futura)")
     p.add_argument("--rondas", type=int, default=None, help="nº de rondas e sai (para leituras pontuais)")
     p.add_argument("--esquecer", action="store_true", help="ignorar hashes de execuções anteriores")
     args = p.parse_args()
 
+    ids = args.ids
+    if args.da_agenda:
+        ids, detalhe = jogos_de_hoje(args.da_agenda, args.max_jogos)
+        for j in detalhe:
+            print(f"  {j['hora']} #{j['id']} {j['casa']} vs {j['fora']}", file=sys.stderr)
+    if not ids:
+        print("sem jogos para sondar hoje", file=sys.stderr)
+        return 0
+
     (RAIZ / "html").mkdir(parents=True, exist_ok=True)
     diario = RAIZ / f"{datetime.now().strftime('%Y-%m-%d')}.jsonl"
     fim = None
+    if args.minutos:
+        fim = datetime.now() + timedelta(minutes=args.minutos)
     if args.ate:
         h, m = args.ate.split(":")
         fim = datetime.now().replace(hour=int(h), minute=int(m), second=0, microsecond=0)
@@ -118,11 +154,11 @@ def main():
     ultimos = {} if args.esquecer else hashes_conhecidos()
     if ultimos:
         print(f"linha de base: {len(ultimos)} jogos já sondados antes", file=sys.stderr)
-    print(f"sonda: {len(args.ids)} jogos em '{args.tenant}', a cada {args.intervalo}s → {diario}")
+    print(f"sonda: {len(ids)} jogos em '{args.tenant}', a cada {args.intervalo}s → {diario}")
     ronda = 0
     while True:
         ronda += 1
-        for id_jogo in args.ids:
+        for id_jogo in ids:
             agora = datetime.now(timezone.utc).isoformat(timespec="seconds")
             try:
                 bruto, html = buscar(args.tenant, id_jogo)
@@ -152,7 +188,7 @@ def main():
         if fim and datetime.now() >= fim:
             print("fim da janela de sondagem")
             return
-        time.sleep(max(0, args.intervalo - len(args.ids)))
+        time.sleep(max(0, args.intervalo - len(ids)))
 
 
 if __name__ == "__main__":
