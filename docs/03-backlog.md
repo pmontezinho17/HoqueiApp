@@ -322,6 +322,36 @@ secções. Estimo `M` no backend e `L` na app.
 | W5.26 | Marcadores agregados com a série indicada | should | M | ✅ com aviso de que as séries não se enfrentam |
 | W5.27 | Calendário do grupo | could | M | ✅ por série e por jornada, com a jornada em curso marcada |
 
+## Capturas da Sofascore nativa → itens (01/10/2026)
+
+Ver [05-sofascore-ecras.md](05-sofascore-ecras.md) para a leitura ecrã a ecrã. Ordenados por
+retorno: os três primeiros não precisam de backend nenhum.
+
+| ID | Item | Prio | Est. | Critério de aceitação |
+|---|---|---|---|---|
+| W7.1 | **Cronologia a dois lados**: casa à esquerda, visitante à direita, resultado corrente numa pastilha ao centro | should | M | Lê-se como um confronto e não como uma lista; zero alterações no backend |
+| W7.2 | **Marcadores no cabeçalho do jogo**, com minuto, por equipa | should | S | Vê-se quem marcou sem abrir a cronologia |
+| W7.3 | **Migalhas clicáveis** no detalhe de jogo: escalão › competição › série › jornada | should | S | Dá caminho de volta à competição, que hoje não existe |
+| W7.4 | **Forma recente**: 5 últimos jogos como emblema + resultado em pastilha verde/vermelha | should | M | No ecrã da equipa, lê-se de relance |
+| W7.5 | **Calendário mensal** com emblema do adversário na célula e **casa/fora pela cor da célula**, com legenda | should | L | Substitui o W4.7; responde a "tenho de conduzir?" num relance |
+| W7.6 | Classificação: chips `Tudo · Em casa · Fora` | should | M | Os mesmos dados recalculados a partir do calendário |
+| W7.7 | Classificação: reduzir de 5 para **3 colunas** (J, DG, P) | could | XS | Ainda mais espaço para o nome do clube a 375px |
+| W7.8 | Página de equipa: bloco **Visão geral** (jogos, GM, GS, assistências) | should | M | Só o que os nossos dados sustentam |
+| W7.9 | Página de equipa: **plantel por posição**, equipa técnica primeiro | should | M | GR/JC do boletim; sem idade, altura nem valor de mercado |
+| W7.10 | Quadros: **top-3 por categoria com "Ver tudo"** em vez de lista corrida de 50 | could | S | Dá a provar sem obrigar a percorrer |
+| W7.11 | **Barra de progresso da época** no cabeçalho da competição | could | XS | Primeira e última data de jogo da prova |
+| W7.12 | Cartão **"＋ Adicionar"** em vez de botão de texto, nas listas de favoritos | could | XS | Afordância mais clara |
+| W7.13 | Seguir uma **competição** (já era o W6.4) e, mais tarde, um **atleta** | could | M | Quatro tipos de favorito, como a referência |
+
+**Não fazemos, e fica dito porquê:** odds de apostas, pontuação proprietária por jogador, xG,
+match momentum, insights de IA, chat, valor de mercado, contagem de seguidores e **fotos de
+jogadores** — ver a tabela no fim de [05-sofascore-ecras.md](05-sofascore-ecras.md).
+
+**⚠️ Uma coisa que parece copiável e não é:** as **zonas de classificação nomeadas** ("Liga dos
+Campeões", "Descida") com parêntesis coloridos. A fonte da APL não diz quem sobe, desce ou se
+apura. Pintar um parêntesis verde ao lado dos dois primeiros seria afirmar o que não sabemos.
+Liga-se ao W6.9: marcador de cor só com legenda, e legenda só quando se sabe o que diz.
+
 ## Achados do benchmarking a converter em itens (30/09/2026)
 
 Ver [04-benchmarking.md](04-benchmarking.md). Os três primeiros vêm das apps nativas e não
