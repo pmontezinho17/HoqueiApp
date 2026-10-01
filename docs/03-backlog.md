@@ -329,9 +329,9 @@ retorno: os três primeiros não precisam de backend nenhum.
 
 | ID | Item | Prio | Est. | Critério de aceitação |
 |---|---|---|---|---|
-| W7.1 | **Cronologia a dois lados**: casa à esquerda, visitante à direita, resultado corrente numa pastilha ao centro | should | M | Lê-se como um confronto e não como uma lista; zero alterações no backend |
-| W7.2 | **Marcadores no cabeçalho do jogo**, com minuto, por equipa | should | S | Vê-se quem marcou sem abrir a cronologia |
-| W7.3 | **Migalhas clicáveis** no detalhe de jogo: escalão › competição › série › jornada | should | S | Dá caminho de volta à competição, que hoje não existe |
+| W7.1 | Cronologia a dois lados | should | M | ✅ casa à esquerda, visitante à direita, golo com faixa destacada e pastilha de resultado ao centro |
+| W7.2 | Marcadores no cabeçalho | should | S | ✅ com minuto, por equipa, mais emblemas no placar |
+| W7.3 | Migalhas clicáveis | should | S | ✅ escalão › prova › série › jornada, com ligação à competição |
 | W7.4 | **Forma recente**: 5 últimos jogos como emblema + resultado em pastilha verde/vermelha | should | M | No ecrã da equipa, lê-se de relance |
 | W7.5 | **Calendário mensal** com emblema do adversário na célula e **casa/fora pela cor da célula**, com legenda | should | L | Substitui o W4.7; responde a "tenho de conduzir?" num relance |
 | W7.6 | Classificação: chips `Tudo · Em casa · Fora` | should | M | Os mesmos dados recalculados a partir do calendário |

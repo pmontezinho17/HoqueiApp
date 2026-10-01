@@ -714,5 +714,10 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 440
+ "competicao_id": 440,
+ "categoria": "SUB-17",
+ "jornada": "3ª JORNADA",
+ "grupo_id": "sub-17--torneio-abertura-apl-sub-17",
+ "grupo_nome": "TORNEIO ABERTURA APL SUB-17",
+ "serie": null
 }

@@ -902,5 +902,10 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 451
+ "competicao_id": 451,
+ "categoria": "SUB-17",
+ "jornada": "1ª JORNADA",
+ "grupo_id": "sub-17--camp-reg-sub-17-1-fase",
+ "grupo_nome": "CAMP. REG. SUB-17 - 1ª FASE",
+ "serie": "A"
 }

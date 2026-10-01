@@ -1059,5 +1059,10 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 432
+ "competicao_id": 432,
+ "categoria": "SENIORES MASCULINOS",
+ "jornada": "2ª JORNADA - 1ª FASE",
+ "grupo_id": "seniores-masculinos--taca-jesus-correia-seniores-masculinos",
+ "grupo_nome": "TAÇA JESUS CORREIA - SENIORES MASCULINOS",
+ "serie": null
 }

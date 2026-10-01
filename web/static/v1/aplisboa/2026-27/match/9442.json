@@ -880,5 +880,10 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 439
+ "competicao_id": 439,
+ "categoria": "SUB-19",
+ "jornada": "MEIA FINAL",
+ "grupo_id": "sub-19--torneio-abertura-apl-sub-19",
+ "grupo_nome": "TORNEIO ABERTURA APL SUB-19",
+ "serie": null
 }

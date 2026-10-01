@@ -939,5 +939,10 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 435
+ "competicao_id": 435,
+ "categoria": "SUB-19",
+ "jornada": "FINAL",
+ "grupo_id": "sub-19--supertaca-apl-sub-19",
+ "grupo_nome": "SUPERTAÇA APL SUB-19",
+ "serie": null
 }

@@ -710,5 +710,10 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 433
+ "competicao_id": 433,
+ "categoria": "SENIORES FEMININOS",
+ "jornada": "JORNADA 1",
+ "grupo_id": "seniores-femininos--taca-prof-joao-campelo-seniores-femininos",
+ "grupo_nome": "TAÇA PROF. JOAO CAMPELO - SENIORES FEMININOS",
+ "serie": null
 }

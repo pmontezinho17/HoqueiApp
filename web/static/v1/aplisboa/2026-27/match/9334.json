@@ -549,5 +549,10 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 434
+ "competicao_id": 434,
+ "categoria": "TORNEIOS PARTICULARES",
+ "jornada": "SUB-13",
+ "grupo_id": "torneios-particulares--zeca-pinto",
+ "grupo_nome": "ZECA PINTO",
+ "serie": null
 }

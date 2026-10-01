@@ -493,5 +493,10 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 442
+ "competicao_id": 442,
+ "categoria": "SUB-13",
+ "jornada": "3ª JORNADA",
+ "grupo_id": "sub-13--torneio-abertura-apl-sub-13",
+ "grupo_nome": "TORNEIO ABERTURA APL SUB-13",
+ "serie": null
 }

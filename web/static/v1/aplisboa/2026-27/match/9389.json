@@ -669,5 +669,10 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 441
+ "competicao_id": 441,
+ "categoria": "SUB-15",
+ "jornada": "2ª JORNADA",
+ "grupo_id": "sub-15--torneio-abertura-apl-sub-15",
+ "grupo_nome": "TORNEIO ABERTURA APL SUB-15",
+ "serie": null
 }

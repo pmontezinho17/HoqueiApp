@@ -68,6 +68,9 @@ export interface FichaJogo {
 	cronologia: EventoJogo[];
 	/** presente e true quando o escalão é de formação e os nomes foram omitidos */
 	individuais_omitidos?: boolean;
+	/** contexto para as migalhas (W7.3) */
+	categoria?: string; jornada?: string;
+	grupo_id?: string; grupo_nome?: string; serie?: string | null;
 }
 
 export interface FicheiroCompeticao {

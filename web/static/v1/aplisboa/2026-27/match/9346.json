@@ -666,5 +666,10 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 437
+ "competicao_id": 437,
+ "categoria": "SUB-15",
+ "jornada": "MEIA FINAL",
+ "grupo_id": "sub-15--supertaca-apl-sub-15",
+ "grupo_nome": "SUPERTAÇA APL SUB-15",
+ "serie": null
 }

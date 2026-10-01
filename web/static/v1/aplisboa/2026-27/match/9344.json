@@ -759,5 +759,10 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 438
+ "competicao_id": 438,
+ "categoria": "SUB-13",
+ "jornada": "FINAL",
+ "grupo_id": "sub-13--supertaca-apl-sub-13",
+ "grupo_nome": "SUPERTAÇA APL SUB-13",
+ "serie": null
 }

@@ -740,5 +740,10 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 443
+ "competicao_id": 443,
+ "categoria": "SUB-13",
+ "jornada": "1ª JORNADA",
+ "grupo_id": "sub-13--camp-reg-sub-13-1-fase",
+ "grupo_nome": "CAMP. REG. SUB-13 - 1ª FASE",
+ "serie": "A"
 }

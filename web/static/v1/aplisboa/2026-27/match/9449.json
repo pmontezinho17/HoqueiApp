@@ -1172,5 +1172,10 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 431
+ "competicao_id": 431,
+ "categoria": "TORNEIOS PARTICULARES",
+ "jornada": "TORNEIO PEDRO ROSADO",
+ "grupo_id": "torneios-particulares--jogo-treino",
+ "grupo_nome": "JOGO TREINO",
+ "serie": null
 }

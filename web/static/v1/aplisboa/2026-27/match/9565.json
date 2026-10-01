@@ -781,5 +781,10 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 447
+ "competicao_id": 447,
+ "categoria": "SUB-15",
+ "jornada": "1ª JORNADA",
+ "grupo_id": "sub-15--camp-reg-sub-15-1-fase",
+ "grupo_nome": "CAMP. REG. SUB-15 - 1ª FASE",
+ "serie": "A"
 }

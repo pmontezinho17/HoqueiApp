@@ -198,10 +198,24 @@ def comando_publicar(args) -> int:
                 alvo = destino / "match" / f"{jogo.id}.json"
                 if _resultado_conhecido(alvo) == (jogo.golos_casa, jogo.golos_fora, "Jogo Terminado"):
                     saltadas += 1
-                    fichas_da_prova.append(json.loads(alvo.read_text()))
+                    # O contexto (escalão, jornada, série) é derivado do que já temos aqui,
+                    # não da página da fonte. Quando o esquema ganha campos novos, actualiza-se
+                    # no sítio — uma mudança de esquema não justifica voltar a buscar 188 páginas.
+                    existente = json.loads(alvo.read_text())
+                    contexto = {"competicao_id": prova.id, "categoria": prova.categoria,
+                                "jornada": jogo.jornada, **identificar(prova.categoria, prova.nome)}
+                    if any(existente.get(k) != v for k, v in contexto.items()):
+                        existente.update(contexto)
+                        alvo.write_text(json.dumps(existente, ensure_ascii=False, indent=1))
+                    fichas_da_prova.append(existente)
                     continue
                 dados = para_dicionario(ficha(fonte.jogo(jogo.id).html, jogo.id))
+                # contexto para as migalhas no detalhe de jogo (W7.3): a ficha da fonte
+                # não sabe em que jornada nem em que série o jogo está
                 dados["competicao_id"] = prova.id
+                dados["categoria"] = prova.categoria
+                dados["jornada"] = jogo.jornada
+                dados.update(identificar(prova.categoria, prova.nome))
                 if not publica_nomes:
                     dados = anonimizar_ficha(dados)
                 alvo.write_text(json.dumps(dados, ensure_ascii=False, indent=1))

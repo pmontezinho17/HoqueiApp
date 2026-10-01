@@ -620,5 +620,10 @@
    "texto": "Jogo Terminado"
   }
  ],
- "competicao_id": 461
+ "competicao_id": 461,
+ "categoria": "ESCOLARES",
+ "jornada": "1ª JORNADA",
+ "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-i",
+ "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I",
+ "serie": "B"
 }
