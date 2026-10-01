@@ -41,6 +41,14 @@ sobrecarregar o vosso servidor.
    que são marca de cada clube e não da Associação. Se entenderem que devo pedir autorização aos
    clubes, ou simplesmente retirá-los, digam-me.
 
+4. **Acesso aos dados — e esta pergunta não precisa de resposta agora.** Hoje a aplicação lê a
+   página pública, que é a única forma disponível. Preferia muito mais receber a informação de
+   uma forma estruturada, por duas razões: seria mais fiável para mim e muito mais leve para o
+   vosso servidor, que deixaria de servir páginas HTML completas a um programa. Se a vossa
+   plataforma — ou o fornecedor dela — disponibilizar, hoje ou no futuro, uma ligação de dados
+   para este efeito, teria todo o gosto em passar a usá-la. Se não existir, continuo como estou,
+   com o mesmo cuidado de não sobrecarregar o serviço.
+
 Se houver qualquer aspecto que queiram ver alterado, ou se preferirem que a aplicação deixe de
 estar disponível, faço-o sem qualquer problema. O objectivo é apenas facilitar a vida a quem
 acompanha o hóquei em patins da região, e preferia fazê-lo com o vosso conhecimento e acordo.
@@ -63,9 +71,30 @@ seria pior do que não escrever: eles podem abrir o link em dez segundos. Ser di
 há risco real. Levantá-lo primeiro mostra que pensaste no assunto. E a oferta concreta de
 remover no próprio dia transforma uma preocupação numa decisão fácil para eles.
 
-**O que deixei de fora de propósito:**
+**Sobre o pedido de acesso aos dados (ponto 4), acrescentado a 01/10.**
 
-- Pedir dados ou uma API. Seria transformar um aviso num pedido, e mudaria a conversa.
+O instinto de pedir é bom e eu tinha-o deixado de fora. Mas há dois factos que mudam a *forma*
+como se pede:
+
+1. **A APL provavelmente não pode conceder.** A plataforma é da **Assys Software**, um
+   fornecedor espanhol, e a APL é um inquilino como a FPP e a AP Setúbal. Uma ligação de dados é
+   decisão de produto do fornecedor, não da Associação. Pedir à APL uma API é pedir-lhes uma
+   coisa que teriam de ir buscar ao fornecedor deles.
+2. **Não há sinal de que exista.** Na investigação à plataforma não encontrei qualquer endpoint
+   de dados, e o fornecedor não tem presença pública para programadores. A plataforma é ASP
+   clássico a servir HTML.
+
+Por isso o ponto 4 está escrito com três cuidados: diz explicitamente que **não precisa de
+resposta agora**, apresenta-se como **benefício para eles** (menos carga no servidor) e não
+como favor pedido, e termina a dizer que **se não existir, continuo como estou** — para que a
+ausência de resposta não fique a parecer um impasse.
+
+A razão é prática: a pergunta 1 é um sim/não que um dirigente responde hoje. Um pedido de API é
+um projecto. Se forem no mesmo saco, o email arrisca ficar num "temos de ver isso" indefinido e
+perde-se a resposta fácil que já se tinha.
+
+**O que continua de fora de propósito:**
+
 - Falar de planos futuros (notificações, competições nacionais). Responde-se à pergunta que
   fizerem, não à que não fizeram.
 - Falar da FPP. Hoje a aplicação só usa dados da APL. Quando usar competições nacionais, manda-se
