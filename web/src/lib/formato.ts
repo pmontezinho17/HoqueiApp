@@ -45,3 +45,30 @@ export function dataLonga(iso: string): string {
 	const d = new Date(`${iso}T00:00:00`);
 	return `${DIAS_LONGOS[d.getDay()]}, ${d.getDate()} de ${MESES_LONGOS[d.getMonth()]}`;
 }
+
+const PARTICULAS = new Set(['de', 'da', 'do', 'das', 'dos', 'e', 'di', 'del', 'della',
+	'van', 'von', 'der', 'du', 'la', 'le', 'y']);
+
+/**
+ * Nome de pessoa em caixa de título: `SALVADOR MONTEZINHO` → `Salvador Montezinho`.
+ *
+ * A fonte publica os nomes todos em maiúsculas, que num ecrã de telemóvel se lê pior e
+ * ocupa mais largura. Três cuidados:
+ *  - as partículas ficam em minúscula (`Vasco de Sousa`), menos se abrirem o nome;
+ *  - a maiúscula volta depois de hífen e de apóstrofo (`D'Ávila`, `Vila-Chã`);
+ *  - um nome que **não** venha todo em maiúsculas foi escrito por alguém com critério,
+ *    e fica como está — reformatá-lo só podia estragar.
+ */
+export function nomeProprio(n: string | null | undefined): string {
+	if (!n) return '';
+	if (n !== n.toUpperCase()) return n;
+	return n
+		.toLowerCase()
+		.split(/(\s+)/)
+		.map((parte, i) =>
+			/^\s*$/.test(parte) || (i > 0 && PARTICULAS.has(parte))
+				? parte
+				: parte.replace(/(^|[-'’])(\p{L})/gu, (_, antes, letra) => antes + letra.toUpperCase())
+		)
+		.join('');
+}

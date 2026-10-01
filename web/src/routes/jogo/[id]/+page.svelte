@@ -3,7 +3,7 @@
 	import Emblema from '$lib/Emblema.svelte';
 	import FichaEquipas from '$lib/FichaEquipas.svelte';
 	import Bola from '$lib/Bola.svelte';
-	import { dataCurta, horaCurta } from '$lib/formato';
+	import { dataCurta, horaCurta, nomeProprio } from '$lib/formato';
 
 	let { data } = $props();
 	const f = $derived(data.ficha);
@@ -21,7 +21,7 @@
 		const por = { casa: [] as string[], fora: [] as string[] };
 		for (const e of f.cronologia) {
 			if (e.tipo !== 'golo' || !e.jogador) continue;
-			const rotulo = `${e.jogador}${e.minuto !== null ? ` ${e.minuto}'` : ''}`;
+			const rotulo = `${nomeProprio(e.jogador)}${e.minuto !== null ? ` ${e.minuto}'` : ''}`;
 			if (e.equipa === f.casa) por.casa.push(rotulo);
 			else if (e.equipa === f.fora) por.fora.push(rotulo);
 		}

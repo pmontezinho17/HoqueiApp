@@ -4,7 +4,8 @@
 	import FormaRecente from '$lib/FormaRecente.svelte';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
-	import { porQuando } from '$lib/formato';
+	import { nomeProprio, porQuando } from '$lib/formato';
+	import { provaActual } from '$lib/provas';
 	import { caminhoEquipa } from '$lib/slug';
 	import { disputado, type Jogo, type TotaisJogador } from '$lib/tipos';
 
@@ -13,8 +14,9 @@
 	type Aba = 'resumo' | 'jogos' | 'classificacao' | 'plantel';
 	let aba = $state<Aba>('resumo');
 	let vistaJogos = $state<'lista' | 'calendario'>('lista');
-	/** '' = todas. Só a lista de jogos permite todas; a classificação não. */
+	/** '' = todas. A lista de jogos e o plantel permitem todas; a classificação não. */
 	let provaJogos = $state('');
+	let provaPlantel = $state('');
 	let tabelaEscolhida = $state('');
 
 	const hoje = new Date().toISOString().slice(0, 10);
@@ -31,53 +33,86 @@
 	const proximos = $derived(jogos.filter((j: Jogo) => !disputado(j) && (j.data ?? '') >= hoje));
 	const anteriores = $derived([...jogos.filter(disputado)].reverse());
 
+	/** A série tanto vem no nome da competição (`- SERIE C`, já tratado no índice) como no
+	 *  nome do grupo da classificação (`SERIE A`). */
+	const serieDe = (nome: string | null) =>
+		nome ? ` · ${nome.replace(/^S[EÉ]RIE\s+/i, 'Série ')}` : '';
+
+	/** As provas do escalão em que a equipa entra, já com o que cada aba precisa. */
+	const provas = $derived(
+		data.provas.map((p) => {
+			const c = p.dados.competicao;
+			return {
+				id: p.id,
+				rotulo: `${c.grupo_nome ?? c.nome}${c.serie ? ` · Série ${c.serie}` : ''}`,
+				grupoId: c.grupo_id ?? String(c.id),
+				jogos: p.dados.jogos.filter((j) => j.casa === data.equipa || j.fora === data.equipa),
+				ids: new Set(p.dados.jogos.map((j) => j.id)),
+				classificacao: p.dados.classificacao,
+				quadro: p.quadro
+			};
+		})
+	);
+	/** A prova a decorrer — o defeito da classificação. Ver `$lib/provas.ts`. */
+	const actual = $derived(provaActual(provas));
+
+	/** O plantel precisa de um defeito próprio: a prova a decorrer pode ainda não ter um
+	 *  único jogo jogado, e então o plantel abria vazio com o do torneio de abertura ali ao
+	 *  lado. Escolhe-se a mais actual **de entre as que têm fichas**. */
+	const actualComFichas = $derived(
+		provaActual(provas.filter((p) => p.quadro?.jogadores.some((j) => j.equipa === data.equipa)))
+	);
+
+	/** Assistências por equipa, somadas das fichas. `null` quando a prova não tem fichas
+	 *  publicadas: sem isto, uma equipa sem dados somava zero e lia-se como pior do que é. */
+	const assistencias = (quadro: { jogadores: TotaisJogador[] } | null) => {
+		if (!quadro?.jogadores.length) return null;
+		const m = new Map<string, number>();
+		for (const j of quadro.jogadores) m.set(j.equipa, (m.get(j.equipa) ?? 0) + j.assistencias);
+		return m;
+	};
+
 	/** Uma opção por tabela em que a equipa aparece. Sem "todas": séries diferentes não se
 	 *  enfrentam, por isso uma tabela única não teria significado. */
 	const tabelas = $derived(
-		data.provas.flatMap((p) =>
-			p.dados.classificacao
+		provas.flatMap((p) =>
+			p.classificacao
 				.filter((g) => g.linhas.some((l) => l.equipa === data.equipa))
-				.map((g, i) => {
-					const prova = p.dados.competicao;
+				.map((g, i) => ({
+					chave: `${p.id}:${g.nome ?? i}`,
+					provaId: p.id,
+					grupoId: p.grupoId,
 					// a série tanto vem no nome da competição (`- SERIE C`) como no grupo (`SERIE A`)
-					const serie = prova.serie
-						? `Série ${prova.serie}`
-						: g.nome?.replace(/^S[EÉ]RIE\s+/i, 'Série ');
-					return {
-						chave: `${p.id}:${g.nome ?? i}`,
-						rotulo: `${prova.grupo_nome ?? prova.nome}${serie ? ` · ${serie}` : ''}`,
-						grupoId: prova.grupo_id ?? String(prova.id),
-						linhas: g.linhas
-					};
-				})
+					rotulo: `${p.rotulo}${p.rotulo.includes('Série') ? '' : serieDe(g.nome)}`,
+					linhas: g.linhas,
+					assist: assistencias(p.quadro)
+				}))
 		)
 	);
-	$effect(() => {
-		if (tabelas.length && !tabelas.some((t) => t.chave === tabelaEscolhida))
-			tabelaEscolhida = tabelas[0].chave;
-	});
 	const tabela = $derived(tabelas.find((t) => t.chave === tabelaEscolhida) ?? tabelas[0]);
 
-	/** Provas para o filtro da lista de jogos — esse sim tem "todas". */
-	const provas = $derived(
-		data.provas.map((p) => ({
-			id: String(p.id),
-			rotulo: `${p.dados.competicao.grupo_nome ?? p.dados.competicao.nome}${p.dados.competicao.serie ? ` · Série ${p.dados.competicao.serie}` : ''}`,
-			ids: new Set(p.dados.jogos.map((j) => j.id))
-		}))
-	);
+	/** Um só sítio a escolher os defeitos, e volta a correr quando se muda de equipa. */
+	$effect(() => {
+		void `${data.categoria}/${data.equipa}`;
+		tabelaEscolhida = (tabelas.find((t) => t.provaId === actual) ?? tabelas[0])?.chave ?? '';
+		provaPlantel = actualComFichas === null ? '' : String(actualComFichas);
+		provaJogos = '';
+	});
+
 	const filtrar = (lista: Jogo[]) => {
 		if (!provaJogos) return lista;
-		const p = provas.find((x) => x.id === provaJogos);
+		const p = provas.find((x) => String(x.id) === provaJogos);
 		return p ? lista.filter((j) => p.ids.has(j.id)) : lista;
 	};
 	const proximosFiltrados = $derived(filtrar(proximos));
 	const anterioresFiltrados = $derived(filtrar(anteriores));
 
-	/** Plantel: quem alinhou, somado entre as provas do escalão. */
-	const plantel = $derived.by(() => {
-		const por = new Map<string, TotaisJogador & { numero?: string | null }>();
-		for (const p of data.provas)
+	/** Plantel: quem alinhou. **Por prova, e não somado**, porque um atleta pode ter jogado
+	 *  na equipa A no torneio de abertura e estar na B no campeonato — somar as provas
+	 *  juntava-o às duas e dava um plantel que nunca existiu. */
+	const agregar = (fonte: typeof provas) => {
+		const por = new Map<string, TotaisJogador>();
+		for (const p of fonte)
 			for (const j of p.quadro?.jogadores ?? []) {
 				if (j.equipa !== data.equipa) continue;
 				const a = por.get(j.nome);
@@ -90,10 +125,14 @@
 					a.vermelhos = (a.vermelhos ?? 0) + (j.vermelhos ?? 0);
 				}
 			}
-		return [...por.values()].sort(
-			(a, b) => b.golos - a.golos || b.assistencias - a.assistencias || a.nome.localeCompare(b.nome)
-		);
-	});
+		// por ordem alfabética: procura-se um atleta pelo nome, não pelo número de golos
+		return [...por.values()].sort((a, b) => a.nome.localeCompare(b.nome, 'pt'));
+	};
+	const plantel = $derived(
+		agregar(provaPlantel ? provas.filter((p) => String(p.id) === provaPlantel) : provas)
+	);
+	/** Os totais da época são de todas as provas — não seguem o filtro do plantel. */
+	const plantelEpoca = $derived(agregar(provas));
 
 	/** Recinto onde joga em casa: o mais frequente dos jogos em casa. */
 	const recinto = $derived.by(() => {
@@ -111,7 +150,7 @@
 			gm += (casa ? j.golos_casa : j.golos_fora) ?? 0;
 			gs += (casa ? j.golos_fora : j.golos_casa) ?? 0;
 		}
-		return { jogos: d.length, gm, gs, assistencias: plantel.reduce((n, p) => n + p.assistencias, 0) };
+		return { jogos: d.length, gm, gs, assistencias: plantelEpoca.reduce((n, p) => n + p.assistencias, 0) };
 	});
 
 	const paraAgenda = (j: Jogo) => ({
@@ -208,38 +247,59 @@
 			<p class="rotulo">{tabelas[0].rotulo}</p>
 		{/if}
 
-		<table>
-			<thead>
-				<tr>
-					<th class="p">#</th><th class="eq">Equipa</th>
-					<th><abbr title="Jogos">J</abbr></th>
-					<th><abbr title="Diferença de golos">DG</abbr></th>
-					<th class="ptst">P</th>
-				</tr>
-			</thead>
-			<tbody>
-				{#each tabela.linhas as l (l.equipa)}
-					<tr class:minha={l.equipa === data.equipa}>
-						<td class="p">{l.posicao}</td>
-						<th class="eq">
-							<a href={caminhoEquipa(l.equipa, data.categoria)}>
-								<Emblema equipa={l.equipa} src={data.emblemas[l.equipa]} tamanho={18} />{l.equipa}
-							</a>
-						</th>
-						<td>{l.jogos}</td>
-						<td class:pos={l.diferenca > 0} class:neg={l.diferenca < 0}>
-							{l.diferenca > 0 ? '+' : ''}{l.diferenca}
-						</td>
-						<td class="ptst">{l.pontos}</td>
+		<div class="rolo">
+			<table class="classif">
+				<thead>
+					<tr>
+						<th class="p" scope="col">#</th><th class="eq" scope="col">Equipa</th>
+						<th scope="col"><abbr title="Jogos">J</abbr></th>
+						<th scope="col"><abbr title="Golos marcados">GM</abbr></th>
+						<th scope="col"><abbr title="Golos sofridos">GS</abbr></th>
+						<th scope="col"><abbr title="Diferença de golos">DG</abbr></th>
+						<th scope="col"><abbr title="Assistências">A</abbr></th>
+						<th class="ptst" scope="col"><abbr title="Pontos">P</abbr></th>
 					</tr>
-				{/each}
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+					{#each tabela.linhas as l (l.equipa)}
+						<tr class:minha={l.equipa === data.equipa}>
+							<td class="p">{l.posicao}</td>
+							<th class="eq" scope="row">
+								<a href={caminhoEquipa(l.equipa, data.categoria)}>
+									<Emblema equipa={l.equipa} src={data.emblemas[l.equipa]} tamanho={18} />{l.equipa}
+								</a>
+							</th>
+							<td>{l.jogos}</td>
+							<td>{l.golos_marcados}</td>
+							<td>{l.golos_sofridos}</td>
+							<td class:pos={l.diferenca > 0} class:neg={l.diferenca < 0}>
+								{l.diferenca > 0 ? '+' : ''}{l.diferenca}
+							</td>
+							<td>{tabela.assist?.get(l.equipa) ?? '–'}</td>
+							<td class="ptst">{l.pontos}</td>
+						</tr>
+					{/each}
+				</tbody>
+			</table>
+		</div>
+		<p class="nota">
+			As assistências não vêm da tabela oficial — são somadas das fichas de jogo, onde a
+			fonte as registra por defeito (451 em 1417 golos). Um <code>–</code> é uma equipa
+			sem fichas publicadas nesta prova, não um zero.
+		</p>
 		<a class="verProva" href={`/competicoes/${tabela.grupoId}`}>Ver a competição ›</a>
 	{/if}
 {:else}
+	<!-- com filtro **e** com "todas": o plantel de uma prova é o que responde a "quem joga
+	     aqui agora"; o agregado continua a servir para os totais da época -->
+	{#if provas.length > 1}
+		<select bind:value={provaPlantel} aria-label="Competição">
+			<option value="">Todas as competições</option>
+			{#each provas as p (p.id)}<option value={String(p.id)}>{p.rotulo}</option>{/each}
+		</select>
+	{/if}
 	{#if plantel.length === 0}
-		<p class="vazio">Ainda não há fichas de jogo publicadas para esta equipa.</p>
+		<p class="vazio">Ainda não há fichas de jogo publicadas para esta equipa nesta prova.</p>
 	{:else}
 		<!-- tabela com cabeçalho: antes eram colunas sem nome e desalinhadas, porque
 		     cada célula só aparecia quando o valor não era zero -->
@@ -260,7 +320,7 @@
 				<tbody>
 					{#each plantel as j (j.nome)}
 						<tr>
-							<th class="nome" scope="row">{j.nome}</th>
+							<th class="nome" scope="row">{nomeProprio(j.nome)}</th>
 							<td>{j.jogos}</td>
 							<td class:marcou={j.golos > 0}>{j.golos || '–'}</td>
 							<td>{j.assistencias || '–'}</td>
@@ -273,7 +333,11 @@
 				</tbody>
 			</table>
 		</div>
-		<p class="nota">Somado entre as provas do escalão, a partir das fichas de jogo publicadas.</p>
+		<p class="nota">
+			{provaPlantel
+				? 'Desta prova, a partir das fichas de jogo publicadas.'
+				: 'Somado entre as provas do escalão — um atleta que tenha mudado de equipa entre provas aparece aqui com os dois períodos juntos.'}
+		</p>
 	{/if}
 {/if}
 
@@ -314,18 +378,23 @@
 		border-radius: 8px; border: 1px solid var(--borda);
 		background: var(--cartao); color: inherit; }
 
-	table { width: 100%; border-collapse: collapse; font-size: 0.76rem;
+	/* oito colunas não cabem em 375px: rola na horizontal com o lugar e o nome fixos,
+	   como no plantel — sem isto perde-se de quem é a linha a meio do gesto */
+	.classif { width: 100%; border-collapse: collapse; font-size: 0.76rem;
 		font-variant-numeric: tabular-nums; }
-	table th, table td { padding: 0.4rem 0.25rem; text-align: right; }
-	thead th { font-size: 0.64rem; color: var(--suave); font-weight: 600;
+	.classif th, .classif td { padding: 0.4rem 0.3rem; text-align: right; white-space: nowrap; }
+	.classif thead th { font-size: 0.64rem; color: var(--suave); font-weight: 600;
 		border-bottom: 1px solid var(--borda); }
-	.p { width: 1.4rem; text-align: center; color: var(--suave); }
-	.eq { text-align: left; width: 100%; font-weight: 400; }
-	.eq a { display: flex; align-items: center; gap: 0.35rem; text-decoration: none; }
-	.ptst { font-weight: 700; }
-	tbody tr + tr th, tbody tr + tr td { border-top: 1px solid var(--borda); }
-	tbody tr.minha { background: var(--acento-fraco); }
-	tbody tr.minha .eq { font-weight: 600; }
+	.classif .p { position: sticky; left: 0; z-index: 1; width: 1.4rem;
+		text-align: center; color: var(--suave); background: var(--fundo); }
+	.classif .eq { position: sticky; left: 1.7rem; z-index: 1; text-align: left;
+		font-weight: 400; background: var(--fundo); }
+	.classif .eq a { display: flex; align-items: center; gap: 0.35rem; text-decoration: none; }
+	.classif .ptst { font-weight: 700; padding-left: 0.5rem; }
+	.classif tbody tr + tr th, .classif tbody tr + tr td { border-top: 1px solid var(--borda); }
+	.classif tbody tr.minha > * { background: var(--acento-fraco); }
+	.classif tbody tr.minha .eq { font-weight: 600; }
+	.nota code { font-family: inherit; }
 	.pos { color: var(--acento); }
 	.neg { color: var(--suave); }
 	.verProva { display: inline-block; margin-top: 0.7rem; font-size: 0.74rem;

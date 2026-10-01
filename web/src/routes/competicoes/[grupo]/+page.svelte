@@ -2,7 +2,7 @@
 	import Emblema from '$lib/Emblema.svelte';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
-	import { jornadaAtual, porQuando } from '$lib/formato';
+	import { jornadaAtual, porQuando, nomeProprio } from '$lib/formato';
 	import { caminhoEquipa } from '$lib/slug';
 	import type { Jogo, TotaisJogador } from '$lib/tipos';
 
@@ -136,7 +136,7 @@
 				<li class:minha={destaque(m.equipa)}>
 					<span class="lugar">{i + 1}</span>
 					<span class="quem">
-						<span class="nome">{m.nome}</span>
+						<span class="nome">{nomeProprio(m.nome)}</span>
 						<span class="clube">
 							{m.equipa}{#if m.serie}<span class="ser">série {m.serie}</span>{/if}
 						</span>

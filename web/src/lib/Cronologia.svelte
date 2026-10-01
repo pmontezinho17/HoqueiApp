@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { nomeProprio } from '$lib/formato';
 	import Bola from './Bola.svelte';
 	import type { EventoJogo } from './tipos';
 
@@ -54,8 +55,8 @@
 				<div class="lado esq">
 					{#if l === 'casa'}
 						<span class="que">{descricao(e)}</span>
-						{#if e.jogador}<span class="quem">{e.jogador}</span>{/if}
-						{#if e.assistencia}<span class="assist">assist. {e.assistencia}</span>{/if}
+						{#if e.jogador}<span class="quem">{nomeProprio(e.jogador)}</span>{/if}
+						{#if e.assistencia}<span class="assist">assist. {nomeProprio(e.assistencia)}</span>{/if}
 					{/if}
 				</div>
 
@@ -71,8 +72,8 @@
 				<div class="lado dir">
 					{#if l === 'fora'}
 						<span class="que">{descricao(e)}</span>
-						{#if e.jogador}<span class="quem">{e.jogador}</span>{/if}
-						{#if e.assistencia}<span class="assist">assist. {e.assistencia}</span>{/if}
+						{#if e.jogador}<span class="quem">{nomeProprio(e.jogador)}</span>{/if}
+						{#if e.assistencia}<span class="assist">assist. {nomeProprio(e.assistencia)}</span>{/if}
 					{:else if l === null}
 						<span class="que neutro">{descricao(e)}</span>
 					{/if}

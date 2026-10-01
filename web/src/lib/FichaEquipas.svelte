@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { nomeProprio } from '$lib/formato';
 	import type { EquipaFicha } from './tipos';
 	let { equipas }: { equipas: EquipaFicha[] } = $props();
 	const jogadores = (e: EquipaFicha) => e.jogadores.filter((j) => !j.papel);
@@ -30,7 +31,7 @@
 					{#each jogadores(equipa) as j (j.nome)}
 						<tr>
 							<td class="n">{j.numero ?? ''}{#if j.titular}<span class="tit" title="Cinco inicial">•</span>{/if}</td>
-							<th class="nome" scope="row">{j.nome}</th>
+							<th class="nome" scope="row">{nomeProprio(j.nome)}</th>
 							<td class:marcou={(j.golos ?? 0) > 0}>{j.golos ?? '–'}</td>
 							<td>{j.assistencias ?? '–'}</td>
 							<td>{j.defesas ?? '–'}</td>
