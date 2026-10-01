@@ -10,7 +10,10 @@
    "golos": 3,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 3
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "SARA FERNANDES",
@@ -20,7 +23,10 @@
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 3
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MARIA DUARTE",
@@ -30,7 +36,10 @@
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MADALENA CASIMIRO",
@@ -40,7 +49,10 @@
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MADALENA SANTANA",
@@ -50,7 +62,10 @@
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "VERA BOULLOSA",
@@ -60,7 +75,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIANA PINTO",
@@ -70,7 +88,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "LAURA ANTÂO",
@@ -80,7 +101,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "LEONOR SIMÕES",
@@ -90,7 +114,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MICAELA JAMARDO",
@@ -100,7 +127,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RAQUEL CORREIA",
@@ -110,7 +140,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "RITA DIEGUES",
@@ -120,7 +153,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "TATIANA OLHICOS",
@@ -130,7 +166,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "GABRIELA CAETANO",
@@ -140,7 +179,10 @@
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "ISA RICARDO",
@@ -150,7 +192,10 @@
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MARIA SALVADO",
@@ -160,7 +205,10 @@
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "SOFIA BOULLOSA",
@@ -170,7 +218,10 @@
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "ANA SEQUEIRA",
@@ -180,7 +231,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "BEATRIZ NEGRÃO",
@@ -190,7 +244,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "CAROLINA ANASTÁCIO",
@@ -200,7 +257,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "CAROLINA MOLHA",
@@ -210,7 +270,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "CRISTINA QUEVEDO",
@@ -220,7 +283,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "INES SANTOS",
@@ -230,7 +296,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "LORENA MACHADO",
@@ -240,7 +309,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MARIANA PALMEIRIM",
@@ -250,7 +322,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MATILDE FERREIRA",
@@ -260,7 +335,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "NÚRIA CAPOTE",
@@ -270,7 +348,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RAQUEL PINTO",
@@ -280,7 +361,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RITA LOPES",
@@ -290,7 +374,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "SOFIA SARDELA",
@@ -300,7 +387,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "ALICE DOMINGUES",
@@ -310,7 +400,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "ALICIA FARO",
@@ -320,7 +413,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "BEATRIZ ALVES",
@@ -330,7 +426,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "EDUARDA MARTINS",
@@ -340,7 +439,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "INÊS BAUDOUIN",
@@ -350,7 +452,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "INÊS CALDEIRA",
@@ -360,7 +465,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 3,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "LARA PINTO",
@@ -370,7 +478,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "LILIANA PONTE",
@@ -380,7 +491,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MADALENA BRAVO",
@@ -390,7 +504,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "MARIA LERENO",
@@ -400,7 +517,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MARIA SILVA",
@@ -410,7 +530,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MARIANA AGULHAS",
@@ -420,7 +543,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MATILDE CERQUEIRA",
@@ -430,7 +556,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RITA BARROS",
@@ -440,7 +569,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RITA GOMES",
@@ -450,7 +582,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "SALUSA CANO",
@@ -460,7 +595,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "SOFIA CARVALHO",
@@ -470,7 +608,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   }
  ],
  "tem_defesas": true

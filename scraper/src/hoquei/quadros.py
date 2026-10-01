@@ -19,6 +19,9 @@ class Totais:
     golos: int = 0
     assistencias: int = 0
     defesas: int = 0
+    amarelos: int = 0
+    azuis: int = 0
+    vermelhos: int = 0
 
     @property
     def pontos(self) -> int:
@@ -62,6 +65,9 @@ def agregar(fichas: list[dict], competicao_id: int) -> Quadro:
                 t.golos += linha.get("golos") or 0
                 t.assistencias += linha.get("assistencias") or 0
                 t.defesas += linha.get("defesas") or 0
+                t.amarelos += linha.get("cartoes_amarelos") or 0
+                t.azuis += linha.get("cartoes_azuis") or 0
+                t.vermelhos += linha.get("cartoes_vermelhos") or 0
 
     ordenados = sorted(
         por_jogador.values(),
@@ -76,5 +82,6 @@ def agregar(fichas: list[dict], competicao_id: int) -> Quadro:
             "numero": t.numero,
             "golos": t.golos, "assistencias": t.assistencias,
             "defesas": t.defesas, "pontos": t.pontos,
+            "amarelos": t.amarelos, "azuis": t.azuis, "vermelhos": t.vermelhos,
         } for t in ordenados],
     )

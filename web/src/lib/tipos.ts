@@ -106,6 +106,8 @@ export interface Favorito { equipa: string; categoria: string; competicoes: numb
 export interface TotaisJogador {
 	nome: string; equipa: string; jogos: number;
 	golos: number; assistencias: number; defesas: number; pontos: number;
+	numero?: string | null;
+	amarelos?: number; azuis?: number; vermelhos?: number;
 }
 export interface Quadro {
 	competicao_id: number;

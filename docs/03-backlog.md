@@ -339,6 +339,8 @@ pedida há duas sessões. O `/clube` era um resumo fino, não uma página.
 | W8.5 | Agrupar o plantel por posição (GR/JC) | could | M | aberto — a posição vem do boletim oficial, que ainda não é parseado (B1.9c) |
 | W8.6 | **Calendário dentro da equipa**, não no lançador | must | M | ✅ `Lista · Calendário` na aba Jogos da equipa. Agregado, dois jogos no mesmo dia ficavam escondidos atrás de um `+1` que não se podia abrir |
 | W8.7 | Data nas listas corridas de jogos | should | S | ✅ uma lista de 15 jogos só com horas não diz de que dia é cada um |
+| B8.8 | **Parsear as colunas de cartões** da ficha (amarelo, azul, vermelho) | should | S | ✅ colunas 9–11, identificadas na fonte só pelos ícones `tamarilla`/`tazul`/`troja`; teste cruza o total com os eventos da cronologia |
+| W8.9 | Plantel como **tabela com cabeçalho**, com cartões e sem o número da camisola | should | S | ✅ o número saía de uma ficha qualquer e os atletas mudam de camisola entre jogos |
 
 ## Capturas da Sofascore nativa → itens (01/10/2026)
 
@@ -354,6 +356,7 @@ retorno: os três primeiros não precisam de backend nenhum.
 | W7.5 | Calendário mensal | should | L | ✅ emblema e hora na célula, casa/fora por cor **e marca `F`** — a cor sozinha inverte-se entre temas e exclui quem não a distingue |
 | W7.6 | Classificação: chips `Tudo · Em casa · Fora` | should | M | Os mesmos dados recalculados a partir do calendário |
 | W7.7 | Classificação: reduzir de 5 para **3 colunas** (J, DG, P) | could | XS | Ainda mais espaço para o nome do clube a 375px |
+| W8.10 | Cartões também no detalhe de jogo (tab Ficha), que já os tem no JSON | could | XS | aberto |
 | W7.8 | Visão geral da equipa | should | M | ✅ jogos, GM, GS, assistências e recinto onde joga em casa |
 | W7.9 | Plantel na página de equipa | should | M | ✅ ordenado por golos, com nº, G/A/D e jogos. Agrupar por posição fica pendente — a posição só vem do boletim (B1.9c) |
 | W7.10 | Quadros: **top-3 por categoria com "Ver tudo"** em vez de lista corrida de 50 | could | S | Dá a provar sem obrigar a percorrer |

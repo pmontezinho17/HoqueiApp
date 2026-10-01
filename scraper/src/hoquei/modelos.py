@@ -108,7 +108,12 @@ class LinhaJogador:
     defesas: int | None
     penalidades: str | None       # "1/2" (marcadas/tentadas)
     livres_diretos: str | None
-    papel: str | None             # None = jogador; D/T/T2/MAS para equipa técnica
+    # as três últimas colunas da ficha, identificadas na fonte pelos ícones
+    # tamarilla / tazul / troja
+    cartoes_amarelos: int = 0
+    cartoes_azuis: int = 0
+    cartoes_vermelhos: int = 0
+    papel: str | None = None      # None = jogador; D/T/T2/MAS para equipa técnica
 
 
 @dataclass

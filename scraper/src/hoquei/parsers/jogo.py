@@ -219,10 +219,10 @@ def equipas_ficha(html: str) -> list[EquipaFicha]:
             celulas = [_texto(c) for c in linha.css("td")]
             if len(celulas) == 12:
                 numero, marca, nome = celulas[0], celulas[1], celulas[3]
-                estatistica, papel = celulas[4:9], None
+                estatistica, cartoes, papel = celulas[4:9], celulas[9:12], None
             elif len(celulas) == 11:
                 numero, marca, nome = None, "", celulas[2]
-                estatistica, papel = ["--"] * 5, celulas[0] or None
+                estatistica, cartoes, papel = ["--"] * 5, celulas[8:11], celulas[0] or None
             else:
                 continue                      # cabeçalho, "Técnicos" e "Total da equipa"
             # "Total da equipa" tem as mesmas 12 células de um jogador e duplicava os golos
@@ -237,6 +237,9 @@ def equipas_ficha(html: str) -> list[EquipaFicha]:
                 defesas=_inteiro(estatistica[2]),
                 penalidades=estatistica[3] if estatistica[3] != "--" else None,
                 livres_diretos=estatistica[4] if estatistica[4] != "--" else None,
+                cartoes_amarelos=_inteiro(cartoes[0]) or 0,
+                cartoes_azuis=_inteiro(cartoes[1]) or 0,
+                cartoes_vermelhos=_inteiro(cartoes[2]) or 0,
                 papel=papel,
             ))
         if atual.jogadores:

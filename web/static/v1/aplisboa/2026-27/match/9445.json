@@ -30,6 +30,9 @@
      "defesas": 1,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -41,6 +44,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/1",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 1,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -52,6 +58,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -63,6 +72,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -74,6 +86,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -85,6 +100,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -96,6 +114,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/1",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -107,6 +128,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -118,6 +142,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -129,6 +156,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -140,6 +170,9 @@
      "defesas": null,
      "penalidades": null,
      "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": "D"
     },
     {
@@ -151,6 +184,9 @@
      "defesas": null,
      "penalidades": null,
      "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": "T"
     },
     {
@@ -162,6 +198,9 @@
      "defesas": null,
      "penalidades": null,
      "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": "T2"
     },
     {
@@ -173,6 +212,9 @@
      "defesas": null,
      "penalidades": null,
      "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": "MAS"
     }
    ]
@@ -189,6 +231,9 @@
      "defesas": 1,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -200,6 +245,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 1,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -211,6 +259,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -222,6 +273,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -233,6 +287,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -244,6 +301,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/1",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -255,6 +315,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -266,6 +329,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 1,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -277,6 +343,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -288,6 +357,9 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -299,6 +371,9 @@
      "defesas": null,
      "penalidades": null,
      "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": "D"
     },
     {
@@ -310,6 +385,9 @@
      "defesas": null,
      "penalidades": null,
      "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
      "papel": "T"
     }
    ]

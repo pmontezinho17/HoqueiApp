@@ -49,6 +49,9 @@
 				else {
 					a.jogos += j.jogos; a.golos += j.golos;
 					a.assistencias += j.assistencias; a.defesas += j.defesas;
+					a.amarelos = (a.amarelos ?? 0) + (j.amarelos ?? 0);
+					a.azuis = (a.azuis ?? 0) + (j.azuis ?? 0);
+					a.vermelhos = (a.vermelhos ?? 0) + (j.vermelhos ?? 0);
 				}
 			}
 		return [...por.values()].sort(
@@ -165,20 +168,39 @@
 	{#if plantel.length === 0}
 		<p class="vazio">Ainda não há fichas de jogo publicadas para esta equipa.</p>
 	{:else}
-		<ol class="plantel">
-			{#each plantel as j (j.nome)}
-				<li>
-					<span class="num">{j.numero ?? ''}</span>
-					<span class="nome">{j.nome}</span>
-					<span class="stats">
-						{#if j.golos}<b>{j.golos}G</b>{/if}
-						{#if j.assistencias}<span>{j.assistencias}A</span>{/if}
-						{#if j.defesas}<span>{j.defesas}D</span>{/if}
-						<span class="j">{j.jogos}j</span>
-					</span>
-				</li>
-			{/each}
-		</ol>
+		<!-- tabela com cabeçalho: antes eram colunas sem nome e desalinhadas, porque
+		     cada célula só aparecia quando o valor não era zero -->
+		<div class="rolo">
+			<table class="plantel">
+				<thead>
+					<tr>
+						<th class="nome" scope="col">Jogador</th>
+						<th scope="col"><abbr title="Jogos">J</abbr></th>
+						<th scope="col"><abbr title="Golos">G</abbr></th>
+						<th scope="col"><abbr title="Assistências">A</abbr></th>
+						<th scope="col"><abbr title="Defesas">D</abbr></th>
+						<th scope="col"><span class="cartao am" aria-hidden="true"></span><span class="sr">Cartões amarelos</span></th>
+						<th scope="col"><span class="cartao az" aria-hidden="true"></span><span class="sr">Cartões azuis</span></th>
+						<th scope="col"><span class="cartao vm" aria-hidden="true"></span><span class="sr">Cartões vermelhos</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					{#each plantel as j (j.nome)}
+						<tr>
+							<th class="nome" scope="row">{j.nome}</th>
+							<td>{j.jogos}</td>
+							<td class:marcou={j.golos > 0}>{j.golos || '–'}</td>
+							<td>{j.assistencias || '–'}</td>
+							<td>{j.defesas || '–'}</td>
+							<td>{j.amarelos || '–'}</td>
+							<td>{j.azuis || '–'}</td>
+							<td>{j.vermelhos || '–'}</td>
+						</tr>
+					{/each}
+				</tbody>
+			</table>
+		</div>
+		<p class="nota">Somado entre as provas do escalão, a partir das fichas de jogo publicadas.</p>
 	{/if}
 {/if}
 
@@ -223,15 +245,26 @@
 	.detalhe { font-size: 0.68rem; color: var(--suave); }
 	.pts { font-size: 0.76rem; font-variant-numeric: tabular-nums; }
 
-	.plantel { list-style: none; margin: 0; padding: 0; }
-	.plantel li { display: grid; grid-template-columns: 1.6rem 1fr auto; align-items: center;
-		gap: 0.5rem; padding: 0.45rem 0.2rem; border-bottom: 1px solid var(--borda); }
-	.num { text-align: center; font-size: 0.7rem; color: var(--suave);
+	.rolo { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+	.plantel { width: 100%; border-collapse: collapse; font-size: 0.76rem;
 		font-variant-numeric: tabular-nums; }
-	.nome { font-size: 0.8rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-	.stats { display: flex; gap: 0.4rem; font-size: 0.7rem; color: var(--suave);
-		font-variant-numeric: tabular-nums; }
-	.stats b { color: var(--acento); }
-	.stats .j { min-width: 1.8rem; text-align: right; }
+	.plantel th, .plantel td { padding: 0.4rem 0.25rem; text-align: right; white-space: nowrap; }
+	.plantel thead th { font-size: 0.64rem; color: var(--suave); font-weight: 600;
+		border-bottom: 1px solid var(--borda); }
+	.plantel .nome { text-align: left; width: 100%; font-weight: 400; font-size: 0.8rem;
+		position: sticky; left: 0; background: var(--fundo); }
+	.plantel tbody tr + tr th, .plantel tbody tr + tr td { border-top: 1px solid var(--borda); }
+	.plantel td { color: var(--suave); }
+	.plantel .marcou { color: var(--acento); font-weight: 700; }
+	abbr { text-decoration: none; }
+	/* os cartões identificam-se pela cor, como na fonte; o nome vai no cabeçalho para
+	   quem usa leitor de ecrã */
+	.cartao { display: inline-block; width: 8px; height: 11px; border-radius: 2px;
+		vertical-align: -1px; }
+	.cartao.am { background: #e6b800; }
+	.cartao.az { background: #2f6fd0; }
+	.cartao.vm { background: #c0392b; }
+	.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+	.nota { color: var(--suave); font-size: 0.68rem; margin-top: 0.6rem; }
 	.vazio { color: var(--suave); font-size: 0.82rem; }
 </style>

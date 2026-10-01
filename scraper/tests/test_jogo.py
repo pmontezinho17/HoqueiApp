@@ -111,3 +111,24 @@ def test_equipa_tecnica_separada_dos_jogadores(ficha_escolares):
 def test_linha_de_totais_nao_conta_como_jogador(ficha_seniores):
     for eq in equipas_ficha(ficha_seniores):
         assert not any(j.nome.lower().startswith("total") for j in eq.jogadores)
+
+
+def test_cartoes_lidos_das_tres_ultimas_colunas(ficha_seniores):
+    """A fonte identifica-as só pelos ícones tamarilla / tazul / troja no cabeçalho."""
+    jogadores = [j for eq in equipas_ficha(ficha_seniores) for j in eq.jogadores if not j.papel]
+    amarelo = next(j for j in jogadores if j.nome == "DIOGO GOUVEIA")
+    azul = next(j for j in jogadores if j.nome == "ANDRE COSTA")
+    assert (amarelo.cartoes_amarelos, amarelo.cartoes_azuis, amarelo.cartoes_vermelhos) == (1, 0, 0)
+    assert (azul.cartoes_amarelos, azul.cartoes_azuis, azul.cartoes_vermelhos) == (0, 1, 0)
+    # a esmagadora maioria não leva nada, e isso tem de ser zero e não None
+    assert all(isinstance(j.cartoes_amarelos, int) for j in jogadores)
+
+
+def test_cartoes_batem_certo_com_a_cronologia(ficha_seniores):
+    """Dois registos independentes da mesma coisa: a ficha e os eventos."""
+    da_ficha = sum(
+        j.cartoes_amarelos + j.cartoes_azuis + j.cartoes_vermelhos
+        for eq in equipas_ficha(ficha_seniores) for j in eq.jogadores if not j.papel
+    )
+    da_cronologia = sum(1 for e in cronologia(ficha_seniores) if e.tipo == "cartao")
+    assert da_ficha == da_cronologia

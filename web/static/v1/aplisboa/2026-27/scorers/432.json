@@ -10,7 +10,10 @@
    "golos": 5,
    "assistencias": 2,
    "defesas": 0,
-   "pontos": 7
+   "pontos": 7,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "GONÇALO PINTO",
@@ -20,7 +23,10 @@
    "golos": 5,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 6
+   "pontos": 6,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "ANDRÉ GASPAR",
@@ -30,7 +36,10 @@
    "golos": 5,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 5
+   "pontos": 5,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "VITOR OLIVEIRA",
@@ -40,7 +49,10 @@
    "golos": 4,
    "assistencias": 3,
    "defesas": 0,
-   "pontos": 7
+   "pontos": 7,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "NIL DEL FRESNO",
@@ -50,7 +62,10 @@
    "golos": 4,
    "assistencias": 2,
    "defesas": 0,
-   "pontos": 6
+   "pontos": 6,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "ANDRÉ PIMENTA",
@@ -60,7 +75,10 @@
    "golos": 4,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 5
+   "pontos": 5,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO RODRIGUES",
@@ -70,7 +88,10 @@
    "golos": 4,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 5
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MARTIM COSTA",
@@ -80,7 +101,10 @@
    "golos": 4,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 5
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "AFONSO ESTEVES",
@@ -90,7 +114,10 @@
    "golos": 4,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 4
+   "pontos": 4,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO CORREIA",
@@ -100,7 +127,10 @@
    "golos": 4,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 4
+   "pontos": 4,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MIGUEL FEIO",
@@ -110,7 +140,10 @@
    "golos": 3,
    "assistencias": 2,
    "defesas": 0,
-   "pontos": 5
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "ANDRÉ FERREIRA",
@@ -120,7 +153,10 @@
    "golos": 3,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 4
+   "pontos": 4,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOÃO SARDO",
@@ -130,7 +166,10 @@
    "golos": 2,
    "assistencias": 3,
    "defesas": 0,
-   "pontos": 5
+   "pontos": 5,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "ALESSANDRO VERONA",
@@ -140,7 +179,10 @@
    "golos": 2,
    "assistencias": 2,
    "defesas": 0,
-   "pontos": 4
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "TOMÁS MARTINS",
@@ -150,7 +192,10 @@
    "golos": 2,
    "assistencias": 2,
    "defesas": 0,
-   "pontos": 4
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOÃO SILVA",
@@ -160,7 +205,10 @@
    "golos": 2,
    "assistencias": 2,
    "defesas": 0,
-   "pontos": 4
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "AFONSO SEVERINO",
@@ -170,7 +218,10 @@
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 3
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "GONZALO SORIA",
@@ -180,7 +231,10 @@
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 3
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "GUILHERME MARQUES",
@@ -190,7 +244,10 @@
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 3
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "MANUEL SANTOS",
@@ -200,7 +257,10 @@
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 3
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MIGUEL MATIAS",
@@ -210,7 +270,10 @@
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 3
+   "pontos": 3,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "TIAGO DUARTE",
@@ -220,7 +283,10 @@
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 3
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOSE ARADA",
@@ -230,7 +296,10 @@
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "ANTÓNIO NISA",
@@ -240,7 +309,10 @@
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MARTIM RAMOS",
@@ -250,7 +322,10 @@
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "MATEUS MARQUES",
@@ -260,7 +335,10 @@
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MÁRIO RODRIGUES",
@@ -270,7 +348,10 @@
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "VASCO MIRANDA",
@@ -280,7 +361,10 @@
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOÃO COSTA",
@@ -290,7 +374,10 @@
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "FRANCISCO FONTOURA",
@@ -300,7 +387,10 @@
    "golos": 1,
    "assistencias": 2,
    "defesas": 0,
-   "pontos": 3
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MIGUEL ALVES",
@@ -310,7 +400,10 @@
    "golos": 1,
    "assistencias": 2,
    "defesas": 0,
-   "pontos": 3
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "HENRIQUE PEREIRA",
@@ -320,7 +413,10 @@
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOÃO BEIROLAS",
@@ -330,7 +426,10 @@
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MATEO AVONDO",
@@ -340,7 +439,10 @@
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "PEDRO TOMÁS",
@@ -350,7 +452,10 @@
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RODRIGO GONÇALVES",
@@ -360,7 +465,10 @@
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "SIMAO LAGE",
@@ -370,7 +478,10 @@
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 2,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "BRUNO FRADE",
@@ -380,7 +491,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "FRANCISCO THEMUDO",
@@ -390,7 +504,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "GUILHERME CAETANO",
@@ -400,7 +517,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RAFAEL CHARRAZ",
@@ -410,7 +530,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "VASCO DOMINGUES",
@@ -420,7 +543,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "VASCO GONÇALVES",
@@ -430,7 +556,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "AFONSO PEIXOTO",
@@ -440,7 +569,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "BERNARDO SOUSA",
@@ -450,7 +582,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO BARATA",
@@ -460,7 +595,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO ROSA",
@@ -470,7 +608,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "ELOI PASCUAL",
@@ -480,7 +621,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "FILIPE LOURENÇO",
@@ -490,7 +634,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "FILIPE REIS",
@@ -500,7 +647,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "FRANCISCO CONTINS",
@@ -510,7 +660,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "FRANCISCO FERREIRA",
@@ -520,7 +673,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "FRANCISCO ROCHA",
@@ -530,7 +686,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "GIL DOMINGUES",
@@ -540,7 +699,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "GIL MARQUES",
@@ -550,7 +712,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "GUILHERME GREGÓRIO",
@@ -560,7 +725,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "LUIS OLIVEIRA",
@@ -570,7 +738,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "MANUEL CALAMBRA",
@@ -580,7 +751,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MARTIM DIAS",
@@ -590,7 +764,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "PEDRO VELOSO",
@@ -600,7 +777,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RAFAEL TOMÁS",
@@ -610,7 +790,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RICARDO FILIPE",
@@ -620,7 +803,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "RODRIGO GODINHO",
@@ -630,7 +816,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RODRIGO MARREIROS",
@@ -640,7 +829,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RODRIGO MARTINS",
@@ -650,7 +842,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RUI MENDES",
@@ -660,7 +855,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 1,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "TIAGO FRANCISCO",
@@ -670,7 +868,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO FONSECA",
@@ -680,7 +881,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "PEDRO LOPES",
@@ -690,7 +894,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 2,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "SANTIAGO PEREIRA",
@@ -700,7 +907,10 @@
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RODRIGO COSTA",
@@ -710,7 +920,10 @@
    "golos": 0,
    "assistencias": 3,
    "defesas": 0,
-   "pontos": 3
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MARTIM SILVA",
@@ -720,7 +933,10 @@
    "golos": 0,
    "assistencias": 2,
    "defesas": 0,
-   "pontos": 2
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "AFONSO SOUSA",
@@ -730,7 +946,10 @@
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DAVID FONSECA",
@@ -740,7 +959,10 @@
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "SIMÃO VENTURA",
@@ -750,7 +972,10 @@
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "ANTÓNIO INGLÊS",
@@ -760,7 +985,10 @@
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 1,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO GONÇALVES",
@@ -770,7 +998,10 @@
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOÃO FERNANDES",
@@ -780,7 +1011,10 @@
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RUBEN ALMEIDA",
@@ -790,7 +1024,10 @@
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "VASCO BAPTISTA",
@@ -800,7 +1037,10 @@
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOSÉ TIAGO",
@@ -810,7 +1050,10 @@
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MANUEL CORREIA",
@@ -820,7 +1063,10 @@
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 1,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "MARTIM SILVA",
@@ -830,7 +1076,10 @@
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 1
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "AFONSO FONTINHA",
@@ -840,7 +1089,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "AFONSO PEREIRA",
@@ -850,7 +1102,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "AFONSO PIMENTEL",
@@ -860,7 +1115,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "ANDRÉ JACINTO",
@@ -870,7 +1128,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "ANTONIO FERREIRA",
@@ -880,7 +1141,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "ANTÓNIO ESTRELA",
@@ -890,7 +1154,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "CARLOS CENTEIO",
@@ -900,7 +1167,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "CONSTANTINO RODRIGUEZ",
@@ -910,7 +1180,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DANIEL MOREIRA",
@@ -920,7 +1193,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO BERNARDES",
@@ -930,7 +1206,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO CORDEIRO",
@@ -940,7 +1219,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO DAVID",
@@ -950,7 +1232,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO DIAS",
@@ -960,7 +1245,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO SAMPAIO",
@@ -970,7 +1258,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 1
   },
   {
    "nome": "DUARTE DIAS",
@@ -980,7 +1271,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "FRANCISCO CARRAÇA",
@@ -990,7 +1284,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "FRANCISCO PEDROSO",
@@ -1000,7 +1297,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "GUILHERME MONTEIRO",
@@ -1010,7 +1310,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "HUGO LOPES",
@@ -1020,7 +1323,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOÃO ALMEIDA",
@@ -1030,7 +1336,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOÃO MARQUES",
@@ -1040,7 +1349,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOÃO MENDES",
@@ -1050,7 +1362,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "KEVIN TIMAS",
@@ -1060,7 +1375,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MANUEL ALMEIDA",
@@ -1070,7 +1388,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MANUEL COIMBRA",
@@ -1080,7 +1401,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MARTIM COSTA",
@@ -1090,7 +1414,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MATIAS BALTAZAR",
@@ -1100,7 +1427,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MATIAS CALDEIRA",
@@ -1110,7 +1440,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MIGUEL SILVEIRA",
@@ -1120,7 +1453,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "NUNO LOPES",
@@ -1130,7 +1466,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "PEDRO FALCÃO",
@@ -1140,7 +1479,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "PEDRO GOMES",
@@ -1150,7 +1492,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "PEDRO RAFAEL FALCÃO",
@@ -1160,7 +1505,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RAFAEL LOPES",
@@ -1170,7 +1518,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RÚBEN GONÇALVES",
@@ -1180,7 +1531,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "TELMO EMÍDIO",
@@ -1190,7 +1544,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "TIAGO COSTA",
@@ -1200,7 +1557,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "VASCO ALEXANDRE",
@@ -1210,7 +1570,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "VICENTE PONTE",
@@ -1220,7 +1583,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "AFONSO CAMPOSANA",
@@ -1230,7 +1596,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "AFONSO COSTA",
@@ -1240,7 +1609,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "AFONSO LOURENÇO",
@@ -1250,7 +1622,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "AFONSO ROSÁRIO",
@@ -1260,7 +1635,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "ALEXANDRE FERREIRA",
@@ -1270,7 +1648,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "ANDRE COSTA",
@@ -1280,7 +1661,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "ANDRÉ COIMBRA",
@@ -1290,7 +1674,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "ANDRÉ LOPES",
@@ -1300,7 +1687,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "ANTÓNIO COSTA",
@@ -1310,7 +1700,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "ANTÓNIO MARANTE",
@@ -1320,7 +1713,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "BERNARDO ANTUNES",
@@ -1330,7 +1726,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 2,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DAVID FERREIRA",
@@ -1340,7 +1739,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DAVID GODINHO",
@@ -1350,7 +1752,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DAVID GOMES",
@@ -1360,7 +1765,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO CARDOSO",
@@ -1370,7 +1778,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO GOUVEIA",
@@ -1380,7 +1791,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO LOURENÇO",
@@ -1390,7 +1804,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO MORAIS",
@@ -1400,7 +1817,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO RODRIGUES",
@@ -1410,7 +1830,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO RUIVO",
@@ -1420,7 +1843,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO SERRANO",
@@ -1430,7 +1856,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DUARTE MORAIS",
@@ -1440,7 +1869,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "EDUARDO MONGINHO",
@@ -1450,7 +1882,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 2,
+   "vermelhos": 0
   },
   {
    "nome": "FILIPE PEREIRA",
@@ -1460,7 +1895,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "FRANCISCO FRADE",
@@ -1470,7 +1908,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "GONÇALO BELO",
@@ -1480,7 +1921,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "GONÇALO GASPAR",
@@ -1490,7 +1934,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "GUI PIMENTEL",
@@ -1500,7 +1947,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "GUILHERME JESUS",
@@ -1510,7 +1960,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "GUILHERME SOUTO",
@@ -1520,7 +1973,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "GUSTAVO LEITÃO",
@@ -1530,7 +1986,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "GUSTAVO OLIVEIRA",
@@ -1540,7 +1999,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "HUGO MENDES",
@@ -1550,7 +2012,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "HUGO PEREIRA",
@@ -1560,7 +2025,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOSÉ MACEDO",
@@ -1570,7 +2038,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOSÉ TIAGO",
@@ -1580,7 +2051,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 2,
+   "vermelhos": 0
   },
   {
    "nome": "JOÃO COSTA",
@@ -1590,7 +2064,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOÃO DIAS",
@@ -1600,7 +2077,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOÃO LAMPREIA",
@@ -1610,7 +2090,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOÃO MATOS",
@@ -1620,7 +2103,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "JOÃO PINA",
@@ -1630,7 +2116,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "LOURENÇO SOARES",
@@ -1640,7 +2129,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "LUCAS SERRAZINA",
@@ -1650,7 +2142,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MARCELO ARAÚJO",
@@ -1660,7 +2155,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MARTIM DOMINGOS",
@@ -1670,7 +2168,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "MARTIM SANTIAGO",
@@ -1680,7 +2181,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MIGUEL JOAQUIM",
@@ -1690,7 +2194,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MIGUEL NUNES",
@@ -1700,7 +2207,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MIGUEL PEREIRA",
@@ -1710,7 +2220,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MIGUEL TORRÃO",
@@ -1720,7 +2233,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
   },
   {
    "nome": "PEDRO ABREU",
@@ -1730,7 +2246,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RAFAEL JESUS",
@@ -1740,7 +2259,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RODRIGO PATRÃO",
@@ -1750,7 +2272,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RODRIGO POTIER",
@@ -1760,7 +2285,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RODRIGO PRATAS",
@@ -1770,7 +2298,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RODRIGO SIMÕES",
@@ -1780,7 +2311,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "RODRIGO TEIXEIRA",
@@ -1790,7 +2324,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 4,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "SANTIAGO GONÇALVES",
@@ -1800,7 +2337,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "TOMÁS VENTURA",
@@ -1810,7 +2350,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 2,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "VASCO TEIXEIRA",
@@ -1820,7 +2363,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "XAVIER RODRIGUES",
@@ -1830,7 +2376,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "ANTÓNIO SILVA",
@@ -1840,7 +2389,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "DIOGO ATAÍDE",
@@ -1850,7 +2402,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "NUNO EMÍDIO",
@@ -1860,7 +2415,10 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
-   "pontos": 0
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   }
  ],
  "tem_defesas": true
