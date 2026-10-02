@@ -23,7 +23,7 @@
 | B0.5 | Amostras de HTML para os testes | must | M | ✅ 6 amostras, incluindo ficha de seniores (2 partes), de escolares (4 partes, anonimizada) e jogo por disputar |
 | B0.6 | Descobrir subdomínios das outras associações | could | S | aberto |
 | W0.7 | Node LTS + SvelteKit a correr localmente | must | S | ✅ Node 24, `npm run dev` em `localhost:5173` |
-| W0.8 | Conta Cloudflare + projeto Pages ligado ao repo GitHub | must | S | ✅ ligado; `dados.yml` publica sozinho a cada 2h |
+| W0.8 | Conta Cloudflare + projeto Pages ligado ao repo GitHub | must | S | ✅ ligado; `dados.yml` publica sozinho — 2h aos fins-de-semana, 6h nos dias úteis, e sexta às 21h UTC |
 
 > A Fase 0 encolheu de ~1 dia para ~2 horas. É o primeiro dividendo da PWA: não há SDK, emulador,
 > keystore nem conta de programador a instalar antes de escrever a primeira linha.
@@ -212,15 +212,15 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 |---|---|---|---|---|
 | Q6.1 | Offline a sério: cache dos dados das equipas seguidas | should | L | Modo avião mostra os jogos do meu clube |
 | Q6.2 | Estratégia de cache explícita (stale-while-revalidate nos dados) | must | M | Abre instantâneo e atualiza em segundo plano |
-| Q6.3 | Aviso de "nova versão disponível" quando o service worker atualiza | must | S | Publicar nova versão oferece recarregar |
+| Q6.3 | Aviso de "nova versão disponível" quando o service worker atualiza | must | S | ✅ `AvisoVersao.svelte`. **E era pior do que o item dizia:** o `registerType: 'prompt'` estava configurado sem ninguém para mostrar o aviso, e no SvelteKit o `registerSW.js` não é injectado sozinho — **o service worker nunca era registado em produção**. Sem offline, sem cache, e o browser não reconhecia a app como instalável |
 | Q6.4 | Lighthouse ≥ 90 em Performance, Acessibilidade, Best Practices e PWA | should | M | Relatório no CI |
 | Q6.5 | Orçamento de bundle (< 150 KB JS comprimido na 1ª carga) | should | M | Build falha se exceder |
-| Q6.6 | Acessibilidade: contraste, focus visível, alvos ≥ 44px, leitor de ecrã | should | M | VoiceOver lê a lista de jogos de forma compreensível |
+| Q6.6 | Acessibilidade: contraste, focus visível, alvos ≥ 44px, leitor de ecrã | should | M | ✅ `<html lang="pt-PT">` (era `en` — o leitor de ecrã lia tudo com voz inglesa), `<h1>` nas 3 páginas que não tinham, link "saltar para o conteúdo", anel de foco visível (havia um `outline: none` a tirá-lo), alvos de toque a 44px em 9 sítios, e `prefers-reduced-motion`. Contraste e nomes acessíveis já estavam limpos: 0 problemas em 45 textos |
 | Q6.7 | Testes unitários do mapeamento de dados e dos componentes (Vitest) | should | M | 🟡 metade: `vitest` instalado e a correr no CI com 15 testes de lógica pura (`formato`, `provas`). Faltam os testes de componente |
 | Q6.8 | Teste end-to-end do percurso principal (Playwright) | could | M | Passa no CI |
 | Q6.9 | Relatório de erros no cliente (Sentry ou equivalente) | should | S | Erro forçado aparece |
 | Q6.10 | CI: build + testes em cada push | should | M | ✅ `.github/workflows/ci.yml` (Lighthouse por fazer) |
-| Q6.11 | Testado em Safari iOS e Chrome Android reais, não só no emulador | must | M | Sem bug de layout em nenhum |
+| Q6.11 | Testado em Safari iOS e Chrome Android reais, não só no emulador | must | M | 🟡 **por fazer, e precisa de ti** — o simulador iOS exige Xcode completo, que não está instalado. Entretanto corrigido por análise um bug conhecido de Safari: `position: sticky` com `border-collapse: collapse` perde as bordas ao rolar, e as 3 tabelas usavam essa combinação |
 
 ---
 
@@ -232,9 +232,9 @@ Muito mais leve do que o plano Android: sem loja, sem revisão, sem conta de pro
 |---|---|---|---|---|
 | L7.1 | Contactar a APL | must | S | ✅ **enviado a 01/10/2026** para `info@aplisboa.pt`. Se não houver resposta até ~22/10, telefonar: 213 931 710 |
 | L7.2 | Domínio próprio apontado ao Cloudflare Pages | should | S | Abre em `hoquei.<algo>` com HTTPS |
-| L7.3 | Ícones, nome e cor do tema no manifest | must | M | ✅ manifest com nome, cor e três ícones (192, 512, maskable) — servidos e verificados em produção |
+| L7.3 | Ícones, nome e cor do tema no manifest | must | M | ✅ manifest com nome, cor e três ícones — **e agora ligado**: até 02/10 não havia `<link rel="manifest">` no HTML, logo a app não era instalável apesar de o manifest existir |
 | L7.4 | Política de privacidade publicada | must | M | URL acessível a partir do rodapé |
-| L7.5 | Atribuição visível da fonte em todas as páginas | must | XS | "Dados: Federação de Patinagem de Portugal" no rodapé |
+| L7.5 | Atribuição visível da fonte em todas as páginas | must | XS | ✅ rodapé em todas as páginas, com ligação à APL e o aviso de não oficial |
 | L7.6 | Teste com 5–10 pessoas reais (pais, treinadores, adeptos) | must | M | Feedback recolhido e triado |
 | L7.7 | Partilhar o link nos grupos dos clubes | must | XS | Primeiros utilizadores a usar |
 

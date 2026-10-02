@@ -42,7 +42,7 @@
 		margin: 0 -0.9rem 0.6rem; padding: 0 0.9rem 0.3rem; }
 	.fita::-webkit-scrollbar { display: none; }
 	button {
-		flex: 0 0 auto; min-height: 36px; padding: 0.3rem 0.65rem; cursor: pointer;
+		flex: 0 0 auto; min-height: 44px; padding: 0.3rem 0.65rem; cursor: pointer;
 		font-size: 0.76rem; white-space: nowrap; border-radius: 999px;
 		border: 1px solid var(--borda); background: var(--cartao); color: var(--suave);
 	}

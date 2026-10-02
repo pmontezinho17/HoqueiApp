@@ -28,6 +28,8 @@
 
 <svelte:head><title>Competições — Hóquei em Patins</title></svelte:head>
 
+<h1 class="sr">Competições</h1>
+
 {#each grupos as [escalao, lista] (escalao)}
 	<section>
 		<h2>{escalao}</h2>

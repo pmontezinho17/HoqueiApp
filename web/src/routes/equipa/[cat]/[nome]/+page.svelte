@@ -320,7 +320,7 @@
 	.quem { flex: 1; min-width: 0; }
 	h1 { font-size: 1rem; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 	.escalao { font-size: 0.66rem; color: var(--acento); margin: 0.1rem 0 0; letter-spacing: 0.04em; }
-	.seguir { min-height: 36px; padding: 0.3rem 0.7rem; font-size: 0.72rem; cursor: pointer;
+	.seguir { min-height: 44px; padding: 0.3rem 0.7rem; font-size: 0.72rem; cursor: pointer;
 		white-space: nowrap; border-radius: 999px; border: 1px solid var(--borda);
 		background: none; color: var(--suave); }
 	.seguir.activo { border-color: var(--acento); color: var(--acento); font-weight: 600; }
@@ -328,19 +328,19 @@
 	.abas { display: flex; gap: 0.2rem; margin-bottom: 0.9rem; overflow-x: auto;
 		scrollbar-width: none; }
 	.abas::-webkit-scrollbar { display: none; }
-	.abas button { flex: 1 0 auto; min-height: 38px; padding: 0 0.6rem; font-size: 0.76rem;
+	.abas button { flex: 1 0 auto; min-height: 44px; padding: 0 0.6rem; font-size: 0.76rem;
 		cursor: pointer; white-space: nowrap; border-radius: 8px;
 		border: 1px solid var(--borda); background: var(--cartao); color: var(--suave); }
 	.abas button[aria-selected='true'] { color: var(--acento); border-color: var(--acento); font-weight: 600; }
 
 	.modos { display: flex; gap: 0.25rem; margin-bottom: 0.7rem; }
-	.modos button { flex: 1; min-height: 32px; font-size: 0.72rem; cursor: pointer;
+	.modos button { flex: 1; min-height: 44px; font-size: 0.72rem; cursor: pointer;
 		border-radius: 999px; border: 1px solid var(--borda);
 		background: var(--cartao); color: var(--suave); }
 	.modos button.activo { border-color: var(--acento); color: var(--acento); font-weight: 600; }
 
 	.vistas { display: flex; gap: 0.25rem; margin-bottom: 0.8rem; }
-	.vistas button { flex: 1; min-height: 34px; font-size: 0.74rem; cursor: pointer;
+	.vistas button { flex: 1; min-height: 44px; font-size: 0.74rem; cursor: pointer;
 		border-radius: 999px; border: 1px solid var(--borda);
 		background: none; color: var(--suave); }
 	.vistas button[aria-selected='true'] { border-color: var(--acento); color: var(--acento);
@@ -363,7 +363,12 @@
 		color: var(--acento); text-decoration: none; }
 
 	.rolo { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-	.plantel { width: 100%; border-collapse: collapse; font-size: 0.76rem;
+	/* `separate` e não `collapse`: no Safari, uma célula `position: sticky` dentro de uma
+	   tabela com `border-collapse: collapse` perde as bordas ao rolar — o fundo acompanha a
+	   célula fixa mas as bordas colapsadas ficam com o conteúdo. As nossas bordas já estão
+	   nas células (`border-top`), por isso o resultado desenhado é o mesmo.
+	   https://bugs.webkit.org/show_bug.cgi?id=128486 */
+	.plantel { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.76rem;
 		font-variant-numeric: tabular-nums; }
 	.plantel th, .plantel td { padding: 0.4rem 0.25rem; text-align: right; white-space: nowrap; }
 	.plantel thead th { font-size: 0.64rem; color: var(--suave); font-weight: 600;

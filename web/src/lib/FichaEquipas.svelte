@@ -59,7 +59,12 @@
 		color: var(--suave); margin: 0 0 0.5rem; }
 	.rolo { overflow-x: auto; background: var(--cartao); border: 1px solid var(--borda);
 		border-radius: 10px; }
-	table { width: 100%; border-collapse: collapse; font-size: 0.82rem;
+	/* `separate` e não `collapse`: no Safari, uma célula `position: sticky` dentro de uma
+	   tabela com `border-collapse: collapse` perde as bordas ao rolar — o fundo acompanha a
+	   célula fixa mas as bordas colapsadas ficam com o conteúdo. As nossas bordas já estão
+	   nas células (`border-top`), por isso o resultado desenhado é o mesmo.
+	   https://bugs.webkit.org/show_bug.cgi?id=128486 */
+	table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.82rem;
 		font-variant-numeric: tabular-nums; }
 	th, td { padding: 0.45rem 0.4rem; text-align: right; white-space: nowrap; }
 	thead th { font-size: 0.7rem; color: var(--suave); border-bottom: 1px solid var(--borda); }

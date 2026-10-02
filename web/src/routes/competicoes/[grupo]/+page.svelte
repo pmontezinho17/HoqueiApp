@@ -161,7 +161,7 @@
 	.abas button[aria-selected='true'] { color: var(--acento); border-color: var(--acento); font-weight: 600; }
 
 	.modos { display: flex; gap: 0.25rem; margin-bottom: 0.8rem; }
-	.modos button { flex: 1; min-height: 34px; font-size: 0.72rem; cursor: pointer;
+	.modos button { flex: 1; min-height: 44px; font-size: 0.72rem; cursor: pointer;
 		border-radius: 999px; border: 1px solid var(--borda);
 		background: none; color: var(--suave); }
 	.modos button.activo { border-color: var(--acento); color: var(--acento); font-weight: 600; }

@@ -78,6 +78,8 @@
 
 <svelte:head><title>Jogos — Hóquei em Patins</title></svelte:head>
 
+<h1 class="sr">Jogos</h1>
+
 <FitaDatas {dias} bind:escolhido={dia} />
 
 {#if escaloes.length > 1}
@@ -127,7 +129,7 @@
 	.escaloes { display: flex; gap: 0.25rem; overflow-x: auto; scrollbar-width: none;
 		margin: 0 -0.9rem 0.7rem; padding: 0 0.9rem 0.2rem; }
 	.escaloes::-webkit-scrollbar { display: none; }
-	.escaloes button { flex: 0 0 auto; min-height: 32px; padding: 0.25rem 0.6rem;
+	.escaloes button { flex: 0 0 auto; min-height: 44px; padding: 0.25rem 0.6rem;
 		font-size: 0.72rem; white-space: nowrap; cursor: pointer; border-radius: 999px;
 		border: 1px solid var(--borda); background: var(--cartao); color: var(--suave); }
 	.escaloes button.activo { border-color: var(--acento); color: var(--acento); font-weight: 600; }

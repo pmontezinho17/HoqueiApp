@@ -6,7 +6,7 @@ e fichas de jogo das competições nacionais (FPP) e regionais.
 ## Estado
 
 🟢 **Ao vivo em [hoquei.pages.dev](https://hoquei.pages.dev).** Três ecrãs — jogos, classificação
-e detalhe de jogo com cronologia jogada a jogada. Instalável no telemóvel. Os dados são
+e detalhe de jogo com cronologia jogada a jogada. Instalável no telemóvel (a sério desde 02/10 — ver abaixo). Os dados são
 regenerados e publicados sozinhos por GitHub Action.
 
 O cliente é uma **PWA** (SvelteKit + Cloudflare Pages), decidido a 20/09 em vez de app Android

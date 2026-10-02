@@ -1,9 +1,17 @@
 <!doctype html>
-<html lang="en">
+<!-- pt-PT, e não en: o leitor de ecrã escolhe a voz por este atributo, e em inglês
+     lê "Paço de Arcos" e "Vilafranquense" de forma incompreensível -->
+<html lang="pt-PT">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 		<meta name="text-scale" content="scale" />
+		<!-- a barra do browser acompanha o tema do sistema -->
+		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f7f9" />
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1115" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-title" content="Hóquei" />
+		<link rel="apple-touch-icon" href="/icones/icone-192.png" />
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

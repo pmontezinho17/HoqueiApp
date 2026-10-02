@@ -79,7 +79,12 @@
 	/* a largura do lugar e o encosto do nome saem da MESMA medida: quando eram dois valores
 	   independentes (1.4rem e 1.7rem) o nome assentava 11px por cima da coluna dos jogos */
 	.rolo { --lugar: 2rem; overflow-x: auto; scrollbar-width: thin; }
-	table { width: 100%; border-collapse: collapse; font-size: 0.76rem;
+	/* `separate` e não `collapse`: no Safari, uma célula `position: sticky` dentro de uma
+	   tabela com `border-collapse: collapse` perde as bordas ao rolar — o fundo acompanha a
+	   célula fixa mas as bordas colapsadas ficam com o conteúdo. As nossas bordas já estão
+	   nas células (`border-top`), por isso o resultado desenhado é o mesmo.
+	   https://bugs.webkit.org/show_bug.cgi?id=128486 */
+	table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.76rem;
 		font-variant-numeric: tabular-nums; }
 	th, td { box-sizing: border-box; padding: 0.4rem 0.3rem; text-align: right;
 		white-space: nowrap; }

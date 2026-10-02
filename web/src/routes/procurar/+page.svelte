@@ -21,6 +21,8 @@
 
 <svelte:head><title>Procurar — Hóquei em Patins</title></svelte:head>
 
+<h1 class="sr">Procurar equipa</h1>
+
 <input bind:this={campo} type="search" bind:value={procura}
 	placeholder="Nome do clube" aria-label="Procurar clube" />
 
@@ -55,7 +57,7 @@
 	.nome { display: block; font-size: 0.82rem; overflow: hidden;
 		text-overflow: ellipsis; white-space: nowrap; }
 	.cat { display: block; font-size: 0.66rem; color: var(--suave); }
-	button { min-height: 36px; padding: 0.25rem 0.6rem; font-size: 0.7rem; cursor: pointer;
+	button { min-height: 44px; padding: 0.25rem 0.6rem; font-size: 0.7rem; cursor: pointer;
 		white-space: nowrap; border-radius: 999px; border: 1px solid var(--borda);
 		background: none; color: var(--suave); }
 	button.segue { border-color: var(--acento); color: var(--acento); font-weight: 600; }

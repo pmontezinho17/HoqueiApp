@@ -95,7 +95,7 @@
 <style>
 	.topo { display: flex; align-items: center; justify-content: space-between;
 		margin-bottom: 0.5rem; font-size: 0.82rem; }
-	.topo button { min-width: 40px; min-height: 36px; cursor: pointer; font-size: 1rem;
+	.topo button { min-width: 44px; min-height: 44px; cursor: pointer; font-size: 1rem;
 		border-radius: 8px; border: 1px solid var(--borda);
 		background: var(--cartao); color: var(--suave); }
 

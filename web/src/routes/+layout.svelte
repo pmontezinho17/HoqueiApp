@@ -1,4 +1,11 @@
 <script lang="ts">
+	import AvisoVersao from '$lib/AvisoVersao.svelte';
+	import { pwaInfo } from 'virtual:pwa-info';
+
+	// sem isto não há <link rel="manifest"> no HTML: o manifest existia e ninguém lhe apontava,
+	// e o browser não tinha como saber que a app é instalável
+	const manifest = $derived(pwaInfo?.webManifest?.linkTag ?? '');
+
 	import { page, navigating } from '$app/state';
 	import Desatualizado from '$lib/Desatualizado.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
@@ -22,6 +29,10 @@
 </script>
 
 {#if navigating.to}<div class="progresso" role="status" aria-label="A carregar"></div>{/if}
+
+<svelte:head>{@html manifest}</svelte:head>
+
+<a class="salto" href="#conteudo">Saltar para o conteúdo</a>
 
 <header>
 	<div class="topo">
@@ -52,7 +63,19 @@
 	</nav>
 </header>
 
-<main>{@render children()}</main>
+<main id="conteudo">{@render children()}</main>
+
+<footer>
+	<!-- L7.5: a atribuição tem de estar em todas as páginas, e não só no /mais. É o que
+	     dissemos à APL que faríamos, e quem abrir uma página a fundo não passa pelo /mais -->
+	<p>
+		Dados da <a href="https://aplisboa.pt/resultados/" rel="external noopener">Associação de
+		Patinagem de Lisboa</a>. Site não oficial, feito por adeptos.
+	</p>
+	<p><a href="/mais">Sobre e contactos</a></p>
+</footer>
+
+<AvisoVersao />
 
 <style>
 	:global(:root) {
@@ -75,6 +98,40 @@
 	}
 	:global(a) { color: inherit; }
 
+	/* só para leitores de ecrã: um h1 em páginas onde um título visível acrescentaria
+	   cromado que o benchmarking mandou cortar */
+	:global(.sr) {
+		position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+		overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+	}
+	/* o link de salto só aparece a quem navega por teclado */
+	.salto {
+		position: absolute; left: 0.5rem; top: -3rem; z-index: 60;
+		padding: 0.6rem 0.9rem; font-size: 0.8rem; border-radius: 8px;
+		background: var(--cartao); color: var(--texto); border: 1px solid var(--acento);
+		transition: top 0.15s;
+	}
+	.salto:focus { top: 0.5rem; }
+
+	/* acessibilidade (Q6.6) — o anel de foco é a única pista de onde se está a navegar
+	   por teclado, e o `outline: none` que havia nos ícones tirava-a sem pôr nada no lugar */
+	:global(:focus-visible) { outline: 2px solid var(--acento); outline-offset: 2px;
+		border-radius: 4px; }
+	:global(a:focus-visible), :global(button:focus-visible) { outline-offset: 3px; }
+
+	/* respeitar quem pede menos movimento */
+	@media (prefers-reduced-motion: reduce) {
+		:global(*) { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+	}
+
+	footer {
+		margin: 2rem 0 0; padding: 1rem 0.8rem calc(1rem + env(safe-area-inset-bottom));
+		border-top: 1px solid var(--borda); font-size: 0.68rem;
+		color: var(--suave); text-align: center;
+	}
+	footer p { margin: 0.2rem 0; }
+	footer a { text-decoration: underline; }
+
 	/* cromado compacto: 178px antes do 1º jogo era 22% do ecrã (ver benchmarking) */
 	header {
 		position: sticky; top: 0; z-index: 10; background: var(--fundo);
@@ -86,12 +143,12 @@
 	.marca span { font-weight: 400; color: var(--suave); margin-left: 0.3rem; font-size: 0.72rem; }
 	.acoes { display: flex; align-items: center; gap: 0.15rem; }
 	.icone { display: inline-flex; align-items: center; justify-content: center;
-		width: 40px; height: 40px; color: var(--suave); text-decoration: none; }
-	.icone:hover, .icone:focus-visible { color: var(--acento); outline: none; }
+		width: 44px; height: 44px; color: var(--suave); text-decoration: none; }
+	.icone:hover, .icone:focus-visible { color: var(--acento); }
 
 	nav { display: flex; gap: 0.1rem; }
 	nav a {
-		flex: 1; text-align: center; padding: 0.55rem 0.2rem; min-height: 42px;
+		flex: 1; text-align: center; padding: 0.55rem 0.2rem; min-height: 44px;
 		font-size: 0.82rem; text-decoration: none; color: var(--suave);
 		border-bottom: 2px solid transparent; white-space: nowrap;
 	}
