@@ -43,13 +43,30 @@ federação. Está no email à APL por responder. Ver o travão na Fase 9 do bac
 
 ## Próximo passo
 
+Das sete funcionalidades que pediste no Keep, **quatro estão feitas**, uma está a meio e
+**duas faltam**:
+
+| Pedido original | Estado |
+|---|---|
+| Escolher equipas favoritas | ✅ |
+| Quadro com golos gerais | ✅ |
+| Calendário de cada clube e do meu clube | ✅ |
+| Informação das fichas de jogo | 🟡 falta o boletim oficial (B1.9c) |
+| **Adicionar ao calendário os jogos de um clube/escalão** | ❌ **B4.11 + W4.12 — o mais barato que falta** |
+| Notificações de alterações de jogos | ❌ Fase 5, a maior |
+| Entrar com conta Google | ❌ Fase 5 |
+
 ```
-B9.14          publicar as tabelas calculadas  ← à espera da APL
-B1.9c          boletim oficial → 3ª tab do detalhe de jogo, e desbloqueia o W8.5
-W6.4 / W6.5    seguir uma competição; seguir um jogo individual
-W8.4           nomes de equipa clicáveis na agenda e no detalhe de jogo
-Fase 5         notificações (Web Push) — é onde entra estado no backend
+1.  B4.11 + W4.12   feed ICS por equipa + botão "adicionar ao calendário"   ← sem dependências
+2.  L7.5            atribuição da fonte no rodapé de todas as páginas       ← must, 10 min
+3.  B1.9c           boletim oficial → 3ª tab, e desbloqueia o W8.5
+4.  L7.4            política de privacidade
+5.  Fase 9 (B9.2 + B9.6)  contagens por ronda — protege o que já existe
+6.  Fase 5          notificações — depende da sonda e da Fase 9
 ```
+
+Bloqueados, não esquecidos: **B9.14** (tabelas calculadas) espera a APL; **F8.1** (live scores)
+espera o diário da sonda de hoje.
 
 ~~W6.2~~ fechado a 02/10: a classificação tem `Simples · Completa` nas duas páginas, servidas
 pelo mesmo componente.

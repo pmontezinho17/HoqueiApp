@@ -23,7 +23,7 @@
 | B0.5 | Amostras de HTML para os testes | must | M | ✅ 6 amostras, incluindo ficha de seniores (2 partes), de escolares (4 partes, anonimizada) e jogo por disputar |
 | B0.6 | Descobrir subdomínios das outras associações | could | S | aberto |
 | W0.7 | Node LTS + SvelteKit a correr localmente | must | S | ✅ Node 24, `npm run dev` em `localhost:5173` |
-| W0.8 | Conta Cloudflare + projeto Pages ligado ao repo GitHub | must | S | Push na `main` publica automaticamente |
+| W0.8 | Conta Cloudflare + projeto Pages ligado ao repo GitHub | must | S | ✅ ligado; `dados.yml` publica sozinho a cada 2h |
 
 > A Fase 0 encolheu de ~1 dia para ~2 horas. É o primeiro dividendo da PWA: não há SDK, emulador,
 > keystore nem conta de programador a instalar antes de escrever a primeira linha.
@@ -54,7 +54,7 @@
 | B1.12 | Deteção de mudanças por hash | should | S | aberto |
 | B1.13 | Normalização de nomes de clubes + slug estável | should | M | aberto |
 | B1.14 | GitHub Action com cron | must | M | ✅ 2h aos fins-de-semana, 6h nos dias úteis — ver nota de cadência |
-| B1.15 | Publicação dos JSON **no mesmo domínio da PWA** (Cloudflare Pages) | must | M | aberto — ver nota |
+| B1.15 | Publicação dos JSON **no mesmo domínio da PWA** (Cloudflare Pages) | must | M | ✅ mesmo domínio da PWA, sem CORS |
 | B1.16 | `meta.json` com `generated_at` e estado | must | XS | ✅ |
 | B1.17 | Alerta de quebra do parser | should | S | aberto |
 | B1.18 | Backfill de temporadas anteriores | could | M | aberto |
@@ -87,8 +87,8 @@ Objetivo: **um ecrã** com jogos reais, no telemóvel, instalável. É aqui que 
 | W2.7 | **Mobile-first**: legível e utilizável a 360px sem scroll horizontal | must | M | ✅ verificado a 375×812, sem scroll horizontal |
 | W2.8 | `manifest.webmanifest` + ícones + `vite-plugin-pwa` | must | M | ✅ manifest + ícones 192/512/maskable (provisórios, ver L7.3) |
 | W2.9 | Service worker a pré-carregar o shell (offline básico) | must | M | ✅ 19 entradas (122 KiB) + stale-while-revalidate em `/v1/` |
-| W2.10 | Publicado em Cloudflare Pages, acessível por URL público | must | S | Abre no teu telemóvel pelo link |
-| W2.11 | Tema claro/escuro seguindo o sistema | should | M | Alternar o tema não deixa texto ilegível |
+| W2.10 | Publicado em Cloudflare Pages, acessível por URL público | must | S | ✅ https://hoquei.pages.dev |
+| W2.11 | Tema claro/escuro seguindo o sistema | should | M | ✅ `prefers-color-scheme`, verificado nos dois temas |
 
 > Ao contrário do plano Android, **no fim da Fase 2 já há um link para partilhar**. Não é preciso
 > esperar pela Fase 7 para alguém ver aquilo.
@@ -109,11 +109,11 @@ Objetivo: **um ecrã** com jogos reais, no telemóvel, instalável. É aqui que 
 | W3.6b | Tab Ficha | must | L | ✅ jogadores com G/A/D e equipa técnica |
 | W3.6c | Tab Boletim: arbitragem, resultado por parte, prolongamento | could | M | Mostra os parciais e a equipa de arbitragem |
 | W3.6d | Esconder tabs vazias | should | XS | ✅ sem cronologia ou sem ficha, a tab não aparece |
-| W3.7 | Ecrã Equipa: próximos jogos, últimos resultados, posição, plantel | should | L | Chega-se lá clicando no nome da equipa em qualquer sítio |
+| W3.7 | Ecrã Equipa: próximos jogos, últimos resultados, posição, plantel | should | L | ✅ feito pelo W8.1 — `/equipa/[cat]/[nome]` com Resumo · Jogos · Classificação · Plantel |
 | W3.8 | Ecrã Quadros | must | L | ✅ top 50 com clube, total e média por jogo |
 | W3.9 | Quadros de marcadores, assistências e defesas | should | M | ✅ ecrã `/quadros`, com empates no mesmo lugar e média por jogo |
 | W3.10 | Explicação em vez de lista vazia | must | XS | ✅ competição sem fichas publicadas explica-o; a tab Defesas só aparece se houver defesas registadas |
-| W3.11 | Ecrã Sobre: atribuição da fonte, última atualização, versão | must | S | Mostra o `generated_at` do `meta.json` |
+| W3.11 | Ecrã Sobre: atribuição da fonte, última atualização, versão | must | S | ✅ `/mais` — fonte, última actualização, contagens e o aviso de não oficial |
 | W3.12 | Aviso de dados velhos | should | S | ✅ idade no cabeçalho, destacada acima de 24h |
 | W3.13 | Pré-visualização em partilhas (Open Graph por jogo) | could | M | Colar o link de um jogo no WhatsApp mostra as equipas e o resultado |
 | W3.6e | Tab Ficha: colunas **Pe** e **LD** | should | S | ✅ a cinzento quando `0/0`, destacadas quando houve remate |
@@ -138,8 +138,8 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 | W4.5 | Ecrã "O Meu Clube" | must | L | ✅ próximo jogo, último resultado e posição em cada prova do escalão; é o `start_url` da app instalada |
 | W4.6 | Gerir favoritos | must | S | ✅ seguir/deixar de seguir no próprio ecrã |
 | ~~W4.7~~ | ~~Ecrã Calendário próprio~~ | — | — | ❌ **Substituído pelo W7.5**, que vive em O Meu Clube e é melhor: casa/fora codificado na célula |
-| W4.8 | Calendário de qualquer clube, a partir do ecrã Equipa | must | M | Chega-se ao calendário do Benfica sem o seguir |
-| W4.9 | Distinguir casa/fora visualmente | should | S | Nota-se num relance |
+| W4.8 | Calendário de qualquer clube, a partir do ecrã Equipa | must | M | ✅ feito pelo W8.6 — o calendário vive dentro da equipa, e chega-se a qualquer uma |
+| W4.9 | Distinguir casa/fora visualmente | should | S | ✅ no calendário: fundo escuro e um `F` nos jogos fora |
 | W4.10 | Partilhar jogo ou resultado (Web Share API) | should | S | Abre o menu de partilha nativo do telemóvel |
 | W4.15 | Vista Agenda, transversal às competições | should | L | ✅ `/agenda` com Próximos e Resultados, agrupado por dia, filtro "só as minhas equipas" ligado por omissão |
 | B4.16 | `agenda.json`: índice transversal de jogos para a vista Agenda | should | M | ✅ 791 jogos, 13,7 KB comprimido, num só pedido |
@@ -216,7 +216,7 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 | Q6.4 | Lighthouse ≥ 90 em Performance, Acessibilidade, Best Practices e PWA | should | M | Relatório no CI |
 | Q6.5 | Orçamento de bundle (< 150 KB JS comprimido na 1ª carga) | should | M | Build falha se exceder |
 | Q6.6 | Acessibilidade: contraste, focus visível, alvos ≥ 44px, leitor de ecrã | should | M | VoiceOver lê a lista de jogos de forma compreensível |
-| Q6.7 | Testes unitários do mapeamento de dados e dos componentes (Vitest) | should | M | `npm test` verde |
+| Q6.7 | Testes unitários do mapeamento de dados e dos componentes (Vitest) | should | M | 🟡 metade: `vitest` instalado e a correr no CI com 15 testes de lógica pura (`formato`, `provas`). Faltam os testes de componente |
 | Q6.8 | Teste end-to-end do percurso principal (Playwright) | could | M | Passa no CI |
 | Q6.9 | Relatório de erros no cliente (Sentry ou equivalente) | should | S | Erro forçado aparece |
 | Q6.10 | CI: build + testes em cada push | should | M | ✅ `.github/workflows/ci.yml` (Lighthouse por fazer) |
@@ -232,7 +232,7 @@ Muito mais leve do que o plano Android: sem loja, sem revisão, sem conta de pro
 |---|---|---|---|---|
 | L7.1 | Contactar a APL | must | S | ✅ **enviado a 01/10/2026** para `info@aplisboa.pt`. Se não houver resposta até ~22/10, telefonar: 213 931 710 |
 | L7.2 | Domínio próprio apontado ao Cloudflare Pages | should | S | Abre em `hoquei.<algo>` com HTTPS |
-| L7.3 | Ícones, nome e cor do tema no manifest | must | M | Ícone correto no ecrã principal em Android e iOS |
+| L7.3 | Ícones, nome e cor do tema no manifest | must | M | ✅ manifest com nome, cor e três ícones (192, 512, maskable) — servidos e verificados em produção |
 | L7.4 | Política de privacidade publicada | must | M | URL acessível a partir do rodapé |
 | L7.5 | Atribuição visível da fonte em todas as páginas | must | XS | "Dados: Federação de Patinagem de Portugal" no rodapé |
 | L7.6 | Teste com 5–10 pessoas reais (pais, treinadores, adeptos) | must | M | Feedback recolhido e triado |
