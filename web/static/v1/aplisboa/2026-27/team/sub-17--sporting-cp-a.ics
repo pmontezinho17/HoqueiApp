@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:SPORTING CP A · SUB-17
-X-WR-CALDESC:Jogos de SPORTING CP A (SUB-17)
+X-WR-CALNAME:🏑 Sporting CP A · Sub-17
+X-WR-CALDESC:Jogos de Sporting CP A (Sub-17)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,12 @@ UID:jogo-9754@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T200000Z
 DTEND:20260926T213000Z
-SUMMARY:AE FISICA D A (fora) 3–2
+SUMMARY:🏑 Sub-17 🏑 AE Fisica D A vs Sporting CP A
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA D A 2–3 SPORTING CP A\nCAMP. REG. SUB-17 - 1ª FASE
-  · Série E · SUB-17\nhttps://hoquei.pages.dev/jogo/9754\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica D A 2–3 Sporting CP A\nCAMP. REG. SUB-17 - 1ª FASE
+  · Série E · SUB-17\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.d
+ ev/jogo/9754\nDados da Associação de Patinagem de Lisboa. Site não ofic
+ ial.
 URL:https://hoquei.pages.dev/jogo/9754
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +26,11 @@ UID:jogo-9758@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T160000Z
 DTEND:20261003T173000Z
-SUMMARY:FSE/AJ SALESIANA A (casa)
+SUMMARY:🏑 Sub-17 🏑 Sporting CP A vs FSE/AJ Salesiana A
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP A vs FSE/AJ SALESIANA A\nCAMP. REG. SUB-17 - 1ª FA
- SE · Série E · SUB-17\nhttps://hoquei.pages.dev/jogo/9758\nDados da Ass
- ociação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP A vs FSE/AJ Salesiana A\nCAMP. REG. SUB-17 - 1ª FA
+ SE · Série E · SUB-17\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jo
+ go/9758\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9758
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +38,11 @@ UID:jogo-9762@hoquei.pages.dev
 DTSTAMP:20261008T000000Z
 DTSTART:20261008T201500Z
 DTEND:20261008T214500Z
-SUMMARY:AD OEIRAS B (fora)
+SUMMARY:🏑 Sub-17 🏑 AD Oeiras B vs Sporting CP A
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:AD OEIRAS B vs SPORTING CP A\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie E · SUB-17\nhttps://hoquei.pages.dev/jogo/9762\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras B vs Sporting CP A\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie E · SUB-17\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/9762
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9762
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +50,11 @@ UID:jogo-9761@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T143000Z
 DTEND:20261010T160000Z
-SUMMARY:CACO B (fora)
+SUMMARY:🏑 Sub-17 🏑 Caco B vs Sporting CP A
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO B vs SPORTING CP A\nCAMP. REG. SUB-17 - 1ª FASE · Série
-  E · SUB-17\nhttps://hoquei.pages.dev/jogo/9761\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco B vs Sporting CP A\nCAMP. REG. SUB-17 - 1ª FASE · Série
+  E · SUB-17\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9761\nDados
+  da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9761
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +62,11 @@ UID:jogo-9766@hoquei.pages.dev
 DTSTAMP:20261014T000000Z
 DTSTART:20261014T200000Z
 DTEND:20261014T213000Z
-SUMMARY:HC SINTRA (casa)
+SUMMARY:🏑 Sub-17 🏑 Sporting CP A vs HC Sintra
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP A vs HC SINTRA\nCAMP. REG. SUB-17 - 1ª FASE · Sé
- rie E · SUB-17\nhttps://hoquei.pages.dev/jogo/9766\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP A vs HC Sintra\nCAMP. REG. SUB-17 - 1ª FASE · Sé
+ rie E · SUB-17\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/9766\n
+ Dados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9766
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +74,11 @@ UID:jogo-9769@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T160000Z
 DTEND:20261024T173000Z
-SUMMARY:AE FISICA D A (casa)
+SUMMARY:🏑 Sub-17 🏑 Sporting CP A vs AE Fisica D A
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP A vs AE FISICA D A\nCAMP. REG. SUB-17 - 1ª FASE ·
-  Série E · SUB-17\nhttps://hoquei.pages.dev/jogo/9769\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP A vs AE Fisica D A\nCAMP. REG. SUB-17 - 1ª FASE ·
+  Série E · SUB-17\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/97
+ 69\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9769
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +86,11 @@ UID:jogo-9773@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T201500Z
 DTEND:20261031T214500Z
-SUMMARY:FSE/AJ SALESIANA A (fora)
+SUMMARY:🏑 Sub-17 🏑 FSE/AJ Salesiana A vs Sporting CP A
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA A vs SPORTING CP A\nCAMP. REG. SUB-17 - 1ª FA
- SE · Série E · SUB-17\nhttps://hoquei.pages.dev/jogo/9773\nDados da Ass
- ociação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana A vs Sporting CP A\nCAMP. REG. SUB-17 - 1ª FA
+ SE · Série E · SUB-17\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/97
+ 73\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9773
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +98,11 @@ UID:jogo-9776@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T180000Z
 DTEND:20261107T193000Z
-SUMMARY:CACO B (casa)
+SUMMARY:🏑 Sub-17 🏑 Sporting CP A vs Caco B
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP A vs CACO B\nCAMP. REG. SUB-17 - 1ª FASE · Série
-  E · SUB-17\nhttps://hoquei.pages.dev/jogo/9776\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP A vs Caco B\nCAMP. REG. SUB-17 - 1ª FASE · Série
+  E · SUB-17\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/9776\nDad
+ os da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9776
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +110,11 @@ UID:jogo-9777@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T214500Z
 DTEND:20261114T231500Z
-SUMMARY:AD OEIRAS B (casa)
+SUMMARY:🏑 Sub-17 🏑 Sporting CP A vs AD Oeiras B
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:SPORTING CP A vs AD OEIRAS B\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie E · SUB-17\nhttps://hoquei.pages.dev/jogo/9777\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP A vs AD Oeiras B\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie E · SUB-17\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9777\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9777
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +122,11 @@ UID:jogo-9781@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T163000Z
 DTEND:20261121T180000Z
-SUMMARY:HC SINTRA (fora)
+SUMMARY:🏑 Sub-17 🏑 HC Sintra vs Sporting CP A
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:HC SINTRA vs SPORTING CP A\nCAMP. REG. SUB-17 - 1ª FASE · Sé
- rie E · SUB-17\nhttps://hoquei.pages.dev/jogo/9781\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Sintra vs Sporting CP A\nCAMP. REG. SUB-17 - 1ª FASE · Sé
+ rie E · SUB-17\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9781\nDados
+  da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9781
 END:VEVENT
 END:VCALENDAR

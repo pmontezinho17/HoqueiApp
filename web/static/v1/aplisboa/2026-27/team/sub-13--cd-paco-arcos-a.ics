@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:CD PAÇO ARCOS A · SUB-13
-X-WR-CALDESC:Jogos de CD PAÇO ARCOS A (SUB-13)
+X-WR-CALNAME:🏑 CD Paço Arcos A · Sub-13
+X-WR-CALDESC:Jogos de CD Paço Arcos A (Sub-13)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9366@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T100000Z
 DTEND:20260912T113000Z
-SUMMARY:S ALENQUER BENFICA (casa) 7–1
+SUMMARY:🏑 Sub-13 🏑 CD Paço Arcos A vs S Alenquer Benfica
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:CD PAÇO ARCOS A 7–1 S ALENQUER BENFICA\nTORNEIO ABERTURA APL
-  SUB-13 · SUB-13\nhttps://hoquei.pages.dev/jogo/9366\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CD Paço Arcos A 7–1 S Alenquer Benfica\nTORNEIO ABERTURA APL
+  SUB-13 · SUB-13\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo
+ /9366\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9366
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9367@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T123000Z
 DTEND:20260912T140000Z
-SUMMARY:CACO B (fora) 18–0
+SUMMARY:🏑 Sub-13 🏑 Caco B vs CD Paço Arcos A
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:CACO B 0–18 CD PAÇO ARCOS A\nTORNEIO ABERTURA APL SUB-13 · 
- SUB-13\nhttps://hoquei.pages.dev/jogo/9367\nDados da Associação de Patin
- agem de Lisboa. Site não oficial.
+DESCRIPTION:Caco B 0–18 CD Paço Arcos A\nTORNEIO ABERTURA APL SUB-13 · 
+ SUB-13\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo/9367\nDado
+ s da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9367
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9373@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T091500Z
 DTEND:20260919T104500Z
-SUMMARY:AD OEIRAS A (fora) 1–0
+SUMMARY:🏑 Sub-13 🏑 AD Oeiras A vs CD Paço Arcos A
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:AD OEIRAS A 0–1 CD PAÇO ARCOS A\nTORNEIO ABERTURA APL SUB-13
-  · SUB-13\nhttps://hoquei.pages.dev/jogo/9373\nDados da Associação de P
- atinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras A 0–1 CD Paço Arcos A\nTORNEIO ABERTURA APL SUB-13
+  · SUB-13\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.dev/jogo/9373\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9373
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9376@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T153000Z
 DTEND:20260919T170000Z
-SUMMARY:AE FISICA A (fora) 6–2
+SUMMARY:🏑 Sub-13 🏑 AE Fisica A vs CD Paço Arcos A
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:AE FISICA A 2–6 CD PAÇO ARCOS A\nTORNEIO ABERTURA APL SUB-13
-  · SUB-13\nhttps://hoquei.pages.dev/jogo/9376\nDados da Associação de P
- atinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica A 2–6 CD Paço Arcos A\nTORNEIO ABERTURA APL SUB-13
+  · SUB-13\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.dev/jogo/9376\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9376
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9378@hoquei.pages.dev
 DTSTAMP:20260920T000000Z
 DTSTART:20260920T083000Z
 DTEND:20260920T100000Z
-SUMMARY:SPORTING CP (casa) 3–1
+SUMMARY:🏑 Sub-13 🏑 CD Paço Arcos A vs Sporting CP
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:CD PAÇO ARCOS A 3–1 SPORTING CP\nTORNEIO ABERTURA APL SUB-13
-  · SUB-13\nhttps://hoquei.pages.dev/jogo/9378\nDados da Associação de P
- atinagem de Lisboa. Site não oficial.
+DESCRIPTION:CD Paço Arcos A 3–1 Sporting CP\nTORNEIO ABERTURA APL SUB-13
+  · SUB-13\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9378\nDados da 
+ Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9378
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9454@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T140000Z
 DTEND:20260926T153000Z
-SUMMARY:APAC TOJAL (fora) 17–0
+SUMMARY:🏑 Sub-13 🏑 APAC Tojal vs CD Paço Arcos A
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL 0–17 CD PAÇO ARCOS A\nCAMP. REG. SUB-13 - 1ª FAS
- E · Série A · SUB-13\nhttps://hoquei.pages.dev/jogo/9454\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal 0–17 CD Paço Arcos A\nCAMP. REG. SUB-13 - 1ª FAS
+ E · Série A · SUB-13\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo
+ /9454\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9454
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9458@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T160000Z
 DTEND:20261003T173000Z
-SUMMARY:SC TORRES (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A vs SC TORRES\nCAMP. REG. SUB-13 - 1ª FASE · 
- Série A · SUB-13\nhttps://hoquei.pages.dev/jogo/9458\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-13 🏑 CD Paço Arcos A vs SC Torres
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A vs SC Torres\nCAMP. REG. SUB-13 - 1ª FASE · 
+ Série A · SUB-13\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/945
+ 8\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9458
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9461@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T133000Z
 DTEND:20261010T150000Z
-SUMMARY:AD OEIRAS A (fora)
+SUMMARY:🏑 Sub-13 🏑 AD Oeiras A vs CD Paço Arcos A
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS A vs CD PAÇO ARCOS A\nCAMP. REG. SUB-13 - 1ª FASE 
- · Série A · SUB-13\nhttps://hoquei.pages.dev/jogo/9461\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras A vs CD Paço Arcos A\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série A · SUB-13\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9461
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9461
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9462@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T140000Z
 DTEND:20261017T153000Z
-SUMMARY:HC SINTRA (fora)
+SUMMARY:🏑 Sub-13 🏑 HC Sintra vs CD Paço Arcos A
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:HC SINTRA vs CD PAÇO ARCOS A\nCAMP. REG. SUB-13 - 1ª FASE · 
- Série A · SUB-13\nhttps://hoquei.pages.dev/jogo/9462\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Sintra vs CD Paço Arcos A\nCAMP. REG. SUB-13 - 1ª FASE · 
+ Série A · SUB-13\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9462\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9462
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9466@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T150000Z
 DTEND:20261018T163000Z
-SUMMARY:CACO A (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A vs CACO A\nCAMP. REG. SUB-13 - 1ª FASE · Sé
- rie A · SUB-13\nhttps://hoquei.pages.dev/jogo/9466\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-13 🏑 CD Paço Arcos A vs Caco A
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A vs Caco A\nCAMP. REG. SUB-13 - 1ª FASE · Sé
+ rie A · SUB-13\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/9466\n
+ Dados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9466
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +133,11 @@ UID:jogo-9469@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T123000Z
 DTEND:20261024T140000Z
-SUMMARY:APAC TOJAL (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A vs APAC TOJAL\nCAMP. REG. SUB-13 - 1ª FASE ·
-  Série A · SUB-13\nhttps://hoquei.pages.dev/jogo/9469\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-13 🏑 CD Paço Arcos A vs APAC Tojal
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A vs APAC Tojal\nCAMP. REG. SUB-13 - 1ª FASE ·
+  Série A · SUB-13\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/94
+ 69\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9469
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +145,11 @@ UID:jogo-9473@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T113000Z
 DTEND:20261031T130000Z
-SUMMARY:SC TORRES (fora)
+SUMMARY:🏑 Sub-13 🏑 SC Torres vs CD Paço Arcos A
 LOCATION:PAV. SC TORRES
-DESCRIPTION:SC TORRES vs CD PAÇO ARCOS A\nCAMP. REG. SUB-13 - 1ª FASE · 
- Série A · SUB-13\nhttps://hoquei.pages.dev/jogo/9473\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SC Torres vs CD Paço Arcos A\nCAMP. REG. SUB-13 - 1ª FASE · 
+ Série A · SUB-13\nPAV. SC TORRES\nhttps://hoquei.pages.dev/jogo/9473\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9473
 END:VEVENT
 BEGIN:VEVENT
@@ -157,11 +157,11 @@ UID:jogo-9476@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T150000Z
 DTEND:20261107T163000Z
-SUMMARY:AD OEIRAS A (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A vs AD OEIRAS A\nCAMP. REG. SUB-13 - 1ª FASE 
- · Série A · SUB-13\nhttps://hoquei.pages.dev/jogo/9476\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-13 🏑 CD Paço Arcos A vs AD Oeiras A
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A vs AD Oeiras A\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série A · SUB-13\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/
+ 9476\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9476
 END:VEVENT
 BEGIN:VEVENT
@@ -169,11 +169,11 @@ UID:jogo-9477@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T160000Z
 DTEND:20261114T173000Z
-SUMMARY:HC SINTRA (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A vs HC SINTRA\nCAMP. REG. SUB-13 - 1ª FASE · 
- Série A · SUB-13\nhttps://hoquei.pages.dev/jogo/9477\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-13 🏑 CD Paço Arcos A vs HC Sintra
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A vs HC Sintra\nCAMP. REG. SUB-13 - 1ª FASE · 
+ Série A · SUB-13\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/947
+ 7\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9477
 END:VEVENT
 BEGIN:VEVENT
@@ -181,11 +181,11 @@ UID:jogo-9481@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T144500Z
 DTEND:20261121T161500Z
-SUMMARY:CACO A (fora)
+SUMMARY:🏑 Sub-13 🏑 Caco A vs CD Paço Arcos A
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO A vs CD PAÇO ARCOS A\nCAMP. REG. SUB-13 - 1ª FASE · Sé
- rie A · SUB-13\nhttps://hoquei.pages.dev/jogo/9481\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco A vs CD Paço Arcos A\nCAMP. REG. SUB-13 - 1ª FASE · Sé
+ rie A · SUB-13\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9481\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9481
 END:VEVENT
 END:VCALENDAR

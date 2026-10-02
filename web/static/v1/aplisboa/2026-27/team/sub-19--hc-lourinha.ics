@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:HC LOURINHÃ · SUB-19
-X-WR-CALDESC:Jogos de HC LOURINHÃ (SUB-19)
+X-WR-CALNAME:🏑 HC Lourinhã · Sub-19
+X-WR-CALDESC:Jogos de HC Lourinhã (Sub-19)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9803@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T140000Z
 DTEND:20261011T153000Z
-SUMMARY:BIBLIOTECA IR (fora)
+SUMMARY:🏑 Sub-19 🏑 Biblioteca IR vs HC Lourinhã
 LOCATION:PAV. VALADO DE FRADES
-DESCRIPTION:BIBLIOTECA IR vs HC LOURINHÃ\nCAMP. REG. SUB-19 - 1ª FASE · 
- Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9803\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Biblioteca IR vs HC Lourinhã\nCAMP. REG. SUB-19 - 1ª FASE · 
+ Série A · SUB-19\nPAV. VALADO DE FRADES\nhttps://hoquei.pages.dev/jogo/9
+ 803\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9803
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9806@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T153000Z
 DTEND:20261018T170000Z
-SUMMARY:SL BENFICA (casa)
+SUMMARY:🏑 Sub-19 🏑 HC Lourinhã vs SL Benfica
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:HC LOURINHÃ vs SL BENFICA\nCAMP. REG. SUB-19 - 1ª FASE · Sé
- rie A · SUB-19\nhttps://hoquei.pages.dev/jogo/9806\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinhã vs SL Benfica\nCAMP. REG. SUB-19 - 1ª FASE · Sé
+ rie A · SUB-19\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev/jogo/9
+ 806\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9806
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,12 @@ UID:jogo-9809@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T180000Z
 DTEND:20261025T193000Z
-SUMMARY:S ALENQUER BENFICA (fora)
+SUMMARY:🏑 Sub-19 🏑 S Alenquer Benfica vs HC Lourinhã
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA vs HC LOURINHÃ\nCAMP. REG. SUB-19 - 1ª FAS
- E · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9809\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica vs HC Lourinhã\nCAMP. REG. SUB-19 - 1ª FAS
+ E · Série A · SUB-19\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.de
+ v/jogo/9809\nDados da Associação de Patinagem de Lisboa. Site não ofici
+ al.
 URL:https://hoquei.pages.dev/jogo/9809
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +50,12 @@ UID:jogo-9812@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T163000Z
 DTEND:20261101T180000Z
-SUMMARY:UD VILAFRANQUENSE (casa)
+SUMMARY:🏑 Sub-19 🏑 HC Lourinhã vs UD Vilafranquense
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:HC LOURINHÃ vs UD VILAFRANQUENSE\nCAMP. REG. SUB-19 - 1ª FASE
-  · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9812\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinhã vs UD Vilafranquense\nCAMP. REG. SUB-19 - 1ª FASE
+  · Série A · SUB-19\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev
+ /jogo/9812\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
 URL:https://hoquei.pages.dev/jogo/9812
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +63,11 @@ UID:jogo-9815@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T173000Z
 DTEND:20261107T190000Z
-SUMMARY:HC TURQUEL (fora)
+SUMMARY:🏑 Sub-19 🏑 HC Turquel vs HC Lourinhã
 LOCATION:PAV. HC TURQUEL
-DESCRIPTION:HC TURQUEL vs HC LOURINHÃ\nCAMP. REG. SUB-19 - 1ª FASE · Sé
- rie A · SUB-19\nhttps://hoquei.pages.dev/jogo/9815\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Turquel vs HC Lourinhã\nCAMP. REG. SUB-19 - 1ª FASE · Sé
+ rie A · SUB-19\nPAV. HC TURQUEL\nhttps://hoquei.pages.dev/jogo/9815\nDado
+ s da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9815
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +75,11 @@ UID:jogo-9818@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T163000Z
 DTEND:20261115T180000Z
-SUMMARY:BIBLIOTECA IR (casa)
+SUMMARY:🏑 Sub-19 🏑 HC Lourinhã vs Biblioteca IR
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:HC LOURINHÃ vs BIBLIOTECA IR\nCAMP. REG. SUB-19 - 1ª FASE · 
- Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9818\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinhã vs Biblioteca IR\nCAMP. REG. SUB-19 - 1ª FASE · 
+ Série A · SUB-19\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev/jog
+ o/9818\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9818
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +87,11 @@ UID:jogo-9821@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T184500Z
 DTEND:20261122T201500Z
-SUMMARY:SL BENFICA (fora)
+SUMMARY:🏑 Sub-19 🏑 SL Benfica vs HC Lourinhã
 LOCATION:PAV. MURCHES
-DESCRIPTION:SL BENFICA vs HC LOURINHÃ\nCAMP. REG. SUB-19 - 1ª FASE · Sé
- rie A · SUB-19\nhttps://hoquei.pages.dev/jogo/9821\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL Benfica vs HC Lourinhã\nCAMP. REG. SUB-19 - 1ª FASE · Sé
+ rie A · SUB-19\nPAV. MURCHES\nhttps://hoquei.pages.dev/jogo/9821\nDados d
+ a Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9821
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +99,12 @@ UID:jogo-9824@hoquei.pages.dev
 DTSTAMP:20261129T000000Z
 DTSTART:20261129T163000Z
 DTEND:20261129T180000Z
-SUMMARY:S ALENQUER BENFICA (casa)
+SUMMARY:🏑 Sub-19 🏑 HC Lourinhã vs S Alenquer Benfica
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:HC LOURINHÃ vs S ALENQUER BENFICA\nCAMP. REG. SUB-19 - 1ª FAS
- E · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9824\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinhã vs S Alenquer Benfica\nCAMP. REG. SUB-19 - 1ª FAS
+ E · Série A · SUB-19\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.de
+ v/jogo/9824\nDados da Associação de Patinagem de Lisboa. Site não ofici
+ al.
 URL:https://hoquei.pages.dev/jogo/9824
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +112,11 @@ UID:jogo-9827@hoquei.pages.dev
 DTSTAMP:20261201T000000Z
 DTSTART:20261201T143000Z
 DTEND:20261201T160000Z
-SUMMARY:UD VILAFRANQUENSE (fora)
+SUMMARY:🏑 Sub-19 🏑 UD Vilafranquense vs HC Lourinhã
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs HC LOURINHÃ\nCAMP. REG. SUB-19 - 1ª FASE
-  · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9827\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense vs HC Lourinhã\nCAMP. REG. SUB-19 - 1ª FASE
+  · Série A · SUB-19\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo
+ /9827\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9827
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +124,11 @@ UID:jogo-9830@hoquei.pages.dev
 DTSTAMP:20261206T000000Z
 DTSTART:20261206T163000Z
 DTEND:20261206T180000Z
-SUMMARY:HC TURQUEL (casa)
+SUMMARY:🏑 Sub-19 🏑 HC Lourinhã vs HC Turquel
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:HC LOURINHÃ vs HC TURQUEL\nCAMP. REG. SUB-19 - 1ª FASE · Sé
- rie A · SUB-19\nhttps://hoquei.pages.dev/jogo/9830\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinhã vs HC Turquel\nCAMP. REG. SUB-19 - 1ª FASE · Sé
+ rie A · SUB-19\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev/jogo/9
+ 830\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9830
 END:VEVENT
 END:VCALENDAR

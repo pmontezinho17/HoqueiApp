@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:AD OEIRAS · SUB-19
-X-WR-CALDESC:Jogos de AD OEIRAS (SUB-19)
+X-WR-CALNAME:🏑 AD Oeiras · Sub-19
+X-WR-CALDESC:Jogos de AD Oeiras (Sub-19)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9352@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T143000Z
 DTEND:20260913T160000Z
-SUMMARY:SPORTING CP (fora) 1–9
+SUMMARY:🏑 Sub-19 🏑 Sporting CP vs AD Oeiras
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:SPORTING CP 9–1 AD OEIRAS\nSUPERTAÇA APL SUB-19 · SUB-19\nh
- ttps://hoquei.pages.dev/jogo/9352\nDados da Associação de Patinagem de L
- isboa. Site não oficial.
+DESCRIPTION:Sporting CP 9–1 AD Oeiras\nSUPERTAÇA APL SUB-19 · SUB-19\nP
+ AV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev/jogo/9352\nDados da Asso
+ ciação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9352
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9441@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T130000Z
 DTEND:20260919T143000Z
-SUMMARY:HC LOURINHA (fora) 6–0
+SUMMARY:🏑 Sub-19 🏑 HC Lourinha vs AD Oeiras
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:HC LOURINHA 0–6 AD OEIRAS\nTORNEIO ABERTURA APL SUB-19 · SUB
- -19\nhttps://hoquei.pages.dev/jogo/9441\nDados da Associação de Patinage
- m de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinha 0–6 AD Oeiras\nTORNEIO ABERTURA APL SUB-19 · SUB
+ -19\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9441\nDados da Asso
+ ciação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9441
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9443@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T183000Z
 DTEND:20260919T200000Z
-SUMMARY:CD PAÇO ARCOS (fora) 0–4
+SUMMARY:🏑 Sub-19 🏑 CD Paço Arcos vs AD Oeiras
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:CD PAÇO ARCOS 4–0 AD OEIRAS\nTORNEIO ABERTURA APL SUB-19 · 
- SUB-19\nhttps://hoquei.pages.dev/jogo/9443\nDados da Associação de Patin
- agem de Lisboa. Site não oficial.
+DESCRIPTION:CD Paço Arcos 4–0 AD Oeiras\nTORNEIO ABERTURA APL SUB-19 · 
+ SUB-19\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9443\nDados da A
+ ssociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9443
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9833@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T170000Z
 DTEND:20261011T183000Z
-SUMMARY:CD PAÇO ARCOS B (fora)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs AD OEIRAS\nCAMP. REG. SUB-19 - 1ª FASE · 
- Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9833\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-19 🏑 CD Paço Arcos B vs AD Oeiras
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs AD Oeiras\nCAMP. REG. SUB-19 - 1ª FASE · 
+ Série B · SUB-19\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/983
+ 3\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9833
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9836@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T203000Z
 DTEND:20261018T220000Z
-SUMMARY:APAC TOJAL (casa)
+SUMMARY:🏑 Sub-19 🏑 AD Oeiras vs APAC Tojal
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS vs APAC TOJAL\nCAMP. REG. SUB-19 - 1ª FASE · Série
-  B · SUB-19\nhttps://hoquei.pages.dev/jogo/9836\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras vs APAC Tojal\nCAMP. REG. SUB-19 - 1ª FASE · Série
+  B · SUB-19\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9836\nDados d
+ a Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9836
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9839@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T150000Z
 DTEND:20261025T163000Z
-SUMMARY:GD SESIMBRA (fora)
+SUMMARY:🏑 Sub-19 🏑 GD Sesimbra vs AD Oeiras
 LOCATION:PAV. SESIMBRA
-DESCRIPTION:GD SESIMBRA vs AD OEIRAS\nCAMP. REG. SUB-19 - 1ª FASE · Séri
- e B · SUB-19\nhttps://hoquei.pages.dev/jogo/9839\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:GD Sesimbra vs AD Oeiras\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e B · SUB-19\nPAV. SESIMBRA\nhttps://hoquei.pages.dev/jogo/9839\nDados da
+  Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9839
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9842@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T180000Z
 DTEND:20261101T193000Z
-SUMMARY:SPORTING CP (casa)
+SUMMARY:🏑 Sub-19 🏑 AD Oeiras vs Sporting CP
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS vs SPORTING CP\nCAMP. REG. SUB-19 - 1ª FASE · Séri
- e B · SUB-19\nhttps://hoquei.pages.dev/jogo/9842\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras vs Sporting CP\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e B · SUB-19\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9842\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9842
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9845@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T143000Z
 DTEND:20261108T160000Z
-SUMMARY:AE FISICA D (fora)
+SUMMARY:🏑 Sub-19 🏑 AE Fisica D vs AD Oeiras
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA D vs AD OEIRAS\nCAMP. REG. SUB-19 - 1ª FASE · Séri
- e B · SUB-19\nhttps://hoquei.pages.dev/jogo/9845\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica D vs AD Oeiras\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e B · SUB-19\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo/9
+ 845\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9845
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9848@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T173000Z
 DTEND:20261115T190000Z
-SUMMARY:CD PAÇO ARCOS B (casa)
+SUMMARY:🏑 Sub-19 🏑 AD Oeiras vs CD Paço Arcos B
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS vs CD PAÇO ARCOS B\nCAMP. REG. SUB-19 - 1ª FASE · 
- Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9848\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras vs CD Paço Arcos B\nCAMP. REG. SUB-19 - 1ª FASE · 
+ Série B · SUB-19\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9848\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9848
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9851@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T180000Z
 DTEND:20261122T193000Z
-SUMMARY:APAC TOJAL (fora)
+SUMMARY:🏑 Sub-19 🏑 APAC Tojal vs AD Oeiras
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL vs AD OEIRAS\nCAMP. REG. SUB-19 - 1ª FASE · Série
-  B · SUB-19\nhttps://hoquei.pages.dev/jogo/9851\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs AD Oeiras\nCAMP. REG. SUB-19 - 1ª FASE · Série
+  B · SUB-19\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9851\nDado
+ s da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9851
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +133,11 @@ UID:jogo-9854@hoquei.pages.dev
 DTSTAMP:20261129T000000Z
 DTSTART:20261129T180000Z
 DTEND:20261129T193000Z
-SUMMARY:GD SESIMBRA (casa)
+SUMMARY:🏑 Sub-19 🏑 AD Oeiras vs GD Sesimbra
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS vs GD SESIMBRA\nCAMP. REG. SUB-19 - 1ª FASE · Séri
- e B · SUB-19\nhttps://hoquei.pages.dev/jogo/9854\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras vs GD Sesimbra\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e B · SUB-19\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9854\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9854
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +145,11 @@ UID:jogo-9857@hoquei.pages.dev
 DTSTAMP:20261202T000000Z
 DTSTART:20261202T220000Z
 DTEND:20261202T233000Z
-SUMMARY:SPORTING CP (fora)
+SUMMARY:🏑 Sub-19 🏑 Sporting CP vs AD Oeiras
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP vs AD OEIRAS\nCAMP. REG. SUB-19 - 1ª FASE · Séri
- e B · SUB-19\nhttps://hoquei.pages.dev/jogo/9857\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP vs AD Oeiras\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e B · SUB-19\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/9857\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9857
 END:VEVENT
 BEGIN:VEVENT
@@ -157,11 +157,11 @@ UID:jogo-9860@hoquei.pages.dev
 DTSTAMP:20261206T000000Z
 DTSTART:20261206T163000Z
 DTEND:20261206T180000Z
-SUMMARY:AE FISICA D (casa)
+SUMMARY:🏑 Sub-19 🏑 AD Oeiras vs AE Fisica D
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS vs AE FISICA D\nCAMP. REG. SUB-19 - 1ª FASE · Séri
- e B · SUB-19\nhttps://hoquei.pages.dev/jogo/9860\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras vs AE Fisica D\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e B · SUB-19\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9860\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9860
 END:VEVENT
 END:VCALENDAR

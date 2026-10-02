@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:SPORTING CP · SENIORES MASCULINOS
-X-WR-CALDESC:Jogos de SPORTING CP (SENIORES MASCULINOS)
+X-WR-CALNAME:🏑 Sporting CP · Seniores Masculinos
+X-WR-CALDESC:Jogos de Sporting CP (Seniores Masculinos)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,12 @@ UID:jogo-9289@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T090000Z
 DTEND:20260919T103000Z
-SUMMARY:AE FISICA D (fora) 1–1
+SUMMARY:🏑 Seniores Masculinos 🏑 AE Fisica D vs Sporting CP
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA D 1–1 SPORTING CP\nTAÇA JESUS CORREIA - SENIORES M
- ASCULINOS · SENIORES MASCULINOS\nhttps://hoquei.pages.dev/jogo/9289\nDado
- s da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica D 1–1 Sporting CP\nTAÇA JESUS CORREIA - SENIORES M
+ ASCULINOS · SENIORES MASCULINOS\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoqu
+ ei.pages.dev/jogo/9289\nDados da Associação de Patinagem de Lisboa. Site
+  não oficial.
 URL:https://hoquei.pages.dev/jogo/9289
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +26,11 @@ UID:jogo-9291@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T150000Z
 DTEND:20260927T163000Z
-SUMMARY:HC SINTRA (fora) 8–1
+SUMMARY:🏑 Seniores Masculinos 🏑 HC Sintra vs Sporting CP
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:HC SINTRA 1–8 SPORTING CP\nTAÇA JESUS CORREIA - SENIORES MAS
- CULINOS · SENIORES MASCULINOS\nhttps://hoquei.pages.dev/jogo/9291\nDados 
- da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Sintra 1–8 Sporting CP\nTAÇA JESUS CORREIA - SENIORES MAS
+ CULINOS · SENIORES MASCULINOS\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/j
+ ogo/9291\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9291
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +38,11 @@ UID:jogo-9293@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T190000Z
 DTEND:20261003T203000Z
-SUMMARY:GDS CASCAIS (fora)
+SUMMARY:🏑 Seniores Masculinos 🏑 GDS Cascais vs Sporting CP
 LOCATION:PAV. CASCAIS
-DESCRIPTION:GDS CASCAIS vs SPORTING CP\nTAÇA JESUS CORREIA - SENIORES MASC
- ULINOS · SENIORES MASCULINOS\nhttps://hoquei.pages.dev/jogo/9293\nDados d
- a Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:GDS Cascais vs Sporting CP\nTAÇA JESUS CORREIA - SENIORES MASC
+ ULINOS · SENIORES MASCULINOS\nPAV. CASCAIS\nhttps://hoquei.pages.dev/jogo
+ /9293\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9293
 END:VEVENT
 END:VCALENDAR

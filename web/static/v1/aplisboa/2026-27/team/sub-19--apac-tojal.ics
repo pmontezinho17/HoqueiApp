@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:APAC TOJAL · SUB-19
-X-WR-CALDESC:Jogos de APAC TOJAL (SUB-19)
+X-WR-CALNAME:🏑 APAC Tojal · Sub-19
+X-WR-CALDESC:Jogos de APAC Tojal (Sub-19)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9429@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T094500Z
 DTEND:20260913T111500Z
-SUMMARY:S ALENQUER BENFICA (fora) 3–1
+SUMMARY:🏑 Sub-19 🏑 S Alenquer Benfica vs APAC Tojal
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:S ALENQUER BENFICA 1–3 APAC TOJAL\nTORNEIO ABERTURA APL SUB-1
- 9 · SUB-19\nhttps://hoquei.pages.dev/jogo/9429\nDados da Associação de 
- Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica 1–3 APAC Tojal\nTORNEIO ABERTURA APL SUB-1
+ 9 · SUB-19\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9429\nDados
+  da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9429
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9431@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T163000Z
 DTEND:20260913T180000Z
-SUMMARY:PAREDE FC (casa) 3–1
+SUMMARY:🏑 Sub-19 🏑 APAC Tojal vs Parede FC
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL 3–1 PAREDE FC\nTORNEIO ABERTURA APL SUB-19 · SUB-
- 19\nhttps://hoquei.pages.dev/jogo/9431\nDados da Associação de Patinagem
-  de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal 3–1 Parede FC\nTORNEIO ABERTURA APL SUB-19 · SUB-
+ 19\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9431\nDados da Assoc
+ iação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9431
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9440@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T110000Z
 DTEND:20260919T123000Z
-SUMMARY:CD PAÇO ARCOS (casa) 3–4
+SUMMARY:🏑 Sub-19 🏑 APAC Tojal vs CD Paço Arcos
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL 3–4 CD PAÇO ARCOS\nTORNEIO ABERTURA APL SUB-19 ·
-  SUB-19\nhttps://hoquei.pages.dev/jogo/9440\nDados da Associação de Pati
- nagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal 3–4 CD Paço Arcos\nTORNEIO ABERTURA APL SUB-19 ·
+  SUB-19\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9440\nDados da 
+ Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9440
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9836@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T203000Z
 DTEND:20261018T220000Z
-SUMMARY:AD OEIRAS (fora)
+SUMMARY:🏑 Sub-19 🏑 AD Oeiras vs APAC Tojal
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS vs APAC TOJAL\nCAMP. REG. SUB-19 - 1ª FASE · Série
-  B · SUB-19\nhttps://hoquei.pages.dev/jogo/9836\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras vs APAC Tojal\nCAMP. REG. SUB-19 - 1ª FASE · Série
+  B · SUB-19\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9836\nDados d
+ a Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9836
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9834@hoquei.pages.dev
 DTSTAMP:20261021T000000Z
 DTSTART:20261021T203000Z
 DTEND:20261021T220000Z
-SUMMARY:SPORTING CP (casa)
+SUMMARY:🏑 Sub-19 🏑 APAC Tojal vs Sporting CP
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL vs SPORTING CP\nCAMP. REG. SUB-19 - 1ª FASE · Sér
- ie B · SUB-19\nhttps://hoquei.pages.dev/jogo/9834\nDados da Associação 
- de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs Sporting CP\nCAMP. REG. SUB-19 - 1ª FASE · Sér
+ ie B · SUB-19\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9834\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9834
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9840@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T180000Z
 DTEND:20261025T193000Z
-SUMMARY:CD PAÇO ARCOS B (casa)
+SUMMARY:🏑 Sub-19 🏑 APAC Tojal vs CD Paço Arcos B
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL vs CD PAÇO ARCOS B\nCAMP. REG. SUB-19 - 1ª FASE ·
-  Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9840\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs CD Paço Arcos B\nCAMP. REG. SUB-19 - 1ª FASE ·
+  Série B · SUB-19\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/984
+ 0\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9840
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9844@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T180000Z
 DTEND:20261101T193000Z
-SUMMARY:AE FISICA D (casa)
+SUMMARY:🏑 Sub-19 🏑 APAC Tojal vs AE Fisica D
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL vs AE FISICA D\nCAMP. REG. SUB-19 - 1ª FASE · Sér
- ie B · SUB-19\nhttps://hoquei.pages.dev/jogo/9844\nDados da Associação 
- de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs AE Fisica D\nCAMP. REG. SUB-19 - 1ª FASE · Sér
+ ie B · SUB-19\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9844\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9844
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9847@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T201500Z
 DTEND:20261108T214500Z
-SUMMARY:GD SESIMBRA (fora)
+SUMMARY:🏑 Sub-19 🏑 GD Sesimbra vs APAC Tojal
 LOCATION:PAV. SESIMBRA
-DESCRIPTION:GD SESIMBRA vs APAC TOJAL\nCAMP. REG. SUB-19 - 1ª FASE · Sér
- ie B · SUB-19\nhttps://hoquei.pages.dev/jogo/9847\nDados da Associação 
- de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:GD Sesimbra vs APAC Tojal\nCAMP. REG. SUB-19 - 1ª FASE · Sér
+ ie B · SUB-19\nPAV. SESIMBRA\nhttps://hoquei.pages.dev/jogo/9847\nDados d
+ a Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9847
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9849@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T180000Z
 DTEND:20261115T193000Z
-SUMMARY:SPORTING CP (fora)
+SUMMARY:🏑 Sub-19 🏑 Sporting CP vs APAC Tojal
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP vs APAC TOJAL\nCAMP. REG. SUB-19 - 1ª FASE · Sér
- ie B · SUB-19\nhttps://hoquei.pages.dev/jogo/9849\nDados da Associação 
- de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP vs APAC Tojal\nCAMP. REG. SUB-19 - 1ª FASE · Sér
+ ie B · SUB-19\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/9849\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9849
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9851@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T180000Z
 DTEND:20261122T193000Z
-SUMMARY:AD OEIRAS (casa)
+SUMMARY:🏑 Sub-19 🏑 APAC Tojal vs AD Oeiras
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL vs AD OEIRAS\nCAMP. REG. SUB-19 - 1ª FASE · Série
-  B · SUB-19\nhttps://hoquei.pages.dev/jogo/9851\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs AD Oeiras\nCAMP. REG. SUB-19 - 1ª FASE · Série
+  B · SUB-19\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9851\nDado
+ s da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9851
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +133,11 @@ UID:jogo-9855@hoquei.pages.dev
 DTSTAMP:20261129T000000Z
 DTSTART:20261129T143000Z
 DTEND:20261129T160000Z
-SUMMARY:CD PAÇO ARCOS B (fora)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs APAC TOJAL\nCAMP. REG. SUB-19 - 1ª FASE ·
-  Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9855\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-19 🏑 CD Paço Arcos B vs APAC Tojal
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs APAC Tojal\nCAMP. REG. SUB-19 - 1ª FASE ·
+  Série B · SUB-19\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/98
+ 55\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9855
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +145,11 @@ UID:jogo-9859@hoquei.pages.dev
 DTSTAMP:20261201T000000Z
 DTSTART:20261201T143000Z
 DTEND:20261201T160000Z
-SUMMARY:AE FISICA D (fora)
+SUMMARY:🏑 Sub-19 🏑 AE Fisica D vs APAC Tojal
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA D vs APAC TOJAL\nCAMP. REG. SUB-19 - 1ª FASE · Sér
- ie B · SUB-19\nhttps://hoquei.pages.dev/jogo/9859\nDados da Associação 
- de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica D vs APAC Tojal\nCAMP. REG. SUB-19 - 1ª FASE · Sér
+ ie B · SUB-19\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo/
+ 9859\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9859
 END:VEVENT
 BEGIN:VEVENT
@@ -157,11 +157,11 @@ UID:jogo-9862@hoquei.pages.dev
 DTSTAMP:20261206T000000Z
 DTSTART:20261206T163000Z
 DTEND:20261206T180000Z
-SUMMARY:GD SESIMBRA (casa)
+SUMMARY:🏑 Sub-19 🏑 APAC Tojal vs GD Sesimbra
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL vs GD SESIMBRA\nCAMP. REG. SUB-19 - 1ª FASE · Sér
- ie B · SUB-19\nhttps://hoquei.pages.dev/jogo/9862\nDados da Associação 
- de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs GD Sesimbra\nCAMP. REG. SUB-19 - 1ª FASE · Sér
+ ie B · SUB-19\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9862\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9862
 END:VEVENT
 END:VCALENDAR

@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:UD VILAFRANQUENSE A · SUB-15
-X-WR-CALDESC:Jogos de UD VILAFRANQUENSE A (SUB-15)
+X-WR-CALNAME:🏑 UD Vilafranquense A · Sub-15
+X-WR-CALDESC:Jogos de UD Vilafranquense A (Sub-15)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9594@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T153000Z
 DTEND:20260927T170000Z
-SUMMARY:APAC TOJAL (fora) 5–1
+SUMMARY:🏑 Sub-15 🏑 APAC Tojal vs UD Vilafranquense A
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL 1–5 UD VILAFRANQUENSE A\nCAMP. REG. SUB-15 - 1ª F
- ASE · Série B · SUB-15\nhttps://hoquei.pages.dev/jogo/9594\nDados da As
- sociação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal 1–5 UD Vilafranquense A\nCAMP. REG. SUB-15 - 1ª F
+ ASE · Série B · SUB-15\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jo
+ go/9594\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9594
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9595@hoquei.pages.dev
 DTSTAMP:20261004T000000Z
 DTSTART:20261004T163000Z
 DTEND:20261004T180000Z
-SUMMARY:PAREDE FC (casa)
+SUMMARY:🏑 Sub-15 🏑 UD Vilafranquense A vs Parede FC
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE A vs PAREDE FC\nCAMP. REG. SUB-15 - 1ª FASE 
- · Série B · SUB-15\nhttps://hoquei.pages.dev/jogo/9595\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense A vs Parede FC\nCAMP. REG. SUB-15 - 1ª FASE 
+ · Série B · SUB-15\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/
+ 9595\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9595
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9598@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T133000Z
 DTEND:20261011T150000Z
-SUMMARY:SPORTING CP A (casa)
+SUMMARY:🏑 Sub-15 🏑 UD Vilafranquense A vs Sporting CP A
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE A vs SPORTING CP A\nCAMP. REG. SUB-15 - 1ª F
- ASE · Série B · SUB-15\nhttps://hoquei.pages.dev/jogo/9598\nDados da As
- sociação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense A vs Sporting CP A\nCAMP. REG. SUB-15 - 1ª F
+ ASE · Série B · SUB-15\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/j
+ ogo/9598\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9598
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9601@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T170000Z
 DTEND:20261025T183000Z
-SUMMARY:SL BENFICA B (casa)
+SUMMARY:🏑 Sub-15 🏑 UD Vilafranquense A vs SL Benfica B
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE A vs SL BENFICA B\nCAMP. REG. SUB-15 - 1ª FA
- SE · Série B · SUB-15\nhttps://hoquei.pages.dev/jogo/9601\nDados da Ass
- ociação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense A vs SL Benfica B\nCAMP. REG. SUB-15 - 1ª FA
+ SE · Série B · SUB-15\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jo
+ go/9601\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9601
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9604@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T154500Z
 DTEND:20261031T171500Z
-SUMMARY:APAC TOJAL (casa)
+SUMMARY:🏑 Sub-15 🏑 UD Vilafranquense A vs APAC Tojal
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE A vs APAC TOJAL\nCAMP. REG. SUB-15 - 1ª FASE
-  · Série B · SUB-15\nhttps://hoquei.pages.dev/jogo/9604\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense A vs APAC Tojal\nCAMP. REG. SUB-15 - 1ª FASE
+  · Série B · SUB-15\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo
+ /9604\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9604
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9605@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T150000Z
 DTEND:20261101T163000Z
-SUMMARY:PAREDE FC (fora)
+SUMMARY:🏑 Sub-15 🏑 Parede FC vs UD Vilafranquense A
 LOCATION:PAV. PAREDE
-DESCRIPTION:PAREDE FC vs UD VILAFRANQUENSE A\nCAMP. REG. SUB-15 - 1ª FASE 
- · Série B · SUB-15\nhttps://hoquei.pages.dev/jogo/9605\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC vs UD Vilafranquense A\nCAMP. REG. SUB-15 - 1ª FASE 
+ · Série B · SUB-15\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9605\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9605
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9608@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T180000Z
 DTEND:20261108T193000Z
-SUMMARY:SPORTING CP A (fora)
+SUMMARY:🏑 Sub-15 🏑 Sporting CP A vs UD Vilafranquense A
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP A vs UD VILAFRANQUENSE A\nCAMP. REG. SUB-15 - 1ª F
- ASE · Série B · SUB-15\nhttps://hoquei.pages.dev/jogo/9608\nDados da As
- sociação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP A vs UD Vilafranquense A\nCAMP. REG. SUB-15 - 1ª F
+ ASE · Série B · SUB-15\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/j
+ ogo/9608\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9608
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9611@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T144500Z
 DTEND:20261122T161500Z
-SUMMARY:SL BENFICA B (fora)
+SUMMARY:🏑 Sub-15 🏑 SL Benfica B vs UD Vilafranquense A
 LOCATION:PAV. MURCHES
-DESCRIPTION:SL BENFICA B vs UD VILAFRANQUENSE A\nCAMP. REG. SUB-15 - 1ª FA
- SE · Série B · SUB-15\nhttps://hoquei.pages.dev/jogo/9611\nDados da Ass
- ociação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL Benfica B vs UD Vilafranquense A\nCAMP. REG. SUB-15 - 1ª FA
+ SE · Série B · SUB-15\nPAV. MURCHES\nhttps://hoquei.pages.dev/jogo/9611
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9611
 END:VEVENT
 END:VCALENDAR

@@ -83,29 +83,36 @@ class TestEventos:
         assert p["DTSTART;VALUE=DATE"] == "20261002"
         assert p["DTEND;VALUE=DATE"] == "20261003"    # fim exclusivo
 
-    def test_titulo_lidera_pelo_adversario_e_nao_pelo_proprio_clube(self):
-        """A célula do mês mostra uns 15 caracteres: começar pelo nome do clube que a
-        pessoa subscreveu gastava-os a dizer-lhe o que ela já sabe."""
-        p = propriedades(feed("PAREDE FC B", "SUB-13", [dict(JOGO, gc=None, gf=None)]))
-        assert p["SUMMARY"] == "CD PAÇO ARCOS B (fora)"
+    def test_titulo_com_escalao_e_marca_de_hoquei(self):
+        """`🏑 Sub-13 🏑 CD Paço Arcos B vs Parede FC B`.
 
-    def test_marca_se_e_em_casa(self):
-        caseiro = dict(JOGO, casa="PAREDE FC B", fora="CACO B", gc=None, gf=None)
-        assert propriedades(feed("PAREDE FC B", "SUB-13", [caseiro]))["SUMMARY"] \
-            == "CACO B (casa)"
+        O 🏑 torna a linha reconhecível antes de ser lida, entre reuniões e aniversários;
+        o escalão distingue os calendários de dois filhos na mesma semana.
+        """
+        p = propriedades(feed("PAREDE FC B", "SUB-13", [JOGO]))
+        assert p["SUMMARY"] == "🏑 Sub-13 🏑 CD Paço Arcos B vs Parede FC B"
 
-    def test_resultado_contado_do_lado_de_quem_subscreveu(self):
-        # o jogo acabou 2–9 para o visitante; quem segue o PAREDE vê 9–2
-        assert propriedades(feed("PAREDE FC B", "SUB-13", [JOGO]))["SUMMARY"] \
-            == "CD PAÇO ARCOS B (fora) 9–2"
-        # e quem segue o PAÇO ARCOS vê 2–9, do seu lado
-        assert propriedades(feed("CD PAÇO ARCOS B", "SUB-13", [JOGO]))["SUMMARY"] \
-            == "PAREDE FC B (casa) 2–9"
+    def test_nomes_em_caixa_de_titulo_sem_estragar_as_siglas(self):
+        jogo = dict(JOGO, casa="FSE/AJ SALESIANA", fora="SPORTING CP B", cat="SENIORES MASCULINOS")
+        assert propriedades(feed("E", "X", [jogo]))["SUMMARY"] == \
+            "🏑 Seniores Masculinos 🏑 FSE/AJ Salesiana vs Sporting CP B"
 
-    def test_o_confronto_por_extenso_fica_na_descricao(self):
-        # o título é abreviado; quem abre o evento tem de poder ver quem jogou com quem
-        d = propriedades(feed("PAREDE FC B", "SUB-13", [JOGO]))["DESCRIPTION"]
-        assert d.startswith("CD PAÇO ARCOS B 2–9 PAREDE FC B")
+    def test_o_resultado_fica_na_descricao_e_nao_no_titulo(self):
+        # quem passa os olhos pelo mês não quer saber o resultado de um jogo que ainda não viu
+        p = propriedades(feed("E", "SUB-13", [JOGO]))
+        assert "2–9" not in p["SUMMARY"]
+        assert p["DESCRIPTION"].startswith("CD Paço Arcos B 2–9 Parede FC B")
+
+    def test_morada_do_recinto_quando_a_sabemos(self):
+        # sem morada, tocar na localização do evento não leva a lado nenhum
+        p = propriedades(feed("E", "SUB-13", [JOGO]))
+        assert p["LOCATION"].startswith("Av. Eng. Bonneville Franco")
+        # e o nome do recinto não se perde — fica na descrição
+        assert "PAV. PAÇO DE ARCOS" in p["DESCRIPTION"]
+
+    def test_sem_morada_cai_no_nome_do_recinto(self):
+        p = propriedades(feed("E", "SUB-13", [dict(JOGO, recinto="PAV. INVENTADO")]))
+        assert p["LOCATION"] == "PAV. INVENTADO"
 
     def test_ordenado_por_data_e_hora(self):
         jogos = [dict(JOGO, id=3, data="2026-11-01", hora="18:00"),
@@ -174,16 +181,18 @@ class TestConformidade:
         cal = Calendar.from_ical(feed("CD PAÇO ARCOS B", "SUB-13", jogos))
 
         assert cal.get("VERSION") == "2.0"
-        assert str(cal.get("X-WR-CALNAME")) == "CD PAÇO ARCOS B · SUB-13"
+        assert str(cal.get("X-WR-CALNAME")) == "🏑 CD Paço Arcos B · Sub-13"
         eventos = list(cal.walk("VEVENT"))
         assert len(eventos) == 3
 
         # os caracteres reservados voltam **desescapados** e os acentos inteiros
         por_uid = {str(e["UID"]): e for e in eventos}
         assert str(por_uid["jogo-3@hoquei.pages.dev"]["LOCATION"]) == "PAV. A; B, C"
+        assert "🏑" in str(por_uid["jogo-3@hoquei.pages.dev"]["SUMMARY"])
         # acentos e o traço longo sobrevivem à ida e volta pelo ficheiro
-        assert str(por_uid["jogo-9547@hoquei.pages.dev"]["SUMMARY"]) == "PAREDE FC B (casa) 2–9"
-        assert "CD PAÇO ARCOS B 2–9 PAREDE FC B" in str(
+        assert str(por_uid["jogo-9547@hoquei.pages.dev"]["SUMMARY"]) == \
+            "🏑 Sub-13 🏑 CD Paço Arcos B vs Parede FC B"
+        assert "CD Paço Arcos B 2–9 Parede FC B" in str(
             por_uid["jogo-9547@hoquei.pages.dev"]["DESCRIPTION"])
 
     def test_as_horas_sobrevivem_a_ida_e_volta(self):

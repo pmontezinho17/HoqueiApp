@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:A STRUART HCM · SENIORES FEMININOS
-X-WR-CALDESC:Jogos de A STRUART HCM (SENIORES FEMININOS)
+X-WR-CALNAME:🏑 A Struart HCM · Seniores Femininos
+X-WR-CALDESC:Jogos de A Struart HCM (Seniores Femininos)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,12 @@ UID:jogo-9321@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T134500Z
 DTEND:20260919T151500Z
-SUMMARY:CRIAR-T GD (casa) 2–0
+SUMMARY:🏑 Seniores Femininos 🏑 A Struart HCM vs Criar-T GD
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STRUART HCM 2–0 CRIAR-T GD\nTAÇA PROF. JOAO CAMPELO - SENI
- ORES FEMININOS · SENIORES FEMININOS\nhttps://hoquei.pages.dev/jogo/9321\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Struart HCM 2–0 Criar-T GD\nTAÇA PROF. JOAO CAMPELO - SENI
+ ORES FEMININOS · SENIORES FEMININOS\nPAV.PROF.JOÃO CAMPELO\nhttps://hoqu
+ ei.pages.dev/jogo/9321\nDados da Associação de Patinagem de Lisboa. Site
+  não oficial.
 URL:https://hoquei.pages.dev/jogo/9321
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +26,12 @@ UID:jogo-9324@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T170000Z
 DTEND:20260927T183000Z
-SUMMARY:HC SINTRA (fora) 3–2
+SUMMARY:🏑 Seniores Femininos 🏑 HC Sintra vs A Struart HCM
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:HC SINTRA 2–3 A STRUART HCM\nTAÇA PROF. JOAO CAMPELO - SENIO
- RES FEMININOS · SENIORES FEMININOS\nhttps://hoquei.pages.dev/jogo/9324\nD
- ados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Sintra 2–3 A Struart HCM\nTAÇA PROF. JOAO CAMPELO - SENIO
+ RES FEMININOS · SENIORES FEMININOS\nPAV. HC SINTRA\nhttps://hoquei.pages.
+ dev/jogo/9324\nDados da Associação de Patinagem de Lisboa. Site não ofi
+ cial.
 URL:https://hoquei.pages.dev/jogo/9324
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +39,12 @@ UID:jogo-9326@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T170000Z
 DTEND:20261003T183000Z
-SUMMARY:PAREDE FC (casa)
+SUMMARY:🏑 Seniores Femininos 🏑 A Struart HCM vs Parede FC
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STRUART HCM vs PAREDE FC\nTAÇA PROF. JOAO CAMPELO - SENIORES
-  FEMININOS · SENIORES FEMININOS\nhttps://hoquei.pages.dev/jogo/9326\nDado
- s da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Struart HCM vs Parede FC\nTAÇA PROF. JOAO CAMPELO - SENIORES
+  FEMININOS · SENIORES FEMININOS\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.p
+ ages.dev/jogo/9326\nDados da Associação de Patinagem de Lisboa. Site nã
+ o oficial.
 URL:https://hoquei.pages.dev/jogo/9326
 END:VEVENT
 END:VCALENDAR

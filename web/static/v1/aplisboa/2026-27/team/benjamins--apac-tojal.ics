@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:APAC TOJAL · BENJAMINS
-X-WR-CALDESC:Jogos de APAC TOJAL (BENJAMINS)
+X-WR-CALNAME:🏑 APAC Tojal · Benjamins
+X-WR-CALDESC:Jogos de APAC Tojal (Benjamins)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,12 @@ UID:jogo-10063@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T154500Z
 DTEND:20261003T171500Z
-SUMMARY:HC LOURINHÃ (casa)
+SUMMARY:🏑 Benjamins 🏑 APAC Tojal vs HC Lourinhã
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL vs HC LOURINHÃ\nENCONTROS DISTRITAIS BENJAMINS - 1
- ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/1
- 0063\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs HC Lourinhã\nENCONTROS DISTRITAIS BENJAMINS - 1
+ ª FASE NIVEL II · Série C · BENJAMINS\nPAV. A.P.A.C.TOJAL\nhttps://hoq
+ uei.pages.dev/jogo/10063\nDados da Associação de Patinagem de Lisboa. Si
+ te não oficial.
 URL:https://hoquei.pages.dev/jogo/10063
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +26,12 @@ UID:jogo-10066@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T133000Z
 DTEND:20261010T150000Z
-SUMMARY:PAREDE FC (fora)
+SUMMARY:🏑 Benjamins 🏑 Parede FC vs APAC Tojal
 LOCATION:PAV. PAREDE
-DESCRIPTION:PAREDE FC vs APAC TOJAL\nENCONTROS DISTRITAIS BENJAMINS - 1ª F
- ASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10066
- \nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC vs APAC Tojal\nENCONTROS DISTRITAIS BENJAMINS - 1ª F
+ ASE NIVEL II · Série C · BENJAMINS\nPAV. PAREDE\nhttps://hoquei.pages.d
+ ev/jogo/10066\nDados da Associação de Patinagem de Lisboa. Site não ofi
+ cial.
 URL:https://hoquei.pages.dev/jogo/10066
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +39,12 @@ UID:jogo-10067@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T151500Z
 DTEND:20261017T164500Z
-SUMMARY:SPORTING CP (casa)
+SUMMARY:🏑 Benjamins 🏑 APAC Tojal vs Sporting CP
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL vs SPORTING CP\nENCONTROS DISTRITAIS BENJAMINS - 1ª
-  FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/100
- 67\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs Sporting CP\nENCONTROS DISTRITAIS BENJAMINS - 1ª
+  FASE NIVEL II · Série C · BENJAMINS\nPAV. A.P.A.C.TOJAL\nhttps://hoque
+ i.pages.dev/jogo/10067\nDados da Associação de Patinagem de Lisboa. Site
+  não oficial.
 URL:https://hoquei.pages.dev/jogo/10067
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +52,12 @@ UID:jogo-10071@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T133000Z
 DTEND:20261024T150000Z
-SUMMARY:UD VILAFRANQUENSE (fora)
+SUMMARY:🏑 Benjamins 🏑 UD Vilafranquense vs APAC Tojal
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs APAC TOJAL\nENCONTROS DISTRITAIS BENJAMINS
-  - 1ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jo
- go/10071\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense vs APAC Tojal\nENCONTROS DISTRITAIS BENJAMINS
+  - 1ª FASE NIVEL II · Série C · BENJAMINS\nPAV. VILAFRANQUENSE\nhttps:
+ //hoquei.pages.dev/jogo/10071\nDados da Associação de Patinagem de Lisbo
+ a. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10071
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +65,12 @@ UID:jogo-10075@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T150000Z
 DTEND:20261031T163000Z
-SUMMARY:CACO B (casa)
+SUMMARY:🏑 Benjamins 🏑 APAC Tojal vs Caco B
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL vs CACO B\nENCONTROS DISTRITAIS BENJAMINS - 1ª FASE
-  NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10075\nD
- ados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs Caco B\nENCONTROS DISTRITAIS BENJAMINS - 1ª FASE
+  NIVEL II · Série C · BENJAMINS\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pag
+ es.dev/jogo/10075\nDados da Associação de Patinagem de Lisboa. Site não
+  oficial.
 URL:https://hoquei.pages.dev/jogo/10075
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +78,12 @@ UID:jogo-10078@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T150000Z
 DTEND:20261107T163000Z
-SUMMARY:HC LOURINHÃ (fora)
+SUMMARY:🏑 Benjamins 🏑 HC Lourinhã vs APAC Tojal
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:HC LOURINHÃ vs APAC TOJAL\nENCONTROS DISTRITAIS BENJAMINS - 1
- ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/1
- 0078\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinhã vs APAC Tojal\nENCONTROS DISTRITAIS BENJAMINS - 1
+ ª FASE NIVEL II · Série C · BENJAMINS\nPAV. GIMNO. DA LOURINHÃ\nhttps
+ ://hoquei.pages.dev/jogo/10078\nDados da Associação de Patinagem de Lisb
+ oa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10078
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +91,12 @@ UID:jogo-10081@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T150000Z
 DTEND:20261114T163000Z
-SUMMARY:PAREDE FC (casa)
+SUMMARY:🏑 Benjamins 🏑 APAC Tojal vs Parede FC
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL vs PAREDE FC\nENCONTROS DISTRITAIS BENJAMINS - 1ª F
- ASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10081
- \nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs Parede FC\nENCONTROS DISTRITAIS BENJAMINS - 1ª F
+ ASE NIVEL II · Série C · BENJAMINS\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.
+ pages.dev/jogo/10081\nDados da Associação de Patinagem de Lisboa. Site n
+ ão oficial.
 URL:https://hoquei.pages.dev/jogo/10081
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +104,12 @@ UID:jogo-10082@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T144500Z
 DTEND:20261121T161500Z
-SUMMARY:SPORTING CP (fora)
+SUMMARY:🏑 Benjamins 🏑 Sporting CP vs APAC Tojal
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP vs APAC TOJAL\nENCONTROS DISTRITAIS BENJAMINS - 1ª
-  FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/100
- 82\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP vs APAC Tojal\nENCONTROS DISTRITAIS BENJAMINS - 1ª
+  FASE NIVEL II · Série C · BENJAMINS\nPAV.G.S.SACAVENENSE\nhttps://hoqu
+ ei.pages.dev/jogo/10082\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
 URL:https://hoquei.pages.dev/jogo/10082
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +117,12 @@ UID:jogo-10086@hoquei.pages.dev
 DTSTAMP:20261205T000000Z
 DTSTART:20261205T143000Z
 DTEND:20261205T160000Z
-SUMMARY:UD VILAFRANQUENSE (casa)
+SUMMARY:🏑 Benjamins 🏑 APAC Tojal vs UD Vilafranquense
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL vs UD VILAFRANQUENSE\nENCONTROS DISTRITAIS BENJAMINS
-  - 1ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jo
- go/10086\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs UD Vilafranquense\nENCONTROS DISTRITAIS BENJAMINS
+  - 1ª FASE NIVEL II · Série C · BENJAMINS\nPAV. A.P.A.C.TOJAL\nhttps:/
+ /hoquei.pages.dev/jogo/10086\nDados da Associação de Patinagem de Lisboa
+ . Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10086
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +130,12 @@ UID:jogo-10090@hoquei.pages.dev
 DTSTAMP:20261212T000000Z
 DTSTART:20261212T144500Z
 DTEND:20261212T161500Z
-SUMMARY:CACO B (fora)
+SUMMARY:🏑 Benjamins 🏑 Caco B vs APAC Tojal
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO B vs APAC TOJAL\nENCONTROS DISTRITAIS BENJAMINS - 1ª FASE
-  NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10090\nD
- ados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco B vs APAC Tojal\nENCONTROS DISTRITAIS BENJAMINS - 1ª FASE
+  NIVEL II · Série C · BENJAMINS\nPAV.C.A.C.OURIQUE\nhttps://hoquei.page
+ s.dev/jogo/10090\nDados da Associação de Patinagem de Lisboa. Site não 
+ oficial.
 URL:https://hoquei.pages.dev/jogo/10090
 END:VEVENT
 END:VCALENDAR

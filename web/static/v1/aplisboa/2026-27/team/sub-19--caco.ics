@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:CACO · SUB-19
-X-WR-CALDESC:Jogos de CACO (SUB-19)
+X-WR-CALNAME:🏑 Caco · Sub-19
+X-WR-CALDESC:Jogos de Caco (Sub-19)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9864@hoquei.pages.dev
 DTSTAMP:20261009T000000Z
 DTSTART:20261009T210000Z
 DTEND:20261009T223000Z
-SUMMARY:FSE/AJ SALESIANA (fora)
+SUMMARY:🏑 Sub-19 🏑 FSE/AJ Salesiana vs Caco
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA vs CACO\nCAMP. REG. SUB-19 - 1ª FASE · Séri
- e C · SUB-19\nhttps://hoquei.pages.dev/jogo/9864\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana vs Caco\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e C · SUB-19\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/9864\nDados d
+ a Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9864
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9868@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T161500Z
 DTEND:20261018T174500Z
-SUMMARY:CD PAÇO ARCOS A (casa)
+SUMMARY:🏑 Sub-19 🏑 Caco vs CD Paço Arcos A
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO vs CD PAÇO ARCOS A\nCAMP. REG. SUB-19 - 1ª FASE · Séri
- e C · SUB-19\nhttps://hoquei.pages.dev/jogo/9868\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco vs CD Paço Arcos A\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e C · SUB-19\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9868\nDado
+ s da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9868
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9871@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T163000Z
 DTEND:20261025T180000Z
-SUMMARY:PAREDE FC (fora)
+SUMMARY:🏑 Sub-19 🏑 Parede FC vs Caco
 LOCATION:PAV. PAREDE
-DESCRIPTION:PAREDE FC vs CACO\nCAMP. REG. SUB-19 - 1ª FASE · Série C · 
- SUB-19\nhttps://hoquei.pages.dev/jogo/9871\nDados da Associação de Patin
- agem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC vs Caco\nCAMP. REG. SUB-19 - 1ª FASE · Série C · 
+ SUB-19\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9871\nDados da Associa
+ ção de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9871
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9872@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T161500Z
 DTEND:20261101T174500Z
-SUMMARY:A STUART HCM (fora)
+SUMMARY:🏑 Sub-19 🏑 A Stuart HCM vs Caco
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM vs CACO\nCAMP. REG. SUB-19 - 1ª FASE · Série C 
- · SUB-19\nhttps://hoquei.pages.dev/jogo/9872\nDados da Associação de Pa
- tinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM vs Caco\nCAMP. REG. SUB-19 - 1ª FASE · Série C 
+ · SUB-19\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.dev/jogo/9872\nDad
+ os da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9872
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9876@hoquei.pages.dev
 DTSTAMP:20261113T000000Z
 DTSTART:20261113T220000Z
 DTEND:20261113T233000Z
-SUMMARY:UF ENTRONCAMENTO (casa)
+SUMMARY:🏑 Sub-19 🏑 Caco vs UF Entroncamento
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO vs UF ENTRONCAMENTO\nCAMP. REG. SUB-19 - 1ª FASE · Séri
- e C · SUB-19\nhttps://hoquei.pages.dev/jogo/9876\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco vs UF Entroncamento\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e C · SUB-19\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9876\nDado
+ s da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9876
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9879@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T173000Z
 DTEND:20261115T190000Z
-SUMMARY:FSE/AJ SALESIANA (casa)
+SUMMARY:🏑 Sub-19 🏑 Caco vs FSE/AJ Salesiana
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO vs FSE/AJ SALESIANA\nCAMP. REG. SUB-19 - 1ª FASE · Séri
- e C · SUB-19\nhttps://hoquei.pages.dev/jogo/9879\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco vs FSE/AJ Salesiana\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e C · SUB-19\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9879\nDado
+ s da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9879
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9883@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T200000Z
 DTEND:20261122T213000Z
-SUMMARY:CD PAÇO ARCOS A (fora)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A vs CACO\nCAMP. REG. SUB-19 - 1ª FASE · Séri
- e C · SUB-19\nhttps://hoquei.pages.dev/jogo/9883\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-19 🏑 CD Paço Arcos A vs Caco
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A vs Caco\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e C · SUB-19\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/9883\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9883
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9887@hoquei.pages.dev
 DTSTAMP:20261128T000000Z
 DTSTART:20261128T153000Z
 DTEND:20261128T170000Z
-SUMMARY:A STUART HCM (casa)
+SUMMARY:🏑 Sub-19 🏑 Caco vs A Stuart HCM
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO vs A STUART HCM\nCAMP. REG. SUB-19 - 1ª FASE · Série C 
- · SUB-19\nhttps://hoquei.pages.dev/jogo/9887\nDados da Associação de Pa
- tinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco vs A Stuart HCM\nCAMP. REG. SUB-19 - 1ª FASE · Série C 
+ · SUB-19\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9887\nDados da
+  Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9887
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9886@hoquei.pages.dev
 DTSTAMP:20261129T000000Z
 DTSTART:20261129T160000Z
 DTEND:20261129T173000Z
-SUMMARY:PAREDE FC (casa)
+SUMMARY:🏑 Sub-19 🏑 Caco vs Parede FC
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO vs PAREDE FC\nCAMP. REG. SUB-19 - 1ª FASE · Série C · 
- SUB-19\nhttps://hoquei.pages.dev/jogo/9886\nDados da Associação de Patin
- agem de Lisboa. Site não oficial.
+DESCRIPTION:Caco vs Parede FC\nCAMP. REG. SUB-19 - 1ª FASE · Série C · 
+ SUB-19\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9886\nDados da As
+ sociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9886
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9891@hoquei.pages.dev
 DTSTAMP:20261206T000000Z
 DTSTART:20261206T163000Z
 DTEND:20261206T180000Z
-SUMMARY:UF ENTRONCAMENTO (fora)
+SUMMARY:🏑 Sub-19 🏑 UF Entroncamento vs Caco
 LOCATION:PAV. A. MATEUS- ENTRONCAMENTO
-DESCRIPTION:UF ENTRONCAMENTO vs CACO\nCAMP. REG. SUB-19 - 1ª FASE · Séri
- e C · SUB-19\nhttps://hoquei.pages.dev/jogo/9891\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UF Entroncamento vs Caco\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e C · SUB-19\nPAV. A. MATEUS- ENTRONCAMENTO\nhttps://hoquei.pages.dev/jog
+ o/9891\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9891
 END:VEVENT
 END:VCALENDAR

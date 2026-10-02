@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:AD OEIRAS A · BENJAMINS
-X-WR-CALDESC:Jogos de AD OEIRAS A (BENJAMINS)
+X-WR-CALNAME:🏑 AD Oeiras A · Benjamins
+X-WR-CALDESC:Jogos de AD Oeiras A (Benjamins)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,12 +13,12 @@ UID:jogo-9985@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T150000Z
 DTEND:20260926T163000Z
-SUMMARY:FSE/AJ SALESIANA (casa) 20–1
+SUMMARY:🏑 Benjamins 🏑 AD Oeiras A vs FSE/AJ Salesiana
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS A 20–1 FSE/AJ SALESIANA\nENCONTROS DISTRITAIS BENJA
- MINS - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev
- /jogo/9985\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AD Oeiras A 20–1 FSE/AJ Salesiana\nENCONTROS DISTRITAIS BENJA
+ MINS - 1ª FASE NIVEL I · Série A · BENJAMINS\nPAV. A.D.OEIRAS\nhttps:/
+ /hoquei.pages.dev/jogo/9985\nDados da Associação de Patinagem de Lisboa.
+  Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9985
 END:VEVENT
 BEGIN:VEVENT
@@ -26,11 +26,12 @@ UID:jogo-9990@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T134500Z
 DTEND:20261003T151500Z
-SUMMARY:A STUART HCM (fora)
+SUMMARY:🏑 Benjamins 🏑 A Stuart HCM vs AD Oeiras A
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM vs AD OEIRAS A\nENCONTROS DISTRITAIS BENJAMINS - 1
- ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/99
- 90\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM vs AD Oeiras A\nENCONTROS DISTRITAIS BENJAMINS - 1
+ ª FASE NIVEL I · Série A · BENJAMINS\nPAV.PROF.JOÃO CAMPELO\nhttps://
+ hoquei.pages.dev/jogo/9990\nDados da Associação de Patinagem de Lisboa. 
+ Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9990
 END:VEVENT
 BEGIN:VEVENT
@@ -38,11 +39,12 @@ UID:jogo-9994@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T103000Z
 DTEND:20261010T120000Z
-SUMMARY:SC TORRES (fora)
+SUMMARY:🏑 Benjamins 🏑 SC Torres vs AD Oeiras A
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:SC TORRES vs AD OEIRAS A\nENCONTROS DISTRITAIS BENJAMINS - 1ª 
- FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/9994\
- nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SC Torres vs AD Oeiras A\nENCONTROS DISTRITAIS BENJAMINS - 1ª 
+ FASE NIVEL I · Série A · BENJAMINS\nPAV. A.D.OEIRAS\nhttps://hoquei.pag
+ es.dev/jogo/9994\nDados da Associação de Patinagem de Lisboa. Site não 
+ oficial.
 URL:https://hoquei.pages.dev/jogo/9994
 END:VEVENT
 BEGIN:VEVENT
@@ -50,11 +52,12 @@ UID:jogo-9998@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T140000Z
 DTEND:20261017T153000Z
-SUMMARY:HC SINTRA (casa)
+SUMMARY:🏑 Benjamins 🏑 AD Oeiras A vs HC Sintra
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS A vs HC SINTRA\nENCONTROS DISTRITAIS BENJAMINS - 1ª 
- FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/9998\
- nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras A vs HC Sintra\nENCONTROS DISTRITAIS BENJAMINS - 1ª 
+ FASE NIVEL I · Série A · BENJAMINS\nPAV. A.D.OEIRAS\nhttps://hoquei.pag
+ es.dev/jogo/9998\nDados da Associação de Patinagem de Lisboa. Site não 
+ oficial.
 URL:https://hoquei.pages.dev/jogo/9998
 END:VEVENT
 BEGIN:VEVENT
@@ -62,11 +65,12 @@ UID:jogo-10002@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T110000Z
 DTEND:20261024T123000Z
-SUMMARY:CD PAÇO ARCOS A (fora)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A vs AD OEIRAS A\nENCONTROS DISTRITAIS BENJAMINS
-  - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jog
- o/10002\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Benjamins 🏑 CD Paço Arcos A vs AD Oeiras A
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A vs AD Oeiras A\nENCONTROS DISTRITAIS BENJAMINS
+  - 1ª FASE NIVEL I · Série A · BENJAMINS\nPAV. PAÇO DE ARCOS\nhttps:/
+ /hoquei.pages.dev/jogo/10002\nDados da Associação de Patinagem de Lisboa
+ . Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10002
 END:VEVENT
 BEGIN:VEVENT
@@ -74,11 +78,12 @@ UID:jogo-10006@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T150000Z
 DTEND:20261031T163000Z
-SUMMARY:AE FISICA D A (casa)
+SUMMARY:🏑 Benjamins 🏑 AD Oeiras A vs AE Fisica D A
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS A vs AE FISICA D A\nENCONTROS DISTRITAIS BENJAMINS - 
- 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/1
- 0006\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras A vs AE Fisica D A\nENCONTROS DISTRITAIS BENJAMINS - 
+ 1ª FASE NIVEL I · Série A · BENJAMINS\nPAV. A.D.OEIRAS\nhttps://hoquei
+ .pages.dev/jogo/10006\nDados da Associação de Patinagem de Lisboa. Site 
+ não oficial.
 URL:https://hoquei.pages.dev/jogo/10006
 END:VEVENT
 BEGIN:VEVENT
@@ -86,11 +91,12 @@ UID:jogo-10010@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T183000Z
 DTEND:20261107T200000Z
-SUMMARY:CACO A (fora)
+SUMMARY:🏑 Benjamins 🏑 Caco A vs AD Oeiras A
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO A vs AD OEIRAS A\nENCONTROS DISTRITAIS BENJAMINS - 1ª FAS
- E NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10010\nD
- ados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco A vs AD Oeiras A\nENCONTROS DISTRITAIS BENJAMINS - 1ª FAS
+ E NIVEL I · Série A · BENJAMINS\nPAV.C.A.C.OURIQUE\nhttps://hoquei.page
+ s.dev/jogo/10010\nDados da Associação de Patinagem de Lisboa. Site não 
+ oficial.
 URL:https://hoquei.pages.dev/jogo/10010
 END:VEVENT
 BEGIN:VEVENT
@@ -98,11 +104,12 @@ UID:jogo-10013@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T143000Z
 DTEND:20261114T160000Z
-SUMMARY:FSE/AJ SALESIANA (fora)
+SUMMARY:🏑 Benjamins 🏑 FSE/AJ Salesiana vs AD Oeiras A
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA vs AD OEIRAS A\nENCONTROS DISTRITAIS BENJAMINS
-  - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jog
- o/10013\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana vs AD Oeiras A\nENCONTROS DISTRITAIS BENJAMINS
+  - 1ª FASE NIVEL I · Série A · BENJAMINS\nPAV. SALESIANA\nhttps://hoqu
+ ei.pages.dev/jogo/10013\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
 URL:https://hoquei.pages.dev/jogo/10013
 END:VEVENT
 BEGIN:VEVENT
@@ -110,11 +117,12 @@ UID:jogo-10018@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T160000Z
 DTEND:20261121T173000Z
-SUMMARY:A STUART HCM (casa)
+SUMMARY:🏑 Benjamins 🏑 AD Oeiras A vs A Stuart HCM
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS A vs A STUART HCM\nENCONTROS DISTRITAIS BENJAMINS - 1
- ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10
- 018\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras A vs A Stuart HCM\nENCONTROS DISTRITAIS BENJAMINS - 1
+ ª FASE NIVEL I · Série A · BENJAMINS\nPAV. A.D.OEIRAS\nhttps://hoquei.
+ pages.dev/jogo/10018\nDados da Associação de Patinagem de Lisboa. Site n
+ ão oficial.
 URL:https://hoquei.pages.dev/jogo/10018
 END:VEVENT
 BEGIN:VEVENT
@@ -122,11 +130,12 @@ UID:jogo-10022@hoquei.pages.dev
 DTSTAMP:20261128T000000Z
 DTSTART:20261128T143000Z
 DTEND:20261128T160000Z
-SUMMARY:SC TORRES (casa)
+SUMMARY:🏑 Benjamins 🏑 AD Oeiras A vs SC Torres
 LOCATION:PAV. SC TORRES
-DESCRIPTION:AD OEIRAS A vs SC TORRES\nENCONTROS DISTRITAIS BENJAMINS - 1ª 
- FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10022
- \nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras A vs SC Torres\nENCONTROS DISTRITAIS BENJAMINS - 1ª 
+ FASE NIVEL I · Série A · BENJAMINS\nPAV. SC TORRES\nhttps://hoquei.page
+ s.dev/jogo/10022\nDados da Associação de Patinagem de Lisboa. Site não 
+ oficial.
 URL:https://hoquei.pages.dev/jogo/10022
 END:VEVENT
 BEGIN:VEVENT
@@ -134,11 +143,12 @@ UID:jogo-10026@hoquei.pages.dev
 DTSTAMP:20261201T000000Z
 DTSTART:20261201T160000Z
 DTEND:20261201T173000Z
-SUMMARY:HC SINTRA (fora)
+SUMMARY:🏑 Benjamins 🏑 HC Sintra vs AD Oeiras A
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:HC SINTRA vs AD OEIRAS A\nENCONTROS DISTRITAIS BENJAMINS - 1ª 
- FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10026
- \nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Sintra vs AD Oeiras A\nENCONTROS DISTRITAIS BENJAMINS - 1ª 
+ FASE NIVEL I · Série A · BENJAMINS\nPAV. HC SINTRA\nhttps://hoquei.page
+ s.dev/jogo/10026\nDados da Associação de Patinagem de Lisboa. Site não 
+ oficial.
 URL:https://hoquei.pages.dev/jogo/10026
 END:VEVENT
 BEGIN:VEVENT
@@ -146,11 +156,12 @@ UID:jogo-10030@hoquei.pages.dev
 DTSTAMP:20261205T000000Z
 DTSTART:20261205T140000Z
 DTEND:20261205T153000Z
-SUMMARY:CD PAÇO ARCOS A (casa)
+SUMMARY:🏑 Benjamins 🏑 AD Oeiras A vs CD Paço Arcos A
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS A vs CD PAÇO ARCOS A\nENCONTROS DISTRITAIS BENJAMINS
-  - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jog
- o/10030\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras A vs CD Paço Arcos A\nENCONTROS DISTRITAIS BENJAMINS
+  - 1ª FASE NIVEL I · Série A · BENJAMINS\nPAV. A.D.OEIRAS\nhttps://hoq
+ uei.pages.dev/jogo/10030\nDados da Associação de Patinagem de Lisboa. Si
+ te não oficial.
 URL:https://hoquei.pages.dev/jogo/10030
 END:VEVENT
 BEGIN:VEVENT
@@ -158,11 +169,12 @@ UID:jogo-10034@hoquei.pages.dev
 DTSTAMP:20261208T000000Z
 DTSTART:20261208T100000Z
 DTEND:20261208T113000Z
-SUMMARY:AE FISICA D A (fora)
+SUMMARY:🏑 Benjamins 🏑 AE Fisica D A vs AD Oeiras A
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA D A vs AD OEIRAS A\nENCONTROS DISTRITAIS BENJAMINS - 
- 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/1
- 0034\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica D A vs AD Oeiras A\nENCONTROS DISTRITAIS BENJAMINS - 
+ 1ª FASE NIVEL I · Série A · BENJAMINS\nPAV. FÍSICA TORRES VEDRAS\nhtt
+ ps://hoquei.pages.dev/jogo/10034\nDados da Associação de Patinagem de Li
+ sboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10034
 END:VEVENT
 BEGIN:VEVENT
@@ -170,11 +182,12 @@ UID:jogo-10038@hoquei.pages.dev
 DTSTAMP:20261212T000000Z
 DTSTART:20261212T144500Z
 DTEND:20261212T161500Z
-SUMMARY:CACO A (casa)
+SUMMARY:🏑 Benjamins 🏑 AD Oeiras A vs Caco A
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS A vs CACO A\nENCONTROS DISTRITAIS BENJAMINS - 1ª FAS
- E NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10038\nD
- ados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras A vs Caco A\nENCONTROS DISTRITAIS BENJAMINS - 1ª FAS
+ E NIVEL I · Série A · BENJAMINS\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.
+ dev/jogo/10038\nDados da Associação de Patinagem de Lisboa. Site não of
+ icial.
 URL:https://hoquei.pages.dev/jogo/10038
 END:VEVENT
 END:VCALENDAR

@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:FSE/AJ SALESIANA B · SUB-17
-X-WR-CALDESC:Jogos de FSE/AJ SALESIANA B (SUB-17)
+X-WR-CALNAME:🏑 FSE/AJ Salesiana B · Sub-17
+X-WR-CALDESC:Jogos de FSE/AJ Salesiana B (Sub-17)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9408@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T113000Z
 DTEND:20260912T130000Z
-SUMMARY:AD OEIRAS A (casa) 0–13
+SUMMARY:🏑 Sub-17 🏑 FSE/AJ Salesiana B vs AD Oeiras A
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:FSE/AJ SALESIANA B 0–13 AD OEIRAS A\nTORNEIO ABERTURA APL SUB
- -17 · SUB-17\nhttps://hoquei.pages.dev/jogo/9408\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana B 0–13 AD Oeiras A\nTORNEIO ABERTURA APL SUB
+ -17 · SUB-17\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo/9
+ 408\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9408
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9409@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T150000Z
 DTEND:20260912T163000Z
-SUMMARY:AE FISICA B (fora) 0–5
+SUMMARY:🏑 Sub-17 🏑 AE Fisica B vs FSE/AJ Salesiana B
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA B 5–0 FSE/AJ SALESIANA B\nTORNEIO ABERTURA APL SUB-
- 17 · SUB-17\nhttps://hoquei.pages.dev/jogo/9409\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica B 5–0 FSE/AJ Salesiana B\nTORNEIO ABERTURA APL SUB-
+ 17 · SUB-17\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo/94
+ 09\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9409
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9675@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T140000Z
 DTEND:20260926T153000Z
-SUMMARY:CRIAR-T GD (casa) 0–4
+SUMMARY:🏑 Sub-17 🏑 FSE/AJ Salesiana B vs Criar-T GD
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA B 0–4 CRIAR-T GD\nCAMP. REG. SUB-17 - 1ª FA
- SE · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9675\nDados da Ass
- ociação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana B 0–4 Criar-T GD\nCAMP. REG. SUB-17 - 1ª FA
+ SE · Série B · SUB-17\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/96
+ 75\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9675
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,12 @@ UID:jogo-9678@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T160000Z
 DTEND:20261003T173000Z
-SUMMARY:S ALENQUER BENFICA (fora)
+SUMMARY:🏑 Sub-17 🏑 S Alenquer Benfica vs FSE/AJ Salesiana B
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA vs FSE/AJ SALESIANA B\nCAMP. REG. SUB-17 - 1
- ª FASE · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9678\nDados d
- a Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica vs FSE/AJ Salesiana B\nCAMP. REG. SUB-17 - 1
+ ª FASE · Série B · SUB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pa
+ ges.dev/jogo/9678\nDados da Associação de Patinagem de Lisboa. Site não
+  oficial.
 URL:https://hoquei.pages.dev/jogo/9678
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +62,11 @@ UID:jogo-9679@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T093000Z
 DTEND:20261010T110000Z
-SUMMARY:SL BENFICA B (casa)
+SUMMARY:🏑 Sub-17 🏑 FSE/AJ Salesiana B vs SL Benfica B
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA B vs SL BENFICA B\nCAMP. REG. SUB-17 - 1ª FAS
- E · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9679\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana B vs SL Benfica B\nCAMP. REG. SUB-17 - 1ª FAS
+ E · Série B · SUB-17\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/967
+ 9\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9679
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +74,11 @@ UID:jogo-9683@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T144500Z
 DTEND:20261011T161500Z
-SUMMARY:CACO A (fora)
+SUMMARY:🏑 Sub-17 🏑 Caco A vs FSE/AJ Salesiana B
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO A vs FSE/AJ SALESIANA B\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie B · SUB-17\nhttps://hoquei.pages.dev/jogo/9683\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco A vs FSE/AJ Salesiana B\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie B · SUB-17\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9683\n
+ Dados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9683
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +86,11 @@ UID:jogo-9687@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T164500Z
 DTEND:20261017T181500Z
-SUMMARY:CD PAÇO ARCOS A (casa)
+SUMMARY:🏑 Sub-17 🏑 FSE/AJ Salesiana B vs CD Paço Arcos A
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA B vs CD PAÇO ARCOS A\nCAMP. REG. SUB-17 - 1ª
-  FASE · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9687\nDados da 
- Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana B vs CD Paço Arcos A\nCAMP. REG. SUB-17 - 1ª
+  FASE · Série B · SUB-17\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo
+ /9687\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9687
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +98,12 @@ UID:jogo-9690@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T170000Z
 DTEND:20261024T183000Z
-SUMMARY:CRIAR-T GD (fora)
+SUMMARY:🏑 Sub-17 🏑 Criar-T GD vs FSE/AJ Salesiana B
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CRIAR-T GD vs FSE/AJ SALESIANA B\nCAMP. REG. SUB-17 - 1ª FASE 
- · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9690\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD vs FSE/AJ Salesiana B\nCAMP. REG. SUB-17 - 1ª FASE 
+ · Série B · SUB-17\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoqu
+ ei.pages.dev/jogo/9690\nDados da Associação de Patinagem de Lisboa. Site
+  não oficial.
 URL:https://hoquei.pages.dev/jogo/9690
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +111,11 @@ UID:jogo-9693@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T153000Z
 DTEND:20261031T170000Z
-SUMMARY:S ALENQUER BENFICA (casa)
+SUMMARY:🏑 Sub-17 🏑 FSE/AJ Salesiana B vs S Alenquer Benfica
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA B vs S ALENQUER BENFICA\nCAMP. REG. SUB-17 - 1
- ª FASE · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9693\nDados d
- a Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana B vs S Alenquer Benfica\nCAMP. REG. SUB-17 - 1
+ ª FASE · Série B · SUB-17\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jo
+ go/9693\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9693
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +123,11 @@ UID:jogo-9694@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T210000Z
 DTEND:20261107T223000Z
-SUMMARY:SL BENFICA B (fora)
+SUMMARY:🏑 Sub-17 🏑 SL Benfica B vs FSE/AJ Salesiana B
 LOCATION:PAV. MURCHES
-DESCRIPTION:SL BENFICA B vs FSE/AJ SALESIANA B\nCAMP. REG. SUB-17 - 1ª FAS
- E · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9694\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL Benfica B vs FSE/AJ Salesiana B\nCAMP. REG. SUB-17 - 1ª FAS
+ E · Série B · SUB-17\nPAV. MURCHES\nhttps://hoquei.pages.dev/jogo/9694\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9694
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +135,11 @@ UID:jogo-9698@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T154500Z
 DTEND:20261114T171500Z
-SUMMARY:CACO A (casa)
+SUMMARY:🏑 Sub-17 🏑 FSE/AJ Salesiana B vs Caco A
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA B vs CACO A\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie B · SUB-17\nhttps://hoquei.pages.dev/jogo/9698\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana B vs Caco A\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie B · SUB-17\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/9698\nDad
+ os da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9698
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +147,12 @@ UID:jogo-9702@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T163000Z
 DTEND:20261121T180000Z
-SUMMARY:CD PAÇO ARCOS A (fora)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A vs FSE/AJ SALESIANA B\nCAMP. REG. SUB-17 - 1ª
-  FASE · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9702\nDados da 
- Associação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos A vs FSE/AJ Salesiana B
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A vs FSE/AJ Salesiana B\nCAMP. REG. SUB-17 - 1ª
+  FASE · Série B · SUB-17\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev
+ /jogo/9702\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
 URL:https://hoquei.pages.dev/jogo/9702
 END:VEVENT
 END:VCALENDAR

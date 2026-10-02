@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:S ALENQUER BENFICA · SUB-17
-X-WR-CALDESC:Jogos de S ALENQUER BENFICA (SUB-17)
+X-WR-CALNAME:🏑 S Alenquer Benfica · Sub-17
+X-WR-CALDESC:Jogos de S Alenquer Benfica (Sub-17)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9404@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T111500Z
 DTEND:20260912T124500Z
-SUMMARY:APAC TOJAL (casa) 4–3
+SUMMARY:🏑 Sub-17 🏑 S Alenquer Benfica vs APAC Tojal
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA 4–3 APAC TOJAL\nTORNEIO ABERTURA APL SUB-1
- 7 · SUB-17\nhttps://hoquei.pages.dev/jogo/9404\nDados da Associação de 
- Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica 4–3 APAC Tojal\nTORNEIO ABERTURA APL SUB-1
+ 7 · SUB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo/9404\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9404
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9405@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T164500Z
 DTEND:20260912T181500Z
-SUMMARY:AE FISICA C (fora) 3–1
+SUMMARY:🏑 Sub-17 🏑 AE Fisica C vs S Alenquer Benfica
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:AE FISICA C 1–3 S ALENQUER BENFICA\nTORNEIO ABERTURA APL SUB-
- 17 · SUB-17\nhttps://hoquei.pages.dev/jogo/9405\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica C 1–3 S Alenquer Benfica\nTORNEIO ABERTURA APL SUB-
+ 17 · SUB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo/9405
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9405
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9422@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T100000Z
 DTEND:20260919T113000Z
-SUMMARY:SL BENFICA (fora) 1–5
+SUMMARY:🏑 Sub-17 🏑 SL Benfica vs S Alenquer Benfica
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:SL BENFICA 5–1 S ALENQUER BENFICA\nTORNEIO ABERTURA APL SUB-1
- 7 · SUB-17\nhttps://hoquei.pages.dev/jogo/9422\nDados da Associação de 
- Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL Benfica 5–1 S Alenquer Benfica\nTORNEIO ABERTURA APL SUB-1
+ 7 · SUB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo/9422\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9422
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,12 @@ UID:jogo-9674@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T154500Z
 DTEND:20260926T171500Z
-SUMMARY:CD PAÇO ARCOS A (fora) 5–7
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A 7–5 S ALENQUER BENFICA\nCAMP. REG. SUB-17 - 
- 1ª FASE · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9674\nDados 
- da Associação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos A vs S Alenquer Benfica
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A 7–5 S Alenquer Benfica\nCAMP. REG. SUB-17 - 
+ 1ª FASE · Série B · SUB-17\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.
+ dev/jogo/9674\nDados da Associação de Patinagem de Lisboa. Site não ofi
+ cial.
 URL:https://hoquei.pages.dev/jogo/9674
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +62,12 @@ UID:jogo-9678@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T160000Z
 DTEND:20261003T173000Z
-SUMMARY:FSE/AJ SALESIANA B (casa)
+SUMMARY:🏑 Sub-17 🏑 S Alenquer Benfica vs FSE/AJ Salesiana B
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA vs FSE/AJ SALESIANA B\nCAMP. REG. SUB-17 - 1
- ª FASE · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9678\nDados d
- a Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica vs FSE/AJ Salesiana B\nCAMP. REG. SUB-17 - 1
+ ª FASE · Série B · SUB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pa
+ ges.dev/jogo/9678\nDados da Associação de Patinagem de Lisboa. Site não
+  oficial.
 URL:https://hoquei.pages.dev/jogo/9678
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +75,12 @@ UID:jogo-9681@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T140000Z
 DTEND:20261010T153000Z
-SUMMARY:CRIAR-T GD (fora)
+SUMMARY:🏑 Sub-17 🏑 Criar-T GD vs S Alenquer Benfica
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CRIAR-T GD vs S ALENQUER BENFICA\nCAMP. REG. SUB-17 - 1ª FASE 
- · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9681\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD vs S Alenquer Benfica\nCAMP. REG. SUB-17 - 1ª FASE 
+ · Série B · SUB-17\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoqu
+ ei.pages.dev/jogo/9681\nDados da Associação de Patinagem de Lisboa. Site
+  não oficial.
 URL:https://hoquei.pages.dev/jogo/9681
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +88,12 @@ UID:jogo-9682@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T180000Z
 DTEND:20261011T193000Z
-SUMMARY:SL BENFICA B (fora)
+SUMMARY:🏑 Sub-17 🏑 SL Benfica B vs S Alenquer Benfica
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:SL BENFICA B vs S ALENQUER BENFICA\nCAMP. REG. SUB-17 - 1ª FAS
- E · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9682\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL Benfica B vs S Alenquer Benfica\nCAMP. REG. SUB-17 - 1ª FAS
+ E · Série B · SUB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.de
+ v/jogo/9682\nDados da Associação de Patinagem de Lisboa. Site não ofici
+ al.
 URL:https://hoquei.pages.dev/jogo/9682
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +101,11 @@ UID:jogo-9686@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T160000Z
 DTEND:20261017T173000Z
-SUMMARY:CACO A (casa)
+SUMMARY:🏑 Sub-17 🏑 S Alenquer Benfica vs Caco A
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA vs CACO A\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie B · SUB-17\nhttps://hoquei.pages.dev/jogo/9686\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica vs Caco A\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie B · SUB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo
+ /9686\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9686
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +113,12 @@ UID:jogo-9689@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T173000Z
 DTEND:20261024T190000Z
-SUMMARY:CD PAÇO ARCOS A (casa)
+SUMMARY:🏑 Sub-17 🏑 S Alenquer Benfica vs CD Paço Arcos A
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA vs CD PAÇO ARCOS A\nCAMP. REG. SUB-17 - 1ª
-  FASE · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9689\nDados da 
- Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica vs CD Paço Arcos A\nCAMP. REG. SUB-17 - 1ª
+  FASE · Série B · SUB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.page
+ s.dev/jogo/9689\nDados da Associação de Patinagem de Lisboa. Site não o
+ ficial.
 URL:https://hoquei.pages.dev/jogo/9689
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +126,11 @@ UID:jogo-9693@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T153000Z
 DTEND:20261031T170000Z
-SUMMARY:FSE/AJ SALESIANA B (fora)
+SUMMARY:🏑 Sub-17 🏑 FSE/AJ Salesiana B vs S Alenquer Benfica
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA B vs S ALENQUER BENFICA\nCAMP. REG. SUB-17 - 1
- ª FASE · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9693\nDados d
- a Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana B vs S Alenquer Benfica\nCAMP. REG. SUB-17 - 1
+ ª FASE · Série B · SUB-17\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jo
+ go/9693\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9693
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +138,12 @@ UID:jogo-9696@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T143000Z
 DTEND:20261107T160000Z
-SUMMARY:CRIAR-T GD (casa)
+SUMMARY:🏑 Sub-17 🏑 S Alenquer Benfica vs Criar-T GD
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA vs CRIAR-T GD\nCAMP. REG. SUB-17 - 1ª FASE 
- · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9696\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica vs Criar-T GD\nCAMP. REG. SUB-17 - 1ª FASE 
+ · Série B · SUB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/
+ jogo/9696\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/9696
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +151,11 @@ UID:jogo-9697@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T183000Z
 DTEND:20261114T200000Z
-SUMMARY:SL BENFICA B (casa)
+SUMMARY:🏑 Sub-17 🏑 S Alenquer Benfica vs SL Benfica B
 LOCATION:PAV. MURCHES
-DESCRIPTION:S ALENQUER BENFICA vs SL BENFICA B\nCAMP. REG. SUB-17 - 1ª FAS
- E · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9697\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica vs SL Benfica B\nCAMP. REG. SUB-17 - 1ª FAS
+ E · Série B · SUB-17\nPAV. MURCHES\nhttps://hoquei.pages.dev/jogo/9697\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9697
 END:VEVENT
 BEGIN:VEVENT
@@ -157,11 +163,11 @@ UID:jogo-9701@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T163000Z
 DTEND:20261121T180000Z
-SUMMARY:CACO A (fora)
+SUMMARY:🏑 Sub-17 🏑 Caco A vs S Alenquer Benfica
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO A vs S ALENQUER BENFICA\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie B · SUB-17\nhttps://hoquei.pages.dev/jogo/9701\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco A vs S Alenquer Benfica\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie B · SUB-17\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9701\n
+ Dados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9701
 END:VEVENT
 END:VCALENDAR

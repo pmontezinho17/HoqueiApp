@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:A STUART HCM A · SUB-15
-X-WR-CALDESC:Jogos de A STUART HCM A (SUB-15)
+X-WR-CALNAME:🏑 A Stuart HCM A · Sub-15
+X-WR-CALDESC:Jogos de A Stuart HCM A (Sub-15)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9389@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T130000Z
 DTEND:20260913T143000Z
-SUMMARY:HC SINTRA (casa) 9–0
+SUMMARY:🏑 Sub-15 🏑 A Stuart HCM A vs HC Sintra
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:A STUART HCM A 9–0 HC SINTRA\nTORNEIO ABERTURA APL SUB-15 · 
- SUB-15\nhttps://hoquei.pages.dev/jogo/9389\nDados da Associação de Patin
- agem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM A 9–0 HC Sintra\nTORNEIO ABERTURA APL SUB-15 · 
+ SUB-15\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo/9389\nDado
+ s da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9389
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9390@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T161500Z
 DTEND:20260913T174500Z
-SUMMARY:SL BENFICA B (fora) 1–5
+SUMMARY:🏑 Sub-15 🏑 SL Benfica B vs A Stuart HCM A
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:SL BENFICA B 5–1 A STUART HCM A\nTORNEIO ABERTURA APL SUB-15 
- · SUB-15\nhttps://hoquei.pages.dev/jogo/9390\nDados da Associação de Pa
- tinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL Benfica B 5–1 A Stuart HCM A\nTORNEIO ABERTURA APL SUB-15 
+ · SUB-15\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo/9390\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9390
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,12 @@ UID:jogo-9634@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T181500Z
 DTEND:20260927T194500Z
-SUMMARY:CD PAÇO ARCOS B (casa) 0–3
+SUMMARY:🏑 Sub-15 🏑 A Stuart HCM A vs CD Paço Arcos B
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM A 0–3 CD PAÇO ARCOS B\nCAMP. REG. SUB-15 - 1ª 
- FASE · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9634\nDados da A
- ssociação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM A 0–3 CD Paço Arcos B\nCAMP. REG. SUB-15 - 1ª 
+ FASE · Série D · SUB-15\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.d
+ ev/jogo/9634\nDados da Associação de Patinagem de Lisboa. Site não ofic
+ ial.
 URL:https://hoquei.pages.dev/jogo/9634
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +50,11 @@ UID:jogo-9637@hoquei.pages.dev
 DTSTAMP:20261005T000000Z
 DTSTART:20261005T160000Z
 DTEND:20261005T173000Z
-SUMMARY:SL BENFICA A (casa)
+SUMMARY:🏑 Sub-15 🏑 A Stuart HCM A vs SL Benfica A
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM A vs SL BENFICA A\nCAMP. REG. SUB-15 - 1ª FASE ·
-  Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9637\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM A vs SL Benfica A\nCAMP. REG. SUB-15 - 1ª FASE ·
+  Série D · SUB-15\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.dev/jogo
+ /9637\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9637
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +62,11 @@ UID:jogo-9639@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T190000Z
 DTEND:20261018T203000Z
-SUMMARY:AD OEIRAS B (fora)
+SUMMARY:🏑 Sub-15 🏑 AD Oeiras B vs A Stuart HCM A
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS B vs A STUART HCM A\nCAMP. REG. SUB-15 - 1ª FASE · 
- Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9639\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras B vs A Stuart HCM A\nCAMP. REG. SUB-15 - 1ª FASE · 
+ Série D · SUB-15\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9639\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9639
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +74,12 @@ UID:jogo-9642@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T161500Z
 DTEND:20261025T174500Z
-SUMMARY:FSE/AJ SALESIANA (casa)
+SUMMARY:🏑 Sub-15 🏑 A Stuart HCM A vs FSE/AJ Salesiana
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM A vs FSE/AJ SALESIANA\nCAMP. REG. SUB-15 - 1ª FAS
- E · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9642\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM A vs FSE/AJ Salesiana\nCAMP. REG. SUB-15 - 1ª FAS
+ E · Série D · SUB-15\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.dev/
+ jogo/9642\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/9642
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +87,11 @@ UID:jogo-9644@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T160000Z
 DTEND:20261031T173000Z
-SUMMARY:CD PAÇO ARCOS B (fora)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs A STUART HCM A\nCAMP. REG. SUB-15 - 1ª FAS
- E · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9644\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-15 🏑 CD Paço Arcos B vs A Stuart HCM A
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs A Stuart HCM A\nCAMP. REG. SUB-15 - 1ª FAS
+ E · Série D · SUB-15\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jog
+ o/9644\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9644
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +99,11 @@ UID:jogo-9647@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T150000Z
 DTEND:20261108T163000Z
-SUMMARY:SL BENFICA A (fora)
+SUMMARY:🏑 Sub-15 🏑 SL Benfica A vs A Stuart HCM A
 LOCATION:PAV. MURCHES
-DESCRIPTION:SL BENFICA A vs A STUART HCM A\nCAMP. REG. SUB-15 - 1ª FASE ·
-  Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9647\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL Benfica A vs A Stuart HCM A\nCAMP. REG. SUB-15 - 1ª FASE ·
+  Série D · SUB-15\nPAV. MURCHES\nhttps://hoquei.pages.dev/jogo/9647\nDad
+ os da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9647
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +111,11 @@ UID:jogo-9649@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T161500Z
 DTEND:20261115T174500Z
-SUMMARY:AD OEIRAS B (casa)
+SUMMARY:🏑 Sub-15 🏑 A Stuart HCM A vs AD Oeiras B
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM A vs AD OEIRAS B\nCAMP. REG. SUB-15 - 1ª FASE · 
- Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9649\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM A vs AD Oeiras B\nCAMP. REG. SUB-15 - 1ª FASE · 
+ Série D · SUB-15\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.dev/jogo/
+ 9649\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9649
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +123,11 @@ UID:jogo-9652@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T144500Z
 DTEND:20261122T161500Z
-SUMMARY:FSE/AJ SALESIANA (fora)
+SUMMARY:🏑 Sub-15 🏑 FSE/AJ Salesiana vs A Stuart HCM A
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA vs A STUART HCM A\nCAMP. REG. SUB-15 - 1ª FAS
- E · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9652\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana vs A Stuart HCM A\nCAMP. REG. SUB-15 - 1ª FAS
+ E · Série D · SUB-15\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/965
+ 2\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9652
 END:VEVENT
 END:VCALENDAR

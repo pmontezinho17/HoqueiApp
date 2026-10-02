@@ -17,6 +17,9 @@ import re
 import unicodedata
 from zoneinfo import ZoneInfo
 
+from .nomes import clube, escalao
+from .recintos import localizacao
+
 LISBOA = ZoneInfo("Europe/Lisbon")
 DOMINIO = "hoquei.pages.dev"
 #: Sem duração na fonte. 90 min cobrem as duas partes e o intervalo em qualquer escalão,
@@ -80,39 +83,32 @@ def _uid(jogo: dict) -> str:
     return f"{jogo['data']}-{slug(jogo['casa'])}-{slug(jogo['fora'])}@{DOMINIO}"
 
 
-def _resumo(jogo: dict, equipa: str) -> str:
-    """O título do evento, pensado para a **célula estreita** do calendário.
+def _resumo(jogo: dict) -> str:
+    """`🏑 Sub-13 🏑 Parede FC B vs Caco B`.
 
-    A primeira versão era `CASA vs FORA`, como nas tabelas da app. Num calendário pessoal
-    isso lê-se mal: o mês do Google mostra uns 15 caracteres, e os primeiros eram sempre o
-    nome do próprio clube — a informação que o utilizador já sabe, porque foi ele que
-    subscreveu aquele calendário. Sobrava "PAREDE FC B vs C…".
-
-    Agora lidera o que ele não sabe: **contra quem** e **se tem de viajar**.
+    O escalão vem à frente porque um pai com dois filhos subscreve dois calendários e, numa
+    semana cheia, é o que distingue um jogo do outro. O 🏑 marca o que é hóquei entre as
+    reuniões e os aniversários — é o que torna a linha reconhecível antes de ser lida.
     """
-    casa, fora = jogo["casa"], jogo["fora"]
-    em_casa = casa == equipa
-    adversario = fora if em_casa else casa
-    onde = "casa" if em_casa else "fora"
-    gc, gf = jogo.get("gc"), jogo.get("gf")
-    if gc is None or gf is None:
-        return f"{adversario} ({onde})"
-    # o resultado conta-se sempre do lado de quem subscreveu, senão era preciso
-    # lembrar quem jogava em casa para o saber ler
-    nossos, deles = (gc, gf) if em_casa else (gf, gc)
-    return f"{adversario} ({onde}) {nossos}–{deles}"
+    return (f"🏑 {escalao(jogo['cat'])} 🏑 "
+            f"{clube(jogo['casa'])} vs {clube(jogo['fora'])}")
 
 
 def _descricao(jogo: dict) -> str:
     # o confronto por extenso abre a descrição: o título é abreviado de propósito, e quem
     # abre o evento quer ver quem jogou contra quem sem ter de adivinhar a ordem
     gc, gf = jogo.get("gc"), jogo.get("gf")
-    meio = f"{gc}–{gf}" if gc is not None and gf is not None else "vs"
-    confronto = f"{jogo['casa']} {meio} {jogo['fora']}"
+    # o resultado vive na descrição: no título ficaria a dizer quem ganhou a quem passa
+    # os olhos pelo mês, o que estraga a surpresa a quem ainda não viu o jogo
+    confronto = (f"{clube(jogo['casa'])} {gc}–{gf} {clube(jogo['fora'])}"
+                 if gc is not None and gf is not None else
+                 f"{clube(jogo['casa'])} vs {clube(jogo['fora'])}")
     partes = [p for p in (jogo.get("grupo_nome") or jogo.get("prova"),
                           f"Série {jogo['serie']}" if jogo.get("serie") else None,
                           jogo.get("cat")) if p]
     linhas = [confronto, " · ".join(partes)]
+    if jogo.get("recinto"):
+        linhas.append(jogo["recinto"])
     if jogo.get("id"):
         linhas.append(f"https://{DOMINIO}/jogo/{jogo['id']}")
     linhas.append("Dados da Associação de Patinagem de Lisboa. Site não oficial.")
@@ -127,8 +123,8 @@ def feed(equipa: str, categoria: str, jogos: list[dict]) -> str:
         f"PRODID:-//hoquei//{DOMINIO}//PT",
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
-        f"X-WR-CALNAME:{_escapar(f'{equipa} · {categoria}')}",
-        f"X-WR-CALDESC:{_escapar(f'Jogos de {equipa} ({categoria})')}",
+        f"X-WR-CALNAME:{_escapar(f'🏑 {clube(equipa)} · {escalao(categoria)}')}",
+        f"X-WR-CALDESC:{_escapar(f'Jogos de {clube(equipa)} ({escalao(categoria)})')}",
         "X-WR-TIMEZONE:Europe/Lisbon",
         # pedidos de releitura; o cliente obedece se quiser (o Google ignora-os)
         "REFRESH-INTERVAL;VALUE=DURATION:PT6H",
@@ -150,9 +146,10 @@ def feed(equipa: str, categoria: str, jogos: list[dict]) -> str:
             dia = dt.date.fromisoformat(jogo["data"])
             linhas.append(f"DTSTART;VALUE=DATE:{dia.strftime('%Y%m%d')}")
             linhas.append(f"DTEND;VALUE=DATE:{(dia + dt.timedelta(days=1)).strftime('%Y%m%d')}")
-        linhas.append(f"SUMMARY:{_escapar(_resumo(jogo, equipa))}")
-        if jogo.get("recinto"):
-            linhas.append(f"LOCATION:{_escapar(jogo['recinto'])}")
+        linhas.append(f"SUMMARY:{_escapar(_resumo(jogo))}")
+        onde = localizacao(jogo.get("recinto"))
+        if onde:
+            linhas.append(f"LOCATION:{_escapar(onde)}")
         linhas.append(f"DESCRIPTION:{_escapar(_descricao(jogo))}")
         if jogo.get("id"):
             linhas.append(f"URL:https://{DOMINIO}/jogo/{jogo['id']}")

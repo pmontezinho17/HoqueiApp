@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:UD VILAFRANQUENSE · SUB-17
-X-WR-CALDESC:Jogos de UD VILAFRANQUENSE (SUB-17)
+X-WR-CALNAME:🏑 UD Vilafranquense · Sub-17
+X-WR-CALDESC:Jogos de UD Vilafranquense (Sub-17)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9414@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T094500Z
 DTEND:20260912T111500Z
-SUMMARY:FSE/AJ SALESIANA A (casa) 1–3
+SUMMARY:🏑 Sub-17 🏑 UD Vilafranquense vs FSE/AJ Salesiana A
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE 1–3 FSE/AJ SALESIANA A\nTORNEIO ABERTURA AP
- L SUB-17 · SUB-17\nhttps://hoquei.pages.dev/jogo/9414\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense 1–3 FSE/AJ Salesiana A\nTORNEIO ABERTURA AP
+ L SUB-17 · SUB-17\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/941
+ 4\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9414
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9415@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T161500Z
 DTEND:20260912T174500Z
-SUMMARY:CRIAR-T GD (fora) 1–1
+SUMMARY:🏑 Sub-17 🏑 Criar-T GD vs UD Vilafranquense
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:CRIAR-T GD 1–1 UD VILAFRANQUENSE\nTORNEIO ABERTURA APL SUB-17
-  · SUB-17\nhttps://hoquei.pages.dev/jogo/9415\nDados da Associação de P
- atinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD 1–1 UD Vilafranquense\nTORNEIO ABERTURA APL SUB-17
+  · SUB-17\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/9415\nDados
+  da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9415
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9734@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T191500Z
 DTEND:20260926T204500Z
-SUMMARY:CD MAFRA (casa) 22–0
+SUMMARY:🏑 Sub-17 🏑 UD Vilafranquense vs CD Mafra
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE 22–0 CD MAFRA\nCAMP. REG. SUB-17 - 1ª FASE
-  · Série D · SUB-17\nhttps://hoquei.pages.dev/jogo/9734\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense 22–0 CD Mafra\nCAMP. REG. SUB-17 - 1ª FASE
+  · Série D · SUB-17\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo
+ /9734\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9734
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9735@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T173000Z
 DTEND:20261003T190000Z
-SUMMARY:AD OEIRAS A (fora)
+SUMMARY:🏑 Sub-17 🏑 AD Oeiras A vs UD Vilafranquense
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS A vs UD VILAFRANQUENSE\nCAMP. REG. SUB-17 - 1ª FASE 
- · Série D · SUB-17\nhttps://hoquei.pages.dev/jogo/9735\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras A vs UD Vilafranquense\nCAMP. REG. SUB-17 - 1ª FASE 
+ · Série D · SUB-17\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9735
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9735
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9738@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T183000Z
 DTEND:20261010T200000Z
-SUMMARY:SPORTING CP B (casa)
+SUMMARY:🏑 Sub-17 🏑 UD Vilafranquense vs Sporting CP B
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs SPORTING CP B\nCAMP. REG. SUB-17 - 1ª FAS
- E · Série D · SUB-17\nhttps://hoquei.pages.dev/jogo/9738\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense vs Sporting CP B\nCAMP. REG. SUB-17 - 1ª FAS
+ E · Série D · SUB-17\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jog
+ o/9738\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9738
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,12 @@ UID:jogo-9742@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T153000Z
 DTEND:20261017T170000Z
-SUMMARY:HC LOURINHÃ (fora)
+SUMMARY:🏑 Sub-17 🏑 HC Lourinhã vs UD Vilafranquense
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:HC LOURINHÃ vs UD VILAFRANQUENSE\nCAMP. REG. SUB-17 - 1ª FASE
-  · Série D · SUB-17\nhttps://hoquei.pages.dev/jogo/9742\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinhã vs UD Vilafranquense\nCAMP. REG. SUB-17 - 1ª FASE
+  · Série D · SUB-17\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev
+ /jogo/9742\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
 URL:https://hoquei.pages.dev/jogo/9742
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +86,11 @@ UID:jogo-9744@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T150000Z
 DTEND:20261024T163000Z
-SUMMARY:CD MAFRA (fora)
+SUMMARY:🏑 Sub-17 🏑 CD Mafra vs UD Vilafranquense
 LOCATION:PAV. MAFRA
-DESCRIPTION:CD MAFRA vs UD VILAFRANQUENSE\nCAMP. REG. SUB-17 - 1ª FASE · 
- Série D · SUB-17\nhttps://hoquei.pages.dev/jogo/9744\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CD Mafra vs UD Vilafranquense\nCAMP. REG. SUB-17 - 1ª FASE · 
+ Série D · SUB-17\nPAV. MAFRA\nhttps://hoquei.pages.dev/jogo/9744\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9744
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +98,11 @@ UID:jogo-9745@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T190000Z
 DTEND:20261031T203000Z
-SUMMARY:AD OEIRAS A (casa)
+SUMMARY:🏑 Sub-17 🏑 UD Vilafranquense vs AD Oeiras A
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs AD OEIRAS A\nCAMP. REG. SUB-17 - 1ª FASE 
- · Série D · SUB-17\nhttps://hoquei.pages.dev/jogo/9745\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense vs AD Oeiras A\nCAMP. REG. SUB-17 - 1ª FASE 
+ · Série D · SUB-17\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/
+ 9745\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9745
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +110,11 @@ UID:jogo-9748@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T161500Z
 DTEND:20261107T174500Z
-SUMMARY:SPORTING CP B (fora)
+SUMMARY:🏑 Sub-17 🏑 Sporting CP B vs UD Vilafranquense
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP B vs UD VILAFRANQUENSE\nCAMP. REG. SUB-17 - 1ª FAS
- E · Série D · SUB-17\nhttps://hoquei.pages.dev/jogo/9748\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP B vs UD Vilafranquense\nCAMP. REG. SUB-17 - 1ª FAS
+ E · Série D · SUB-17\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jog
+ o/9748\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9748
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +122,11 @@ UID:jogo-9752@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T163000Z
 DTEND:20261121T180000Z
-SUMMARY:HC LOURINHÃ (casa)
+SUMMARY:🏑 Sub-17 🏑 UD Vilafranquense vs HC Lourinhã
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs HC LOURINHÃ\nCAMP. REG. SUB-17 - 1ª FASE
-  · Série D · SUB-17\nhttps://hoquei.pages.dev/jogo/9752\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense vs HC Lourinhã\nCAMP. REG. SUB-17 - 1ª FASE
+  · Série D · SUB-17\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo
+ /9752\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9752
 END:VEVENT
 END:VCALENDAR

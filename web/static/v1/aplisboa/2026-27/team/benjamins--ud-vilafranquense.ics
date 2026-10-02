@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:UD VILAFRANQUENSE · BENJAMINS
-X-WR-CALDESC:Jogos de UD VILAFRANQUENSE (BENJAMINS)
+X-WR-CALNAME:🏑 UD Vilafranquense · Benjamins
+X-WR-CALDESC:Jogos de UD Vilafranquense (Benjamins)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,12 +13,12 @@ UID:jogo-10061@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T153000Z
 DTEND:20261003T170000Z
-SUMMARY:SPORTING CP (casa)
+SUMMARY:🏑 Benjamins 🏑 UD Vilafranquense vs Sporting CP
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs SPORTING CP\nENCONTROS DISTRITAIS BENJAMIN
- S - 1ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/j
- ogo/10061\nDados da Associação de Patinagem de Lisboa. Site não oficial
- .
+DESCRIPTION:UD Vilafranquense vs Sporting CP\nENCONTROS DISTRITAIS BENJAMIN
+ S - 1ª FASE NIVEL II · Série C · BENJAMINS\nPAV. VILAFRANQUENSE\nhttps
+ ://hoquei.pages.dev/jogo/10061\nDados da Associação de Patinagem de Lisb
+ oa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10061
 END:VEVENT
 BEGIN:VEVENT
@@ -26,12 +26,12 @@ UID:jogo-10065@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T140000Z
 DTEND:20261010T153000Z
-SUMMARY:HC LOURINHÃ (fora)
+SUMMARY:🏑 Benjamins 🏑 HC Lourinhã vs UD Vilafranquense
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:HC LOURINHÃ vs UD VILAFRANQUENSE\nENCONTROS DISTRITAIS BENJAMI
- NS - 1ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/
- jogo/10065\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:HC Lourinhã vs UD Vilafranquense\nENCONTROS DISTRITAIS BENJAMI
+ NS - 1ª FASE NIVEL II · Série C · BENJAMINS\nPAV. GIMNO. DA LOURINHÃ\
+ nhttps://hoquei.pages.dev/jogo/10065\nDados da Associação de Patinagem d
+ e Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10065
 END:VEVENT
 BEGIN:VEVENT
@@ -39,11 +39,12 @@ UID:jogo-10068@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T143000Z
 DTEND:20261017T160000Z
-SUMMARY:CACO B (fora)
+SUMMARY:🏑 Benjamins 🏑 Caco B vs UD Vilafranquense
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO B vs UD VILAFRANQUENSE\nENCONTROS DISTRITAIS BENJAMINS - 1
- ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/1
- 0068\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco B vs UD Vilafranquense\nENCONTROS DISTRITAIS BENJAMINS - 1
+ ª FASE NIVEL II · Série C · BENJAMINS\nPAV.C.A.C.OURIQUE\nhttps://hoqu
+ ei.pages.dev/jogo/10068\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
 URL:https://hoquei.pages.dev/jogo/10068
 END:VEVENT
 BEGIN:VEVENT
@@ -51,11 +52,12 @@ UID:jogo-10071@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T133000Z
 DTEND:20261024T150000Z
-SUMMARY:APAC TOJAL (casa)
+SUMMARY:🏑 Benjamins 🏑 UD Vilafranquense vs APAC Tojal
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs APAC TOJAL\nENCONTROS DISTRITAIS BENJAMINS
-  - 1ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jo
- go/10071\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense vs APAC Tojal\nENCONTROS DISTRITAIS BENJAMINS
+  - 1ª FASE NIVEL II · Série C · BENJAMINS\nPAV. VILAFRANQUENSE\nhttps:
+ //hoquei.pages.dev/jogo/10071\nDados da Associação de Patinagem de Lisbo
+ a. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10071
 END:VEVENT
 BEGIN:VEVENT
@@ -63,11 +65,12 @@ UID:jogo-10074@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T143000Z
 DTEND:20261031T160000Z
-SUMMARY:PAREDE FC (fora)
+SUMMARY:🏑 Benjamins 🏑 Parede FC vs UD Vilafranquense
 LOCATION:PAV. PAREDE
-DESCRIPTION:PAREDE FC vs UD VILAFRANQUENSE\nENCONTROS DISTRITAIS BENJAMINS 
- - 1ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jog
- o/10074\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC vs UD Vilafranquense\nENCONTROS DISTRITAIS BENJAMINS 
+ - 1ª FASE NIVEL II · Série C · BENJAMINS\nPAV. PAREDE\nhttps://hoquei.
+ pages.dev/jogo/10074\nDados da Associação de Patinagem de Lisboa. Site n
+ ão oficial.
 URL:https://hoquei.pages.dev/jogo/10074
 END:VEVENT
 BEGIN:VEVENT
@@ -75,12 +78,12 @@ UID:jogo-10076@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T110000Z
 DTEND:20261107T123000Z
-SUMMARY:SPORTING CP (fora)
+SUMMARY:🏑 Benjamins 🏑 Sporting CP vs UD Vilafranquense
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP vs UD VILAFRANQUENSE\nENCONTROS DISTRITAIS BENJAMIN
- S - 1ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/j
- ogo/10076\nDados da Associação de Patinagem de Lisboa. Site não oficial
- .
+DESCRIPTION:Sporting CP vs UD Vilafranquense\nENCONTROS DISTRITAIS BENJAMIN
+ S - 1ª FASE NIVEL II · Série C · BENJAMINS\nPAV.G.S.SACAVENENSE\nhttps
+ ://hoquei.pages.dev/jogo/10076\nDados da Associação de Patinagem de Lisb
+ oa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10076
 END:VEVENT
 BEGIN:VEVENT
@@ -88,12 +91,12 @@ UID:jogo-10080@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T143000Z
 DTEND:20261114T160000Z
-SUMMARY:HC LOURINHÃ (casa)
+SUMMARY:🏑 Benjamins 🏑 UD Vilafranquense vs HC Lourinhã
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs HC LOURINHÃ\nENCONTROS DISTRITAIS BENJAMI
- NS - 1ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/
- jogo/10080\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:UD Vilafranquense vs HC Lourinhã\nENCONTROS DISTRITAIS BENJAMI
+ NS - 1ª FASE NIVEL II · Série C · BENJAMINS\nPAV. VILAFRANQUENSE\nhttp
+ s://hoquei.pages.dev/jogo/10080\nDados da Associação de Patinagem de Lis
+ boa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10080
 END:VEVENT
 BEGIN:VEVENT
@@ -101,11 +104,12 @@ UID:jogo-10083@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T090000Z
 DTEND:20261121T103000Z
-SUMMARY:CACO B (casa)
+SUMMARY:🏑 Benjamins 🏑 UD Vilafranquense vs Caco B
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs CACO B\nENCONTROS DISTRITAIS BENJAMINS - 1
- ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/1
- 0083\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense vs Caco B\nENCONTROS DISTRITAIS BENJAMINS - 1
+ ª FASE NIVEL II · Série C · BENJAMINS\nPAV. VILAFRANQUENSE\nhttps://ho
+ quei.pages.dev/jogo/10083\nDados da Associação de Patinagem de Lisboa. S
+ ite não oficial.
 URL:https://hoquei.pages.dev/jogo/10083
 END:VEVENT
 BEGIN:VEVENT
@@ -113,11 +117,12 @@ UID:jogo-10086@hoquei.pages.dev
 DTSTAMP:20261205T000000Z
 DTSTART:20261205T143000Z
 DTEND:20261205T160000Z
-SUMMARY:APAC TOJAL (fora)
+SUMMARY:🏑 Benjamins 🏑 APAC Tojal vs UD Vilafranquense
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL vs UD VILAFRANQUENSE\nENCONTROS DISTRITAIS BENJAMINS
-  - 1ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jo
- go/10086\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs UD Vilafranquense\nENCONTROS DISTRITAIS BENJAMINS
+  - 1ª FASE NIVEL II · Série C · BENJAMINS\nPAV. A.P.A.C.TOJAL\nhttps:/
+ /hoquei.pages.dev/jogo/10086\nDados da Associação de Patinagem de Lisboa
+ . Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10086
 END:VEVENT
 BEGIN:VEVENT
@@ -125,11 +130,12 @@ UID:jogo-10089@hoquei.pages.dev
 DTSTAMP:20261212T000000Z
 DTSTART:20261212T144500Z
 DTEND:20261212T161500Z
-SUMMARY:PAREDE FC (casa)
+SUMMARY:🏑 Benjamins 🏑 UD Vilafranquense vs Parede FC
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs PAREDE FC\nENCONTROS DISTRITAIS BENJAMINS 
- - 1ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jog
- o/10089\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense vs Parede FC\nENCONTROS DISTRITAIS BENJAMINS 
+ - 1ª FASE NIVEL II · Série C · BENJAMINS\nPAV. VILAFRANQUENSE\nhttps:/
+ /hoquei.pages.dev/jogo/10089\nDados da Associação de Patinagem de Lisboa
+ . Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10089
 END:VEVENT
 END:VCALENDAR

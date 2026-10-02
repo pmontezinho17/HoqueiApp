@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:S ALENQUER BENFICA · SUB-19
-X-WR-CALDESC:Jogos de S ALENQUER BENFICA (SUB-19)
+X-WR-CALNAME:🏑 S Alenquer Benfica · Sub-19
+X-WR-CALDESC:Jogos de S Alenquer Benfica (Sub-19)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9429@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T094500Z
 DTEND:20260913T111500Z
-SUMMARY:APAC TOJAL (casa) 1–3
+SUMMARY:🏑 Sub-19 🏑 S Alenquer Benfica vs APAC Tojal
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:S ALENQUER BENFICA 1–3 APAC TOJAL\nTORNEIO ABERTURA APL SUB-1
- 9 · SUB-19\nhttps://hoquei.pages.dev/jogo/9429\nDados da Associação de 
- Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica 1–3 APAC Tojal\nTORNEIO ABERTURA APL SUB-1
+ 9 · SUB-19\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9429\nDados
+  da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9429
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9430@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T133000Z
 DTEND:20260913T150000Z
-SUMMARY:PAREDE FC (fora) 0–2
+SUMMARY:🏑 Sub-19 🏑 Parede FC vs S Alenquer Benfica
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:PAREDE FC 2–0 S ALENQUER BENFICA\nTORNEIO ABERTURA APL SUB-19
-  · SUB-19\nhttps://hoquei.pages.dev/jogo/9430\nDados da Associação de P
- atinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC 2–0 S Alenquer Benfica\nTORNEIO ABERTURA APL SUB-19
+  · SUB-19\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9430\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9430
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9438@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T143000Z
 DTEND:20260919T160000Z
-SUMMARY:PAREDE FC (fora) 3–4
+SUMMARY:🏑 Sub-19 🏑 Parede FC vs S Alenquer Benfica
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:PAREDE FC 4–3 S ALENQUER BENFICA\nTORNEIO ABERTURA APL SUB-19
-  · SUB-19\nhttps://hoquei.pages.dev/jogo/9438\nDados da Associação de P
- atinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC 4–3 S Alenquer Benfica\nTORNEIO ABERTURA APL SUB-19
+  · SUB-19\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo/9438\n
+ Dados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9438
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,12 @@ UID:jogo-9805@hoquei.pages.dev
 DTSTAMP:20261005T000000Z
 DTSTART:20261005T170000Z
 DTEND:20261005T183000Z
-SUMMARY:HC TURQUEL (casa)
+SUMMARY:🏑 Sub-19 🏑 S Alenquer Benfica vs HC Turquel
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA vs HC TURQUEL\nCAMP. REG. SUB-19 - 1ª FASE 
- · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9805\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica vs HC Turquel\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série A · SUB-19\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/
+ jogo/9805\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/9805
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +62,12 @@ UID:jogo-9808@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T133000Z
 DTEND:20261018T150000Z
-SUMMARY:UD VILAFRANQUENSE (fora)
+SUMMARY:🏑 Sub-19 🏑 UD Vilafranquense vs S Alenquer Benfica
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs S ALENQUER BENFICA\nCAMP. REG. SUB-19 - 1
- ª FASE · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9808\nDados d
- a Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense vs S Alenquer Benfica\nCAMP. REG. SUB-19 - 1
+ ª FASE · Série A · SUB-19\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.d
+ ev/jogo/9808\nDados da Associação de Patinagem de Lisboa. Site não ofic
+ ial.
 URL:https://hoquei.pages.dev/jogo/9808
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +75,12 @@ UID:jogo-9809@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T180000Z
 DTEND:20261025T193000Z
-SUMMARY:HC LOURINHÃ (casa)
+SUMMARY:🏑 Sub-19 🏑 S Alenquer Benfica vs HC Lourinhã
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA vs HC LOURINHÃ\nCAMP. REG. SUB-19 - 1ª FAS
- E · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9809\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica vs HC Lourinhã\nCAMP. REG. SUB-19 - 1ª FAS
+ E · Série A · SUB-19\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.de
+ v/jogo/9809\nDados da Associação de Patinagem de Lisboa. Site não ofici
+ al.
 URL:https://hoquei.pages.dev/jogo/9809
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +88,12 @@ UID:jogo-9813@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T150000Z
 DTEND:20261101T163000Z
-SUMMARY:BIBLIOTECA IR (fora)
+SUMMARY:🏑 Sub-19 🏑 Biblioteca IR vs S Alenquer Benfica
 LOCATION:PAV. VALADO DE FRADES
-DESCRIPTION:BIBLIOTECA IR vs S ALENQUER BENFICA\nCAMP. REG. SUB-19 - 1ª FA
- SE · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9813\nDados da Ass
- ociação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Biblioteca IR vs S Alenquer Benfica\nCAMP. REG. SUB-19 - 1ª FA
+ SE · Série A · SUB-19\nPAV. VALADO DE FRADES\nhttps://hoquei.pages.dev/
+ jogo/9813\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/9813
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +101,12 @@ UID:jogo-9817@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T180000Z
 DTEND:20261108T193000Z
-SUMMARY:SL BENFICA (casa)
+SUMMARY:🏑 Sub-19 🏑 S Alenquer Benfica vs SL Benfica
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA vs SL BENFICA\nCAMP. REG. SUB-19 - 1ª FASE 
- · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9817\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica vs SL Benfica\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série A · SUB-19\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/
+ jogo/9817\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/9817
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +114,11 @@ UID:jogo-9820@hoquei.pages.dev
 DTSTAMP:20261113T000000Z
 DTSTART:20261113T220000Z
 DTEND:20261113T233000Z
-SUMMARY:HC TURQUEL (fora)
+SUMMARY:🏑 Sub-19 🏑 HC Turquel vs S Alenquer Benfica
 LOCATION:PAV. HC TURQUEL
-DESCRIPTION:HC TURQUEL vs S ALENQUER BENFICA\nCAMP. REG. SUB-19 - 1ª FASE 
- · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9820\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Turquel vs S Alenquer Benfica\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série A · SUB-19\nPAV. HC TURQUEL\nhttps://hoquei.pages.dev/jogo/9820
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9820
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +126,12 @@ UID:jogo-9823@hoquei.pages.dev
 DTSTAMP:20261125T000000Z
 DTSTART:20261125T213000Z
 DTEND:20261125T230000Z
-SUMMARY:UD VILAFRANQUENSE (casa)
+SUMMARY:🏑 Sub-19 🏑 S Alenquer Benfica vs UD Vilafranquense
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA vs UD VILAFRANQUENSE\nCAMP. REG. SUB-19 - 1
- ª FASE · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9823\nDados d
- a Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica vs UD Vilafranquense\nCAMP. REG. SUB-19 - 1
+ ª FASE · Série A · SUB-19\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pa
+ ges.dev/jogo/9823\nDados da Associação de Patinagem de Lisboa. Site não
+  oficial.
 URL:https://hoquei.pages.dev/jogo/9823
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +139,12 @@ UID:jogo-9824@hoquei.pages.dev
 DTSTAMP:20261129T000000Z
 DTSTART:20261129T163000Z
 DTEND:20261129T180000Z
-SUMMARY:HC LOURINHÃ (fora)
+SUMMARY:🏑 Sub-19 🏑 HC Lourinhã vs S Alenquer Benfica
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:HC LOURINHÃ vs S ALENQUER BENFICA\nCAMP. REG. SUB-19 - 1ª FAS
- E · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9824\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinhã vs S Alenquer Benfica\nCAMP. REG. SUB-19 - 1ª FAS
+ E · Série A · SUB-19\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.de
+ v/jogo/9824\nDados da Associação de Patinagem de Lisboa. Site não ofici
+ al.
 URL:https://hoquei.pages.dev/jogo/9824
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +152,12 @@ UID:jogo-9828@hoquei.pages.dev
 DTSTAMP:20261201T000000Z
 DTSTART:20261201T180000Z
 DTEND:20261201T193000Z
-SUMMARY:BIBLIOTECA IR (casa)
+SUMMARY:🏑 Sub-19 🏑 S Alenquer Benfica vs Biblioteca IR
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA vs BIBLIOTECA IR\nCAMP. REG. SUB-19 - 1ª FA
- SE · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9828\nDados da Ass
- ociação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica vs Biblioteca IR\nCAMP. REG. SUB-19 - 1ª FA
+ SE · Série A · SUB-19\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.d
+ ev/jogo/9828\nDados da Associação de Patinagem de Lisboa. Site não ofic
+ ial.
 URL:https://hoquei.pages.dev/jogo/9828
 END:VEVENT
 BEGIN:VEVENT
@@ -157,11 +165,11 @@ UID:jogo-9832@hoquei.pages.dev
 DTSTAMP:20261206T000000Z
 DTSTART:20261206T163000Z
 DTEND:20261206T180000Z
-SUMMARY:SL BENFICA (fora)
+SUMMARY:🏑 Sub-19 🏑 SL Benfica vs S Alenquer Benfica
 LOCATION:PAV. MURCHES
-DESCRIPTION:SL BENFICA vs S ALENQUER BENFICA\nCAMP. REG. SUB-19 - 1ª FASE 
- · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9832\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL Benfica vs S Alenquer Benfica\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série A · SUB-19\nPAV. MURCHES\nhttps://hoquei.pages.dev/jogo/9832\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9832
 END:VEVENT
 END:VCALENDAR

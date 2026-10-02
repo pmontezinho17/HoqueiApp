@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:CACO A · ESCOLARES
-X-WR-CALDESC:Jogos de CACO A (ESCOLARES)
+X-WR-CALNAME:🏑 Caco A · Escolares
+X-WR-CALDESC:Jogos de Caco A (Escolares)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,12 @@ UID:jogo-9905@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T090000Z
 DTEND:20260927T103000Z
-SUMMARY:AE FISICA D A (fora) 5–0
+SUMMARY:🏑 Escolares 🏑 AE Fisica D A vs Caco A
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA D A 0–5 CACO A\nENCONTROS DISTRITAIS ESCOLARES - 1
- ª FASE NIVEL I · Série B · ESCOLARES\nhttps://hoquei.pages.dev/jogo/99
- 05\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica D A 0–5 Caco A\nENCONTROS DISTRITAIS ESCOLARES - 1
+ ª FASE NIVEL I · Série B · ESCOLARES\nPAV. FÍSICA TORRES VEDRAS\nhttp
+ s://hoquei.pages.dev/jogo/9905\nDados da Associação de Patinagem de Lisb
+ oa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9905
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +26,12 @@ UID:jogo-9907@hoquei.pages.dev
 DTSTAMP:20261004T000000Z
 DTSTART:20261004T160000Z
 DTEND:20261004T173000Z
-SUMMARY:HC SINTRA (casa)
+SUMMARY:🏑 Escolares 🏑 Caco A vs HC Sintra
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO A vs HC SINTRA\nENCONTROS DISTRITAIS ESCOLARES - 1ª FASE 
- NIVEL I · Série B · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9907\nDado
- s da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco A vs HC Sintra\nENCONTROS DISTRITAIS ESCOLARES - 1ª FASE 
+ NIVEL I · Série B · ESCOLARES\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.
+ dev/jogo/9907\nDados da Associação de Patinagem de Lisboa. Site não ofi
+ cial.
 URL:https://hoquei.pages.dev/jogo/9907
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +39,12 @@ UID:jogo-9909@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T110000Z
 DTEND:20261011T123000Z
-SUMMARY:CD PAÇO ARCOS A (fora)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A vs CACO A\nENCONTROS DISTRITAIS ESCOLARES - 1
- ª FASE NIVEL I · Série B · ESCOLARES\nhttps://hoquei.pages.dev/jogo/99
- 09\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Escolares 🏑 CD Paço Arcos A vs Caco A
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A vs Caco A\nENCONTROS DISTRITAIS ESCOLARES - 1
+ ª FASE NIVEL I · Série B · ESCOLARES\nPAV. PAÇO DE ARCOS\nhttps://hoq
+ uei.pages.dev/jogo/9909\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
 URL:https://hoquei.pages.dev/jogo/9909
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +52,12 @@ UID:jogo-9911@hoquei.pages.dev
 DTSTAMP:20261016T000000Z
 DTSTART:20261016T200000Z
 DTEND:20261016T213000Z
-SUMMARY:UD VILAFRANQUENSE A (casa)
+SUMMARY:🏑 Escolares 🏑 Caco A vs UD Vilafranquense A
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO A vs UD VILAFRANQUENSE A\nENCONTROS DISTRITAIS ESCOLARES -
-  1ª FASE NIVEL I · Série B · ESCOLARES\nhttps://hoquei.pages.dev/jogo/
- 9911\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco A vs UD Vilafranquense A\nENCONTROS DISTRITAIS ESCOLARES -
+  1ª FASE NIVEL I · Série B · ESCOLARES\nPAV.C.A.C.OURIQUE\nhttps://hoq
+ uei.pages.dev/jogo/9911\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
 URL:https://hoquei.pages.dev/jogo/9911
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +65,12 @@ UID:jogo-9915@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T160000Z
 DTEND:20261101T173000Z
-SUMMARY:AE FISICA D A (casa)
+SUMMARY:🏑 Escolares 🏑 Caco A vs AE Fisica D A
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO A vs AE FISICA D A\nENCONTROS DISTRITAIS ESCOLARES - 1ª F
- ASE NIVEL I · Série B · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9915\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco A vs AE Fisica D A\nENCONTROS DISTRITAIS ESCOLARES - 1ª F
+ ASE NIVEL I · Série B · ESCOLARES\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pa
+ ges.dev/jogo/9915\nDados da Associação de Patinagem de Lisboa. Site não
+  oficial.
 URL:https://hoquei.pages.dev/jogo/9915
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +78,12 @@ UID:jogo-9917@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T150000Z
 DTEND:20261108T163000Z
-SUMMARY:HC SINTRA (fora)
+SUMMARY:🏑 Escolares 🏑 HC Sintra vs Caco A
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:HC SINTRA vs CACO A\nENCONTROS DISTRITAIS ESCOLARES - 1ª FASE 
- NIVEL I · Série B · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9917\nDado
- s da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Sintra vs Caco A\nENCONTROS DISTRITAIS ESCOLARES - 1ª FASE 
+ NIVEL I · Série B · ESCOLARES\nPAV. HC SINTRA\nhttps://hoquei.pages.dev
+ /jogo/9917\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
 URL:https://hoquei.pages.dev/jogo/9917
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +91,12 @@ UID:jogo-9919@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T160000Z
 DTEND:20261115T173000Z
-SUMMARY:CD PAÇO ARCOS A (casa)
+SUMMARY:🏑 Escolares 🏑 Caco A vs CD Paço Arcos A
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO A vs CD PAÇO ARCOS A\nENCONTROS DISTRITAIS ESCOLARES - 1
- ª FASE NIVEL I · Série B · ESCOLARES\nhttps://hoquei.pages.dev/jogo/99
- 19\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco A vs CD Paço Arcos A\nENCONTROS DISTRITAIS ESCOLARES - 1
+ ª FASE NIVEL I · Série B · ESCOLARES\nPAV.C.A.C.OURIQUE\nhttps://hoque
+ i.pages.dev/jogo/9919\nDados da Associação de Patinagem de Lisboa. Site 
+ não oficial.
 URL:https://hoquei.pages.dev/jogo/9919
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +104,12 @@ UID:jogo-9921@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T161500Z
 DTEND:20261122T174500Z
-SUMMARY:UD VILAFRANQUENSE A (fora)
+SUMMARY:🏑 Escolares 🏑 UD Vilafranquense A vs Caco A
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE A vs CACO A\nENCONTROS DISTRITAIS ESCOLARES -
-  1ª FASE NIVEL I · Série B · ESCOLARES\nhttps://hoquei.pages.dev/jogo/
- 9921\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense A vs Caco A\nENCONTROS DISTRITAIS ESCOLARES -
+  1ª FASE NIVEL I · Série B · ESCOLARES\nPAV. VILAFRANQUENSE\nhttps://h
+ oquei.pages.dev/jogo/9921\nDados da Associação de Patinagem de Lisboa. S
+ ite não oficial.
 URL:https://hoquei.pages.dev/jogo/9921
 END:VEVENT
 END:VCALENDAR

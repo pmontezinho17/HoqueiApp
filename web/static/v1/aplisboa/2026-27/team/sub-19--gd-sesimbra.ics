@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:GD SESIMBRA · SUB-19
-X-WR-CALDESC:Jogos de GD SESIMBRA (SUB-19)
+X-WR-CALNAME:🏑 GD Sesimbra · Sub-19
+X-WR-CALDESC:Jogos de GD Sesimbra (Sub-19)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9835@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T143000Z
 DTEND:20261011T160000Z
-SUMMARY:AE FISICA D (casa)
+SUMMARY:🏑 Sub-19 🏑 GD Sesimbra vs AE Fisica D
 LOCATION:PAV. SESIMBRA
-DESCRIPTION:GD SESIMBRA vs AE FISICA D\nCAMP. REG. SUB-19 - 1ª FASE · Sé
- rie B · SUB-19\nhttps://hoquei.pages.dev/jogo/9835\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:GD Sesimbra vs AE Fisica D\nCAMP. REG. SUB-19 - 1ª FASE · Sé
+ rie B · SUB-19\nPAV. SESIMBRA\nhttps://hoquei.pages.dev/jogo/9835\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9835
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9838@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T171500Z
 DTEND:20261018T184500Z
-SUMMARY:SPORTING CP (fora)
+SUMMARY:🏑 Sub-19 🏑 Sporting CP vs GD Sesimbra
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP vs GD SESIMBRA\nCAMP. REG. SUB-19 - 1ª FASE · Sé
- rie B · SUB-19\nhttps://hoquei.pages.dev/jogo/9838\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP vs GD Sesimbra\nCAMP. REG. SUB-19 - 1ª FASE · Sé
+ rie B · SUB-19\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/9838\n
+ Dados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9838
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9839@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T150000Z
 DTEND:20261025T163000Z
-SUMMARY:AD OEIRAS (casa)
+SUMMARY:🏑 Sub-19 🏑 GD Sesimbra vs AD Oeiras
 LOCATION:PAV. SESIMBRA
-DESCRIPTION:GD SESIMBRA vs AD OEIRAS\nCAMP. REG. SUB-19 - 1ª FASE · Séri
- e B · SUB-19\nhttps://hoquei.pages.dev/jogo/9839\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:GD Sesimbra vs AD Oeiras\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e B · SUB-19\nPAV. SESIMBRA\nhttps://hoquei.pages.dev/jogo/9839\nDados da
+  Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9839
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9843@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T173000Z
 DTEND:20261101T190000Z
-SUMMARY:CD PAÇO ARCOS B (fora)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs GD SESIMBRA\nCAMP. REG. SUB-19 - 1ª FASE 
- · Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9843\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-19 🏑 CD Paço Arcos B vs GD Sesimbra
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs GD Sesimbra\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série B · SUB-19\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/
+ 9843\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9843
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9847@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T201500Z
 DTEND:20261108T214500Z
-SUMMARY:APAC TOJAL (casa)
+SUMMARY:🏑 Sub-19 🏑 GD Sesimbra vs APAC Tojal
 LOCATION:PAV. SESIMBRA
-DESCRIPTION:GD SESIMBRA vs APAC TOJAL\nCAMP. REG. SUB-19 - 1ª FASE · Sér
- ie B · SUB-19\nhttps://hoquei.pages.dev/jogo/9847\nDados da Associação 
- de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:GD Sesimbra vs APAC Tojal\nCAMP. REG. SUB-19 - 1ª FASE · Sér
+ ie B · SUB-19\nPAV. SESIMBRA\nhttps://hoquei.pages.dev/jogo/9847\nDados d
+ a Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9847
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9850@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T150000Z
 DTEND:20261115T163000Z
-SUMMARY:AE FISICA D (fora)
+SUMMARY:🏑 Sub-19 🏑 AE Fisica D vs GD Sesimbra
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA D vs GD SESIMBRA\nCAMP. REG. SUB-19 - 1ª FASE · Sé
- rie B · SUB-19\nhttps://hoquei.pages.dev/jogo/9850\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica D vs GD Sesimbra\nCAMP. REG. SUB-19 - 1ª FASE · Sé
+ rie B · SUB-19\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo
+ /9850\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9850
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9853@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T201500Z
 DTEND:20261122T214500Z
-SUMMARY:SPORTING CP (casa)
+SUMMARY:🏑 Sub-19 🏑 GD Sesimbra vs Sporting CP
 LOCATION:PAV. SESIMBRA
-DESCRIPTION:GD SESIMBRA vs SPORTING CP\nCAMP. REG. SUB-19 - 1ª FASE · Sé
- rie B · SUB-19\nhttps://hoquei.pages.dev/jogo/9853\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:GD Sesimbra vs Sporting CP\nCAMP. REG. SUB-19 - 1ª FASE · Sé
+ rie B · SUB-19\nPAV. SESIMBRA\nhttps://hoquei.pages.dev/jogo/9853\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9853
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9854@hoquei.pages.dev
 DTSTAMP:20261129T000000Z
 DTSTART:20261129T180000Z
 DTEND:20261129T193000Z
-SUMMARY:AD OEIRAS (fora)
+SUMMARY:🏑 Sub-19 🏑 AD Oeiras vs GD Sesimbra
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS vs GD SESIMBRA\nCAMP. REG. SUB-19 - 1ª FASE · Séri
- e B · SUB-19\nhttps://hoquei.pages.dev/jogo/9854\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras vs GD Sesimbra\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e B · SUB-19\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9854\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9854
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9858@hoquei.pages.dev
 DTSTAMP:20261201T000000Z
 DTSTART:20261201T150000Z
 DTEND:20261201T163000Z
-SUMMARY:CD PAÇO ARCOS B (casa)
+SUMMARY:🏑 Sub-19 🏑 GD Sesimbra vs CD Paço Arcos B
 LOCATION:PAV. SESIMBRA
-DESCRIPTION:GD SESIMBRA vs CD PAÇO ARCOS B\nCAMP. REG. SUB-19 - 1ª FASE 
- · Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9858\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:GD Sesimbra vs CD Paço Arcos B\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série B · SUB-19\nPAV. SESIMBRA\nhttps://hoquei.pages.dev/jogo/9858\n
+ Dados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9858
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9862@hoquei.pages.dev
 DTSTAMP:20261206T000000Z
 DTSTART:20261206T163000Z
 DTEND:20261206T180000Z
-SUMMARY:APAC TOJAL (fora)
+SUMMARY:🏑 Sub-19 🏑 APAC Tojal vs GD Sesimbra
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL vs GD SESIMBRA\nCAMP. REG. SUB-19 - 1ª FASE · Sér
- ie B · SUB-19\nhttps://hoquei.pages.dev/jogo/9862\nDados da Associação 
- de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs GD Sesimbra\nCAMP. REG. SUB-19 - 1ª FASE · Sér
+ ie B · SUB-19\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9862\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9862
 END:VEVENT
 END:VCALENDAR

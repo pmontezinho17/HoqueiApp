@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:SPORTING CP A · SUB-13
-X-WR-CALDESC:Jogos de SPORTING CP A (SUB-13)
+X-WR-CALNAME:🏑 Sporting CP A · Sub-13
+X-WR-CALDESC:Jogos de Sporting CP A (Sub-13)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9505@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T140000Z
 DTEND:20260926T153000Z
-SUMMARY:CD MAFRA (fora) 14–0
+SUMMARY:🏑 Sub-13 🏑 CD Mafra vs Sporting CP A
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:CD MAFRA 0–14 SPORTING CP A\nCAMP. REG. SUB-13 - 1ª FASE · 
- Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9505\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CD Mafra 0–14 Sporting CP A\nCAMP. REG. SUB-13 - 1ª FASE · 
+ Série C · SUB-13\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/950
+ 5\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9505
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9507@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T140000Z
 DTEND:20261003T153000Z
-SUMMARY:AE FISICA D A (casa)
+SUMMARY:🏑 Sub-13 🏑 Sporting CP A vs AE Fisica D A
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP A vs AE FISICA D A\nCAMP. REG. SUB-13 - 1ª FASE ·
-  Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9507\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP A vs AE Fisica D A\nCAMP. REG. SUB-13 - 1ª FASE ·
+  Série C · SUB-13\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/95
+ 07\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9507
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9511@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T140000Z
 DTEND:20261010T153000Z
-SUMMARY:A STUART HCM (casa)
+SUMMARY:🏑 Sub-13 🏑 Sporting CP A vs A Stuart HCM
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP A vs A STUART HCM\nCAMP. REG. SUB-13 - 1ª FASE · 
- Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9511\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP A vs A Stuart HCM\nCAMP. REG. SUB-13 - 1ª FASE · 
+ Série C · SUB-13\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/951
+ 1\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9511
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9514@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T133000Z
 DTEND:20261017T150000Z
-SUMMARY:PAREDE FC A (fora)
+SUMMARY:🏑 Sub-13 🏑 Parede FC A vs Sporting CP A
 LOCATION:PAV. PAREDE
-DESCRIPTION:PAREDE FC A vs SPORTING CP A\nCAMP. REG. SUB-13 - 1ª FASE · S
- érie C · SUB-13\nhttps://hoquei.pages.dev/jogo/9514\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC A vs Sporting CP A\nCAMP. REG. SUB-13 - 1ª FASE · S
+ érie C · SUB-13\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9514\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9514
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9515@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T153000Z
 DTEND:20261018T170000Z
-SUMMARY:FSE/AJ SALESIANA (casa)
+SUMMARY:🏑 Sub-13 🏑 Sporting CP A vs FSE/AJ Salesiana
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP A vs FSE/AJ SALESIANA\nCAMP. REG. SUB-13 - 1ª FASE
-  · Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9515\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP A vs FSE/AJ Salesiana\nCAMP. REG. SUB-13 - 1ª FASE
+  · Série C · SUB-13\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo
+ /9515\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9515
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9520@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T133000Z
 DTEND:20261024T150000Z
-SUMMARY:CD MAFRA (casa)
+SUMMARY:🏑 Sub-13 🏑 Sporting CP A vs CD Mafra
 LOCATION:PAV. MAFRA
-DESCRIPTION:SPORTING CP A vs CD MAFRA\nCAMP. REG. SUB-13 - 1ª FASE · Sér
- ie C · SUB-13\nhttps://hoquei.pages.dev/jogo/9520\nDados da Associação 
- de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP A vs CD Mafra\nCAMP. REG. SUB-13 - 1ª FASE · Sér
+ ie C · SUB-13\nPAV. MAFRA\nhttps://hoquei.pages.dev/jogo/9520\nDados da A
+ ssociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9520
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,12 @@ UID:jogo-9522@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T143000Z
 DTEND:20261031T160000Z
-SUMMARY:AE FISICA D A (fora)
+SUMMARY:🏑 Sub-13 🏑 AE Fisica D A vs Sporting CP A
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA D A vs SPORTING CP A\nCAMP. REG. SUB-13 - 1ª FASE ·
-  Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9522\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica D A vs Sporting CP A\nCAMP. REG. SUB-13 - 1ª FASE ·
+  Série C · SUB-13\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/
+ jogo/9522\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/9522
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +98,11 @@ UID:jogo-9526@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T161500Z
 DTEND:20261107T174500Z
-SUMMARY:A STUART HCM (fora)
+SUMMARY:🏑 Sub-13 🏑 A Stuart HCM vs Sporting CP A
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM vs SPORTING CP A\nCAMP. REG. SUB-13 - 1ª FASE · 
- Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9526\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM vs Sporting CP A\nCAMP. REG. SUB-13 - 1ª FASE · 
+ Série C · SUB-13\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.dev/jogo/
+ 9526\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9526
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +110,11 @@ UID:jogo-9529@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T110000Z
 DTEND:20261114T123000Z
-SUMMARY:PAREDE FC A (casa)
+SUMMARY:🏑 Sub-13 🏑 Sporting CP A vs Parede FC A
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP A vs PAREDE FC A\nCAMP. REG. SUB-13 - 1ª FASE · S
- érie C · SUB-13\nhttps://hoquei.pages.dev/jogo/9529\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP A vs Parede FC A\nCAMP. REG. SUB-13 - 1ª FASE · S
+ érie C · SUB-13\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/9529
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9529
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +122,11 @@ UID:jogo-9530@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T144500Z
 DTEND:20261121T161500Z
-SUMMARY:FSE/AJ SALESIANA (fora)
+SUMMARY:🏑 Sub-13 🏑 FSE/AJ Salesiana vs Sporting CP A
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA vs SPORTING CP A\nCAMP. REG. SUB-13 - 1ª FASE
-  · Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9530\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana vs Sporting CP A\nCAMP. REG. SUB-13 - 1ª FASE
+  · Série C · SUB-13\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/9530
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9530
 END:VEVENT
 END:VCALENDAR

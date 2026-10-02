@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:PAREDE FC B · SUB-13
-X-WR-CALDESC:Jogos de PAREDE FC B (SUB-13)
+X-WR-CALNAME:🏑 Parede FC B · Sub-13
+X-WR-CALDESC:Jogos de Parede FC B (Sub-13)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9357@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T083000Z
 DTEND:20260912T100000Z
-SUMMARY:SPORTING CP B (casa) 1–9
+SUMMARY:🏑 Sub-13 🏑 Parede FC B vs Sporting CP B
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:PAREDE FC B 1–9 SPORTING CP B\nTORNEIO ABERTURA APL SUB-13 ·
-  SUB-13\nhttps://hoquei.pages.dev/jogo/9357\nDados da Associação de Pati
- nagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC B 1–9 Sporting CP B\nTORNEIO ABERTURA APL SUB-13 ·
+  SUB-13\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9357\nDados da Asso
+ ciação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9357
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9358@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T111500Z
 DTEND:20260912T124500Z
-SUMMARY:CRIAR-T GD (fora) 4–3
+SUMMARY:🏑 Sub-13 🏑 Criar-T GD vs Parede FC B
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:CRIAR-T GD 3–4 PAREDE FC B\nTORNEIO ABERTURA APL SUB-13 · SU
- B-13\nhttps://hoquei.pages.dev/jogo/9358\nDados da Associação de Patinag
- em de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD 3–4 Parede FC B\nTORNEIO ABERTURA APL SUB-13 · SU
+ B-13\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9358\nDados da Associa
+ ção de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9358
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9534@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T144500Z
 DTEND:20260926T161500Z
-SUMMARY:SPORTING CP B (casa) 1–4
+SUMMARY:🏑 Sub-13 🏑 Parede FC B vs Sporting CP B
 LOCATION:PAV. PAREDE
-DESCRIPTION:PAREDE FC B 1–4 SPORTING CP B\nCAMP. REG. SUB-13 - 1ª FASE 
- · Série D · SUB-13\nhttps://hoquei.pages.dev/jogo/9534\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC B 1–4 Sporting CP B\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série D · SUB-13\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9534\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9534
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9547@hoquei.pages.dev
 DTSTAMP:20261002T000000Z
 DTSTART:20261002T183000Z
 DTEND:20261002T200000Z
-SUMMARY:CD PAÇO ARCOS B (fora)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs PAREDE FC B\nCAMP. REG. SUB-13 - 1ª FASE 
- · Série D · SUB-13\nhttps://hoquei.pages.dev/jogo/9547\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-13 🏑 CD Paço Arcos B vs Parede FC B
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs Parede FC B\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série D · SUB-13\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/
+ 9547\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9547
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9536@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T133000Z
 DTEND:20261003T150000Z
-SUMMARY:AE FISICA D B (fora)
+SUMMARY:🏑 Sub-13 🏑 AE Fisica D B vs Parede FC B
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA D B vs PAREDE FC B\nCAMP. REG. SUB-13 - 1ª FASE · S
- érie D · SUB-13\nhttps://hoquei.pages.dev/jogo/9536\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica D B vs Parede FC B\nCAMP. REG. SUB-13 - 1ª FASE · S
+ érie D · SUB-13\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jo
+ go/9536\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9536
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9540@hoquei.pages.dev
 DTSTAMP:20261005T000000Z
 DTSTART:20261005T180000Z
 DTEND:20261005T193000Z
-SUMMARY:CACO B (casa)
+SUMMARY:🏑 Sub-13 🏑 Parede FC B vs Caco B
 LOCATION:PAV. PAREDE
-DESCRIPTION:PAREDE FC B vs CACO B\nCAMP. REG. SUB-13 - 1ª FASE · Série D
-  · SUB-13\nhttps://hoquei.pages.dev/jogo/9540\nDados da Associação de P
- atinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC B vs Caco B\nCAMP. REG. SUB-13 - 1ª FASE · Série D
+  · SUB-13\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9540\nDados da Asso
+ ciação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9540
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9544@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T144500Z
 DTEND:20261017T161500Z
-SUMMARY:AD OEIRAS B (casa)
+SUMMARY:🏑 Sub-13 🏑 Parede FC B vs AD Oeiras B
 LOCATION:PAV. PAREDE
-DESCRIPTION:PAREDE FC B vs AD OEIRAS B\nCAMP. REG. SUB-13 - 1ª FASE · Sé
- rie D · SUB-13\nhttps://hoquei.pages.dev/jogo/9544\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC B vs AD Oeiras B\nCAMP. REG. SUB-13 - 1ª FASE · Sé
+ rie D · SUB-13\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9544\nDados da
+  Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9544
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9549@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T140000Z
 DTEND:20261024T153000Z
-SUMMARY:SPORTING CP B (fora)
+SUMMARY:🏑 Sub-13 🏑 Sporting CP B vs Parede FC B
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP B vs PAREDE FC B\nCAMP. REG. SUB-13 - 1ª FASE · S
- érie D · SUB-13\nhttps://hoquei.pages.dev/jogo/9549\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP B vs Parede FC B\nCAMP. REG. SUB-13 - 1ª FASE · S
+ érie D · SUB-13\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/9549
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9549
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9551@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T171500Z
 DTEND:20261031T184500Z
-SUMMARY:AE FISICA D B (casa)
+SUMMARY:🏑 Sub-13 🏑 Parede FC B vs AE Fisica D B
 LOCATION:PAV. PAREDE
-DESCRIPTION:PAREDE FC B vs AE FISICA D B\nCAMP. REG. SUB-13 - 1ª FASE · S
- érie D · SUB-13\nhttps://hoquei.pages.dev/jogo/9551\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC B vs AE Fisica D B\nCAMP. REG. SUB-13 - 1ª FASE · S
+ érie D · SUB-13\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9551\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9551
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9555@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T153000Z
 DTEND:20261107T170000Z
-SUMMARY:CACO B (fora)
+SUMMARY:🏑 Sub-13 🏑 Caco B vs Parede FC B
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO B vs PAREDE FC B\nCAMP. REG. SUB-13 - 1ª FASE · Série D
-  · SUB-13\nhttps://hoquei.pages.dev/jogo/9555\nDados da Associação de P
- atinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco B vs Parede FC B\nCAMP. REG. SUB-13 - 1ª FASE · Série D
+  · SUB-13\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9555\nDados d
+ a Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9555
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +133,11 @@ UID:jogo-9559@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T153000Z
 DTEND:20261114T170000Z
-SUMMARY:AD OEIRAS B (fora)
+SUMMARY:🏑 Sub-13 🏑 AD Oeiras B vs Parede FC B
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS B vs PAREDE FC B\nCAMP. REG. SUB-13 - 1ª FASE · Sé
- rie D · SUB-13\nhttps://hoquei.pages.dev/jogo/9559\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras B vs Parede FC B\nCAMP. REG. SUB-13 - 1ª FASE · Sé
+ rie D · SUB-13\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9559\nDado
+ s da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9559
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +145,11 @@ UID:jogo-9562@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T144500Z
 DTEND:20261121T161500Z
-SUMMARY:CD PAÇO ARCOS B (casa)
+SUMMARY:🏑 Sub-13 🏑 Parede FC B vs CD Paço Arcos B
 LOCATION:PAV. PAREDE
-DESCRIPTION:PAREDE FC B vs CD PAÇO ARCOS B\nCAMP. REG. SUB-13 - 1ª FASE 
- · Série D · SUB-13\nhttps://hoquei.pages.dev/jogo/9562\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC B vs CD Paço Arcos B\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série D · SUB-13\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9562\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9562
 END:VEVENT
 END:VCALENDAR

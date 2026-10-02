@@ -1,0 +1,131 @@
+{
+  "_leia_me": [
+    "Moradas dos recintos, para o campo LOCATION dos feeds de calendário (B4.11).",
+    "A fonte só publica o NOME do recinto ('Rinque/Localidade: PAV. SALESIANA'), nunca a",
+    "morada — por isso esta lista existe e tem de ser preenchida à mão.",
+    "",
+    "Com `morada` preenchida, o evento abre no sítio certo no Google Maps.",
+    "Com `morada` a null, o calendário fica só com o nome, que raramente geocodifica.",
+    "",
+    "Uma morada errada é PIOR do que nenhuma: manda alguém para o sítio errado. Preencher",
+    "só o que se sabe, e deixar a null o resto."
+  ],
+  "recintos": {
+    "PAV. FÍSICA TORRES VEDRAS": {
+      "morada": null,
+      "jogos": 79
+    },
+    "PAV. A.D.OEIRAS": {
+      "morada": null,
+      "jogos": 65
+    },
+    "PAV. PAÇO DE ARCOS": {
+      "morada": "Av. Eng. Bonneville Franco, 2770-055 Paço de Arcos",
+      "jogos": 59
+    },
+    "PAV.C.A.C.OURIQUE": {
+      "morada": null,
+      "jogos": 54
+    },
+    "PAV. VILAFRANQUENSE": {
+      "morada": null,
+      "jogos": 53
+    },
+    "PAV.PROF.JOÃO CAMPELO": {
+      "morada": null,
+      "jogos": 49
+    },
+    "PAV.G.S.SACAVENENSE": {
+      "morada": null,
+      "jogos": 46
+    },
+    "PAV. SALESIANA": {
+      "morada": null,
+      "jogos": 43
+    },
+    "PAV. PAREDE": {
+      "morada": null,
+      "jogos": 41
+    },
+    "PAV. A.P.A.C.TOJAL": {
+      "morada": null,
+      "jogos": 40
+    },
+    "PAV.S.ALENQUER E BENFICA": {
+      "morada": null,
+      "jogos": 39
+    },
+    "PAV. GIMNO. DA LOURINHÃ": {
+      "morada": null,
+      "jogos": 39
+    },
+    "PAV. HC SINTRA": {
+      "morada": null,
+      "jogos": 36
+    },
+    "PAV. MURCHES": {
+      "morada": null,
+      "jogos": 28
+    },
+    "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T": {
+      "morada": null,
+      "jogos": 25
+    },
+    "PAV. SC TORRES": {
+      "morada": null,
+      "jogos": 18
+    },
+    "PAV. MAFRA": {
+      "morada": null,
+      "jogos": 14
+    },
+    "PAV. VALADO DE FRADES": {
+      "morada": null,
+      "jogos": 13
+    },
+    "PAV. A. MATEUS- ENTRONCAMENTO": {
+      "morada": null,
+      "jogos": 9
+    },
+    "PAV. HC TURQUEL": {
+      "morada": null,
+      "jogos": 9
+    },
+    "PAV. SESIMBRA": {
+      "morada": null,
+      "jogos": 5
+    },
+    "PAV. MONTES ALVOR": {
+      "morada": null,
+      "jogos": 4
+    },
+    "PAV. BOLIQUEIME": {
+      "morada": null,
+      "jogos": 4
+    },
+    "PAV. ESTREMOZ": {
+      "morada": null,
+      "jogos": 4
+    },
+    "PAV. SINES": {
+      "morada": null,
+      "jogos": 4
+    },
+    "PAV.JACOME RATTON": {
+      "morada": null,
+      "jogos": 4
+    },
+    "PAV. MUN. ANTONIO DOS ANJOS": {
+      "morada": null,
+      "jogos": 4
+    },
+    "PAV. CASCAIS": {
+      "morada": null,
+      "jogos": 2
+    },
+    "PAVILHÃO JOÃO ROCHA": {
+      "morada": null,
+      "jogos": 1
+    }
+  }
+}

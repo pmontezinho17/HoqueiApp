@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:CD PAÇO ARCOS B · SUB-17
-X-WR-CALDESC:Jogos de CD PAÇO ARCOS B (SUB-17)
+X-WR-CALNAME:🏑 CD Paço Arcos B · Sub-17
+X-WR-CALDESC:Jogos de CD Paço Arcos B (Sub-17)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9412@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T170000Z
 DTEND:20260912T183000Z
-SUMMARY:AD OEIRAS B (fora) 4–4
+SUMMARY:🏑 Sub-17 🏑 AD Oeiras B vs CD Paço Arcos B
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:AD OEIRAS B 4–4 CD PAÇO ARCOS B\nTORNEIO ABERTURA APL SUB-17
-  · SUB-17\nhttps://hoquei.pages.dev/jogo/9412\nDados da Associação de P
- atinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras B 4–4 CD Paço Arcos B\nTORNEIO ABERTURA APL SUB-17
+  · SUB-17\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev/jogo/9412\n
+ Dados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9412
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9411@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T193000Z
 DTEND:20260912T210000Z
-SUMMARY:HC LOURINHA (casa) 6–0
+SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos B vs HC Lourinha
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:CD PAÇO ARCOS B 6–0 HC LOURINHA\nTORNEIO ABERTURA APL SUB-17
-  · SUB-17\nhttps://hoquei.pages.dev/jogo/9411\nDados da Associação de P
- atinagem de Lisboa. Site não oficial.
+DESCRIPTION:CD Paço Arcos B 6–0 HC Lourinha\nTORNEIO ABERTURA APL SUB-17
+  · SUB-17\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev/jogo/9411\n
+ Dados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9411
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9423@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T113000Z
 DTEND:20260919T130000Z
-SUMMARY:CACO A (casa) 4–3
+SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos B vs Caco A
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:CD PAÇO ARCOS B 4–3 CACO A\nTORNEIO ABERTURA APL SUB-17 · S
- UB-17\nhttps://hoquei.pages.dev/jogo/9423\nDados da Associação de Patina
- gem de Lisboa. Site não oficial.
+DESCRIPTION:CD Paço Arcos B 4–3 Caco A\nTORNEIO ABERTURA APL SUB-17 · S
+ UB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo/9423\nDados
+  da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9423
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9426@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T163000Z
 DTEND:20260919T180000Z
-SUMMARY:SL BENFICA (fora) 0–11
+SUMMARY:🏑 Sub-17 🏑 SL Benfica vs CD Paço Arcos B
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:SL BENFICA 11–0 CD PAÇO ARCOS B\nTORNEIO ABERTURA APL SUB-17
-  · SUB-17\nhttps://hoquei.pages.dev/jogo/9426\nDados da Associação de P
- atinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL Benfica 11–0 CD Paço Arcos B\nTORNEIO ABERTURA APL SUB-17
+  · SUB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo/9426\n
+ Dados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9426
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9703@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T141500Z
 DTEND:20260926T154500Z
-SUMMARY:SL BENFICA A (casa) 0–4
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B 0–4 SL BENFICA A\nCAMP. REG. SUB-17 - 1ª FA
- SE · Série C · SUB-17\nhttps://hoquei.pages.dev/jogo/9703\nDados da Ass
- ociação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos B vs SL Benfica A
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B 0–4 SL Benfica A\nCAMP. REG. SUB-17 - 1ª FA
+ SE · Série C · SUB-17\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jo
+ go/9703\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9703
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9707@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T140000Z
 DTEND:20261003T153000Z
-SUMMARY:PAREDE FC (fora)
+SUMMARY:🏑 Sub-17 🏑 Parede FC vs CD Paço Arcos B
 LOCATION:PAV. PAREDE
-DESCRIPTION:PAREDE FC vs CD PAÇO ARCOS B\nCAMP. REG. SUB-17 - 1ª FASE · 
- Série C · SUB-17\nhttps://hoquei.pages.dev/jogo/9707\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC vs CD Paço Arcos B\nCAMP. REG. SUB-17 - 1ª FASE · 
+ Série C · SUB-17\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9707\nDados
+  da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9707
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,12 @@ UID:jogo-9710@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T110000Z
 DTEND:20261010T123000Z
-SUMMARY:AE FISICA D B (fora)
+SUMMARY:🏑 Sub-17 🏑 AE Fisica D B vs CD Paço Arcos B
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA D B vs CD PAÇO ARCOS B\nCAMP. REG. SUB-17 - 1ª FASE
-  · Série C · SUB-17\nhttps://hoquei.pages.dev/jogo/9710\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica D B vs CD Paço Arcos B\nCAMP. REG. SUB-17 - 1ª FASE
+  · Série C · SUB-17\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.d
+ ev/jogo/9710\nDados da Associação de Patinagem de Lisboa. Site não ofic
+ ial.
 URL:https://hoquei.pages.dev/jogo/9710
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +98,11 @@ UID:jogo-9713@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T140000Z
 DTEND:20261011T153000Z
-SUMMARY:A STUART HCM (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs A STUART HCM\nCAMP. REG. SUB-17 - 1ª FASE 
- · Série C · SUB-17\nhttps://hoquei.pages.dev/jogo/9713\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos B vs A Stuart HCM
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs A Stuart HCM\nCAMP. REG. SUB-17 - 1ª FASE 
+ · Série C · SUB-17\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/
+ 9713\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9713
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +110,11 @@ UID:jogo-9716@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T133000Z
 DTEND:20261017T150000Z
-SUMMARY:APAC TOJAL (fora)
+SUMMARY:🏑 Sub-17 🏑 APAC Tojal vs CD Paço Arcos B
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL vs CD PAÇO ARCOS B\nCAMP. REG. SUB-17 - 1ª FASE ·
-  Série C · SUB-17\nhttps://hoquei.pages.dev/jogo/9716\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs CD Paço Arcos B\nCAMP. REG. SUB-17 - 1ª FASE ·
+  Série C · SUB-17\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/971
+ 6\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9716
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +122,11 @@ UID:jogo-9718@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T203000Z
 DTEND:20261024T220000Z
-SUMMARY:SL BENFICA A (fora)
+SUMMARY:🏑 Sub-17 🏑 SL Benfica A vs CD Paço Arcos B
 LOCATION:PAV. MURCHES
-DESCRIPTION:SL BENFICA A vs CD PAÇO ARCOS B\nCAMP. REG. SUB-17 - 1ª FASE 
- · Série C · SUB-17\nhttps://hoquei.pages.dev/jogo/9718\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL Benfica A vs CD Paço Arcos B\nCAMP. REG. SUB-17 - 1ª FASE 
+ · Série C · SUB-17\nPAV. MURCHES\nhttps://hoquei.pages.dev/jogo/9718\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9718
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +134,11 @@ UID:jogo-9722@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T173000Z
 DTEND:20261031T190000Z
-SUMMARY:PAREDE FC (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs PAREDE FC\nCAMP. REG. SUB-17 - 1ª FASE · 
- Série C · SUB-17\nhttps://hoquei.pages.dev/jogo/9722\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos B vs Parede FC
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs Parede FC\nCAMP. REG. SUB-17 - 1ª FASE · 
+ Série C · SUB-17\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/972
+ 2\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9722
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +146,11 @@ UID:jogo-9725@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T200000Z
 DTEND:20261107T213000Z
-SUMMARY:AE FISICA D B (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs AE FISICA D B\nCAMP. REG. SUB-17 - 1ª FASE
-  · Série C · SUB-17\nhttps://hoquei.pages.dev/jogo/9725\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos B vs AE Fisica D B
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs AE Fisica D B\nCAMP. REG. SUB-17 - 1ª FASE
+  · Série C · SUB-17\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo
+ /9725\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9725
 END:VEVENT
 BEGIN:VEVENT
@@ -157,11 +158,11 @@ UID:jogo-9728@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T191500Z
 DTEND:20261114T204500Z
-SUMMARY:A STUART HCM (fora)
+SUMMARY:🏑 Sub-17 🏑 A Stuart HCM vs CD Paço Arcos B
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM vs CD PAÇO ARCOS B\nCAMP. REG. SUB-17 - 1ª FASE 
- · Série C · SUB-17\nhttps://hoquei.pages.dev/jogo/9728\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM vs CD Paço Arcos B\nCAMP. REG. SUB-17 - 1ª FASE 
+ · Série C · SUB-17\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.dev/jo
+ go/9728\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9728
 END:VEVENT
 BEGIN:VEVENT
@@ -169,11 +170,11 @@ UID:jogo-9731@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T163000Z
 DTEND:20261121T180000Z
-SUMMARY:APAC TOJAL (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs APAC TOJAL\nCAMP. REG. SUB-17 - 1ª FASE ·
-  Série C · SUB-17\nhttps://hoquei.pages.dev/jogo/9731\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos B vs APAC Tojal
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs APAC Tojal\nCAMP. REG. SUB-17 - 1ª FASE ·
+  Série C · SUB-17\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/97
+ 31\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9731
 END:VEVENT
 END:VCALENDAR

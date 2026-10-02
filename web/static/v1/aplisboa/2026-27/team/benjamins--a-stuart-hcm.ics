@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:A STUART HCM · BENJAMINS
-X-WR-CALDESC:Jogos de A STUART HCM (BENJAMINS)
+X-WR-CALNAME:🏑 A Stuart HCM · Benjamins
+X-WR-CALDESC:Jogos de A Stuart HCM (Benjamins)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,12 +13,12 @@ UID:jogo-9988@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T110000Z
 DTEND:20260926T123000Z
-SUMMARY:CD PAÇO ARCOS A (fora) 2–5
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A 5–2 A STUART HCM\nENCONTROS DISTRITAIS BENJA
- MINS - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev
- /jogo/9988\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+SUMMARY:🏑 Benjamins 🏑 CD Paço Arcos A vs A Stuart HCM
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A 5–2 A Stuart HCM\nENCONTROS DISTRITAIS BENJA
+ MINS - 1ª FASE NIVEL I · Série A · BENJAMINS\nPAV. PAÇO DE ARCOS\nhtt
+ ps://hoquei.pages.dev/jogo/9988\nDados da Associação de Patinagem de Lis
+ boa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9988
 END:VEVENT
 BEGIN:VEVENT
@@ -26,11 +26,12 @@ UID:jogo-9990@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T134500Z
 DTEND:20261003T151500Z
-SUMMARY:AD OEIRAS A (casa)
+SUMMARY:🏑 Benjamins 🏑 A Stuart HCM vs AD Oeiras A
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM vs AD OEIRAS A\nENCONTROS DISTRITAIS BENJAMINS - 1
- ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/99
- 90\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM vs AD Oeiras A\nENCONTROS DISTRITAIS BENJAMINS - 1
+ ª FASE NIVEL I · Série A · BENJAMINS\nPAV.PROF.JOÃO CAMPELO\nhttps://
+ hoquei.pages.dev/jogo/9990\nDados da Associação de Patinagem de Lisboa. 
+ Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9990
 END:VEVENT
 BEGIN:VEVENT
@@ -38,11 +39,12 @@ UID:jogo-9996@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T134500Z
 DTEND:20261010T151500Z
-SUMMARY:AE FISICA D A (casa)
+SUMMARY:🏑 Benjamins 🏑 A Stuart HCM vs AE Fisica D A
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM vs AE FISICA D A\nENCONTROS DISTRITAIS BENJAMINS -
-  1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/
- 9996\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM vs AE Fisica D A\nENCONTROS DISTRITAIS BENJAMINS -
+  1ª FASE NIVEL I · Série A · BENJAMINS\nPAV.PROF.JOÃO CAMPELO\nhttps:
+ //hoquei.pages.dev/jogo/9996\nDados da Associação de Patinagem de Lisboa
+ . Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9996
 END:VEVENT
 BEGIN:VEVENT
@@ -50,11 +52,12 @@ UID:jogo-9999@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T090000Z
 DTEND:20261017T103000Z
-SUMMARY:SC TORRES (fora)
+SUMMARY:🏑 Benjamins 🏑 SC Torres vs A Stuart HCM
 LOCATION:PAV. SC TORRES
-DESCRIPTION:SC TORRES vs A STUART HCM\nENCONTROS DISTRITAIS BENJAMINS - 1ª
-  FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/9999
- \nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SC Torres vs A Stuart HCM\nENCONTROS DISTRITAIS BENJAMINS - 1ª
+  FASE NIVEL I · Série A · BENJAMINS\nPAV. SC TORRES\nhttps://hoquei.pag
+ es.dev/jogo/9999\nDados da Associação de Patinagem de Lisboa. Site não 
+ oficial.
 URL:https://hoquei.pages.dev/jogo/9999
 END:VEVENT
 BEGIN:VEVENT
@@ -62,11 +65,12 @@ UID:jogo-10004@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T134500Z
 DTEND:20261024T151500Z
-SUMMARY:CACO A (casa)
+SUMMARY:🏑 Benjamins 🏑 A Stuart HCM vs Caco A
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM vs CACO A\nENCONTROS DISTRITAIS BENJAMINS - 1ª FA
- SE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10004\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM vs Caco A\nENCONTROS DISTRITAIS BENJAMINS - 1ª FA
+ SE NIVEL I · Série A · BENJAMINS\nPAV.PROF.JOÃO CAMPELO\nhttps://hoque
+ i.pages.dev/jogo/10004\nDados da Associação de Patinagem de Lisboa. Site
+  não oficial.
 URL:https://hoquei.pages.dev/jogo/10004
 END:VEVENT
 BEGIN:VEVENT
@@ -74,11 +78,12 @@ UID:jogo-10008@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T150000Z
 DTEND:20261031T163000Z
-SUMMARY:HC SINTRA (fora)
+SUMMARY:🏑 Benjamins 🏑 HC Sintra vs A Stuart HCM
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:HC SINTRA vs A STUART HCM\nENCONTROS DISTRITAIS BENJAMINS - 1ª
-  FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/1000
- 8\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Sintra vs A Stuart HCM\nENCONTROS DISTRITAIS BENJAMINS - 1ª
+  FASE NIVEL I · Série A · BENJAMINS\nPAV. HC SINTRA\nhttps://hoquei.pag
+ es.dev/jogo/10008\nDados da Associação de Patinagem de Lisboa. Site não
+  oficial.
 URL:https://hoquei.pages.dev/jogo/10008
 END:VEVENT
 BEGIN:VEVENT
@@ -86,11 +91,12 @@ UID:jogo-10009@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T144500Z
 DTEND:20261107T161500Z
-SUMMARY:FSE/AJ SALESIANA (casa)
+SUMMARY:🏑 Benjamins 🏑 A Stuart HCM vs FSE/AJ Salesiana
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM vs FSE/AJ SALESIANA\nENCONTROS DISTRITAIS BENJAMIN
- S - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jo
- go/10009\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM vs FSE/AJ Salesiana\nENCONTROS DISTRITAIS BENJAMIN
+ S - 1ª FASE NIVEL I · Série A · BENJAMINS\nPAV.PROF.JOÃO CAMPELO\nhtt
+ ps://hoquei.pages.dev/jogo/10009\nDados da Associação de Patinagem de Li
+ sboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10009
 END:VEVENT
 BEGIN:VEVENT
@@ -98,11 +104,12 @@ UID:jogo-10016@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T144500Z
 DTEND:20261114T161500Z
-SUMMARY:CD PAÇO ARCOS A (casa)
+SUMMARY:🏑 Benjamins 🏑 A Stuart HCM vs CD Paço Arcos A
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM vs CD PAÇO ARCOS A\nENCONTROS DISTRITAIS BENJAMIN
- S - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jo
- go/10016\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM vs CD Paço Arcos A\nENCONTROS DISTRITAIS BENJAMIN
+ S - 1ª FASE NIVEL I · Série A · BENJAMINS\nPAV.PROF.JOÃO CAMPELO\nhtt
+ ps://hoquei.pages.dev/jogo/10016\nDados da Associação de Patinagem de Li
+ sboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10016
 END:VEVENT
 BEGIN:VEVENT
@@ -110,11 +117,12 @@ UID:jogo-10018@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T160000Z
 DTEND:20261121T173000Z
-SUMMARY:AD OEIRAS A (fora)
+SUMMARY:🏑 Benjamins 🏑 AD Oeiras A vs A Stuart HCM
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS A vs A STUART HCM\nENCONTROS DISTRITAIS BENJAMINS - 1
- ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10
- 018\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras A vs A Stuart HCM\nENCONTROS DISTRITAIS BENJAMINS - 1
+ ª FASE NIVEL I · Série A · BENJAMINS\nPAV. A.D.OEIRAS\nhttps://hoquei.
+ pages.dev/jogo/10018\nDados da Associação de Patinagem de Lisboa. Site n
+ ão oficial.
 URL:https://hoquei.pages.dev/jogo/10018
 END:VEVENT
 BEGIN:VEVENT
@@ -122,11 +130,12 @@ UID:jogo-10024@hoquei.pages.dev
 DTSTAMP:20261128T000000Z
 DTSTART:20261128T113000Z
 DTEND:20261128T130000Z
-SUMMARY:AE FISICA D A (fora)
+SUMMARY:🏑 Benjamins 🏑 AE Fisica D A vs A Stuart HCM
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA D A vs A STUART HCM\nENCONTROS DISTRITAIS BENJAMINS -
-  1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/
- 10024\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica D A vs A Stuart HCM\nENCONTROS DISTRITAIS BENJAMINS -
+  1ª FASE NIVEL I · Série A · BENJAMINS\nPAV. FÍSICA TORRES VEDRAS\nht
+ tps://hoquei.pages.dev/jogo/10024\nDados da Associação de Patinagem de L
+ isboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10024
 END:VEVENT
 BEGIN:VEVENT
@@ -134,11 +143,12 @@ UID:jogo-10027@hoquei.pages.dev
 DTSTAMP:20261201T000000Z
 DTSTART:20261201T144500Z
 DTEND:20261201T161500Z
-SUMMARY:SC TORRES (casa)
+SUMMARY:🏑 Benjamins 🏑 A Stuart HCM vs SC Torres
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM vs SC TORRES\nENCONTROS DISTRITAIS BENJAMINS - 1ª
-  FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/1002
- 7\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM vs SC Torres\nENCONTROS DISTRITAIS BENJAMINS - 1ª
+  FASE NIVEL I · Série A · BENJAMINS\nPAV.PROF.JOÃO CAMPELO\nhttps://ho
+ quei.pages.dev/jogo/10027\nDados da Associação de Patinagem de Lisboa. S
+ ite não oficial.
 URL:https://hoquei.pages.dev/jogo/10027
 END:VEVENT
 BEGIN:VEVENT
@@ -146,11 +156,12 @@ UID:jogo-10032@hoquei.pages.dev
 DTSTAMP:20261205T000000Z
 DTSTART:20261205T153000Z
 DTEND:20261205T170000Z
-SUMMARY:CACO A (fora)
+SUMMARY:🏑 Benjamins 🏑 Caco A vs A Stuart HCM
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO A vs A STUART HCM\nENCONTROS DISTRITAIS BENJAMINS - 1ª FA
- SE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10032\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco A vs A Stuart HCM\nENCONTROS DISTRITAIS BENJAMINS - 1ª FA
+ SE NIVEL I · Série A · BENJAMINS\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pag
+ es.dev/jogo/10032\nDados da Associação de Patinagem de Lisboa. Site não
+  oficial.
 URL:https://hoquei.pages.dev/jogo/10032
 END:VEVENT
 BEGIN:VEVENT
@@ -158,11 +169,12 @@ UID:jogo-10036@hoquei.pages.dev
 DTSTAMP:20261208T000000Z
 DTSTART:20261208T144500Z
 DTEND:20261208T161500Z
-SUMMARY:HC SINTRA (casa)
+SUMMARY:🏑 Benjamins 🏑 A Stuart HCM vs HC Sintra
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM vs HC SINTRA\nENCONTROS DISTRITAIS BENJAMINS - 1ª
-  FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/1003
- 6\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM vs HC Sintra\nENCONTROS DISTRITAIS BENJAMINS - 1ª
+  FASE NIVEL I · Série A · BENJAMINS\nPAV.PROF.JOÃO CAMPELO\nhttps://ho
+ quei.pages.dev/jogo/10036\nDados da Associação de Patinagem de Lisboa. S
+ ite não oficial.
 URL:https://hoquei.pages.dev/jogo/10036
 END:VEVENT
 BEGIN:VEVENT
@@ -170,11 +182,12 @@ UID:jogo-10037@hoquei.pages.dev
 DTSTAMP:20261212T000000Z
 DTSTART:20261212T144500Z
 DTEND:20261212T161500Z
-SUMMARY:FSE/AJ SALESIANA (fora)
+SUMMARY:🏑 Benjamins 🏑 FSE/AJ Salesiana vs A Stuart HCM
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA vs A STUART HCM\nENCONTROS DISTRITAIS BENJAMIN
- S - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jo
- go/10037\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana vs A Stuart HCM\nENCONTROS DISTRITAIS BENJAMIN
+ S - 1ª FASE NIVEL I · Série A · BENJAMINS\nPAV. SALESIANA\nhttps://hoq
+ uei.pages.dev/jogo/10037\nDados da Associação de Patinagem de Lisboa. Si
+ te não oficial.
 URL:https://hoquei.pages.dev/jogo/10037
 END:VEVENT
 END:VCALENDAR

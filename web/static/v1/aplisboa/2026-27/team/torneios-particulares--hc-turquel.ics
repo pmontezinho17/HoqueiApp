@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:HC TURQUEL · TORNEIOS PARTICULARES
-X-WR-CALDESC:Jogos de HC TURQUEL (TORNEIOS PARTICULARES)
+X-WR-CALNAME:🏑 HC Turquel · Torneios Particulares
+X-WR-CALDESC:Jogos de HC Turquel (Torneios Particulares)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9449@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T110000Z
 DTEND:20260919T123000Z
-SUMMARY:AA COIMBRA (casa) 8–5
+SUMMARY:🏑 Torneios Particulares 🏑 HC Turquel vs AA Coimbra
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:HC TURQUEL 8–5 AA COIMBRA\nJOGO TREINO · TORNEIOS PARTICULAR
- ES\nhttps://hoquei.pages.dev/jogo/9449\nDados da Associação de Patinagem
-  de Lisboa. Site não oficial.
+DESCRIPTION:HC Turquel 8–5 AA Coimbra\nJOGO TREINO · TORNEIOS PARTICULAR
+ ES\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo/9449\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9449
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9451@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T163000Z
 DTEND:20260919T180000Z
-SUMMARY:SPORTING CP (fora) 1–3
+SUMMARY:🏑 Torneios Particulares 🏑 Sporting CP vs HC Turquel
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:SPORTING CP 3–1 HC TURQUEL\nJOGO TREINO · TORNEIOS PARTICULA
- RES\nhttps://hoquei.pages.dev/jogo/9451\nDados da Associação de Patinage
- m de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP 3–1 HC Turquel\nJOGO TREINO · TORNEIOS PARTICULA
+ RES\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo/9451\nDados
+  da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9451
 END:VEVENT
 END:VCALENDAR

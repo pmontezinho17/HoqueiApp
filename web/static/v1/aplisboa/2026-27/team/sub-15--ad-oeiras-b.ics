@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:AD OEIRAS B · SUB-15
-X-WR-CALDESC:Jogos de AD OEIRAS B (SUB-15)
+X-WR-CALNAME:🏑 AD Oeiras B · Sub-15
+X-WR-CALDESC:Jogos de AD Oeiras B (Sub-15)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9383@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T083000Z
 DTEND:20260913T100000Z
-SUMMARY:APAC TOJAL (fora) 4–2
+SUMMARY:🏑 Sub-15 🏑 APAC Tojal vs AD Oeiras B
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL 2–4 AD OEIRAS B\nTORNEIO ABERTURA APL SUB-15 · SU
- B-15\nhttps://hoquei.pages.dev/jogo/9383\nDados da Associação de Patinag
- em de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal 2–4 AD Oeiras B\nTORNEIO ABERTURA APL SUB-15 · SU
+ B-15\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9383\nDados da Ass
+ ociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9383
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9382@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T111500Z
 DTEND:20260913T124500Z
-SUMMARY:FSE/AJ SALESIANA (casa) 2–1
+SUMMARY:🏑 Sub-15 🏑 AD Oeiras B vs FSE/AJ Salesiana
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:AD OEIRAS B 2–1 FSE/AJ SALESIANA\nTORNEIO ABERTURA APL SUB-15
-  · SUB-15\nhttps://hoquei.pages.dev/jogo/9382\nDados da Associação de P
- atinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras B 2–1 FSE/AJ Salesiana\nTORNEIO ABERTURA APL SUB-15
+  · SUB-15\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9382\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9382
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9633@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T183000Z
 DTEND:20260927T200000Z
-SUMMARY:SL BENFICA A (casa) 1–6
+SUMMARY:🏑 Sub-15 🏑 AD Oeiras B vs SL Benfica A
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS B 1–6 SL BENFICA A\nCAMP. REG. SUB-15 - 1ª FASE ·
-  Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9633\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras B 1–6 SL Benfica A\nCAMP. REG. SUB-15 - 1ª FASE ·
+  Série D · SUB-15\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9633\n
+ Dados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9633
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9636@hoquei.pages.dev
 DTSTAMP:20261004T000000Z
 DTSTART:20261004T150000Z
 DTEND:20261004T163000Z
-SUMMARY:CD PAÇO ARCOS B (fora)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs AD OEIRAS B\nCAMP. REG. SUB-15 - 1ª FASE 
- · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9636\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-15 🏑 CD Paço Arcos B vs AD Oeiras B
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs AD Oeiras B\nCAMP. REG. SUB-15 - 1ª FASE 
+ · Série D · SUB-15\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/
+ 9636\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9636
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9638@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T150000Z
 DTEND:20261011T163000Z
-SUMMARY:FSE/AJ SALESIANA (fora)
+SUMMARY:🏑 Sub-15 🏑 FSE/AJ Salesiana vs AD Oeiras B
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA vs AD OEIRAS B\nCAMP. REG. SUB-15 - 1ª FASE 
- · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9638\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana vs AD Oeiras B\nCAMP. REG. SUB-15 - 1ª FASE 
+ · Série D · SUB-15\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/9638\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9638
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9639@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T190000Z
 DTEND:20261018T203000Z
-SUMMARY:A STUART HCM A (casa)
+SUMMARY:🏑 Sub-15 🏑 AD Oeiras B vs A Stuart HCM A
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS B vs A STUART HCM A\nCAMP. REG. SUB-15 - 1ª FASE · 
- Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9639\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras B vs A Stuart HCM A\nCAMP. REG. SUB-15 - 1ª FASE · 
+ Série D · SUB-15\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9639\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9639
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9643@hoquei.pages.dev
 DTSTAMP:20261022T000000Z
 DTSTART:20261022T184500Z
 DTEND:20261022T201500Z
-SUMMARY:SL BENFICA A (fora)
+SUMMARY:🏑 Sub-15 🏑 SL Benfica A vs AD Oeiras B
 LOCATION:PAV. MURCHES
-DESCRIPTION:SL BENFICA A vs AD OEIRAS B\nCAMP. REG. SUB-15 - 1ª FASE · S
- érie D · SUB-15\nhttps://hoquei.pages.dev/jogo/9643\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL Benfica A vs AD Oeiras B\nCAMP. REG. SUB-15 - 1ª FASE · S
+ érie D · SUB-15\nPAV. MURCHES\nhttps://hoquei.pages.dev/jogo/9643\nDados
+  da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9643
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9646@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T000000Z
 DTEND:20261101T013000Z
-SUMMARY:CD PAÇO ARCOS B (casa)
+SUMMARY:🏑 Sub-15 🏑 AD Oeiras B vs CD Paço Arcos B
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS B vs CD PAÇO ARCOS B\nCAMP. REG. SUB-15 - 1ª FASE 
- · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9646\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras B vs CD Paço Arcos B\nCAMP. REG. SUB-15 - 1ª FASE 
+ · Série D · SUB-15\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9646
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9646
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9648@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T193000Z
 DTEND:20261108T210000Z
-SUMMARY:FSE/AJ SALESIANA (casa)
+SUMMARY:🏑 Sub-15 🏑 AD Oeiras B vs FSE/AJ Salesiana
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS B vs FSE/AJ SALESIANA\nCAMP. REG. SUB-15 - 1ª FASE 
- · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9648\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras B vs FSE/AJ Salesiana\nCAMP. REG. SUB-15 - 1ª FASE 
+ · Série D · SUB-15\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9648
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9648
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9649@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T161500Z
 DTEND:20261115T174500Z
-SUMMARY:A STUART HCM A (fora)
+SUMMARY:🏑 Sub-15 🏑 A Stuart HCM A vs AD Oeiras B
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM A vs AD OEIRAS B\nCAMP. REG. SUB-15 - 1ª FASE · 
- Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9649\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM A vs AD Oeiras B\nCAMP. REG. SUB-15 - 1ª FASE · 
+ Série D · SUB-15\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.dev/jogo/
+ 9649\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9649
 END:VEVENT
 END:VCALENDAR

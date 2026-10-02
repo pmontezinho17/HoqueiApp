@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:AA COIMBRA · TORNEIOS PARTICULARES
-X-WR-CALDESC:Jogos de AA COIMBRA (TORNEIOS PARTICULARES)
+X-WR-CALNAME:🏑 AA Coimbra · Torneios Particulares
+X-WR-CALDESC:Jogos de AA Coimbra (Torneios Particulares)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9449@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T110000Z
 DTEND:20260919T123000Z
-SUMMARY:HC TURQUEL (fora) 5–8
+SUMMARY:🏑 Torneios Particulares 🏑 HC Turquel vs AA Coimbra
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:HC TURQUEL 8–5 AA COIMBRA\nJOGO TREINO · TORNEIOS PARTICULAR
- ES\nhttps://hoquei.pages.dev/jogo/9449\nDados da Associação de Patinagem
-  de Lisboa. Site não oficial.
+DESCRIPTION:HC Turquel 8–5 AA Coimbra\nJOGO TREINO · TORNEIOS PARTICULAR
+ ES\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo/9449\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9449
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9450@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T143000Z
 DTEND:20260919T160000Z
-SUMMARY:AE FISICA D (fora) 4–5
+SUMMARY:🏑 Torneios Particulares 🏑 AE Fisica D vs AA Coimbra
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA D 5–4 AA COIMBRA\nJOGO TREINO · TORNEIOS PARTICULA
- RES\nhttps://hoquei.pages.dev/jogo/9450\nDados da Associação de Patinage
- m de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica D 5–4 AA Coimbra\nJOGO TREINO · TORNEIOS PARTICULA
+ RES\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo/9450\nDados
+  da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9450
 END:VEVENT
 END:VCALENDAR

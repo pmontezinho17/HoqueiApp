@@ -63,34 +63,40 @@
 
 <Folha bind:aberta titulo="Adicionar ao calendário">
 	<p class="intro">
-		Os jogos de <strong>{equipa}</strong> ({categoria}) entram no calendário do teu telemóvel.
+		Os jogos de <strong>{equipa}</strong> ({categoria}) no calendário do teu telemóvel.
 	</p>
 
-	{#if sistema !== 'ios'}
-		<a class="principal" href={googleUrl} target="_blank" rel="noopener">
-			Adicionar ao Google Calendar
-		</a>
-		<p class="dica">
-			Abre o Google Calendar no browser e pergunta se queres adicionar. Depois de
-			confirmares, aparece também na aplicação do telemóvel.
-		</p>
-	{/if}
+	<!--
+		O ficheiro vem primeiro de propósito, e a subscrição a seguir.
+		A primeira versão punha a subscrição em cima, porque é a melhor em teoria: corrige-se
+		sozinha. Mas o Google **não vai buscar o calendário quando o adicionamos** — pode
+		demorar horas —, e quem subscreve fica a olhar para um calendário vazio sem perceber
+		porquê. Uma funcionalidade que precisa que o utilizador saiba disso e espere não é uma
+		funcionalidade. O ficheiro põe os jogos lá no momento; a subscrição é o extra.
+	-->
+	<a class="principal" href={url} download={ficheiro}>Adicionar os jogos agora</a>
+	<p class="dica">
+		Descarrega e abre no calendário: os jogos entram <strong>já</strong>. Como cada jogo tem
+		identificador próprio, voltar a fazer isto mais tarde actualiza-os em vez de os duplicar.
+	</p>
 
-	{#if sistema !== 'android'}
-		<a class="principal" class:secundaria={sistema === 'outro'} href={webcal}>
-			Subscrever no calendário
+	<p class="ou">e, se quiseres, que se corrija sozinho</p>
+
+	{#if sistema !== 'ios'}
+		<a class="principal secundaria" href={googleUrl} target="_blank" rel="noopener">
+			Subscrever no Google Calendar
 		</a>
+	{/if}
+	{#if sistema !== 'android'}
+		<a class="principal secundaria" href={webcal}>Subscrever no calendário</a>
 		<p class="dica">No iPhone e no Mac, abre o calendário directamente.</p>
 	{/if}
 
-	<p class="ou">ou, se preferires</p>
-
-	<a class="alternativa" href={url} download={ficheiro}>
-		Descarregar o ficheiro (.ics)
-	</a>
-	<p class="dica">
-		Abre no calendário e importa os jogos de uma vez. <strong>Não se actualiza depois</strong> —
-		se um jogo for adiado, este ficheiro fica com a hora antiga.
+	<p class="aviso">
+		<strong>A subscrição demora a aparecer.</strong> O Google só vai buscar o calendário
+		horas depois de o adicionares — às vezes no dia seguinte — e não tem botão para forçar.
+		Depois disso corrige-se sozinho sempre que um jogo mudar. No iPhone é mais rápido e dá
+		para escolher de quanto em quanto tempo.
 	</p>
 
 	<div class="url">
@@ -99,31 +105,22 @@
 	</div>
 
 	<details>
-		<summary>Não funcionou? Fazer à mão</summary>
+		<summary>Subscrever à mão</summary>
 		{#if sistema === 'ios'}
-			<p><strong>iPhone</strong></p>
 			<ol>
 				<li><strong>Definições → Aplicações → Calendário → Contas</strong></li>
 				<li><strong>Adicionar conta → Outra → Adicionar calendário subscrito</strong></li>
 				<li>Cola o endereço e confirma.</li>
 			</ol>
 		{:else}
-			<p><strong>Google Calendar</strong> (de computador, ou no browser do telemóvel a
-				pedir "versão para computador")</p>
 			<ol>
 				<li>Copia o endereço aqui em cima.</li>
+				<li>Abre o <strong>site</strong> do Google Calendar (a aplicação não tem esta opção).</li>
 				<li>Na barra lateral: <strong>Outros calendários → + → A partir do URL</strong></li>
 				<li>Cola e carrega em <strong>Adicionar calendário</strong>.</li>
 			</ol>
-			<p>A <strong>aplicação</strong> do Google Calendar não tem esta opção — só o site.</p>
 		{/if}
 	</details>
-
-	<p class="aviso">
-		<strong>Quanto demora a actualizar.</strong> O ritmo é do calendário, não nosso: o Google
-		relê a cada 12 a 24 horas e não deixa forçar; o iPhone deixa escolher e pode ser de 15 em
-		15 minutos. Para um jogo adiado à última hora, conta com atraso.
-	</p>
 </Folha>
 
 <style>
@@ -139,13 +136,13 @@
 	.dica { margin-top: -0.3rem; margin-bottom: 1rem; font-size: 0.7rem; color: var(--suave); }
 	.ou { margin: 0.2rem 0 0.5rem; font-size: 0.7rem; color: var(--suave); text-align: center; }
 
-	.principal, .alternativa {
+	.principal {
 		display: flex; align-items: center; justify-content: center;
 		min-height: 48px; margin-bottom: 0.5rem; font-size: 0.84rem; font-weight: 600;
 		border-radius: 10px; text-decoration: none;
 	}
 	.principal { background: var(--acento); color: var(--fundo); }
-	.principal.secundaria, .alternativa {
+	.principal.secundaria {
 		background: var(--cartao); color: var(--texto); border: 1px solid var(--borda);
 	}
 
@@ -166,7 +163,6 @@
 		color: var(--acento); }
 	ol { margin: 0.2rem 0 0.4rem; padding-left: 1.2rem; line-height: 1.5; }
 	li { margin-bottom: 0.3rem; }
-	details p { margin: 0.3rem 0; font-size: 0.74rem; color: var(--suave); }
 
 	.aviso {
 		padding: 0.6rem 0.7rem; font-size: 0.72rem; border-radius: 8px;

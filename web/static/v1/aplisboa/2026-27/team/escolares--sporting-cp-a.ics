@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:SPORTING CP A · ESCOLARES
-X-WR-CALDESC:Jogos de SPORTING CP A (ESCOLARES)
+X-WR-CALNAME:🏑 Sporting CP A · Escolares
+X-WR-CALDESC:Jogos de Sporting CP A (Escolares)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,12 +13,12 @@ UID:jogo-9894@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T160000Z
 DTEND:20261011T173000Z
-SUMMARY:S ALENQUER BENFICA (fora)
+SUMMARY:🏑 Escolares 🏑 S Alenquer Benfica vs Sporting CP A
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA vs SPORTING CP A\nENCONTROS DISTRITAIS ESCOL
- ARES - 1ª FASE NIVEL I · Série A · ESCOLARES\nhttps://hoquei.pages.dev
- /jogo/9894\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:S Alenquer Benfica vs Sporting CP A\nENCONTROS DISTRITAIS ESCOL
+ ARES - 1ª FASE NIVEL I · Série A · ESCOLARES\nPAV.S.ALENQUER E BENFICA
+ \nhttps://hoquei.pages.dev/jogo/9894\nDados da Associação de Patinagem d
+ e Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9894
 END:VEVENT
 BEGIN:VEVENT
@@ -26,12 +26,12 @@ UID:jogo-9896@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T144500Z
 DTEND:20261025T161500Z
-SUMMARY:FSE/AJ SALESIANA A (casa)
+SUMMARY:🏑 Escolares 🏑 Sporting CP A vs FSE/AJ Salesiana A
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP A vs FSE/AJ SALESIANA A\nENCONTROS DISTRITAIS ESCOL
- ARES - 1ª FASE NIVEL I · Série A · ESCOLARES\nhttps://hoquei.pages.dev
- /jogo/9896\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:Sporting CP A vs FSE/AJ Salesiana A\nENCONTROS DISTRITAIS ESCOL
+ ARES - 1ª FASE NIVEL I · Série A · ESCOLARES\nPAV.G.S.SACAVENENSE\nhtt
+ ps://hoquei.pages.dev/jogo/9896\nDados da Associação de Patinagem de Lis
+ boa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9896
 END:VEVENT
 BEGIN:VEVENT
@@ -39,11 +39,12 @@ UID:jogo-9897@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T180000Z
 DTEND:20261031T193000Z
-SUMMARY:AD OEIRAS A (fora)
+SUMMARY:🏑 Escolares 🏑 AD Oeiras A vs Sporting CP A
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS A vs SPORTING CP A\nENCONTROS DISTRITAIS ESCOLARES - 
- 1ª FASE NIVEL I · Série A · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9
- 897\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras A vs Sporting CP A\nENCONTROS DISTRITAIS ESCOLARES - 
+ 1ª FASE NIVEL I · Série A · ESCOLARES\nPAV. A.D.OEIRAS\nhttps://hoquei
+ .pages.dev/jogo/9897\nDados da Associação de Patinagem de Lisboa. Site n
+ ão oficial.
 URL:https://hoquei.pages.dev/jogo/9897
 END:VEVENT
 BEGIN:VEVENT
@@ -51,12 +52,12 @@ UID:jogo-9900@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T143000Z
 DTEND:20261108T160000Z
-SUMMARY:S ALENQUER BENFICA (casa)
+SUMMARY:🏑 Escolares 🏑 Sporting CP A vs S Alenquer Benfica
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP A vs S ALENQUER BENFICA\nENCONTROS DISTRITAIS ESCOL
- ARES - 1ª FASE NIVEL I · Série A · ESCOLARES\nhttps://hoquei.pages.dev
- /jogo/9900\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:Sporting CP A vs S Alenquer Benfica\nENCONTROS DISTRITAIS ESCOL
+ ARES - 1ª FASE NIVEL I · Série A · ESCOLARES\nPAV.G.S.SACAVENENSE\nhtt
+ ps://hoquei.pages.dev/jogo/9900\nDados da Associação de Patinagem de Lis
+ boa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9900
 END:VEVENT
 BEGIN:VEVENT
@@ -64,12 +65,12 @@ UID:jogo-9902@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T144500Z
 DTEND:20261122T161500Z
-SUMMARY:FSE/AJ SALESIANA A (fora)
+SUMMARY:🏑 Escolares 🏑 FSE/AJ Salesiana A vs Sporting CP A
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA A vs SPORTING CP A\nENCONTROS DISTRITAIS ESCOL
- ARES - 1ª FASE NIVEL I · Série A · ESCOLARES\nhttps://hoquei.pages.dev
- /jogo/9902\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:FSE/AJ Salesiana A vs Sporting CP A\nENCONTROS DISTRITAIS ESCOL
+ ARES - 1ª FASE NIVEL I · Série A · ESCOLARES\nPAV. SALESIANA\nhttps://
+ hoquei.pages.dev/jogo/9902\nDados da Associação de Patinagem de Lisboa. 
+ Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9902
 END:VEVENT
 BEGIN:VEVENT
@@ -77,11 +78,12 @@ UID:jogo-9903@hoquei.pages.dev
 DTSTAMP:20261129T000000Z
 DTSTART:20261129T163000Z
 DTEND:20261129T180000Z
-SUMMARY:AD OEIRAS A (casa)
+SUMMARY:🏑 Escolares 🏑 Sporting CP A vs AD Oeiras A
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP A vs AD OEIRAS A\nENCONTROS DISTRITAIS ESCOLARES - 
- 1ª FASE NIVEL I · Série A · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9
- 903\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP A vs AD Oeiras A\nENCONTROS DISTRITAIS ESCOLARES - 
+ 1ª FASE NIVEL I · Série A · ESCOLARES\nPAV.G.S.SACAVENENSE\nhttps://ho
+ quei.pages.dev/jogo/9903\nDados da Associação de Patinagem de Lisboa. Si
+ te não oficial.
 URL:https://hoquei.pages.dev/jogo/9903
 END:VEVENT
 END:VCALENDAR

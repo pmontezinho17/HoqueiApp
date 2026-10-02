@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:UD VILAFRANQUENSE · SUB-19
-X-WR-CALDESC:Jogos de UD VILAFRANQUENSE (SUB-19)
+X-WR-CALNAME:🏑 UD Vilafranquense · Sub-19
+X-WR-CALDESC:Jogos de UD Vilafranquense (Sub-19)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9433@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T104500Z
 DTEND:20260913T121500Z
-SUMMARY:FSE/AJ SALESIANA (casa) 1–3
+SUMMARY:🏑 Sub-19 🏑 UD Vilafranquense vs FSE/AJ Salesiana
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE 1–3 FSE/AJ SALESIANA\nTORNEIO ABERTURA APL 
- SUB-19 · SUB-19\nhttps://hoquei.pages.dev/jogo/9433\nDados da Associaçã
- o de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense 1–3 FSE/AJ Salesiana\nTORNEIO ABERTURA APL 
+ SUB-19 · SUB-19\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/9433\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9433
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9434@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T171500Z
 DTEND:20260913T184500Z
-SUMMARY:CD PAÇO ARCOS (fora) 0–5
+SUMMARY:🏑 Sub-19 🏑 CD Paço Arcos vs UD Vilafranquense
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:CD PAÇO ARCOS 5–0 UD VILAFRANQUENSE\nTORNEIO ABERTURA APL SU
- B-19 · SUB-19\nhttps://hoquei.pages.dev/jogo/9434\nDados da Associação 
- de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CD Paço Arcos 5–0 UD Vilafranquense\nTORNEIO ABERTURA APL SU
+ B-19 · SUB-19\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/9434\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9434
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,12 @@ UID:jogo-9808@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T133000Z
 DTEND:20261018T150000Z
-SUMMARY:S ALENQUER BENFICA (casa)
+SUMMARY:🏑 Sub-19 🏑 UD Vilafranquense vs S Alenquer Benfica
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs S ALENQUER BENFICA\nCAMP. REG. SUB-19 - 1
- ª FASE · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9808\nDados d
- a Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense vs S Alenquer Benfica\nCAMP. REG. SUB-19 - 1
+ ª FASE · Série A · SUB-19\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.d
+ ev/jogo/9808\nDados da Associação de Patinagem de Lisboa. Site não ofic
+ ial.
 URL:https://hoquei.pages.dev/jogo/9808
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +50,11 @@ UID:jogo-9804@hoquei.pages.dev
 DTSTAMP:20261022T000000Z
 DTSTART:20261022T203000Z
 DTEND:20261022T220000Z
-SUMMARY:SL BENFICA (fora)
+SUMMARY:🏑 Sub-19 🏑 SL Benfica vs UD Vilafranquense
 LOCATION:PAV. MURCHES
-DESCRIPTION:SL BENFICA vs UD VILAFRANQUENSE\nCAMP. REG. SUB-19 - 1ª FASE 
- · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9804\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL Benfica vs UD Vilafranquense\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série A · SUB-19\nPAV. MURCHES\nhttps://hoquei.pages.dev/jogo/9804\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9804
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +62,11 @@ UID:jogo-9811@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T150000Z
 DTEND:20261025T163000Z
-SUMMARY:HC TURQUEL (fora)
+SUMMARY:🏑 Sub-19 🏑 HC Turquel vs UD Vilafranquense
 LOCATION:PAV. HC TURQUEL
-DESCRIPTION:HC TURQUEL vs UD VILAFRANQUENSE\nCAMP. REG. SUB-19 - 1ª FASE 
- · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9811\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Turquel vs UD Vilafranquense\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série A · SUB-19\nPAV. HC TURQUEL\nhttps://hoquei.pages.dev/jogo/9811
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9811
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +74,12 @@ UID:jogo-9812@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T163000Z
 DTEND:20261101T180000Z
-SUMMARY:HC LOURINHÃ (fora)
+SUMMARY:🏑 Sub-19 🏑 HC Lourinhã vs UD Vilafranquense
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:HC LOURINHÃ vs UD VILAFRANQUENSE\nCAMP. REG. SUB-19 - 1ª FASE
-  · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9812\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinhã vs UD Vilafranquense\nCAMP. REG. SUB-19 - 1ª FASE
+  · Série A · SUB-19\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev
+ /jogo/9812\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
 URL:https://hoquei.pages.dev/jogo/9812
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +87,11 @@ UID:jogo-9816@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T160000Z
 DTEND:20261108T173000Z
-SUMMARY:BIBLIOTECA IR (casa)
+SUMMARY:🏑 Sub-19 🏑 UD Vilafranquense vs Biblioteca IR
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs BIBLIOTECA IR\nCAMP. REG. SUB-19 - 1ª FAS
- E · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9816\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense vs Biblioteca IR\nCAMP. REG. SUB-19 - 1ª FAS
+ E · Série A · SUB-19\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jog
+ o/9816\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9816
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +99,11 @@ UID:jogo-9819@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T143000Z
 DTEND:20261115T160000Z
-SUMMARY:SL BENFICA (casa)
+SUMMARY:🏑 Sub-19 🏑 UD Vilafranquense vs SL Benfica
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs SL BENFICA\nCAMP. REG. SUB-19 - 1ª FASE 
- · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9819\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense vs SL Benfica\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série A · SUB-19\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/
+ 9819\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9819
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +111,12 @@ UID:jogo-9823@hoquei.pages.dev
 DTSTAMP:20261125T000000Z
 DTSTART:20261125T213000Z
 DTEND:20261125T230000Z
-SUMMARY:S ALENQUER BENFICA (fora)
+SUMMARY:🏑 Sub-19 🏑 S Alenquer Benfica vs UD Vilafranquense
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA vs UD VILAFRANQUENSE\nCAMP. REG. SUB-19 - 1
- ª FASE · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9823\nDados d
- a Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica vs UD Vilafranquense\nCAMP. REG. SUB-19 - 1
+ ª FASE · Série A · SUB-19\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pa
+ ges.dev/jogo/9823\nDados da Associação de Patinagem de Lisboa. Site não
+  oficial.
 URL:https://hoquei.pages.dev/jogo/9823
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +124,11 @@ UID:jogo-9826@hoquei.pages.dev
 DTSTAMP:20261129T000000Z
 DTSTART:20261129T143000Z
 DTEND:20261129T160000Z
-SUMMARY:HC TURQUEL (casa)
+SUMMARY:🏑 Sub-19 🏑 UD Vilafranquense vs HC Turquel
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs HC TURQUEL\nCAMP. REG. SUB-19 - 1ª FASE 
- · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9826\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense vs HC Turquel\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série A · SUB-19\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/
+ 9826\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9826
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +136,11 @@ UID:jogo-9827@hoquei.pages.dev
 DTSTAMP:20261201T000000Z
 DTSTART:20261201T143000Z
 DTEND:20261201T160000Z
-SUMMARY:HC LOURINHÃ (casa)
+SUMMARY:🏑 Sub-19 🏑 UD Vilafranquense vs HC Lourinhã
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE vs HC LOURINHÃ\nCAMP. REG. SUB-19 - 1ª FASE
-  · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9827\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense vs HC Lourinhã\nCAMP. REG. SUB-19 - 1ª FASE
+  · Série A · SUB-19\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo
+ /9827\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9827
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +148,11 @@ UID:jogo-9831@hoquei.pages.dev
 DTSTAMP:20261206T000000Z
 DTSTART:20261206T163000Z
 DTEND:20261206T180000Z
-SUMMARY:BIBLIOTECA IR (fora)
+SUMMARY:🏑 Sub-19 🏑 Biblioteca IR vs UD Vilafranquense
 LOCATION:PAV. VALADO DE FRADES
-DESCRIPTION:BIBLIOTECA IR vs UD VILAFRANQUENSE\nCAMP. REG. SUB-19 - 1ª FAS
- E · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9831\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Biblioteca IR vs UD Vilafranquense\nCAMP. REG. SUB-19 - 1ª FAS
+ E · Série A · SUB-19\nPAV. VALADO DE FRADES\nhttps://hoquei.pages.dev/j
+ ogo/9831\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9831
 END:VEVENT
 END:VCALENDAR

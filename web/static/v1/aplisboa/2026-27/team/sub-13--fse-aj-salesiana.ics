@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:FSE/AJ SALESIANA · SUB-13
-X-WR-CALDESC:Jogos de FSE/AJ SALESIANA (SUB-13)
+X-WR-CALNAME:🏑 FSE/AJ Salesiana · Sub-13
+X-WR-CALDESC:Jogos de FSE/AJ Salesiana (Sub-13)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9361@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T110000Z
 DTEND:20260912T123000Z
-SUMMARY:AD OEIRAS A (casa) 0–11
+SUMMARY:🏑 Sub-13 🏑 FSE/AJ Salesiana vs AD Oeiras A
 LOCATION:PAV. MAFRA
-DESCRIPTION:FSE/AJ SALESIANA 0–11 AD OEIRAS A\nTORNEIO ABERTURA APL SUB-1
- 3 · SUB-13\nhttps://hoquei.pages.dev/jogo/9361\nDados da Associação de 
- Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana 0–11 AD Oeiras A\nTORNEIO ABERTURA APL SUB-1
+ 3 · SUB-13\nPAV. MAFRA\nhttps://hoquei.pages.dev/jogo/9361\nDados da Asso
+ ciação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9361
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9362@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T141500Z
 DTEND:20260912T154500Z
-SUMMARY:CD PAÇO ARCOS B (fora) 3–1
+SUMMARY:🏑 Sub-13 🏑 CD Paço Arcos B vs FSE/AJ Salesiana
 LOCATION:PAV. MAFRA
-DESCRIPTION:CD PAÇO ARCOS B 1–3 FSE/AJ SALESIANA\nTORNEIO ABERTURA APL S
- UB-13 · SUB-13\nhttps://hoquei.pages.dev/jogo/9362\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CD Paço Arcos B 1–3 FSE/AJ Salesiana\nTORNEIO ABERTURA APL S
+ UB-13 · SUB-13\nPAV. MAFRA\nhttps://hoquei.pages.dev/jogo/9362\nDados da 
+ Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9362
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,12 @@ UID:jogo-9503@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T133000Z
 DTEND:20260926T150000Z
-SUMMARY:AE FISICA D A (fora) 1–6
+SUMMARY:🏑 Sub-13 🏑 AE Fisica D A vs FSE/AJ Salesiana
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA D A 6–1 FSE/AJ SALESIANA\nCAMP. REG. SUB-13 - 1ª F
- ASE · Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9503\nDados da As
- sociação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica D A 6–1 FSE/AJ Salesiana\nCAMP. REG. SUB-13 - 1ª F
+ ASE · Série C · SUB-13\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.page
+ s.dev/jogo/9503\nDados da Associação de Patinagem de Lisboa. Site não o
+ ficial.
 URL:https://hoquei.pages.dev/jogo/9503
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +50,11 @@ UID:jogo-9506@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T094500Z
 DTEND:20261003T111500Z
-SUMMARY:PAREDE FC A (casa)
+SUMMARY:🏑 Sub-13 🏑 FSE/AJ Salesiana vs Parede FC A
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA vs PAREDE FC A\nCAMP. REG. SUB-13 - 1ª FASE 
- · Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9506\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana vs Parede FC A\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série C · SUB-13\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/9506\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9506
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +62,11 @@ UID:jogo-9509@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T133000Z
 DTEND:20261010T150000Z
-SUMMARY:CD MAFRA (fora)
+SUMMARY:🏑 Sub-13 🏑 CD Mafra vs FSE/AJ Salesiana
 LOCATION:PAV. MAFRA
-DESCRIPTION:CD MAFRA vs FSE/AJ SALESIANA\nCAMP. REG. SUB-13 - 1ª FASE · S
- érie C · SUB-13\nhttps://hoquei.pages.dev/jogo/9509\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CD Mafra vs FSE/AJ Salesiana\nCAMP. REG. SUB-13 - 1ª FASE · S
+ érie C · SUB-13\nPAV. MAFRA\nhttps://hoquei.pages.dev/jogo/9509\nDados d
+ a Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9509
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +74,11 @@ UID:jogo-9512@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T151500Z
 DTEND:20261017T164500Z
-SUMMARY:A STUART HCM (casa)
+SUMMARY:🏑 Sub-13 🏑 FSE/AJ Salesiana vs A Stuart HCM
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA vs A STUART HCM\nCAMP. REG. SUB-13 - 1ª FASE 
- · Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9512\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana vs A Stuart HCM\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série C · SUB-13\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/9512\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9512
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +86,11 @@ UID:jogo-9515@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T153000Z
 DTEND:20261018T170000Z
-SUMMARY:SPORTING CP A (fora)
+SUMMARY:🏑 Sub-13 🏑 Sporting CP A vs FSE/AJ Salesiana
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:SPORTING CP A vs FSE/AJ SALESIANA\nCAMP. REG. SUB-13 - 1ª FASE
-  · Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9515\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Sporting CP A vs FSE/AJ Salesiana\nCAMP. REG. SUB-13 - 1ª FASE
+  · Série C · SUB-13\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo
+ /9515\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9515
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +98,11 @@ UID:jogo-9518@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T143000Z
 DTEND:20261024T160000Z
-SUMMARY:AE FISICA D A (casa)
+SUMMARY:🏑 Sub-13 🏑 FSE/AJ Salesiana vs AE Fisica D A
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA vs AE FISICA D A\nCAMP. REG. SUB-13 - 1ª FASE
-  · Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9518\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana vs AE Fisica D A\nCAMP. REG. SUB-13 - 1ª FASE
+  · Série C · SUB-13\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/9518
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9518
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +110,11 @@ UID:jogo-9521@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T154500Z
 DTEND:20261031T171500Z
-SUMMARY:PAREDE FC A (fora)
+SUMMARY:🏑 Sub-13 🏑 Parede FC A vs FSE/AJ Salesiana
 LOCATION:PAV. PAREDE
-DESCRIPTION:PAREDE FC A vs FSE/AJ SALESIANA\nCAMP. REG. SUB-13 - 1ª FASE 
- · Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9521\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC A vs FSE/AJ Salesiana\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série C · SUB-13\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9521\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9521
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +122,11 @@ UID:jogo-9524@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T153000Z
 DTEND:20261107T170000Z
-SUMMARY:CD MAFRA (casa)
+SUMMARY:🏑 Sub-13 🏑 FSE/AJ Salesiana vs CD Mafra
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA vs CD MAFRA\nCAMP. REG. SUB-13 - 1ª FASE · S
- érie C · SUB-13\nhttps://hoquei.pages.dev/jogo/9524\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana vs CD Mafra\nCAMP. REG. SUB-13 - 1ª FASE · S
+ érie C · SUB-13\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/9524\nDad
+ os da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9524
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +134,11 @@ UID:jogo-9527@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T174500Z
 DTEND:20261114T191500Z
-SUMMARY:A STUART HCM (fora)
+SUMMARY:🏑 Sub-13 🏑 A Stuart HCM vs FSE/AJ Salesiana
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM vs FSE/AJ SALESIANA\nCAMP. REG. SUB-13 - 1ª FASE 
- · Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9527\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM vs FSE/AJ Salesiana\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série C · SUB-13\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.dev/jo
+ go/9527\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9527
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +146,11 @@ UID:jogo-9530@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T144500Z
 DTEND:20261121T161500Z
-SUMMARY:SPORTING CP A (casa)
+SUMMARY:🏑 Sub-13 🏑 FSE/AJ Salesiana vs Sporting CP A
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA vs SPORTING CP A\nCAMP. REG. SUB-13 - 1ª FASE
-  · Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9530\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana vs Sporting CP A\nCAMP. REG. SUB-13 - 1ª FASE
+  · Série C · SUB-13\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/9530
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9530
 END:VEVENT
 END:VCALENDAR

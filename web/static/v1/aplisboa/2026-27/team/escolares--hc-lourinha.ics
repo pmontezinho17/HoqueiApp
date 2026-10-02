@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:HC LOURINHÃ · ESCOLARES
-X-WR-CALDESC:Jogos de HC LOURINHÃ (ESCOLARES)
+X-WR-CALNAME:🏑 HC Lourinhã · Escolares
+X-WR-CALDESC:Jogos de HC Lourinhã (Escolares)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,12 @@ UID:jogo-9926@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T134500Z
 DTEND:20260927T151500Z
-SUMMARY:A STUART HCM A (fora) 3–3
+SUMMARY:🏑 Escolares 🏑 A Stuart HCM A vs HC Lourinhã
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM A 3–3 HC LOURINHÃ\nENCONTROS DISTRITAIS ESCOLAR
- ES - 1ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/j
- ogo/9926\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM A 3–3 HC Lourinhã\nENCONTROS DISTRITAIS ESCOLAR
+ ES - 1ª FASE NIVEL I · Série C · ESCOLARES\nPAV.PROF.JOÃO CAMPELO\nht
+ tps://hoquei.pages.dev/jogo/9926\nDados da Associação de Patinagem de Li
+ sboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9926
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +26,12 @@ UID:jogo-9928@hoquei.pages.dev
 DTSTAMP:20261004T000000Z
 DTSTART:20261004T140000Z
 DTEND:20261004T153000Z
-SUMMARY:PAREDE FC A (casa)
+SUMMARY:🏑 Escolares 🏑 HC Lourinhã vs Parede FC A
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:HC LOURINHÃ vs PAREDE FC A\nENCONTROS DISTRITAIS ESCOLARES - 1
- ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/99
- 28\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinhã vs Parede FC A\nENCONTROS DISTRITAIS ESCOLARES - 1
+ ª FASE NIVEL I · Série C · ESCOLARES\nPAV. GIMNO. DA LOURINHÃ\nhttps:
+ //hoquei.pages.dev/jogo/9928\nDados da Associação de Patinagem de Lisboa
+ . Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9928
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +39,12 @@ UID:jogo-9931@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261017T230000Z
 DTEND:20261018T003000Z
-SUMMARY:CRIAR-T GD (fora)
+SUMMARY:🏑 Escolares 🏑 Criar-T GD vs HC Lourinhã
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CRIAR-T GD vs HC LOURINHÃ\nENCONTROS DISTRITAIS ESCOLARES - 1
- ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/99
- 31\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD vs HC Lourinhã\nENCONTROS DISTRITAIS ESCOLARES - 1
+ ª FASE NIVEL I · Série C · ESCOLARES\nPAV.MUNI.LEONEL FERNANDES-G.D.CR
+ IAR-T\nhttps://hoquei.pages.dev/jogo/9931\nDados da Associação de Patina
+ gem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9931
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +52,12 @@ UID:jogo-9933@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T161500Z
 DTEND:20261025T174500Z
-SUMMARY:APAC TOJAL (casa)
+SUMMARY:🏑 Escolares 🏑 HC Lourinhã vs APAC Tojal
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:HC LOURINHÃ vs APAC TOJAL\nENCONTROS DISTRITAIS ESCOLARES - 1
- ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/99
- 33\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinhã vs APAC Tojal\nENCONTROS DISTRITAIS ESCOLARES - 1
+ ª FASE NIVEL I · Série C · ESCOLARES\nPAV. A.P.A.C.TOJAL\nhttps://hoqu
+ ei.pages.dev/jogo/9933\nDados da Associação de Patinagem de Lisboa. Site
+  não oficial.
 URL:https://hoquei.pages.dev/jogo/9933
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +65,12 @@ UID:jogo-9936@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T150000Z
 DTEND:20261101T163000Z
-SUMMARY:A STUART HCM A (casa)
+SUMMARY:🏑 Escolares 🏑 HC Lourinhã vs A Stuart HCM A
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:HC LOURINHÃ vs A STUART HCM A\nENCONTROS DISTRITAIS ESCOLARES 
- - 1ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo
- /9936\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinhã vs A Stuart HCM A\nENCONTROS DISTRITAIS ESCOLARES 
+ - 1ª FASE NIVEL I · Série C · ESCOLARES\nPAV. GIMNO. DA LOURINHÃ\nhtt
+ ps://hoquei.pages.dev/jogo/9936\nDados da Associação de Patinagem de Lis
+ boa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9936
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +78,12 @@ UID:jogo-9938@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T143000Z
 DTEND:20261108T160000Z
-SUMMARY:PAREDE FC A (fora)
+SUMMARY:🏑 Escolares 🏑 Parede FC A vs HC Lourinhã
 LOCATION:PAV. PAREDE
-DESCRIPTION:PAREDE FC A vs HC LOURINHÃ\nENCONTROS DISTRITAIS ESCOLARES - 1
- ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/99
- 38\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC A vs HC Lourinhã\nENCONTROS DISTRITAIS ESCOLARES - 1
+ ª FASE NIVEL I · Série C · ESCOLARES\nPAV. PAREDE\nhttps://hoquei.page
+ s.dev/jogo/9938\nDados da Associação de Patinagem de Lisboa. Site não o
+ ficial.
 URL:https://hoquei.pages.dev/jogo/9938
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +91,12 @@ UID:jogo-9941@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T000000Z
 DTEND:20261122T013000Z
-SUMMARY:CRIAR-T GD (casa)
+SUMMARY:🏑 Escolares 🏑 HC Lourinhã vs Criar-T GD
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:HC LOURINHÃ vs CRIAR-T GD\nENCONTROS DISTRITAIS ESCOLARES - 1
- ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/99
- 41\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinhã vs Criar-T GD\nENCONTROS DISTRITAIS ESCOLARES - 1
+ ª FASE NIVEL I · Série C · ESCOLARES\nPAV. GIMNO. DA LOURINHÃ\nhttps:
+ //hoquei.pages.dev/jogo/9941\nDados da Associação de Patinagem de Lisboa
+ . Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9941
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +104,12 @@ UID:jogo-9943@hoquei.pages.dev
 DTSTAMP:20261129T000000Z
 DTSTART:20261129T163000Z
 DTEND:20261129T180000Z
-SUMMARY:APAC TOJAL (fora)
+SUMMARY:🏑 Escolares 🏑 APAC Tojal vs HC Lourinhã
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:APAC TOJAL vs HC LOURINHÃ\nENCONTROS DISTRITAIS ESCOLARES - 1
- ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/99
- 43\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs HC Lourinhã\nENCONTROS DISTRITAIS ESCOLARES - 1
+ ª FASE NIVEL I · Série C · ESCOLARES\nPAV. GIMNO. DA LOURINHÃ\nhttps:
+ //hoquei.pages.dev/jogo/9943\nDados da Associação de Patinagem de Lisboa
+ . Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9943
 END:VEVENT
 END:VCALENDAR

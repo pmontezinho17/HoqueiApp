@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:FC CASTRENSE · SUB-17
-X-WR-CALDESC:Jogos de FC CASTRENSE (SUB-17)
+X-WR-CALNAME:🏑 FC Castrense · Sub-17
+X-WR-CALDESC:Jogos de FC Castrense (Sub-17)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9784@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T160000Z
 DTEND:20260926T173000Z
-SUMMARY:CD BOLIQUEIME (casa) 0–12
+SUMMARY:🏑 Sub-17 🏑 FC Castrense vs CD Boliqueime
 LOCATION:PAV. BOLIQUEIME
-DESCRIPTION:FC CASTRENSE 0–12 CD BOLIQUEIME\nCAMP. REG. SUB-17 - 1ª FASE
-  · Série F · SUB-17\nhttps://hoquei.pages.dev/jogo/9784\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FC Castrense 0–12 CD Boliqueime\nCAMP. REG. SUB-17 - 1ª FASE
+  · Série F · SUB-17\nPAV. BOLIQUEIME\nhttps://hoquei.pages.dev/jogo/978
+ 4\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9784
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9785@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T140000Z
 DTEND:20261003T153000Z
-SUMMARY:CF ESTREMOZ (fora)
+SUMMARY:🏑 Sub-17 🏑 CF Estremoz vs FC Castrense
 LOCATION:PAV. ESTREMOZ
-DESCRIPTION:CF ESTREMOZ vs FC CASTRENSE\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie F · SUB-17\nhttps://hoquei.pages.dev/jogo/9785\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CF Estremoz vs FC Castrense\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie F · SUB-17\nPAV. ESTREMOZ\nhttps://hoquei.pages.dev/jogo/9785\nDado
+ s da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9785
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9787@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T163000Z
 DTEND:20261010T180000Z
-SUMMARY:HC PORTIMÃO (casa)
+SUMMARY:🏑 Sub-17 🏑 FC Castrense vs HC Portimão
 LOCATION:PAV. MUN. ANTONIO DOS ANJOS
-DESCRIPTION:FC CASTRENSE vs HC PORTIMÃO\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie F · SUB-17\nhttps://hoquei.pages.dev/jogo/9787\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FC Castrense vs HC Portimão\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie F · SUB-17\nPAV. MUN. ANTONIO DOS ANJOS\nhttps://hoquei.pages.dev/j
+ ogo/9787\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9787
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,12 @@ UID:jogo-9790@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T140000Z
 DTEND:20261011T153000Z
-SUMMARY:HC VASCO GAMA (casa)
+SUMMARY:🏑 Sub-17 🏑 FC Castrense vs HC Vasco Gama
 LOCATION:PAV. MUN. ANTONIO DOS ANJOS
-DESCRIPTION:FC CASTRENSE vs HC VASCO GAMA\nCAMP. REG. SUB-17 - 1ª FASE · 
- Série F · SUB-17\nhttps://hoquei.pages.dev/jogo/9790\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FC Castrense vs HC Vasco Gama\nCAMP. REG. SUB-17 - 1ª FASE · 
+ Série F · SUB-17\nPAV. MUN. ANTONIO DOS ANJOS\nhttps://hoquei.pages.dev/
+ jogo/9790\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/9790
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +62,12 @@ UID:jogo-9794@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T163000Z
 DTEND:20261024T180000Z
-SUMMARY:CD BOLIQUEIME (fora)
+SUMMARY:🏑 Sub-17 🏑 CD Boliqueime vs FC Castrense
 LOCATION:PAV. MUN. ANTONIO DOS ANJOS
-DESCRIPTION:CD BOLIQUEIME vs FC CASTRENSE\nCAMP. REG. SUB-17 - 1ª FASE · 
- Série F · SUB-17\nhttps://hoquei.pages.dev/jogo/9794\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CD Boliqueime vs FC Castrense\nCAMP. REG. SUB-17 - 1ª FASE · 
+ Série F · SUB-17\nPAV. MUN. ANTONIO DOS ANJOS\nhttps://hoquei.pages.dev/
+ jogo/9794\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/9794
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +75,11 @@ UID:jogo-9795@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T150000Z
 DTEND:20261031T163000Z
-SUMMARY:CF ESTREMOZ (casa)
+SUMMARY:🏑 Sub-17 🏑 FC Castrense vs CF Estremoz
 LOCATION:PAV. MUN. ANTONIO DOS ANJOS
-DESCRIPTION:FC CASTRENSE vs CF ESTREMOZ\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie F · SUB-17\nhttps://hoquei.pages.dev/jogo/9795\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FC Castrense vs CF Estremoz\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie F · SUB-17\nPAV. MUN. ANTONIO DOS ANJOS\nhttps://hoquei.pages.dev/j
+ ogo/9795\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9795
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +87,11 @@ UID:jogo-9797@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T150000Z
 DTEND:20261107T163000Z
-SUMMARY:HC PORTIMÃO (fora)
+SUMMARY:🏑 Sub-17 🏑 HC Portimão vs FC Castrense
 LOCATION:PAV. MONTES ALVOR
-DESCRIPTION:HC PORTIMÃO vs FC CASTRENSE\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie F · SUB-17\nhttps://hoquei.pages.dev/jogo/9797\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Portimão vs FC Castrense\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie F · SUB-17\nPAV. MONTES ALVOR\nhttps://hoquei.pages.dev/jogo/9797\n
+ Dados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9797
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +99,11 @@ UID:jogo-9800@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T173000Z
 DTEND:20261114T190000Z
-SUMMARY:HC VASCO GAMA (fora)
+SUMMARY:🏑 Sub-17 🏑 HC Vasco Gama vs FC Castrense
 LOCATION:PAV. SINES
-DESCRIPTION:HC VASCO GAMA vs FC CASTRENSE\nCAMP. REG. SUB-17 - 1ª FASE · 
- Série F · SUB-17\nhttps://hoquei.pages.dev/jogo/9800\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Vasco Gama vs FC Castrense\nCAMP. REG. SUB-17 - 1ª FASE · 
+ Série F · SUB-17\nPAV. SINES\nhttps://hoquei.pages.dev/jogo/9800\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9800
 END:VEVENT
 END:VCALENDAR

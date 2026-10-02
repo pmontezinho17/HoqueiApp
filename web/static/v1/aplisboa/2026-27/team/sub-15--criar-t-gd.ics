@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:CRIAR-T GD · SUB-15
-X-WR-CALDESC:Jogos de CRIAR-T GD (SUB-15)
+X-WR-CALNAME:🏑 Criar-T GD · Sub-15
+X-WR-CALDESC:Jogos de Criar-T GD (Sub-15)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9380@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T083000Z
 DTEND:20260913T100000Z
-SUMMARY:AE FISICA B (fora) 4–4
+SUMMARY:🏑 Sub-15 🏑 AE Fisica B vs Criar-T GD
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA B 4–4 CRIAR-T GD\nTORNEIO ABERTURA APL SUB-15 · SU
- B-15\nhttps://hoquei.pages.dev/jogo/9380\nDados da Associação de Patinag
- em de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica B 4–4 Criar-T GD\nTORNEIO ABERTURA APL SUB-15 · SU
+ B-15\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo/9380\nDado
+ s da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9380
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9379@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T110000Z
 DTEND:20260913T123000Z
-SUMMARY:SPORTING CP B (casa) 0–6
+SUMMARY:🏑 Sub-15 🏑 Criar-T GD vs Sporting CP B
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:CRIAR-T GD 0–6 SPORTING CP B\nTORNEIO ABERTURA APL SUB-15 · 
- SUB-15\nhttps://hoquei.pages.dev/jogo/9379\nDados da Associação de Patin
- agem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD 0–6 Sporting CP B\nTORNEIO ABERTURA APL SUB-15 · 
+ SUB-15\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo/9379\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9379
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9399@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T091500Z
 DTEND:20260919T104500Z
-SUMMARY:APAC TOJAL (casa) 3–2
+SUMMARY:🏑 Sub-15 🏑 Criar-T GD vs APAC Tojal
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:CRIAR-T GD 3–2 APAC TOJAL\nTORNEIO ABERTURA APL SUB-15 · SUB
- -15\nhttps://hoquei.pages.dev/jogo/9399\nDados da Associação de Patinage
- m de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD 3–2 APAC Tojal\nTORNEIO ABERTURA APL SUB-15 · SUB
+ -15\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9399\nDados da Associa
+ ção de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9399
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9402@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T133000Z
 DTEND:20260919T150000Z
-SUMMARY:CD PAÇO ARCOS B (casa) 2–5
+SUMMARY:🏑 Sub-15 🏑 Criar-T GD vs CD Paço Arcos B
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:CRIAR-T GD 2–5 CD PAÇO ARCOS B\nTORNEIO ABERTURA APL SUB-15 
- · SUB-15\nhttps://hoquei.pages.dev/jogo/9402\nDados da Associação de Pa
- tinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD 2–5 CD Paço Arcos B\nTORNEIO ABERTURA APL SUB-15 
+ · SUB-15\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9402\nDados da A
+ ssociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9402
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,12 @@ UID:jogo-9565@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T113000Z
 DTEND:20260927T130000Z
-SUMMARY:AE FISICA D B (fora) 3–5
+SUMMARY:🏑 Sub-15 🏑 AE Fisica D B vs Criar-T GD
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA D B 5–3 CRIAR-T GD\nCAMP. REG. SUB-15 - 1ª FASE ·
-  Série A · SUB-15\nhttps://hoquei.pages.dev/jogo/9565\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE Fisica D B 5–3 Criar-T GD\nCAMP. REG. SUB-15 - 1ª FASE ·
+  Série A · SUB-15\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/
+ jogo/9565\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/9565
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +74,12 @@ UID:jogo-9567@hoquei.pages.dev
 DTSTAMP:20261004T000000Z
 DTSTART:20261004T140000Z
 DTEND:20261004T153000Z
-SUMMARY:AD OEIRAS A (casa)
+SUMMARY:🏑 Sub-15 🏑 Criar-T GD vs AD Oeiras A
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CRIAR-T GD vs AD OEIRAS A\nCAMP. REG. SUB-15 - 1ª FASE · Sér
- ie A · SUB-15\nhttps://hoquei.pages.dev/jogo/9567\nDados da Associação 
- de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD vs AD Oeiras A\nCAMP. REG. SUB-15 - 1ª FASE · Sér
+ ie A · SUB-15\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoquei.page
+ s.dev/jogo/9567\nDados da Associação de Patinagem de Lisboa. Site não o
+ ficial.
 URL:https://hoquei.pages.dev/jogo/9567
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +87,12 @@ UID:jogo-9571@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T140000Z
 DTEND:20261011T153000Z
-SUMMARY:UD VILAFRANQUENSE B (casa)
+SUMMARY:🏑 Sub-15 🏑 Criar-T GD vs UD Vilafranquense B
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CRIAR-T GD vs UD VILAFRANQUENSE B\nCAMP. REG. SUB-15 - 1ª FASE
-  · Série A · SUB-15\nhttps://hoquei.pages.dev/jogo/9571\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD vs UD Vilafranquense B\nCAMP. REG. SUB-15 - 1ª FASE
+  · Série A · SUB-15\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoq
+ uei.pages.dev/jogo/9571\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
 URL:https://hoquei.pages.dev/jogo/9571
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +100,11 @@ UID:jogo-9574@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T163000Z
 DTEND:20261018T180000Z
-SUMMARY:CD PAÇO ARCOS A (fora)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A vs CRIAR-T GD\nCAMP. REG. SUB-15 - 1ª FASE ·
-  Série A · SUB-15\nhttps://hoquei.pages.dev/jogo/9574\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-15 🏑 CD Paço Arcos A vs Criar-T GD
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A vs Criar-T GD\nCAMP. REG. SUB-15 - 1ª FASE ·
+  Série A · SUB-15\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/95
+ 74\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9574
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +112,12 @@ UID:jogo-9575@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T150000Z
 DTEND:20261025T163000Z
-SUMMARY:HC SINTRA (casa)
+SUMMARY:🏑 Sub-15 🏑 Criar-T GD vs HC Sintra
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CRIAR-T GD vs HC SINTRA\nCAMP. REG. SUB-15 - 1ª FASE · Série
-  A · SUB-15\nhttps://hoquei.pages.dev/jogo/9575\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD vs HC Sintra\nCAMP. REG. SUB-15 - 1ª FASE · Série
+  A · SUB-15\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoquei.pages.
+ dev/jogo/9575\nDados da Associação de Patinagem de Lisboa. Site não ofi
+ cial.
 URL:https://hoquei.pages.dev/jogo/9575
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +125,12 @@ UID:jogo-9580@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T150000Z
 DTEND:20261031T163000Z
-SUMMARY:AE FISICA D B (casa)
+SUMMARY:🏑 Sub-15 🏑 Criar-T GD vs AE Fisica D B
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CRIAR-T GD vs AE FISICA D B\nCAMP. REG. SUB-15 - 1ª FASE · S
- érie A · SUB-15\nhttps://hoquei.pages.dev/jogo/9580\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD vs AE Fisica D B\nCAMP. REG. SUB-15 - 1ª FASE · S
+ érie A · SUB-15\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoquei.p
+ ages.dev/jogo/9580\nDados da Associação de Patinagem de Lisboa. Site nã
+ o oficial.
 URL:https://hoquei.pages.dev/jogo/9580
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +138,11 @@ UID:jogo-9582@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T000000Z
 DTEND:20261101T013000Z
-SUMMARY:AD OEIRAS A (fora)
+SUMMARY:🏑 Sub-15 🏑 AD Oeiras A vs Criar-T GD
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS A vs CRIAR-T GD\nCAMP. REG. SUB-15 - 1ª FASE · Sér
- ie A · SUB-15\nhttps://hoquei.pages.dev/jogo/9582\nDados da Associação 
- de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras A vs Criar-T GD\nCAMP. REG. SUB-15 - 1ª FASE · Sér
+ ie A · SUB-15\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9582\nDados
+  da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9582
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +150,11 @@ UID:jogo-9586@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T143000Z
 DTEND:20261108T160000Z
-SUMMARY:UD VILAFRANQUENSE B (fora)
+SUMMARY:🏑 Sub-15 🏑 UD Vilafranquense B vs Criar-T GD
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE B vs CRIAR-T GD\nCAMP. REG. SUB-15 - 1ª FASE
-  · Série A · SUB-15\nhttps://hoquei.pages.dev/jogo/9586\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense B vs Criar-T GD\nCAMP. REG. SUB-15 - 1ª FASE
+  · Série A · SUB-15\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo
+ /9586\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9586
 END:VEVENT
 BEGIN:VEVENT
@@ -157,11 +162,12 @@ UID:jogo-9589@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T150000Z
 DTEND:20261115T163000Z
-SUMMARY:CD PAÇO ARCOS A (casa)
+SUMMARY:🏑 Sub-15 🏑 Criar-T GD vs CD Paço Arcos A
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CRIAR-T GD vs CD PAÇO ARCOS A\nCAMP. REG. SUB-15 - 1ª FASE ·
-  Série A · SUB-15\nhttps://hoquei.pages.dev/jogo/9589\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD vs CD Paço Arcos A\nCAMP. REG. SUB-15 - 1ª FASE ·
+  Série A · SUB-15\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoquei
+ .pages.dev/jogo/9589\nDados da Associação de Patinagem de Lisboa. Site n
+ ão oficial.
 URL:https://hoquei.pages.dev/jogo/9589
 END:VEVENT
 BEGIN:VEVENT
@@ -169,11 +175,11 @@ UID:jogo-9590@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T144500Z
 DTEND:20261122T161500Z
-SUMMARY:HC SINTRA (fora)
+SUMMARY:🏑 Sub-15 🏑 HC Sintra vs Criar-T GD
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:HC SINTRA vs CRIAR-T GD\nCAMP. REG. SUB-15 - 1ª FASE · Série
-  A · SUB-15\nhttps://hoquei.pages.dev/jogo/9590\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Sintra vs Criar-T GD\nCAMP. REG. SUB-15 - 1ª FASE · Série
+  A · SUB-15\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9590\nDados da
+  Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9590
 END:VEVENT
 END:VCALENDAR

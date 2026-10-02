@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:CD PAÇO ARCOS B · BENJAMINS
-X-WR-CALDESC:Jogos de CD PAÇO ARCOS B (BENJAMINS)
+X-WR-CALNAME:🏑 CD Paço Arcos B · Benjamins
+X-WR-CALDESC:Jogos de CD Paço Arcos B (Benjamins)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,12 +13,12 @@ UID:jogo-10041@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T114500Z
 DTEND:20261003T131500Z
-SUMMARY:AE FISICA D B (fora)
+SUMMARY:🏑 Benjamins 🏑 AE Fisica D B vs CD Paço Arcos B
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE FISICA D B vs CD PAÇO ARCOS B\nENCONTROS DISTRITAIS BENJAMI
- NS - 1ª FASE NIVEL II · Série B · BENJAMINS\nhttps://hoquei.pages.dev/
- jogo/10041\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AE Fisica D B vs CD Paço Arcos B\nENCONTROS DISTRITAIS BENJAMI
+ NS - 1ª FASE NIVEL II · Série B · BENJAMINS\nPAV. FÍSICA TORRES VEDRA
+ S\nhttps://hoquei.pages.dev/jogo/10041\nDados da Associação de Patinagem
+  de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10041
 END:VEVENT
 BEGIN:VEVENT
@@ -26,12 +26,12 @@ UID:jogo-10043@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T110000Z
 DTEND:20261010T123000Z
-SUMMARY:S ALENQUER BENFICA (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs S ALENQUER BENFICA\nENCONTROS DISTRITAIS BE
- NJAMINS - 1ª FASE NIVEL II · Série B · BENJAMINS\nhttps://hoquei.pages
- .dev/jogo/10043\nDados da Associação de Patinagem de Lisboa. Site não o
- ficial.
+SUMMARY:🏑 Benjamins 🏑 CD Paço Arcos B vs S Alenquer Benfica
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs S Alenquer Benfica\nENCONTROS DISTRITAIS BE
+ NJAMINS - 1ª FASE NIVEL II · Série B · BENJAMINS\nPAV. PAÇO DE ARCOS\
+ nhttps://hoquei.pages.dev/jogo/10043\nDados da Associação de Patinagem d
+ e Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10043
 END:VEVENT
 BEGIN:VEVENT
@@ -39,11 +39,12 @@ UID:jogo-10045@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T153000Z
 DTEND:20261017T170000Z
-SUMMARY:AD OEIRAS B (fora)
+SUMMARY:🏑 Benjamins 🏑 AD Oeiras B vs CD Paço Arcos B
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS B vs CD PAÇO ARCOS B\nENCONTROS DISTRITAIS BENJAMINS
-  - 1ª FASE NIVEL II · Série B · BENJAMINS\nhttps://hoquei.pages.dev/jo
- go/10045\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras B vs CD Paço Arcos B\nENCONTROS DISTRITAIS BENJAMINS
+  - 1ª FASE NIVEL II · Série B · BENJAMINS\nPAV. A.D.OEIRAS\nhttps://ho
+ quei.pages.dev/jogo/10045\nDados da Associação de Patinagem de Lisboa. S
+ ite não oficial.
 URL:https://hoquei.pages.dev/jogo/10045
 END:VEVENT
 BEGIN:VEVENT
@@ -51,11 +52,12 @@ UID:jogo-10049@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T100000Z
 DTEND:20261031T113000Z
-SUMMARY:CRIAR-T GD (fora)
+SUMMARY:🏑 Benjamins 🏑 Criar-T GD vs CD Paço Arcos B
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CRIAR-T GD vs CD PAÇO ARCOS B\nENCONTROS DISTRITAIS BENJAMINS 
- - 1ª FASE NIVEL II · Série B · BENJAMINS\nhttps://hoquei.pages.dev/jog
- o/10049\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD vs CD Paço Arcos B\nENCONTROS DISTRITAIS BENJAMINS 
+ - 1ª FASE NIVEL II · Série B · BENJAMINS\nPAV.MUNI.LEONEL FERNANDES-G.
+ D.CRIAR-T\nhttps://hoquei.pages.dev/jogo/10049\nDados da Associação de P
+ atinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10049
 END:VEVENT
 BEGIN:VEVENT
@@ -63,12 +65,12 @@ UID:jogo-10051@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T120000Z
 DTEND:20261107T133000Z
-SUMMARY:AE FISICA D B (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs AE FISICA D B\nENCONTROS DISTRITAIS BENJAMI
- NS - 1ª FASE NIVEL II · Série B · BENJAMINS\nhttps://hoquei.pages.dev/
- jogo/10051\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+SUMMARY:🏑 Benjamins 🏑 CD Paço Arcos B vs AE Fisica D B
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs AE Fisica D B\nENCONTROS DISTRITAIS BENJAMI
+ NS - 1ª FASE NIVEL II · Série B · BENJAMINS\nPAV. PAÇO DE ARCOS\nhttp
+ s://hoquei.pages.dev/jogo/10051\nDados da Associação de Patinagem de Lis
+ boa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10051
 END:VEVENT
 BEGIN:VEVENT
@@ -76,12 +78,12 @@ UID:jogo-10053@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T153000Z
 DTEND:20261114T170000Z
-SUMMARY:S ALENQUER BENFICA (fora)
+SUMMARY:🏑 Benjamins 🏑 S Alenquer Benfica vs CD Paço Arcos B
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA vs CD PAÇO ARCOS B\nENCONTROS DISTRITAIS BE
- NJAMINS - 1ª FASE NIVEL II · Série B · BENJAMINS\nhttps://hoquei.pages
- .dev/jogo/10053\nDados da Associação de Patinagem de Lisboa. Site não o
- ficial.
+DESCRIPTION:S Alenquer Benfica vs CD Paço Arcos B\nENCONTROS DISTRITAIS BE
+ NJAMINS - 1ª FASE NIVEL II · Série B · BENJAMINS\nPAV.S.ALENQUER E BEN
+ FICA\nhttps://hoquei.pages.dev/jogo/10053\nDados da Associação de Patina
+ gem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10053
 END:VEVENT
 BEGIN:VEVENT
@@ -89,11 +91,12 @@ UID:jogo-10055@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T120000Z
 DTEND:20261121T133000Z
-SUMMARY:AD OEIRAS B (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs AD OEIRAS B\nENCONTROS DISTRITAIS BENJAMINS
-  - 1ª FASE NIVEL II · Série B · BENJAMINS\nhttps://hoquei.pages.dev/jo
- go/10055\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Benjamins 🏑 CD Paço Arcos B vs AD Oeiras B
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs AD Oeiras B\nENCONTROS DISTRITAIS BENJAMINS
+  - 1ª FASE NIVEL II · Série B · BENJAMINS\nPAV. PAÇO DE ARCOS\nhttps:
+ //hoquei.pages.dev/jogo/10055\nDados da Associação de Patinagem de Lisbo
+ a. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10055
 END:VEVENT
 BEGIN:VEVENT
@@ -101,11 +104,12 @@ UID:jogo-10059@hoquei.pages.dev
 DTSTAMP:20261212T000000Z
 DTSTART:20261212T144500Z
 DTEND:20261212T161500Z
-SUMMARY:CRIAR-T GD (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs CRIAR-T GD\nENCONTROS DISTRITAIS BENJAMINS 
- - 1ª FASE NIVEL II · Série B · BENJAMINS\nhttps://hoquei.pages.dev/jog
- o/10059\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Benjamins 🏑 CD Paço Arcos B vs Criar-T GD
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs Criar-T GD\nENCONTROS DISTRITAIS BENJAMINS 
+ - 1ª FASE NIVEL II · Série B · BENJAMINS\nPAV. PAÇO DE ARCOS\nhttps:/
+ /hoquei.pages.dev/jogo/10059\nDados da Associação de Patinagem de Lisboa
+ . Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10059
 END:VEVENT
 END:VCALENDAR

@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:CRIAR-T GD · ESCOLARES
-X-WR-CALDESC:Jogos de CRIAR-T GD (ESCOLARES)
+X-WR-CALNAME:🏑 Criar-T GD · Escolares
+X-WR-CALDESC:Jogos de Criar-T GD (Escolares)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,12 @@ UID:jogo-9925@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T140000Z
 DTEND:20260927T153000Z
-SUMMARY:APAC TOJAL (fora) 2–1
+SUMMARY:🏑 Escolares 🏑 APAC Tojal vs Criar-T GD
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL 1–2 CRIAR-T GD\nENCONTROS DISTRITAIS ESCOLARES - 1
- ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/99
- 25\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal 1–2 Criar-T GD\nENCONTROS DISTRITAIS ESCOLARES - 1
+ ª FASE NIVEL I · Série C · ESCOLARES\nPAV. A.P.A.C.TOJAL\nhttps://hoqu
+ ei.pages.dev/jogo/9925\nDados da Associação de Patinagem de Lisboa. Site
+  não oficial.
 URL:https://hoquei.pages.dev/jogo/9925
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +26,12 @@ UID:jogo-9927@hoquei.pages.dev
 DTSTAMP:20261004T000000Z
 DTSTART:20261004T090000Z
 DTEND:20261004T103000Z
-SUMMARY:A STUART HCM A (casa)
+SUMMARY:🏑 Escolares 🏑 Criar-T GD vs A Stuart HCM A
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CRIAR-T GD vs A STUART HCM A\nENCONTROS DISTRITAIS ESCOLARES - 
- 1ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9
- 927\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD vs A Stuart HCM A\nENCONTROS DISTRITAIS ESCOLARES - 
+ 1ª FASE NIVEL I · Série C · ESCOLARES\nPAV.MUNI.LEONEL FERNANDES-G.D.C
+ RIAR-T\nhttps://hoquei.pages.dev/jogo/9927\nDados da Associação de Patin
+ agem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9927
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +39,12 @@ UID:jogo-9929@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T101500Z
 DTEND:20261011T114500Z
-SUMMARY:PAREDE FC A (fora)
+SUMMARY:🏑 Escolares 🏑 Parede FC A vs Criar-T GD
 LOCATION:PAV. PAREDE
-DESCRIPTION:PAREDE FC A vs CRIAR-T GD\nENCONTROS DISTRITAIS ESCOLARES - 1ª
-  FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9929
- \nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC A vs Criar-T GD\nENCONTROS DISTRITAIS ESCOLARES - 1ª
+  FASE NIVEL I · Série C · ESCOLARES\nPAV. PAREDE\nhttps://hoquei.pages.
+ dev/jogo/9929\nDados da Associação de Patinagem de Lisboa. Site não ofi
+ cial.
 URL:https://hoquei.pages.dev/jogo/9929
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +52,12 @@ UID:jogo-9931@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261017T230000Z
 DTEND:20261018T003000Z
-SUMMARY:HC LOURINHÃ (casa)
+SUMMARY:🏑 Escolares 🏑 Criar-T GD vs HC Lourinhã
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CRIAR-T GD vs HC LOURINHÃ\nENCONTROS DISTRITAIS ESCOLARES - 1
- ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/99
- 31\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD vs HC Lourinhã\nENCONTROS DISTRITAIS ESCOLARES - 1
+ ª FASE NIVEL I · Série C · ESCOLARES\nPAV.MUNI.LEONEL FERNANDES-G.D.CR
+ IAR-T\nhttps://hoquei.pages.dev/jogo/9931\nDados da Associação de Patina
+ gem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9931
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +65,12 @@ UID:jogo-9935@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T100000Z
 DTEND:20261101T113000Z
-SUMMARY:APAC TOJAL (casa)
+SUMMARY:🏑 Escolares 🏑 Criar-T GD vs APAC Tojal
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CRIAR-T GD vs APAC TOJAL\nENCONTROS DISTRITAIS ESCOLARES - 1ª 
- FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9935\
- nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD vs APAC Tojal\nENCONTROS DISTRITAIS ESCOLARES - 1ª 
+ FASE NIVEL I · Série C · ESCOLARES\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR
+ -T\nhttps://hoquei.pages.dev/jogo/9935\nDados da Associação de Patinagem
+  de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9935
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +78,12 @@ UID:jogo-9937@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T144500Z
 DTEND:20261108T161500Z
-SUMMARY:A STUART HCM A (fora)
+SUMMARY:🏑 Escolares 🏑 A Stuart HCM A vs Criar-T GD
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM A vs CRIAR-T GD\nENCONTROS DISTRITAIS ESCOLARES - 
- 1ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9
- 937\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM A vs Criar-T GD\nENCONTROS DISTRITAIS ESCOLARES - 
+ 1ª FASE NIVEL I · Série C · ESCOLARES\nPAV.PROF.JOÃO CAMPELO\nhttps:/
+ /hoquei.pages.dev/jogo/9937\nDados da Associação de Patinagem de Lisboa.
+  Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9937
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +91,12 @@ UID:jogo-9939@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T100000Z
 DTEND:20261115T113000Z
-SUMMARY:PAREDE FC A (casa)
+SUMMARY:🏑 Escolares 🏑 Criar-T GD vs Parede FC A
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CRIAR-T GD vs PAREDE FC A\nENCONTROS DISTRITAIS ESCOLARES - 1ª
-  FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9939
- \nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD vs Parede FC A\nENCONTROS DISTRITAIS ESCOLARES - 1ª
+  FASE NIVEL I · Série C · ESCOLARES\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIA
+ R-T\nhttps://hoquei.pages.dev/jogo/9939\nDados da Associação de Patinage
+ m de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9939
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +104,12 @@ UID:jogo-9941@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T000000Z
 DTEND:20261122T013000Z
-SUMMARY:HC LOURINHÃ (fora)
+SUMMARY:🏑 Escolares 🏑 HC Lourinhã vs Criar-T GD
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:HC LOURINHÃ vs CRIAR-T GD\nENCONTROS DISTRITAIS ESCOLARES - 1
- ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/99
- 41\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinhã vs Criar-T GD\nENCONTROS DISTRITAIS ESCOLARES - 1
+ ª FASE NIVEL I · Série C · ESCOLARES\nPAV. GIMNO. DA LOURINHÃ\nhttps:
+ //hoquei.pages.dev/jogo/9941\nDados da Associação de Patinagem de Lisboa
+ . Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9941
 END:VEVENT
 END:VCALENDAR

@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:CD PAÇO ARCOS A · SUB-17
-X-WR-CALDESC:Jogos de CD PAÇO ARCOS A (SUB-17)
+X-WR-CALNAME:🏑 CD Paço Arcos A · Sub-17
+X-WR-CALDESC:Jogos de CD Paço Arcos A (Sub-17)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,12 @@ UID:jogo-9674@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T154500Z
 DTEND:20260926T171500Z
-SUMMARY:S ALENQUER BENFICA (casa) 7–5
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A 7–5 S ALENQUER BENFICA\nCAMP. REG. SUB-17 - 
- 1ª FASE · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9674\nDados 
- da Associação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos A vs S Alenquer Benfica
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A 7–5 S Alenquer Benfica\nCAMP. REG. SUB-17 - 
+ 1ª FASE · Série B · SUB-17\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.
+ dev/jogo/9674\nDados da Associação de Patinagem de Lisboa. Site não ofi
+ cial.
 URL:https://hoquei.pages.dev/jogo/9674
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +26,11 @@ UID:jogo-9676@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T180000Z
 DTEND:20261003T193000Z
-SUMMARY:SL BENFICA B (fora)
+SUMMARY:🏑 Sub-17 🏑 SL Benfica B vs CD Paço Arcos A
 LOCATION:PAV. MURCHES
-DESCRIPTION:SL BENFICA B vs CD PAÇO ARCOS A\nCAMP. REG. SUB-17 - 1ª FASE 
- · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9676\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL Benfica B vs CD Paço Arcos A\nCAMP. REG. SUB-17 - 1ª FASE 
+ · Série B · SUB-17\nPAV. MURCHES\nhttps://hoquei.pages.dev/jogo/9676\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9676
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +38,11 @@ UID:jogo-9680@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T151500Z
 DTEND:20261010T164500Z
-SUMMARY:CACO A (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A vs CACO A\nCAMP. REG. SUB-17 - 1ª FASE · Sé
- rie B · SUB-17\nhttps://hoquei.pages.dev/jogo/9680\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos A vs Caco A
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A vs Caco A\nCAMP. REG. SUB-17 - 1ª FASE · Sé
+ rie B · SUB-17\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/9680\n
+ Dados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9680
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +50,11 @@ UID:jogo-9684@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T153000Z
 DTEND:20261011T170000Z
-SUMMARY:CRIAR-T GD (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A vs CRIAR-T GD\nCAMP. REG. SUB-17 - 1ª FASE ·
-  Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9684\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos A vs Criar-T GD
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A vs Criar-T GD\nCAMP. REG. SUB-17 - 1ª FASE ·
+  Série B · SUB-17\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/96
+ 84\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9684
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +62,11 @@ UID:jogo-9687@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T164500Z
 DTEND:20261017T181500Z
-SUMMARY:FSE/AJ SALESIANA B (fora)
+SUMMARY:🏑 Sub-17 🏑 FSE/AJ Salesiana B vs CD Paço Arcos A
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA B vs CD PAÇO ARCOS A\nCAMP. REG. SUB-17 - 1ª
-  FASE · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9687\nDados da 
- Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana B vs CD Paço Arcos A\nCAMP. REG. SUB-17 - 1ª
+  FASE · Série B · SUB-17\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo
+ /9687\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9687
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +74,12 @@ UID:jogo-9689@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T173000Z
 DTEND:20261024T190000Z
-SUMMARY:S ALENQUER BENFICA (fora)
+SUMMARY:🏑 Sub-17 🏑 S Alenquer Benfica vs CD Paço Arcos A
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:S ALENQUER BENFICA vs CD PAÇO ARCOS A\nCAMP. REG. SUB-17 - 1ª
-  FASE · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9689\nDados da 
- Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S Alenquer Benfica vs CD Paço Arcos A\nCAMP. REG. SUB-17 - 1ª
+  FASE · Série B · SUB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.page
+ s.dev/jogo/9689\nDados da Associação de Patinagem de Lisboa. Site não o
+ ficial.
 URL:https://hoquei.pages.dev/jogo/9689
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +87,11 @@ UID:jogo-9691@hoquei.pages.dev
 DTSTAMP:20261104T000000Z
 DTSTART:20261104T213500Z
 DTEND:20261104T230500Z
-SUMMARY:SL BENFICA B (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A vs SL BENFICA B\nCAMP. REG. SUB-17 - 1ª FASE 
- · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9691\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos A vs SL Benfica B
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A vs SL Benfica B\nCAMP. REG. SUB-17 - 1ª FASE 
+ · Série B · SUB-17\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/
+ 9691\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9691
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +99,11 @@ UID:jogo-9695@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T200000Z
 DTEND:20261107T213000Z
-SUMMARY:CACO A (fora)
+SUMMARY:🏑 Sub-17 🏑 Caco A vs CD Paço Arcos A
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CACO A vs CD PAÇO ARCOS A\nCAMP. REG. SUB-17 - 1ª FASE · Sé
- rie B · SUB-17\nhttps://hoquei.pages.dev/jogo/9695\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Caco A vs CD Paço Arcos A\nCAMP. REG. SUB-17 - 1ª FASE · Sé
+ rie B · SUB-17\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9695\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9695
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +111,12 @@ UID:jogo-9699@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T150000Z
 DTEND:20261114T163000Z
-SUMMARY:CRIAR-T GD (fora)
+SUMMARY:🏑 Sub-17 🏑 Criar-T GD vs CD Paço Arcos A
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CRIAR-T GD vs CD PAÇO ARCOS A\nCAMP. REG. SUB-17 - 1ª FASE ·
-  Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9699\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD vs CD Paço Arcos A\nCAMP. REG. SUB-17 - 1ª FASE ·
+  Série B · SUB-17\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoquei
+ .pages.dev/jogo/9699\nDados da Associação de Patinagem de Lisboa. Site n
+ ão oficial.
 URL:https://hoquei.pages.dev/jogo/9699
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +124,12 @@ UID:jogo-9702@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T163000Z
 DTEND:20261121T180000Z
-SUMMARY:FSE/AJ SALESIANA B (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS A vs FSE/AJ SALESIANA B\nCAMP. REG. SUB-17 - 1ª
-  FASE · Série B · SUB-17\nhttps://hoquei.pages.dev/jogo/9702\nDados da 
- Associação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos A vs FSE/AJ Salesiana B
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos A vs FSE/AJ Salesiana B\nCAMP. REG. SUB-17 - 1ª
+  FASE · Série B · SUB-17\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev
+ /jogo/9702\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
 URL:https://hoquei.pages.dev/jogo/9702
 END:VEVENT
 END:VCALENDAR

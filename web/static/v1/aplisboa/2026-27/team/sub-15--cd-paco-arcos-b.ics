@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:CD PAÇO ARCOS B · SUB-15
-X-WR-CALDESC:Jogos de CD PAÇO ARCOS B (SUB-15)
+X-WR-CALNAME:🏑 CD Paço Arcos B · Sub-15
+X-WR-CALDESC:Jogos de CD Paço Arcos B (Sub-15)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,11 @@ UID:jogo-9392@hoquei.pages.dev
 DTSTAMP:20260911T000000Z
 DTSTART:20260911T193000Z
 DTEND:20260911T210000Z
-SUMMARY:AD OEIRAS A (fora) 1–4
+SUMMARY:🏑 Sub-15 🏑 AD Oeiras A vs CD Paço Arcos B
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:AD OEIRAS A 4–1 CD PAÇO ARCOS B\nTORNEIO ABERTURA APL SUB-15
-  · SUB-15\nhttps://hoquei.pages.dev/jogo/9392\nDados da Associação de P
- atinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras A 4–1 CD Paço Arcos B\nTORNEIO ABERTURA APL SUB-15
+  · SUB-15\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/9392\nDados
+  da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9392
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9394@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T091500Z
 DTEND:20260913T104500Z
-SUMMARY:HC LOURINHA (casa) 2–1
+SUMMARY:🏑 Sub-15 🏑 CD Paço Arcos B vs HC Lourinha
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:CD PAÇO ARCOS B 2–1 HC LOURINHA\nTORNEIO ABERTURA APL SUB-15
-  · SUB-15\nhttps://hoquei.pages.dev/jogo/9394\nDados da Associação de P
- atinagem de Lisboa. Site não oficial.
+DESCRIPTION:CD Paço Arcos B 2–1 HC Lourinha\nTORNEIO ABERTURA APL SUB-15
+  · SUB-15\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/9394\nDados
+  da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9394
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9395@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T154500Z
 DTEND:20260913T171500Z
-SUMMARY:UD VILAFRANQUENSE (fora) 4–2
+SUMMARY:🏑 Sub-15 🏑 UD Vilafranquense vs CD Paço Arcos B
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD VILAFRANQUENSE 2–4 CD PAÇO ARCOS B\nTORNEIO ABERTURA APL 
- SUB-15 · SUB-15\nhttps://hoquei.pages.dev/jogo/9395\nDados da Associaçã
- o de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD Vilafranquense 2–4 CD Paço Arcos B\nTORNEIO ABERTURA APL 
+ SUB-15 · SUB-15\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/9395\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9395
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9400@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T104500Z
 DTEND:20260919T121500Z
-SUMMARY:CACO (casa) 2–1
+SUMMARY:🏑 Sub-15 🏑 CD Paço Arcos B vs Caco
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:CD PAÇO ARCOS B 2–1 CACO\nTORNEIO ABERTURA APL SUB-15 · SUB
- -15\nhttps://hoquei.pages.dev/jogo/9400\nDados da Associação de Patinage
- m de Lisboa. Site não oficial.
+DESCRIPTION:CD Paço Arcos B 2–1 Caco\nTORNEIO ABERTURA APL SUB-15 · SUB
+ -15\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9400\nDados da Associa
+ ção de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9400
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9402@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T133000Z
 DTEND:20260919T150000Z
-SUMMARY:CRIAR-T GD (fora) 5–2
+SUMMARY:🏑 Sub-15 🏑 Criar-T GD vs CD Paço Arcos B
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:CRIAR-T GD 2–5 CD PAÇO ARCOS B\nTORNEIO ABERTURA APL SUB-15 
- · SUB-15\nhttps://hoquei.pages.dev/jogo/9402\nDados da Associação de Pa
- tinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD 2–5 CD Paço Arcos B\nTORNEIO ABERTURA APL SUB-15 
+ · SUB-15\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9402\nDados da A
+ ssociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9402
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9403@hoquei.pages.dev
 DTSTAMP:20260920T000000Z
 DTSTART:20260920T100000Z
 DTEND:20260920T113000Z
-SUMMARY:AD OEIRAS A (fora) 0–10
+SUMMARY:🏑 Sub-15 🏑 AD Oeiras A vs CD Paço Arcos B
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS A 10–0 CD PAÇO ARCOS B\nTORNEIO ABERTURA APL SUB-1
- 5 · SUB-15\nhttps://hoquei.pages.dev/jogo/9403\nDados da Associação de 
- Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras A 10–0 CD Paço Arcos B\nTORNEIO ABERTURA APL SUB-1
+ 5 · SUB-15\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9403\nDados da
+  Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9403
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,12 @@ UID:jogo-9634@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T181500Z
 DTEND:20260927T194500Z
-SUMMARY:A STUART HCM A (fora) 3–0
+SUMMARY:🏑 Sub-15 🏑 A Stuart HCM A vs CD Paço Arcos B
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM A 0–3 CD PAÇO ARCOS B\nCAMP. REG. SUB-15 - 1ª 
- FASE · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9634\nDados da A
- ssociação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM A 0–3 CD Paço Arcos B\nCAMP. REG. SUB-15 - 1ª 
+ FASE · Série D · SUB-15\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.d
+ ev/jogo/9634\nDados da Associação de Patinagem de Lisboa. Site não ofic
+ ial.
 URL:https://hoquei.pages.dev/jogo/9634
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +98,11 @@ UID:jogo-9636@hoquei.pages.dev
 DTSTAMP:20261004T000000Z
 DTSTART:20261004T150000Z
 DTEND:20261004T163000Z
-SUMMARY:AD OEIRAS B (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs AD OEIRAS B\nCAMP. REG. SUB-15 - 1ª FASE 
- · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9636\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-15 🏑 CD Paço Arcos B vs AD Oeiras B
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs AD Oeiras B\nCAMP. REG. SUB-15 - 1ª FASE 
+ · Série D · SUB-15\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/
+ 9636\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9636
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +110,11 @@ UID:jogo-9640@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T153000Z
 DTEND:20261018T170000Z
-SUMMARY:FSE/AJ SALESIANA (fora)
+SUMMARY:🏑 Sub-15 🏑 FSE/AJ Salesiana vs CD Paço Arcos B
 LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ SALESIANA vs CD PAÇO ARCOS B\nCAMP. REG. SUB-15 - 1ª F
- ASE · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9640\nDados da As
- sociação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ Salesiana vs CD Paço Arcos B\nCAMP. REG. SUB-15 - 1ª F
+ ASE · Série D · SUB-15\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/9
+ 640\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9640
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +122,11 @@ UID:jogo-9641@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T150000Z
 DTEND:20261025T163000Z
-SUMMARY:SL BENFICA A (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs SL BENFICA A\nCAMP. REG. SUB-15 - 1ª FASE 
- · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9641\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-15 🏑 CD Paço Arcos B vs SL Benfica A
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs SL Benfica A\nCAMP. REG. SUB-15 - 1ª FASE 
+ · Série D · SUB-15\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/
+ 9641\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9641
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +134,11 @@ UID:jogo-9644@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T160000Z
 DTEND:20261031T173000Z
-SUMMARY:A STUART HCM A (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs A STUART HCM A\nCAMP. REG. SUB-15 - 1ª FAS
- E · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9644\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-15 🏑 CD Paço Arcos B vs A Stuart HCM A
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs A Stuart HCM A\nCAMP. REG. SUB-15 - 1ª FAS
+ E · Série D · SUB-15\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jog
+ o/9644\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9644
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +146,11 @@ UID:jogo-9646@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T000000Z
 DTEND:20261101T013000Z
-SUMMARY:AD OEIRAS B (fora)
+SUMMARY:🏑 Sub-15 🏑 AD Oeiras B vs CD Paço Arcos B
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD OEIRAS B vs CD PAÇO ARCOS B\nCAMP. REG. SUB-15 - 1ª FASE 
- · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9646\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD Oeiras B vs CD Paço Arcos B\nCAMP. REG. SUB-15 - 1ª FASE 
+ · Série D · SUB-15\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9646
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9646
 END:VEVENT
 BEGIN:VEVENT
@@ -157,11 +158,11 @@ UID:jogo-9650@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T143000Z
 DTEND:20261115T160000Z
-SUMMARY:FSE/AJ SALESIANA (casa)
-LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CD PAÇO ARCOS B vs FSE/AJ SALESIANA\nCAMP. REG. SUB-15 - 1ª F
- ASE · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9650\nDados da As
- sociação de Patinagem de Lisboa. Site não oficial.
+SUMMARY:🏑 Sub-15 🏑 CD Paço Arcos B vs FSE/AJ Salesiana
+LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
+DESCRIPTION:CD Paço Arcos B vs FSE/AJ Salesiana\nCAMP. REG. SUB-15 - 1ª F
+ ASE · Série D · SUB-15\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/j
+ ogo/9650\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9650
 END:VEVENT
 BEGIN:VEVENT
@@ -169,11 +170,11 @@ UID:jogo-9651@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T144500Z
 DTEND:20261122T161500Z
-SUMMARY:SL BENFICA A (fora)
+SUMMARY:🏑 Sub-15 🏑 SL Benfica A vs CD Paço Arcos B
 LOCATION:PAV. MURCHES
-DESCRIPTION:SL BENFICA A vs CD PAÇO ARCOS B\nCAMP. REG. SUB-15 - 1ª FASE 
- · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9651\nDados da Associ
- ação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL Benfica A vs CD Paço Arcos B\nCAMP. REG. SUB-15 - 1ª FASE 
+ · Série D · SUB-15\nPAV. MURCHES\nhttps://hoquei.pages.dev/jogo/9651\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9651
 END:VEVENT
 END:VCALENDAR

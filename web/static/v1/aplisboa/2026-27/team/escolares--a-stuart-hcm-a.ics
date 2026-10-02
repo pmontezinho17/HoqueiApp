@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//hoquei//hoquei.pages.dev//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:A STUART HCM A · ESCOLARES
-X-WR-CALDESC:Jogos de A STUART HCM A (ESCOLARES)
+X-WR-CALNAME:🏑 A Stuart HCM A · Escolares
+X-WR-CALDESC:Jogos de A Stuart HCM A (Escolares)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
@@ -13,11 +13,12 @@ UID:jogo-9926@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T134500Z
 DTEND:20260927T151500Z
-SUMMARY:HC LOURINHÃ (casa) 3–3
+SUMMARY:🏑 Escolares 🏑 A Stuart HCM A vs HC Lourinhã
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM A 3–3 HC LOURINHÃ\nENCONTROS DISTRITAIS ESCOLAR
- ES - 1ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/j
- ogo/9926\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM A 3–3 HC Lourinhã\nENCONTROS DISTRITAIS ESCOLAR
+ ES - 1ª FASE NIVEL I · Série C · ESCOLARES\nPAV.PROF.JOÃO CAMPELO\nht
+ tps://hoquei.pages.dev/jogo/9926\nDados da Associação de Patinagem de Li
+ sboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9926
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +26,12 @@ UID:jogo-9927@hoquei.pages.dev
 DTSTAMP:20261004T000000Z
 DTSTART:20261004T090000Z
 DTEND:20261004T103000Z
-SUMMARY:CRIAR-T GD (fora)
+SUMMARY:🏑 Escolares 🏑 Criar-T GD vs A Stuart HCM A
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CRIAR-T GD vs A STUART HCM A\nENCONTROS DISTRITAIS ESCOLARES - 
- 1ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9
- 927\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Criar-T GD vs A Stuart HCM A\nENCONTROS DISTRITAIS ESCOLARES - 
+ 1ª FASE NIVEL I · Série C · ESCOLARES\nPAV.MUNI.LEONEL FERNANDES-G.D.C
+ RIAR-T\nhttps://hoquei.pages.dev/jogo/9927\nDados da Associação de Patin
+ agem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9927
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +39,12 @@ UID:jogo-9930@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T134500Z
 DTEND:20261011T151500Z
-SUMMARY:APAC TOJAL (casa)
+SUMMARY:🏑 Escolares 🏑 A Stuart HCM A vs APAC Tojal
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM A vs APAC TOJAL\nENCONTROS DISTRITAIS ESCOLARES - 
- 1ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9
- 930\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM A vs APAC Tojal\nENCONTROS DISTRITAIS ESCOLARES - 
+ 1ª FASE NIVEL I · Série C · ESCOLARES\nPAV.PROF.JOÃO CAMPELO\nhttps:/
+ /hoquei.pages.dev/jogo/9930\nDados da Associação de Patinagem de Lisboa.
+  Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9930
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +52,12 @@ UID:jogo-9934@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T150000Z
 DTEND:20261025T163000Z
-SUMMARY:PAREDE FC A (fora)
+SUMMARY:🏑 Escolares 🏑 Parede FC A vs A Stuart HCM A
 LOCATION:PAV. PAREDE
-DESCRIPTION:PAREDE FC A vs A STUART HCM A\nENCONTROS DISTRITAIS ESCOLARES -
-  1ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/
- 9934\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:Parede FC A vs A Stuart HCM A\nENCONTROS DISTRITAIS ESCOLARES -
+  1ª FASE NIVEL I · Série C · ESCOLARES\nPAV. PAREDE\nhttps://hoquei.pa
+ ges.dev/jogo/9934\nDados da Associação de Patinagem de Lisboa. Site não
+  oficial.
 URL:https://hoquei.pages.dev/jogo/9934
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +65,12 @@ UID:jogo-9936@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T150000Z
 DTEND:20261101T163000Z
-SUMMARY:HC LOURINHÃ (fora)
+SUMMARY:🏑 Escolares 🏑 HC Lourinhã vs A Stuart HCM A
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:HC LOURINHÃ vs A STUART HCM A\nENCONTROS DISTRITAIS ESCOLARES 
- - 1ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo
- /9936\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC Lourinhã vs A Stuart HCM A\nENCONTROS DISTRITAIS ESCOLARES 
+ - 1ª FASE NIVEL I · Série C · ESCOLARES\nPAV. GIMNO. DA LOURINHÃ\nhtt
+ ps://hoquei.pages.dev/jogo/9936\nDados da Associação de Patinagem de Lis
+ boa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9936
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +78,12 @@ UID:jogo-9937@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T144500Z
 DTEND:20261108T161500Z
-SUMMARY:CRIAR-T GD (casa)
+SUMMARY:🏑 Escolares 🏑 A Stuart HCM A vs Criar-T GD
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM A vs CRIAR-T GD\nENCONTROS DISTRITAIS ESCOLARES - 
- 1ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9
- 937\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM A vs Criar-T GD\nENCONTROS DISTRITAIS ESCOLARES - 
+ 1ª FASE NIVEL I · Série C · ESCOLARES\nPAV.PROF.JOÃO CAMPELO\nhttps:/
+ /hoquei.pages.dev/jogo/9937\nDados da Associação de Patinagem de Lisboa.
+  Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9937
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +91,12 @@ UID:jogo-9940@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T150000Z
 DTEND:20261115T163000Z
-SUMMARY:APAC TOJAL (fora)
+SUMMARY:🏑 Escolares 🏑 APAC Tojal vs A Stuart HCM A
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC TOJAL vs A STUART HCM A\nENCONTROS DISTRITAIS ESCOLARES - 
- 1ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9
- 940\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC Tojal vs A Stuart HCM A\nENCONTROS DISTRITAIS ESCOLARES - 
+ 1ª FASE NIVEL I · Série C · ESCOLARES\nPAV. A.P.A.C.TOJAL\nhttps://hoq
+ uei.pages.dev/jogo/9940\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
 URL:https://hoquei.pages.dev/jogo/9940
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +104,12 @@ UID:jogo-9944@hoquei.pages.dev
 DTSTAMP:20261129T000000Z
 DTSTART:20261129T163000Z
 DTEND:20261129T180000Z
-SUMMARY:PAREDE FC A (casa)
+SUMMARY:🏑 Escolares 🏑 A Stuart HCM A vs Parede FC A
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A STUART HCM A vs PAREDE FC A\nENCONTROS DISTRITAIS ESCOLARES -
-  1ª FASE NIVEL I · Série C · ESCOLARES\nhttps://hoquei.pages.dev/jogo/
- 9944\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A Stuart HCM A vs Parede FC A\nENCONTROS DISTRITAIS ESCOLARES -
+  1ª FASE NIVEL I · Série C · ESCOLARES\nPAV.PROF.JOÃO CAMPELO\nhttps:
+ //hoquei.pages.dev/jogo/9944\nDados da Associação de Patinagem de Lisboa
+ . Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9944
 END:VEVENT
 END:VCALENDAR
