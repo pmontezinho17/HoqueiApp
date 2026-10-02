@@ -13,11 +13,11 @@ UID:jogo-9449@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T110000Z
 DTEND:20260919T123000Z
-SUMMARY:HC TURQUEL 8–5 AA COIMBRA
+SUMMARY:HC TURQUEL (fora) 5–8
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:JOGO TREINO · TORNEIOS PARTICULARES\nhttps://hoquei.pages.dev/
- jogo/9449\nDados da Associação de Patinagem de Lisboa. Site não oficial
- .
+DESCRIPTION:HC TURQUEL 8–5 AA COIMBRA\nJOGO TREINO · TORNEIOS PARTICULAR
+ ES\nhttps://hoquei.pages.dev/jogo/9449\nDados da Associação de Patinagem
+  de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9449
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9450@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T143000Z
 DTEND:20260919T160000Z
-SUMMARY:AE FISICA D 5–4 AA COIMBRA
+SUMMARY:AE FISICA D (fora) 4–5
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:JOGO TREINO · TORNEIOS PARTICULARES\nhttps://hoquei.pages.dev/
- jogo/9450\nDados da Associação de Patinagem de Lisboa. Site não oficial
- .
+DESCRIPTION:AE FISICA D 5–4 AA COIMBRA\nJOGO TREINO · TORNEIOS PARTICULA
+ RES\nhttps://hoquei.pages.dev/jogo/9450\nDados da Associação de Patinage
+ m de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9450
 END:VEVENT
 END:VCALENDAR

@@ -13,11 +13,11 @@ UID:jogo-9893@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T133000Z
 DTEND:20261011T150000Z
-SUMMARY:FSE/AJ SALESIANA A vs AD OEIRAS A
+SUMMARY:FSE/AJ SALESIANA A (fora)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I · Série A 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9893\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ SALESIANA A vs AD OEIRAS A\nENCONTROS DISTRITAIS ESCOLAR
+ ES - 1ª FASE NIVEL I · Série A · ESCOLARES\nhttps://hoquei.pages.dev/j
+ ogo/9893\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9893
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9895@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T153000Z
 DTEND:20261025T170000Z
-SUMMARY:AD OEIRAS A vs S ALENQUER BENFICA
+SUMMARY:S ALENQUER BENFICA (casa)
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I · Série A 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9895\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD OEIRAS A vs S ALENQUER BENFICA\nENCONTROS DISTRITAIS ESCOLAR
+ ES - 1ª FASE NIVEL I · Série A · ESCOLARES\nhttps://hoquei.pages.dev/j
+ ogo/9895\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9895
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9897@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T180000Z
 DTEND:20261031T193000Z
-SUMMARY:AD OEIRAS A vs SPORTING CP A
+SUMMARY:SPORTING CP A (casa)
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I · Série A 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9897\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD OEIRAS A vs SPORTING CP A\nENCONTROS DISTRITAIS ESCOLARES - 
+ 1ª FASE NIVEL I · Série A · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9
+ 897\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9897
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9899@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T163000Z
 DTEND:20261108T180000Z
-SUMMARY:AD OEIRAS A vs FSE/AJ SALESIANA A
+SUMMARY:FSE/AJ SALESIANA A (casa)
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I · Série A 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9899\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD OEIRAS A vs FSE/AJ SALESIANA A\nENCONTROS DISTRITAIS ESCOLAR
+ ES - 1ª FASE NIVEL I · Série A · ESCOLARES\nhttps://hoquei.pages.dev/j
+ ogo/9899\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9899
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9901@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T110000Z
 DTEND:20261122T123000Z
-SUMMARY:S ALENQUER BENFICA vs AD OEIRAS A
+SUMMARY:S ALENQUER BENFICA (fora)
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I · Série A 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9901\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:S ALENQUER BENFICA vs AD OEIRAS A\nENCONTROS DISTRITAIS ESCOLAR
+ ES - 1ª FASE NIVEL I · Série A · ESCOLARES\nhttps://hoquei.pages.dev/j
+ ogo/9901\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9901
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9903@hoquei.pages.dev
 DTSTAMP:20261129T000000Z
 DTSTART:20261129T163000Z
 DTEND:20261129T180000Z
-SUMMARY:SPORTING CP A vs AD OEIRAS A
+SUMMARY:SPORTING CP A (fora)
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I · Série A 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9903\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SPORTING CP A vs AD OEIRAS A\nENCONTROS DISTRITAIS ESCOLARES - 
+ 1ª FASE NIVEL I · Série A · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9
+ 903\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9903
 END:VEVENT
 END:VCALENDAR

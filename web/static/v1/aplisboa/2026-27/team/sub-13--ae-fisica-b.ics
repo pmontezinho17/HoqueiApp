@@ -13,11 +13,11 @@ UID:jogo-9365@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T130000Z
 DTEND:20260912T143000Z
-SUMMARY:AE FISICA B 1–4 HC LOURINHA
+SUMMARY:HC LOURINHA (casa) 1–4
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
- /jogo/9365\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AE FISICA B 1–4 HC LOURINHA\nTORNEIO ABERTURA APL SUB-13 · S
+ UB-13\nhttps://hoquei.pages.dev/jogo/9365\nDados da Associação de Patina
+ gem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9365
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9363@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T154500Z
 DTEND:20260912T171500Z
-SUMMARY:PAREDE FC A 10–1 AE FISICA B
+SUMMARY:PAREDE FC A (fora) 1–10
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
- /jogo/9363\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:PAREDE FC A 10–1 AE FISICA B\nTORNEIO ABERTURA APL SUB-13 · 
+ SUB-13\nhttps://hoquei.pages.dev/jogo/9363\nDados da Associação de Patin
+ agem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9363
 END:VEVENT
 END:VCALENDAR

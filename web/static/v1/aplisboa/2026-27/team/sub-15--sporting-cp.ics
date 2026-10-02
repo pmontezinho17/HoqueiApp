@@ -13,10 +13,11 @@ UID:jogo-9345@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T103000Z
 DTEND:20260913T120000Z
-SUMMARY:SPORTING CP 2–3 CD PAÇO ARCOS
+SUMMARY:CD PAÇO ARCOS (casa) 2–3
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:SUPERTAÇA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev/jogo/
- 9345\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SPORTING CP 2–3 CD PAÇO ARCOS\nSUPERTAÇA APL SUB-15 · SUB-
+ 15\nhttps://hoquei.pages.dev/jogo/9345\nDados da Associação de Patinagem
+  de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9345
 END:VEVENT
 BEGIN:VEVENT
@@ -24,11 +25,11 @@ UID:jogo-9397@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T080000Z
 DTEND:20260919T093000Z
-SUMMARY:SPORTING CP 0–5 AD OEIRAS A
+SUMMARY:AD OEIRAS A (casa) 0–5
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:TORNEIO ABERTURA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev
- /jogo/9397\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:SPORTING CP 0–5 AD OEIRAS A\nTORNEIO ABERTURA APL SUB-15 · S
+ UB-15\nhttps://hoquei.pages.dev/jogo/9397\nDados da Associação de Patina
+ gem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9397
 END:VEVENT
 END:VCALENDAR

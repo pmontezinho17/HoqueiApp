@@ -13,11 +13,11 @@ UID:jogo-9369@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T083000Z
 DTEND:20260912T100000Z
-SUMMARY:UD VILAFRANQUENSE 6–2 APAC TOJAL
+SUMMARY:UD VILAFRANQUENSE (fora) 2–6
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
- /jogo/9369\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:UD VILAFRANQUENSE 6–2 APAC TOJAL\nTORNEIO ABERTURA APL SUB-13
+  · SUB-13\nhttps://hoquei.pages.dev/jogo/9369\nDados da Associação de P
+ atinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9369
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9371@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T111500Z
 DTEND:20260912T124500Z
-SUMMARY:APAC TOJAL 1–1 AD OEIRAS B
+SUMMARY:AD OEIRAS B (casa) 1–1
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
- /jogo/9371\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:APAC TOJAL 1–1 AD OEIRAS B\nTORNEIO ABERTURA APL SUB-13 · SU
+ B-13\nhttps://hoquei.pages.dev/jogo/9371\nDados da Associação de Patinag
+ em de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9371
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9454@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T140000Z
 DTEND:20260926T153000Z
-SUMMARY:APAC TOJAL 0–17 CD PAÇO ARCOS A
+SUMMARY:CD PAÇO ARCOS A (casa) 0–17
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9454\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:APAC TOJAL 0–17 CD PAÇO ARCOS A\nCAMP. REG. SUB-13 - 1ª FAS
+ E · Série A · SUB-13\nhttps://hoquei.pages.dev/jogo/9454\nDados da Asso
+ ciação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9454
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9456@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T143000Z
 DTEND:20261003T160000Z
-SUMMARY:HC SINTRA vs APAC TOJAL
+SUMMARY:HC SINTRA (fora)
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9456\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:HC SINTRA vs APAC TOJAL\nCAMP. REG. SUB-13 - 1ª FASE · Série
+  A · SUB-13\nhttps://hoquei.pages.dev/jogo/9456\nDados da Associação de
+  Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9456
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9460@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T140000Z
 DTEND:20261010T153000Z
-SUMMARY:APAC TOJAL vs CACO A
+SUMMARY:CACO A (casa)
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9460\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:APAC TOJAL vs CACO A\nCAMP. REG. SUB-13 - 1ª FASE · Série A 
+ · SUB-13\nhttps://hoquei.pages.dev/jogo/9460\nDados da Associação de Pa
+ tinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9460
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9464@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T164500Z
 DTEND:20261017T181500Z
-SUMMARY:APAC TOJAL vs AD OEIRAS A
+SUMMARY:AD OEIRAS A (casa)
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9464\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:APAC TOJAL vs AD OEIRAS A\nCAMP. REG. SUB-13 - 1ª FASE · Sér
+ ie A · SUB-13\nhttps://hoquei.pages.dev/jogo/9464\nDados da Associação 
+ de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9464
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9467@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T103000Z
 DTEND:20261018T120000Z
-SUMMARY:SC TORRES vs APAC TOJAL
+SUMMARY:SC TORRES (fora)
 LOCATION:PAV. SC TORRES
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9467\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SC TORRES vs APAC TOJAL\nCAMP. REG. SUB-13 - 1ª FASE · Série
+  A · SUB-13\nhttps://hoquei.pages.dev/jogo/9467\nDados da Associação de
+  Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9467
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9469@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T123000Z
 DTEND:20261024T140000Z
-SUMMARY:CD PAÇO ARCOS A vs APAC TOJAL
+SUMMARY:CD PAÇO ARCOS A (fora)
 LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9469\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CD PAÇO ARCOS A vs APAC TOJAL\nCAMP. REG. SUB-13 - 1ª FASE ·
+  Série A · SUB-13\nhttps://hoquei.pages.dev/jogo/9469\nDados da Associa
+ ção de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9469
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9471@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T163000Z
 DTEND:20261031T180000Z
-SUMMARY:APAC TOJAL vs HC SINTRA
+SUMMARY:HC SINTRA (casa)
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9471\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:APAC TOJAL vs HC SINTRA\nCAMP. REG. SUB-13 - 1ª FASE · Série
+  A · SUB-13\nhttps://hoquei.pages.dev/jogo/9471\nDados da Associação de
+  Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9471
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9475@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T170000Z
 DTEND:20261107T183000Z
-SUMMARY:CACO A vs APAC TOJAL
+SUMMARY:CACO A (fora)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9475\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CACO A vs APAC TOJAL\nCAMP. REG. SUB-13 - 1ª FASE · Série A 
+ · SUB-13\nhttps://hoquei.pages.dev/jogo/9475\nDados da Associação de Pa
+ tinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9475
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +133,11 @@ UID:jogo-9479@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T140000Z
 DTEND:20261114T153000Z
-SUMMARY:AD OEIRAS A vs APAC TOJAL
+SUMMARY:AD OEIRAS A (fora)
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9479\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AD OEIRAS A vs APAC TOJAL\nCAMP. REG. SUB-13 - 1ª FASE · Sér
+ ie A · SUB-13\nhttps://hoquei.pages.dev/jogo/9479\nDados da Associação 
+ de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9479
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +145,11 @@ UID:jogo-9482@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T144500Z
 DTEND:20261121T161500Z
-SUMMARY:APAC TOJAL vs SC TORRES
+SUMMARY:SC TORRES (casa)
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9482\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:APAC TOJAL vs SC TORRES\nCAMP. REG. SUB-13 - 1ª FASE · Série
+  A · SUB-13\nhttps://hoquei.pages.dev/jogo/9482\nDados da Associação de
+  Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9482
 END:VEVENT
 END:VCALENDAR

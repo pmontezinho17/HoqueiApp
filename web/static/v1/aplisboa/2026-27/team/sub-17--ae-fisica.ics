@@ -13,10 +13,11 @@ UID:jogo-9349@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T133000Z
 DTEND:20260912T150000Z
-SUMMARY:CD PAÇO ARCOS 3–2 AE FISICA
+SUMMARY:CD PAÇO ARCOS (fora) 2–3
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:SUPERTAÇA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev/jogo/
- 9349\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CD PAÇO ARCOS 3–2 AE FISICA\nSUPERTAÇA APL SUB-17 · SUB-17
+ \nhttps://hoquei.pages.dev/jogo/9349\nDados da Associação de Patinagem d
+ e Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9349
 END:VEVENT
 BEGIN:VEVENT
@@ -24,11 +25,11 @@ UID:jogo-9425@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T094500Z
 DTEND:20260919T111500Z
-SUMMARY:A STUART HCM 1–3 AE FISICA
+SUMMARY:A STUART HCM (fora) 3–1
 LOCATION:PAV. SALESIANA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev
- /jogo/9425\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:A STUART HCM 1–3 AE FISICA\nTORNEIO ABERTURA APL SUB-17 · SU
+ B-17\nhttps://hoquei.pages.dev/jogo/9425\nDados da Associação de Patinag
+ em de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9425
 END:VEVENT
 BEGIN:VEVENT
@@ -36,11 +37,11 @@ UID:jogo-9427@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T180000Z
 DTEND:20260919T193000Z
-SUMMARY:AD OEIRAS A 4–2 AE FISICA
+SUMMARY:AD OEIRAS A (fora) 2–4
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev
- /jogo/9427\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AD OEIRAS A 4–2 AE FISICA\nTORNEIO ABERTURA APL SUB-17 · SUB
+ -17\nhttps://hoquei.pages.dev/jogo/9427\nDados da Associação de Patinage
+ m de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9427
 END:VEVENT
 END:VCALENDAR

@@ -13,11 +13,11 @@ UID:jogo-9360@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T083000Z
 DTEND:20260912T100000Z
-SUMMARY:AD OEIRAS A 10–0 CD PAÇO ARCOS B
+SUMMARY:AD OEIRAS A (fora) 0–10
 LOCATION:PAV. MAFRA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
- /jogo/9360\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AD OEIRAS A 10–0 CD PAÇO ARCOS B\nTORNEIO ABERTURA APL SUB-1
+ 3 · SUB-13\nhttps://hoquei.pages.dev/jogo/9360\nDados da Associação de 
+ Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9360
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9362@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T141500Z
 DTEND:20260912T154500Z
-SUMMARY:CD PAÇO ARCOS B 1–3 FSE/AJ SALESIANA
+SUMMARY:FSE/AJ SALESIANA (casa) 1–3
 LOCATION:PAV. MAFRA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
- /jogo/9362\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:CD PAÇO ARCOS B 1–3 FSE/AJ SALESIANA\nTORNEIO ABERTURA APL S
+ UB-13 · SUB-13\nhttps://hoquei.pages.dev/jogo/9362\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9362
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9535@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T124500Z
 DTEND:20260926T141500Z
-SUMMARY:CD PAÇO ARCOS B 2–7 AD OEIRAS B
+SUMMARY:AD OEIRAS B (casa) 2–7
 LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9535\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CD PAÇO ARCOS B 2–7 AD OEIRAS B\nCAMP. REG. SUB-13 - 1ª FAS
+ E · Série D · SUB-13\nhttps://hoquei.pages.dev/jogo/9535\nDados da Asso
+ ciação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9535
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9547@hoquei.pages.dev
 DTSTAMP:20261002T000000Z
 DTSTART:20261002T183000Z
 DTEND:20261002T200000Z
-SUMMARY:CD PAÇO ARCOS B vs PAREDE FC B
+SUMMARY:PAREDE FC B (casa)
 LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9547\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CD PAÇO ARCOS B vs PAREDE FC B\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série D · SUB-13\nhttps://hoquei.pages.dev/jogo/9547\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9547
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9538@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T100000Z
 DTEND:20261003T113000Z
-SUMMARY:SPORTING CP B vs CD PAÇO ARCOS B
+SUMMARY:SPORTING CP B (fora)
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9538\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SPORTING CP B vs CD PAÇO ARCOS B\nCAMP. REG. SUB-13 - 1ª FASE
+  · Série D · SUB-13\nhttps://hoquei.pages.dev/jogo/9538\nDados da Assoc
+ iação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9538
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9539@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T164500Z
 DTEND:20261010T181500Z
-SUMMARY:CD PAÇO ARCOS B vs AE FISICA D B
+SUMMARY:AE FISICA D B (casa)
 LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9539\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CD PAÇO ARCOS B vs AE FISICA D B\nCAMP. REG. SUB-13 - 1ª FASE
+  · Série D · SUB-13\nhttps://hoquei.pages.dev/jogo/9539\nDados da Assoc
+ iação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9539
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9543@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T170000Z
 DTEND:20261017T183000Z
-SUMMARY:CACO B vs CD PAÇO ARCOS B
+SUMMARY:CACO B (fora)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9543\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CACO B vs CD PAÇO ARCOS B\nCAMP. REG. SUB-13 - 1ª FASE · Sé
+ rie D · SUB-13\nhttps://hoquei.pages.dev/jogo/9543\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9543
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9550@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T143000Z
 DTEND:20261024T160000Z
-SUMMARY:AD OEIRAS B vs CD PAÇO ARCOS B
+SUMMARY:AD OEIRAS B (fora)
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9550\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AD OEIRAS B vs CD PAÇO ARCOS B\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série D · SUB-13\nhttps://hoquei.pages.dev/jogo/9550\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9550
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9553@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T143000Z
 DTEND:20261031T160000Z
-SUMMARY:CD PAÇO ARCOS B vs SPORTING CP B
+SUMMARY:SPORTING CP B (casa)
 LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9553\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CD PAÇO ARCOS B vs SPORTING CP B\nCAMP. REG. SUB-13 - 1ª FASE
+  · Série D · SUB-13\nhttps://hoquei.pages.dev/jogo/9553\nDados da Assoc
+ iação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9553
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9554@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T153000Z
 DTEND:20261107T170000Z
-SUMMARY:AE FISICA D B vs CD PAÇO ARCOS B
+SUMMARY:AE FISICA D B (fora)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9554\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AE FISICA D B vs CD PAÇO ARCOS B\nCAMP. REG. SUB-13 - 1ª FASE
+  · Série D · SUB-13\nhttps://hoquei.pages.dev/jogo/9554\nDados da Assoc
+ iação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9554
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +133,11 @@ UID:jogo-9558@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T143000Z
 DTEND:20261114T160000Z
-SUMMARY:CD PAÇO ARCOS B vs CACO B
+SUMMARY:CACO B (casa)
 LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9558\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CD PAÇO ARCOS B vs CACO B\nCAMP. REG. SUB-13 - 1ª FASE · Sé
+ rie D · SUB-13\nhttps://hoquei.pages.dev/jogo/9558\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9558
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +145,11 @@ UID:jogo-9562@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T144500Z
 DTEND:20261121T161500Z
-SUMMARY:PAREDE FC B vs CD PAÇO ARCOS B
+SUMMARY:PAREDE FC B (fora)
 LOCATION:PAV. PAREDE
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9562\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:PAREDE FC B vs CD PAÇO ARCOS B\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série D · SUB-13\nhttps://hoquei.pages.dev/jogo/9562\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9562
 END:VEVENT
 END:VCALENDAR

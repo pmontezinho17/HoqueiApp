@@ -13,11 +13,11 @@ UID:jogo-9503@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T133000Z
 DTEND:20260926T150000Z
-SUMMARY:AE FISICA D A 6–1 FSE/AJ SALESIANA
+SUMMARY:FSE/AJ SALESIANA (casa) 6–1
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9503\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AE FISICA D A 6–1 FSE/AJ SALESIANA\nCAMP. REG. SUB-13 - 1ª F
+ ASE · Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9503\nDados da As
+ sociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9503
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9507@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T140000Z
 DTEND:20261003T153000Z
-SUMMARY:SPORTING CP A vs AE FISICA D A
+SUMMARY:SPORTING CP A (fora)
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9507\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SPORTING CP A vs AE FISICA D A\nCAMP. REG. SUB-13 - 1ª FASE ·
+  Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9507\nDados da Associa
+ ção de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9507
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9510@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T160000Z
 DTEND:20261011T173000Z
-SUMMARY:PAREDE FC A vs AE FISICA D A
+SUMMARY:PAREDE FC A (fora)
 LOCATION:PAV. PAREDE
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9510\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:PAREDE FC A vs AE FISICA D A\nCAMP. REG. SUB-13 - 1ª FASE · S
+ érie C · SUB-13\nhttps://hoquei.pages.dev/jogo/9510\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9510
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9513@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T103000Z
 DTEND:20261017T120000Z
-SUMMARY:AE FISICA D A vs CD MAFRA
+SUMMARY:CD MAFRA (casa)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9513\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AE FISICA D A vs CD MAFRA\nCAMP. REG. SUB-13 - 1ª FASE · Sér
+ ie C · SUB-13\nhttps://hoquei.pages.dev/jogo/9513\nDados da Associação 
+ de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9513
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9516@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T151500Z
 DTEND:20261018T164500Z
-SUMMARY:A STUART HCM vs AE FISICA D A
+SUMMARY:A STUART HCM (fora)
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9516\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:A STUART HCM vs AE FISICA D A\nCAMP. REG. SUB-13 - 1ª FASE · 
+ Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9516\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9516
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9518@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T143000Z
 DTEND:20261024T160000Z
-SUMMARY:FSE/AJ SALESIANA vs AE FISICA D A
+SUMMARY:FSE/AJ SALESIANA (fora)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9518\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:FSE/AJ SALESIANA vs AE FISICA D A\nCAMP. REG. SUB-13 - 1ª FASE
+  · Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9518\nDados da Assoc
+ iação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9518
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9522@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T143000Z
 DTEND:20261031T160000Z
-SUMMARY:AE FISICA D A vs SPORTING CP A
+SUMMARY:SPORTING CP A (casa)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9522\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AE FISICA D A vs SPORTING CP A\nCAMP. REG. SUB-13 - 1ª FASE ·
+  Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9522\nDados da Associa
+ ção de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9522
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9525@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T123000Z
 DTEND:20261107T140000Z
-SUMMARY:AE FISICA D A vs PAREDE FC A
+SUMMARY:PAREDE FC A (casa)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9525\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AE FISICA D A vs PAREDE FC A\nCAMP. REG. SUB-13 - 1ª FASE · S
+ érie C · SUB-13\nhttps://hoquei.pages.dev/jogo/9525\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9525
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9528@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T143000Z
 DTEND:20261114T160000Z
-SUMMARY:CD MAFRA vs AE FISICA D A
+SUMMARY:CD MAFRA (fora)
 LOCATION:PAV. MAFRA
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9528\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CD MAFRA vs AE FISICA D A\nCAMP. REG. SUB-13 - 1ª FASE · Sér
+ ie C · SUB-13\nhttps://hoquei.pages.dev/jogo/9528\nDados da Associação 
+ de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9528
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9531@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T144500Z
 DTEND:20261121T161500Z
-SUMMARY:AE FISICA D A vs A STUART HCM
+SUMMARY:A STUART HCM (casa)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9531\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AE FISICA D A vs A STUART HCM\nCAMP. REG. SUB-13 - 1ª FASE · 
+ Série C · SUB-13\nhttps://hoquei.pages.dev/jogo/9531\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9531
 END:VEVENT
 END:VCALENDAR

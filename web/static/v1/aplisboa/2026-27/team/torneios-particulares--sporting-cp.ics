@@ -13,11 +13,11 @@ UID:jogo-9451@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T163000Z
 DTEND:20260919T180000Z
-SUMMARY:SPORTING CP 3–1 HC TURQUEL
+SUMMARY:HC TURQUEL (casa) 3–1
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:JOGO TREINO · TORNEIOS PARTICULARES\nhttps://hoquei.pages.dev/
- jogo/9451\nDados da Associação de Patinagem de Lisboa. Site não oficial
- .
+DESCRIPTION:SPORTING CP 3–1 HC TURQUEL\nJOGO TREINO · TORNEIOS PARTICULA
+ RES\nhttps://hoquei.pages.dev/jogo/9451\nDados da Associação de Patinage
+ m de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9451
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9448@hoquei.pages.dev
 DTSTAMP:20261021T000000Z
 DTSTART:20261021T140000Z
 DTEND:20261021T153000Z
-SUMMARY:SPORTING CP vs CANDELARIA SC
+SUMMARY:CANDELARIA SC (casa)
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:JOGO TREINO · TORNEIOS PARTICULARES\nhttps://hoquei.pages.dev/
- jogo/9448\nDados da Associação de Patinagem de Lisboa. Site não oficial
- .
+DESCRIPTION:SPORTING CP vs CANDELARIA SC\nJOGO TREINO · TORNEIOS PARTICULA
+ RES\nhttps://hoquei.pages.dev/jogo/9448\nDados da Associação de Patinage
+ m de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9448
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9320@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T110000Z
 DTEND:20261024T123000Z
-SUMMARY:SPORTING CP vs AD OERIAS
+SUMMARY:AD OERIAS (casa)
 LOCATION:PAVILHÃO JOÃO ROCHA
-DESCRIPTION:JOGO TREINO · TORNEIOS PARTICULARES\nhttps://hoquei.pages.dev/
- jogo/9320\nDados da Associação de Patinagem de Lisboa. Site não oficial
- .
+DESCRIPTION:SPORTING CP vs AD OERIAS\nJOGO TREINO · TORNEIOS PARTICULARES\
+ nhttps://hoquei.pages.dev/jogo/9320\nDados da Associação de Patinagem de
+  Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9320
 END:VEVENT
 END:VCALENDAR

@@ -13,11 +13,11 @@ UID:jogo-9435@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T090000Z
 DTEND:20260913T103000Z
-SUMMARY:HC LOURINHA 1–3 AE FISICA
+SUMMARY:HC LOURINHA (fora) 3–1
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:TORNEIO ABERTURA APL SUB-19 · SUB-19\nhttps://hoquei.pages.dev
- /jogo/9435\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:HC LOURINHA 1–3 AE FISICA\nTORNEIO ABERTURA APL SUB-19 · SUB
+ -19\nhttps://hoquei.pages.dev/jogo/9435\nDados da Associação de Patinage
+ m de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9435
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9437@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T130000Z
 DTEND:20260913T143000Z
-SUMMARY:AE FISICA 9–2 A STUART HCM
+SUMMARY:A STUART HCM (casa) 9–2
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:TORNEIO ABERTURA APL SUB-19 · SUB-19\nhttps://hoquei.pages.dev
- /jogo/9437\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AE FISICA 9–2 A STUART HCM\nTORNEIO ABERTURA APL SUB-19 · SU
+ B-19\nhttps://hoquei.pages.dev/jogo/9437\nDados da Associação de Patinag
+ em de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9437
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9439@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T111500Z
 DTEND:20260919T124500Z
-SUMMARY:AE FISICA 3–1 FSE/AJ SALESIANA
+SUMMARY:FSE/AJ SALESIANA (casa) 3–1
 LOCATION:PAV. SALESIANA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-19 · SUB-19\nhttps://hoquei.pages.dev
- /jogo/9439\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AE FISICA 3–1 FSE/AJ SALESIANA\nTORNEIO ABERTURA APL SUB-19 
+ · SUB-19\nhttps://hoquei.pages.dev/jogo/9439\nDados da Associação de Pa
+ tinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9439
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9442@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T193000Z
 DTEND:20260919T210000Z
-SUMMARY:PAREDE FC 3–8 AE FISICA
+SUMMARY:PAREDE FC (fora) 8–3
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-19 · SUB-19\nhttps://hoquei.pages.dev
- /jogo/9442\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:PAREDE FC 3–8 AE FISICA\nTORNEIO ABERTURA APL SUB-19 · SUB-1
+ 9\nhttps://hoquei.pages.dev/jogo/9442\nDados da Associação de Patinagem 
+ de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9442
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9444@hoquei.pages.dev
 DTSTAMP:20260920T000000Z
 DTSTART:20260920T133000Z
 DTEND:20260920T150000Z
-SUMMARY:AE FISICA 1–2 CD PAÇO ARCOS
+SUMMARY:CD PAÇO ARCOS (casa) 1–2
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:TORNEIO ABERTURA APL SUB-19 · SUB-19\nhttps://hoquei.pages.dev
- /jogo/9444\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AE FISICA 1–2 CD PAÇO ARCOS\nTORNEIO ABERTURA APL SUB-19 · 
+ SUB-19\nhttps://hoquei.pages.dev/jogo/9444\nDados da Associação de Patin
+ agem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9444
 END:VEVENT
 END:VCALENDAR

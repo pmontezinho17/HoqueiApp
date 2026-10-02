@@ -13,11 +13,11 @@ UID:jogo-9388@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T090000Z
 DTEND:20260913T103000Z
-SUMMARY:HC SINTRA 0–4 SL BENFICA B
+SUMMARY:HC SINTRA (fora) 4–0
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev
- /jogo/9388\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:HC SINTRA 0–4 SL BENFICA B\nTORNEIO ABERTURA APL SUB-15 · SU
+ B-15\nhttps://hoquei.pages.dev/jogo/9388\nDados da Associação de Patinag
+ em de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9388
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9390@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T161500Z
 DTEND:20260913T174500Z
-SUMMARY:SL BENFICA B 5–1 A STUART HCM A
+SUMMARY:A STUART HCM A (casa) 5–1
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev
- /jogo/9390\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:SL BENFICA B 5–1 A STUART HCM A\nTORNEIO ABERTURA APL SUB-15 
+ · SUB-15\nhttps://hoquei.pages.dev/jogo/9390\nDados da Associação de Pa
+ tinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9390
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9398@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T081500Z
 DTEND:20260919T094500Z
-SUMMARY:AE FISICA A 2–4 SL BENFICA B
+SUMMARY:AE FISICA A (fora) 4–2
 LOCATION:PAV. SALESIANA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev
- /jogo/9398\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AE FISICA A 2–4 SL BENFICA B\nTORNEIO ABERTURA APL SUB-15 · 
+ SUB-15\nhttps://hoquei.pages.dev/jogo/9398\nDados da Associação de Patin
+ agem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9398
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9401@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T120000Z
 DTEND:20260919T133000Z
-SUMMARY:AD OEIRAS A 7–1 SL BENFICA B
+SUMMARY:AD OEIRAS A (fora) 1–7
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:TORNEIO ABERTURA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev
- /jogo/9401\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AD OEIRAS A 7–1 SL BENFICA B\nTORNEIO ABERTURA APL SUB-15 · 
+ SUB-15\nhttps://hoquei.pages.dev/jogo/9401\nDados da Associação de Patin
+ agem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9401
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9593@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T153000Z
 DTEND:20260927T170000Z
-SUMMARY:PAREDE FC 0–2 SL BENFICA B
+SUMMARY:PAREDE FC (fora) 2–0
 LOCATION:PAV. PAREDE
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9593\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:PAREDE FC 0–2 SL BENFICA B\nCAMP. REG. SUB-15 - 1ª FASE · S
+ érie B · SUB-15\nhttps://hoquei.pages.dev/jogo/9593\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9593
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9597@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T154500Z
 DTEND:20261011T171500Z
-SUMMARY:APAC TOJAL vs SL BENFICA B
+SUMMARY:APAC TOJAL (fora)
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9597\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:APAC TOJAL vs SL BENFICA B\nCAMP. REG. SUB-15 - 1ª FASE · Sé
+ rie B · SUB-15\nhttps://hoquei.pages.dev/jogo/9597\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9597
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9599@hoquei.pages.dev
 DTSTAMP:20261015T000000Z
 DTSTART:20261015T201500Z
 DTEND:20261015T214500Z
-SUMMARY:SL BENFICA B vs SPORTING CP A
+SUMMARY:SPORTING CP A (casa)
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9599\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SL BENFICA B vs SPORTING CP A\nCAMP. REG. SUB-15 - 1ª FASE · 
+ Série B · SUB-15\nhttps://hoquei.pages.dev/jogo/9599\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9599
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9601@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T170000Z
 DTEND:20261025T183000Z
-SUMMARY:UD VILAFRANQUENSE A vs SL BENFICA B
+SUMMARY:UD VILAFRANQUENSE A (fora)
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9601\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:UD VILAFRANQUENSE A vs SL BENFICA B\nCAMP. REG. SUB-15 - 1ª FA
+ SE · Série B · SUB-15\nhttps://hoquei.pages.dev/jogo/9601\nDados da Ass
+ ociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9601
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9603@hoquei.pages.dev
 DTSTAMP:20261105T000000Z
 DTSTART:20261105T194500Z
 DTEND:20261105T211500Z
-SUMMARY:SL BENFICA B vs PAREDE FC
+SUMMARY:PAREDE FC (casa)
 LOCATION:PAV. MURCHES
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9603\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SL BENFICA B vs PAREDE FC\nCAMP. REG. SUB-15 - 1ª FASE · Sér
+ ie B · SUB-15\nhttps://hoquei.pages.dev/jogo/9603\nDados da Associação 
+ de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9603
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9607@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T170000Z
 DTEND:20261108T183000Z
-SUMMARY:SL BENFICA B vs APAC TOJAL
+SUMMARY:APAC TOJAL (casa)
 LOCATION:PAV. MURCHES
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9607\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SL BENFICA B vs APAC TOJAL\nCAMP. REG. SUB-15 - 1ª FASE · Sé
+ rie B · SUB-15\nhttps://hoquei.pages.dev/jogo/9607\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9607
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +133,11 @@ UID:jogo-9609@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T150000Z
 DTEND:20261115T163000Z
-SUMMARY:SPORTING CP A vs SL BENFICA B
+SUMMARY:SPORTING CP A (fora)
 LOCATION:PAV. MURCHES
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9609\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SPORTING CP A vs SL BENFICA B\nCAMP. REG. SUB-15 - 1ª FASE · 
+ Série B · SUB-15\nhttps://hoquei.pages.dev/jogo/9609\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9609
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +145,11 @@ UID:jogo-9611@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T144500Z
 DTEND:20261122T161500Z
-SUMMARY:SL BENFICA B vs UD VILAFRANQUENSE A
+SUMMARY:UD VILAFRANQUENSE A (casa)
 LOCATION:PAV. MURCHES
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9611\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SL BENFICA B vs UD VILAFRANQUENSE A\nCAMP. REG. SUB-15 - 1ª FA
+ SE · Série B · SUB-15\nhttps://hoquei.pages.dev/jogo/9611\nDados da Ass
+ ociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9611
 END:VEVENT
 END:VCALENDAR

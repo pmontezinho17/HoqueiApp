@@ -13,11 +13,11 @@ UID:jogo-9385@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T094500Z
 DTEND:20260913T111500Z
-SUMMARY:AE FISICA A 2–0 PAREDE FC
+SUMMARY:PAREDE FC (casa) 2–0
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:TORNEIO ABERTURA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev
- /jogo/9385\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AE FISICA A 2–0 PAREDE FC\nTORNEIO ABERTURA APL SUB-15 · SUB
+ -15\nhttps://hoquei.pages.dev/jogo/9385\nDados da Associação de Patinage
+ m de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9385
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9386@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T160000Z
 DTEND:20260913T173000Z
-SUMMARY:A STUART HCM B 0–17 AE FISICA A
+SUMMARY:A STUART HCM B (fora) 17–0
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:TORNEIO ABERTURA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev
- /jogo/9386\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:A STUART HCM B 0–17 AE FISICA A\nTORNEIO ABERTURA APL SUB-15 
+ · SUB-15\nhttps://hoquei.pages.dev/jogo/9386\nDados da Associação de Pa
+ tinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9386
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9398@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T081500Z
 DTEND:20260919T094500Z
-SUMMARY:AE FISICA A 2–4 SL BENFICA B
+SUMMARY:SL BENFICA B (casa) 2–4
 LOCATION:PAV. SALESIANA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev
- /jogo/9398\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AE FISICA A 2–4 SL BENFICA B\nTORNEIO ABERTURA APL SUB-15 · 
+ SUB-15\nhttps://hoquei.pages.dev/jogo/9398\nDados da Associação de Patin
+ agem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9398
 END:VEVENT
 END:VCALENDAR

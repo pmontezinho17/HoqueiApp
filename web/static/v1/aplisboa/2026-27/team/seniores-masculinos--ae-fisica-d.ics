@@ -13,11 +13,11 @@ UID:jogo-9289@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T090000Z
 DTEND:20260919T103000Z
-SUMMARY:AE FISICA D 1–1 SPORTING CP
+SUMMARY:SPORTING CP (casa) 1–1
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:TAÇA JESUS CORREIA - SENIORES MASCULINOS · SENIORES MASCULINO
- S\nhttps://hoquei.pages.dev/jogo/9289\nDados da Associação de Patinagem 
- de Lisboa. Site não oficial.
+DESCRIPTION:AE FISICA D 1–1 SPORTING CP\nTAÇA JESUS CORREIA - SENIORES M
+ ASCULINOS · SENIORES MASCULINOS\nhttps://hoquei.pages.dev/jogo/9289\nDado
+ s da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9289
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9292@hoquei.pages.dev
 DTSTAMP:20260925T000000Z
 DTSTART:20260925T210000Z
 DTEND:20260925T223000Z
-SUMMARY:GDS CASCAIS 3–3 AE FISICA D
+SUMMARY:GDS CASCAIS (fora) 3–3
 LOCATION:PAV. CASCAIS
-DESCRIPTION:TAÇA JESUS CORREIA - SENIORES MASCULINOS · SENIORES MASCULINO
- S\nhttps://hoquei.pages.dev/jogo/9292\nDados da Associação de Patinagem 
- de Lisboa. Site não oficial.
+DESCRIPTION:GDS CASCAIS 3–3 AE FISICA D\nTAÇA JESUS CORREIA - SENIORES M
+ ASCULINOS · SENIORES MASCULINOS\nhttps://hoquei.pages.dev/jogo/9292\nDado
+ s da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9292
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9294@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T170000Z
 DTEND:20261003T183000Z
-SUMMARY:HC SINTRA vs AE FISICA D
+SUMMARY:HC SINTRA (fora)
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:TAÇA JESUS CORREIA - SENIORES MASCULINOS · SENIORES MASCULINO
- S\nhttps://hoquei.pages.dev/jogo/9294\nDados da Associação de Patinagem 
- de Lisboa. Site não oficial.
+DESCRIPTION:HC SINTRA vs AE FISICA D\nTAÇA JESUS CORREIA - SENIORES MASCUL
+ INOS · SENIORES MASCULINOS\nhttps://hoquei.pages.dev/jogo/9294\nDados da 
+ Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9294
 END:VEVENT
 END:VCALENDAR

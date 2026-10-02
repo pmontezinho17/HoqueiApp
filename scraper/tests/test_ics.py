@@ -83,12 +83,29 @@ class TestEventos:
         assert p["DTSTART;VALUE=DATE"] == "20261002"
         assert p["DTEND;VALUE=DATE"] == "20261003"    # fim exclusivo
 
-    def test_resultado_no_titulo_quando_ja_se_jogou(self):
-        assert propriedades(feed("E", "SUB-13", [JOGO]))["SUMMARY"].endswith("2–9 PAREDE FC B")
+    def test_titulo_lidera_pelo_adversario_e_nao_pelo_proprio_clube(self):
+        """A célula do mês mostra uns 15 caracteres: começar pelo nome do clube que a
+        pessoa subscreveu gastava-os a dizer-lhe o que ela já sabe."""
+        p = propriedades(feed("PAREDE FC B", "SUB-13", [dict(JOGO, gc=None, gf=None)]))
+        assert p["SUMMARY"] == "CD PAÇO ARCOS B (fora)"
 
-    def test_vs_quando_ainda_nao_se_jogou(self):
-        p = propriedades(feed("E", "SUB-13", [dict(JOGO, gc=None, gf=None)]))
-        assert "vs" in p["SUMMARY"]
+    def test_marca_se_e_em_casa(self):
+        caseiro = dict(JOGO, casa="PAREDE FC B", fora="CACO B", gc=None, gf=None)
+        assert propriedades(feed("PAREDE FC B", "SUB-13", [caseiro]))["SUMMARY"] \
+            == "CACO B (casa)"
+
+    def test_resultado_contado_do_lado_de_quem_subscreveu(self):
+        # o jogo acabou 2–9 para o visitante; quem segue o PAREDE vê 9–2
+        assert propriedades(feed("PAREDE FC B", "SUB-13", [JOGO]))["SUMMARY"] \
+            == "CD PAÇO ARCOS B (fora) 9–2"
+        # e quem segue o PAÇO ARCOS vê 2–9, do seu lado
+        assert propriedades(feed("CD PAÇO ARCOS B", "SUB-13", [JOGO]))["SUMMARY"] \
+            == "PAREDE FC B (casa) 2–9"
+
+    def test_o_confronto_por_extenso_fica_na_descricao(self):
+        # o título é abreviado; quem abre o evento tem de poder ver quem jogou com quem
+        d = propriedades(feed("PAREDE FC B", "SUB-13", [JOGO]))["DESCRIPTION"]
+        assert d.startswith("CD PAÇO ARCOS B 2–9 PAREDE FC B")
 
     def test_ordenado_por_data_e_hora(self):
         jogos = [dict(JOGO, id=3, data="2026-11-01", hora="18:00"),
@@ -164,7 +181,10 @@ class TestConformidade:
         # os caracteres reservados voltam **desescapados** e os acentos inteiros
         por_uid = {str(e["UID"]): e for e in eventos}
         assert str(por_uid["jogo-3@hoquei.pages.dev"]["LOCATION"]) == "PAV. A; B, C"
-        assert "PAÇO" in str(por_uid["jogo-9547@hoquei.pages.dev"]["SUMMARY"])
+        # acentos e o traço longo sobrevivem à ida e volta pelo ficheiro
+        assert str(por_uid["jogo-9547@hoquei.pages.dev"]["SUMMARY"]) == "PAREDE FC B (casa) 2–9"
+        assert "CD PAÇO ARCOS B 2–9 PAREDE FC B" in str(
+            por_uid["jogo-9547@hoquei.pages.dev"]["DESCRIPTION"])
 
     def test_as_horas_sobrevivem_a_ida_e_volta(self):
         import datetime as dt

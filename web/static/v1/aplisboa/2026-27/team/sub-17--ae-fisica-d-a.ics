@@ -13,11 +13,11 @@ UID:jogo-9754@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T200000Z
 DTEND:20260926T213000Z
-SUMMARY:AE FISICA D A 2–3 SPORTING CP A
+SUMMARY:SPORTING CP A (casa) 2–3
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9754\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AE FISICA D A 2–3 SPORTING CP A\nCAMP. REG. SUB-17 - 1ª FASE
+  · Série E · SUB-17\nhttps://hoquei.pages.dev/jogo/9754\nDados da Assoc
+ iação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9754
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9756@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T200000Z
 DTEND:20261003T213000Z
-SUMMARY:AD OEIRAS B vs AE FISICA D A
+SUMMARY:AD OEIRAS B (fora)
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9756\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AD OEIRAS B vs AE FISICA D A\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie E · SUB-17\nhttps://hoquei.pages.dev/jogo/9756\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9756
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9760@hoquei.pages.dev
 DTSTAMP:20261005T000000Z
 DTSTART:20261005T150000Z
 DTEND:20261005T163000Z
-SUMMARY:AE FISICA D A vs HC SINTRA
+SUMMARY:HC SINTRA (casa)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9760\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AE FISICA D A vs HC SINTRA\nCAMP. REG. SUB-17 - 1ª FASE · Sé
+ rie E · SUB-17\nhttps://hoquei.pages.dev/jogo/9760\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9760
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9764@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T133000Z
 DTEND:20261011T150000Z
-SUMMARY:AE FISICA D A vs CACO B
+SUMMARY:CACO B (casa)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9764\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AE FISICA D A vs CACO B\nCAMP. REG. SUB-17 - 1ª FASE · Série
+  E · SUB-17\nhttps://hoquei.pages.dev/jogo/9764\nDados da Associação de
+  Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9764
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9767@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T183000Z
 DTEND:20261017T200000Z
-SUMMARY:FSE/AJ SALESIANA A vs AE FISICA D A
+SUMMARY:FSE/AJ SALESIANA A (fora)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9767\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:FSE/AJ SALESIANA A vs AE FISICA D A\nCAMP. REG. SUB-17 - 1ª FA
+ SE · Série E · SUB-17\nhttps://hoquei.pages.dev/jogo/9767\nDados da Ass
+ ociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9767
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9769@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T160000Z
 DTEND:20261024T173000Z
-SUMMARY:SPORTING CP A vs AE FISICA D A
+SUMMARY:SPORTING CP A (fora)
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9769\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SPORTING CP A vs AE FISICA D A\nCAMP. REG. SUB-17 - 1ª FASE ·
+  Série E · SUB-17\nhttps://hoquei.pages.dev/jogo/9769\nDados da Associa
+ ção de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9769
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9775@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T163000Z
 DTEND:20261107T180000Z
-SUMMARY:HC SINTRA vs AE FISICA D A
+SUMMARY:HC SINTRA (fora)
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9775\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:HC SINTRA vs AE FISICA D A\nCAMP. REG. SUB-17 - 1ª FASE · Sé
+ rie E · SUB-17\nhttps://hoquei.pages.dev/jogo/9775\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9775
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9771@hoquei.pages.dev
 DTSTAMP:20261111T000000Z
 DTSTART:20261111T200000Z
 DTEND:20261111T213000Z
-SUMMARY:AE FISICA D A vs AD OEIRAS B
+SUMMARY:AD OEIRAS B (casa)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9771\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AE FISICA D A vs AD OEIRAS B\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie E · SUB-17\nhttps://hoquei.pages.dev/jogo/9771\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9771
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9779@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T153000Z
 DTEND:20261114T170000Z
-SUMMARY:CACO B vs AE FISICA D A
+SUMMARY:CACO B (fora)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9779\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CACO B vs AE FISICA D A\nCAMP. REG. SUB-17 - 1ª FASE · Série
+  E · SUB-17\nhttps://hoquei.pages.dev/jogo/9779\nDados da Associação de
+  Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9779
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9782@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T163000Z
 DTEND:20261121T180000Z
-SUMMARY:AE FISICA D A vs FSE/AJ SALESIANA A
+SUMMARY:FSE/AJ SALESIANA A (casa)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9782\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AE FISICA D A vs FSE/AJ SALESIANA A\nCAMP. REG. SUB-17 - 1ª FA
+ SE · Série E · SUB-17\nhttps://hoquei.pages.dev/jogo/9782\nDados da Ass
+ ociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9782
 END:VEVENT
 END:VCALENDAR

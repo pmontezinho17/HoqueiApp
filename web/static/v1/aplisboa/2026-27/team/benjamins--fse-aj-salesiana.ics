@@ -13,11 +13,12 @@ UID:jogo-9985@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T150000Z
 DTEND:20260926T163000Z
-SUMMARY:AD OEIRAS A 20–1 FSE/AJ SALESIANA
+SUMMARY:AD OEIRAS A (fora) 1–20
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/9985\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD OEIRAS A 20–1 FSE/AJ SALESIANA\nENCONTROS DISTRITAIS BENJA
+ MINS - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev
+ /jogo/9985\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
 URL:https://hoquei.pages.dev/jogo/9985
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +26,11 @@ UID:jogo-9989@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T140000Z
 DTEND:20261003T153000Z
-SUMMARY:FSE/AJ SALESIANA vs SC TORRES
+SUMMARY:SC TORRES (casa)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/9989\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ SALESIANA vs SC TORRES\nENCONTROS DISTRITAIS BENJAMINS -
+  1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/
+ 9989\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9989
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +38,11 @@ UID:jogo-9993@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T140000Z
 DTEND:20261010T153000Z
-SUMMARY:HC SINTRA vs FSE/AJ SALESIANA
+SUMMARY:HC SINTRA (fora)
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/9993\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC SINTRA vs FSE/AJ SALESIANA\nENCONTROS DISTRITAIS BENJAMINS -
+  1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/
+ 9993\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9993
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +50,12 @@ UID:jogo-9997@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T134500Z
 DTEND:20261017T151500Z
-SUMMARY:FSE/AJ SALESIANA vs CD PAÇO ARCOS A
+SUMMARY:CD PAÇO ARCOS A (casa)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/9997\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ SALESIANA vs CD PAÇO ARCOS A\nENCONTROS DISTRITAIS BENJ
+ AMINS - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.de
+ v/jogo/9997\nDados da Associação de Patinagem de Lisboa. Site não ofici
+ al.
 URL:https://hoquei.pages.dev/jogo/9997
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +63,12 @@ UID:jogo-10001@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T103000Z
 DTEND:20261024T120000Z
-SUMMARY:AE FISICA D A vs FSE/AJ SALESIANA
+SUMMARY:AE FISICA D A (fora)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10001\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE FISICA D A vs FSE/AJ SALESIANA\nENCONTROS DISTRITAIS BENJAMI
+ NS - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/j
+ ogo/10001\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/10001
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +76,11 @@ UID:jogo-10005@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T110000Z
 DTEND:20261031T123000Z
-SUMMARY:FSE/AJ SALESIANA vs CACO A
+SUMMARY:CACO A (casa)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10005\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ SALESIANA vs CACO A\nENCONTROS DISTRITAIS BENJAMINS - 1
+ ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10
+ 005\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10005
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +88,11 @@ UID:jogo-10009@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T144500Z
 DTEND:20261107T161500Z
-SUMMARY:A STUART HCM vs FSE/AJ SALESIANA
+SUMMARY:A STUART HCM (fora)
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10009\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A STUART HCM vs FSE/AJ SALESIANA\nENCONTROS DISTRITAIS BENJAMIN
+ S - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jo
+ go/10009\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10009
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +100,11 @@ UID:jogo-10013@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T143000Z
 DTEND:20261114T160000Z
-SUMMARY:FSE/AJ SALESIANA vs AD OEIRAS A
+SUMMARY:AD OEIRAS A (casa)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10013\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ SALESIANA vs AD OEIRAS A\nENCONTROS DISTRITAIS BENJAMINS
+  - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jog
+ o/10013\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10013
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +112,11 @@ UID:jogo-10017@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T100000Z
 DTEND:20261121T113000Z
-SUMMARY:SC TORRES vs FSE/AJ SALESIANA
+SUMMARY:SC TORRES (fora)
 LOCATION:PAV. SC TORRES
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10017\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SC TORRES vs FSE/AJ SALESIANA\nENCONTROS DISTRITAIS BENJAMINS -
+  1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/
+ 10017\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10017
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +124,11 @@ UID:jogo-10021@hoquei.pages.dev
 DTSTAMP:20261128T000000Z
 DTSTART:20261128T144500Z
 DTEND:20261128T161500Z
-SUMMARY:FSE/AJ SALESIANA vs HC SINTRA
+SUMMARY:HC SINTRA (casa)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10021\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ SALESIANA vs HC SINTRA\nENCONTROS DISTRITAIS BENJAMINS -
+  1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/
+ 10021\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10021
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +136,12 @@ UID:jogo-10025@hoquei.pages.dev
 DTSTAMP:20261201T000000Z
 DTSTART:20261201T143000Z
 DTEND:20261201T160000Z
-SUMMARY:CD PAÇO ARCOS A vs FSE/AJ SALESIANA
+SUMMARY:CD PAÇO ARCOS A (fora)
 LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10025\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CD PAÇO ARCOS A vs FSE/AJ SALESIANA\nENCONTROS DISTRITAIS BENJ
+ AMINS - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.de
+ v/jogo/10025\nDados da Associação de Patinagem de Lisboa. Site não ofic
+ ial.
 URL:https://hoquei.pages.dev/jogo/10025
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +149,12 @@ UID:jogo-10029@hoquei.pages.dev
 DTSTAMP:20261205T000000Z
 DTSTART:20261205T150000Z
 DTEND:20261205T163000Z
-SUMMARY:FSE/AJ SALESIANA vs AE FISICA D A
+SUMMARY:AE FISICA D A (casa)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10029\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ SALESIANA vs AE FISICA D A\nENCONTROS DISTRITAIS BENJAMI
+ NS - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/j
+ ogo/10029\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/10029
 END:VEVENT
 BEGIN:VEVENT
@@ -157,11 +162,11 @@ UID:jogo-10033@hoquei.pages.dev
 DTSTAMP:20261208T000000Z
 DTSTART:20261208T143000Z
 DTEND:20261208T160000Z
-SUMMARY:CACO A vs FSE/AJ SALESIANA
+SUMMARY:CACO A (fora)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10033\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CACO A vs FSE/AJ SALESIANA\nENCONTROS DISTRITAIS BENJAMINS - 1
+ ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10
+ 033\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10033
 END:VEVENT
 BEGIN:VEVENT
@@ -169,11 +174,11 @@ UID:jogo-10037@hoquei.pages.dev
 DTSTAMP:20261212T000000Z
 DTSTART:20261212T144500Z
 DTEND:20261212T161500Z
-SUMMARY:FSE/AJ SALESIANA vs A STUART HCM
+SUMMARY:A STUART HCM (casa)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10037\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ SALESIANA vs A STUART HCM\nENCONTROS DISTRITAIS BENJAMIN
+ S - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jo
+ go/10037\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10037
 END:VEVENT
 END:VCALENDAR

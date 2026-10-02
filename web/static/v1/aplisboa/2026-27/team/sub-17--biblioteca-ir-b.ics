@@ -13,11 +13,11 @@ UID:jogo-9654@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T190000Z
 DTEND:20260926T203000Z
-SUMMARY:BIBLIOTECA IR B 2–15 SC TOMAR
+SUMMARY:SC TOMAR (casa) 2–15
 LOCATION:PAV. VALADO DE FRADES
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série A · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9654\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:BIBLIOTECA IR B 2–15 SC TOMAR\nCAMP. REG. SUB-17 - 1ª FASE 
+ · Série A · SUB-17\nhttps://hoquei.pages.dev/jogo/9654\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9654
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9659@hoquei.pages.dev
 DTSTAMP:20261005T000000Z
 DTSTART:20261005T140000Z
 DTEND:20261005T153000Z
-SUMMARY:UF ENTRONCAMENTO vs BIBLIOTECA IR B
+SUMMARY:UF ENTRONCAMENTO (fora)
 LOCATION:PAV. A. MATEUS- ENTRONCAMENTO
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série A · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9659\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:UF ENTRONCAMENTO vs BIBLIOTECA IR B\nCAMP. REG. SUB-17 - 1ª FA
+ SE · Série A · SUB-17\nhttps://hoquei.pages.dev/jogo/9659\nDados da Ass
+ ociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9659
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9657@hoquei.pages.dev
 DTSTAMP:20261008T000000Z
 DTSTART:20261008T190000Z
 DTEND:20261008T203000Z
-SUMMARY:BIBLIOTECA IR B vs BIBLIOTECA IR A
+SUMMARY:BIBLIOTECA IR A (casa)
 LOCATION:PAV. VALADO DE FRADES
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série A · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9657\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:BIBLIOTECA IR B vs BIBLIOTECA IR A\nCAMP. REG. SUB-17 - 1ª FAS
+ E · Série A · SUB-17\nhttps://hoquei.pages.dev/jogo/9657\nDados da Asso
+ ciação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9657
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9662@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T163000Z
 DTEND:20261017T180000Z
-SUMMARY:BIBLIOTECA IR B vs HC TURQUEL
+SUMMARY:HC TURQUEL (casa)
 LOCATION:PAV. VALADO DE FRADES
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série A · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9662\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:BIBLIOTECA IR B vs HC TURQUEL\nCAMP. REG. SUB-17 - 1ª FASE · 
+ Série A · SUB-17\nhttps://hoquei.pages.dev/jogo/9662\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9662
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9664@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T150000Z
 DTEND:20261024T163000Z
-SUMMARY:SC TOMAR vs BIBLIOTECA IR B
+SUMMARY:SC TOMAR (fora)
 LOCATION:PAV.JACOME RATTON
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série A · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9664\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SC TOMAR vs BIBLIOTECA IR B\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie A · SUB-17\nhttps://hoquei.pages.dev/jogo/9664\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9664
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9667@hoquei.pages.dev
 DTSTAMP:20261105T000000Z
 DTSTART:20261105T200000Z
 DTEND:20261105T213000Z
-SUMMARY:BIBLIOTECA IR A vs BIBLIOTECA IR B
+SUMMARY:BIBLIOTECA IR A (fora)
 LOCATION:PAV. VALADO DE FRADES
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série A · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9667\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:BIBLIOTECA IR A vs BIBLIOTECA IR B\nCAMP. REG. SUB-17 - 1ª FAS
+ E · Série A · SUB-17\nhttps://hoquei.pages.dev/jogo/9667\nDados da Asso
+ ciação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9667
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9669@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T150000Z
 DTEND:20261114T163000Z
-SUMMARY:BIBLIOTECA IR B vs UF ENTRONCAMENTO
+SUMMARY:UF ENTRONCAMENTO (casa)
 LOCATION:PAV. VALADO DE FRADES
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série A · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9669\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:BIBLIOTECA IR B vs UF ENTRONCAMENTO\nCAMP. REG. SUB-17 - 1ª FA
+ SE · Série A · SUB-17\nhttps://hoquei.pages.dev/jogo/9669\nDados da Ass
+ ociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9669
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9672@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T163000Z
 DTEND:20261121T180000Z
-SUMMARY:HC TURQUEL vs BIBLIOTECA IR B
+SUMMARY:HC TURQUEL (fora)
 LOCATION:PAV. HC TURQUEL
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série A · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9672\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:HC TURQUEL vs BIBLIOTECA IR B\nCAMP. REG. SUB-17 - 1ª FASE · 
+ Série A · SUB-17\nhttps://hoquei.pages.dev/jogo/9672\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9672
 END:VEVENT
 END:VCALENDAR

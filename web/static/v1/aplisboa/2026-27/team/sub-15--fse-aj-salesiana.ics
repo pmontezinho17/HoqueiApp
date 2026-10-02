@@ -13,11 +13,11 @@ UID:jogo-9382@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T111500Z
 DTEND:20260913T124500Z
-SUMMARY:AD OEIRAS B 2–1 FSE/AJ SALESIANA
+SUMMARY:AD OEIRAS B (fora) 1–2
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:TORNEIO ABERTURA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev
- /jogo/9382\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AD OEIRAS B 2–1 FSE/AJ SALESIANA\nTORNEIO ABERTURA APL SUB-15
+  · SUB-15\nhttps://hoquei.pages.dev/jogo/9382\nDados da Associação de P
+ atinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9382
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9384@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T150000Z
 DTEND:20260913T163000Z
-SUMMARY:FSE/AJ SALESIANA 3–5 APAC TOJAL
+SUMMARY:APAC TOJAL (casa) 3–5
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:TORNEIO ABERTURA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev
- /jogo/9384\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:FSE/AJ SALESIANA 3–5 APAC TOJAL\nTORNEIO ABERTURA APL SUB-15 
+ · SUB-15\nhttps://hoquei.pages.dev/jogo/9384\nDados da Associação de Pa
+ tinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9384
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9635@hoquei.pages.dev
 DTSTAMP:20261004T000000Z
 DTSTART:20261004T100000Z
 DTEND:20261004T113000Z
-SUMMARY:SL BENFICA A vs FSE/AJ SALESIANA
+SUMMARY:SL BENFICA A (fora)
 LOCATION:PAV. MURCHES
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9635\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SL BENFICA A vs FSE/AJ SALESIANA\nCAMP. REG. SUB-15 - 1ª FASE 
+ · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9635\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9635
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9638@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T150000Z
 DTEND:20261011T163000Z
-SUMMARY:FSE/AJ SALESIANA vs AD OEIRAS B
+SUMMARY:AD OEIRAS B (casa)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9638\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:FSE/AJ SALESIANA vs AD OEIRAS B\nCAMP. REG. SUB-15 - 1ª FASE 
+ · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9638\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9638
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9640@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T153000Z
 DTEND:20261018T170000Z
-SUMMARY:FSE/AJ SALESIANA vs CD PAÇO ARCOS B
+SUMMARY:CD PAÇO ARCOS B (casa)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9640\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:FSE/AJ SALESIANA vs CD PAÇO ARCOS B\nCAMP. REG. SUB-15 - 1ª F
+ ASE · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9640\nDados da As
+ sociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9640
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9642@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T161500Z
 DTEND:20261025T174500Z
-SUMMARY:A STUART HCM A vs FSE/AJ SALESIANA
+SUMMARY:A STUART HCM A (fora)
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9642\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:A STUART HCM A vs FSE/AJ SALESIANA\nCAMP. REG. SUB-15 - 1ª FAS
+ E · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9642\nDados da Asso
+ ciação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9642
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9648@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T193000Z
 DTEND:20261108T210000Z
-SUMMARY:AD OEIRAS B vs FSE/AJ SALESIANA
+SUMMARY:AD OEIRAS B (fora)
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9648\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AD OEIRAS B vs FSE/AJ SALESIANA\nCAMP. REG. SUB-15 - 1ª FASE 
+ · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9648\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9648
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9645@hoquei.pages.dev
 DTSTAMP:20261113T000000Z
 DTSTART:20261113T210000Z
 DTEND:20261113T223000Z
-SUMMARY:FSE/AJ SALESIANA vs SL BENFICA A
+SUMMARY:SL BENFICA A (casa)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9645\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:FSE/AJ SALESIANA vs SL BENFICA A\nCAMP. REG. SUB-15 - 1ª FASE 
+ · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9645\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9645
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9650@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T143000Z
 DTEND:20261115T160000Z
-SUMMARY:CD PAÇO ARCOS B vs FSE/AJ SALESIANA
+SUMMARY:CD PAÇO ARCOS B (fora)
 LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9650\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CD PAÇO ARCOS B vs FSE/AJ SALESIANA\nCAMP. REG. SUB-15 - 1ª F
+ ASE · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9650\nDados da As
+ sociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9650
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9652@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T144500Z
 DTEND:20261122T161500Z
-SUMMARY:FSE/AJ SALESIANA vs A STUART HCM A
+SUMMARY:A STUART HCM A (casa)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9652\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:FSE/AJ SALESIANA vs A STUART HCM A\nCAMP. REG. SUB-15 - 1ª FAS
+ E · Série D · SUB-15\nhttps://hoquei.pages.dev/jogo/9652\nDados da Asso
+ ciação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9652
 END:VEVENT
 END:VCALENDAR

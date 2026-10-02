@@ -13,11 +13,11 @@ UID:jogo-9965@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T130000Z
 DTEND:20260927T143000Z
-SUMMARY:FSE/AJ SALESIANA B 4–3 CACO B
+SUMMARY:FSE/AJ SALESIANA B (fora) 3–4
 LOCATION:PAV. SALESIANA
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9965\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ SALESIANA B 4–3 CACO B\nENCONTROS DISTRITAIS ESCOLARES
+  - 1ª FASE NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pages.dev/jo
+ go/9965\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9965
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9967@hoquei.pages.dev
 DTSTAMP:20261004T000000Z
 DTSTART:20261004T173000Z
 DTEND:20261004T190000Z
-SUMMARY:CACO B vs PAREDE FC B
+SUMMARY:PAREDE FC B (casa)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9967\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CACO B vs PAREDE FC B\nENCONTROS DISTRITAIS ESCOLARES - 1ª FAS
+ E NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9967\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9967
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9969@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T090000Z
 DTEND:20261011T103000Z
-SUMMARY:AE FISICA D B vs CACO B
+SUMMARY:AE FISICA D B (fora)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9969\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE FISICA D B vs CACO B\nENCONTROS DISTRITAIS ESCOLARES - 1ª F
+ ASE NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9969\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9969
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9971@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T133000Z
 DTEND:20261018T150000Z
-SUMMARY:CACO B vs UD VILAFRANQUENSE B
+SUMMARY:UD VILAFRANQUENSE B (casa)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9971\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CACO B vs UD VILAFRANQUENSE B\nENCONTROS DISTRITAIS ESCOLARES -
+  1ª FASE NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pages.dev/jogo
+ /9971\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9971
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9975@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T143000Z
 DTEND:20261101T160000Z
-SUMMARY:CACO B vs FSE/AJ SALESIANA B
+SUMMARY:FSE/AJ SALESIANA B (casa)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9975\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CACO B vs FSE/AJ SALESIANA B\nENCONTROS DISTRITAIS ESCOLARES - 
+ 1ª FASE NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pages.dev/jogo/
+ 9975\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9975
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9977@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T160000Z
 DTEND:20261108T173000Z
-SUMMARY:PAREDE FC B vs CACO B
+SUMMARY:PAREDE FC B (fora)
 LOCATION:PAV. PAREDE
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9977\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:PAREDE FC B vs CACO B\nENCONTROS DISTRITAIS ESCOLARES - 1ª FAS
+ E NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9977\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9977
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9979@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T143000Z
 DTEND:20261115T160000Z
-SUMMARY:CACO B vs AE FISICA D B
+SUMMARY:AE FISICA D B (casa)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9979\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CACO B vs AE FISICA D B\nENCONTROS DISTRITAIS ESCOLARES - 1ª F
+ ASE NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9979\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9979
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9981@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T150000Z
 DTEND:20261122T163000Z
-SUMMARY:UD VILAFRANQUENSE B vs CACO B
+SUMMARY:UD VILAFRANQUENSE B (fora)
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9981\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD VILAFRANQUENSE B vs CACO B\nENCONTROS DISTRITAIS ESCOLARES -
+  1ª FASE NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pages.dev/jogo
+ /9981\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9981
 END:VEVENT
 END:VCALENDAR

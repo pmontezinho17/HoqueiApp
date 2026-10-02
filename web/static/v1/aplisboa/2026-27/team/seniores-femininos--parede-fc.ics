@@ -13,11 +13,11 @@ UID:jogo-9322@hoquei.pages.dev
 DTSTAMP:20260920T000000Z
 DTSTART:20260920T153000Z
 DTEND:20260920T170000Z
-SUMMARY:PAREDE FC 2–4 HC SINTRA
+SUMMARY:HC SINTRA (casa) 2–4
 LOCATION:PAV. PAREDE
-DESCRIPTION:TAÇA PROF. JOAO CAMPELO - SENIORES FEMININOS · SENIORES FEMIN
- INOS\nhttps://hoquei.pages.dev/jogo/9322\nDados da Associação de Patinag
- em de Lisboa. Site não oficial.
+DESCRIPTION:PAREDE FC 2–4 HC SINTRA\nTAÇA PROF. JOAO CAMPELO - SENIORES 
+ FEMININOS · SENIORES FEMININOS\nhttps://hoquei.pages.dev/jogo/9322\nDados
+  da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9322
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9323@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T170000Z
 DTEND:20260927T183000Z
-SUMMARY:CRIAR-T GD 3–1 PAREDE FC
+SUMMARY:CRIAR-T GD (fora) 1–3
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:TAÇA PROF. JOAO CAMPELO - SENIORES FEMININOS · SENIORES FEMIN
- INOS\nhttps://hoquei.pages.dev/jogo/9323\nDados da Associação de Patinag
- em de Lisboa. Site não oficial.
+DESCRIPTION:CRIAR-T GD 3–1 PAREDE FC\nTAÇA PROF. JOAO CAMPELO - SENIORES
+  FEMININOS · SENIORES FEMININOS\nhttps://hoquei.pages.dev/jogo/9323\nDado
+ s da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9323
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9326@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T170000Z
 DTEND:20261003T183000Z
-SUMMARY:A STRUART HCM vs PAREDE FC
+SUMMARY:A STRUART HCM (fora)
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:TAÇA PROF. JOAO CAMPELO - SENIORES FEMININOS · SENIORES FEMIN
- INOS\nhttps://hoquei.pages.dev/jogo/9326\nDados da Associação de Patinag
- em de Lisboa. Site não oficial.
+DESCRIPTION:A STRUART HCM vs PAREDE FC\nTAÇA PROF. JOAO CAMPELO - SENIORES
+  FEMININOS · SENIORES FEMININOS\nhttps://hoquei.pages.dev/jogo/9326\nDado
+ s da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9326
 END:VEVENT
 END:VCALENDAR

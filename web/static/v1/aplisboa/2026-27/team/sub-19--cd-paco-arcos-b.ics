@@ -13,11 +13,11 @@ UID:jogo-9833@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T170000Z
 DTEND:20261011T183000Z
-SUMMARY:CD PAÇO ARCOS B vs AD OEIRAS
+SUMMARY:AD OEIRAS (casa)
 LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9833\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CD PAÇO ARCOS B vs AD OEIRAS\nCAMP. REG. SUB-19 - 1ª FASE · 
+ Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9833\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9833
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9837@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T193000Z
 DTEND:20261018T210000Z
-SUMMARY:AE FISICA D vs CD PAÇO ARCOS B
+SUMMARY:AE FISICA D (fora)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9837\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AE FISICA D vs CD PAÇO ARCOS B\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9837\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9837
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9840@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T180000Z
 DTEND:20261025T193000Z
-SUMMARY:APAC TOJAL vs CD PAÇO ARCOS B
+SUMMARY:APAC TOJAL (fora)
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9840\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:APAC TOJAL vs CD PAÇO ARCOS B\nCAMP. REG. SUB-19 - 1ª FASE ·
+  Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9840\nDados da Associa
+ ção de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9840
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9843@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T173000Z
 DTEND:20261101T190000Z
-SUMMARY:CD PAÇO ARCOS B vs GD SESIMBRA
+SUMMARY:GD SESIMBRA (casa)
 LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9843\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CD PAÇO ARCOS B vs GD SESIMBRA\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9843\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9843
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9846@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T193000Z
 DTEND:20261108T210000Z
-SUMMARY:SPORTING CP vs CD PAÇO ARCOS B
+SUMMARY:SPORTING CP (fora)
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9846\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SPORTING CP vs CD PAÇO ARCOS B\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9846\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9846
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9848@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T173000Z
 DTEND:20261115T190000Z
-SUMMARY:AD OEIRAS vs CD PAÇO ARCOS B
+SUMMARY:AD OEIRAS (fora)
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9848\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AD OEIRAS vs CD PAÇO ARCOS B\nCAMP. REG. SUB-19 - 1ª FASE · 
+ Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9848\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9848
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9852@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T180000Z
 DTEND:20261122T193000Z
-SUMMARY:CD PAÇO ARCOS B vs AE FISICA D
+SUMMARY:AE FISICA D (casa)
 LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9852\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CD PAÇO ARCOS B vs AE FISICA D\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9852\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9852
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9855@hoquei.pages.dev
 DTSTAMP:20261129T000000Z
 DTSTART:20261129T143000Z
 DTEND:20261129T160000Z
-SUMMARY:CD PAÇO ARCOS B vs APAC TOJAL
+SUMMARY:APAC TOJAL (casa)
 LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9855\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CD PAÇO ARCOS B vs APAC TOJAL\nCAMP. REG. SUB-19 - 1ª FASE ·
+  Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9855\nDados da Associa
+ ção de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9855
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9858@hoquei.pages.dev
 DTSTAMP:20261201T000000Z
 DTSTART:20261201T150000Z
 DTEND:20261201T163000Z
-SUMMARY:GD SESIMBRA vs CD PAÇO ARCOS B
+SUMMARY:GD SESIMBRA (fora)
 LOCATION:PAV. SESIMBRA
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9858\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:GD SESIMBRA vs CD PAÇO ARCOS B\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9858\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9858
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9861@hoquei.pages.dev
 DTSTAMP:20261206T000000Z
 DTSTART:20261206T163000Z
 DTEND:20261206T180000Z
-SUMMARY:CD PAÇO ARCOS B vs SPORTING CP
+SUMMARY:SPORTING CP (casa)
 LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9861\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CD PAÇO ARCOS B vs SPORTING CP\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série B · SUB-19\nhttps://hoquei.pages.dev/jogo/9861\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9861
 END:VEVENT
 END:VCALENDAR

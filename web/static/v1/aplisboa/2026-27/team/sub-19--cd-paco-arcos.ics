@@ -13,11 +13,11 @@ UID:jogo-9432@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T141500Z
 DTEND:20260913T154500Z
-SUMMARY:FSE/AJ SALESIANA 0–9 CD PAÇO ARCOS
+SUMMARY:FSE/AJ SALESIANA (fora) 9–0
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:TORNEIO ABERTURA APL SUB-19 · SUB-19\nhttps://hoquei.pages.dev
- /jogo/9432\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:FSE/AJ SALESIANA 0–9 CD PAÇO ARCOS\nTORNEIO ABERTURA APL SUB
+ -19 · SUB-19\nhttps://hoquei.pages.dev/jogo/9432\nDados da Associação d
+ e Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9432
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9434@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T171500Z
 DTEND:20260913T184500Z
-SUMMARY:CD PAÇO ARCOS 5–0 UD VILAFRANQUENSE
+SUMMARY:UD VILAFRANQUENSE (casa) 5–0
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:TORNEIO ABERTURA APL SUB-19 · SUB-19\nhttps://hoquei.pages.dev
- /jogo/9434\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:CD PAÇO ARCOS 5–0 UD VILAFRANQUENSE\nTORNEIO ABERTURA APL SU
+ B-19 · SUB-19\nhttps://hoquei.pages.dev/jogo/9434\nDados da Associação 
+ de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9434
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9440@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T110000Z
 DTEND:20260919T123000Z
-SUMMARY:APAC TOJAL 3–4 CD PAÇO ARCOS
+SUMMARY:APAC TOJAL (fora) 4–3
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:TORNEIO ABERTURA APL SUB-19 · SUB-19\nhttps://hoquei.pages.dev
- /jogo/9440\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:APAC TOJAL 3–4 CD PAÇO ARCOS\nTORNEIO ABERTURA APL SUB-19 ·
+  SUB-19\nhttps://hoquei.pages.dev/jogo/9440\nDados da Associação de Pati
+ nagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9440
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9443@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T183000Z
 DTEND:20260919T200000Z
-SUMMARY:CD PAÇO ARCOS 4–0 AD OEIRAS
+SUMMARY:AD OEIRAS (casa) 4–0
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:TORNEIO ABERTURA APL SUB-19 · SUB-19\nhttps://hoquei.pages.dev
- /jogo/9443\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:CD PAÇO ARCOS 4–0 AD OEIRAS\nTORNEIO ABERTURA APL SUB-19 · 
+ SUB-19\nhttps://hoquei.pages.dev/jogo/9443\nDados da Associação de Patin
+ agem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9443
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9444@hoquei.pages.dev
 DTSTAMP:20260920T000000Z
 DTSTART:20260920T133000Z
 DTEND:20260920T150000Z
-SUMMARY:AE FISICA 1–2 CD PAÇO ARCOS
+SUMMARY:AE FISICA (fora) 2–1
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:TORNEIO ABERTURA APL SUB-19 · SUB-19\nhttps://hoquei.pages.dev
- /jogo/9444\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AE FISICA 1–2 CD PAÇO ARCOS\nTORNEIO ABERTURA APL SUB-19 · 
+ SUB-19\nhttps://hoquei.pages.dev/jogo/9444\nDados da Associação de Patin
+ agem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9444
 END:VEVENT
 END:VCALENDAR

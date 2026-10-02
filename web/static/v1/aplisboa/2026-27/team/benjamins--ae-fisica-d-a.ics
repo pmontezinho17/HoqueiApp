@@ -13,11 +13,11 @@ UID:jogo-9987@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T140000Z
 DTEND:20260926T153000Z
-SUMMARY:HC SINTRA 11–7 AE FISICA D A
+SUMMARY:HC SINTRA (fora) 7–11
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/9987\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC SINTRA 11–7 AE FISICA D A\nENCONTROS DISTRITAIS BENJAMINS 
+ - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo
+ /9987\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9987
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9992@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T103000Z
 DTEND:20261003T120000Z
-SUMMARY:AE FISICA D A vs CD PAÇO ARCOS A
+SUMMARY:CD PAÇO ARCOS A (casa)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/9992\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE FISICA D A vs CD PAÇO ARCOS A\nENCONTROS DISTRITAIS BENJAMI
+ NS - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/j
+ ogo/9992\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9992
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9996@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T134500Z
 DTEND:20261010T151500Z
-SUMMARY:A STUART HCM vs AE FISICA D A
+SUMMARY:A STUART HCM (fora)
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/9996\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:A STUART HCM vs AE FISICA D A\nENCONTROS DISTRITAIS BENJAMINS -
+  1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/
+ 9996\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9996
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-10000@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T154500Z
 DTEND:20261017T171500Z
-SUMMARY:CACO A vs AE FISICA D A
+SUMMARY:CACO A (fora)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10000\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CACO A vs AE FISICA D A\nENCONTROS DISTRITAIS BENJAMINS - 1ª F
+ ASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10000\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10000
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,12 @@ UID:jogo-10001@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T103000Z
 DTEND:20261024T120000Z
-SUMMARY:AE FISICA D A vs FSE/AJ SALESIANA
+SUMMARY:FSE/AJ SALESIANA (casa)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10001\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE FISICA D A vs FSE/AJ SALESIANA\nENCONTROS DISTRITAIS BENJAMI
+ NS - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/j
+ ogo/10001\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/10001
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +74,11 @@ UID:jogo-10006@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T150000Z
 DTEND:20261031T163000Z
-SUMMARY:AD OEIRAS A vs AE FISICA D A
+SUMMARY:AD OEIRAS A (fora)
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10006\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AD OEIRAS A vs AE FISICA D A\nENCONTROS DISTRITAIS BENJAMINS - 
+ 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/1
+ 0006\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10006
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +86,11 @@ UID:jogo-10011@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T113000Z
 DTEND:20261107T130000Z
-SUMMARY:AE FISICA D A vs SC TORRES
+SUMMARY:SC TORRES (casa)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10011\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE FISICA D A vs SC TORRES\nENCONTROS DISTRITAIS BENJAMINS - 1
+ ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10
+ 011\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10011
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +98,11 @@ UID:jogo-10015@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T113000Z
 DTEND:20261114T130000Z
-SUMMARY:AE FISICA D A vs HC SINTRA
+SUMMARY:HC SINTRA (casa)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10015\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE FISICA D A vs HC SINTRA\nENCONTROS DISTRITAIS BENJAMINS - 1
+ ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10
+ 015\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10015
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +110,12 @@ UID:jogo-10020@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T133000Z
 DTEND:20261121T150000Z
-SUMMARY:CD PAÇO ARCOS A vs AE FISICA D A
+SUMMARY:CD PAÇO ARCOS A (fora)
 LOCATION:PAV. PAÇO DE ARCOS
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10020\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CD PAÇO ARCOS A vs AE FISICA D A\nENCONTROS DISTRITAIS BENJAMI
+ NS - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/j
+ ogo/10020\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/10020
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +123,11 @@ UID:jogo-10024@hoquei.pages.dev
 DTSTAMP:20261128T000000Z
 DTSTART:20261128T113000Z
 DTEND:20261128T130000Z
-SUMMARY:AE FISICA D A vs A STUART HCM
+SUMMARY:A STUART HCM (casa)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10024\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE FISICA D A vs A STUART HCM\nENCONTROS DISTRITAIS BENJAMINS -
+  1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/
+ 10024\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10024
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +135,11 @@ UID:jogo-10028@hoquei.pages.dev
 DTSTAMP:20261201T000000Z
 DTSTART:20261201T100000Z
 DTEND:20261201T113000Z
-SUMMARY:AE FISICA D A vs CACO A
+SUMMARY:CACO A (casa)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10028\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE FISICA D A vs CACO A\nENCONTROS DISTRITAIS BENJAMINS - 1ª F
+ ASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10028\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10028
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +147,12 @@ UID:jogo-10029@hoquei.pages.dev
 DTSTAMP:20261205T000000Z
 DTSTART:20261205T150000Z
 DTEND:20261205T163000Z
-SUMMARY:FSE/AJ SALESIANA vs AE FISICA D A
+SUMMARY:FSE/AJ SALESIANA (fora)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10029\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ SALESIANA vs AE FISICA D A\nENCONTROS DISTRITAIS BENJAMI
+ NS - 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/j
+ ogo/10029\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/10029
 END:VEVENT
 BEGIN:VEVENT
@@ -157,11 +160,11 @@ UID:jogo-10034@hoquei.pages.dev
 DTSTAMP:20261208T000000Z
 DTSTART:20261208T100000Z
 DTEND:20261208T113000Z
-SUMMARY:AE FISICA D A vs AD OEIRAS A
+SUMMARY:AD OEIRAS A (casa)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10034\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE FISICA D A vs AD OEIRAS A\nENCONTROS DISTRITAIS BENJAMINS - 
+ 1ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/1
+ 0034\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10034
 END:VEVENT
 BEGIN:VEVENT
@@ -169,11 +172,11 @@ UID:jogo-10039@hoquei.pages.dev
 DTSTAMP:20261212T000000Z
 DTSTART:20261212T144500Z
 DTEND:20261212T161500Z
-SUMMARY:SC TORRES vs AE FISICA D A
+SUMMARY:SC TORRES (fora)
 LOCATION:PAV. SC TORRES
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I · Série A 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10039\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SC TORRES vs AE FISICA D A\nENCONTROS DISTRITAIS BENJAMINS - 1
+ ª FASE NIVEL I · Série A · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10
+ 039\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10039
 END:VEVENT
 END:VCALENDAR

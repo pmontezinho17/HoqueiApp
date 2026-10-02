@@ -13,10 +13,11 @@ UID:jogo-9351@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T103000Z
 DTEND:20260913T120000Z
-SUMMARY:SL BENFICA 7–2 PAREDE FC
+SUMMARY:PAREDE FC (casa) 7–2
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:SUPERTAÇA APL SUB-19 · SUB-19\nhttps://hoquei.pages.dev/jogo/
- 9351\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL BENFICA 7–2 PAREDE FC\nSUPERTAÇA APL SUB-19 · SUB-19\nht
+ tps://hoquei.pages.dev/jogo/9351\nDados da Associação de Patinagem de Li
+ sboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9351
 END:VEVENT
 BEGIN:VEVENT
@@ -24,10 +25,11 @@ UID:jogo-9353@hoquei.pages.dev
 DTSTAMP:20260920T000000Z
 DTSTART:20260920T171500Z
 DTEND:20260920T184500Z
-SUMMARY:SL BENFICA 4–3 SPORTING CP
+SUMMARY:SPORTING CP (casa) 4–3
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:SUPERTAÇA APL SUB-19 · SUB-19\nhttps://hoquei.pages.dev/jogo/
- 9353\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL BENFICA 4–3 SPORTING CP\nSUPERTAÇA APL SUB-19 · SUB-19\n
+ https://hoquei.pages.dev/jogo/9353\nDados da Associação de Patinagem de 
+ Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9353
 END:VEVENT
 BEGIN:VEVENT
@@ -35,11 +37,11 @@ UID:jogo-9806@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T153000Z
 DTEND:20261018T170000Z
-SUMMARY:HC LOURINHÃ vs SL BENFICA
+SUMMARY:HC LOURINHÃ (fora)
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9806\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:HC LOURINHÃ vs SL BENFICA\nCAMP. REG. SUB-19 - 1ª FASE · Sé
+ rie A · SUB-19\nhttps://hoquei.pages.dev/jogo/9806\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9806
 END:VEVENT
 BEGIN:VEVENT
@@ -47,11 +49,11 @@ UID:jogo-9804@hoquei.pages.dev
 DTSTAMP:20261022T000000Z
 DTSTART:20261022T203000Z
 DTEND:20261022T220000Z
-SUMMARY:SL BENFICA vs UD VILAFRANQUENSE
+SUMMARY:UD VILAFRANQUENSE (casa)
 LOCATION:PAV. MURCHES
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9804\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SL BENFICA vs UD VILAFRANQUENSE\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9804\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9804
 END:VEVENT
 BEGIN:VEVENT
@@ -59,11 +61,11 @@ UID:jogo-9810@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T150000Z
 DTEND:20261025T163000Z
-SUMMARY:SL BENFICA vs BIBLIOTECA IR
+SUMMARY:BIBLIOTECA IR (casa)
 LOCATION:PAV. VALADO DE FRADES
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9810\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SL BENFICA vs BIBLIOTECA IR\nCAMP. REG. SUB-19 - 1ª FASE · S
+ érie A · SUB-19\nhttps://hoquei.pages.dev/jogo/9810\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9810
 END:VEVENT
 BEGIN:VEVENT
@@ -71,11 +73,11 @@ UID:jogo-9814@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T160000Z
 DTEND:20261101T173000Z
-SUMMARY:SL BENFICA vs HC TURQUEL
+SUMMARY:HC TURQUEL (casa)
 LOCATION:PAV. MURCHES
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9814\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SL BENFICA vs HC TURQUEL\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e A · SUB-19\nhttps://hoquei.pages.dev/jogo/9814\nDados da Associação d
+ e Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9814
 END:VEVENT
 BEGIN:VEVENT
@@ -83,11 +85,11 @@ UID:jogo-9817@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T180000Z
 DTEND:20261108T193000Z
-SUMMARY:S ALENQUER BENFICA vs SL BENFICA
+SUMMARY:S ALENQUER BENFICA (fora)
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9817\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:S ALENQUER BENFICA vs SL BENFICA\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9817\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9817
 END:VEVENT
 BEGIN:VEVENT
@@ -95,11 +97,11 @@ UID:jogo-9819@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T143000Z
 DTEND:20261115T160000Z
-SUMMARY:UD VILAFRANQUENSE vs SL BENFICA
+SUMMARY:UD VILAFRANQUENSE (fora)
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9819\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:UD VILAFRANQUENSE vs SL BENFICA\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9819\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9819
 END:VEVENT
 BEGIN:VEVENT
@@ -107,11 +109,11 @@ UID:jogo-9821@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T184500Z
 DTEND:20261122T201500Z
-SUMMARY:SL BENFICA vs HC LOURINHÃ
+SUMMARY:HC LOURINHÃ (casa)
 LOCATION:PAV. MURCHES
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9821\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SL BENFICA vs HC LOURINHÃ\nCAMP. REG. SUB-19 - 1ª FASE · Sé
+ rie A · SUB-19\nhttps://hoquei.pages.dev/jogo/9821\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9821
 END:VEVENT
 BEGIN:VEVENT
@@ -119,11 +121,11 @@ UID:jogo-9825@hoquei.pages.dev
 DTSTAMP:20261129T000000Z
 DTSTART:20261129T110000Z
 DTEND:20261129T123000Z
-SUMMARY:BIBLIOTECA IR vs SL BENFICA
+SUMMARY:BIBLIOTECA IR (fora)
 LOCATION:PAV. MURCHES
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9825\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:BIBLIOTECA IR vs SL BENFICA\nCAMP. REG. SUB-19 - 1ª FASE · S
+ érie A · SUB-19\nhttps://hoquei.pages.dev/jogo/9825\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9825
 END:VEVENT
 BEGIN:VEVENT
@@ -131,11 +133,11 @@ UID:jogo-9829@hoquei.pages.dev
 DTSTAMP:20261201T000000Z
 DTSTART:20261201T163000Z
 DTEND:20261201T180000Z
-SUMMARY:HC TURQUEL vs SL BENFICA
+SUMMARY:HC TURQUEL (fora)
 LOCATION:PAV. HC TURQUEL
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9829\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:HC TURQUEL vs SL BENFICA\nCAMP. REG. SUB-19 - 1ª FASE · Séri
+ e A · SUB-19\nhttps://hoquei.pages.dev/jogo/9829\nDados da Associação d
+ e Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9829
 END:VEVENT
 BEGIN:VEVENT
@@ -143,11 +145,11 @@ UID:jogo-9832@hoquei.pages.dev
 DTSTAMP:20261206T000000Z
 DTSTART:20261206T163000Z
 DTEND:20261206T180000Z
-SUMMARY:SL BENFICA vs S ALENQUER BENFICA
+SUMMARY:S ALENQUER BENFICA (casa)
 LOCATION:PAV. MURCHES
-DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
- uei.pages.dev/jogo/9832\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SL BENFICA vs S ALENQUER BENFICA\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série A · SUB-19\nhttps://hoquei.pages.dev/jogo/9832\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9832
 END:VEVENT
 END:VCALENDAR

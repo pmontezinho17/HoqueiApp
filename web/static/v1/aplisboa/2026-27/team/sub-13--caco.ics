@@ -13,10 +13,11 @@ UID:jogo-9343@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T190000Z
 DTEND:20260912T203000Z
-SUMMARY:SPORTING CP 3–4 CACO
+SUMMARY:SPORTING CP (fora) 4–3
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:SUPERTAÇA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev/jogo/
- 9343\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SPORTING CP 3–4 CACO\nSUPERTAÇA APL SUB-13 · SUB-13\nhttps:
+ //hoquei.pages.dev/jogo/9343\nDados da Associação de Patinagem de Lisboa
+ . Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9343
 END:VEVENT
 BEGIN:VEVENT
@@ -24,10 +25,11 @@ UID:jogo-9344@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T153000Z
 DTEND:20260919T170000Z
-SUMMARY:SL BENFICA 8–0 CACO
+SUMMARY:SL BENFICA (fora) 0–8
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:SUPERTAÇA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev/jogo/
- 9344\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL BENFICA 8–0 CACO\nSUPERTAÇA APL SUB-13 · SUB-13\nhttps:/
+ /hoquei.pages.dev/jogo/9344\nDados da Associação de Patinagem de Lisboa.
+  Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9344
 END:VEVENT
 END:VCALENDAR

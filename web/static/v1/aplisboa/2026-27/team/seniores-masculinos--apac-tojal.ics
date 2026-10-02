@@ -13,11 +13,11 @@ UID:jogo-9301@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T160000Z
 DTEND:20260919T173000Z
-SUMMARY:APAC TOJAL 0–2 SL BENFICA
+SUMMARY:SL BENFICA (casa) 0–2
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:TAÇA JESUS CORREIA - SENIORES MASCULINOS · SENIORES MASCULINO
- S\nhttps://hoquei.pages.dev/jogo/9301\nDados da Associação de Patinagem 
- de Lisboa. Site não oficial.
+DESCRIPTION:APAC TOJAL 0–2 SL BENFICA\nTAÇA JESUS CORREIA - SENIORES MAS
+ CULINOS · SENIORES MASCULINOS\nhttps://hoquei.pages.dev/jogo/9301\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9301
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9303@hoquei.pages.dev
 DTSTAMP:20260925T000000Z
 DTSTART:20260925T203000Z
 DTEND:20260925T220000Z
-SUMMARY:APAC TOJAL 3–4 PAREDE FC
+SUMMARY:PAREDE FC (casa) 3–4
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:TAÇA JESUS CORREIA - SENIORES MASCULINOS · SENIORES MASCULINO
- S\nhttps://hoquei.pages.dev/jogo/9303\nDados da Associação de Patinagem 
- de Lisboa. Site não oficial.
+DESCRIPTION:APAC TOJAL 3–4 PAREDE FC\nTAÇA JESUS CORREIA - SENIORES MASC
+ ULINOS · SENIORES MASCULINOS\nhttps://hoquei.pages.dev/jogo/9303\nDados d
+ a Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9303
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9305@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T183000Z
 DTEND:20261003T200000Z
-SUMMARY:A STUART HCM vs APAC TOJAL
+SUMMARY:A STUART HCM (fora)
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:TAÇA JESUS CORREIA - SENIORES MASCULINOS · SENIORES MASCULINO
- S\nhttps://hoquei.pages.dev/jogo/9305\nDados da Associação de Patinagem 
- de Lisboa. Site não oficial.
+DESCRIPTION:A STUART HCM vs APAC TOJAL\nTAÇA JESUS CORREIA - SENIORES MASC
+ ULINOS · SENIORES MASCULINOS\nhttps://hoquei.pages.dev/jogo/9305\nDados d
+ a Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9305
 END:VEVENT
 END:VCALENDAR

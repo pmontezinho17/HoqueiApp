@@ -13,11 +13,11 @@ UID:jogo-9307@hoquei.pages.dev
 DTSTAMP:20260923T000000Z
 DTSTART:20260923T204500Z
 DTEND:20260923T221500Z
-SUMMARY:HC LOURINHA 2–4 AD OEIRAS
+SUMMARY:HC LOURINHA (fora) 4–2
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:TAÇA JESUS CORREIA - SENIORES MASCULINOS · SENIORES MASCULINO
- S\nhttps://hoquei.pages.dev/jogo/9307\nDados da Associação de Patinagem 
- de Lisboa. Site não oficial.
+DESCRIPTION:HC LOURINHA 2–4 AD OEIRAS\nTAÇA JESUS CORREIA - SENIORES MAS
+ CULINOS · SENIORES MASCULINOS\nhttps://hoquei.pages.dev/jogo/9307\nDados 
+ da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9307
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9309@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T150000Z
 DTEND:20260927T163000Z
-SUMMARY:FSE/AJ SALESIANA 1–2 AD OEIRAS
+SUMMARY:FSE/AJ SALESIANA (fora) 2–1
 LOCATION:PAV. SALESIANA
-DESCRIPTION:TAÇA JESUS CORREIA - SENIORES MASCULINOS · SENIORES MASCULINO
- S\nhttps://hoquei.pages.dev/jogo/9309\nDados da Associação de Patinagem 
- de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ SALESIANA 1–2 AD OEIRAS\nTAÇA JESUS CORREIA - SENIORE
+ S MASCULINOS · SENIORES MASCULINOS\nhttps://hoquei.pages.dev/jogo/9309\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9309
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9311@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T150000Z
 DTEND:20261003T163000Z
-SUMMARY:GRF MURCHES vs AD OEIRAS
+SUMMARY:GRF MURCHES (fora)
 LOCATION:PAV. MURCHES
-DESCRIPTION:TAÇA JESUS CORREIA - SENIORES MASCULINOS · SENIORES MASCULINO
- S\nhttps://hoquei.pages.dev/jogo/9311\nDados da Associação de Patinagem 
- de Lisboa. Site não oficial.
+DESCRIPTION:GRF MURCHES vs AD OEIRAS\nTAÇA JESUS CORREIA - SENIORES MASCUL
+ INOS · SENIORES MASCULINOS\nhttps://hoquei.pages.dev/jogo/9311\nDados da 
+ Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9311
 END:VEVENT
 END:VCALENDAR

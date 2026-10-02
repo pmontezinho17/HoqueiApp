@@ -13,10 +13,11 @@ UID:jogo-9346@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T143000Z
 DTEND:20260913T160000Z
-SUMMARY:SL BENFICA 3–0 CACO
+SUMMARY:SL BENFICA (fora) 0–3
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:SUPERTAÇA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev/jogo/
- 9346\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SL BENFICA 3–0 CACO\nSUPERTAÇA APL SUB-15 · SUB-15\nhttps:/
+ /hoquei.pages.dev/jogo/9346\nDados da Associação de Patinagem de Lisboa.
+  Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9346
 END:VEVENT
 BEGIN:VEVENT
@@ -24,11 +25,11 @@ UID:jogo-9400@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T104500Z
 DTEND:20260919T121500Z
-SUMMARY:CD PAÇO ARCOS B 2–1 CACO
+SUMMARY:CD PAÇO ARCOS B (fora) 1–2
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:TORNEIO ABERTURA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev
- /jogo/9400\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:CD PAÇO ARCOS B 2–1 CACO\nTORNEIO ABERTURA APL SUB-15 · SUB
+ -15\nhttps://hoquei.pages.dev/jogo/9400\nDados da Associação de Patinage
+ m de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9400
 END:VEVENT
 BEGIN:VEVENT
@@ -36,11 +37,11 @@ UID:jogo-9615@hoquei.pages.dev
 DTSTAMP:20261004T000000Z
 DTSTART:20261004T134500Z
 DTEND:20261004T151500Z
-SUMMARY:SPORTING CP B vs CACO
+SUMMARY:SPORTING CP B (fora)
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9615\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SPORTING CP B vs CACO\nCAMP. REG. SUB-15 - 1ª FASE · Série C
+  · SUB-15\nhttps://hoquei.pages.dev/jogo/9615\nDados da Associação de P
+ atinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9615
 END:VEVENT
 BEGIN:VEVENT
@@ -48,11 +49,11 @@ UID:jogo-9618@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T133000Z
 DTEND:20261011T150000Z
-SUMMARY:CACO vs A STUART HCM B
+SUMMARY:A STUART HCM B (casa)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9618\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CACO vs A STUART HCM B\nCAMP. REG. SUB-15 - 1ª FASE · Série 
+ C · SUB-15\nhttps://hoquei.pages.dev/jogo/9618\nDados da Associação de 
+ Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9618
 END:VEVENT
 BEGIN:VEVENT
@@ -60,11 +61,11 @@ UID:jogo-9620@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T144500Z
 DTEND:20261018T161500Z
-SUMMARY:CACO vs HC LOURINHÃ
+SUMMARY:HC LOURINHÃ (casa)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9620\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CACO vs HC LOURINHÃ\nCAMP. REG. SUB-15 - 1ª FASE · Série C 
+ · SUB-15\nhttps://hoquei.pages.dev/jogo/9620\nDados da Associação de Pa
+ tinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9620
 END:VEVENT
 BEGIN:VEVENT
@@ -72,11 +73,11 @@ UID:jogo-9622@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T111500Z
 DTEND:20261025T124500Z
-SUMMARY:AE FISICA D A vs CACO
+SUMMARY:AE FISICA D A (fora)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9622\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AE FISICA D A vs CACO\nCAMP. REG. SUB-15 - 1ª FASE · Série C
+  · SUB-15\nhttps://hoquei.pages.dev/jogo/9622\nDados da Associação de P
+ atinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9622
 END:VEVENT
 BEGIN:VEVENT
@@ -84,11 +85,11 @@ UID:jogo-9625@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T173000Z
 DTEND:20261101T190000Z
-SUMMARY:CACO vs SPORTING CP B
+SUMMARY:SPORTING CP B (casa)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9625\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CACO vs SPORTING CP B\nCAMP. REG. SUB-15 - 1ª FASE · Série C
+  · SUB-15\nhttps://hoquei.pages.dev/jogo/9625\nDados da Associação de P
+ atinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9625
 END:VEVENT
 BEGIN:VEVENT
@@ -96,11 +97,11 @@ UID:jogo-9628@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T161500Z
 DTEND:20261108T174500Z
-SUMMARY:A STUART HCM B vs CACO
+SUMMARY:A STUART HCM B (fora)
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9628\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:A STUART HCM B vs CACO\nCAMP. REG. SUB-15 - 1ª FASE · Série 
+ C · SUB-15\nhttps://hoquei.pages.dev/jogo/9628\nDados da Associação de 
+ Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9628
 END:VEVENT
 BEGIN:VEVENT
@@ -108,11 +109,11 @@ UID:jogo-9630@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T150000Z
 DTEND:20261115T163000Z
-SUMMARY:HC LOURINHÃ vs CACO
+SUMMARY:HC LOURINHÃ (fora)
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9630\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:HC LOURINHÃ vs CACO\nCAMP. REG. SUB-15 - 1ª FASE · Série C 
+ · SUB-15\nhttps://hoquei.pages.dev/jogo/9630\nDados da Associação de Pa
+ tinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9630
 END:VEVENT
 BEGIN:VEVENT
@@ -120,11 +121,11 @@ UID:jogo-9632@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T144500Z
 DTEND:20261122T161500Z
-SUMMARY:CACO vs AE FISICA D A
+SUMMARY:AE FISICA D A (casa)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
- uei.pages.dev/jogo/9632\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CACO vs AE FISICA D A\nCAMP. REG. SUB-15 - 1ª FASE · Série C
+  · SUB-15\nhttps://hoquei.pages.dev/jogo/9632\nDados da Associação de P
+ atinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9632
 END:VEVENT
 END:VCALENDAR

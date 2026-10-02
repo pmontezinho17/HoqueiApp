@@ -13,11 +13,11 @@ UID:jogo-9358@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T111500Z
 DTEND:20260912T124500Z
-SUMMARY:CRIAR-T GD 3–4 PAREDE FC B
+SUMMARY:PAREDE FC B (casa) 3–4
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
- /jogo/9358\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:CRIAR-T GD 3–4 PAREDE FC B\nTORNEIO ABERTURA APL SUB-13 · SU
+ B-13\nhttps://hoquei.pages.dev/jogo/9358\nDados da Associação de Patinag
+ em de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9358
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9359@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T144500Z
 DTEND:20260912T161500Z
-SUMMARY:SPORTING CP B 5–1 CRIAR-T GD
+SUMMARY:SPORTING CP B (fora) 1–5
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
- /jogo/9359\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:SPORTING CP B 5–1 CRIAR-T GD\nTORNEIO ABERTURA APL SUB-13 · 
+ SUB-13\nhttps://hoquei.pages.dev/jogo/9359\nDados da Associação de Patin
+ agem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9359
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9374@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T104500Z
 DTEND:20260919T121500Z
-SUMMARY:CRIAR-T GD 0–2 PAREDE FC A
+SUMMARY:PAREDE FC A (casa) 0–2
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
- /jogo/9374\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:CRIAR-T GD 0–2 PAREDE FC A\nTORNEIO ABERTURA APL SUB-13 · SU
+ B-13\nhttps://hoquei.pages.dev/jogo/9374\nDados da Associação de Patinag
+ em de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9374
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9483@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T153000Z
 DTEND:20260926T170000Z
-SUMMARY:SL BENFICA 14–1 CRIAR-T GD
+SUMMARY:SL BENFICA (fora) 1–14
 LOCATION:PAV. MURCHES
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série B · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9483\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SL BENFICA 14–1 CRIAR-T GD\nCAMP. REG. SUB-13 - 1ª FASE · S
+ érie B · SUB-13\nhttps://hoquei.pages.dev/jogo/9483\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9483
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9485@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T140000Z
 DTEND:20261003T153000Z
-SUMMARY:CRIAR-T GD vs UD VILAFRANQUENSE
+SUMMARY:UD VILAFRANQUENSE (casa)
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série B · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9485\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CRIAR-T GD vs UD VILAFRANQUENSE\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série B · SUB-13\nhttps://hoquei.pages.dev/jogo/9485\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9485
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9487@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T153000Z
 DTEND:20261010T170000Z
-SUMMARY:HC LOURINHÃ vs CRIAR-T GD
+SUMMARY:HC LOURINHÃ (fora)
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série B · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9487\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:HC LOURINHÃ vs CRIAR-T GD\nCAMP. REG. SUB-13 - 1ª FASE · Sé
+ rie B · SUB-13\nhttps://hoquei.pages.dev/jogo/9487\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9487
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9489@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T140000Z
 DTEND:20261017T153000Z
-SUMMARY:CRIAR-T GD vs S ALENQUER BENFICA
+SUMMARY:S ALENQUER BENFICA (casa)
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série B · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9489\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CRIAR-T GD vs S ALENQUER BENFICA\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série B · SUB-13\nhttps://hoquei.pages.dev/jogo/9489\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9489
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9493@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T140000Z
 DTEND:20261024T153000Z
-SUMMARY:CRIAR-T GD vs SL BENFICA
+SUMMARY:SL BENFICA (casa)
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série B · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9493\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CRIAR-T GD vs SL BENFICA\nCAMP. REG. SUB-13 - 1ª FASE · Séri
+ e B · SUB-13\nhttps://hoquei.pages.dev/jogo/9493\nDados da Associação d
+ e Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9493
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9495@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T143000Z
 DTEND:20261031T160000Z
-SUMMARY:UD VILAFRANQUENSE vs CRIAR-T GD
+SUMMARY:UD VILAFRANQUENSE (fora)
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série B · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9495\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:UD VILAFRANQUENSE vs CRIAR-T GD\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série B · SUB-13\nhttps://hoquei.pages.dev/jogo/9495\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9495
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9497@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T150000Z
 DTEND:20261107T163000Z
-SUMMARY:CRIAR-T GD vs HC LOURINHÃ
+SUMMARY:HC LOURINHÃ (casa)
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série B · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9497\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CRIAR-T GD vs HC LOURINHÃ\nCAMP. REG. SUB-13 - 1ª FASE · Sé
+ rie B · SUB-13\nhttps://hoquei.pages.dev/jogo/9497\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9497
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +133,11 @@ UID:jogo-9499@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T170000Z
 DTEND:20261114T183000Z
-SUMMARY:S ALENQUER BENFICA vs CRIAR-T GD
+SUMMARY:S ALENQUER BENFICA (fora)
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série B · SUB-13\nhttps://hoq
- uei.pages.dev/jogo/9499\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:S ALENQUER BENFICA vs CRIAR-T GD\nCAMP. REG. SUB-13 - 1ª FASE 
+ · Série B · SUB-13\nhttps://hoquei.pages.dev/jogo/9499\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9499
 END:VEVENT
 END:VCALENDAR

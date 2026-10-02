@@ -13,10 +13,11 @@ UID:jogo-9348@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T094500Z
 DTEND:20260912T111500Z
-SUMMARY:SPORTING CP 4–3 SL BENFICA
+SUMMARY:SPORTING CP (fora) 3–4
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:SUPERTAÇA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev/jogo/
- 9348\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SPORTING CP 4–3 SL BENFICA\nSUPERTAÇA APL SUB-17 · SUB-17\n
+ https://hoquei.pages.dev/jogo/9348\nDados da Associação de Patinagem de 
+ Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9348
 END:VEVENT
 BEGIN:VEVENT
@@ -24,11 +25,11 @@ UID:jogo-9422@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T100000Z
 DTEND:20260919T113000Z
-SUMMARY:SL BENFICA 5–1 S ALENQUER BENFICA
+SUMMARY:S ALENQUER BENFICA (casa) 5–1
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev
- /jogo/9422\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:SL BENFICA 5–1 S ALENQUER BENFICA\nTORNEIO ABERTURA APL SUB-1
+ 7 · SUB-17\nhttps://hoquei.pages.dev/jogo/9422\nDados da Associação de 
+ Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9422
 END:VEVENT
 BEGIN:VEVENT
@@ -36,11 +37,11 @@ UID:jogo-9426@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T163000Z
 DTEND:20260919T180000Z
-SUMMARY:SL BENFICA 11–0 CD PAÇO ARCOS B
+SUMMARY:CD PAÇO ARCOS B (casa) 11–0
 LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev
- /jogo/9426\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:SL BENFICA 11–0 CD PAÇO ARCOS B\nTORNEIO ABERTURA APL SUB-17
+  · SUB-17\nhttps://hoquei.pages.dev/jogo/9426\nDados da Associação de P
+ atinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9426
 END:VEVENT
 BEGIN:VEVENT
@@ -48,11 +49,11 @@ UID:jogo-9428@hoquei.pages.dev
 DTSTAMP:20260920T000000Z
 DTSTART:20260920T113000Z
 DTEND:20260920T130000Z
-SUMMARY:SL BENFICA 2–1 AD OEIRAS A
+SUMMARY:AD OEIRAS A (casa) 2–1
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:TORNEIO ABERTURA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev
- /jogo/9428\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:SL BENFICA 2–1 AD OEIRAS A\nTORNEIO ABERTURA APL SUB-17 · SU
+ B-17\nhttps://hoquei.pages.dev/jogo/9428\nDados da Associação de Patinag
+ em de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9428
 END:VEVENT
 END:VCALENDAR

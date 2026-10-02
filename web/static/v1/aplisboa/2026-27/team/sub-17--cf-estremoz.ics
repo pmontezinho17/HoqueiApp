@@ -13,11 +13,11 @@ UID:jogo-9783@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T110000Z
 DTEND:20260926T123000Z
-SUMMARY:HC PORTIMÃO 2–0 CF ESTREMOZ
+SUMMARY:HC PORTIMÃO (fora) 0–2
 LOCATION:PAV. MONTES ALVOR
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série F · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9783\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:HC PORTIMÃO 2–0 CF ESTREMOZ\nCAMP. REG. SUB-17 - 1ª FASE ·
+  Série F · SUB-17\nhttps://hoquei.pages.dev/jogo/9783\nDados da Associa
+ ção de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9783
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9785@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T140000Z
 DTEND:20261003T153000Z
-SUMMARY:CF ESTREMOZ vs FC CASTRENSE
+SUMMARY:FC CASTRENSE (casa)
 LOCATION:PAV. ESTREMOZ
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série F · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9785\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CF ESTREMOZ vs FC CASTRENSE\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie F · SUB-17\nhttps://hoquei.pages.dev/jogo/9785\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9785
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9789@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T140000Z
 DTEND:20261011T153000Z
-SUMMARY:CF ESTREMOZ vs CD BOLIQUEIME
+SUMMARY:CD BOLIQUEIME (casa)
 LOCATION:PAV. ESTREMOZ
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série F · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9789\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CF ESTREMOZ vs CD BOLIQUEIME\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie F · SUB-17\nhttps://hoquei.pages.dev/jogo/9789\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9789
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9791@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T163000Z
 DTEND:20261017T180000Z
-SUMMARY:HC VASCO GAMA vs CF ESTREMOZ
+SUMMARY:HC VASCO GAMA (fora)
 LOCATION:PAV. SINES
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série F · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9791\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:HC VASCO GAMA vs CF ESTREMOZ\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie F · SUB-17\nhttps://hoquei.pages.dev/jogo/9791\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9791
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9793@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T110000Z
 DTEND:20261024T123000Z
-SUMMARY:CF ESTREMOZ vs HC PORTIMÃO
+SUMMARY:HC PORTIMÃO (casa)
 LOCATION:PAV. ESTREMOZ
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série F · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9793\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CF ESTREMOZ vs HC PORTIMÃO\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie F · SUB-17\nhttps://hoquei.pages.dev/jogo/9793\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9793
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9795@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T150000Z
 DTEND:20261031T163000Z
-SUMMARY:FC CASTRENSE vs CF ESTREMOZ
+SUMMARY:FC CASTRENSE (fora)
 LOCATION:PAV. MUN. ANTONIO DOS ANJOS
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série F · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9795\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:FC CASTRENSE vs CF ESTREMOZ\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie F · SUB-17\nhttps://hoquei.pages.dev/jogo/9795\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9795
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9799@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T170000Z
 DTEND:20261114T183000Z
-SUMMARY:CD BOLIQUEIME vs CF ESTREMOZ
+SUMMARY:CD BOLIQUEIME (fora)
 LOCATION:PAV. BOLIQUEIME
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série F · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9799\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CD BOLIQUEIME vs CF ESTREMOZ\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie F · SUB-17\nhttps://hoquei.pages.dev/jogo/9799\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9799
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9801@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T163000Z
 DTEND:20261121T180000Z
-SUMMARY:CF ESTREMOZ vs HC VASCO GAMA
+SUMMARY:HC VASCO GAMA (casa)
 LOCATION:PAV. ESTREMOZ
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série F · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9801\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CF ESTREMOZ vs HC VASCO GAMA\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie F · SUB-17\nhttps://hoquei.pages.dev/jogo/9801\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9801
 END:VEVENT
 END:VCALENDAR

@@ -13,11 +13,11 @@ UID:jogo-9407@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T083000Z
 DTEND:20260912T100000Z
-SUMMARY:AD OEIRAS A 12–2 AE FISICA B
+SUMMARY:AD OEIRAS A (fora) 2–12
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:TORNEIO ABERTURA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev
- /jogo/9407\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AD OEIRAS A 12–2 AE FISICA B\nTORNEIO ABERTURA APL SUB-17 · 
+ SUB-17\nhttps://hoquei.pages.dev/jogo/9407\nDados da Associação de Patin
+ agem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9407
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9409@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T150000Z
 DTEND:20260912T163000Z
-SUMMARY:AE FISICA B 5–0 FSE/AJ SALESIANA B
+SUMMARY:FSE/AJ SALESIANA B (casa) 5–0
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:TORNEIO ABERTURA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev
- /jogo/9409\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:AE FISICA B 5–0 FSE/AJ SALESIANA B\nTORNEIO ABERTURA APL SUB-
+ 17 · SUB-17\nhttps://hoquei.pages.dev/jogo/9409\nDados da Associação de
+  Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9409
 END:VEVENT
 END:VCALENDAR

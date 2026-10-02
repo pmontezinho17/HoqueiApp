@@ -13,10 +13,11 @@ UID:jogo-9343@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T190000Z
 DTEND:20260912T203000Z
-SUMMARY:SPORTING CP 3–4 CACO
+SUMMARY:CACO (casa) 3–4
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:SUPERTAÇA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev/jogo/
- 9343\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SPORTING CP 3–4 CACO\nSUPERTAÇA APL SUB-13 · SUB-13\nhttps:
+ //hoquei.pages.dev/jogo/9343\nDados da Associação de Patinagem de Lisboa
+ . Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9343
 END:VEVENT
 BEGIN:VEVENT
@@ -24,11 +25,11 @@ UID:jogo-9375@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T120000Z
 DTEND:20260919T133000Z
-SUMMARY:UD VILAFRANQUENSE 0–4 SPORTING CP
+SUMMARY:UD VILAFRANQUENSE (fora) 4–0
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
- /jogo/9375\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:UD VILAFRANQUENSE 0–4 SPORTING CP\nTORNEIO ABERTURA APL SUB-1
+ 3 · SUB-13\nhttps://hoquei.pages.dev/jogo/9375\nDados da Associação de 
+ Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9375
 END:VEVENT
 BEGIN:VEVENT
@@ -36,11 +37,11 @@ UID:jogo-9377@hoquei.pages.dev
 DTSTAMP:20260919T000000Z
 DTSTART:20260919T164500Z
 DTEND:20260919T181500Z
-SUMMARY:PAREDE FC A 0–4 SPORTING CP
+SUMMARY:PAREDE FC A (fora) 4–0
 LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
- /jogo/9377\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:PAREDE FC A 0–4 SPORTING CP\nTORNEIO ABERTURA APL SUB-13 · S
+ UB-13\nhttps://hoquei.pages.dev/jogo/9377\nDados da Associação de Patina
+ gem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9377
 END:VEVENT
 BEGIN:VEVENT
@@ -48,11 +49,11 @@ UID:jogo-9378@hoquei.pages.dev
 DTSTAMP:20260920T000000Z
 DTSTART:20260920T083000Z
 DTEND:20260920T100000Z
-SUMMARY:CD PAÇO ARCOS A 3–1 SPORTING CP
+SUMMARY:CD PAÇO ARCOS A (fora) 1–3
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
- /jogo/9378\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:CD PAÇO ARCOS A 3–1 SPORTING CP\nTORNEIO ABERTURA APL SUB-13
+  · SUB-13\nhttps://hoquei.pages.dev/jogo/9378\nDados da Associação de P
+ atinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9378
 END:VEVENT
 END:VCALENDAR

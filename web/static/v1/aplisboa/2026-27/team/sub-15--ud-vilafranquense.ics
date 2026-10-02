@@ -13,11 +13,11 @@ UID:jogo-9391@hoquei.pages.dev
 DTSTAMP:20260911T000000Z
 DTSTART:20260911T204500Z
 DTEND:20260911T221500Z
-SUMMARY:HC LOURINHA 2–4 UD VILAFRANQUENSE
+SUMMARY:HC LOURINHA (fora) 4–2
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:TORNEIO ABERTURA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev
- /jogo/9391\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:HC LOURINHA 2–4 UD VILAFRANQUENSE\nTORNEIO ABERTURA APL SUB-1
+ 5 · SUB-15\nhttps://hoquei.pages.dev/jogo/9391\nDados da Associação de 
+ Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9391
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9393@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T080000Z
 DTEND:20260913T093000Z
-SUMMARY:UD VILAFRANQUENSE 0–5 AD OEIRAS A
+SUMMARY:AD OEIRAS A (casa) 0–5
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:TORNEIO ABERTURA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev
- /jogo/9393\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:UD VILAFRANQUENSE 0–5 AD OEIRAS A\nTORNEIO ABERTURA APL SUB-1
+ 5 · SUB-15\nhttps://hoquei.pages.dev/jogo/9393\nDados da Associação de 
+ Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9393
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9395@hoquei.pages.dev
 DTSTAMP:20260913T000000Z
 DTSTART:20260913T154500Z
 DTEND:20260913T171500Z
-SUMMARY:UD VILAFRANQUENSE 2–4 CD PAÇO ARCOS B
+SUMMARY:CD PAÇO ARCOS B (casa) 2–4
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:TORNEIO ABERTURA APL SUB-15 · SUB-15\nhttps://hoquei.pages.dev
- /jogo/9395\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:UD VILAFRANQUENSE 2–4 CD PAÇO ARCOS B\nTORNEIO ABERTURA APL 
+ SUB-15 · SUB-15\nhttps://hoquei.pages.dev/jogo/9395\nDados da Associaçã
+ o de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9395
 END:VEVENT
 END:VCALENDAR

@@ -13,11 +13,11 @@ UID:jogo-9965@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T130000Z
 DTEND:20260927T143000Z
-SUMMARY:FSE/AJ SALESIANA B 4–3 CACO B
+SUMMARY:CACO B (casa) 4–3
 LOCATION:PAV. SALESIANA
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9965\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ SALESIANA B 4–3 CACO B\nENCONTROS DISTRITAIS ESCOLARES
+  - 1ª FASE NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pages.dev/jo
+ go/9965\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9965
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,12 @@ UID:jogo-9970@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T133000Z
 DTEND:20261011T150000Z
-SUMMARY:PAREDE FC B vs FSE/AJ SALESIANA B
+SUMMARY:PAREDE FC B (fora)
 LOCATION:PAV. PAREDE
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9970\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:PAREDE FC B vs FSE/AJ SALESIANA B\nENCONTROS DISTRITAIS ESCOLAR
+ ES - 1ª FASE NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pages.dev/
+ jogo/9970\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/9970
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +38,12 @@ UID:jogo-9972@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T140000Z
 DTEND:20261018T153000Z
-SUMMARY:FSE/AJ SALESIANA B vs AE FISICA D B
+SUMMARY:AE FISICA D B (casa)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9972\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ SALESIANA B vs AE FISICA D B\nENCONTROS DISTRITAIS ESCOL
+ ARES - 1ª FASE NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pages.de
+ v/jogo/9972\nDados da Associação de Patinagem de Lisboa. Site não ofici
+ al.
 URL:https://hoquei.pages.dev/jogo/9972
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +51,12 @@ UID:jogo-9973@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T154500Z
 DTEND:20261025T171500Z
-SUMMARY:UD VILAFRANQUENSE B vs FSE/AJ SALESIANA B
+SUMMARY:UD VILAFRANQUENSE B (fora)
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9973\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD VILAFRANQUENSE B vs FSE/AJ SALESIANA B\nENCONTROS DISTRITAIS
+  ESCOLARES - 1ª FASE NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pa
+ ges.dev/jogo/9973\nDados da Associação de Patinagem de Lisboa. Site não
+  oficial.
 URL:https://hoquei.pages.dev/jogo/9973
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +64,11 @@ UID:jogo-9975@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T143000Z
 DTEND:20261101T160000Z
-SUMMARY:CACO B vs FSE/AJ SALESIANA B
+SUMMARY:CACO B (fora)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9975\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CACO B vs FSE/AJ SALESIANA B\nENCONTROS DISTRITAIS ESCOLARES - 
+ 1ª FASE NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pages.dev/jogo/
+ 9975\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9975
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +76,12 @@ UID:jogo-9980@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T153000Z
 DTEND:20261115T170000Z
-SUMMARY:FSE/AJ SALESIANA B vs PAREDE FC B
+SUMMARY:PAREDE FC B (casa)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9980\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ SALESIANA B vs PAREDE FC B\nENCONTROS DISTRITAIS ESCOLAR
+ ES - 1ª FASE NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pages.dev/
+ jogo/9980\nDados da Associação de Patinagem de Lisboa. Site não oficial
+ .
 URL:https://hoquei.pages.dev/jogo/9980
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +89,12 @@ UID:jogo-9982@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T100000Z
 DTEND:20261122T113000Z
-SUMMARY:AE FISICA D B vs FSE/AJ SALESIANA B
+SUMMARY:AE FISICA D B (fora)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9982\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE FISICA D B vs FSE/AJ SALESIANA B\nENCONTROS DISTRITAIS ESCOL
+ ARES - 1ª FASE NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pages.de
+ v/jogo/9982\nDados da Associação de Patinagem de Lisboa. Site não ofici
+ al.
 URL:https://hoquei.pages.dev/jogo/9982
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +102,12 @@ UID:jogo-9983@hoquei.pages.dev
 DTSTAMP:20261129T000000Z
 DTSTART:20261129T110000Z
 DTEND:20261129T123000Z
-SUMMARY:FSE/AJ SALESIANA B vs UD VILAFRANQUENSE B
+SUMMARY:UD VILAFRANQUENSE B (casa)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II · Série E 
- · ESCOLARES\nhttps://hoquei.pages.dev/jogo/9983\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:FSE/AJ SALESIANA B vs UD VILAFRANQUENSE B\nENCONTROS DISTRITAIS
+  ESCOLARES - 1ª FASE NIVEL II · Série E · ESCOLARES\nhttps://hoquei.pa
+ ges.dev/jogo/9983\nDados da Associação de Patinagem de Lisboa. Site não
+  oficial.
 URL:https://hoquei.pages.dev/jogo/9983
 END:VEVENT
 END:VCALENDAR

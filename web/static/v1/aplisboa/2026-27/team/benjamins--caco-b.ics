@@ -13,11 +13,11 @@ UID:jogo-10062@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T160000Z
 DTEND:20261003T173000Z
-SUMMARY:CACO B vs PAREDE FC
+SUMMARY:PAREDE FC (casa)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II · Série C 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10062\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CACO B vs PAREDE FC\nENCONTROS DISTRITAIS BENJAMINS - 1ª FASE 
+ NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10062\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10062
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-10064@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T100000Z
 DTEND:20261010T113000Z
-SUMMARY:SPORTING CP vs CACO B
+SUMMARY:SPORTING CP (fora)
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II · Série C 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10064\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:SPORTING CP vs CACO B\nENCONTROS DISTRITAIS BENJAMINS - 1ª FAS
+ E NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10064\n
+ Dados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10064
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-10068@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T143000Z
 DTEND:20261017T160000Z
-SUMMARY:CACO B vs UD VILAFRANQUENSE
+SUMMARY:UD VILAFRANQUENSE (casa)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II · Série C 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10068\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CACO B vs UD VILAFRANQUENSE\nENCONTROS DISTRITAIS BENJAMINS - 1
+ ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/1
+ 0068\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10068
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-10072@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T143000Z
 DTEND:20261024T160000Z
-SUMMARY:CACO B vs HC LOURINHÃ
+SUMMARY:HC LOURINHÃ (casa)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II · Série C 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10072\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CACO B vs HC LOURINHÃ\nENCONTROS DISTRITAIS BENJAMINS - 1ª FA
+ SE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10072\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10072
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-10075@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T150000Z
 DTEND:20261031T163000Z
-SUMMARY:APAC TOJAL vs CACO B
+SUMMARY:APAC TOJAL (fora)
 LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II · Série C 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10075\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:APAC TOJAL vs CACO B\nENCONTROS DISTRITAIS BENJAMINS - 1ª FASE
+  NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10075\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10075
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-10077@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T144500Z
 DTEND:20261107T161500Z
-SUMMARY:PAREDE FC vs CACO B
+SUMMARY:PAREDE FC (fora)
 LOCATION:PAV. PAREDE
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II · Série C 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10077\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:PAREDE FC vs CACO B\nENCONTROS DISTRITAIS BENJAMINS - 1ª FASE 
+ NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10077\nDa
+ dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10077
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-10079@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T170000Z
 DTEND:20261114T183000Z
-SUMMARY:CACO B vs SPORTING CP
+SUMMARY:SPORTING CP (casa)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II · Série C 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10079\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CACO B vs SPORTING CP\nENCONTROS DISTRITAIS BENJAMINS - 1ª FAS
+ E NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10079\n
+ Dados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10079
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-10083@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T090000Z
 DTEND:20261121T103000Z
-SUMMARY:UD VILAFRANQUENSE vs CACO B
+SUMMARY:UD VILAFRANQUENSE (fora)
 LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II · Série C 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10083\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:UD VILAFRANQUENSE vs CACO B\nENCONTROS DISTRITAIS BENJAMINS - 1
+ ª FASE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/1
+ 0083\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10083
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-10087@hoquei.pages.dev
 DTSTAMP:20261205T000000Z
 DTSTART:20261205T150000Z
 DTEND:20261205T163000Z
-SUMMARY:HC LOURINHÃ vs CACO B
+SUMMARY:HC LOURINHÃ (fora)
 LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II · Série C 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10087\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:HC LOURINHÃ vs CACO B\nENCONTROS DISTRITAIS BENJAMINS - 1ª FA
+ SE NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10087\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10087
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-10090@hoquei.pages.dev
 DTSTAMP:20261212T000000Z
 DTSTART:20261212T144500Z
 DTEND:20261212T161500Z
-SUMMARY:CACO B vs APAC TOJAL
+SUMMARY:APAC TOJAL (casa)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II · Série C 
- · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10090\nDados da Associação d
- e Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CACO B vs APAC TOJAL\nENCONTROS DISTRITAIS BENJAMINS - 1ª FASE
+  NIVEL II · Série C · BENJAMINS\nhttps://hoquei.pages.dev/jogo/10090\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10090
 END:VEVENT
 END:VCALENDAR

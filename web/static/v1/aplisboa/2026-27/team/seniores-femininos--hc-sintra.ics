@@ -13,11 +13,11 @@ UID:jogo-9322@hoquei.pages.dev
 DTSTAMP:20260920T000000Z
 DTSTART:20260920T153000Z
 DTEND:20260920T170000Z
-SUMMARY:PAREDE FC 2–4 HC SINTRA
+SUMMARY:PAREDE FC (fora) 4–2
 LOCATION:PAV. PAREDE
-DESCRIPTION:TAÇA PROF. JOAO CAMPELO - SENIORES FEMININOS · SENIORES FEMIN
- INOS\nhttps://hoquei.pages.dev/jogo/9322\nDados da Associação de Patinag
- em de Lisboa. Site não oficial.
+DESCRIPTION:PAREDE FC 2–4 HC SINTRA\nTAÇA PROF. JOAO CAMPELO - SENIORES 
+ FEMININOS · SENIORES FEMININOS\nhttps://hoquei.pages.dev/jogo/9322\nDados
+  da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9322
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9324@hoquei.pages.dev
 DTSTAMP:20260927T000000Z
 DTSTART:20260927T170000Z
 DTEND:20260927T183000Z
-SUMMARY:HC SINTRA 2–3 A STRUART HCM
+SUMMARY:A STRUART HCM (casa) 2–3
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:TAÇA PROF. JOAO CAMPELO - SENIORES FEMININOS · SENIORES FEMIN
- INOS\nhttps://hoquei.pages.dev/jogo/9324\nDados da Associação de Patinag
- em de Lisboa. Site não oficial.
+DESCRIPTION:HC SINTRA 2–3 A STRUART HCM\nTAÇA PROF. JOAO CAMPELO - SENIO
+ RES FEMININOS · SENIORES FEMININOS\nhttps://hoquei.pages.dev/jogo/9324\nD
+ ados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9324
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9325@hoquei.pages.dev
 DTSTAMP:20261004T000000Z
 DTSTART:20261004T170000Z
 DTEND:20261004T183000Z
-SUMMARY:CRIAR-T GD vs HC SINTRA
+SUMMARY:CRIAR-T GD (fora)
 LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:TAÇA PROF. JOAO CAMPELO - SENIORES FEMININOS · SENIORES FEMIN
- INOS\nhttps://hoquei.pages.dev/jogo/9325\nDados da Associação de Patinag
- em de Lisboa. Site não oficial.
+DESCRIPTION:CRIAR-T GD vs HC SINTRA\nTAÇA PROF. JOAO CAMPELO - SENIORES FE
+ MININOS · SENIORES FEMININOS\nhttps://hoquei.pages.dev/jogo/9325\nDados d
+ a Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9325
 END:VEVENT
 END:VCALENDAR

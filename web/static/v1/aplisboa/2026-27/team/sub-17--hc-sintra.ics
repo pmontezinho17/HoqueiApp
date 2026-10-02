@@ -13,11 +13,11 @@ UID:jogo-9416@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T094500Z
 DTEND:20260912T111500Z
-SUMMARY:PAREDE FC 3–4 HC SINTRA
+SUMMARY:PAREDE FC (fora) 4–3
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev
- /jogo/9416\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:PAREDE FC 3–4 HC SINTRA\nTORNEIO ABERTURA APL SUB-17 · SUB-1
+ 7\nhttps://hoquei.pages.dev/jogo/9416\nDados da Associação de Patinagem 
+ de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9416
 END:VEVENT
 BEGIN:VEVENT
@@ -25,11 +25,11 @@ UID:jogo-9418@hoquei.pages.dev
 DTSTAMP:20260912T000000Z
 DTSTART:20260912T160000Z
 DTEND:20260912T173000Z
-SUMMARY:HC SINTRA 0–7 CACO A
+SUMMARY:CACO A (casa) 0–7
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:TORNEIO ABERTURA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev
- /jogo/9418\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+DESCRIPTION:HC SINTRA 0–7 CACO A\nTORNEIO ABERTURA APL SUB-17 · SUB-17\n
+ https://hoquei.pages.dev/jogo/9418\nDados da Associação de Patinagem de 
+ Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9418
 END:VEVENT
 BEGIN:VEVENT
@@ -37,11 +37,11 @@ UID:jogo-9753@hoquei.pages.dev
 DTSTAMP:20260926T000000Z
 DTSTART:20260926T153000Z
 DTEND:20260926T170000Z
-SUMMARY:HC SINTRA 0–8 AD OEIRAS B
+SUMMARY:AD OEIRAS B (casa) 0–8
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9753\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:HC SINTRA 0–8 AD OEIRAS B\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie E · SUB-17\nhttps://hoquei.pages.dev/jogo/9753\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9753
 END:VEVENT
 BEGIN:VEVENT
@@ -49,11 +49,11 @@ UID:jogo-9757@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T143000Z
 DTEND:20261003T160000Z
-SUMMARY:CACO B vs HC SINTRA
+SUMMARY:CACO B (fora)
 LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9757\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:CACO B vs HC SINTRA\nCAMP. REG. SUB-17 - 1ª FASE · Série E 
+ · SUB-17\nhttps://hoquei.pages.dev/jogo/9757\nDados da Associação de Pa
+ tinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9757
 END:VEVENT
 BEGIN:VEVENT
@@ -61,11 +61,11 @@ UID:jogo-9760@hoquei.pages.dev
 DTSTAMP:20261005T000000Z
 DTSTART:20261005T150000Z
 DTEND:20261005T163000Z
-SUMMARY:AE FISICA D A vs HC SINTRA
+SUMMARY:AE FISICA D A (fora)
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9760\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AE FISICA D A vs HC SINTRA\nCAMP. REG. SUB-17 - 1ª FASE · Sé
+ rie E · SUB-17\nhttps://hoquei.pages.dev/jogo/9760\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9760
 END:VEVENT
 BEGIN:VEVENT
@@ -73,11 +73,11 @@ UID:jogo-9763@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T153000Z
 DTEND:20261011T170000Z
-SUMMARY:HC SINTRA vs FSE/AJ SALESIANA A
+SUMMARY:FSE/AJ SALESIANA A (casa)
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9763\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:HC SINTRA vs FSE/AJ SALESIANA A\nCAMP. REG. SUB-17 - 1ª FASE 
+ · Série E · SUB-17\nhttps://hoquei.pages.dev/jogo/9763\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9763
 END:VEVENT
 BEGIN:VEVENT
@@ -85,11 +85,11 @@ UID:jogo-9766@hoquei.pages.dev
 DTSTAMP:20261014T000000Z
 DTSTART:20261014T200000Z
 DTEND:20261014T213000Z
-SUMMARY:SPORTING CP A vs HC SINTRA
+SUMMARY:SPORTING CP A (fora)
 LOCATION:PAV.G.S.SACAVENENSE
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9766\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:SPORTING CP A vs HC SINTRA\nCAMP. REG. SUB-17 - 1ª FASE · Sé
+ rie E · SUB-17\nhttps://hoquei.pages.dev/jogo/9766\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9766
 END:VEVENT
 BEGIN:VEVENT
@@ -97,11 +97,11 @@ UID:jogo-9768@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T173000Z
 DTEND:20261024T190000Z
-SUMMARY:AD OEIRAS B vs HC SINTRA
+SUMMARY:AD OEIRAS B (fora)
 LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9768\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:AD OEIRAS B vs HC SINTRA\nCAMP. REG. SUB-17 - 1ª FASE · Séri
+ e E · SUB-17\nhttps://hoquei.pages.dev/jogo/9768\nDados da Associação d
+ e Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9768
 END:VEVENT
 BEGIN:VEVENT
@@ -109,11 +109,11 @@ UID:jogo-9772@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T180000Z
 DTEND:20261031T193000Z
-SUMMARY:HC SINTRA vs CACO B
+SUMMARY:CACO B (casa)
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9772\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:HC SINTRA vs CACO B\nCAMP. REG. SUB-17 - 1ª FASE · Série E 
+ · SUB-17\nhttps://hoquei.pages.dev/jogo/9772\nDados da Associação de Pa
+ tinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9772
 END:VEVENT
 BEGIN:VEVENT
@@ -121,11 +121,11 @@ UID:jogo-9775@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T163000Z
 DTEND:20261107T180000Z
-SUMMARY:HC SINTRA vs AE FISICA D A
+SUMMARY:AE FISICA D A (casa)
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9775\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:HC SINTRA vs AE FISICA D A\nCAMP. REG. SUB-17 - 1ª FASE · Sé
+ rie E · SUB-17\nhttps://hoquei.pages.dev/jogo/9775\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9775
 END:VEVENT
 BEGIN:VEVENT
@@ -133,11 +133,11 @@ UID:jogo-9778@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T201500Z
 DTEND:20261114T214500Z
-SUMMARY:FSE/AJ SALESIANA A vs HC SINTRA
+SUMMARY:FSE/AJ SALESIANA A (fora)
 LOCATION:PAV. SALESIANA
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9778\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:FSE/AJ SALESIANA A vs HC SINTRA\nCAMP. REG. SUB-17 - 1ª FASE 
+ · Série E · SUB-17\nhttps://hoquei.pages.dev/jogo/9778\nDados da Associ
+ ação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9778
 END:VEVENT
 BEGIN:VEVENT
@@ -145,11 +145,11 @@ UID:jogo-9781@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T163000Z
 DTEND:20261121T180000Z
-SUMMARY:HC SINTRA vs SPORTING CP A
+SUMMARY:SPORTING CP A (casa)
 LOCATION:PAV. HC SINTRA
-DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
- uei.pages.dev/jogo/9781\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
+DESCRIPTION:HC SINTRA vs SPORTING CP A\nCAMP. REG. SUB-17 - 1ª FASE · Sé
+ rie E · SUB-17\nhttps://hoquei.pages.dev/jogo/9781\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9781
 END:VEVENT
 END:VCALENDAR

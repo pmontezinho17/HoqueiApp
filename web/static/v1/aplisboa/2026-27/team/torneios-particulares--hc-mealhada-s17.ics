@@ -13,10 +13,11 @@ UID:jogo-9338@hoquei.pages.dev
 DTSTAMP:20260905T000000Z
 DTSTART:20260905T170000Z
 DTEND:20260905T183000Z
-SUMMARY:AE FISICA D B (S17) 3–1 HC MEALHADA (S17)
+SUMMARY:AE FISICA D B (S17) (fora) 1–3
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:ZECA PINTO · TORNEIOS PARTICULARES\nhttps://hoquei.pages.dev/j
- ogo/9338\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE FISICA D B (S17) 3–1 HC MEALHADA (S17)\nZECA PINTO · TORN
+ EIOS PARTICULARES\nhttps://hoquei.pages.dev/jogo/9338\nDados da Associaç
+ ão de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9338
 END:VEVENT
 BEGIN:VEVENT
@@ -24,10 +25,11 @@ UID:jogo-9339@hoquei.pages.dev
 DTSTAMP:20260905T000000Z
 DTSTART:20260905T181500Z
 DTEND:20260905T194500Z
-SUMMARY:AE FISICA D (S17) 9–1 HC MEALHADA (S17)
+SUMMARY:AE FISICA D (S17) (fora) 1–9
 LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:ZECA PINTO · TORNEIOS PARTICULARES\nhttps://hoquei.pages.dev/j
- ogo/9339\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:AE FISICA D (S17) 9–1 HC MEALHADA (S17)\nZECA PINTO · TORNEI
+ OS PARTICULARES\nhttps://hoquei.pages.dev/jogo/9339\nDados da Associação
+  de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9339
 END:VEVENT
 END:VCALENDAR
