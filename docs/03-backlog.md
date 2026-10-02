@@ -552,11 +552,112 @@ Esta fase não é um refactor — é a peça que falta antes das notificações.
 a Fase 9 não acrescenta uma única coisa que o utilizador veja (menos o B9.9). Entra **antes da
 Fase 5**, que depende dela.
 
+### Reforço de 02/10: os escalões sem tabela são o argumento mais forte
+
+> *"se tiveres em consideração todos os escalões abaixo dos Sub-13, como os Escolares,
+> Benjamins e Bambis, estes não têm tabelas de classificação nem tabelas de golos. Um pai que
+> não tenha acesso a esta aplicação tem de andar sempre a fazer contas."*
+
+Confirmado na fonte, e é mais extremo do que o pedido sugere:
+
+| Escalão | Provas | Com tabela | **Sem tabela** | Jogos |
+|---|---|---|---|---|
+| ESCOLARES | 5 | 0 | **5** | 92 |
+| BENJAMINS | 3 | 0 | **3** | 106 |
+| TORNEIOS PARTICULARES | 2 | 0 | **2** | 20 |
+
+**198 jogos sem uma única tabela de classificação.** Isto muda a natureza do projecto: até aqui
+a app é uma vista melhor de informação que a fonte já publica. Isto seria a primeira coisa que
+**produzimos** e que não existe em lado nenhum. É o argumento mais forte que já apareceu para
+a Fase 9, e melhor do que o da robustez.
+
+**Duas correções de facto, para o âmbito ficar certo:**
+
+1. **A tabela de golos já existe** — e para estes escalões também. O `scorers/{comp}.json` não
+   vem da fonte: é agregado por nós a partir das fichas de jogo (`quadros.py`). Os Escolares já
+   têm 129 linhas de jogador, os Benjamins 72. Metade do pedido já está feita e publicada; o
+   que falta mesmo é **a classificação**.
+2. **Não existe escalão BAMBIS na APL.** Os escalões na fonte são BENJAMINS, ESCOLARES,
+   SUB-13/15/17/19, SENIORES M/F e TORNEIOS PARTICULARES. Se os Bambis jogam, não é em prova
+   publicada aqui — vale a pena perguntar à APL, já que o contacto está aberto.
+
+### Já validei que conseguimos calcular — e com que regras
+
+Não vale a pena propor isto sem provar que o cálculo bate certo. Corri o nosso cálculo contra
+**todas** as tabelas que a fonte publica:
+
+```
+linhas: 176 iguais, 0 diferentes
+ordem:   42 tabelas certas, 0 por explicar
+```
+
+As regras que saíram daí, medidas e não assumidas:
+
+| Regra | Como foi apurada |
+|---|---|
+| **3 pontos por vitória, 1 por empate** | ajuste contra 151 linhas publicadas: `3V+1E` acerta 151/151, `2V+1E` só 65/151 |
+| **Ordem: pontos → diferença de golos → golos marcados** | reproduz a ordem exacta das 42 tabelas |
+| **A tabela conta só a fase de grupos** | os jogos a eliminar (quartos, meias, final) vêm com a coluna de grupo vazia e **não** entram. Era a causa de 25 das 29 divergências iniciais |
+| **Prova de série única deixa a coluna de grupo vazia** | aí contam todos os jogos. Eram as 4 divergências restantes |
+
+Isto quer dizer que podemos gerar as tabelas em falta **com o mesmo motor que reproduz as
+existentes** — e manter essa reprodução como teste permanente. Se a APL mudar a regra de
+pontos, o teste parte no dia a seguir, em vez de publicarmos silenciosamente tabelas erradas.
+
+### O travão que te quero pôr à frente, e é diferente do dos nomes
+
+Quando decidiste publicar nomes de atletas de formação, o argumento foi *"se já está visível no
+site onde vamos consultar os jogos, não há problema"*. **Esse argumento não se aplica aqui**,
+porque uma classificação de Benjamins não está visível em lado nenhum: seria informação nova,
+criada por nós.
+
+E a ausência é quase de certeza deliberada. Não publicar classificações nos escalões mais novos
+é prática corrente nas federações — é uma escolha pedagógica, não um esquecimento: não se faz
+um ranking competitivo de miúdos de 8 anos. A tabela de **golos por atleta** que já publicamos
+está no mesmo terreno.
+
+Não é razão para não fazer. É razão para:
+- **perguntar à APL** antes de publicar — o email já está aberto e isto cabe numa frase;
+- rotular como **"classificação calculada por nós, não oficial"**, que é verdade e evita que
+  alguém a cite como oficial;
+- considerar mostrá-la **por defeito só a quem a procura** nos escalões mais novos.
+
+A decisão é tua. O que não quero é que vá para o ar sem teres isto à frente.
+
+### Os dois momentos de extração — com duas correções
+
+| Momento | Proposta | O que eu corrigiria |
+|---|---|---|
+| **Diária, à meia-noite** | recolher os jogos do dia | À meia-noite os jogos **desse** dia ainda não se jogaram. Uma ronda às 00:30 fecha **o dia que acabou** — que é o que se quer. Fica a ronda canónica que sela o dia na BD |
+| **Near-real-time** | só os jogos de equipas favoritas | **Não precisamos de saber quais são as favoritas** — e ainda bem, porque elas vivem no `localStorage` de cada telemóvel e o backend não lhes chega sem a Fase 5. Medido: no pico há **15 jogos à mesma hora** (21/11, 16:30) e 41 num dia inteiro. Sondar *todos* os que estão a decorrer custa ~15 pedidos por ronda, 15 s ao nosso ritmo de 1/s. Mais simples **e** serve toda a gente |
+
+Daí saem três cadências, e não duas:
+
+| Cadência | Quando | Para quê |
+|---|---|---|
+| **ao vivo** | de N em N minutos, só com jogos a decorrer | resultado ao minuto; **depende da sonda de hoje** (F8.1) |
+| **regular** | de 2 em 2 horas (já existe) | frescura geral |
+| **fecho do dia** | 00:30 | sela o dia na BD: é esta que cria o histórico e dispara o recálculo das tabelas |
+
+| # | Item | Prioridade | Esforço | Notas |
+|---|---|---|---|---|
+| B9.12 | **Motor de classificação**: 3V+1E, ordem pontos → DG → GM, só fase de grupos | must | M | regras apuradas dos dados, não assumidas |
+| B9.13 | **Teste de reprodução**: recalcular as 42 tabelas publicadas e exigir igualdade | must | S | é isto que torna seguro publicar as que não existem |
+| B9.14 | Publicar classificação calculada para ESCOLARES, BENJAMINS e TORNEIOS PARTICULARES | should | S | 198 jogos hoje sem tabela nenhuma. **Depende da resposta da APL** — ver travão acima |
+| B9.15 | Rótulo "calculada por nós, não oficial" nessas tabelas | must | XS | se o B9.14 avançar, este não é opcional |
+| B9.16 | Ronda de **fecho do dia** às 00:30, que sela o dia e recalcula | must | S | o `cron` actual de 2h fica para frescura |
+| B9.17 | Ronda **ao vivo** sobre os jogos a decorrer, sem saber favoritos | could | M | ≤15 jogos em simultâneo no pico. Bloqueado pelo resultado da sonda |
+| B9.18 | **Normalizar grafias de clube** | should | S | a fonte tem `A STRUART HCM` vs `A STUART HCM` e `HC LOURINHA` vs `HC LOURINHÃ`. É literalmente a "limpeza" do pedido, e hoje parte emblemas e junções por nome |
+
 ### O que eu faria primeiro, se quisesses só uma coisa desta lista
 
-O **B9.2 + B9.6** — registo de rondas com contagens, e falhar quando caem. São meio dia de
-trabalho e resolvem o risco que já nos morderam uma vez: uma mudança no HTML da fonte que
-passa em silêncio porque o parser não dá erro, só devolve menos.
+Com o argumento dos Escolares em cima da mesa, mudo de resposta: o **B9.12 + B9.13** — o motor
+de classificação e o teste que o obriga a reproduzir as 42 tabelas existentes. Não precisa da
+BD para nada, cabe num dia, e é a única coisa desta lista que produz valor que não existe em
+lado nenhum. A BD entra a seguir, para lhe dar memória.
+
+(A resposta anterior era o **B9.2 + B9.6**, registo de rondas com contagens. Continua a ser o
+que melhor protege o que já temos, e são meio dia de trabalho.)
 
 ---
 
