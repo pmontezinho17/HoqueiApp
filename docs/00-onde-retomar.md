@@ -73,10 +73,10 @@ pelo mesmo componente.
 
 ## ⚠️ Por fechar
 
-**A sonda de live scores está automatizada desde 01/10** (`.github/workflows/sonda.yml`) e
-dispara sozinha às sextas 19:20 e aos fins-de-semana. Falhou a 19/09 e a 26/09 por depender de
-memória humana; agora não depende. **Falta ler o primeiro diário** e responder à pergunta que
-decide o F8.1 e o B9.17: com que rapidez a fonte reflecte um golo durante o jogo.
+**~~A sonda de live scores~~ — correu a 02/10 e respondeu.** A fonte **actualiza durante o jogo**:
+o marcador subiu degrau a degrau e a cronologia acompanhou, com latência abaixo dos 3 minutos da
+nossa medida. Desbloqueia o F8.1, o B9.17 e as notificações de golo. Ver
+[08-sonda-resultado.md](08-sonda-resultado.md).
 
 **~~O email à APL~~ — enviado a 01/10/2026.** Perguntou quatro coisas: se vêem inconveniente,
 nomes de atletas de formação, emblemas dos clubes, e acesso estruturado aos dados. **Se não

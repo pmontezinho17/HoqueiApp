@@ -47,7 +47,7 @@
 | B1.9 | Parser da ficha de jogo: `#resultado` + `#jugadores` | must | L | ✅ cabeçalho, árbitros, faltas, jogadores e equipa técnica |
 | B1.9a | Parser da cronologia `#desarrollo` | must | L | ✅ 11 tipos de evento, 0 por classificar em 9 jogos reais |
 | B1.9b | Normalizar o relógio decrescente em minuto absoluto | must | M | ✅ nº e duração das partes lidos da fonte (2×25min, 2×15min, 4×8min confirmados) |
-| B1.9c | Parser do boletim oficial `#acta` | could | L | aberto |
+| B1.9c | Parser do boletim oficial `#acta` | could | L | aberto. **Atenção (02/10):** o boletim só é anexado ~6 min depois do apito final (+41 915 bytes) — a 3ª tab precisa de estado vazio para jogos a decorrer |
 | B1.9d | Flag `has_timeline` por jogo | should | XS | ✅ `FichaJogo.tem_cronologia` |
 | B1.10 | Modelo normalizado + escrita dos JSON do contrato | must | M | ✅ `publicar` gera competitions, comp/, match/ e meta.json |
 | B1.11 | Testes do parser contra amostras | must | M | ✅ 32 testes, sem rede, incluindo cruzamento entre parsers |
@@ -247,7 +247,7 @@ Muito mais leve do que o plano Android: sem loja, sem revisão, sem conta de pro
 
 | ID | Item | Nota |
 |---|---|---|
-| F8.1 | Live scores (refresh ~1 min) | **Ainda por validar** — sonda de 26/09. A fonte tem cronologia com relógio, mas o auto-refresh dela é um stub morto |
+| F8.1 | Live scores (refresh ~1 min) | ✅ **validado a 02/10** — a fonte actualiza durante o jogo, latência < 3 min (a nossa resolução). Ver [08](08-sonda-resultado.md) |
 | F8.2 | Perfil de jogador: golos por jornada, evolução | Só sub-17 para cima |
 | F8.3 | Histórico e head-to-head entre clubes | O histórico dos JSON em git já dá a base |
 | F8.4 | Suporte às restantes associações regionais e outras modalidades (`id_modal`) | O parser já é multi-tenant |
@@ -649,7 +649,7 @@ Daí saem três cadências, e não duas:
 | B9.14 | Publicar classificação calculada para ESCOLARES, BENJAMINS e TORNEIOS PARTICULARES | should | S | o motor já as produz: **93 linhas** em 14 provas sem tabela. **Não publicado** — depende da resposta da APL, ver travão acima |
 | B9.15 | Rótulo "calculada por nós, não oficial" nessas tabelas | must | XS | se o B9.14 avançar, este não é opcional |
 | B9.16 | Ronda de **fecho do dia** às 00:30, que sela o dia e recalcula | must | S | o `cron` actual de 2h fica para frescura |
-| B9.17 | Ronda **ao vivo** sobre os jogos a decorrer, sem saber favoritos | could | M | ≤15 jogos em simultâneo no pico. Bloqueado pelo resultado da sonda |
+| B9.17 | Ronda **ao vivo** sobre os jogos a decorrer, sem saber favoritos | could | M | ≤15 jogos em simultâneo no pico. **Desbloqueado a 02/10**: a sonda provou que vale a pena |
 | B9.18 | **Normalizar grafias de clube** | should | S | a fonte tem `A STRUART HCM` vs `A STUART HCM` e `HC LOURINHA` vs `HC LOURINHÃ`. É literalmente a "limpeza" do pedido, e hoje parte emblemas e junções por nome |
 | B9.19 | **Impressão estrutural por ronda**: nº de colunas por tipo de tabela, com aviso quando muda | should | S | ideia emprestada do Scrapling (ver [07](07-avaliacao-scrapling.md)), sem a dependência nem a relocalização silenciosa |
 | Q4.7 | **A sonda pára quando já não há nada a observar** | must | XS | ✅ corria as 4 horas inteiras depois do apito final — ~57 pedidos inúteis a um servidor pequeno de uma federação, contra a nossa própria postura, e o diário só era comitado no fim. Agora sai `--apos-fim` rondas (5) depois de todos os jogos terminarem, e essas rondas medem quanto tempo o boletim ainda mexe |
