@@ -652,6 +652,7 @@ Daí saem três cadências, e não duas:
 | B9.17 | Ronda **ao vivo** sobre os jogos a decorrer, sem saber favoritos | could | M | ≤15 jogos em simultâneo no pico. Bloqueado pelo resultado da sonda |
 | B9.18 | **Normalizar grafias de clube** | should | S | a fonte tem `A STRUART HCM` vs `A STUART HCM` e `HC LOURINHA` vs `HC LOURINHÃ`. É literalmente a "limpeza" do pedido, e hoje parte emblemas e junções por nome |
 | B9.19 | **Impressão estrutural por ronda**: nº de colunas por tipo de tabela, com aviso quando muda | should | S | ideia emprestada do Scrapling (ver [07](07-avaliacao-scrapling.md)), sem a dependência nem a relocalização silenciosa |
+| Q4.7 | **A sonda pára quando já não há nada a observar** | must | XS | ✅ corria as 4 horas inteiras depois do apito final — ~57 pedidos inúteis a um servidor pequeno de uma federação, contra a nossa própria postura, e o diário só era comitado no fim. Agora sai `--apos-fim` rondas (5) depois de todos os jogos terminarem, e essas rondas medem quanto tempo o boletim ainda mexe |
 
 ### O que eu faria primeiro, se quisesses só uma coisa desta lista
 

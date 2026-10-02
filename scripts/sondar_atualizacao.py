@@ -120,6 +120,8 @@ def main():
                    help="quantos jogos sondar quando vêm da agenda (default 4)")
     p.add_argument("--minutos", type=int, default=None,
                    help="correr durante N minutos e sair (para correr em CI)")
+    p.add_argument("--apos-fim", type=int, default=5, metavar="N",
+                   help="rondas a fazer depois de todos os jogos terminarem (0 = sair já)")
     p.add_argument("--intervalo", type=int, default=120, help="segundos entre rondas (default 120)")
     p.add_argument("--ate", default=None, help="hora local de fim, HH:MM (tem de ser futura)")
     p.add_argument("--rondas", type=int, default=None, help="nº de rondas e sai (para leituras pontuais)")
@@ -156,8 +158,10 @@ def main():
         print(f"linha de base: {len(ultimos)} jogos já sondados antes", file=sys.stderr)
     print(f"sonda: {len(ids)} jogos em '{args.tenant}', a cada {args.intervalo}s → {diario}")
     ronda = 0
+    rondas_apos_fim = 0
     while True:
         ronda += 1
+        estados = {}
         for id_jogo in ids:
             agora = datetime.now(timezone.utc).isoformat(timespec="seconds")
             try:
@@ -172,6 +176,7 @@ def main():
                 ultimos[id_jogo] = h
                 registo = {"ts": agora, "id": id_jogo, "bytes": len(bruto),
                            "sha256": h, "mudou": mudou, **extrair(html)}
+                estados[id_jogo] = registo.get("estado")
                 if mudou:                                 # guarda prova do momento da mudança
                     alvo = RAIZ / "html" / f"{id_jogo}-{agora.replace(':', '')}.html"
                     alvo.write_bytes(bruto)
@@ -188,6 +193,18 @@ def main():
         if fim and datetime.now() >= fim:
             print("fim da janela de sondagem")
             return
+
+        # Parar quando já não há nada a observar. Sem isto a sonda continuava as 4 horas
+        # inteiras depois do apito final: pedidos inúteis a um servidor pequeno de uma
+        # federação — contra a nossa própria postura — e o diário só era comitado no fim,
+        # o que atrasava a resposta em horas. As `--apos-fim` rondas de cortesia servem
+        # para medir outra coisa útil: quanto tempo o boletim ainda mexe depois do fim.
+        if estados and len(estados) == len(ids) and all(estados.values()):
+            rondas_apos_fim += 1
+            if rondas_apos_fim > args.apos_fim:
+                print(f"todos os jogos terminados ({', '.join(sorted(set(estados.values())))})"
+                      f" e mais {args.apos_fim} rondas sem nada a observar — a sair")
+                return
         time.sleep(max(0, args.intervalo - len(ids)))
 
 
