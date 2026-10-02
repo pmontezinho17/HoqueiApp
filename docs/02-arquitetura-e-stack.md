@@ -92,6 +92,16 @@ O backend gera `/v1/{tenant}/{season}/team/{id}.ics`. O utilizador subscreve uma
 o calendário dele corrige-se sozinho sempre que a federação adia um jogo — sem a app fazer nada e
 mesmo que desinstale a PWA.
 
+**Com que rapidez se corrige — verificado a 02/10, e importa:** o ritmo não é nosso, é de quem
+serve o calendário. O **Google Calendar** relê os calendários subscritos a cada **~12 a 24 horas**,
+não publica o intervalo e **não tem botão para forçar**. O **Apple Calendar** deixa o utilizador
+escolher, e chega a cada 15 minutos.
+
+A consequência desenha a funcionalidade: o ICS resolve bem *"ter a época toda no meu calendário"*
+e resolve **mal** *"o jogo de amanhã mudou de hora"* — um adiamento à última hora pode levar meio
+dia a chegar a um utilizador de Android. **Não substitui as notificações; torna-as necessárias.**
+O ICS trata do que é previsível, o push do que é urgente.
+
 **Consequência para o pedido "alteração após confirmação do utilizador":** como o ICS atualiza
 sozinho, não há um evento nosso para "confirmar". A funcionalidade muda de forma, não desaparece:
 a app **notifica** a alteração e mostra-a num ecrã de "alterações recentes" com o antes → depois.

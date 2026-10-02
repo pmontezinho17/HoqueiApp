@@ -360,7 +360,7 @@ retorno: os três primeiros não precisam de backend nenhum.
 | W7.4 | Forma recente | should | M | ✅ 5 últimos com emblema do adversário, data e resultado em pastilha verde/vermelha/cinzenta |
 | W7.5 | Calendário mensal | should | L | ✅ emblema e hora na célula, casa/fora por cor **e marca `F`** — a cor sozinha inverte-se entre temas e exclui quem não a distingue |
 | W7.6 | Classificação: chips `Tudo · Em casa · Fora` | should | M | Os mesmos dados recalculados a partir do calendário |
-| W7.7 | Classificação: reduzir de 5 para **3 colunas** (J, DG, P) | could | XS | Ainda mais espaço para o nome do clube a 375px |
+| W7.7 | Classificação: reduzir de 5 para **3 colunas** (J, DG, P) | could | XS | ❌ **anulado a 02/10** — o pedido foi o contrário: mais colunas, não menos (GM, GS, A, e a vista Completa com V/E/D e rácio). Ver W6.2 |
 | W8.10 | Cartões no detalhe de jogo (tab Ficha) | could | XS | ✅ mais nome e número fixos ao rolar — com dez colunas, perdia-se de vista de quem era a linha |
 | W8.11 | **Classificação da equipa: tabela completa + selector de competição sem "todas"** | must | M | ✅ mostrava só a linha da própria equipa. Tabelas de séries diferentes não se fundem — equipas que nunca se defrontaram não se comparam — por isso o selector obriga a escolher uma |
 | W8.12 | **Selector de competição na lista de jogos, com "todas as competições"** | should | S | ✅ ao contrário da classificação, jogos de provas diferentes somam-se bem numa lista cronológica. O **calendário fica sem filtro**: o mês é do clube, não da prova |
