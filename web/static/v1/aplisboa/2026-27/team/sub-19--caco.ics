@@ -1,0 +1,131 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hoquei//hoquei.pages.dev//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:CACO · SUB-19
+X-WR-CALDESC:Jogos de CACO (SUB-19)
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9864@hoquei.pages.dev
+DTSTAMP:20261009T000000Z
+DTSTART:20261009T210000Z
+DTEND:20261009T223000Z
+SUMMARY:FSE/AJ SALESIANA vs CACO
+LOCATION:PAV. SALESIANA
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9864\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9864
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9868@hoquei.pages.dev
+DTSTAMP:20261018T000000Z
+DTSTART:20261018T161500Z
+DTEND:20261018T174500Z
+SUMMARY:CACO vs CD PAÇO ARCOS A
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9868\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9868
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9871@hoquei.pages.dev
+DTSTAMP:20261025T000000Z
+DTSTART:20261025T163000Z
+DTEND:20261025T180000Z
+SUMMARY:PAREDE FC vs CACO
+LOCATION:PAV. PAREDE
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9871\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9871
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9872@hoquei.pages.dev
+DTSTAMP:20261101T000000Z
+DTSTART:20261101T161500Z
+DTEND:20261101T174500Z
+SUMMARY:A STUART HCM vs CACO
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9872\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9872
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9876@hoquei.pages.dev
+DTSTAMP:20261113T000000Z
+DTSTART:20261113T220000Z
+DTEND:20261113T233000Z
+SUMMARY:CACO vs UF ENTRONCAMENTO
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9876\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9876
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9879@hoquei.pages.dev
+DTSTAMP:20261115T000000Z
+DTSTART:20261115T173000Z
+DTEND:20261115T190000Z
+SUMMARY:CACO vs FSE/AJ SALESIANA
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9879\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9879
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9883@hoquei.pages.dev
+DTSTAMP:20261122T000000Z
+DTSTART:20261122T200000Z
+DTEND:20261122T213000Z
+SUMMARY:CD PAÇO ARCOS A vs CACO
+LOCATION:PAV. PAÇO DE ARCOS
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9883\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9883
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9887@hoquei.pages.dev
+DTSTAMP:20261128T000000Z
+DTSTART:20261128T153000Z
+DTEND:20261128T170000Z
+SUMMARY:CACO vs A STUART HCM
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9887\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9887
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9886@hoquei.pages.dev
+DTSTAMP:20261129T000000Z
+DTSTART:20261129T160000Z
+DTEND:20261129T173000Z
+SUMMARY:CACO vs PAREDE FC
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9886\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9886
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9891@hoquei.pages.dev
+DTSTAMP:20261206T000000Z
+DTSTART:20261206T163000Z
+DTEND:20261206T180000Z
+SUMMARY:UF ENTRONCAMENTO vs CACO
+LOCATION:PAV. A. MATEUS- ENTRONCAMENTO
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9891\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9891
+END:VEVENT
+END:VCALENDAR

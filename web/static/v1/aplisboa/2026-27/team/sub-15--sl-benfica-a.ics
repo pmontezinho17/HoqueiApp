@@ -1,0 +1,107 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hoquei//hoquei.pages.dev//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:SL BENFICA A · SUB-15
+X-WR-CALDESC:Jogos de SL BENFICA A (SUB-15)
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9633@hoquei.pages.dev
+DTSTAMP:20260927T000000Z
+DTSTART:20260927T183000Z
+DTEND:20260927T200000Z
+SUMMARY:AD OEIRAS B 1–6 SL BENFICA A
+LOCATION:PAV. A.D.OEIRAS
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9633\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9633
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9635@hoquei.pages.dev
+DTSTAMP:20261004T000000Z
+DTSTART:20261004T100000Z
+DTEND:20261004T113000Z
+SUMMARY:SL BENFICA A vs FSE/AJ SALESIANA
+LOCATION:PAV. MURCHES
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9635\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9635
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9637@hoquei.pages.dev
+DTSTAMP:20261005T000000Z
+DTSTART:20261005T160000Z
+DTEND:20261005T173000Z
+SUMMARY:A STUART HCM A vs SL BENFICA A
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9637\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9637
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9643@hoquei.pages.dev
+DTSTAMP:20261022T000000Z
+DTSTART:20261022T184500Z
+DTEND:20261022T201500Z
+SUMMARY:SL BENFICA A vs AD OEIRAS B
+LOCATION:PAV. MURCHES
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9643\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9643
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9641@hoquei.pages.dev
+DTSTAMP:20261025T000000Z
+DTSTART:20261025T150000Z
+DTEND:20261025T163000Z
+SUMMARY:CD PAÇO ARCOS B vs SL BENFICA A
+LOCATION:PAV. PAÇO DE ARCOS
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9641\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9641
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9647@hoquei.pages.dev
+DTSTAMP:20261108T000000Z
+DTSTART:20261108T150000Z
+DTEND:20261108T163000Z
+SUMMARY:SL BENFICA A vs A STUART HCM A
+LOCATION:PAV. MURCHES
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9647\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9647
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9645@hoquei.pages.dev
+DTSTAMP:20261113T000000Z
+DTSTART:20261113T210000Z
+DTEND:20261113T223000Z
+SUMMARY:FSE/AJ SALESIANA vs SL BENFICA A
+LOCATION:PAV. SALESIANA
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9645\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9645
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9651@hoquei.pages.dev
+DTSTAMP:20261122T000000Z
+DTSTART:20261122T144500Z
+DTEND:20261122T161500Z
+SUMMARY:SL BENFICA A vs CD PAÇO ARCOS B
+LOCATION:PAV. MURCHES
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série D · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9651\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9651
+END:VEVENT
+END:VCALENDAR

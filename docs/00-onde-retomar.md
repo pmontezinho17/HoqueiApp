@@ -52,18 +52,19 @@ Das sete funcionalidades que pediste no Keep, **quatro estão feitas**, uma est�
 | Quadro com golos gerais | ✅ |
 | Calendário de cada clube e do meu clube | ✅ |
 | Informação das fichas de jogo | 🟡 falta o boletim oficial (B1.9c) |
-| **Adicionar ao calendário os jogos de um clube/escalão** | ❌ **B4.11 + W4.12 — o mais barato que falta** |
+| Adicionar ao calendário os jogos de um clube/escalão | ✅ **02/10** — feed ICS subscritível por equipa |
 | Notificações de alterações de jogos | ❌ Fase 5, a maior |
 | Entrar com conta Google | ❌ Fase 5 |
 
 ```
-1.  B4.11 + W4.12   feed ICS por equipa + botão "adicionar ao calendário"   ← sem dependências
-2.  L7.5            atribuição da fonte no rodapé de todas as páginas       ← must, 10 min
-3.  B1.9c           boletim oficial → 3ª tab, e desbloqueia o W8.5
-4.  L7.4            política de privacidade
-5.  Fase 9 (B9.2 + B9.6)  contagens por ronda — protege o que já existe
-6.  Fase 5          notificações — depende da sonda e da Fase 9
+1.  B1.9c           boletim oficial → 3ª tab (atenção: só existe depois do apito)
+2.  L7.4            política de privacidade
+3.  Q6.11           testar em iPhone e Android reais   ← precisa de ti
+4.  Fase 9 (B9.2 + B9.6)  contagens por ronda — protege o que já existe
+5.  Fase 5          notificações — já desbloqueada pela sonda
 ```
+
+Das sete do Keep ficam **duas por fazer**, as duas da Fase 5: notificações e login Google.
 
 Bloqueados, não esquecidos: **B9.14** (tabelas calculadas) espera a APL; **F8.1** (live scores)
 espera o diário da sonda de hoje.

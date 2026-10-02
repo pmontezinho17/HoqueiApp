@@ -1,0 +1,155 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hoquei//hoquei.pages.dev//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:PAREDE FC B · SUB-13
+X-WR-CALDESC:Jogos de PAREDE FC B (SUB-13)
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9357@hoquei.pages.dev
+DTSTAMP:20260912T000000Z
+DTSTART:20260912T083000Z
+DTEND:20260912T100000Z
+SUMMARY:PAREDE FC B 1–9 SPORTING CP B
+LOCATION:PAV. HC SINTRA
+DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
+ /jogo/9357\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
+URL:https://hoquei.pages.dev/jogo/9357
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9358@hoquei.pages.dev
+DTSTAMP:20260912T000000Z
+DTSTART:20260912T111500Z
+DTEND:20260912T124500Z
+SUMMARY:CRIAR-T GD 3–4 PAREDE FC B
+LOCATION:PAV. HC SINTRA
+DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
+ /jogo/9358\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
+URL:https://hoquei.pages.dev/jogo/9358
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9534@hoquei.pages.dev
+DTSTAMP:20260926T000000Z
+DTSTART:20260926T144500Z
+DTEND:20260926T161500Z
+SUMMARY:PAREDE FC B 1–4 SPORTING CP B
+LOCATION:PAV. PAREDE
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9534\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9534
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9547@hoquei.pages.dev
+DTSTAMP:20261002T000000Z
+DTSTART:20261002T183000Z
+DTEND:20261002T200000Z
+SUMMARY:CD PAÇO ARCOS B vs PAREDE FC B
+LOCATION:PAV. PAÇO DE ARCOS
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9547\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9547
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9536@hoquei.pages.dev
+DTSTAMP:20261003T000000Z
+DTSTART:20261003T133000Z
+DTEND:20261003T150000Z
+SUMMARY:AE FISICA D B vs PAREDE FC B
+LOCATION:PAV. FÍSICA TORRES VEDRAS
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9536\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9536
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9540@hoquei.pages.dev
+DTSTAMP:20261005T000000Z
+DTSTART:20261005T180000Z
+DTEND:20261005T193000Z
+SUMMARY:PAREDE FC B vs CACO B
+LOCATION:PAV. PAREDE
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9540\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9540
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9544@hoquei.pages.dev
+DTSTAMP:20261017T000000Z
+DTSTART:20261017T144500Z
+DTEND:20261017T161500Z
+SUMMARY:PAREDE FC B vs AD OEIRAS B
+LOCATION:PAV. PAREDE
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9544\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9544
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9549@hoquei.pages.dev
+DTSTAMP:20261024T000000Z
+DTSTART:20261024T140000Z
+DTEND:20261024T153000Z
+SUMMARY:SPORTING CP B vs PAREDE FC B
+LOCATION:PAV.G.S.SACAVENENSE
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9549\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9549
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9551@hoquei.pages.dev
+DTSTAMP:20261031T000000Z
+DTSTART:20261031T171500Z
+DTEND:20261031T184500Z
+SUMMARY:PAREDE FC B vs AE FISICA D B
+LOCATION:PAV. PAREDE
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9551\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9551
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9555@hoquei.pages.dev
+DTSTAMP:20261107T000000Z
+DTSTART:20261107T153000Z
+DTEND:20261107T170000Z
+SUMMARY:CACO B vs PAREDE FC B
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9555\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9555
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9559@hoquei.pages.dev
+DTSTAMP:20261114T000000Z
+DTSTART:20261114T153000Z
+DTEND:20261114T170000Z
+SUMMARY:AD OEIRAS B vs PAREDE FC B
+LOCATION:PAV. A.D.OEIRAS
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9559\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9559
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9562@hoquei.pages.dev
+DTSTAMP:20261121T000000Z
+DTSTART:20261121T144500Z
+DTEND:20261121T161500Z
+SUMMARY:PAREDE FC B vs CD PAÇO ARCOS B
+LOCATION:PAV. PAREDE
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série D · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9562\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9562
+END:VEVENT
+END:VCALENDAR

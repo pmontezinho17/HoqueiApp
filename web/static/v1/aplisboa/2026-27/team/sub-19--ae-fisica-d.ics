@@ -1,0 +1,131 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hoquei//hoquei.pages.dev//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:AE FISICA D · SUB-19
+X-WR-CALDESC:Jogos de AE FISICA D (SUB-19)
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9835@hoquei.pages.dev
+DTSTAMP:20261011T000000Z
+DTSTART:20261011T143000Z
+DTEND:20261011T160000Z
+SUMMARY:GD SESIMBRA vs AE FISICA D
+LOCATION:PAV. SESIMBRA
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9835\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9835
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9837@hoquei.pages.dev
+DTSTAMP:20261018T000000Z
+DTSTART:20261018T193000Z
+DTEND:20261018T210000Z
+SUMMARY:AE FISICA D vs CD PAÇO ARCOS B
+LOCATION:PAV. FÍSICA TORRES VEDRAS
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9837\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9837
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9841@hoquei.pages.dev
+DTSTAMP:20261025T000000Z
+DTSTART:20261025T220000Z
+DTEND:20261025T233000Z
+SUMMARY:AE FISICA D vs SPORTING CP
+LOCATION:PAV. FÍSICA TORRES VEDRAS
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9841\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9841
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9844@hoquei.pages.dev
+DTSTAMP:20261101T000000Z
+DTSTART:20261101T180000Z
+DTEND:20261101T193000Z
+SUMMARY:APAC TOJAL vs AE FISICA D
+LOCATION:PAV. A.P.A.C.TOJAL
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9844\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9844
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9845@hoquei.pages.dev
+DTSTAMP:20261108T000000Z
+DTSTART:20261108T143000Z
+DTEND:20261108T160000Z
+SUMMARY:AE FISICA D vs AD OEIRAS
+LOCATION:PAV. FÍSICA TORRES VEDRAS
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9845\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9845
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9850@hoquei.pages.dev
+DTSTAMP:20261115T000000Z
+DTSTART:20261115T150000Z
+DTEND:20261115T163000Z
+SUMMARY:AE FISICA D vs GD SESIMBRA
+LOCATION:PAV. FÍSICA TORRES VEDRAS
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9850\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9850
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9852@hoquei.pages.dev
+DTSTAMP:20261122T000000Z
+DTSTART:20261122T180000Z
+DTEND:20261122T193000Z
+SUMMARY:CD PAÇO ARCOS B vs AE FISICA D
+LOCATION:PAV. PAÇO DE ARCOS
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9852\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9852
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9856@hoquei.pages.dev
+DTSTAMP:20261129T000000Z
+DTSTART:20261129T180000Z
+DTEND:20261129T193000Z
+SUMMARY:SPORTING CP vs AE FISICA D
+LOCATION:PAV.G.S.SACAVENENSE
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9856\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9856
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9859@hoquei.pages.dev
+DTSTAMP:20261201T000000Z
+DTSTART:20261201T143000Z
+DTEND:20261201T160000Z
+SUMMARY:AE FISICA D vs APAC TOJAL
+LOCATION:PAV. FÍSICA TORRES VEDRAS
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9859\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9859
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9860@hoquei.pages.dev
+DTSTAMP:20261206T000000Z
+DTSTART:20261206T163000Z
+DTEND:20261206T180000Z
+SUMMARY:AD OEIRAS vs AE FISICA D
+LOCATION:PAV. A.D.OEIRAS
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série B · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9860\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9860
+END:VEVENT
+END:VCALENDAR

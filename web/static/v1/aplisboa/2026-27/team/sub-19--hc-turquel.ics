@@ -1,0 +1,131 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hoquei//hoquei.pages.dev//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:HC TURQUEL · SUB-19
+X-WR-CALDESC:Jogos de HC TURQUEL (SUB-19)
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9805@hoquei.pages.dev
+DTSTAMP:20261005T000000Z
+DTSTART:20261005T170000Z
+DTEND:20261005T183000Z
+SUMMARY:S ALENQUER BENFICA vs HC TURQUEL
+LOCATION:PAV.S.ALENQUER E BENFICA
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9805\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9805
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9807@hoquei.pages.dev
+DTSTAMP:20261018T000000Z
+DTSTART:20261018T140000Z
+DTEND:20261018T153000Z
+SUMMARY:HC TURQUEL vs BIBLIOTECA IR
+LOCATION:PAV. VALADO DE FRADES
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9807\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9807
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9811@hoquei.pages.dev
+DTSTAMP:20261025T000000Z
+DTSTART:20261025T150000Z
+DTEND:20261025T163000Z
+SUMMARY:HC TURQUEL vs UD VILAFRANQUENSE
+LOCATION:PAV. HC TURQUEL
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9811\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9811
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9814@hoquei.pages.dev
+DTSTAMP:20261101T000000Z
+DTSTART:20261101T160000Z
+DTEND:20261101T173000Z
+SUMMARY:SL BENFICA vs HC TURQUEL
+LOCATION:PAV. MURCHES
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9814\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9814
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9815@hoquei.pages.dev
+DTSTAMP:20261107T000000Z
+DTSTART:20261107T173000Z
+DTEND:20261107T190000Z
+SUMMARY:HC TURQUEL vs HC LOURINHÃ
+LOCATION:PAV. HC TURQUEL
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9815\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9815
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9820@hoquei.pages.dev
+DTSTAMP:20261113T000000Z
+DTSTART:20261113T220000Z
+DTEND:20261113T233000Z
+SUMMARY:HC TURQUEL vs S ALENQUER BENFICA
+LOCATION:PAV. HC TURQUEL
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9820\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9820
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9822@hoquei.pages.dev
+DTSTAMP:20261120T000000Z
+DTSTART:20261120T220000Z
+DTEND:20261120T233000Z
+SUMMARY:BIBLIOTECA IR vs HC TURQUEL
+LOCATION:PAV. HC TURQUEL
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9822\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9822
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9826@hoquei.pages.dev
+DTSTAMP:20261129T000000Z
+DTSTART:20261129T143000Z
+DTEND:20261129T160000Z
+SUMMARY:UD VILAFRANQUENSE vs HC TURQUEL
+LOCATION:PAV. VILAFRANQUENSE
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9826\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9826
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9829@hoquei.pages.dev
+DTSTAMP:20261201T000000Z
+DTSTART:20261201T163000Z
+DTEND:20261201T180000Z
+SUMMARY:HC TURQUEL vs SL BENFICA
+LOCATION:PAV. HC TURQUEL
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9829\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9829
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9830@hoquei.pages.dev
+DTSTAMP:20261206T000000Z
+DTSTART:20261206T163000Z
+DTEND:20261206T180000Z
+SUMMARY:HC LOURINHÃ vs HC TURQUEL
+LOCATION:PAV. GIMNO. DA LOURINHÃ
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série A · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9830\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9830
+END:VEVENT
+END:VCALENDAR

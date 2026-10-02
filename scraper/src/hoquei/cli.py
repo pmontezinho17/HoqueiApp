@@ -22,6 +22,7 @@ from .parsers.jogo import ficha
 from .privacidade import anonimizar_ficha, escalao_permite_individual
 from .emblemas import caminho_publico, garantir, id_do_logo
 from .grupos import identificar
+from .ics import feed, nome_ficheiro
 from .quadros import agregar
 
 
@@ -243,6 +244,27 @@ def comando_publicar(args) -> int:
     agenda.sort(key=lambda j: (j["data"], j["hora"] or "99:99"))
     (destino / "agenda.json").write_text(json.dumps({"jogos": agenda}, ensure_ascii=False))
 
+    # B4.11 — um feed de calendário por equipa+escalão, com os jogos que a agenda já tem.
+    # Subscreve-se uma vez e corrige-se sozinho quando a federação adia um jogo.
+    pasta_ics = destino / "team"
+    pasta_ics.mkdir(exist_ok=True)
+    escritos = set()
+    for (cat, eq) in equipas_por_escalao:
+        seus = [j for j in agenda if j["cat"] == cat and eq in (j["casa"], j["fora"])]
+        if not seus:
+            continue
+        nome = nome_ficheiro(eq, cat)
+        escritos.add(nome)
+        alvo = pasta_ics / nome
+        novo = feed(eq, cat, seus)
+        # só escreve quando muda: o ficheiro é determinista de propósito, e reescrevê-lo
+        # igual faria o git ver alterações e a app republicar a cada corrida do cron
+        if not alvo.exists() or alvo.read_text(encoding="utf-8") != novo:
+            alvo.write_text(novo, encoding="utf-8")
+    for velho in pasta_ics.glob("*.ics"):       # equipas que desapareceram da época
+        if velho.name not in escritos:
+            velho.unlink()
+
     (destino / "teams.json").write_text(json.dumps(
         {"equipas": [{"equipa": eq, "categoria": cat, "competicoes": sorted(ids)}
                      for (cat, eq), ids in sorted(equipas_por_escalao.items())]},
@@ -255,10 +277,12 @@ def comando_publicar(args) -> int:
         "jogos": total,
         "fichas_publicadas": len(list((destino / "match").glob("*.json"))),
         "fonte": f"https://{args.tenant}.assyssoftware.es/intranet/web/",
+        "feeds_ics": len(escritos),
     }, ensure_ascii=False, indent=1))
 
     nota = f"{restritas} sem dados individuais" if args.anonimizar_formacao else "nomes em todos os escalões"
     print(f"\nemblemas: {novos_emb} convertidos, {emb_existentes} já existentes")
+    print(f"feeds de calendário: {len(escritos)}")
     print(f"{len(provas)} competições ({nota}), {total} jogos"
           f"\nfichas: {buscadas} buscadas, {saltadas} já actuais → {destino}")
     return 0

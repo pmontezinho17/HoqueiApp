@@ -7,6 +7,16 @@
 /_app/immutable/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Feeds de calendário: o tipo certo é o que faz o telemóvel abrir a janela de subscrição
+# em vez de descarregar um ficheiro de texto. 1h de cache — os calendários releem muito
+# mais devagar do que isso, por isso não vale a pena guardar mais.
+# `:tenant` e `:season` são segmentos nomeados: o Cloudflare só aceita **um** `*` no
+# padrão, e com `/v1/*/*/team/*.ics` a regra não casava de todo — o feed saía como
+# `text/html`, que faz o telemóvel abrir um ficheiro de texto em vez do calendário.
+/v1/:tenant/:season/team/*
+  Content-Type: text/calendar; charset=utf-8
+  Cache-Control: public, max-age=3600
+
 /manifest.webmanifest
   Cache-Control: public, max-age=3600
 

@@ -1,0 +1,107 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hoquei//hoquei.pages.dev//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:CD MAFRA · SUB-17
+X-WR-CALDESC:Jogos de CD MAFRA (SUB-17)
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9734@hoquei.pages.dev
+DTSTAMP:20260926T000000Z
+DTSTART:20260926T191500Z
+DTEND:20260926T204500Z
+SUMMARY:UD VILAFRANQUENSE 22–0 CD MAFRA
+LOCATION:PAV. VILAFRANQUENSE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série D · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9734\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9734
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9736@hoquei.pages.dev
+DTSTAMP:20261003T000000Z
+DTSTART:20261003T133000Z
+DTEND:20261003T150000Z
+SUMMARY:CD MAFRA vs HC LOURINHÃ
+LOCATION:PAV. MAFRA
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série D · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9736\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9736
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9739@hoquei.pages.dev
+DTSTAMP:20261008T000000Z
+DTSTART:20261008T190000Z
+DTEND:20261008T203000Z
+SUMMARY:AD OEIRAS A vs CD MAFRA
+LOCATION:PAV. MAFRA
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série D · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9739\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9739
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9741@hoquei.pages.dev
+DTSTAMP:20261016T000000Z
+DTSTART:20261016T200000Z
+DTEND:20261016T213000Z
+SUMMARY:CD MAFRA vs SPORTING CP B
+LOCATION:PAV.G.S.SACAVENENSE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série D · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9741\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9741
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9744@hoquei.pages.dev
+DTSTAMP:20261024T000000Z
+DTSTART:20261024T150000Z
+DTEND:20261024T163000Z
+SUMMARY:CD MAFRA vs UD VILAFRANQUENSE
+LOCATION:PAV. MAFRA
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série D · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9744\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9744
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9746@hoquei.pages.dev
+DTSTAMP:20261031T000000Z
+DTSTART:20261031T193000Z
+DTEND:20261031T210000Z
+SUMMARY:HC LOURINHÃ vs CD MAFRA
+LOCATION:PAV. GIMNO. DA LOURINHÃ
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série D · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9746\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9746
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9749@hoquei.pages.dev
+DTSTAMP:20261114T000000Z
+DTSTART:20261114T203000Z
+DTEND:20261114T220000Z
+SUMMARY:CD MAFRA vs AD OEIRAS A
+LOCATION:PAV. A.D.OEIRAS
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série D · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9749\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9749
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9751@hoquei.pages.dev
+DTSTAMP:20261121T000000Z
+DTSTART:20261121T163000Z
+DTEND:20261121T180000Z
+SUMMARY:SPORTING CP B vs CD MAFRA
+LOCATION:PAV.G.S.SACAVENENSE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série D · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9751\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9751
+END:VEVENT
+END:VCALENDAR

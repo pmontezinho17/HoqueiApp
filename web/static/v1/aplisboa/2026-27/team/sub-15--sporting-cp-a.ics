@@ -1,0 +1,107 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hoquei//hoquei.pages.dev//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:SPORTING CP A · SUB-15
+X-WR-CALDESC:Jogos de SPORTING CP A (SUB-15)
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9596@hoquei.pages.dev
+DTSTAMP:20261004T000000Z
+DTSTART:20261004T153000Z
+DTEND:20261004T170000Z
+SUMMARY:SPORTING CP A vs APAC TOJAL
+LOCATION:PAV.G.S.SACAVENENSE
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9596\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9596
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9598@hoquei.pages.dev
+DTSTAMP:20261011T000000Z
+DTSTART:20261011T133000Z
+DTEND:20261011T150000Z
+SUMMARY:UD VILAFRANQUENSE A vs SPORTING CP A
+LOCATION:PAV. VILAFRANQUENSE
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9598\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9598
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9599@hoquei.pages.dev
+DTSTAMP:20261015T000000Z
+DTSTART:20261015T201500Z
+DTEND:20261015T214500Z
+SUMMARY:SL BENFICA B vs SPORTING CP A
+LOCATION:PAV.G.S.SACAVENENSE
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9599\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9599
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9602@hoquei.pages.dev
+DTSTAMP:20261025T000000Z
+DTSTART:20261025T163000Z
+DTEND:20261025T180000Z
+SUMMARY:SPORTING CP A vs PAREDE FC
+LOCATION:PAV.G.S.SACAVENENSE
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9602\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9602
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9606@hoquei.pages.dev
+DTSTAMP:20261101T000000Z
+DTSTART:20261101T160000Z
+DTEND:20261101T173000Z
+SUMMARY:APAC TOJAL vs SPORTING CP A
+LOCATION:PAV. A.P.A.C.TOJAL
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9606\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9606
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9608@hoquei.pages.dev
+DTSTAMP:20261108T000000Z
+DTSTART:20261108T180000Z
+DTEND:20261108T193000Z
+SUMMARY:SPORTING CP A vs UD VILAFRANQUENSE A
+LOCATION:PAV.G.S.SACAVENENSE
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9608\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9608
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9609@hoquei.pages.dev
+DTSTAMP:20261115T000000Z
+DTSTART:20261115T150000Z
+DTEND:20261115T163000Z
+SUMMARY:SPORTING CP A vs SL BENFICA B
+LOCATION:PAV. MURCHES
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9609\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9609
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9612@hoquei.pages.dev
+DTSTAMP:20261122T000000Z
+DTSTART:20261122T144500Z
+DTEND:20261122T161500Z
+SUMMARY:PAREDE FC vs SPORTING CP A
+LOCATION:PAV. PAREDE
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série B · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9612\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9612
+END:VEVENT
+END:VCALENDAR

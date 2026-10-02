@@ -1,0 +1,131 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hoquei//hoquei.pages.dev//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:UF ENTRONCAMENTO · SUB-19
+X-WR-CALDESC:Jogos de UF ENTRONCAMENTO (SUB-19)
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9863@hoquei.pages.dev
+DTSTAMP:20261011T000000Z
+DTSTART:20261011T153000Z
+DTEND:20261011T170000Z
+SUMMARY:UF ENTRONCAMENTO vs A STUART HCM
+LOCATION:PAV. A. MATEUS- ENTRONCAMENTO
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9863\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9863
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9867@hoquei.pages.dev
+DTSTAMP:20261018T000000Z
+DTSTART:20261018T153000Z
+DTEND:20261018T170000Z
+SUMMARY:PAREDE FC vs UF ENTRONCAMENTO
+LOCATION:PAV. PAREDE
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9867\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9867
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9870@hoquei.pages.dev
+DTSTAMP:20261023T000000Z
+DTSTART:20261023T210000Z
+DTEND:20261023T223000Z
+SUMMARY:FSE/AJ SALESIANA vs UF ENTRONCAMENTO
+LOCATION:PAV. SALESIANA
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9870\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9870
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9873@hoquei.pages.dev
+DTSTAMP:20261101T000000Z
+DTSTART:20261101T150000Z
+DTEND:20261101T163000Z
+SUMMARY:UF ENTRONCAMENTO vs CD PAÇO ARCOS A
+LOCATION:PAV. A. MATEUS- ENTRONCAMENTO
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9873\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9873
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9876@hoquei.pages.dev
+DTSTAMP:20261113T000000Z
+DTSTART:20261113T220000Z
+DTEND:20261113T233000Z
+SUMMARY:CACO vs UF ENTRONCAMENTO
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9876\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9876
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9878@hoquei.pages.dev
+DTSTAMP:20261115T000000Z
+DTSTART:20261115T174500Z
+DTEND:20261115T191500Z
+SUMMARY:A STUART HCM vs UF ENTRONCAMENTO
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9878\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9878
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9882@hoquei.pages.dev
+DTSTAMP:20261122T000000Z
+DTSTART:20261122T150000Z
+DTEND:20261122T163000Z
+SUMMARY:UF ENTRONCAMENTO vs PAREDE FC
+LOCATION:PAV. A. MATEUS- ENTRONCAMENTO
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9882\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9882
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9885@hoquei.pages.dev
+DTSTAMP:20261129T000000Z
+DTSTART:20261129T163000Z
+DTEND:20261129T180000Z
+SUMMARY:UF ENTRONCAMENTO vs FSE/AJ SALESIANA
+LOCATION:PAV. A. MATEUS- ENTRONCAMENTO
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9885\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9885
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9888@hoquei.pages.dev
+DTSTAMP:20261201T000000Z
+DTSTART:20261201T160000Z
+DTEND:20261201T173000Z
+SUMMARY:CD PAÇO ARCOS A vs UF ENTRONCAMENTO
+LOCATION:PAV. PAÇO DE ARCOS
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9888\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9888
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9891@hoquei.pages.dev
+DTSTAMP:20261206T000000Z
+DTSTART:20261206T163000Z
+DTEND:20261206T180000Z
+SUMMARY:UF ENTRONCAMENTO vs CACO
+LOCATION:PAV. A. MATEUS- ENTRONCAMENTO
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9891\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9891
+END:VEVENT
+END:VCALENDAR

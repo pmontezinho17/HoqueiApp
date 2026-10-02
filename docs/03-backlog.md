@@ -143,8 +143,8 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 | W4.10 | Partilhar jogo ou resultado (Web Share API) | should | S | Abre o menu de partilha nativo do telemóvel |
 | W4.15 | Vista Agenda, transversal às competições | should | L | ✅ `/agenda` com Próximos e Resultados, agrupado por dia, filtro "só as minhas equipas" ligado por omissão |
 | B4.16 | `agenda.json`: índice transversal de jogos para a vista Agenda | should | M | ✅ 791 jogos, 13,7 KB comprimido, num só pedido |
-| B4.11 | **Feed ICS por equipa**: `/v1/{tenant}/{season}/team/{id}.ics` | must | M | Subscrever o URL no Google Calendar mostra todos os jogos |
-| W4.12 | Botão "Adicionar ao meu calendário" com o URL do feed + instruções | must | M | Um toque e os jogos entram no calendário do utilizador |
+| B4.11 | **Feed ICS por equipa**: `/v1/{tenant}/{season}/team/{id}.ics` | must | M | ✅ `scraper/src/hoquei/ics.py` + 21 testes, 214 feeds e 1582 eventos. **UID e DTSTAMP deterministas** — sem isso o calendário duplicava eventos em vez de os corrigir, e a app republicava a cada corrida do cron |
+| W4.12 | Botão "Adicionar ao meu calendário" com o URL do feed + instruções | must | M | ✅ `AdicionarCalendario.svelte` na aba Calendário da equipa: ligação `webcal:` (iPhone e Mac abrem logo), endereço com botão de copiar, instruções por plataforma e o aviso honesto da latência |
 | W4.13 | Descarregar um jogo isolado como `.ics` | should | S | Ficheiro abre no calendário com data, hora e recinto |
 | W4.17 | Emblemas dos clubes | could | M | ✅ em jogos, agenda, classificação e O Meu Clube |
 | B4.18 | Emblemas servidos da nossa origem, encolhidos e normalizados | should | S | ✅ 31 WebP de 64px, 2,3 KB em média (eram 22,8 KB PNG) — 89,8% menos |
@@ -268,7 +268,7 @@ Muito mais leve do que o plano Android: sem loja, sem revisão, sem conta de pro
 | Informação das fichas de jogo | B1.9–B1.9d, W3.6–W3.6d | 1 + 3 |
 | Calendário de cada clube e do meu clube | W4.7, W4.8, W4.5 | 4 |
 | Notificações de alterações, com confirmação | B5.1–B5.3, B5.8, W5.9–W5.11 — **muda de forma**, ver Decisão 4 | 5 |
-| Adicionar ao calendário jogos de um clube/escalão | B4.11 + W4.12 (feed ICS) | 4 |
+| Adicionar ao calendário jogos de um clube/escalão | ✅ **feito a 02/10** — B4.11 + W4.12 (feed ICS) | 4 |
 
 ---
 

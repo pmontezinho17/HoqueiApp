@@ -1,0 +1,155 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hoquei//hoquei.pages.dev//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:PAREDE FC · SUB-17
+X-WR-CALDESC:Jogos de PAREDE FC (SUB-17)
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9416@hoquei.pages.dev
+DTSTAMP:20260912T000000Z
+DTSTART:20260912T094500Z
+DTEND:20260912T111500Z
+SUMMARY:PAREDE FC 3–4 HC SINTRA
+LOCATION:PAV. HC SINTRA
+DESCRIPTION:TORNEIO ABERTURA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev
+ /jogo/9416\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
+URL:https://hoquei.pages.dev/jogo/9416
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9417@hoquei.pages.dev
+DTSTAMP:20260912T000000Z
+DTSTART:20260912T131500Z
+DTEND:20260912T144500Z
+SUMMARY:CACO A 11–0 PAREDE FC
+LOCATION:PAV. HC SINTRA
+DESCRIPTION:TORNEIO ABERTURA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev
+ /jogo/9417\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
+URL:https://hoquei.pages.dev/jogo/9417
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9705@hoquei.pages.dev
+DTSTAMP:20260926T000000Z
+DTSTART:20260926T180000Z
+DTEND:20260926T193000Z
+SUMMARY:A STUART HCM 3–2 PAREDE FC
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série C · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9705\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9705
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9707@hoquei.pages.dev
+DTSTAMP:20261003T000000Z
+DTSTART:20261003T140000Z
+DTEND:20261003T153000Z
+SUMMARY:PAREDE FC vs CD PAÇO ARCOS B
+LOCATION:PAV. PAREDE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série C · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9707\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9707
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9711@hoquei.pages.dev
+DTSTAMP:20261010T000000Z
+DTSTART:20261010T191500Z
+DTEND:20261010T204500Z
+SUMMARY:PAREDE FC vs APAC TOJAL
+LOCATION:PAV. PAREDE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série C · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9711\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9711
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9714@hoquei.pages.dev
+DTSTAMP:20261011T000000Z
+DTSTART:20261011T144500Z
+DTEND:20261011T161500Z
+SUMMARY:AE FISICA D B vs PAREDE FC
+LOCATION:PAV. PAREDE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série C · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9714\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9714
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9715@hoquei.pages.dev
+DTSTAMP:20261017T000000Z
+DTSTART:20261017T161500Z
+DTEND:20261017T174500Z
+SUMMARY:PAREDE FC vs SL BENFICA A
+LOCATION:PAV. PAREDE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série C · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9715\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9715
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9720@hoquei.pages.dev
+DTSTAMP:20261024T000000Z
+DTSTART:20261024T153000Z
+DTEND:20261024T170000Z
+SUMMARY:PAREDE FC vs A STUART HCM
+LOCATION:PAV. PAREDE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série C · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9720\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9720
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9722@hoquei.pages.dev
+DTSTAMP:20261031T000000Z
+DTSTART:20261031T173000Z
+DTEND:20261031T190000Z
+SUMMARY:CD PAÇO ARCOS B vs PAREDE FC
+LOCATION:PAV. PAÇO DE ARCOS
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série C · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9722\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9722
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9726@hoquei.pages.dev
+DTSTAMP:20261107T000000Z
+DTSTART:20261107T180000Z
+DTEND:20261107T193000Z
+SUMMARY:APAC TOJAL vs PAREDE FC
+LOCATION:PAV. A.P.A.C.TOJAL
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série C · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9726\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9726
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9729@hoquei.pages.dev
+DTSTAMP:20261114T000000Z
+DTSTART:20261114T210000Z
+DTEND:20261114T223000Z
+SUMMARY:PAREDE FC vs AE FISICA D B
+LOCATION:PAV. FÍSICA TORRES VEDRAS
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série C · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9729\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9729
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9730@hoquei.pages.dev
+DTSTAMP:20261121T000000Z
+DTSTART:20261121T163000Z
+DTEND:20261121T180000Z
+SUMMARY:SL BENFICA A vs PAREDE FC
+LOCATION:PAV. MURCHES
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série C · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9730\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9730
+END:VEVENT
+END:VCALENDAR

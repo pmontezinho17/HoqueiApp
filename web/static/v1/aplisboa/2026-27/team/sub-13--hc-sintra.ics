@@ -1,0 +1,155 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hoquei//hoquei.pages.dev//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:HC SINTRA · SUB-13
+X-WR-CALDESC:Jogos de HC SINTRA (SUB-13)
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9355@hoquei.pages.dev
+DTSTAMP:20260912T000000Z
+DTSTART:20260912T130000Z
+DTEND:20260912T143000Z
+SUMMARY:HC SINTRA 1–7 AE FISICA A
+LOCATION:PAV. MAFRA
+DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
+ /jogo/9355\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
+URL:https://hoquei.pages.dev/jogo/9355
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9356@hoquei.pages.dev
+DTSTAMP:20260912T000000Z
+DTSTART:20260912T153000Z
+DTEND:20260912T170000Z
+SUMMARY:CD MAFRA 2–8 HC SINTRA
+LOCATION:PAV. MAFRA
+DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
+ /jogo/9356\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
+URL:https://hoquei.pages.dev/jogo/9356
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9453@hoquei.pages.dev
+DTSTAMP:20260926T000000Z
+DTSTART:20260926T163000Z
+DTEND:20260926T180000Z
+SUMMARY:CACO A 17–0 HC SINTRA
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9453\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9453
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9456@hoquei.pages.dev
+DTSTAMP:20261003T000000Z
+DTSTART:20261003T143000Z
+DTEND:20261003T160000Z
+SUMMARY:HC SINTRA vs APAC TOJAL
+LOCATION:PAV. HC SINTRA
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9456\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9456
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9459@hoquei.pages.dev
+DTSTAMP:20261010T000000Z
+DTSTART:20261010T153000Z
+DTEND:20261010T170000Z
+SUMMARY:SC TORRES vs HC SINTRA
+LOCATION:PAV. HC SINTRA
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9459\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9459
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9462@hoquei.pages.dev
+DTSTAMP:20261017T000000Z
+DTSTART:20261017T140000Z
+DTEND:20261017T153000Z
+SUMMARY:HC SINTRA vs CD PAÇO ARCOS A
+LOCATION:PAV. HC SINTRA
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9462\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9462
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9465@hoquei.pages.dev
+DTSTAMP:20261018T000000Z
+DTSTART:20261018T143000Z
+DTEND:20261018T160000Z
+SUMMARY:AD OEIRAS A vs HC SINTRA
+LOCATION:PAV. A.D.OEIRAS
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9465\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9465
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9468@hoquei.pages.dev
+DTSTAMP:20261024T000000Z
+DTSTART:20261024T153000Z
+DTEND:20261024T170000Z
+SUMMARY:HC SINTRA vs CACO A
+LOCATION:PAV. HC SINTRA
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9468\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9468
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9471@hoquei.pages.dev
+DTSTAMP:20261031T000000Z
+DTSTART:20261031T163000Z
+DTEND:20261031T180000Z
+SUMMARY:APAC TOJAL vs HC SINTRA
+LOCATION:PAV. A.P.A.C.TOJAL
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9471\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9471
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9474@hoquei.pages.dev
+DTSTAMP:20261107T000000Z
+DTSTART:20261107T143000Z
+DTEND:20261107T160000Z
+SUMMARY:HC SINTRA vs SC TORRES
+LOCATION:PAV. SC TORRES
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9474\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9474
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9477@hoquei.pages.dev
+DTSTAMP:20261114T000000Z
+DTSTART:20261114T160000Z
+DTEND:20261114T173000Z
+SUMMARY:CD PAÇO ARCOS A vs HC SINTRA
+LOCATION:PAV. PAÇO DE ARCOS
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9477\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9477
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9480@hoquei.pages.dev
+DTSTAMP:20261121T000000Z
+DTSTART:20261121T144500Z
+DTEND:20261121T161500Z
+SUMMARY:HC SINTRA vs AD OEIRAS A
+LOCATION:PAV. HC SINTRA
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série A · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9480\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9480
+END:VEVENT
+END:VCALENDAR

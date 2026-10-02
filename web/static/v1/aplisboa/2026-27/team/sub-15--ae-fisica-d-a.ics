@@ -1,0 +1,107 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hoquei//hoquei.pages.dev//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:AE FISICA D A · SUB-15
+X-WR-CALDESC:Jogos de AE FISICA D A (SUB-15)
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9614@hoquei.pages.dev
+DTSTAMP:20260927T000000Z
+DTSTART:20260927T101500Z
+DTEND:20260927T114500Z
+SUMMARY:AE FISICA D A 5–0 HC LOURINHÃ
+LOCATION:PAV. FÍSICA TORRES VEDRAS
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9614\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9614
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9617@hoquei.pages.dev
+DTSTAMP:20261011T000000Z
+DTSTART:20261011T101500Z
+DTEND:20261011T114500Z
+SUMMARY:AE FISICA D A vs SPORTING CP B
+LOCATION:PAV. FÍSICA TORRES VEDRAS
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9617\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9617
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9619@hoquei.pages.dev
+DTSTAMP:20261018T000000Z
+DTSTART:20261018T164500Z
+DTEND:20261018T181500Z
+SUMMARY:A STUART HCM B vs AE FISICA D A
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9619\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9619
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9622@hoquei.pages.dev
+DTSTAMP:20261025T000000Z
+DTSTART:20261025T111500Z
+DTEND:20261025T124500Z
+SUMMARY:AE FISICA D A vs CACO
+LOCATION:PAV. FÍSICA TORRES VEDRAS
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9622\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9622
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9624@hoquei.pages.dev
+DTSTAMP:20261031T000000Z
+DTSTART:20261031T180000Z
+DTEND:20261031T193000Z
+SUMMARY:HC LOURINHÃ vs AE FISICA D A
+LOCATION:PAV. GIMNO. DA LOURINHÃ
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9624\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9624
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9627@hoquei.pages.dev
+DTSTAMP:20261108T000000Z
+DTSTART:20261108T161500Z
+DTEND:20261108T174500Z
+SUMMARY:SPORTING CP B vs AE FISICA D A
+LOCATION:PAV.G.S.SACAVENENSE
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9627\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9627
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9629@hoquei.pages.dev
+DTSTAMP:20261115T000000Z
+DTSTART:20261115T111500Z
+DTEND:20261115T124500Z
+SUMMARY:AE FISICA D A vs A STUART HCM B
+LOCATION:PAV. FÍSICA TORRES VEDRAS
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9629\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9629
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9632@hoquei.pages.dev
+DTSTAMP:20261122T000000Z
+DTSTART:20261122T144500Z
+DTEND:20261122T161500Z
+SUMMARY:CACO vs AE FISICA D A
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-15 - 1ª FASE · Série C · SUB-15\nhttps://hoq
+ uei.pages.dev/jogo/9632\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9632
+END:VEVENT
+END:VCALENDAR

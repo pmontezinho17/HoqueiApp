@@ -1,0 +1,155 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hoquei//hoquei.pages.dev//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:AD OEIRAS B · SUB-17
+X-WR-CALDESC:Jogos de AD OEIRAS B (SUB-17)
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9410@hoquei.pages.dev
+DTSTAMP:20260912T000000Z
+DTSTART:20260912T141500Z
+DTEND:20260912T154500Z
+SUMMARY:HC LOURINHA 2–8 AD OEIRAS B
+LOCATION:PAV. GIMNO. DA LOURINHÃ
+DESCRIPTION:TORNEIO ABERTURA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev
+ /jogo/9410\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
+URL:https://hoquei.pages.dev/jogo/9410
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9412@hoquei.pages.dev
+DTSTAMP:20260912T000000Z
+DTSTART:20260912T170000Z
+DTEND:20260912T183000Z
+SUMMARY:AD OEIRAS B 4–4 CD PAÇO ARCOS B
+LOCATION:PAV. GIMNO. DA LOURINHÃ
+DESCRIPTION:TORNEIO ABERTURA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev
+ /jogo/9412\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
+URL:https://hoquei.pages.dev/jogo/9412
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9753@hoquei.pages.dev
+DTSTAMP:20260926T000000Z
+DTSTART:20260926T153000Z
+DTEND:20260926T170000Z
+SUMMARY:HC SINTRA 0–8 AD OEIRAS B
+LOCATION:PAV. HC SINTRA
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9753\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9753
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9756@hoquei.pages.dev
+DTSTAMP:20261003T000000Z
+DTSTART:20261003T200000Z
+DTEND:20261003T213000Z
+SUMMARY:AD OEIRAS B vs AE FISICA D A
+LOCATION:PAV. A.D.OEIRAS
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9756\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9756
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9762@hoquei.pages.dev
+DTSTAMP:20261008T000000Z
+DTSTART:20261008T201500Z
+DTEND:20261008T214500Z
+SUMMARY:AD OEIRAS B vs SPORTING CP A
+LOCATION:PAV.G.S.SACAVENENSE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9762\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9762
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9759@hoquei.pages.dev
+DTSTAMP:20261010T000000Z
+DTSTART:20261010T163000Z
+DTEND:20261010T180000Z
+SUMMARY:FSE/AJ SALESIANA A vs AD OEIRAS B
+LOCATION:PAV. A.D.OEIRAS
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9759\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9759
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9765@hoquei.pages.dev
+DTSTAMP:20261017T000000Z
+DTSTART:20261017T200000Z
+DTEND:20261017T213000Z
+SUMMARY:CACO B vs AD OEIRAS B
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9765\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9765
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9768@hoquei.pages.dev
+DTSTAMP:20261024T000000Z
+DTSTART:20261024T173000Z
+DTEND:20261024T190000Z
+SUMMARY:AD OEIRAS B vs HC SINTRA
+LOCATION:PAV. A.D.OEIRAS
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9768\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9768
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9774@hoquei.pages.dev
+DTSTAMP:20261107T000000Z
+DTSTART:20261107T170000Z
+DTEND:20261107T183000Z
+SUMMARY:AD OEIRAS B vs FSE/AJ SALESIANA A
+LOCATION:PAV. SALESIANA
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9774\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9774
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9771@hoquei.pages.dev
+DTSTAMP:20261111T000000Z
+DTSTART:20261111T200000Z
+DTEND:20261111T213000Z
+SUMMARY:AE FISICA D A vs AD OEIRAS B
+LOCATION:PAV. FÍSICA TORRES VEDRAS
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9771\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9771
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9777@hoquei.pages.dev
+DTSTAMP:20261114T000000Z
+DTSTART:20261114T214500Z
+DTEND:20261114T231500Z
+SUMMARY:SPORTING CP A vs AD OEIRAS B
+LOCATION:PAV. A.D.OEIRAS
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9777\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9777
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9780@hoquei.pages.dev
+DTSTAMP:20261121T000000Z
+DTSTART:20261121T163000Z
+DTEND:20261121T180000Z
+SUMMARY:AD OEIRAS B vs CACO B
+LOCATION:PAV. A.D.OEIRAS
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9780\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9780
+END:VEVENT
+END:VCALENDAR

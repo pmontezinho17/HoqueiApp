@@ -1,0 +1,154 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hoquei//hoquei.pages.dev//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:A STUART HCM · SUB-13
+X-WR-CALDESC:Jogos de A STUART HCM (SUB-13)
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9342@hoquei.pages.dev
+DTSTAMP:20260912T000000Z
+DTSTART:20260912T160000Z
+DTEND:20260912T173000Z
+SUMMARY:SL BENFICA 14–0 A STUART HCM
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:SUPERTAÇA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev/jogo/
+ 9342\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+URL:https://hoquei.pages.dev/jogo/9342
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9372@hoquei.pages.dev
+DTSTAMP:20260919T000000Z
+DTSTART:20260919T080000Z
+DTEND:20260919T093000Z
+SUMMARY:A STUART HCM 0–3 AE FISICA A
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:TORNEIO ABERTURA APL SUB-13 · SUB-13\nhttps://hoquei.pages.dev
+ /jogo/9372\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
+URL:https://hoquei.pages.dev/jogo/9372
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9504@hoquei.pages.dev
+DTSTAMP:20260926T000000Z
+DTSTART:20260926T133000Z
+DTEND:20260926T150000Z
+SUMMARY:PAREDE FC A 13–0 A STUART HCM
+LOCATION:PAV. PAREDE
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9504\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9504
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9508@hoquei.pages.dev
+DTSTAMP:20261003T000000Z
+DTSTART:20261003T151500Z
+DTEND:20261003T164500Z
+SUMMARY:A STUART HCM vs CD MAFRA
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9508\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9508
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9519@hoquei.pages.dev
+DTSTAMP:20261005T000000Z
+DTSTART:20261005T143000Z
+DTEND:20261005T160000Z
+SUMMARY:A STUART HCM vs PAREDE FC A
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9519\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9519
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9511@hoquei.pages.dev
+DTSTAMP:20261010T000000Z
+DTSTART:20261010T140000Z
+DTEND:20261010T153000Z
+SUMMARY:SPORTING CP A vs A STUART HCM
+LOCATION:PAV.G.S.SACAVENENSE
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9511\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9511
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9512@hoquei.pages.dev
+DTSTAMP:20261017T000000Z
+DTSTART:20261017T151500Z
+DTEND:20261017T164500Z
+SUMMARY:FSE/AJ SALESIANA vs A STUART HCM
+LOCATION:PAV. SALESIANA
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9512\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9512
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9516@hoquei.pages.dev
+DTSTAMP:20261018T000000Z
+DTSTART:20261018T151500Z
+DTEND:20261018T164500Z
+SUMMARY:A STUART HCM vs AE FISICA D A
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9516\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9516
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9523@hoquei.pages.dev
+DTSTAMP:20261031T000000Z
+DTSTART:20261031T143000Z
+DTEND:20261031T160000Z
+SUMMARY:CD MAFRA vs A STUART HCM
+LOCATION:PAV. MAFRA
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9523\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9523
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9526@hoquei.pages.dev
+DTSTAMP:20261107T000000Z
+DTSTART:20261107T161500Z
+DTEND:20261107T174500Z
+SUMMARY:A STUART HCM vs SPORTING CP A
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9526\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9526
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9527@hoquei.pages.dev
+DTSTAMP:20261114T000000Z
+DTSTART:20261114T174500Z
+DTEND:20261114T191500Z
+SUMMARY:A STUART HCM vs FSE/AJ SALESIANA
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9527\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9527
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9531@hoquei.pages.dev
+DTSTAMP:20261121T000000Z
+DTSTART:20261121T144500Z
+DTEND:20261121T161500Z
+SUMMARY:AE FISICA D A vs A STUART HCM
+LOCATION:PAV. FÍSICA TORRES VEDRAS
+DESCRIPTION:CAMP. REG. SUB-13 - 1ª FASE · Série C · SUB-13\nhttps://hoq
+ uei.pages.dev/jogo/9531\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9531
+END:VEVENT
+END:VCALENDAR

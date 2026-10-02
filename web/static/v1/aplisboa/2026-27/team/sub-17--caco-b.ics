@@ -1,0 +1,155 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hoquei//hoquei.pages.dev//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:CACO B · SUB-17
+X-WR-CALDESC:Jogos de CACO B (SUB-17)
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9420@hoquei.pages.dev
+DTSTAMP:20260912T000000Z
+DTSTART:20260912T143000Z
+DTEND:20260912T160000Z
+SUMMARY:CACO B 0–4 SL BENFICA B
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:TORNEIO ABERTURA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev
+ /jogo/9420\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
+URL:https://hoquei.pages.dev/jogo/9420
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9421@hoquei.pages.dev
+DTSTAMP:20260912T000000Z
+DTSTART:20260912T203000Z
+DTEND:20260912T220000Z
+SUMMARY:A STUART HCM 1–3 CACO B
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:TORNEIO ABERTURA APL SUB-17 · SUB-17\nhttps://hoquei.pages.dev
+ /jogo/9421\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
+URL:https://hoquei.pages.dev/jogo/9421
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9755@hoquei.pages.dev
+DTSTAMP:20260926T000000Z
+DTSTART:20260926T154500Z
+DTEND:20260926T171500Z
+SUMMARY:FSE/AJ SALESIANA A 1–1 CACO B
+LOCATION:PAV. SALESIANA
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9755\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9755
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9757@hoquei.pages.dev
+DTSTAMP:20261003T000000Z
+DTSTART:20261003T143000Z
+DTEND:20261003T160000Z
+SUMMARY:CACO B vs HC SINTRA
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9757\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9757
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9761@hoquei.pages.dev
+DTSTAMP:20261010T000000Z
+DTSTART:20261010T143000Z
+DTEND:20261010T160000Z
+SUMMARY:CACO B vs SPORTING CP A
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9761\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9761
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9764@hoquei.pages.dev
+DTSTAMP:20261011T000000Z
+DTSTART:20261011T133000Z
+DTEND:20261011T150000Z
+SUMMARY:AE FISICA D A vs CACO B
+LOCATION:PAV. FÍSICA TORRES VEDRAS
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9764\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9764
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9765@hoquei.pages.dev
+DTSTAMP:20261017T000000Z
+DTSTART:20261017T200000Z
+DTEND:20261017T213000Z
+SUMMARY:CACO B vs AD OEIRAS B
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9765\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9765
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9770@hoquei.pages.dev
+DTSTAMP:20261024T000000Z
+DTSTART:20261024T160000Z
+DTEND:20261024T173000Z
+SUMMARY:CACO B vs FSE/AJ SALESIANA A
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9770\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9770
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9772@hoquei.pages.dev
+DTSTAMP:20261031T000000Z
+DTSTART:20261031T180000Z
+DTEND:20261031T193000Z
+SUMMARY:HC SINTRA vs CACO B
+LOCATION:PAV. HC SINTRA
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9772\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9772
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9776@hoquei.pages.dev
+DTSTAMP:20261107T000000Z
+DTSTART:20261107T180000Z
+DTEND:20261107T193000Z
+SUMMARY:SPORTING CP A vs CACO B
+LOCATION:PAV.G.S.SACAVENENSE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9776\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9776
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9779@hoquei.pages.dev
+DTSTAMP:20261114T000000Z
+DTSTART:20261114T153000Z
+DTEND:20261114T170000Z
+SUMMARY:CACO B vs AE FISICA D A
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9779\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9779
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9780@hoquei.pages.dev
+DTSTAMP:20261121T000000Z
+DTSTART:20261121T163000Z
+DTEND:20261121T180000Z
+SUMMARY:AD OEIRAS B vs CACO B
+LOCATION:PAV. A.D.OEIRAS
+DESCRIPTION:CAMP. REG. SUB-17 - 1ª FASE · Série E · SUB-17\nhttps://hoq
+ uei.pages.dev/jogo/9780\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9780
+END:VEVENT
+END:VCALENDAR

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import AdicionarCalendario from '$lib/AdicionarCalendario.svelte';
 	import CalendarioMes from '$lib/CalendarioMes.svelte';
 	import Emblema from '$lib/Emblema.svelte';
 	import FormaRecente from '$lib/FormaRecente.svelte';
@@ -212,6 +213,9 @@
 	{#if vistaJogos === 'calendario'}
 		<!-- sem filtro: o calendário mostra o mês da equipa inteiro, de todas as provas -->
 		<CalendarioMes {jogos} equipa={data.equipa} emblemas={data.emblemas} />
+		<div class="subscrever">
+			<AdicionarCalendario equipa={data.equipa} categoria={data.categoria} />
+		</div>
 	{:else}
 		{#if provas.length > 1}
 			<select bind:value={provaJogos} aria-label="Competição">
@@ -332,6 +336,8 @@
 		cursor: pointer; white-space: nowrap; border-radius: 8px;
 		border: 1px solid var(--borda); background: var(--cartao); color: var(--suave); }
 	.abas button[aria-selected='true'] { color: var(--acento); border-color: var(--acento); font-weight: 600; }
+
+	.subscrever { display: flex; justify-content: center; margin-top: 0.9rem; }
 
 	.modos { display: flex; gap: 0.25rem; margin-bottom: 0.7rem; }
 	.modos button { flex: 1; min-height: 44px; font-size: 0.72rem; cursor: pointer;

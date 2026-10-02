@@ -1,0 +1,155 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hoquei//hoquei.pages.dev//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:A STUART HCM · SUB-19
+X-WR-CALDESC:Jogos de A STUART HCM (SUB-19)
+X-WR-TIMEZONE:Europe/Lisbon
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9437@hoquei.pages.dev
+DTSTAMP:20260913T000000Z
+DTSTART:20260913T130000Z
+DTEND:20260913T143000Z
+SUMMARY:AE FISICA 9–2 A STUART HCM
+LOCATION:PAV. GIMNO. DA LOURINHÃ
+DESCRIPTION:TORNEIO ABERTURA APL SUB-19 · SUB-19\nhttps://hoquei.pages.dev
+ /jogo/9437\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
+URL:https://hoquei.pages.dev/jogo/9437
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9436@hoquei.pages.dev
+DTSTAMP:20260913T000000Z
+DTSTART:20260913T163000Z
+DTEND:20260913T180000Z
+SUMMARY:A STUART HCM 4–6 HC LOURINHA
+LOCATION:PAV. GIMNO. DA LOURINHÃ
+DESCRIPTION:TORNEIO ABERTURA APL SUB-19 · SUB-19\nhttps://hoquei.pages.dev
+ /jogo/9436\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
+URL:https://hoquei.pages.dev/jogo/9436
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9863@hoquei.pages.dev
+DTSTAMP:20261011T000000Z
+DTSTART:20261011T153000Z
+DTEND:20261011T170000Z
+SUMMARY:UF ENTRONCAMENTO vs A STUART HCM
+LOCATION:PAV. A. MATEUS- ENTRONCAMENTO
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9863\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9863
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9866@hoquei.pages.dev
+DTSTAMP:20261018T000000Z
+DTSTART:20261018T181500Z
+DTEND:20261018T194500Z
+SUMMARY:A STUART HCM vs FSE/AJ SALESIANA
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9866\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9866
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9869@hoquei.pages.dev
+DTSTAMP:20261025T000000Z
+DTSTART:20261025T163000Z
+DTEND:20261025T180000Z
+SUMMARY:CD PAÇO ARCOS A vs A STUART HCM
+LOCATION:PAV. PAÇO DE ARCOS
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9869\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9869
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9872@hoquei.pages.dev
+DTSTAMP:20261101T000000Z
+DTSTART:20261101T161500Z
+DTEND:20261101T174500Z
+SUMMARY:A STUART HCM vs CACO
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9872\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9872
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9875@hoquei.pages.dev
+DTSTAMP:20261108T000000Z
+DTSTART:20261108T173000Z
+DTEND:20261108T190000Z
+SUMMARY:PAREDE FC vs A STUART HCM
+LOCATION:PAV. PAREDE
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9875\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9875
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9878@hoquei.pages.dev
+DTSTAMP:20261115T000000Z
+DTSTART:20261115T174500Z
+DTEND:20261115T191500Z
+SUMMARY:A STUART HCM vs UF ENTRONCAMENTO
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9878\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9878
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9881@hoquei.pages.dev
+DTSTAMP:20261122T000000Z
+DTSTART:20261122T180000Z
+DTEND:20261122T193000Z
+SUMMARY:FSE/AJ SALESIANA vs A STUART HCM
+LOCATION:PAV. SALESIANA
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9881\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9881
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9887@hoquei.pages.dev
+DTSTAMP:20261128T000000Z
+DTSTART:20261128T153000Z
+DTEND:20261128T170000Z
+SUMMARY:CACO vs A STUART HCM
+LOCATION:PAV.C.A.C.OURIQUE
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9887\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9887
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9884@hoquei.pages.dev
+DTSTAMP:20261129T000000Z
+DTSTART:20261129T193000Z
+DTEND:20261129T210000Z
+SUMMARY:A STUART HCM vs CD PAÇO ARCOS A
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9884\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9884
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9890@hoquei.pages.dev
+DTSTAMP:20261206T000000Z
+DTSTART:20261206T163000Z
+DTEND:20261206T180000Z
+SUMMARY:A STUART HCM vs PAREDE FC
+LOCATION:PAV.PROF.JOÃO CAMPELO
+DESCRIPTION:CAMP. REG. SUB-19 - 1ª FASE · Série C · SUB-19\nhttps://hoq
+ uei.pages.dev/jogo/9890\nDados da Associação de Patinagem de Lisboa. Sit
+ e não oficial.
+URL:https://hoquei.pages.dev/jogo/9890
+END:VEVENT
+END:VCALENDAR
