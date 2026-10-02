@@ -144,7 +144,7 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 | W4.15 | Vista Agenda, transversal às competições | should | L | ✅ `/agenda` com Próximos e Resultados, agrupado por dia, filtro "só as minhas equipas" ligado por omissão |
 | B4.16 | `agenda.json`: índice transversal de jogos para a vista Agenda | should | M | ✅ 791 jogos, 13,7 KB comprimido, num só pedido |
 | B4.11 | **Feed ICS por equipa**: `/v1/{tenant}/{season}/team/{id}.ics` | must | M | ✅ `scraper/src/hoquei/ics.py` + 21 testes, 214 feeds e 1582 eventos. **UID e DTSTAMP deterministas** — sem isso o calendário duplicava eventos em vez de os corrigir, e a app republicava a cada corrida do cron |
-| W4.12 | Botão "Adicionar ao meu calendário" com o URL do feed + instruções | must | M | ✅ `AdicionarCalendario.svelte` na aba Calendário da equipa: ligação `webcal:` (iPhone e Mac abrem logo), endereço com botão de copiar, instruções por plataforma e o aviso honesto da latência |
+| W4.12 | Botão "Adicionar ao meu calendário" com o URL do feed + instruções | must | M | ✅ **refeito a 03/10 depois de falhar no Android do dono do projecto.** O `webcal:` não tem quem o atenda no Android — o botão não fazia nada — e as instruções mandavam a pessoa para um computador, que não é uma funcionalidade. Agora detecta a plataforma: Android leva o `calendar.google.com/r?cid=`, iPhone leva `webcal:`, computador leva os dois, e há sempre o `.ics` para descarregar com o aviso de que não se actualiza |
 | W4.13 | Descarregar um jogo isolado como `.ics` | should | S | Ficheiro abre no calendário com data, hora e recinto |
 | W4.17 | Emblemas dos clubes | could | M | ✅ em jogos, agenda, classificação e O Meu Clube |
 | B4.18 | Emblemas servidos da nossa origem, encolhidos e normalizados | should | S | ✅ 31 WebP de 64px, 2,3 KB em média (eram 22,8 KB PNG) — 89,8% menos |
@@ -677,6 +677,7 @@ que melhor protege o que já temos, e são meio dia de trabalho.)
 | **Push no iPhone exige instalação manual** | **Médio** | W5.13/W5.14: explicar, e não oferecer o que não funciona |
 | **Web Push obriga a guardar subscrições** | Médio | Isolado na Fase 5; tudo antes disso é estático |
 | Utilizadores não perceberem que se instala | Médio | Convite a instalar em bom momento, e instruções próprias para iOS |
+| **Desenhar para a plataforma errada** | Médio | O W4.12 saiu com um botão que não funciona no Android — o sistema mais usado pelos utilizadores-alvo — porque foi pensado a partir do que o `webcal:` faz no Mac. Antes de dar por feito algo que depende do sistema operativo, verificar em qual deles corre quem vai usar |
 | Âmbito a crescer antes da v1 | Alto | Fase 8 existe para isso |
 | Crawl das fichas a crescer | Médio | Crawl incremental obrigatório (B1.19) |
 | **Mudança silenciosa na fonte: o parser não falha, só devolve menos** | **Alto** | Aconteceu (9-vs-10 colunas, 83% das linhas perdidas, 11 dias sem ninguém dar por isso). Mitigação real é a guarda de contagens entre rondas — B9.2 + B9.6 |
