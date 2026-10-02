@@ -651,6 +651,7 @@ Daí saem três cadências, e não duas:
 | B9.16 | Ronda de **fecho do dia** às 00:30, que sela o dia e recalcula | must | S | o `cron` actual de 2h fica para frescura |
 | B9.17 | Ronda **ao vivo** sobre os jogos a decorrer, sem saber favoritos | could | M | ≤15 jogos em simultâneo no pico. Bloqueado pelo resultado da sonda |
 | B9.18 | **Normalizar grafias de clube** | should | S | a fonte tem `A STRUART HCM` vs `A STUART HCM` e `HC LOURINHA` vs `HC LOURINHÃ`. É literalmente a "limpeza" do pedido, e hoje parte emblemas e junções por nome |
+| B9.19 | **Impressão estrutural por ronda**: nº de colunas por tipo de tabela, com aviso quando muda | should | S | ideia emprestada do Scrapling (ver [07](07-avaliacao-scrapling.md)), sem a dependência nem a relocalização silenciosa |
 
 ### O que eu faria primeiro, se quisesses só uma coisa desta lista
 
@@ -668,7 +669,7 @@ que melhor protege o que já temos, e são meio dia de trabalho.)
 
 | Risco | Impacto | Mitigação |
 |---|---|---|
-| HTML da fonte muda e o parser quebra | Alto | Parser no backend, testes com amostras, alerta automático (B1.11, B1.17) |
+| HTML da fonte muda e o parser quebra | Alto | Parser no backend, testes com amostras, alerta automático (B1.11, B1.17). **Avaliado e rejeitado o Scrapling para isto** — as duas avarias que tivemos de facto não seriam evitadas pelo *adaptive tracking*; ver [07](07-avaliacao-scrapling.md) |
 | Federação pede para parar | Alto | Contacto antecipado (L7.1), atribuição visível, scraping educado |
 | Logótipos de clubes | Médio | Não usar sem autorização; iniciais na v1 |
 | Dados de menores nas fichas de formação | **Alto** | Sem estatística individual abaixo de sub-17 (B1.21) |

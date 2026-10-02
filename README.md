@@ -41,6 +41,7 @@ onde há agregação e pesquisa. Dados de menores têm protecção reforçada (a
 | [docs/04-benchmarking.md](docs/04-benchmarking.md) | Como a FotMob e a Sofascore organizam este tipo de dados, e o que adaptamos |
 | [docs/05-sofascore-ecras.md](docs/05-sofascore-ecras.md) | Leitura ecrã a ecrã da app nativa da Sofascore, com o que os nossos dados sustentam e o que não |
 | [docs/06-email-apl.md](docs/06-email-apl.md) | Rascunho do email à APL (L7.1) e as razões de cada escolha |
+| [docs/07-avaliacao-scrapling.md](docs/07-avaliacao-scrapling.md) | Porque não adoptámos o Scrapling, e o que faríamos mudar de ideias |
 
 ## Resumo em 30 segundos
 
