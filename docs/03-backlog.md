@@ -394,7 +394,10 @@ apareciam no site móvel.
 | ID | Item | Prio | Est. | Critério de aceitação |
 |---|---|---|---|---|
 | W6.1 | Fita de datas deslizável | should | M | ✅ janela de −10 a +35 dias, centrada no dia escolhido |
-| W6.2 | Classificação sem scroll horizontal | should | M | ✅ 5 colunas (#, equipa, J, DG, P) cabem a 375px; as restantes ficam para uma vista Completa a fazer |
+| W6.2 | Classificação sem scroll horizontal | should | M | ✅ **fechado a 02/10** com `Simples · Completa`. Simples = #, equipa, J, GM, GS, DG, A, P (cabe a 375px); Completa acrescenta V/E/D e o rácio, e rola com o lugar e o nome fixos |
+| W6.2b | `TabelaClassificacao.svelte` — uma tabela só para as duas páginas | should | S | ✅ a de equipa e a de competição tinham-se separado e já divergiam em colunas, em links e no encosto |
+| W6.2c | **Regressão corrigida**: nomes de equipa outra vez clicáveis na classificação da competição | must | XS | ✅ o W8.3 estava marcado feito mas perdeu-se num refactor — o `caminhoEquipa` ficou importado e por usar, sem erro nenhum |
+| W6.2d | **Defeito corrigido**: coluna fixa do nome assentava por cima da dos jogos | must | XS | ✅ eram duas medidas independentes (`1.4rem` de largura, `1.7rem` de encosto) e a coluna media 17px: 11px de sobreposição. Agora saem da mesma variável |
 | W6.3 | Secções colapsáveis com contador | should | M | ✅ sábado 3/10 com 41 jogos abre em 6 secções fechadas, tudo num ecrã |
 | W6.4 | Seguir uma **competição** inteira, com notificações próprias | could | M | Seguir o regional de sub-15 traz todos os jogos do escalão |
 | W6.5 | Seguir um **jogo** individual | could | S | Estrela em cada linha de jogo |

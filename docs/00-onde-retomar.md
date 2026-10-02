@@ -45,16 +45,21 @@ federação. Está no email à APL por responder. Ver o travão na Fase 9 do bac
 
 ```
 B9.14          publicar as tabelas calculadas  ← à espera da APL
-W6.2 (resto)   vista "Completa" da classificação, com as 10 colunas
+B1.9c          boletim oficial → 3ª tab do detalhe de jogo, e desbloqueia o W8.5
 W6.4 / W6.5    seguir uma competição; seguir um jogo individual
-B1.9c          boletim oficial → 3ª tab do detalhe de jogo
+W8.4           nomes de equipa clicáveis na agenda e no detalhe de jogo
 Fase 5         notificações (Web Push) — é onde entra estado no backend
 ```
 
+~~W6.2~~ fechado a 02/10: a classificação tem `Simples · Completa` nas duas páginas, servidas
+pelo mesmo componente.
+
 ## ⚠️ Por fechar
 
-**A sonda de live scores nunca correu.** Falhou a 19/09 e a 26/09. Não bloqueia nada — só decide
-o F8.1 — mas não se resolve sozinha.
+**A sonda de live scores está automatizada desde 01/10** (`.github/workflows/sonda.yml`) e
+dispara sozinha às sextas 19:20 e aos fins-de-semana. Falhou a 19/09 e a 26/09 por depender de
+memória humana; agora não depende. **Falta ler o primeiro diário** e responder à pergunta que
+decide o F8.1 e o B9.17: com que rapidez a fonte reflecte um golo durante o jogo.
 
 **~~O email à APL~~ — enviado a 01/10/2026.** Perguntou quatro coisas: se vêem inconveniente,
 nomes de atletas de formação, emblemas dos clubes, e acesso estruturado aos dados. **Se não

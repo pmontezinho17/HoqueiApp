@@ -3,6 +3,7 @@
 	import Emblema from '$lib/Emblema.svelte';
 	import FormaRecente from '$lib/FormaRecente.svelte';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
+	import TabelaClassificacao from '$lib/TabelaClassificacao.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import { nomeProprio, porQuando } from '$lib/formato';
 	import { provaActual } from '$lib/provas';
@@ -18,6 +19,7 @@
 	let provaJogos = $state('');
 	let provaPlantel = $state('');
 	let tabelaEscolhida = $state('');
+	let completa = $state(false);
 
 	const hoje = new Date().toISOString().slice(0, 10);
 	const segue = $derived(favoritos.segue(data.equipa, data.categoria));
@@ -247,41 +249,13 @@
 			<p class="rotulo">{tabelas[0].rotulo}</p>
 		{/if}
 
-		<div class="rolo">
-			<table class="classif">
-				<thead>
-					<tr>
-						<th class="p" scope="col">#</th><th class="eq" scope="col">Equipa</th>
-						<th scope="col"><abbr title="Jogos">J</abbr></th>
-						<th scope="col"><abbr title="Golos marcados">GM</abbr></th>
-						<th scope="col"><abbr title="Golos sofridos">GS</abbr></th>
-						<th scope="col"><abbr title="Diferença de golos">DG</abbr></th>
-						<th scope="col"><abbr title="Assistências">A</abbr></th>
-						<th class="ptst" scope="col"><abbr title="Pontos">P</abbr></th>
-					</tr>
-				</thead>
-				<tbody>
-					{#each tabela.linhas as l (l.equipa)}
-						<tr class:minha={l.equipa === data.equipa}>
-							<td class="p">{l.posicao}</td>
-							<th class="eq" scope="row">
-								<a href={caminhoEquipa(l.equipa, data.categoria)}>
-									<Emblema equipa={l.equipa} src={data.emblemas[l.equipa]} tamanho={18} />{l.equipa}
-								</a>
-							</th>
-							<td>{l.jogos}</td>
-							<td>{l.golos_marcados}</td>
-							<td>{l.golos_sofridos}</td>
-							<td class:pos={l.diferenca > 0} class:neg={l.diferenca < 0}>
-								{l.diferenca > 0 ? '+' : ''}{l.diferenca}
-							</td>
-							<td>{tabela.assist?.get(l.equipa) ?? '–'}</td>
-							<td class="ptst">{l.pontos}</td>
-						</tr>
-					{/each}
-				</tbody>
-			</table>
+		<div class="modos" role="group" aria-label="Colunas">
+			<button class:activo={!completa} onclick={() => (completa = false)}>Simples</button>
+			<button class:activo={completa} onclick={() => (completa = true)}>Completa</button>
 		</div>
+		<TabelaClassificacao
+			linhas={tabela.linhas} emblemas={data.emblemas} categoria={data.categoria}
+			{completa} destaque={(e) => e === data.equipa} assistencias={tabela.assist} />
 		<p class="nota">
 			As assistências não vêm da tabela oficial — são somadas das fichas de jogo, onde a
 			fonte as registra por defeito (451 em 1417 golos). Um <code>–</code> é uma equipa
@@ -359,6 +333,12 @@
 		border: 1px solid var(--borda); background: var(--cartao); color: var(--suave); }
 	.abas button[aria-selected='true'] { color: var(--acento); border-color: var(--acento); font-weight: 600; }
 
+	.modos { display: flex; gap: 0.25rem; margin-bottom: 0.7rem; }
+	.modos button { flex: 1; min-height: 32px; font-size: 0.72rem; cursor: pointer;
+		border-radius: 999px; border: 1px solid var(--borda);
+		background: var(--cartao); color: var(--suave); }
+	.modos button.activo { border-color: var(--acento); color: var(--acento); font-weight: 600; }
+
 	.vistas { display: flex; gap: 0.25rem; margin-bottom: 0.8rem; }
 	.vistas button { flex: 1; min-height: 34px; font-size: 0.74rem; cursor: pointer;
 		border-radius: 999px; border: 1px solid var(--borda);
@@ -378,25 +358,7 @@
 		border-radius: 8px; border: 1px solid var(--borda);
 		background: var(--cartao); color: inherit; }
 
-	/* oito colunas não cabem em 375px: rola na horizontal com o lugar e o nome fixos,
-	   como no plantel — sem isto perde-se de quem é a linha a meio do gesto */
-	.classif { width: 100%; border-collapse: collapse; font-size: 0.76rem;
-		font-variant-numeric: tabular-nums; }
-	.classif th, .classif td { padding: 0.4rem 0.3rem; text-align: right; white-space: nowrap; }
-	.classif thead th { font-size: 0.64rem; color: var(--suave); font-weight: 600;
-		border-bottom: 1px solid var(--borda); }
-	.classif .p { position: sticky; left: 0; z-index: 1; width: 1.4rem;
-		text-align: center; color: var(--suave); background: var(--fundo); }
-	.classif .eq { position: sticky; left: 1.7rem; z-index: 1; text-align: left;
-		font-weight: 400; background: var(--fundo); }
-	.classif .eq a { display: flex; align-items: center; gap: 0.35rem; text-decoration: none; }
-	.classif .ptst { font-weight: 700; padding-left: 0.5rem; }
-	.classif tbody tr + tr th, .classif tbody tr + tr td { border-top: 1px solid var(--borda); }
-	.classif tbody tr.minha > * { background: var(--acento-fraco); }
-	.classif tbody tr.minha .eq { font-weight: 600; }
 	.nota code { font-family: inherit; }
-	.pos { color: var(--acento); }
-	.neg { color: var(--suave); }
 	.verProva { display: inline-block; margin-top: 0.7rem; font-size: 0.74rem;
 		color: var(--acento); text-decoration: none; }
 

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Emblema from '$lib/Emblema.svelte';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
+	import TabelaClassificacao from '$lib/TabelaClassificacao.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import { jornadaAtual, porQuando, nomeProprio } from '$lib/formato';
 	import { caminhoEquipa } from '$lib/slug';
@@ -14,6 +15,7 @@
 	// modo de vista ao estilo dos modos da NHL: os mesmos dados reagrupados.
 	// `Escalão` empilha as séries — nunca as funde, porque não se enfrentam.
 	let soMinhaSerie = $state(false);
+	let completa = $state(false);
 	const temSeries = $derived(data.provas.length > 1);
 
 	const minhasEquipas = $derived(new Set(favoritos.lista.map((f) => f.equipa)));
@@ -27,6 +29,15 @@
 	);
 
 	const destaque = (equipa: string) => minhasEquipas.has(equipa);
+
+	/** Assistências por equipa, somadas das fichas desta prova. `null` quando não há fichas:
+	 *  sem isto uma equipa sem dados somava zero e lia-se como pior do que é. */
+	const assistencias = (quadro: { jogadores: TotaisJogador[] } | null | undefined) => {
+		if (!quadro?.jogadores.length) return null;
+		const m = new Map<string, number>();
+		for (const j of quadro.jogadores) m.set(j.equipa, (m.get(j.equipa) ?? 0) + j.assistencias);
+		return m;
+	};
 
 	// marcadores: somados entre séries, com a série ao lado de cada jogador, porque
 	// as séries não se enfrentam e um ranking sem isso seria enganador
@@ -78,35 +89,18 @@
 {/if}
 
 {#if aba === 'classificacao'}
+	<div class="modos" role="group" aria-label="Colunas">
+		<button class:activo={!completa} onclick={() => (completa = false)}>Simples</button>
+		<button class:activo={completa} onclick={() => (completa = true)}>Completa</button>
+	</div>
 	{#each visiveis as p (p.competicao.id)}
 		{#each p.dados.classificacao as grupo, i (grupo.nome ?? i)}
 			<section>
 				<h2>{p.competicao.serie ? `Série ${p.competicao.serie}` : (grupo.nome ?? 'Classificação')}</h2>
-				<table>
-					<thead>
-						<tr>
-							<th class="p">#</th><th class="eq">Equipa</th>
-							<th><abbr title="Jogos">J</abbr></th>
-							<th><abbr title="Diferença de golos">DG</abbr></th>
-							<th class="pts">P</th>
-						</tr>
-					</thead>
-					<tbody>
-						{#each grupo.linhas as l (l.equipa)}
-							<tr class:minha={destaque(l.equipa)}>
-								<td class="p">{l.posicao}</td>
-								<th class="eq">
-									<Emblema equipa={l.equipa} src={data.emblemas[l.equipa]} tamanho={18} />{l.equipa}
-								</th>
-								<td>{l.jogos}</td>
-								<td class:pos={l.diferenca > 0} class:neg={l.diferenca < 0}>
-									{l.diferenca > 0 ? '+' : ''}{l.diferenca}
-								</td>
-								<td class="pts">{l.pontos}</td>
-							</tr>
-						{/each}
-					</tbody>
-				</table>
+				<TabelaClassificacao
+					linhas={grupo.linhas} emblemas={data.emblemas}
+					categoria={p.competicao.categoria} {completa} {destaque}
+					assistencias={assistencias(p.quadro)} />
 			</section>
 		{/each}
 	{/each}
@@ -176,20 +170,6 @@
 	h2 { font-size: 0.7rem; color: var(--suave); margin: 0 0 0.3rem; font-weight: 600; }
 
 	/* vista simples por omissão: 5 colunas cabem a 375px sem rolar (W6.2) */
-	table { width: 100%; border-collapse: collapse; font-size: 0.76rem;
-		font-variant-numeric: tabular-nums; }
-	th, td { padding: 0.4rem 0.25rem; text-align: right; }
-	thead th { font-size: 0.64rem; color: var(--suave); font-weight: 600;
-		border-bottom: 1px solid var(--borda); }
-	abbr { text-decoration: none; }
-	.p { width: 1.4rem; text-align: center; color: var(--suave); }
-	.eq { text-align: left; width: 100%; font-weight: 400; display: flex;
-		align-items: center; gap: 0.35rem; }
-	.pts { font-weight: 700; }
-	tbody tr + tr th, tbody tr + tr td { border-top: 1px solid var(--borda); }
-	tbody tr.minha { background: var(--acento-fraco); }
-	.pos { color: var(--acento); }
-	.neg { color: var(--suave); }
 
 	.jornada { font-size: 0.66rem; color: var(--suave); margin: 0.6rem 0 0.1rem 0.2rem; }
 	.jornada.curso { color: var(--acento); }
