@@ -641,9 +641,9 @@ Daí saem três cadências, e não duas:
 
 | # | Item | Prioridade | Esforço | Notas |
 |---|---|---|---|---|
-| B9.12 | **Motor de classificação**: 3V+1E, ordem pontos → DG → GM, só fase de grupos | must | M | regras apuradas dos dados, não assumidas |
-| B9.13 | **Teste de reprodução**: recalcular as 42 tabelas publicadas e exigir igualdade | must | S | é isto que torna seguro publicar as que não existem |
-| B9.14 | Publicar classificação calculada para ESCOLARES, BENJAMINS e TORNEIOS PARTICULARES | should | S | 198 jogos hoje sem tabela nenhuma. **Depende da resposta da APL** — ver travão acima |
+| B9.12 | **Motor de classificação**: 3V+1E, ordem pontos → DG → GM → nome, só fase de grupos | must | M | ✅ `scraper/src/hoquei/tabela.py`. Regras apuradas dos dados, não assumidas |
+| B9.13 | **Teste de reprodução**: recalcular as 42 tabelas publicadas e exigir igualdade | must | S | ✅ `tests/test_tabela.py`, 17 testes. Compara 10 campos por linha, baralha a entrada antes de ordenar, e falha se a amostra encolher |
+| B9.14 | Publicar classificação calculada para ESCOLARES, BENJAMINS e TORNEIOS PARTICULARES | should | S | o motor já as produz: **93 linhas** em 14 provas sem tabela. **Não publicado** — depende da resposta da APL, ver travão acima |
 | B9.15 | Rótulo "calculada por nós, não oficial" nessas tabelas | must | XS | se o B9.14 avançar, este não é opcional |
 | B9.16 | Ronda de **fecho do dia** às 00:30, que sela o dia e recalcula | must | S | o `cron` actual de 2h fica para frescura |
 | B9.17 | Ronda **ao vivo** sobre os jogos a decorrer, sem saber favoritos | could | M | ≤15 jogos em simultâneo no pico. Bloqueado pelo resultado da sonda |

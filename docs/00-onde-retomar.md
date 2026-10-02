@@ -31,9 +31,20 @@ E esconder navegação primária num menu corta a descoberta a metade (medido).
 O histórico das sessões anteriores está nos commits e no backlog, que tem o estado item a item.
 Este documento fica só com o essencial para reentrar.
 
+## Decisão à tua espera (02/10/2026)
+
+O **motor de classificação está feito e validado** (B9.12/B9.13): reproduz as 42 tabelas que a
+APL publica, linha a linha, e produz **93 linhas de classificação para os 14 torneios que não
+têm tabela nenhuma** — Escolares, Benjamins e Torneios Particulares.
+
+**Nada disso está publicado**, de propósito. Uma classificação de Benjamins não existe na fonte:
+seria informação nova, criada por nós, e a ausência é provavelmente uma escolha pedagógica da
+federação. Está no email à APL por responder. Ver o travão na Fase 9 do backlog.
+
 ## Próximo passo
 
 ```
+B9.14          publicar as tabelas calculadas  ← à espera da APL
 W6.2 (resto)   vista "Completa" da classificação, com as 10 colunas
 W6.4 / W6.5    seguir uma competição; seguir um jogo individual
 B1.9c          boletim oficial → 3ª tab do detalhe de jogo
