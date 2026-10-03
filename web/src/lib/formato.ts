@@ -72,3 +72,41 @@ export function nomeProprio(n: string | null | undefined): string {
 		)
 		.join('');
 }
+
+
+/** Quantas horas depois do apontamento ainda se acredita numa marca de "ao vivo". */
+const JANELA_AO_VIVO_MS = 3 * 60 * 60 * 1000;
+
+/**
+ * O jogo está a decorrer **agora**.
+ *
+ * Duas condições, e a segunda é a que importa: a marca `ao_vivo` vem dos dados, posta pela
+ * ronda que acompanha os jogos. Se essa ronda parar a meio — e vai parar, porque corre em
+ * máquinas que falham —, a marca fica acesa no ficheiro para sempre. A janela de horas faz
+ * com que expire sozinha, e um "ao vivo" errado num jogo de ontem é pior do que não ter
+ * marca nenhuma.
+ */
+export function emCurso(jogo: { ao_vivo?: boolean; data: string; hora: string | null }): boolean {
+	if (!jogo.ao_vivo || !jogo.hora) return false;
+	const inicio = new Date(`${jogo.data}T${jogo.hora.slice(0, 5)}:00`).getTime();
+	const agora = Date.now();
+	return agora >= inicio && agora - inicio < JANELA_AO_VIVO_MS;
+}
+
+
+const ESCALAO_CURTO: Record<string, string> = {
+	BENJAMINS: 'BENJ',
+	ESCOLARES: 'ESCOL',
+	'SENIORES MASCULINOS': 'SEN M',
+	'SENIORES FEMININOS': 'SEN F',
+	'TORNEIOS PARTICULARES': 'TORN'
+};
+
+/**
+ * `SENIORES MASCULINOS` → `SEN M`, para a coluna estreita da linha de jogo.
+ *
+ * Só se abrevia o que não cabe: os `SUB-13` e companhia ficam inteiros, que é como toda a
+ * gente lhes chama. Um escalão desconhecido fica como está — truncá-lo às cegas daria
+ * coisas sem sentido, e mais vale uma linha ligeiramente mais larga do que uma sigla falsa.
+ */
+export const escalaoCurto = (cat: string) => ESCALAO_CURTO[cat] ?? cat;

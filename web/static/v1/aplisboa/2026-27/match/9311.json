@@ -46,7 +46,7 @@
      "livres_diretos": "0/0",
      "cartoes_amarelos": 0,
      "cartoes_azuis": 1,
-     "cartoes_vermelhos": 1,
+     "cartoes_vermelhos": 0,
      "papel": null
     },
     {
@@ -858,21 +858,6 @@
   },
   {
    "ordem": 28,
-   "tipo": "cartao",
-   "relogio": "0:00",
-   "parte": 2,
-   "minuto": 50,
-   "equipa": "GRF MURCHES",
-   "jogador": "AFONSO ESTEVES",
-   "assistencia": null,
-   "variante": "vermelho",
-   "numero": null,
-   "golos_casa": null,
-   "golos_fora": null,
-   "texto": "Cartão Vermelho - GRF MURCHES | AFONSO ESTEVES"
-  },
-  {
-   "ordem": 29,
    "tipo": "fim_jogo",
    "relogio": "FIN",
    "parte": 2,
@@ -887,7 +872,52 @@
    "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO ESTEVES",
+   "Árbitro 2": "RODRIGO RILHAS",
+   "Árbitro Auxiliar": "VASCO GUEDES",
+   "Cronometrista": "ANA TEIXEIRA",
+   "Auxiliar 45 Seg.": "RICARDO GUERREIRO",
+   "Diretor de campo": "MANUEL SILVA",
+   "Gestor de segurança": "CARLOS MATOS"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 3
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 5
+   }
+  ],
+  "faltas_casa": [
+   2,
+   1
+  ],
+  "faltas_fora": [
+   0,
+   1
+  ],
+  "inicio": [
+   "16:01",
+   "16:50"
+  ],
+  "termo": [
+   "16:40",
+   "17:48"
+  ],
+  "capitao_casa": "ANDRÉ GASPAR",
+  "capitao_fora": "MANUEL COIMBRA"
+ },
  "competicao_id": 432,
  "categoria": "SENIORES MASCULINOS",
  "jornada": "3ª JORNADA - 1ª FASE",

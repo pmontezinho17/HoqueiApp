@@ -307,7 +307,7 @@
    "casa": "GDS CASCAIS",
    "fora": "SPORTING CP",
    "golos_casa": 2,
-   "golos_fora": 10,
+   "golos_fora": 12,
    "recinto": "PAV. CASCAIS"
   },
   {
@@ -505,10 +505,10 @@
      "vitorias": 2,
      "empates": 1,
      "derrotas": 0,
-     "golos_marcados": 19,
+     "golos_marcados": 21,
      "golos_sofridos": 4,
-     "diferenca": 15,
-     "racio": 4.75,
+     "diferenca": 17,
+     "racio": 5.25,
      "pontos": 7
     },
     {
@@ -548,9 +548,9 @@
      "empates": 1,
      "derrotas": 2,
      "golos_marcados": 8,
-     "golos_sofridos": 18,
-     "diferenca": -10,
-     "racio": 0.44,
+     "golos_sofridos": 20,
+     "diferenca": -12,
+     "racio": 0.4,
      "pontos": 1
     }
    ]

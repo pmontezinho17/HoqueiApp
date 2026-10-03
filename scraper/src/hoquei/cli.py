@@ -9,7 +9,8 @@ import argparse
 import json
 import pathlib
 import sys
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 import httpx
 
@@ -134,6 +135,123 @@ def _resultado_conhecido(caminho: pathlib.Path) -> tuple | None:
     except (OSError, json.JSONDecodeError):
         return None
     return (d.get("golos_casa"), d.get("golos_fora"), d.get("estado"))
+
+
+def comando_aovivo(args) -> int:
+    """Actualiza só os jogos que estão a decorrer (B9.17).
+
+    O `publicar` percorre as 37 competições e demora minutos — não serve para acompanhar um
+    jogo. Isto parte da `agenda.json` já publicada, escolhe os jogos cuja hora já passou e
+    que ainda não têm resultado, e vai buscar **só esses**. No pico da época são 15 jogos à
+    mesma hora, ou seja 15 pedidos por ronda: ao nosso ritmo de 1/s, 15 segundos.
+
+    A sonda de 02/10 provou que vale a pena — a fonte reflecte os golos enquanto o jogo
+    decorre, com latência abaixo dos 3 minutos que conseguimos medir.
+    """
+    destino = pathlib.Path(args.destino)
+    agenda_f = destino / "agenda.json"
+    agenda = json.loads(agenda_f.read_text())["jogos"]
+
+    agora = datetime.now(ZoneInfo("Europe/Lisbon"))
+    hoje = agora.date().isoformat()
+    limite = (agora - timedelta(hours=args.janela)).strftime("%H:%M")
+    def a_decorrer(j: dict) -> bool:
+        """Começou, ainda não acabou.
+
+        O critério **não** pode ser "ainda não tem resultado": um jogo a decorrer tem
+        resultado, e a primeira versão deste filtro deixava de seguir cada jogo exactamente
+        no momento em que ele se tornava interessante. O que marca o fim é o estado que a
+        fonte põe na ficha.
+        """
+        if j["data"] != hoje or not j.get("id") or not j.get("hora"):
+            return False
+        if not (limite <= j["hora"][:5] <= agora.strftime("%H:%M")):
+            return False
+        if args.todos:
+            return True
+        guardada = destino / "match" / f"{j['id']}.json"
+        if not guardada.exists():
+            return True
+        try:
+            return json.loads(guardada.read_text()).get("estado") != "Jogo Terminado"
+        except (OSError, json.JSONDecodeError):
+            return True
+
+    acorda = [j for j in agenda if a_decorrer(j)]
+    if not acorda:
+        print("nenhum jogo a decorrer", file=sys.stderr)
+        return 0
+
+    por_id = {j["id"]: j for j in agenda}
+    mudou = 0
+    provas_tocadas: set[int] = set()
+    with Fonte(args.tenant) as fonte:
+        for j in acorda:
+            fx = ficha(fonte.jogo(j["id"]).html, j["id"])
+            if fx.golos_casa is None:
+                continue
+            alvo = destino / "match" / f"{j['id']}.json"
+            # preserva o contexto que a ficha da fonte não sabe (escalão, jornada, série)
+            antigo = json.loads(alvo.read_text()) if alvo.exists() else {}
+            dados = para_dicionario(fx)
+            for chave in ("competicao_id", "categoria", "jornada", "grupo_id", "grupo_nome", "serie"):
+                if chave in antigo:
+                    dados[chave] = antigo[chave]
+            novo = json.dumps(dados, ensure_ascii=False, indent=1)
+            if alvo.exists() and alvo.read_text() == novo:
+                continue
+            alvo.write_text(novo)
+            # `ao_vivo` é o que a app usa para marcar o jogo em curso. A app só confia nele
+            # dentro de uma janela de horas a contar da hora do jogo — se esta ronda parar a
+            # meio, a marca expira sozinha em vez de ficar acesa para sempre.
+            por_id[j["id"]].update(gc=fx.golos_casa, gf=fx.golos_fora,
+                                   ao_vivo=fx.estado != "Jogo Terminado")
+            _actualizar_calendario(destino, j, fx.golos_casa, fx.golos_fora)
+            provas_tocadas.add(j["comp"])
+            mudou += 1
+            print(f"  {j['hora'][:5]} #{j['id']} {j['casa']} {fx.golos_casa}-{fx.golos_fora} "
+                  f"{j['fora']}  {fx.estado or 'a decorrer'}", file=sys.stderr)
+
+        # A classificação tem de vir atrás do resultado, senão o ficheiro da competição fica
+        # a dizer duas coisas diferentes: jogos já com resultado e uma tabela que ainda não
+        # os conta. Foi o teste de reprodução (B9.13) que apanhou isto, e tinha razão — é
+        # incoerência a sério, e via-se na app.
+        if provas_tocadas:
+            id_temp = args.id_temp or _temporada_corrente(fonte)
+            for comp in sorted(provas_tocadas):
+                try:
+                    tabela = classificacao(
+                        fonte.seccao("clasificacion", id_comp=comp, id_temp=id_temp).html,
+                        comp, id_temp)
+                except Exception as e:              # uma tabela em falta não estraga o resto
+                    print(f"  classificação {comp}: {e}", file=sys.stderr)
+                    continue
+                alvo = destino / "comp" / f"{comp}.json"
+                d = json.loads(alvo.read_text())
+                d["classificacao"] = para_dicionario(tabela)["grupos"]
+                alvo.write_text(json.dumps(d, ensure_ascii=False, indent=1))
+
+    if mudou:
+        agenda_f.write_text(json.dumps({"jogos": agenda}, ensure_ascii=False))
+        meta_f = destino / "meta.json"
+        meta = json.loads(meta_f.read_text())
+        meta["generated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+        meta["ao_vivo"] = True
+        meta_f.write_text(json.dumps(meta, ensure_ascii=False, indent=1))
+    print(f"{len(acorda)} jogos sondados, {mudou} com novidade", file=sys.stderr)
+    return 0
+
+
+def _actualizar_calendario(destino: pathlib.Path, jogo: dict, gc: int, gf: int) -> None:
+    """O resultado também vive no ficheiro da competição, que é o que alimenta a tabela."""
+    alvo = destino / "comp" / f"{jogo['comp']}.json"
+    if not alvo.exists():
+        return
+    d = json.loads(alvo.read_text())
+    for j in d["jogos"]:
+        if j.get("id") == jogo["id"]:
+            j["golos_casa"], j["golos_fora"] = gc, gf
+    alvo.write_text(json.dumps(d, ensure_ascii=False, indent=1))
 
 
 def comando_publicar(args) -> int:
@@ -335,6 +453,15 @@ def main(argv=None) -> int:
     b.add_argument("--anonimizar-formacao", action="store_true",
                    help="omitir nomes de atletas, árbitros e equipa técnica abaixo de sub-17")
     b.set_defaults(func=comando_publicar)
+
+    v = sub.add_parser("aovivo", parents=[comum],
+                       help="actualizar só os jogos a decorrer, sem percorrer tudo")
+    v.add_argument("--destino", required=True)
+    v.add_argument("--janela", type=float, default=3.0,
+                   help="há quantas horas um jogo pode ter começado e ainda contar (default 3)")
+    v.add_argument("--todos", action="store_true",
+                   help="rever também os que já têm resultado (apanha correcções)")
+    v.set_defaults(func=comando_aovivo)
 
     d = sub.add_parser("despejar", parents=[comum], help="escrever todas as competições em JSON")
     d.add_argument("--destino", required=True)

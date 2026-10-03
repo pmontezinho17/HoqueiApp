@@ -1,7 +1,13 @@
-# Os dados mudam a cada corrida do cron; 5 min de cache com revalidação em fundo
-# chega para o site abrir instantâneo sem servir resultados velhos.
+# 20 s de cache com revalidação em fundo. Era 300 s, e com live scores cinco minutos é a
+# diferença entre acompanhar o jogo e ver o resultado de há dois golos. O
+# `stale-while-revalidate` faz com que o utilizador continue a receber resposta instantânea:
+# serve-se o que está em cache e vai-se buscar o novo por trás.
+#
+# Uma regra só, de propósito: com um `/v1/*` largo **e** regras finas para os ficheiros que
+# mudam durante o jogo, o Cloudflare aplicava as duas e concatenava os `max-age` no mesmo
+# cabeçalho, o que não é ambíguo só para nós — é ambíguo para o browser.
 /v1/*
-  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+  Cache-Control: public, max-age=20, stale-while-revalidate=600
 
 # O SvelteKit versiona estes ficheiros no nome: nunca mudam de conteúdo.
 /_app/immutable/*

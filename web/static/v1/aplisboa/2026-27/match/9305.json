@@ -1,13 +1,13 @@
 {
  "id": 9305,
- "competicao": "2ª Parte (7:43) TAÇA JESUS CORREIA - SENIORES MASCULINOS",
+ "competicao": "TAÇA JESUS CORREIA - SENIORES MASCULINOS",
  "casa": "A STUART HCM",
  "fora": "APAC TOJAL",
  "golos_casa": 2,
  "golos_fora": 3,
- "estado": null,
+ "estado": "Jogo Terminado",
  "data": "2026-10-03",
- "hora": "07:43:00",
+ "hora": "19:30:00",
  "recinto": "PAV.PROF.JOÃO CAMPELO",
  "arbitros": [
   "JOSE MARTINS",
@@ -15,7 +15,7 @@
  ],
  "faltas": [
   1,
-  2
+  3
  ],
  "equipas": [
   {
@@ -27,7 +27,7 @@
      "titular": false,
      "golos": 0,
      "assistencias": 0,
-     "defesas": 0,
+     "defesas": 1,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
      "cartoes_amarelos": 0,
@@ -299,7 +299,7 @@
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
-     "penalidades": "0/0",
+     "penalidades": "0/1",
      "livres_diretos": "0/0",
      "cartoes_amarelos": 0,
      "cartoes_azuis": 0,
@@ -648,9 +648,114 @@
    "golos_casa": null,
    "golos_fora": null,
    "texto": "DESCONTO DE TEMPO | APAC TOJAL"
+  },
+  {
+   "ordem": 17,
+   "tipo": "desconto_tempo",
+   "relogio": "2:41",
+   "parte": 2,
+   "minuto": 47,
+   "equipa": "APAC TOJAL",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "DESCONTO DE TEMPO | APAC TOJAL"
+  },
+  {
+   "ordem": 18,
+   "tipo": "penalti_falhado",
+   "relogio": "2:39",
+   "parte": 2,
+   "minuto": 47,
+   "equipa": "APAC TOJAL",
+   "jogador": "DUARTE MORAIS",
+   "assistencia": null,
+   "variante": "penalti",
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Penálti para APAC TOJAL | Falhado por DUARTE MORAIS | Defendido por JOÃO MARTINHO"
+  },
+  {
+   "ordem": 19,
+   "tipo": "falta_equipa",
+   "relogio": "0:05",
+   "parte": 2,
+   "minuto": 49,
+   "equipa": "APAC TOJAL",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 3,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 3 para APAC TOJAL"
+  },
+  {
+   "ordem": 20,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 2,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
+   "Árbitro 2": "RUI MATOSO",
+   "Árbitro Auxiliar": "EURICO PIRES",
+   "Cronometrista": "PAULO MENDES",
+   "Auxiliar 45 Seg.": "JOAO POTRA",
+   "Diretor de campo": "MARCO JANEIRO",
+   "Gestor de segurança": "JOANA MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   0,
+   1
+  ],
+  "faltas_fora": [
+   2,
+   1
+  ],
+  "inicio": [
+   "19:57",
+   "20:40"
+  ],
+  "termo": [
+   "20:30",
+   "21:15"
+  ],
+  "capitao_casa": "MARTIM DIAS",
+  "capitao_fora": "ANDRÉ COIMBRA"
+ },
  "competicao_id": 432,
  "categoria": "SENIORES MASCULINOS",
  "jornada": "3ª JORNADA - 1ª FASE",

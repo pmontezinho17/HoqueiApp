@@ -91,20 +91,6 @@
      "papel": null
     },
     {
-     "numero": "10",
-     "nome": "FRANCISCO MIRANDA",
-     "titular": true,
-     "golos": 0,
-     "assistencias": 0,
-     "defesas": 0,
-     "penalidades": "0/0",
-     "livres_diretos": "0/0",
-     "cartoes_amarelos": 0,
-     "cartoes_azuis": 0,
-     "cartoes_vermelhos": 0,
-     "papel": null
-    },
-    {
      "numero": "11",
      "nome": "BENJAMIN LOPES",
      "titular": false,
@@ -151,6 +137,20 @@
      "nome": "MARIANA CAMPOS",
      "titular": true,
      "golos": 2,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "FRANCISCO MIRANDA",
+     "titular": true,
+     "golos": 0,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -935,7 +935,50 @@
    "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MIGUEL SOARES",
+   "Árbitro Auxiliar": "SARA ROLIN",
+   "Cronometrista": "JORGE GOMES",
+   "Diretor de campo": "LUIS SEGADÃES",
+   "Gestor de segurança": "ARMANDO FONSECA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 10,
+    "fora": 5
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 11,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 21,
+    "fora": 7
+   }
+  ],
+  "faltas_casa": [
+   1,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "16:49",
+   "17:20"
+  ],
+  "termo": [
+   "17:15",
+   "18:04"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
  "competicao_id": 467,
  "categoria": "BENJAMINS",
  "jornada": "1ª JORNADA",

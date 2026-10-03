@@ -81,13 +81,13 @@
 	:global(:root) {
 		--fundo: #f6f7f9; --cartao: #fff; --texto: #15181d; --suave: #6b7280;
 		--borda: #e4e6ea; --acento: #0a7d54; --acento-fraco: #e8f4ef;
-		--aviso: #92400e; --aviso-fundo: #fef3c7;
+		--aviso: #92400e; --aviso-fundo: #fef3c7; --vivo: #c2410c;
 	}
 	@media (prefers-color-scheme: dark) {
 		:global(:root) {
 			--fundo: #0f1115; --cartao: #181b21; --texto: #e8eaed; --suave: #9aa1ab;
 			--borda: #272b33; --acento: #34d399; --acento-fraco: #12271f;
-			--aviso: #fcd34d; --aviso-fundo: #3a2e0b;
+			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
 		}
 	}
 	:global(*) { box-sizing: border-box; }

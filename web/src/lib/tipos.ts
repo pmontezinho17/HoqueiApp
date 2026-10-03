@@ -113,6 +113,8 @@ export interface JogoAgenda {
 	gc: number | null; gf: number | null;
 	recinto: string | null;
 	comp: number; prova: string; cat: string;
+	/** posto pela ronda ao vivo. Só vale dentro da janela de horas do jogo — ver `emCurso()`. */
+	ao_vivo?: boolean;
 	grupo_id?: string; grupo_nome?: string; serie?: string | null;
 }
 export interface Agenda { jogos: JogoAgenda[]; }

@@ -13,7 +13,7 @@
    "pontos": 6,
    "amarelos": 1,
    "azuis": 1,
-   "vermelhos": 1
+   "vermelhos": 0
   },
   {
    "nome": "MÁRIO RODRIGUES",
@@ -25,6 +25,19 @@
    "defesas": 0,
    "pontos": 6,
    "amarelos": 1,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ALESSANDRO VERONA",
+   "equipa": "SPORTING CP",
+   "jogos": 3,
+   "numero": "14",
+   "golos": 5,
+   "assistencias": 4,
+   "defesas": 0,
+   "pontos": 9,
+   "amarelos": 0,
    "azuis": 1,
    "vermelhos": 0
   },
@@ -78,19 +91,6 @@
    "pontos": 9,
    "amarelos": 0,
    "azuis": 2,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ALESSANDRO VERONA",
-   "equipa": "SPORTING CP",
-   "jogos": 3,
-   "numero": "14",
-   "golos": 4,
-   "assistencias": 4,
-   "defesas": 0,
-   "pontos": 8,
-   "amarelos": 0,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -276,6 +276,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "SEBASTIÃO VALADAS",
+   "equipa": "SPORTING CP",
+   "jogos": 1,
+   "numero": "87",
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DIOGO SERRANO",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 3,
@@ -354,10 +367,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "SEBASTIÃO VALADAS",
+   "nome": "HENRIQUE COSTA",
    "equipa": "SPORTING CP",
    "jogos": 1,
-   "numero": "87",
+   "numero": "99",
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
@@ -466,19 +479,6 @@
    "assistencias": 1,
    "defesas": 0,
    "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "HENRIQUE COSTA",
-   "equipa": "SPORTING CP",
-   "jogos": 1,
-   "numero": "99",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -1025,7 +1025,7 @@
    "assistencias": 0,
    "defesas": 0,
    "pontos": 1,
-   "amarelos": 0,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -1287,6 +1287,19 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO LAMPREIA",
+   "equipa": "SPORTING CP",
+   "jogos": 3,
+   "numero": "33",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -1556,7 +1569,7 @@
    "numero": "10",
    "golos": 0,
    "assistencias": 0,
-   "defesas": 0,
+   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -2360,19 +2373,6 @@
    "equipa": "HC LOURINHA",
    "jogos": 3,
    "numero": "23",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "JOÃO LAMPREIA",
-   "equipa": "SPORTING CP",
-   "jogos": 3,
-   "numero": "33",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

@@ -49,7 +49,29 @@ export default defineConfig({
 						options: { cacheName: 'emblemas', expiration: { maxEntries: 200 } }
 					},
 					{
-						// os dados mudam sozinhos no CDN: servir já o que está em cache e
+						// O que muda durante um jogo vai à rede PRIMEIRO.
+						//
+						// Estes ficheiros estavam em StaleWhileRevalidate como todos os outros, e
+						// com live scores isso é veneno: serve-se a cópia em cache e só depois se
+						// busca a nova, por isso o utilizador está **sempre um recarregamento
+						// atrasado**. Puxava para recarregar e via o resultado anterior; puxava
+						// outra vez e via o certo. Com um jogo a decorrer é inaceitável.
+						//
+						// 3 segundos de espera pela rede e depois cai na cache: num pavilhão com
+						// rede má continua a abrir, só com dados mais velhos — que é o
+						// compromisso certo nesta direcção e não na outra.
+						urlPattern: ({ url }) =>
+							/^\/v1\/[^/]+\/[^/]+\/(agenda|meta)\.json$/.test(url.pathname) ||
+							/^\/v1\/[^/]+\/[^/]+\/match\//.test(url.pathname),
+						handler: 'NetworkFirst',
+						options: {
+							cacheName: 'dados-ao-vivo',
+							networkTimeoutSeconds: 3,
+							expiration: { maxEntries: 300, maxAgeSeconds: 604800 }
+						}
+					},
+					{
+						// o resto muda a cada corrida do cron: servir já o que está em cache e
 						// atualizar por trás, para a app abrir instantânea mesmo com 3G mau
 						urlPattern: ({ url }) => url.pathname.startsWith('/v1/'),
 						handler: 'StaleWhileRevalidate',

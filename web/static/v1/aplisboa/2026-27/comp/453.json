@@ -87,7 +87,7 @@
    "hora": "21:00:00",
    "casa": "SL BENFICA A",
    "fora": "AE FISICA D B",
-   "golos_casa": 0,
+   "golos_casa": 2,
    "golos_fora": 0,
    "recinto": "PAV. MURCHES"
   },
@@ -439,31 +439,17 @@
      "equipa": "SL BENFICA A",
      "logo": "/intranet/logos/1.png",
      "jogos": 2,
-     "vitorias": 1,
-     "empates": 1,
+     "vitorias": 2,
+     "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 4,
+     "golos_marcados": 6,
      "golos_sofridos": 0,
-     "diferenca": 4,
+     "diferenca": 6,
      "racio": null,
-     "pontos": 4
+     "pontos": 6
     },
     {
      "posicao": 2,
-     "equipa": "AE FISICA D B",
-     "logo": "/intranet/logos/11.png",
-     "jogos": 2,
-     "vitorias": 1,
-     "empates": 1,
-     "derrotas": 0,
-     "golos_marcados": 2,
-     "golos_sofridos": 1,
-     "diferenca": 1,
-     "racio": 2.0,
-     "pontos": 4
-    },
-    {
-     "posicao": 3,
      "equipa": "APAC TOJAL",
      "logo": "/intranet/logos/12.png",
      "jogos": 2,
@@ -477,7 +463,7 @@
      "pontos": 3
     },
     {
-     "posicao": 4,
+     "posicao": 3,
      "equipa": "CD PAÇO ARCOS B",
      "logo": "/intranet/logos/7.png",
      "jogos": 2,
@@ -488,6 +474,20 @@
      "golos_sofridos": 4,
      "diferenca": -1,
      "racio": 0.75,
+     "pontos": 3
+    },
+    {
+     "posicao": 4,
+     "equipa": "AE FISICA D B",
+     "logo": "/intranet/logos/11.png",
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 2,
+     "golos_sofridos": 3,
+     "diferenca": -1,
+     "racio": 0.67,
      "pontos": 3
     },
     {

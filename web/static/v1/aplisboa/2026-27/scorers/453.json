@@ -16,6 +16,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "TIAGO FERREIRA",
+   "equipa": "SL BENFICA A",
+   "jogos": 2,
+   "numero": "5",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "AFONSO ARCADINHO",
    "equipa": "APAC TOJAL",
    "jogos": 2,
@@ -55,6 +68,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MANUEL SOUSA",
+   "equipa": "SL BENFICA A",
+   "jogos": 2,
+   "numero": "4",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MARTIM PAULINO",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 2,
@@ -64,19 +90,6 @@
    "defesas": 0,
    "pontos": 2,
    "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TIAGO FERREIRA",
-   "equipa": "SL BENFICA A",
-   "jogos": 2,
-   "numero": "5",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -94,10 +107,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MADHAV KANTILAL",
-   "equipa": "APAC TOJAL",
+   "nome": "AFONSO ANDRÉ",
+   "equipa": "SL BENFICA A",
    "jogos": 2,
-   "numero": "9",
+   "numero": "3",
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
@@ -107,14 +120,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO ANDRÉ",
-   "equipa": "SL BENFICA A",
+   "nome": "MADHAV KANTILAL",
+   "equipa": "APAC TOJAL",
    "jogos": 2,
-   "numero": "3",
+   "numero": "9",
    "golos": 1,
-   "assistencias": 0,
+   "assistencias": 1,
    "defesas": 0,
-   "pontos": 1,
+   "pontos": 2,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -176,19 +189,6 @@
    "equipa": "PAREDE FC",
    "jogos": 2,
    "numero": "7",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MANUEL SOUSA",
-   "equipa": "SL BENFICA A",
-   "jogos": 2,
-   "numero": "4",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -267,6 +267,19 @@
    "equipa": "SL BENFICA A",
    "jogos": 2,
    "numero": "7",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RAFAEL SANTOS",
+   "equipa": "SL BENFICA A",
+   "jogos": 2,
+   "numero": "9",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -839,19 +852,6 @@
    "equipa": "PAREDE FC",
    "jogos": 2,
    "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RAFAEL SANTOS",
-   "equipa": "SL BENFICA A",
-   "jogos": 2,
-   "numero": "9",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

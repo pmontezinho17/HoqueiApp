@@ -2,7 +2,7 @@
 	import FitaDatas from '$lib/FitaDatas.svelte';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
-	import { dataLonga } from '$lib/formato';
+	import { emCurso, dataLonga } from '$lib/formato';
 	import type { JogoAgenda } from '$lib/tipos';
 
 	let { data } = $props();
@@ -31,6 +31,19 @@
 	const chave = (e: string, c: string) => `${c}\u0000${e}`;
 	const seguidas = $derived(new Set(favoritos.lista.map((f) => chave(f.equipa, f.categoria))));
 	const doDia = $derived(data.agenda.filter((j: JogoAgenda) => j.data === dia));
+	/** A decorrer **agora**, de todos os escalões e independentemente do dia escolhido na
+	 *  fita: quem abre a app a meio de um sábado quer ver isto primeiro, e não ter de
+	 *  procurar. Reavalia de minuto a minuto para a secção se apagar sozinha no fim. */
+	let agora = $state(Date.now());
+	$effect(() => {
+		const t = setInterval(() => (agora = Date.now()), 60_000);
+		return () => clearInterval(t);
+	});
+	const aoVivo = $derived.by(() => {
+		void agora;
+		return data.agenda.filter(emCurso);
+	});
+
 	const minhas = $derived(
 		doDia.filter((j: JogoAgenda) => seguidas.has(chave(j.casa, j.cat)) || seguidas.has(chave(j.fora, j.cat)))
 	);
@@ -93,6 +106,15 @@
 	</div>
 {/if}
 
+{#if aoVivo.length}
+	<section class="destacada vivo">
+		<h2><i aria-hidden="true"></i>A decorrer agora</h2>
+		{#each aoVivo as j (j.id ?? `${j.casa}${j.fora}`)}
+			<LinhaJogo jogo={j} emblemas={data.emblemas} seguida={eSeguida(j.cat)} comEscalao />
+		{/each}
+	</section>
+{/if}
+
 {#if doDia.length === 0}
 	<p class="vazio">Sem jogos em {dataLonga(dia)}.</p>
 {:else}
@@ -100,7 +122,7 @@
 		<section class="destacada">
 			<h2>As minhas equipas</h2>
 			{#each minhas as j (j.id ?? `${j.casa}${j.fora}`)}
-				<LinhaJogo jogo={j} emblemas={data.emblemas} seguida={eSeguida(j.cat)} />
+				<LinhaJogo jogo={j} emblemas={data.emblemas} seguida={eSeguida(j.cat)} comEscalao />
 			{/each}
 		</section>
 	{/if}
@@ -136,6 +158,12 @@
 
 	section { margin-bottom: 1.1rem; }
 	.destacada { border-left: 2px solid var(--acento); padding-left: 0.6rem; }
+	.vivo { border-color: var(--vivo); }
+	.vivo h2 { display: flex; align-items: center; gap: 0.35rem; color: var(--vivo); }
+	.vivo h2 i { width: 7px; height: 7px; border-radius: 50%; background: var(--vivo);
+		animation: pulsar 1.6s ease-in-out infinite; }
+	@keyframes pulsar { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+	@media (prefers-reduced-motion: reduce) { .vivo h2 i { animation: none; } }
 	.destacada h2 { font-size: 0.72rem; color: var(--acento); margin: 0 0 0.2rem;
 		font-weight: 600; }
 
