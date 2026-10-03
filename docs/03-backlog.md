@@ -207,7 +207,7 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 | W5.19 | Conflito entre favoritos locais e da conta no 1º login → união | should | M | ❌ sem login não há conflito a resolver |
 | L5.20 | Eliminação de conta e dados dentro da app | must | M | ❌ sem conta não há conta para eliminar. As subscrições de push apagam-se ao desligar as notificações |
 | L5.21 | Política de privacidade a cobrir conta e subscrições push | must | M | 🟡 a política existe (L7.4) e já diz que as notificações ainda não existem. Actualizar **antes** de elas funcionarem, com o endpoint de subscrição |
-| W5.26 | **Levar os favoritos num link**, em vez de os sincronizar numa conta | should | S | `/clube?seguir=sub-13:parede-fc-b,…` — partilha-se por WhatsApp, que é por onde esta app se espalha, e não há servidor nem dado pessoal nenhum. Resolve o problema real do W5.16 (mudar de telefone, telemóvel do cônjuge) sem nada do seu custo |
+| ~~W5.28~~ | ~~Levar os favoritos num link~~ | — | — | ❌ **retirado a 04/10**, e o número foi corrigido: eu reutilizei o W5.26, que já existia. O dono do projecto não lhe vê sentido, e é ele que conhece os utilizadores. O problema de perder favoritos ao mudar de telefone fica sem solução e sem item |
 
 ---
 
