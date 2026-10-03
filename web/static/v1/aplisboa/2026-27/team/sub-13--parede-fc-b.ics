@@ -9,54 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9357@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T083000Z
-DTEND:20260912T100000Z
-SUMMARY:🏑 Sub-13 🏑 Parede FC B vs Sporting CP B
-LOCATION:PAV. HC SINTRA
-DESCRIPTION:Parede FC B 1–9 Sporting CP B\nTORNEIO ABERTURA APL SUB-13 ·
-  SUB-13\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9357\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9357
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9358@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T111500Z
-DTEND:20260912T124500Z
-SUMMARY:🏑 Sub-13 🏑 Criar-T GD vs Parede FC B
-LOCATION:PAV. HC SINTRA
-DESCRIPTION:Criar-T GD 3–4 Parede FC B\nTORNEIO ABERTURA APL SUB-13 · SU
- B-13\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9358\nDados da Associa
- ção de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9358
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9534@hoquei.pages.dev
-DTSTAMP:20260926T000000Z
-DTSTART:20260926T144500Z
-DTEND:20260926T161500Z
-SUMMARY:🏑 Sub-13 🏑 Parede FC B vs Sporting CP B
-LOCATION:PAV. PAREDE
-DESCRIPTION:Parede FC B 1–4 Sporting CP B\nCAMP. REG. SUB-13 - 1ª FASE 
- · Série D · SUB-13\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9534\nDa
- dos da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9534
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9547@hoquei.pages.dev
-DTSTAMP:20261002T000000Z
-DTSTART:20261002T183000Z
-DTEND:20261002T200000Z
-SUMMARY:🏑 Sub-13 🏑 CD Paço Arcos B vs Parede FC B
-LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
-DESCRIPTION:CD Paço Arcos B vs Parede FC B\nCAMP. REG. SUB-13 - 1ª FASE 
- · Série D · SUB-13\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/
- 9547\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9547
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9536@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T133000Z

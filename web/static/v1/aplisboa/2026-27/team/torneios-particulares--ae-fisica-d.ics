@@ -8,16 +8,4 @@ X-WR-CALDESC:Jogos de AE Fisica D (Torneios Particulares)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-9450@hoquei.pages.dev
-DTSTAMP:20260919T000000Z
-DTSTART:20260919T143000Z
-DTEND:20260919T160000Z
-SUMMARY:🏑 Torneios Particulares 🏑 AE Fisica D vs AA Coimbra
-LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE Fisica D 5–4 AA Coimbra\nJOGO TREINO · TORNEIOS PARTICULA
- RES\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo/9450\nDados
-  da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9450
-END:VEVENT
 END:VCALENDAR

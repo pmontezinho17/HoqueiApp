@@ -9,54 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9413@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T133000Z
-DTEND:20260912T150000Z
-SUMMARY:🏑 Sub-17 🏑 FSE/AJ Salesiana A vs Criar-T GD
-LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:FSE/AJ Salesiana A 0–3 Criar-T GD\nTORNEIO ABERTURA APL SUB-1
- 7 · SUB-17\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/9413\nDado
- s da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9413
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9415@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T161500Z
-DTEND:20260912T174500Z
-SUMMARY:🏑 Sub-17 🏑 Criar-T GD vs UD Vilafranquense
-LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:Criar-T GD 1–1 UD Vilafranquense\nTORNEIO ABERTURA APL SUB-17
-  · SUB-17\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/9415\nDados
-  da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9415
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9424@hoquei.pages.dev
-DTSTAMP:20260919T000000Z
-DTSTART:20260919T130000Z
-DTEND:20260919T143000Z
-SUMMARY:🏑 Sub-17 🏑 AD Oeiras A vs Criar-T GD
-LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:AD Oeiras A 12–0 Criar-T GD\nTORNEIO ABERTURA APL SUB-17 · S
- UB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo/9424\nDados
-  da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9424
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9675@hoquei.pages.dev
-DTSTAMP:20260926T000000Z
-DTSTART:20260926T140000Z
-DTEND:20260926T153000Z
-SUMMARY:🏑 Sub-17 🏑 FSE/AJ Salesiana B vs Criar-T GD
-LOCATION:PAV. SALESIANA
-DESCRIPTION:FSE/AJ Salesiana B 0–4 Criar-T GD\nCAMP. REG. SUB-17 - 1ª FA
- SE · Série B · SUB-17\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/96
- 75\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9675
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9677@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T163000Z

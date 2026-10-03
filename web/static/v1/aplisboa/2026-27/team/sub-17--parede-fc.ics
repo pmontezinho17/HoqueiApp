@@ -9,42 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9416@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T094500Z
-DTEND:20260912T111500Z
-SUMMARY:🏑 Sub-17 🏑 Parede FC vs HC Sintra
-LOCATION:PAV. HC SINTRA
-DESCRIPTION:Parede FC 3–4 HC Sintra\nTORNEIO ABERTURA APL SUB-17 · SUB-1
- 7\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9416\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9416
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9417@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T131500Z
-DTEND:20260912T144500Z
-SUMMARY:🏑 Sub-17 🏑 Caco A vs Parede FC
-LOCATION:PAV. HC SINTRA
-DESCRIPTION:Caco A 11–0 Parede FC\nTORNEIO ABERTURA APL SUB-17 · SUB-17\
- nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9417\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9417
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9705@hoquei.pages.dev
-DTSTAMP:20260926T000000Z
-DTSTART:20260926T180000Z
-DTEND:20260926T193000Z
-SUMMARY:🏑 Sub-17 🏑 A Stuart HCM vs Parede FC
-LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A Stuart HCM 3–2 Parede FC\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie C · SUB-17\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.dev/jogo/9
- 705\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9705
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9707@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T140000Z

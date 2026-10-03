@@ -8,40 +8,4 @@ X-WR-CALDESC:Jogos de UD Vilafranquense (Sub-15)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-9391@hoquei.pages.dev
-DTSTAMP:20260911T000000Z
-DTSTART:20260911T204500Z
-DTEND:20260911T221500Z
-SUMMARY:🏑 Sub-15 🏑 HC Lourinha vs UD Vilafranquense
-LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:HC Lourinha 2–4 UD Vilafranquense\nTORNEIO ABERTURA APL SUB-1
- 5 · SUB-15\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/9391\nDado
- s da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9391
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9393@hoquei.pages.dev
-DTSTAMP:20260913T000000Z
-DTSTART:20260913T080000Z
-DTEND:20260913T093000Z
-SUMMARY:🏑 Sub-15 🏑 UD Vilafranquense vs AD Oeiras A
-LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD Vilafranquense 0–5 AD Oeiras A\nTORNEIO ABERTURA APL SUB-1
- 5 · SUB-15\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/9393\nDado
- s da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9393
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9395@hoquei.pages.dev
-DTSTAMP:20260913T000000Z
-DTSTART:20260913T154500Z
-DTEND:20260913T171500Z
-SUMMARY:🏑 Sub-15 🏑 UD Vilafranquense vs CD Paço Arcos B
-LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD Vilafranquense 2–4 CD Paço Arcos B\nTORNEIO ABERTURA APL 
- SUB-15 · SUB-15\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev/jogo/9395\
- nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9395
-END:VEVENT
 END:VCALENDAR

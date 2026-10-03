@@ -1,45 +1,76 @@
 <script lang="ts">
 	import Folha from '$lib/Folha.svelte';
+	import { dataCurta, horaCurta } from '$lib/formato';
+	import { clube, escalao } from '$lib/nomes';
 	import { slug } from '$lib/slug';
+	import type { Jogo } from '$lib/tipos';
 
-	let { equipa, categoria }: { equipa: string; categoria: string } = $props();
+	let {
+		equipa,
+		categoria,
+		jogos
+	}: { equipa: string; categoria: string; jogos: Jogo[] } = $props();
 
 	let aberta = $state(false);
 	let copiado = $state(false);
+	let mostrarTodos = $state(false);
 
-	/** O mesmo nome que o scraper escreve: `sub-13--parede-fc-b.ics`. */
 	const caminho = $derived(`/v1/aplisboa/2026-27/team/${slug(categoria)}--${slug(equipa)}.ics`);
 	const url = $derived(
 		typeof location === 'undefined' ? caminho : new URL(caminho, location.origin).href
 	);
 	const webcal = $derived(url.replace(/^https?:/, 'webcal:'));
-	/**
-	 * O caminho oficial do Google para subscrever um feed. Abre o Google Calendar já com a
-	 * pergunta "adicionar este calendário?", e funciona no browser do telemóvel — ao
-	 * contrário da **aplicação** do Google Calendar, que não sabe subscrever endereços.
-	 */
 	const googleUrl = $derived(
 		`https://calendar.google.com/calendar/r?cid=${encodeURIComponent(webcal)}`
 	);
 	const ficheiro = $derived(`${slug(equipa)}-${slug(categoria)}.ics`);
 
-	/**
-	 * Cada plataforma tem **um** caminho que funciona, e mostrar os outros só atrapalha.
-	 * O `webcal:` não tem quem o atenda no Android: o botão não fazia nada, que foi
-	 * exactamente o que aconteceu ao primeiro utilizador a experimentar.
-	 */
 	type Sistema = 'android' | 'ios' | 'outro';
 	const sistema = $derived.by<Sistema>(() => {
 		if (typeof navigator === 'undefined') return 'outro';
 		const ua = navigator.userAgent;
 		if (/Android/i.test(ua)) return 'android';
-		// o iPad diz-se "Macintosh" desde o iPadOS 13; distingue-se pelo toque.
-		// Um Mac a sério fica em 'outro' de propósito: num ecrã grande não há razão
-		// para esconder o caminho do Google a quem usa Google Calendar.
+		// o iPad diz-se "Macintosh" desde o iPadOS 13; distingue-se pelo toque
 		if (/iPhone|iPod/i.test(ua)) return 'ios';
 		if (/iPad|Macintosh/i.test(ua) && navigator.maxTouchPoints > 1) return 'ios';
 		return 'outro';
 	});
+
+	const hoje = new Date().toISOString().slice(0, 10);
+	/** Só de hoje em diante: ninguém quer jogos antigos no calendário pessoal. */
+	const proximos = $derived(
+		jogos
+			.filter((j) => (j.data ?? '') >= hoje)
+			.sort((a, b) => `${a.data}${a.hora ?? ''}`.localeCompare(`${b.data}${b.hora ?? ''}`))
+	);
+
+	/**
+	 * Link de evento do Google Calendar — o único caminho que **funciona sempre** no Android.
+	 *
+	 * O ficheiro `.ics` ia parar à pasta de Transferências e ficava lá: quem não souber que
+	 * tem de o ir abrir à mão, fica sem jogos nenhuns e sem perceber porquê. Isto abre o
+	 * Google Calendar com o jogo já preenchido e um botão de guardar.
+	 */
+	function linkGoogle(j: Jogo): string {
+		const titulo = `🏑 ${escalao(categoria)} 🏑 ${clube(j.casa)} vs ${clube(j.fora)}`;
+		const p = new URLSearchParams({ action: 'TEMPLATE', text: titulo });
+		if (j.data && j.hora) {
+			const inicio = new Date(`${j.data}T${j.hora.slice(0, 5)}:00`);
+			const fim = new Date(inicio.getTime() + 90 * 60_000);
+			const f = (d: Date) => d.toISOString().replace(/[-:]|\.\d{3}/g, '');
+			p.set('dates', `${f(inicio)}/${f(fim)}`);
+		} else if (j.data) {
+			p.set('dates', `${j.data.replace(/-/g, '')}/${j.data.replace(/-/g, '')}`);
+		}
+		if (j.recinto) p.set('location', j.recinto);
+		const detalhes = [`${clube(j.casa)} vs ${clube(j.fora)}`];
+		if (j.id) detalhes.push(`https://hoquei.pages.dev/jogo/${j.id}`);
+		p.set('details', detalhes.join('\n'));
+		return `https://calendar.google.com/calendar/render?${p}`;
+	}
+
+	const adversario = (j: Jogo) => clube(j.casa === equipa ? j.fora : j.casa);
+	const onde = (j: Jogo) => (j.casa === equipa ? 'casa' : 'fora');
 
 	async function copiar() {
 		try {
@@ -62,25 +93,41 @@
 </button>
 
 <Folha bind:aberta titulo="Adicionar ao calendário">
-	<p class="intro">
-		Os jogos de <strong>{equipa}</strong> ({categoria}) no calendário do teu telemóvel.
-	</p>
+	{#if proximos.length === 0}
+		<p class="intro">Não há jogos marcados para {clube(equipa)}.</p>
+	{:else}
+		<!--
+			Um jogo de cada vez, com o link de evento do Google, porque é o único caminho que
+			funciona sempre no Android: abre o calendário com o jogo preenchido e um botão de
+			guardar. O ficheiro .ics ia parar às Transferências e ficava lá — quem não soubesse
+			que tinha de o ir abrir, ficava sem jogos e sem perceber porquê.
+		-->
+		<p class="intro">
+			Toca num jogo para o guardar no calendário. Abre o calendário já preenchido — só tens
+			de confirmar.
+		</p>
 
-	<!--
-		O ficheiro vem primeiro de propósito, e a subscrição a seguir.
-		A primeira versão punha a subscrição em cima, porque é a melhor em teoria: corrige-se
-		sozinha. Mas o Google **não vai buscar o calendário quando o adicionamos** — pode
-		demorar horas —, e quem subscreve fica a olhar para um calendário vazio sem perceber
-		porquê. Uma funcionalidade que precisa que o utilizador saiba disso e espere não é uma
-		funcionalidade. O ficheiro põe os jogos lá no momento; a subscrição é o extra.
-	-->
-	<a class="principal" href={url} download={ficheiro}>Adicionar os jogos agora</a>
-	<p class="dica">
-		Descarrega e abre no calendário: os jogos entram <strong>já</strong>. Como cada jogo tem
-		identificador próprio, voltar a fazer isto mais tarde actualiza-os em vez de os duplicar.
-	</p>
+		<ul class="jogos">
+			{#each proximos.slice(0, mostrarTodos ? proximos.length : 4) as j (j.id ?? `${j.data}${j.casa}`)}
+				<li>
+					<a href={linkGoogle(j)} target="_blank" rel="noopener">
+						<span class="quando">
+							{dataCurta(j.data)}{j.hora ? ` · ${horaCurta(j.hora)}` : ''}
+						</span>
+						<span class="quem">{adversario(j)} <small>({onde(j)})</small></span>
+						<span class="mais" aria-hidden="true">+</span>
+					</a>
+				</li>
+			{/each}
+		</ul>
+		{#if proximos.length > 4 && !mostrarTodos}
+			<button class="ver" onclick={() => (mostrarTodos = true)}>
+				Ver os {proximos.length} jogos
+			</button>
+		{/if}
+	{/if}
 
-	<p class="ou">e, se quiseres, que se corrija sozinho</p>
+	<p class="ou">ou de uma vez, com a época toda</p>
 
 	{#if sistema !== 'ios'}
 		<a class="principal secundaria" href={googleUrl} target="_blank" rel="noopener">
@@ -89,14 +136,14 @@
 	{/if}
 	{#if sistema !== 'android'}
 		<a class="principal secundaria" href={webcal}>Subscrever no calendário</a>
-		<p class="dica">No iPhone e no Mac, abre o calendário directamente.</p>
 	{/if}
+	<a class="principal secundaria" href={url} download={ficheiro}>Descarregar ficheiro (.ics)</a>
 
 	<p class="aviso">
-		<strong>A subscrição demora a aparecer.</strong> O Google só vai buscar o calendário
-		horas depois de o adicionares — às vezes no dia seguinte — e não tem botão para forçar.
-		Depois disso corrige-se sozinho sempre que um jogo mudar. No iPhone é mais rápido e dá
-		para escolher de quanto em quanto tempo.
+		<strong>Estas duas demoram a dar sinal.</strong> O Google só vai buscar um calendário
+		subscrito horas depois de o adicionares, e não tem botão para forçar — depois disso
+		corrige-se sozinho sempre que um jogo mudar. O ficheiro fica na pasta de
+		<strong>Transferências</strong> e tens de o abrir a partir de lá para os jogos entrarem.
 	</p>
 
 	<div class="url">
@@ -132,8 +179,25 @@
 	}
 	.abrir:hover { border-color: var(--acento); color: var(--acento); }
 
-	.intro, .dica, .aviso, .ou { margin: 0 0 0.8rem; font-size: 0.8rem; line-height: 1.45; }
-	.dica { margin-top: -0.3rem; margin-bottom: 1rem; font-size: 0.7rem; color: var(--suave); }
+	.intro, .aviso, .ou { margin: 0 0 0.8rem; font-size: 0.8rem; line-height: 1.45; }
+
+	.jogos { list-style: none; margin: 0 0 0.8rem; padding: 0; }
+	.jogos a {
+		display: grid; grid-template-columns: 1fr auto; align-items: center;
+		gap: 0.1rem 0.6rem; min-height: 54px; padding: 0.5rem 0.7rem;
+		margin-bottom: 0.35rem; text-decoration: none;
+		border-radius: 10px; border: 1px solid var(--borda); background: var(--cartao);
+	}
+	.jogos a:hover { border-color: var(--acento); }
+	.quando { grid-column: 1; font-size: 0.66rem; color: var(--suave); }
+	.quem { grid-column: 1; font-size: 0.82rem; font-weight: 600; }
+	.quem small { font-weight: 400; color: var(--suave); }
+	.mais { grid-column: 2; grid-row: 1 / span 2; font-size: 1.3rem; color: var(--acento); }
+	.ver {
+		width: 100%; min-height: 44px; margin-bottom: 0.9rem; font-size: 0.76rem; cursor: pointer;
+		border-radius: 10px; border: 1px dashed var(--borda);
+		background: none; color: var(--suave);
+	}
 	.ou { margin: 0.2rem 0 0.5rem; font-size: 0.7rem; color: var(--suave); text-align: center; }
 
 	.principal {

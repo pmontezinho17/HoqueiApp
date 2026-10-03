@@ -9,54 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9360@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T083000Z
-DTEND:20260912T100000Z
-SUMMARY:🏑 Sub-13 🏑 AD Oeiras A vs CD Paço Arcos B
-LOCATION:PAV. MAFRA
-DESCRIPTION:AD Oeiras A 10–0 CD Paço Arcos B\nTORNEIO ABERTURA APL SUB-1
- 3 · SUB-13\nPAV. MAFRA\nhttps://hoquei.pages.dev/jogo/9360\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9360
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9361@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T110000Z
-DTEND:20260912T123000Z
-SUMMARY:🏑 Sub-13 🏑 FSE/AJ Salesiana vs AD Oeiras A
-LOCATION:PAV. MAFRA
-DESCRIPTION:FSE/AJ Salesiana 0–11 AD Oeiras A\nTORNEIO ABERTURA APL SUB-1
- 3 · SUB-13\nPAV. MAFRA\nhttps://hoquei.pages.dev/jogo/9361\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9361
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9373@hoquei.pages.dev
-DTSTAMP:20260919T000000Z
-DTSTART:20260919T091500Z
-DTEND:20260919T104500Z
-SUMMARY:🏑 Sub-13 🏑 AD Oeiras A vs CD Paço Arcos A
-LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:AD Oeiras A 0–1 CD Paço Arcos A\nTORNEIO ABERTURA APL SUB-13
-  · SUB-13\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.dev/jogo/9373\nDa
- dos da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9373
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9455@hoquei.pages.dev
-DTSTAMP:20260926T000000Z
-DTSTART:20260926T103000Z
-DTEND:20260926T120000Z
-SUMMARY:🏑 Sub-13 🏑 SC Torres vs AD Oeiras A
-LOCATION:PAV. SC TORRES
-DESCRIPTION:SC Torres 1–20 AD Oeiras A\nCAMP. REG. SUB-13 - 1ª FASE · S
- érie A · SUB-13\nPAV. SC TORRES\nhttps://hoquei.pages.dev/jogo/9455\nDad
- os da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9455
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9457@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T143000Z

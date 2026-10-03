@@ -115,8 +115,17 @@ def _descricao(jogo: dict) -> str:
     return "\n".join(linhas)
 
 
-def feed(equipa: str, categoria: str, jogos: list[dict]) -> str:
-    """O calendário de uma equipa, pronto a servir."""
+def feed(equipa: str, categoria: str, jogos: list[dict],
+         hoje: str | None = None) -> str:
+    """O calendário de uma equipa, pronto a servir.
+
+    **Só de hoje em diante.** Um calendário pessoal serve para saber onde é preciso estar,
+    não para guardar histórico: os resultados antigos já vivem na app, e no calendário só
+    enchiam os meses passados. O dia de hoje entra inteiro, porque o jogo da tarde ainda
+    conta de manhã.
+    """
+    hoje = hoje or dt.datetime.now(LISBOA).date().isoformat()
+    jogos = [j for j in jogos if j["data"] >= hoje]
     linhas = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",

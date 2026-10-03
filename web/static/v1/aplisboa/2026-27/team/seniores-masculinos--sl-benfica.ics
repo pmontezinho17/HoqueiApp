@@ -8,42 +8,4 @@ X-WR-CALDESC:Jogos de SL Benfica (Seniores Masculinos)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-9301@hoquei.pages.dev
-DTSTAMP:20260919T000000Z
-DTSTART:20260919T160000Z
-DTEND:20260919T173000Z
-SUMMARY:🏑 Seniores Masculinos 🏑 APAC Tojal vs SL Benfica
-LOCATION:PAV. A.P.A.C.TOJAL
-DESCRIPTION:APAC Tojal 0–2 SL Benfica\nTAÇA JESUS CORREIA - SENIORES MAS
- CULINOS · SENIORES MASCULINOS\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.d
- ev/jogo/9301\nDados da Associação de Patinagem de Lisboa. Site não ofic
- ial.
-URL:https://hoquei.pages.dev/jogo/9301
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9306@hoquei.pages.dev
-DTSTAMP:20260922T000000Z
-DTSTART:20260922T204500Z
-DTEND:20260922T221500Z
-SUMMARY:🏑 Seniores Masculinos 🏑 Parede FC vs SL Benfica
-LOCATION:PAV. PAREDE
-DESCRIPTION:Parede FC 3–7 SL Benfica\nTAÇA JESUS CORREIA - SENIORES MASC
- ULINOS · SENIORES MASCULINOS\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/
- 9306\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9306
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9304@hoquei.pages.dev
-DTSTAMP:20260925T000000Z
-DTSTART:20260925T204500Z
-DTEND:20260925T221500Z
-SUMMARY:🏑 Seniores Masculinos 🏑 A Stuart HCM vs SL Benfica
-LOCATION:PAV.PROF.JOÃO CAMPELO
-DESCRIPTION:A Stuart HCM 1–10 SL Benfica\nTAÇA JESUS CORREIA - SENIORES 
- MASCULINOS · SENIORES MASCULINOS\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.
- pages.dev/jogo/9304\nDados da Associação de Patinagem de Lisboa. Site n
- ão oficial.
-URL:https://hoquei.pages.dev/jogo/9304
-END:VEVENT
 END:VCALENDAR

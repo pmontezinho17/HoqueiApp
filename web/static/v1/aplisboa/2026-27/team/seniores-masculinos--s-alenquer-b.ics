@@ -9,32 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9295@hoquei.pages.dev
-DTSTAMP:20260919T000000Z
-DTSTART:20260919T160000Z
-DTEND:20260919T173000Z
-SUMMARY:🏑 Seniores Masculinos 🏑 CD Paço Arcos vs S Alenquer B
-LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
-DESCRIPTION:CD Paço Arcos 7–2 S Alenquer B\nTAÇA JESUS CORREIA - SENIOR
- ES MASCULINOS · SENIORES MASCULINOS\nPAV. PAÇO DE ARCOS\nhttps://hoquei.
- pages.dev/jogo/9295\nDados da Associação de Patinagem de Lisboa. Site n
- ão oficial.
-URL:https://hoquei.pages.dev/jogo/9295
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9297@hoquei.pages.dev
-DTSTAMP:20260926T000000Z
-DTSTART:20260926T173000Z
-DTEND:20260926T190000Z
-SUMMARY:🏑 Seniores Masculinos 🏑 UD Vilafranquense vs S Alenquer B
-LOCATION:PAV. VILAFRANQUENSE
-DESCRIPTION:UD Vilafranquense 1–7 S Alenquer B\nTAÇA JESUS CORREIA - SEN
- IORES MASCULINOS · SENIORES MASCULINOS\nPAV. VILAFRANQUENSE\nhttps://hoqu
- ei.pages.dev/jogo/9297\nDados da Associação de Patinagem de Lisboa. Site
-  não oficial.
-URL:https://hoquei.pages.dev/jogo/9297
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9299@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T170000Z

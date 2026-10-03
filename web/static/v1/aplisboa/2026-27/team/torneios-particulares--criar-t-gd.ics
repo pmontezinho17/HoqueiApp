@@ -8,17 +8,4 @@ X-WR-CALDESC:Jogos de Criar-T GD (Torneios Particulares)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-9452@hoquei.pages.dev
-DTSTAMP:20260913T000000Z
-DTSTART:20260913T173000Z
-DTEND:20260913T190000Z
-SUMMARY:🏑 Torneios Particulares 🏑 Criar-T GD vs Biblioteca IR (SF)
-LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:Criar-T GD 3–2 Biblioteca IR (SF)\nJOGO TREINO · TORNEIOS PA
- RTICULARES\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoquei.pages.de
- v/jogo/9452\nDados da Associação de Patinagem de Lisboa. Site não ofici
- al.
-URL:https://hoquei.pages.dev/jogo/9452
-END:VEVENT
 END:VCALENDAR

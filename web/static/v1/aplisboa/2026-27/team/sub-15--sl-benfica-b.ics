@@ -9,66 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9388@hoquei.pages.dev
-DTSTAMP:20260913T000000Z
-DTSTART:20260913T090000Z
-DTEND:20260913T103000Z
-SUMMARY:🏑 Sub-15 🏑 HC Sintra vs SL Benfica B
-LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:HC Sintra 0–4 SL Benfica B\nTORNEIO ABERTURA APL SUB-15 · SU
- B-15\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo/9388\nDados 
- da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9388
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9390@hoquei.pages.dev
-DTSTAMP:20260913T000000Z
-DTSTART:20260913T161500Z
-DTEND:20260913T174500Z
-SUMMARY:🏑 Sub-15 🏑 SL Benfica B vs A Stuart HCM A
-LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:SL Benfica B 5–1 A Stuart HCM A\nTORNEIO ABERTURA APL SUB-15 
- · SUB-15\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo/9390\nD
- ados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9390
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9398@hoquei.pages.dev
-DTSTAMP:20260919T000000Z
-DTSTART:20260919T081500Z
-DTEND:20260919T094500Z
-SUMMARY:🏑 Sub-15 🏑 AE Fisica A vs SL Benfica B
-LOCATION:PAV. SALESIANA
-DESCRIPTION:AE Fisica A 2–4 SL Benfica B\nTORNEIO ABERTURA APL SUB-15 · 
- SUB-15\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/9398\nDados da Assoc
- iação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9398
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9401@hoquei.pages.dev
-DTSTAMP:20260919T000000Z
-DTSTART:20260919T120000Z
-DTEND:20260919T133000Z
-SUMMARY:🏑 Sub-15 🏑 AD Oeiras A vs SL Benfica B
-LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:AD Oeiras A 7–1 SL Benfica B\nTORNEIO ABERTURA APL SUB-15 · 
- SUB-15\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9401\nDados da Asso
- ciação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9401
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9593@hoquei.pages.dev
-DTSTAMP:20260927T000000Z
-DTSTART:20260927T153000Z
-DTEND:20260927T170000Z
-SUMMARY:🏑 Sub-15 🏑 Parede FC vs SL Benfica B
-LOCATION:PAV. PAREDE
-DESCRIPTION:Parede FC 0–2 SL Benfica B\nCAMP. REG. SUB-15 - 1ª FASE · S
- érie B · SUB-15\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9593\nDados 
- da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9593
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9597@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T154500Z

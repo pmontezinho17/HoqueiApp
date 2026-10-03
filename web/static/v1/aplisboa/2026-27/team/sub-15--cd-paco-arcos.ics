@@ -8,28 +8,4 @@ X-WR-CALDESC:Jogos de CD Paço Arcos (Sub-15)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-9345@hoquei.pages.dev
-DTSTAMP:20260913T000000Z
-DTSTART:20260913T103000Z
-DTEND:20260913T120000Z
-SUMMARY:🏑 Sub-15 🏑 Sporting CP vs CD Paço Arcos
-LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:Sporting CP 2–3 CD Paço Arcos\nSUPERTAÇA APL SUB-15 · SUB-
- 15\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo/9345\nDados da
-  Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9345
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9347@hoquei.pages.dev
-DTSTAMP:20260920T000000Z
-DTSTART:20260920T153000Z
-DTEND:20260920T170000Z
-SUMMARY:🏑 Sub-15 🏑 CD Paço Arcos vs SL Benfica
-LOCATION:PAV. A.D.OEIRAS
-DESCRIPTION:CD Paço Arcos 1–3 SL Benfica\nSUPERTAÇA APL SUB-15 · SUB-1
- 5\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9347\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9347
-END:VEVENT
 END:VCALENDAR

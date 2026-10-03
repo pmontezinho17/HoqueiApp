@@ -9,42 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9355@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T130000Z
-DTEND:20260912T143000Z
-SUMMARY:🏑 Sub-13 🏑 HC Sintra vs AE Fisica A
-LOCATION:PAV. MAFRA
-DESCRIPTION:HC Sintra 1–7 AE Fisica A\nTORNEIO ABERTURA APL SUB-13 · SUB
- -13\nPAV. MAFRA\nhttps://hoquei.pages.dev/jogo/9355\nDados da Associação
-  de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9355
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9356@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T153000Z
-DTEND:20260912T170000Z
-SUMMARY:🏑 Sub-13 🏑 CD Mafra vs HC Sintra
-LOCATION:PAV. MAFRA
-DESCRIPTION:CD Mafra 2–8 HC Sintra\nTORNEIO ABERTURA APL SUB-13 · SUB-13
- \nPAV. MAFRA\nhttps://hoquei.pages.dev/jogo/9356\nDados da Associação de
-  Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9356
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9453@hoquei.pages.dev
-DTSTAMP:20260926T000000Z
-DTSTART:20260926T163000Z
-DTEND:20260926T180000Z
-SUMMARY:🏑 Sub-13 🏑 Caco A vs HC Sintra
-LOCATION:PAV.C.A.C.OURIQUE
-DESCRIPTION:Caco A 17–0 HC Sintra\nCAMP. REG. SUB-13 - 1ª FASE · Série
-  A · SUB-13\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9453\nDados
-  da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9453
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9456@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T143000Z

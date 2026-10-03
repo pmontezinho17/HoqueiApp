@@ -9,66 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9412@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T170000Z
-DTEND:20260912T183000Z
-SUMMARY:🏑 Sub-17 🏑 AD Oeiras B vs CD Paço Arcos B
-LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:AD Oeiras B 4–4 CD Paço Arcos B\nTORNEIO ABERTURA APL SUB-17
-  · SUB-17\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev/jogo/9412\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9412
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9411@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T193000Z
-DTEND:20260912T210000Z
-SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos B vs HC Lourinha
-LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:CD Paço Arcos B 6–0 HC Lourinha\nTORNEIO ABERTURA APL SUB-17
-  · SUB-17\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev/jogo/9411\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9411
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9423@hoquei.pages.dev
-DTSTAMP:20260919T000000Z
-DTSTART:20260919T113000Z
-DTEND:20260919T130000Z
-SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos B vs Caco A
-LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:CD Paço Arcos B 4–3 Caco A\nTORNEIO ABERTURA APL SUB-17 · S
- UB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo/9423\nDados
-  da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9423
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9426@hoquei.pages.dev
-DTSTAMP:20260919T000000Z
-DTSTART:20260919T163000Z
-DTEND:20260919T180000Z
-SUMMARY:🏑 Sub-17 🏑 SL Benfica vs CD Paço Arcos B
-LOCATION:PAV.S.ALENQUER E BENFICA
-DESCRIPTION:SL Benfica 11–0 CD Paço Arcos B\nTORNEIO ABERTURA APL SUB-17
-  · SUB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.dev/jogo/9426\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9426
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9703@hoquei.pages.dev
-DTSTAMP:20260926T000000Z
-DTSTART:20260926T141500Z
-DTEND:20260926T154500Z
-SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos B vs SL Benfica A
-LOCATION:Av. Eng. Bonneville Franco\, 2770-055 Paço de Arcos
-DESCRIPTION:CD Paço Arcos B 0–4 SL Benfica A\nCAMP. REG. SUB-17 - 1ª FA
- SE · Série C · SUB-17\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jo
- go/9703\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9703
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9707@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T140000Z

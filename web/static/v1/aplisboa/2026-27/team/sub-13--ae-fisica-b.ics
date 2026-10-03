@@ -8,28 +8,4 @@ X-WR-CALDESC:Jogos de AE Fisica B (Sub-13)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-9365@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T130000Z
-DTEND:20260912T143000Z
-SUMMARY:🏑 Sub-13 🏑 AE Fisica B vs HC Lourinha
-LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:AE Fisica B 1–4 HC Lourinha\nTORNEIO ABERTURA APL SUB-13 · S
- UB-13\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev/jogo/9365\nDados
-  da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9365
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9363@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T154500Z
-DTEND:20260912T171500Z
-SUMMARY:🏑 Sub-13 🏑 Parede FC A vs AE Fisica B
-LOCATION:PAV. GIMNO. DA LOURINHÃ
-DESCRIPTION:Parede FC A 10–1 AE Fisica B\nTORNEIO ABERTURA APL SUB-13 · 
- SUB-13\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev/jogo/9363\nDado
- s da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9363
-END:VEVENT
 END:VCALENDAR

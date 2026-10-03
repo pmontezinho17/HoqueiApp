@@ -8,17 +8,4 @@ X-WR-CALDESC:Jogos de Parede FC (SF) (Torneios Particulares)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-9446@hoquei.pages.dev
-DTSTAMP:20260926T000000Z
-DTSTART:20260926T160000Z
-DTEND:20260926T173000Z
-SUMMARY:🏑 Torneios Particulares 🏑 Parede FC (SF) vs Biblioteca IR (SF
- )
-LOCATION:PAV. PAREDE
-DESCRIPTION:Parede FC (SF) 3–2 Biblioteca IR (SF)\nJOGO TREINO · TORNEIO
- S PARTICULARES\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9446\nDados da 
- Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9446
-END:VEVENT
 END:VCALENDAR

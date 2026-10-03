@@ -8,28 +8,4 @@ X-WR-CALDESC:Jogos de AE Fisica B (Sub-15)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-9380@hoquei.pages.dev
-DTSTAMP:20260913T000000Z
-DTSTART:20260913T083000Z
-DTEND:20260913T100000Z
-SUMMARY:🏑 Sub-15 🏑 AE Fisica B vs Criar-T GD
-LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:AE Fisica B 4–4 Criar-T GD\nTORNEIO ABERTURA APL SUB-15 · SU
- B-15\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo/9380\nDado
- s da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9380
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9381@hoquei.pages.dev
-DTSTAMP:20260913T000000Z
-DTSTART:20260913T144500Z
-DTEND:20260913T161500Z
-SUMMARY:🏑 Sub-15 🏑 Sporting CP B vs AE Fisica B
-LOCATION:PAV. FÍSICA TORRES VEDRAS
-DESCRIPTION:Sporting CP B 3–1 AE Fisica B\nTORNEIO ABERTURA APL SUB-15 ·
-  SUB-15\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo/9381\nD
- ados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9381
-END:VEVENT
 END:VCALENDAR

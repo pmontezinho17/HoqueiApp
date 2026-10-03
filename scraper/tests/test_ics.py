@@ -18,6 +18,15 @@ JOGO = {"id": 9547, "data": "2026-10-02", "hora": "19:30",
         "cat": "SUB-13", "grupo_nome": "CAMP. REG. SUB-13 - 1ª FASE", "serie": "D"}
 
 
+#: Fixo de propósito: o feed passou a cortar os jogos passados, e um teste que dependa do
+#: dia em que corre deixa de ser um teste — passa hoje e falha amanhã sem nada ter mudado.
+HOJE = "2026-09-01"
+
+
+def cal(equipa: str, categoria: str, jogos: list[dict]) -> str:
+    return feed(equipa, categoria, jogos, hoje=HOJE)
+
+
 def linhas(texto: str) -> list[str]:
     return texto.split("\r\n")
 
@@ -39,47 +48,47 @@ def propriedades(texto: str) -> dict[str, str]:
 
 class TestFormato:
     def test_termina_sempre_em_crlf(self):
-        t = feed("PAREDE FC B", "SUB-13", [JOGO])
+        t = cal("PAREDE FC B", "SUB-13", [JOGO])
         assert t.endswith("\r\n")
         assert "\n" not in t.replace("\r\n", "")   # nunca um LF solto
 
     def test_abre_e_fecha_os_blocos(self):
-        l = desdobrar(feed("PAREDE FC B", "SUB-13", [JOGO, dict(JOGO, id=1, data="2026-11-01")]))
+        l = desdobrar(cal("PAREDE FC B", "SUB-13", [JOGO, dict(JOGO, id=1, data="2026-11-01")]))
         assert l[0] == "BEGIN:VCALENDAR"
         assert "END:VCALENDAR" in l
         assert l.count("BEGIN:VEVENT") == l.count("END:VEVENT") == 2
 
     def test_nenhuma_linha_passa_dos_75_octetos(self):
         comprido = dict(JOGO, recinto="PAVILHÃO MUNICIPAL DE SÃO JOÃO DA MADEIRA — CAMPO Nº 2 ANEXO")
-        for l in linhas(feed("ASSOCIAÇÃO DESPORTIVA E RECREATIVA", "SUB-13", [comprido])):
+        for l in linhas(cal("ASSOCIAÇÃO DESPORTIVA E RECREATIVA", "SUB-13", [comprido])):
             assert len(l.encode("utf-8")) <= 75, l
 
     def test_dobrar_nao_parte_caracteres_acentuados(self):
         # um `ç` são dois octetos: dobrar a meio dava mojibake
         recinto = "PAVILHÃO " + "ÇÃO" * 30
-        t = feed("EQUIPA", "SUB-13", [dict(JOGO, recinto=recinto)])
+        t = cal("EQUIPA", "SUB-13", [dict(JOGO, recinto=recinto)])
         t.encode("utf-8").decode("utf-8")              # não rebenta
         assert recinto in propriedades(t)["LOCATION"]  # chega inteiro ao outro lado
 
     def test_escapa_os_caracteres_reservados(self):
-        t = feed("EQUIPA", "SUB-13", [dict(JOGO, recinto="PAV. A; B, C\\D")])
+        t = cal("EQUIPA", "SUB-13", [dict(JOGO, recinto="PAV. A; B, C\\D")])
         assert r"LOCATION:PAV. A\; B\, C\\D" in desdobrar(t)
 
 
 class TestEventos:
     def test_hora_local_convertida_para_utc(self):
         # 2 de Outubro: Portugal em WEST (UTC+1) → 19:30 local são 18:30Z
-        p = propriedades(feed("E", "SUB-13", [JOGO]))
+        p = propriedades(cal("E", "SUB-13", [JOGO]))
         assert p["DTSTART"] == "20261002T183000Z"
         assert p["DTEND"] == "20261002T200000Z"       # +90 min
 
     def test_horario_de_inverno(self):
         # 1 de Dezembro: Portugal em WET (UTC+0) → 19:30 local são 19:30Z
-        p = propriedades(feed("E", "SUB-13", [dict(JOGO, data="2026-12-01")]))
+        p = propriedades(cal("E", "SUB-13", [dict(JOGO, data="2026-12-01")]))
         assert p["DTSTART"] == "20261201T193000Z"
 
     def test_jogo_sem_hora_marcada_fica_de_dia_inteiro(self):
-        p = propriedades(feed("E", "SUB-13", [dict(JOGO, hora=None)]))
+        p = propriedades(cal("E", "SUB-13", [dict(JOGO, hora=None)]))
         assert p["DTSTART;VALUE=DATE"] == "20261002"
         assert p["DTEND;VALUE=DATE"] == "20261003"    # fim exclusivo
 
@@ -89,36 +98,36 @@ class TestEventos:
         O 🏑 torna a linha reconhecível antes de ser lida, entre reuniões e aniversários;
         o escalão distingue os calendários de dois filhos na mesma semana.
         """
-        p = propriedades(feed("PAREDE FC B", "SUB-13", [JOGO]))
+        p = propriedades(cal("PAREDE FC B", "SUB-13", [JOGO]))
         assert p["SUMMARY"] == "🏑 Sub-13 🏑 CD Paço Arcos B vs Parede FC B"
 
     def test_nomes_em_caixa_de_titulo_sem_estragar_as_siglas(self):
         jogo = dict(JOGO, casa="FSE/AJ SALESIANA", fora="SPORTING CP B", cat="SENIORES MASCULINOS")
-        assert propriedades(feed("E", "X", [jogo]))["SUMMARY"] == \
+        assert propriedades(cal("E", "X", [jogo]))["SUMMARY"] == \
             "🏑 Seniores Masculinos 🏑 FSE/AJ Salesiana vs Sporting CP B"
 
     def test_o_resultado_fica_na_descricao_e_nao_no_titulo(self):
         # quem passa os olhos pelo mês não quer saber o resultado de um jogo que ainda não viu
-        p = propriedades(feed("E", "SUB-13", [JOGO]))
+        p = propriedades(cal("E", "SUB-13", [JOGO]))
         assert "2–9" not in p["SUMMARY"]
         assert p["DESCRIPTION"].startswith("CD Paço Arcos B 2–9 Parede FC B")
 
     def test_morada_do_recinto_quando_a_sabemos(self):
         # sem morada, tocar na localização do evento não leva a lado nenhum
-        p = propriedades(feed("E", "SUB-13", [JOGO]))
+        p = propriedades(cal("E", "SUB-13", [JOGO]))
         assert p["LOCATION"].startswith("Av. Eng. Bonneville Franco")
         # e o nome do recinto não se perde — fica na descrição
         assert "PAV. PAÇO DE ARCOS" in p["DESCRIPTION"]
 
     def test_sem_morada_cai_no_nome_do_recinto(self):
-        p = propriedades(feed("E", "SUB-13", [dict(JOGO, recinto="PAV. INVENTADO")]))
+        p = propriedades(cal("E", "SUB-13", [dict(JOGO, recinto="PAV. INVENTADO")]))
         assert p["LOCATION"] == "PAV. INVENTADO"
 
     def test_ordenado_por_data_e_hora(self):
         jogos = [dict(JOGO, id=3, data="2026-11-01", hora="18:00"),
                  dict(JOGO, id=1, data="2026-10-02", hora="09:00"),
                  dict(JOGO, id=2, data="2026-10-02", hora="19:30")]
-        uids = [l for l in desdobrar(feed("E", "SUB-13", jogos)) if l.startswith("UID:")]
+        uids = [l for l in desdobrar(cal("E", "SUB-13", jogos)) if l.startswith("UID:")]
         assert uids == ["UID:jogo-1@hoquei.pages.dev", "UID:jogo-2@hoquei.pages.dev",
                         "UID:jogo-3@hoquei.pages.dev"]
 
@@ -127,19 +136,19 @@ class TestEstabilidade:
     """Sem isto o feed não serve para nada: ou duplica eventos, ou republica para sempre."""
 
     def test_uid_vem_do_id_da_fonte(self):
-        assert "UID:jogo-9547@hoquei.pages.dev" in desdobrar(feed("E", "SUB-13", [JOGO]))
+        assert "UID:jogo-9547@hoquei.pages.dev" in desdobrar(cal("E", "SUB-13", [JOGO]))
 
     def test_uid_sobrevive_a_mudanca_de_hora_e_de_resultado(self):
         # é esta propriedade que faz o calendário **corrigir** o evento em vez de criar outro
-        a = propriedades(feed("E", "SUB-13", [JOGO]))["UID"]
-        b = propriedades(feed("E", "SUB-13", [dict(JOGO, hora="21:00", gc=4, gf=4)]))["UID"]
+        a = propriedades(cal("E", "SUB-13", [JOGO]))["UID"]
+        b = propriedades(cal("E", "SUB-13", [dict(JOGO, hora="21:00", gc=4, gf=4)]))["UID"]
         assert a == b
 
     def test_jogo_sem_id_na_fonte_tem_uid_estavel(self):
         sem = dict(JOGO, id=None)
-        assert propriedades(feed("E", "SUB-13", [sem]))["UID"] == \
-               propriedades(feed("E", "SUB-13", [dict(sem)]))["UID"]
-        assert "@hoquei.pages.dev" in propriedades(feed("E", "SUB-13", [sem]))["UID"]
+        assert propriedades(cal("E", "SUB-13", [sem]))["UID"] == \
+               propriedades(cal("E", "SUB-13", [dict(sem)]))["UID"]
+        assert "@hoquei.pages.dev" in propriedades(cal("E", "SUB-13", [sem]))["UID"]
 
     def test_gerar_duas_vezes_da_exactamente_o_mesmo(self):
         """O DTSTAMP não pode ser `now()`.
@@ -148,11 +157,11 @@ class TestEstabilidade:
         diferente, o `git` via alterações e a app republicava de 6 em 6 horas para sempre
         sem um único dado novo — foi o que já aconteceu com o `meta.json`.
         """
-        assert feed("E", "SUB-13", [JOGO]) == feed("E", "SUB-13", [JOGO])
+        assert cal("E", "SUB-13", [JOGO]) == cal("E", "SUB-13", [JOGO])
 
     def test_dtstamp_nao_tem_a_hora_de_agora(self):
         agora = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H")
-        assert agora not in propriedades(feed("E", "SUB-13", [JOGO]))["DTSTAMP"]
+        assert agora not in propriedades(cal("E", "SUB-13", [JOGO]))["DTSTAMP"]
 
 
 class TestNomeDoFicheiro:
@@ -178,11 +187,11 @@ class TestConformidade:
         jogos = [JOGO,
                  dict(JOGO, id=2, data="2026-12-01", hora=None, gc=None, gf=None),
                  dict(JOGO, id=3, data="2026-11-15", recinto="PAV. A; B, C")]
-        cal = Calendar.from_ical(feed("CD PAÇO ARCOS B", "SUB-13", jogos))
+        c = Calendar.from_ical(cal("CD PAÇO ARCOS B", "SUB-13", jogos))
 
-        assert cal.get("VERSION") == "2.0"
-        assert str(cal.get("X-WR-CALNAME")) == "🏑 CD Paço Arcos B · Sub-13"
-        eventos = list(cal.walk("VEVENT"))
+        assert c.get("VERSION") == "2.0"
+        assert str(c.get("X-WR-CALNAME")) == "🏑 CD Paço Arcos B · Sub-13"
+        eventos = list(c.walk("VEVENT"))
         assert len(eventos) == 3
 
         # os caracteres reservados voltam **desescapados** e os acentos inteiros
@@ -200,7 +209,7 @@ class TestConformidade:
 
         from icalendar import Calendar
 
-        e = next(iter(Calendar.from_ical(feed("E", "SUB-13", [JOGO])).walk("VEVENT")))
+        e = next(iter(Calendar.from_ical(cal("E", "SUB-13", [JOGO])).walk("VEVENT")))
         inicio = e["DTSTART"].dt
         assert inicio == dt.datetime(2026, 10, 2, 18, 30, tzinfo=dt.timezone.utc)
         # e em hora de Lisboa volta a ser a hora que está no cartaz do jogo
@@ -212,6 +221,29 @@ class TestConformidade:
         from icalendar import Calendar
 
         e = next(iter(Calendar.from_ical(
-            feed("E", "SUB-13", [dict(JOGO, hora=None)])).walk("VEVENT")))
+            cal("E", "SUB-13", [dict(JOGO, hora=None)])).walk("VEVENT")))
         assert isinstance(e["DTSTART"].dt, dt.date)
         assert not isinstance(e["DTSTART"].dt, dt.datetime)
+
+
+class TestSoDeHojeEmDiante:
+    """Um calendário pessoal serve para saber onde é preciso estar, não para guardar
+    histórico. Os resultados antigos vivem na app; no calendário só enchiam o passado."""
+
+    def test_corta_os_jogos_ja_passados(self):
+        antigo = dict(JOGO, id=1, data="2026-08-30")
+        futuro = dict(JOGO, id=2, data="2026-09-20")
+        uids = [l for l in desdobrar(cal("E", "SUB-13", [antigo, futuro])) if l.startswith("UID:")]
+        assert uids == ["UID:jogo-2@hoquei.pages.dev"]
+
+    def test_o_dia_de_hoje_entra_inteiro(self):
+        # o jogo da tarde ainda conta de manhã
+        hoje = dict(JOGO, id=3, data=HOJE, hora="19:30")
+        assert "UID:jogo-3@hoquei.pages.dev" in desdobrar(cal("E", "SUB-13", [hoje]))
+
+    def test_uma_equipa_sem_jogos_futuros_da_um_calendario_vazio_e_valido(self):
+        from icalendar import Calendar
+
+        c = Calendar.from_ical(cal("E", "SUB-13", [dict(JOGO, data="2026-01-01")]))
+        assert list(c.walk("VEVENT")) == []
+        assert c.get("VERSION") == "2.0"

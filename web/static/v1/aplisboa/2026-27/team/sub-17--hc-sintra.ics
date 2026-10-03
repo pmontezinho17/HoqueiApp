@@ -9,42 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9416@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T094500Z
-DTEND:20260912T111500Z
-SUMMARY:🏑 Sub-17 🏑 Parede FC vs HC Sintra
-LOCATION:PAV. HC SINTRA
-DESCRIPTION:Parede FC 3–4 HC Sintra\nTORNEIO ABERTURA APL SUB-17 · SUB-1
- 7\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9416\nDados da Associaç
- ão de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9416
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9418@hoquei.pages.dev
-DTSTAMP:20260912T000000Z
-DTSTART:20260912T160000Z
-DTEND:20260912T173000Z
-SUMMARY:🏑 Sub-17 🏑 HC Sintra vs Caco A
-LOCATION:PAV. HC SINTRA
-DESCRIPTION:HC Sintra 0–7 Caco A\nTORNEIO ABERTURA APL SUB-17 · SUB-17\n
- PAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9418\nDados da Associação 
- de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9418
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9753@hoquei.pages.dev
-DTSTAMP:20260926T000000Z
-DTSTART:20260926T153000Z
-DTEND:20260926T170000Z
-SUMMARY:🏑 Sub-17 🏑 HC Sintra vs AD Oeiras B
-LOCATION:PAV. HC SINTRA
-DESCRIPTION:HC Sintra 0–8 AD Oeiras B\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie E · SUB-17\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9753\nDad
- os da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9753
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9757@hoquei.pages.dev
 DTSTAMP:20261003T000000Z
 DTSTART:20261003T143000Z
