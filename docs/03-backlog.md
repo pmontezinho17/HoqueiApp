@@ -224,7 +224,7 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 | Q6.8 | Teste end-to-end do percurso principal (Playwright) | could | M | Passa no CI |
 | Q6.9 | Relatório de erros no cliente (Sentry ou equivalente) | should | S | Erro forçado aparece |
 | Q6.10 | CI: build + testes em cada push | should | M | ✅ `.github/workflows/ci.yml` (Lighthouse por fazer) |
-| Q6.11 | Testado em Safari iOS e Chrome Android reais, não só no emulador | must | M | 🟡 o simulador iOS exige Xcode completo, que não está instalado. **O percurso do calendário foi validado em Android real a 03/10**; o resto da app continua só verificado em emulação |
+| Q6.11 | Testado em Safari iOS e Chrome Android reais, não só no emulador | must | M | 🟡 **primeiro iPhone a 03/10**, e encontrou logo um bug que nenhuma emulação mostrava (Q9.26). Falta instalar no ecrã principal e testar sem rede |
 
 ---
 
@@ -658,6 +658,7 @@ Daí saem três cadências, e não duas:
 | W3.6e | **Correcção**: marcadores com chave duplicada deixavam a página em branco | must | XS | ✅ dois golos do mesmo jogador no mesmo minuto davam a mesma chave no `{#each}`, o Svelte lançava e o ecrã do jogo **não renderizava de todo**. Apareceu ao republicar com dados novos |
 | W9.20 | **Secção "A decorrer agora"** no topo, com marca pulsante e o escalão | must | S | ✅ todos os escalões de uma vez, ignorando o dia da fita. A marca `ao_vivo` só vale dentro de 3h da hora do jogo, para expirar sozinha se a ronda parar |
 | W9.21 | Escalão nas listas que misturam escalões | should | XS | ✅ "a decorrer" e "as minhas equipas" misturam escalões e sem isto não se sabe se o 11-5 é de benjamins ou de seniores. **Reportado pelo utilizador no jogo** |
+| Q9.26 | **iPhone: a app aparecia cortada à direita** | must | S | ✅ não era overflow — o Safari do iPhone **amplia a página inteira** quando se foca um campo com letra abaixo de 16px. Medi larguras durante dez minutos antes de perceber que o conteúdo cabia. Todos os campos a 16px, mais um teste ao código que falha se algum descer. **Reportado com o primeiro screenshot de iPhone do projecto** |
 | Q9.22 | **Cache: duas camadas desenhadas para um mundo sem live scores** | must | S | ✅ o CDN tinha 5 min de `max-age` e o service worker servia `StaleWhileRevalidate` — o utilizador ficava **sempre um recarregamento atrasado**. Agora 20 s no CDN, e `NetworkFirst` com 3 s de espera no que muda durante um jogo |
 | B9.23 | A ronda ao vivo refresca também a **classificação** das provas que tocou | must | XS | ✅ sem isto o ficheiro da competição dizia duas coisas: jogos com resultado e uma tabela que não os contava. **Apanhado pelo B9.13** |
 | B9.24 | A ronda ao vivo como **GitHub Action** | must | M | ✅ `.github/workflows/aovivo.yml` + `scripts/aovivo.sh`. Ciclo longo arrancado por cron, como a sonda — o agendador da GitHub atrasa-se (18 min medidos) e isso não serve para seguir um jogo. **Não comita**: um commit a cada 45 s seria absurdo e colidia com o `dados.yml`, o que já aconteceu duas vezes num dia; o registo definitivo fica para o cron das 2h. Pára quando nenhum jogo está a decorrer, e não quando nada muda — entre dois golos pode não mudar nada durante minutos |

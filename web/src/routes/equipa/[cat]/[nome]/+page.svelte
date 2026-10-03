@@ -362,7 +362,9 @@
 		padding: 0.35rem 0; border-bottom: 1px solid var(--borda); }
 	.numeros dd.txt { font-size: 0.72rem; }
 
-	select { width: 100%; padding: 0.5rem 0.6rem; margin-bottom: 0.7rem; font-size: 0.8rem;
+	/* 16px e não menos: no iPhone, um campo com letra menor faz o Safari ampliar a
+	   página inteira ao receber foco. Ver a nota em +layout.svelte. */
+	select { width: 100%; padding: 0.5rem 0.6rem; margin-bottom: 0.7rem; font-size: 1rem;
 		border-radius: 8px; border: 1px solid var(--borda);
 		background: var(--cartao); color: inherit; }
 

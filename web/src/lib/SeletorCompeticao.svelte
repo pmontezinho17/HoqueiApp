@@ -74,7 +74,7 @@
 	.seta { grid-row: 1 / 3; grid-column: 2; color: var(--suave); }
 
 	input {
-		width: 100%; padding: 0.6rem 0.7rem; margin: 0.2rem 0 0.8rem; font-size: 0.9rem;
+		width: 100%; padding: 0.6rem 0.7rem; margin: 0.2rem 0 0.8rem; font-size: 1rem;
 		border-radius: 8px; border: 1px solid var(--borda);
 		background: var(--cartao); color: inherit;
 	}

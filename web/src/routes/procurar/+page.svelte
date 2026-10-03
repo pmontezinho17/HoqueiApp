@@ -48,7 +48,7 @@
 {/if}
 
 <style>
-	input { width: 100%; padding: 0.6rem 0.7rem; margin-bottom: 0.8rem; font-size: 0.9rem;
+	input { width: 100%; padding: 0.6rem 0.7rem; margin-bottom: 0.8rem; font-size: 1rem;
 		border-radius: 8px; border: 1px solid var(--borda);
 		background: var(--cartao); color: inherit; }
 	.resultado { display: grid; grid-template-columns: auto 1fr auto; align-items: center;

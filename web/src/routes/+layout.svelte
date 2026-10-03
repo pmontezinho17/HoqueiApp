@@ -100,6 +100,17 @@
 	}
 	:global(a) { color: inherit; }
 
+	/* Campos de formulário a 16px, não menos.
+	 *
+	 * O Safari do iPhone **amplia a página inteira** quando se foca um campo cuja letra
+	 * tem menos de 16px, para a tornar legível. O efeito é a app aparecer cortada à
+	 * direita — foi isso que o primeiro screenshot de iPhone mostrou, e eu tinha-o lido
+	 * como overflow. Não era: o conteúdo cabia, a página é que estava ampliada.
+	 *
+	 * A correcção é o tamanho da letra e **não** `maximum-scale=1` nem `user-scalable=no`:
+	 * essas tiram o pinch-zoom a quem precisa dele para ler. */
+	:global(input), :global(select), :global(textarea) { font-size: max(16px, 1em); }
+
 	/* só para leitores de ecrã: um h1 em páginas onde um título visível acrescentaria
 	   cromado que o benchmarking mandou cortar */
 	:global(.sr) {

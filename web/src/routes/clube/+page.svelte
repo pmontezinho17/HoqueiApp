@@ -141,7 +141,7 @@
 		font-variant-numeric: tabular-nums; }
 	.seta { color: var(--suave); }
 
-	input { width: 100%; padding: 0.6rem 0.7rem; margin: 0.2rem 0 0.8rem; font-size: 0.9rem;
+	input { width: 100%; padding: 0.6rem 0.7rem; margin: 0.2rem 0 0.8rem; font-size: 1rem;
 		border-radius: 8px; border: 1px solid var(--borda); background: var(--cartao); color: inherit; }
 	.opcao { display: flex; justify-content: space-between; align-items: center; gap: 0.6rem;
 		width: 100%; min-height: 44px; padding: 0.55rem 0.7rem; margin-bottom: 0.3rem;
