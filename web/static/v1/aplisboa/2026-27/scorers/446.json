@@ -1,16 +1,16 @@
 {
  "competicao_id": 446,
- "jogos_considerados": 5,
+ "jogos_considerados": 6,
  "jogadores": [
   {
    "nome": "TIAGO RIBEIRO",
    "equipa": "PAREDE FC B",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "2",
-   "golos": 6,
-   "assistencias": 0,
+   "golos": 8,
+   "assistencias": 1,
    "defesas": 0,
-   "pontos": 6,
+   "pontos": 9,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -20,10 +20,36 @@
    "equipa": "SPORTING CP B",
    "jogos": 2,
    "numero": "5",
+   "golos": 6,
+   "assistencias": 4,
+   "defesas": 0,
+   "pontos": 10,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RODRIGO FELIX",
+   "equipa": "PAREDE FC B",
+   "jogos": 3,
+   "numero": "7",
    "golos": 3,
    "assistencias": 2,
    "defesas": 0,
    "pontos": 5,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SANTIAGO TOMÁS",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "numero": "6",
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -42,23 +68,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "RODRIGO FELIX",
-   "equipa": "PAREDE FC B",
-   "jogos": 2,
-   "numero": "7",
-   "golos": 2,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SANTIAGO TOMÁS",
+   "nome": "FRANCISCO GOMES",
    "equipa": "SPORTING CP B",
    "jogos": 2,
-   "numero": "6",
+   "numero": "9",
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
@@ -94,10 +107,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO GOMES",
+   "nome": "SIMÃO PEDRO",
    "equipa": "SPORTING CP B",
-   "jogos": 2,
-   "numero": "9",
+   "jogos": 1,
+   "numero": "4",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VICENTE MATOS",
+   "equipa": "PAREDE FC B",
+   "jogos": 3,
+   "numero": "6",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -146,10 +172,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "SANTIAGO DIAS",
+   "nome": "SANTIAGO FERREIRA",
    "equipa": "AE FISICA D B",
    "jogos": 1,
-   "numero": "6",
+   "numero": "8",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -172,19 +198,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "SOFIA SILVA",
-   "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "8",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIOGO SANTOS",
    "equipa": "PAREDE FC B",
    "jogos": 2,
@@ -198,10 +211,49 @@
    "vermelhos": 0
   },
   {
-   "nome": "VICENTE MATOS",
-   "equipa": "PAREDE FC B",
+   "nome": "GONÇALO SILVA",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "numero": "3",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SANTIAGO DIAS",
+   "equipa": "AE FISICA D B",
    "jogos": 2,
    "numero": "6",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SOFIA SILVA",
+   "equipa": "AE FISICA D B",
+   "jogos": 2,
+   "numero": "5",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VICENTE QUINTELA",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "numero": "2",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -226,7 +278,7 @@
   {
    "nome": "RODRIGO QUEIROS",
    "equipa": "PAREDE FC B",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "8",
    "golos": 0,
    "assistencias": 2,
@@ -237,9 +289,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "ALEXANDRE CLÉRIGO",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "numero": "7",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DUARTE DINIZ",
    "equipa": "AE FISICA D B",
-   "jogos": 1,
+   "jogos": 2,
    "numero": "3",
    "golos": 0,
    "assistencias": 1,
@@ -252,7 +317,7 @@
   {
    "nome": "SARA DANTAS",
    "equipa": "PAREDE FC B",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "3",
    "golos": 0,
    "assistencias": 1,
@@ -302,19 +367,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANDRE RAFAEL",
-   "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "9",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ANTÓNIO CABRAL",
    "equipa": "CACO B",
    "jogos": 1,
@@ -354,10 +406,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "EDUARDO SILVA",
+   "nome": "DAVID PINTO",
    "equipa": "AE FISICA D B",
    "jogos": 1,
    "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO FONSECA",
+   "equipa": "PAREDE FC B",
+   "jogos": 1,
+   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -536,10 +601,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARIANA ARAUJO",
+   "nome": "MARIANA RODRIGUES",
    "equipa": "AE FISICA D B",
    "jogos": 1,
-   "numero": "2",
+   "numero": "7",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -562,19 +627,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MIGUEL MARQUES",
-   "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "SEBASTIÃO SILVA",
    "equipa": "AD OEIRAS B",
    "jogos": 1,
@@ -588,23 +640,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "SIMÃO PEDRO",
-   "equipa": "SPORTING CP B",
-   "jogos": 1,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ALEXANDRE CLÉRIGO",
-   "equipa": "SPORTING CP B",
+   "nome": "ANDRE RAFAEL",
+   "equipa": "AE FISICA D B",
    "jogos": 2,
-   "numero": "7",
+   "numero": "9",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -640,38 +679,25 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO SANTOS",
-   "equipa": "PAREDE FC B",
-   "jogos": 2,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO SILVA",
-   "equipa": "SPORTING CP B",
-   "jogos": 2,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUILHERME PINTO",
-   "equipa": "PAREDE FC B",
+   "nome": "EDUARDO SILVA",
+   "equipa": "AE FISICA D B",
    "jogos": 2,
    "numero": "1",
    "golos": 0,
    "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARIANA ARAUJO",
+   "equipa": "AE FISICA D B",
+   "jogos": 2,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
@@ -679,10 +705,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARCOS MOREIRA",
-   "equipa": "PAREDE FC B",
+   "nome": "MIGUEL MARQUES",
+   "equipa": "AE FISICA D B",
    "jogos": 2,
-   "numero": "9",
+   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -696,19 +722,6 @@
    "equipa": "SPORTING CP B",
    "jogos": 2,
    "numero": "8",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "VICENTE QUINTELA",
-   "equipa": "SPORTING CP B",
-   "jogos": 2,
-   "numero": "2",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -757,6 +770,45 @@
    "vermelhos": 0
   },
   {
+   "nome": "FRANCISCO SANTOS",
+   "equipa": "PAREDE FC B",
+   "jogos": 3,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME PINTO",
+   "equipa": "PAREDE FC B",
+   "jogos": 3,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARCOS MOREIRA",
+   "equipa": "PAREDE FC B",
+   "jogos": 3,
+   "numero": "9",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MARIA ROCHA",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 3,
@@ -770,5 +822,5 @@
    "vermelhos": 0
   }
  ],
- "tem_defesas": false
+ "tem_defesas": true
 }

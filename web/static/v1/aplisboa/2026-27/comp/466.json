@@ -56,8 +56,8 @@
    "hora": "14:00:00",
    "casa": "AD OEIRAS B",
    "fora": "CRIAR-T GD",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 21,
    "recinto": "PAV. A.D.OEIRAS"
   },
   {

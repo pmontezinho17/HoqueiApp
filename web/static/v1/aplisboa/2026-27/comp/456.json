@@ -69,8 +69,8 @@
    "hora": "15:00:00",
    "casa": "CF ESTREMOZ",
    "fora": "FC CASTRENSE",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 3,
+   "golos_fora": 1,
    "recinto": "PAV. ESTREMOZ"
   },
   {
@@ -329,6 +329,20 @@
     },
     {
      "posicao": 3,
+     "equipa": "CF ESTREMOZ",
+     "logo": "/intranet/logos/0.png",
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 3,
+     "golos_sofridos": 3,
+     "diferenca": 0,
+     "racio": 1.0,
+     "pontos": 3
+    },
+    {
+     "posicao": 4,
      "equipa": "HC VASCO GAMA",
      "logo": "/intranet/logos/18.png",
      "jogos": 0,
@@ -342,31 +356,17 @@
      "pontos": 0
     },
     {
-     "posicao": 4,
-     "equipa": "CF ESTREMOZ",
-     "logo": "/intranet/logos/0.png",
-     "jogos": 1,
-     "vitorias": 0,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 0,
-     "golos_sofridos": 2,
-     "diferenca": -2,
-     "racio": 0.0,
-     "pontos": 0
-    },
-    {
      "posicao": 5,
      "equipa": "FC CASTRENSE",
      "logo": "/intranet/logos/0.png",
-     "jogos": 1,
+     "jogos": 2,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 0,
-     "golos_sofridos": 12,
-     "diferenca": -12,
-     "racio": 0.0,
+     "derrotas": 2,
+     "golos_marcados": 1,
+     "golos_sofridos": 15,
+     "diferenca": -14,
+     "racio": 0.07,
      "pontos": 0
     }
    ]

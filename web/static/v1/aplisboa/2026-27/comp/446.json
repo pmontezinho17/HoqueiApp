@@ -87,8 +87,8 @@
    "hora": "14:30:00",
    "casa": "AE FISICA D B",
    "fora": "PAREDE FC B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 1,
+   "golos_fora": 4,
    "recinto": "PAV. FÍSICA TORRES VEDRAS"
   },
   {
@@ -113,7 +113,7 @@
    "hora": "11:00:00",
    "casa": "SPORTING CP B",
    "fora": "CD PAÇO ARCOS B",
-   "golos_casa": 3,
+   "golos_casa": 11,
    "golos_fora": 0,
    "recinto": "PAV.G.S.SACAVENENSE"
   },
@@ -442,14 +442,28 @@
      "vitorias": 2,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 7,
+     "golos_marcados": 15,
      "golos_sofridos": 1,
-     "diferenca": 6,
-     "racio": 7.0,
+     "diferenca": 14,
+     "racio": 15.0,
      "pontos": 6
     },
     {
      "posicao": 2,
+     "equipa": "PAREDE FC B",
+     "logo": "/intranet/logos/3.png",
+     "jogos": 3,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 14,
+     "golos_sofridos": 7,
+     "diferenca": 7,
+     "racio": 2.0,
+     "pontos": 6
+    },
+    {
+     "posicao": 3,
      "equipa": "AD OEIRAS B",
      "logo": "/intranet/logos/6.png",
      "jogos": 1,
@@ -463,31 +477,17 @@
      "pontos": 3
     },
     {
-     "posicao": 3,
-     "equipa": "PAREDE FC B",
-     "logo": "/intranet/logos/3.png",
+     "posicao": 4,
+     "equipa": "AE FISICA D B",
+     "logo": "/intranet/logos/11.png",
      "jogos": 2,
      "vitorias": 1,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 10,
-     "golos_sofridos": 6,
-     "diferenca": 4,
-     "racio": 1.67,
-     "pontos": 3
-    },
-    {
-     "posicao": 4,
-     "equipa": "AE FISICA D B",
-     "logo": "/intranet/logos/11.png",
-     "jogos": 1,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 2,
-     "golos_sofridos": 0,
-     "diferenca": 2,
-     "racio": null,
+     "golos_marcados": 3,
+     "golos_sofridos": 4,
+     "diferenca": -1,
+     "racio": 0.75,
      "pontos": 3
     },
     {
@@ -513,9 +513,9 @@
      "empates": 0,
      "derrotas": 3,
      "golos_marcados": 4,
-     "golos_sofridos": 19,
-     "diferenca": -15,
-     "racio": 0.21,
+     "golos_sofridos": 27,
+     "diferenca": -23,
+     "racio": 0.15,
      "pontos": 0
     }
    ]

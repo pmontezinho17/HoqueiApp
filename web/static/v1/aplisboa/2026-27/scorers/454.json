@@ -1,6 +1,6 @@
 {
  "competicao_id": 454,
- "jogos_considerados": 2,
+ "jogos_considerados": 3,
  "jogadores": [
   {
    "nome": "AFONSO RICARDO",
@@ -24,6 +24,45 @@
    "assistencias": 2,
    "defesas": 0,
    "pontos": 7,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "AFONSO SANTOS",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 1,
+   "numero": "27",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO RAMOS",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 1,
+   "numero": "32",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS FLORÊNCIO",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 1,
+   "numero": "17",
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -107,6 +146,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "MATEUS OLIVEIRA",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 1,
+   "numero": "84",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PEDRO ARROZ",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 1,
+   "numero": "18",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TOMÁS PEDROSO",
    "equipa": "AD OEIRAS A",
    "jogos": 1,
@@ -159,6 +224,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "MATILDE FERREIRA",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 1,
+   "numero": "2",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "XAVIER PEREIRA",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 1,
+   "numero": "77",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "LUCAS CORREA",
    "equipa": "AD OEIRAS A",
    "jogos": 1,
@@ -176,6 +267,19 @@
    "equipa": "UD VILAFRANQUENSE",
    "jogos": 1,
    "numero": "98",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RODRIGO HENRIQUES",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 1,
+   "numero": "4",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -211,6 +315,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MARTIM AMORIM",
+   "equipa": "CD MAFRA",
+   "jogos": 2,
+   "numero": "27",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "HENRIQUE ELVAS",
    "equipa": "SPORTING CP B",
    "jogos": 1,
@@ -221,19 +338,6 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "AFONSO CESAR",
-   "equipa": "CD MAFRA",
-   "jogos": 1,
-   "numero": "9",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -263,10 +367,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DAVID SARDINHA",
-   "equipa": "CD MAFRA",
+   "nome": "DIOGO DUARTE",
+   "equipa": "SPORTING CP B",
    "jogos": 1,
-   "numero": "24",
+   "numero": "8",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -276,10 +380,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO DUARTE",
-   "equipa": "SPORTING CP B",
+   "nome": "FRANCISCO GONÇALVES",
+   "equipa": "HC LOURINHÃ",
    "jogos": 1,
-   "numero": "8",
+   "numero": "44",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -315,19 +419,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "GONÇALO SANTOS",
-   "equipa": "CD MAFRA",
-   "jogos": 1,
-   "numero": "16",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GUILHERME CARDADEIRO",
    "equipa": "SPORTING CP B",
    "jogos": 1,
@@ -354,32 +445,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARIA PAÇO",
-   "equipa": "CD MAFRA",
-   "jogos": 1,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARTIM AMORIM",
-   "equipa": "CD MAFRA",
-   "jogos": 1,
-   "numero": "27",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MARTIM RAMALHO",
    "equipa": "SPORTING CP B",
    "jogos": 1,
@@ -393,10 +458,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM SANTOS",
-   "equipa": "CD MAFRA",
+   "nome": "MIGUEL ALMEIDA",
+   "equipa": "HC LOURINHÃ",
    "jogos": 1,
-   "numero": "25",
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -462,6 +527,71 @@
    "equipa": "UD VILAFRANQUENSE",
    "jogos": 1,
    "numero": "20",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "AFONSO CESAR",
+   "equipa": "CD MAFRA",
+   "jogos": 2,
+   "numero": "9",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DAVID SARDINHA",
+   "equipa": "CD MAFRA",
+   "jogos": 2,
+   "numero": "24",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GONÇALO SANTOS",
+   "equipa": "CD MAFRA",
+   "jogos": 2,
+   "numero": "16",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARIA PAÇO",
+   "equipa": "CD MAFRA",
+   "jogos": 2,
+   "numero": "4",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARTIM SANTOS",
+   "equipa": "CD MAFRA",
+   "jogos": 2,
+   "numero": "25",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

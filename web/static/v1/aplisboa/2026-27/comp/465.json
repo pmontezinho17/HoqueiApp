@@ -110,8 +110,8 @@
    "hora": "15:00:00",
    "casa": "FSE/AJ SALESIANA",
    "fora": "SC TORRES",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 7,
+   "golos_fora": 2,
    "recinto": "PAV. SALESIANA"
   },
   {
@@ -123,8 +123,8 @@
    "hora": "14:45:00",
    "casa": "A STUART HCM",
    "fora": "AD OEIRAS A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 11,
    "recinto": "PAV.PROF.JOÃO CAMPELO"
   },
   {

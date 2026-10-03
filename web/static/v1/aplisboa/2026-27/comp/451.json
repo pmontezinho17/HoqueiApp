@@ -69,8 +69,8 @@
    "hora": "15:00:00",
    "casa": "BIBLIOTECA IR A",
    "fora": "HC TURQUEL",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 2,
    "recinto": "PAV. VALADO DE FRADES"
   },
   {
@@ -331,29 +331,29 @@
      "posicao": 3,
      "equipa": "HC TURQUEL",
      "logo": "/intranet/logos/4.png",
-     "jogos": 0,
+     "jogos": 1,
      "vitorias": 0,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 0,
-     "golos_marcados": 0,
-     "golos_sofridos": 0,
+     "golos_marcados": 2,
+     "golos_sofridos": 2,
      "diferenca": 0,
-     "racio": null,
-     "pontos": 0
+     "racio": 1.0,
+     "pontos": 1
     },
     {
      "posicao": 4,
      "equipa": "BIBLIOTECA IR A",
      "logo": "/intranet/logos/22.png",
-     "jogos": 1,
+     "jogos": 2,
      "vitorias": 0,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 1,
-     "golos_marcados": 3,
-     "golos_sofridos": 8,
+     "golos_marcados": 5,
+     "golos_sofridos": 10,
      "diferenca": -5,
-     "racio": 0.38,
-     "pontos": 0
+     "racio": 0.5,
+     "pontos": 1
     },
     {
      "posicao": 5,
