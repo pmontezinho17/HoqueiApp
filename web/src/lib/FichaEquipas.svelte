@@ -57,7 +57,7 @@
 	section { margin-bottom: 1.4rem; }
 	h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em;
 		color: var(--suave); margin: 0 0 0.5rem; }
-	.rolo { overflow-x: auto; background: var(--cartao); border: 1px solid var(--borda);
+	.rolo { --coluna-n: 2.4rem; overflow-x: auto; background: var(--cartao); border: 1px solid var(--borda);
 		border-radius: 10px; }
 	/* `separate` e não `collapse`: no Safari, uma célula `position: sticky` dentro de uma
 	   tabela com `border-collapse: collapse` perde as bordas ao rolar — o fundo acompanha a
@@ -69,13 +69,21 @@
 	th, td { padding: 0.45rem 0.4rem; text-align: right; white-space: nowrap; }
 	thead th { font-size: 0.7rem; color: var(--suave); border-bottom: 1px solid var(--borda); }
 	abbr { text-decoration: none; }
-	.n { width: 2.4rem; text-align: left; color: var(--suave);
+	/* A largura da coluna e o encosto do nome saem da mesma variável, e a largura é
+	   **imposta** com min/max.
+	   Numa tabela, `width` é uma sugestão: com números de um só dígito esta célula
+	   renderizava 29px em vez dos 38 pedidos, enquanto o nome continuava pregado a
+	   2,4rem — e tapava 9px da coluna dos golos. Via-se na ficha de qualquer jogo em que
+	   uma equipa tivesse camisolas de um dígito e a outra de dois. */
+	.n { text-align: left; color: var(--suave);
+		box-sizing: border-box;
+		width: var(--coluna-n); min-width: var(--coluna-n); max-width: var(--coluna-n);
 		position: sticky; left: 0; background: var(--cartao); }
 	.tit { color: var(--acento); margin-left: 0.15rem; }
 	/* com dez colunas a tabela rola; sem isto perdia-se de vista de quem é a linha.
 	   O nome encosta a seguir ao número, não por cima dele. */
 	.nome { text-align: left; width: 100%; font-weight: 500;
-		position: sticky; left: 2.4rem; background: var(--cartao); }
+		position: sticky; left: var(--coluna-n); background: var(--cartao); }
 	.marcou { font-weight: 700; color: var(--acento); }
 	.lance { color: var(--suave); font-size: 0.76rem; }
 	.lance.usou { color: var(--texto); font-weight: 600; }
