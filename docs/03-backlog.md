@@ -144,10 +144,10 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 | W4.15 | Vista Agenda, transversal às competições | should | L | ✅ `/agenda` com Próximos e Resultados, agrupado por dia, filtro "só as minhas equipas" ligado por omissão |
 | B4.16 | `agenda.json`: índice transversal de jogos para a vista Agenda | should | M | ✅ 791 jogos, 13,7 KB comprimido, num só pedido |
 | B4.11 | **Feed ICS por equipa**: `/v1/{tenant}/{season}/team/{id}.ics` | must | M | ✅ `scraper/src/hoquei/ics.py` + 21 testes, 214 feeds e 1582 eventos. **UID e DTSTAMP deterministas** — sem isso o calendário duplicava eventos em vez de os corrigir, e a app republicava a cada corrida do cron |
-| W4.12 | Botão "Adicionar ao meu calendário" com o URL do feed + instruções | must | M | ✅ **refeito a 03/10 depois de falhar no Android do dono do projecto.** O `webcal:` não tem quem o atenda no Android — o botão não fazia nada — e as instruções mandavam a pessoa para um computador, que não é uma funcionalidade. Agora detecta a plataforma: Android leva o `calendar.google.com/r?cid=`, iPhone leva `webcal:`, computador leva os dois, e há sempre o `.ics` para descarregar com o aviso de que não se actualiza |
+| W4.12 | Botão "Adicionar ao meu calendário" com o URL do feed + instruções | must | M | ✅ **validado em Android real a 03/10** — toque num jogo abre o Google Calendar preenchido e o Maps abre no sítio certo. Chegou lá à terceira: `webcal:` não existe no Android, o `.ics` ficava nas Transferências, e a subscrição só dá sinal horas depois |
 | W4.13 | Descarregar um jogo isolado como `.ics` | should | S | Ficheiro abre no calendário com data, hora e recinto |
 | B4.15 | **Moradas dos recintos** (`scraper/src/hoquei/dados/recintos.json`) | must | M | 🟡 **11 de 29 preenchidas (03/10), a cobrir 543 de 791 jogos**. Publicadas em `/v1/{tenant}/{season}/recintos.json` porque os links de "adicionar este jogo" são montados no browser — sem isso a morada só chegava ao `.ics` |
-| W4.16 | **Um jogo de cada vez, com link de evento do Google** | must | M | ✅ terceira tentativa, e a primeira que funciona sem o utilizador saber nada. O `.ics` ia parar às Transferências e ficava lá; a subscrição só dá sinal horas depois. O link `render?action=TEMPLATE` abre o calendário com o jogo preenchido e um botão de guardar — é o único caminho imediato e fiável no Android |
+| W4.16 | **Um jogo de cada vez, com link de evento do Google** | must | M | ✅ **validado em Android real a 03/10**. Links `render?action=TEMPLATE`, um por jogo |
 | B4.17 | **Feed só de hoje em diante** | must | XS | ✅ 1582 → 1204 eventos. Um calendário pessoal diz onde é preciso estar; o histórico vive na app |
 | — | ~~Emblema do clube no título do evento~~ | — | — | ❌ **impossível**: o iCalendar não tem campo para imagem e nem o Google nem a Apple mostram imagens num evento. O 🏑 é o mais próximo que existe |
 | W4.17 | Emblemas dos clubes | could | M | ✅ em jogos, agenda, classificação e O Meu Clube |
@@ -224,7 +224,7 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 | Q6.8 | Teste end-to-end do percurso principal (Playwright) | could | M | Passa no CI |
 | Q6.9 | Relatório de erros no cliente (Sentry ou equivalente) | should | S | Erro forçado aparece |
 | Q6.10 | CI: build + testes em cada push | should | M | ✅ `.github/workflows/ci.yml` (Lighthouse por fazer) |
-| Q6.11 | Testado em Safari iOS e Chrome Android reais, não só no emulador | must | M | 🟡 **por fazer, e precisa de ti** — o simulador iOS exige Xcode completo, que não está instalado. Entretanto corrigido por análise um bug conhecido de Safari: `position: sticky` com `border-collapse: collapse` perde as bordas ao rolar, e as 3 tabelas usavam essa combinação |
+| Q6.11 | Testado em Safari iOS e Chrome Android reais, não só no emulador | must | M | 🟡 o simulador iOS exige Xcode completo, que não está instalado. **O percurso do calendário foi validado em Android real a 03/10**; o resto da app continua só verificado em emulação |
 
 ---
 

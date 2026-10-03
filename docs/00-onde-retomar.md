@@ -52,9 +52,13 @@ Das sete funcionalidades que pediste no Keep, **quatro estão feitas**, uma est�
 | Quadro com golos gerais | ✅ |
 | Calendário de cada clube e do meu clube | ✅ |
 | Informação das fichas de jogo | 🟡 falta o boletim oficial (B1.9c) |
-| Adicionar ao calendário os jogos de um clube/escalão | ✅ **02/10** — feed ICS subscritível por equipa |
+| Adicionar ao calendário os jogos de um clube/escalão | ✅ **03/10, testado em Android real** — um toque por jogo, mais feed subscritível |
 | Notificações de alterações de jogos | ❌ Fase 5, a maior |
 | Entrar com conta Google | ❌ Fase 5 |
+
+**Por acabar, e precisa de ti:** faltam **18 moradas de recintos** em
+`scraper/src/hoquei/dados/recintos.json` (11 preenchidas cobrem 68% dos jogos). Três das
+preenchidas podem não ser encontradas pelo Maps — ver o commit de 03/10.
 
 ```
 1.  B1.9c           boletim oficial → 3ª tab (atenção: só existe depois do apito)
