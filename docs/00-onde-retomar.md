@@ -56,10 +56,6 @@ Das sete funcionalidades que pediste no Keep, **quatro estão feitas**, uma est�
 | Notificações de alterações de jogos | ❌ Fase 5, a maior |
 | Entrar com conta Google | ❌ Fase 5 |
 
-**Por acabar, e precisa de ti:** faltam **18 moradas de recintos** em
-`scraper/src/hoquei/dados/recintos.json` (11 preenchidas cobrem 68% dos jogos). Três das
-preenchidas podem não ser encontradas pelo Maps — ver o commit de 03/10.
-
 ```
 1.  L7.4            política de privacidade
 3.  Q6.11           testar em iPhone e Android reais   ← precisa de ti

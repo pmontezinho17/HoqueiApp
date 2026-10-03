@@ -73,7 +73,7 @@
 		Dados da <a href="https://aplisboa.pt/resultados/" rel="external noopener">Associação de
 		Patinagem de Lisboa</a>. Site não oficial, feito por adeptos.
 	</p>
-	<p><a href="/mais">Sobre e contactos</a></p>
+	<p><a href="/mais">Sobre e contactos</a> · <a href="/privacidade">Privacidade</a></p>
 </footer>
 
 <AutoRefrescar agenda={data.agenda} />

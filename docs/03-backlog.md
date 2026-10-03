@@ -146,7 +146,7 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 | B4.11 | **Feed ICS por equipa**: `/v1/{tenant}/{season}/team/{id}.ics` | must | M | ✅ `scraper/src/hoquei/ics.py` + 21 testes, 214 feeds e 1582 eventos. **UID e DTSTAMP deterministas** — sem isso o calendário duplicava eventos em vez de os corrigir, e a app republicava a cada corrida do cron |
 | W4.12 | Botão "Adicionar ao meu calendário" com o URL do feed + instruções | must | M | ✅ **validado em Android real a 03/10** — toque num jogo abre o Google Calendar preenchido e o Maps abre no sítio certo. Chegou lá à terceira: `webcal:` não existe no Android, o `.ics` ficava nas Transferências, e a subscrição só dá sinal horas depois |
 | W4.13 | Descarregar um jogo isolado como `.ics` | should | S | Ficheiro abre no calendário com data, hora e recinto |
-| B4.15 | **Moradas dos recintos** (`scraper/src/hoquei/dados/recintos.json`) | must | M | 🟡 **11 de 29 preenchidas (03/10), a cobrir 543 de 791 jogos**. Publicadas em `/v1/{tenant}/{season}/recintos.json` porque os links de "adicionar este jogo" são montados no browser — sem isso a morada só chegava ao `.ics` |
+| B4.15 | **Moradas dos recintos** (`scraper/src/hoquei/dados/recintos.json`) | must | M | ✅ **28 de 29 preenchidas pelo dono do projecto a 03/10**, a cobrir 787 de 791 jogos. Falta o `PAV. MUN. ANTONIO DOS ANJOS` (4 jogos) |
 | W4.16 | **Um jogo de cada vez, com link de evento do Google** | must | M | ✅ **validado em Android real a 03/10**. Links `render?action=TEMPLATE`, um por jogo |
 | B4.17 | **Feed só de hoje em diante** | must | XS | ✅ 1582 → 1204 eventos. Um calendário pessoal diz onde é preciso estar; o histórico vive na app |
 | — | ~~Emblema do clube no título do evento~~ | — | — | ❌ **impossível**: o iCalendar não tem campo para imagem e nem o Google nem a Apple mostram imagens num evento. O 🏑 é o mais próximo que existe |
@@ -237,7 +237,7 @@ Muito mais leve do que o plano Android: sem loja, sem revisão, sem conta de pro
 | L7.1 | Contactar a APL | must | S | ✅ **enviado a 01/10/2026** para `info@aplisboa.pt`. Se não houver resposta até ~22/10, telefonar: 213 931 710 |
 | L7.2 | Domínio próprio apontado ao Cloudflare Pages | should | S | Abre em `hoquei.<algo>` com HTTPS |
 | L7.3 | Ícones, nome e cor do tema no manifest | must | M | ✅ manifest com nome, cor e três ícones — **e agora ligado**: até 02/10 não havia `<link rel="manifest">` no HTML, logo a app não era instalável apesar de o manifest existir |
-| L7.4 | Política de privacidade publicada | must | M | URL acessível a partir do rodapé |
+| L7.4 | Política de privacidade publicada | must | M | ✅ `/privacidade`, ligada do rodapé de todas as páginas e do /mais. **Escrita a partir de uma auditoria ao código**, não de memória: uma chave em `localStorage`, zero cookies, zero rastreio, zero tipos de letra externos. Diz o que a Cloudflare vê, o que acontece quando se toca nos botões que saem da app, e assume que "já é público" não é o mesmo que "pode ser republicado" — com remoção de um nome sem justificação nem discussão |
 | L7.5 | Atribuição visível da fonte em todas as páginas | must | XS | ✅ rodapé em todas as páginas, com ligação à APL e o aviso de não oficial |
 | L7.6 | Teste com 5–10 pessoas reais (pais, treinadores, adeptos) | must | M | Feedback recolhido e triado |
 | L7.7 | Partilhar o link nos grupos dos clubes | must | XS | Primeiros utilizadores a usar |

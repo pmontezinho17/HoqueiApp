@@ -41,6 +41,13 @@
 </section>
 
 <section>
+	<h2>Privacidade</h2>
+	<p>
+		Sem conta, sem cookies, sem rastreio: os favoritos ficam no teu telemóvel e nunca nos
+		chegam. <a href="/privacidade">Ler a política de privacidade</a>, que diz também como
+		pedir a remoção de um nome.
+	</p>
+
 	<h2>Nomes de atletas</h2>
 	<p>
 		As fichas de jogo incluem nomes de atletas em todos os escalões, incluindo os de
