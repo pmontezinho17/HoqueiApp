@@ -637,6 +637,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE BENEDI",
+   "Árbitro Auxiliar": "Diogo Duarte",
+   "Cronometrista": "Pedro Silva",
+   "Diretor de campo": "JOÃO JANEIRO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 5
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 6
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 11
+   }
+  ],
+  "faltas_casa": [
+   0,
+   1
+  ],
+  "faltas_fora": [
+   2,
+   0
+  ],
+  "inicio": [
+   "12:15",
+   "12:42"
+  ],
+  "termo": [
+   "12:35",
+   "13:00"
+  ],
+  "capitao_casa": "GUSTAVO FAVINHA",
+  "capitao_fora": "DIOGO PINHO"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "2ª JORNADA",

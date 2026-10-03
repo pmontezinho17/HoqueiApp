@@ -1161,6 +1161,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOAQUIM SEQUEIRA",
+   "Árbitro 2": "GONÇALO RAMIRES",
+   "Árbitro Auxiliar": "LUIS PAULINO",
+   "Cronometrista": "HUGO PEDRO",
+   "Auxiliar 45 Seg.": "SUSANA BENTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 4
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 6
+   }
+  ],
+  "faltas_casa": [
+   8,
+   7
+  ],
+  "faltas_fora": [
+   3,
+   5
+  ],
+  "inicio": [
+   "16:00",
+   "16:49"
+  ],
+  "termo": [
+   "16:39",
+   "17:30"
+  ],
+  "capitao_casa": "RODRIGO MARTINS",
+  "capitao_fora": "DIOGO RODRIGUES"
+ },
  "competicao_id": 432,
  "categoria": "SENIORES MASCULINOS",
  "jornada": "2ª JORNADA - 1ª FASE",

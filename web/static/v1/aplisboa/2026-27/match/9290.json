@@ -1040,6 +1040,52 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MIGUEL GUILHERME",
+   "Árbitro 2": "JOAO GUILHERME",
+   "Árbitro Auxiliar": "RUI PIMENTEL",
+   "Cronometrista": "AURORA FIGUEIREDO",
+   "Auxiliar 45 Seg.": "RUI DINIS",
+   "Diretor de campo": "LUIS SIMÃO",
+   "Gestor de segurança": "MARCO MORAIS"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 4,
+    "fora": 3
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 5,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   2,
+   3
+  ],
+  "faltas_fora": [
+   5,
+   7
+  ],
+  "inicio": [
+   "18:00",
+   "18:44"
+  ],
+  "termo": [
+   "18:34",
+   "19:24"
+  ],
+  "capitao_casa": "MIGUEL JOAQUIM",
+  "capitao_fora": "PEDRO GOMES"
+ },
  "competicao_id": 432,
  "categoria": "SENIORES MASCULINOS",
  "jornada": "1ª JORNADA - 1ª FASE",

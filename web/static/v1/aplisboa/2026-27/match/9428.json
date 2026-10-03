@@ -769,6 +769,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
+   "Árbitro Auxiliar": "FILIPA FERREIRA",
+   "Cronometrista": "ROGERIO NETO",
+   "Diretor de campo": "FRANCISCO NEVES",
+   "Gestor de segurança": "LUISA ROBALO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   2,
+   3
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "12:30",
+   "13:14"
+  ],
+  "termo": [
+   "13:04",
+   "13:46"
+  ],
+  "capitao_casa": "DIOGO CAVACO",
+  "capitao_fora": "MANUEL ALMEIDA"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "FINAL",

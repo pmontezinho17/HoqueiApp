@@ -1068,6 +1068,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO ESTEVES",
+   "Árbitro 2": "JOAO GUILHERME",
+   "Árbitro Auxiliar": "FREDERICO VENTURA",
+   "Cronometrista": "RITA VENTURA",
+   "Auxiliar 45 Seg.": "WAGNER CORREA",
+   "Gestor de segurança": "PEDRO SANTOS"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   7,
+   6
+  ],
+  "faltas_fora": [
+   4,
+   8
+  ],
+  "inicio": [
+   "16:00",
+   "16:49"
+  ],
+  "termo": [
+   "16:39",
+   "17:28"
+  ],
+  "capitao_casa": "FILIPE REIS",
+  "capitao_fora": "MANUEL COIMBRA"
+ },
  "competicao_id": 432,
  "categoria": "SENIORES MASCULINOS",
  "jornada": "2ª JORNADA - 1ª FASE",

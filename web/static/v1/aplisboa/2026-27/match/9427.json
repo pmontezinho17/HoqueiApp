@@ -876,6 +876,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO REIS",
+   "Árbitro Auxiliar": "FRANCISCO CANDIDO",
+   "Cronometrista": "FRANCISCO NEVES",
+   "Diretor de campo": "MONICA MARVAO",
+   "Gestor de segurança": "JOÃO VENTURA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   1,
+   3
+  ],
+  "faltas_fora": [
+   2,
+   3
+  ],
+  "inicio": [
+   "19:20",
+   "19:54"
+  ],
+  "termo": [
+   "19:49",
+   "20:25"
+  ],
+  "capitao_casa": "MANUEL ALMEIDA",
+  "capitao_fora": "AFONSO MATOS"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "MEIA FINAL",

@@ -819,6 +819,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO ESTEVES",
+   "Árbitro Auxiliar": "RUI GOMES",
+   "Cronometrista": "ROGERIO NETO",
+   "Auxiliar 45 Seg.": "WAGNER CORREA",
+   "Diretor de campo": "FILIPA FERREIRA",
+   "Gestor de segurança": "LUISA ROBALO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 3
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   1,
+   3
+  ],
+  "faltas_fora": [
+   4,
+   0
+  ],
+  "inicio": [
+   "16:30",
+   "17:15"
+  ],
+  "termo": [
+   "17:05",
+   "17:48"
+  ],
+  "capitao_casa": "JOÃO RAMOS",
+  "capitao_fora": "FRANCISCO PIÇARRA"
+ },
  "competicao_id": 437,
  "categoria": "SUB-15",
  "jornada": "FINAL",

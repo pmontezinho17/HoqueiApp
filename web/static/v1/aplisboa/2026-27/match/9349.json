@@ -1267,6 +1267,69 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOAQUIM SEQUEIRA",
+   "Árbitro Auxiliar": "FRANCISCO CANDIDO",
+   "Cronometrista": "LUIS  DANTAS",
+   "Diretor de campo": "SANDRO HORTA",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "Prolongamento 1ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "Prolongamento 2ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "Desempate g.p.",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   5,
+   3
+  ],
+  "faltas_fora": [
+   3,
+   5
+  ],
+  "inicio": [
+   "14:30",
+   "15:17",
+   "15:49",
+   "15:59"
+  ],
+  "termo": [
+   "15:07",
+   "15:46",
+   "15:57",
+   "16:06"
+  ],
+  "capitao_casa": "DINIS VALENTE",
+  "capitao_fora": "AFONSO MATOS"
+ },
  "competicao_id": 436,
  "categoria": "SUB-17",
  "jornada": "MEIA FINAL",

@@ -44,4 +44,10 @@ def anonimizar_ficha(dados: dict) -> dict:
          "texto": e["texto"].split(" | ")[0]}
         for e in dados.get("cronologia", [])
     ]
+    # O boletim oficial traz nomes — o capitão (uma criança, nestes escalões) e a equipa de
+    # arbitragem. A estrutura do jogo fica: resultado por parte, faltas e horas não
+    # identificam ninguém.
+    if dados.get("boletim"):
+        dados["boletim"] = {**dados["boletim"],
+                            "oficiais": {}, "capitao_casa": None, "capitao_fora": None}
     return dados

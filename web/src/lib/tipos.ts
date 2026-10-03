@@ -56,6 +56,23 @@ export interface LinhaJogador {
 }
 export interface EquipaFicha { nome: string; jogadores: LinhaJogador[]; }
 
+export interface Parcial { nome: string; casa: number | null; fora: number | null; }
+
+/**
+ * O boletim oficial de jogo. **`null` é o caso normal**, não a excepção: só aparece minutos
+ * depois do apito final e nunca aparece nos escalões de formação.
+ */
+export interface Boletim {
+	oficiais: Record<string, string>;
+	parciais: Parcial[];
+	faltas_casa: number[];
+	faltas_fora: number[];
+	inicio: string[];
+	termo: string[];
+	capitao_casa: string | null;
+	capitao_fora: string | null;
+}
+
 export interface FichaJogo {
 	id: number;
 	competicao: string | null;
@@ -68,6 +85,7 @@ export interface FichaJogo {
 	faltas: [number | null, number | null];
 	equipas: EquipaFicha[];
 	cronologia: EventoJogo[];
+	boletim?: Boletim | null;
 	/** presente e true quando o escalão é de formação e os nomes foram omitidos */
 	individuais_omitidos?: boolean;
 	/** contexto para as migalhas (W7.3) */

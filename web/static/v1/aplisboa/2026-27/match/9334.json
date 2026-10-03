@@ -621,6 +621,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "GONÇALO RAMIRES",
+   "Árbitro Auxiliar": "GRACIANA SALES",
+   "Cronometrista": "SILVIA OLIVEIRA",
+   "Diretor de campo": "PAULO PEREIRA",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   1,
+   0
+  ],
+  "faltas_fora": [
+   2,
+   1
+  ],
+  "inicio": [
+   "14:00",
+   "14:30"
+  ],
+  "termo": [
+   "14:25",
+   "14:51"
+  ],
+  "capitao_casa": "MIGUEL MARQUES",
+  "capitao_fora": "MATILDE SOARES"
+ },
  "competicao_id": 434,
  "categoria": "TORNEIOS PARTICULARES",
  "jornada": "SUB-13",

@@ -1117,6 +1117,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO REIS",
+   "Árbitro 2": "MIGUEL SOARES",
+   "Árbitro Auxiliar": "SANDRA FONSECA",
+   "Cronometrista": "HUGO BICA",
+   "Diretor de campo": "MONICA MARVAO",
+   "Gestor de segurança": "JOÃO VENTURA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   1,
+   7
+  ],
+  "faltas_fora": [
+   3,
+   8
+  ],
+  "inicio": [
+   "16:00",
+   "16:32"
+  ],
+  "termo": [
+   "16:27",
+   "17:18"
+  ],
+  "capitao_casa": "AFONSO SOARES",
+  "capitao_fora": "JOÃO NASCIMENTO"
+ },
  "competicao_id": 439,
  "categoria": "SUB-19",
  "jornada": "QUARTOS FINAL",

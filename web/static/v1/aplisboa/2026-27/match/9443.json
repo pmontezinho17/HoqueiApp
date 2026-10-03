@@ -850,6 +850,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO HENRIQUES",
+   "Árbitro 2": "MARCO LOPES",
+   "Árbitro Auxiliar": "ANDREIA RIBEIRO",
+   "Cronometrista": "LUIS SEGADAES",
+   "Diretor de campo": "ANA PEREIRA",
+   "Gestor de segurança": "ARMANDO FONSECA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   4,
+   5
+  ],
+  "faltas_fora": [
+   2,
+   5
+  ],
+  "inicio": [
+   "19:30",
+   "20:02"
+  ],
+  "termo": [
+   "19:57",
+   "20:32"
+  ],
+  "capitao_casa": "AFONSO REIS",
+  "capitao_fora": "DUARTE DIAS"
+ },
  "competicao_id": 439,
  "categoria": "SUB-19",
  "jornada": "MEIA FINAL",

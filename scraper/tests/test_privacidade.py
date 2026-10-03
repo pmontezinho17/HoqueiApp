@@ -43,3 +43,34 @@ def test_anonimizacao_nao_altera_o_original():
     original = {"equipas": [{"nome": "A", "jogadores": [{"nome": "X"}]}], "cronologia": [], "arbitros": ["Y"]}
     anonimizar_ficha(original)
     assert original["equipas"][0]["jogadores"] == [{"nome": "X"}]
+
+
+def test_anonimizar_tira_os_nomes_do_boletim_e_guarda_a_estrutura(ficha_seniores):
+    """O boletim entrou depois desta função existir, e trazia nomes por dentro.
+
+    O capitão é um atleta — nestes escalões, uma criança — e a equipa de arbitragem são
+    pessoas identificáveis. O que o boletim tem de estrutural (resultado por parte, faltas,
+    horas) não identifica ninguém e fica.
+    """
+    from hoquei.modelos import para_dicionario
+    from hoquei.parsers.jogo import ficha
+    from hoquei.privacidade import anonimizar_ficha
+
+    dados = para_dicionario(ficha(ficha_seniores, 1))
+    assert dados["boletim"]["capitao_casa"] and dados["boletim"]["oficiais"]
+
+    limpo = anonimizar_ficha(dados)
+    assert limpo["boletim"]["capitao_casa"] is None
+    assert limpo["boletim"]["capitao_fora"] is None
+    assert limpo["boletim"]["oficiais"] == {}
+    # e o que não identifica ninguém sobrevive
+    assert limpo["boletim"]["parciais"] == dados["boletim"]["parciais"]
+    assert limpo["boletim"]["faltas_casa"] == dados["boletim"]["faltas_casa"]
+    assert limpo["boletim"]["inicio"] == dados["boletim"]["inicio"]
+
+
+def test_anonimizar_aguenta_uma_ficha_sem_boletim():
+    from hoquei.privacidade import anonimizar_ficha
+
+    limpo = anonimizar_ficha({"equipas": [], "cronologia": [], "boletim": None})
+    assert limpo["boletim"] is None

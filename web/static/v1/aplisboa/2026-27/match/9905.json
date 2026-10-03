@@ -695,6 +695,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "GONÇALO RAMIRES",
+   "Árbitro Auxiliar": "JOSE VILELA",
+   "Cronometrista": "GONÇALO SILVA",
+   "Diretor de campo": "PAULO PEREIRA",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 5
+   }
+  ],
+  "faltas_casa": [
+   2,
+   2
+  ],
+  "faltas_fora": [
+   1,
+   1
+  ],
+  "inicio": [
+   "10:00",
+   "10:27"
+  ],
+  "termo": [
+   "10:22",
+   "10:51"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
  "competicao_id": 461,
  "categoria": "ESCOLARES",
  "jornada": "1ª JORNADA",

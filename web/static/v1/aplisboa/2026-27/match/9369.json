@@ -592,6 +592,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RICARDO GOMES",
+   "Árbitro Auxiliar": "JOSE SIMOES",
+   "Cronometrista": "LUIS SOUSA",
+   "Diretor de campo": "RAQUEL PINTO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 6,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   1,
+   2
+  ],
+  "faltas_fora": [
+   0,
+   1
+  ],
+  "inicio": [
+   "9:30",
+   "9:58"
+  ],
+  "termo": [
+   "9:53",
+   "10:19"
+  ],
+  "capitao_casa": "LOURENÇO MACHADO",
+  "capitao_fora": "RODRIGO GUERREIRO"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",

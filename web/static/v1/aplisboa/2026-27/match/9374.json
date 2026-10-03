@@ -547,6 +547,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RITA ALMEIDA",
+   "Árbitro Auxiliar": "MARISA RAMOS",
+   "Cronometrista": "MARCO JANEIRO",
+   "Diretor de campo": "BRUNO PEREIRA",
+   "Gestor de segurança": "Joana Potra"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "11:45",
+   "12:10"
+  ],
+  "termo": [
+   "12:05",
+   "12:29"
+  ],
+  "capitao_casa": "MARIA GUERREIRO",
+  "capitao_fora": "SALVADOR MONTEZINHO"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "QUARTOS FINAL",

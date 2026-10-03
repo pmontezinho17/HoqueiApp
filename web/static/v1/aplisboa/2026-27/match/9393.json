@@ -576,6 +576,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MIGUEL SOARES",
+   "Árbitro Auxiliar": "PEDRO PINTO",
+   "Cronometrista": "MESSIAS FERNANDES",
+   "Diretor de campo": "RAQUEL PINTO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 5
+   }
+  ],
+  "faltas_casa": [
+   0,
+   2
+  ],
+  "faltas_fora": [
+   0,
+   2
+  ],
+  "inicio": [
+   "9:00",
+   "9:24"
+  ],
+  "termo": [
+   "9:19",
+   "9:45"
+  ],
+  "capitao_casa": "TIAGO ESTEVES",
+  "capitao_fora": "ALEXANDRE FARIAS"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "3ª JORNADA",

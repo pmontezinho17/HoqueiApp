@@ -430,6 +430,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RICARDO GOMES",
+   "Árbitro Auxiliar": "JOSE SIMOES",
+   "Cronometrista": "MESSIAS FERNANDES",
+   "Diretor de campo": "RAQUEL PINTO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   2,
+   0
+  ],
+  "inicio": [
+   "12:15",
+   "12:40"
+  ],
+  "termo": [
+   "12:35",
+   "13:01"
+  ],
+  "capitao_casa": "RODRIGO GUERREIRO",
+  "capitao_fora": "CONSTANÇA COSTA"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "3ª JORNADA",

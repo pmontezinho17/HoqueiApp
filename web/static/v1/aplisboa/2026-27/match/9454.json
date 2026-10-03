@@ -772,6 +772,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MATEUS LEHNERT",
+   "Árbitro Auxiliar": "JOANA BALOLA",
+   "Cronometrista": "ALBINO LOPES",
+   "Diretor de campo": "ANDREIA RIBEIRO",
+   "Gestor de segurança": "ARMANDO FONSECA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 7
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 10
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 17
+   }
+  ],
+  "faltas_casa": [
+   1,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   2
+  ],
+  "inicio": [
+   "15:00",
+   "15:36"
+  ],
+  "termo": [
+   "15:26",
+   "16:03"
+  ],
+  "capitao_casa": "LUCAS MORGADO",
+  "capitao_fora": "TIAGO SILVA"
+ },
  "competicao_id": 443,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",

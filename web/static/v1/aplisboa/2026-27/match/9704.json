@@ -845,6 +845,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MIGUEL SOARES",
+   "Árbitro Auxiliar": "CELIA VASCO",
+   "Cronometrista": "VICENTE ALVES",
+   "Diretor de campo": "VASCO MARTINHO",
+   "Gestor de segurança": "ANTÓNIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   2,
+   5
+  ],
+  "faltas_fora": [
+   7,
+   1
+  ],
+  "inicio": [
+   "16:00",
+   "16:37"
+  ],
+  "termo": [
+   "16:27",
+   "17:10"
+  ],
+  "capitao_casa": "RODRIGO SANTOS",
+  "capitao_fora": "ANTÓNIO PEREIRA"
+ },
  "competicao_id": 453,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

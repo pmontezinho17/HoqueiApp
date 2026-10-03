@@ -847,6 +847,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO HENRIQUES",
+   "Árbitro Auxiliar": "FILIPA FERREIRA",
+   "Cronometrista": "ROGÉRIO NETO",
+   "Diretor de campo": "ANDREIA SOARES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 7,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 10,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   2,
+   3
+  ],
+  "faltas_fora": [
+   2,
+   1
+  ],
+  "inicio": [
+   "11:00",
+   "11:36"
+  ],
+  "termo": [
+   "11:26",
+   "12:04"
+  ],
+  "capitao_casa": "ALEXANDRE FARIAS",
+  "capitao_fora": "MARTIM CHORINCAS"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "FINAL",

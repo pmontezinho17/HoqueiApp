@@ -576,6 +576,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOAQUIM SEQUEIRA",
+   "Árbitro Auxiliar": "BRUNO GAITINHA",
+   "Cronometrista": "FRANCISCO CÂNDIDO",
+   "Diretor de campo": "SANDRO HORTA",
+   "Gestor de segurança": "ANTÓNIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 4,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 5,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   3,
+   1
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "16:49",
+   "17:17"
+  ],
+  "termo": [
+   "17:12",
+   "17:43"
+  ],
+  "capitao_casa": "RODRIGO GODINHO",
+  "capitao_fora": "AFONSO GIL"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "3ª JORNADA",

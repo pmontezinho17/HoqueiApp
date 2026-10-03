@@ -682,6 +682,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE BENEDI",
+   "Árbitro Auxiliar": "PEDRO PATRICIO",
+   "Cronometrista": "ROGEIRO NETO",
+   "Diretor de campo": "FILIPA FERREIRA",
+   "Gestor de segurança": "LUISA ROBALO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 7,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 7,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 14,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "18:00",
+   "18:35"
+  ],
+  "termo": [
+   "18:25",
+   "19:00"
+  ],
+  "capitao_casa": "ALEXANDRE FARIAS",
+  "capitao_fora": "HENRIQUE SILVA"
+ },
  "competicao_id": 447,
  "categoria": "SUB-15",
  "jornada": "1ª JORNADA",

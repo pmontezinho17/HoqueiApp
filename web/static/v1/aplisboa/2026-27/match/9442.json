@@ -952,6 +952,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO REIS",
+   "Árbitro 2": "JOSE BENEDI",
+   "Árbitro Auxiliar": "ANDREIA GONÇALVES",
+   "Cronometrista": "HUGO BICA",
+   "Diretor de campo": "MONICA MARVÃO",
+   "Gestor de segurança": "JOÃO VENTURA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 6
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 8
+   }
+  ],
+  "faltas_casa": [
+   2,
+   5
+  ],
+  "faltas_fora": [
+   0,
+   3
+  ],
+  "inicio": [
+   "21:00",
+   "21:35"
+  ],
+  "termo": [
+   "21:30",
+   "22:08"
+  ],
+  "capitao_casa": "AFONSO SOARES",
+  "capitao_fora": "VASCO GONÇALVES"
+ },
  "competicao_id": 439,
  "categoria": "SUB-19",
  "jornada": "MEIA FINAL",

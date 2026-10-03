@@ -636,6 +636,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARCO LOPES",
+   "Árbitro Auxiliar": "João Dias",
+   "Cronometrista": "LUIS ROLHAS",
+   "Diretor de campo": "JOÃO MAIA",
+   "Gestor de segurança": "ANTÓNIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 5
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 6
+   }
+  ],
+  "faltas_casa": [
+   1,
+   1
+  ],
+  "faltas_fora": [
+   3,
+   2
+  ],
+  "inicio": [
+   "12:00",
+   "12:19"
+  ],
+  "termo": [
+   "12:14",
+   "12:41"
+  ],
+  "capitao_casa": "RAFAEL CARAPINHA",
+  "capitao_fora": "LEONOR INÁCIO"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "1ª JORNADA",

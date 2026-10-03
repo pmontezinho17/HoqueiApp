@@ -905,6 +905,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARTIM GONÇALVES",
+   "Árbitro Auxiliar": "JOÃO DIAS",
+   "Cronometrista": "BRUNO PEREIRA",
+   "Diretor de campo": "MARCO JANEIRO",
+   "Gestor de segurança": "JOANA MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 10
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 13
+   }
+  ],
+  "faltas_casa": [
+   4,
+   2
+  ],
+  "faltas_fora": [
+   3,
+   4
+  ],
+  "inicio": [
+   "17:45",
+   "18:26"
+  ],
+  "termo": [
+   "18:16",
+   "18:55"
+  ],
+  "capitao_casa": "MARTIM JANEIRO",
+  "capitao_fora": "LEONOR INÁCIO"
+ },
  "competicao_id": 449,
  "categoria": "SUB-15",
  "jornada": "1ª JORNADA",

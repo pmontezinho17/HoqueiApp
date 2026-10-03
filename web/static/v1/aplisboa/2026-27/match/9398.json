@@ -817,6 +817,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "VASCO FERREIRA",
+   "Árbitro Auxiliar": "RUI GOMES",
+   "Cronometrista": "MÓNICA SOUSA",
+   "Gestor de segurança": "PEDRO SANTOS"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 3
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   3,
+   3
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "09:15",
+   "09:41"
+  ],
+  "termo": [
+   "09:36",
+   "10:09"
+  ],
+  "capitao_casa": "TOMÁS PEREIRA",
+  "capitao_fora": "VASCO SALVADOR"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "QUARTOS FINAL",

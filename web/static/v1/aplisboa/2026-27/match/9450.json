@@ -819,6 +819,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
+   "Árbitro 2": "BRUNO ESTEVES",
+   "Árbitro Auxiliar": "JOAO BABARRA",
+   "Cronometrista": "JOAO GONÇALVES",
+   "Auxiliar 45 Seg.": "VICENTE ALVES",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 3
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 5,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   1,
+   4
+  ],
+  "faltas_fora": [
+   1,
+   1
+  ],
+  "inicio": [
+   "15:30",
+   "16:17"
+  ],
+  "termo": [
+   "16:07",
+   "16:53"
+  ],
+  "capitao_casa": "MARCELO ARAÚJO",
+  "capitao_fora": "GONÇALO OLIVEIRA"
+ },
  "competicao_id": 431,
  "categoria": "TORNEIOS PARTICULARES",
  "jornada": "TORNEIO PEDRO ROSADO",

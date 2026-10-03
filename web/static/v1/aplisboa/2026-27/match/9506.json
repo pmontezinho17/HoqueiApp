@@ -679,6 +679,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "VASCO FERREIRA",
+   "Árbitro Auxiliar": "MARISA RAMOS",
+   "Cronometrista": "MARIO OLIVEIRA",
+   "Gestor de segurança": "PEDRO SANTOS"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   0,
+   1
+  ],
+  "faltas_fora": [
+   0,
+   4
+  ],
+  "inicio": [
+   "10:45",
+   "11:19"
+  ],
+  "termo": [
+   "11:09",
+   "11:44"
+  ],
+  "capitao_casa": "GUSTAVO FAVINHA",
+  "capitao_fora": "LOURENÇO FILIPE"
+ },
  "competicao_id": 445,
  "categoria": "SUB-13",
  "jornada": "2ª JORNADA",

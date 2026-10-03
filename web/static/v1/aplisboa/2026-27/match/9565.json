@@ -859,6 +859,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "GONÇALO RAMIRES",
+   "Árbitro Auxiliar": "LUIS FARIA",
+   "Cronometrista": "JUAN HERNANDEZ",
+   "Diretor de campo": "JOÃO MAIA",
+   "Gestor de segurança": "ANTÓNIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 4,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 5,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   2,
+   2
+  ],
+  "faltas_fora": [
+   2,
+   5
+  ],
+  "inicio": [
+   "12:30",
+   "13:15"
+  ],
+  "termo": [
+   "13:05",
+   "13:44"
+  ],
+  "capitao_casa": "BERNARDO ABREU",
+  "capitao_fora": "RAFAEL CARAPINHA"
+ },
  "competicao_id": 447,
  "categoria": "SUB-15",
  "jornada": "1ª JORNADA",

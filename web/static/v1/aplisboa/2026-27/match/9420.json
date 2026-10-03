@@ -680,6 +680,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RUI MATOSO",
+   "Árbitro Auxiliar": "RICARDO BERNARDO",
+   "Cronometrista": "Tiago Poeta",
+   "Diretor de campo": "ANA FERREIRA",
+   "Gestor de segurança": "MARCO POVOA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   3,
+   0
+  ],
+  "faltas_fora": [
+   1,
+   4
+  ],
+  "inicio": [
+   "15:30",
+   "16:13"
+  ],
+  "termo": [
+   "16:03",
+   "16:38"
+  ],
+  "capitao_casa": "MARTIM NEVES",
+  "capitao_fora": "ANDRÉ ROSADO"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "2ª JORNADA",

@@ -209,7 +209,7 @@
     },
     {
      "numero": "2",
-     "nome": "MATILDE ROLLIS",
+     "nome": "MARIA ROLLIS",
      "titular": true,
      "golos": 0,
      "assistencias": 0,
@@ -860,6 +860,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "LUORENÇO GONÇALVES",
+   "Árbitro Auxiliar": "LARA SIMONS",
+   "Cronometrista": "JOSE BARROS",
+   "Diretor de campo": "FILIPE MARQUES",
+   "Gestor de segurança": "JOANA MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 10
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 6
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 16
+   }
+  ],
+  "faltas_casa": [
+   0,
+   5
+  ],
+  "faltas_fora": [
+   2,
+   1
+  ],
+  "inicio": [
+   "16:15",
+   "16:46"
+  ],
+  "termo": [
+   "16:41",
+   "17:18"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
  "competicao_id": 463,
  "categoria": "ESCOLARES",
  "jornada": "1ª JORNADA",

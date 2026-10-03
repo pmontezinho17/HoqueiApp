@@ -666,6 +666,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "GONÇALO RAMIRES",
+   "Árbitro Auxiliar": "GRACIANA SALES",
+   "Cronometrista": "SERGIO MAGGIOLLI",
+   "Diretor de campo": "PAULO PEREIRA",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   0,
+   4
+  ],
+  "faltas_fora": [
+   0,
+   2
+  ],
+  "inicio": [
+   "15:00",
+   "15:30"
+  ],
+  "termo": [
+   "15:25",
+   "15:51"
+  ],
+  "capitao_casa": "SEBASTIÃO JORGE",
+  "capitao_fora": "RODRIGO VALLE"
+ },
  "competicao_id": 434,
  "categoria": "TORNEIOS PARTICULARES",
  "jornada": "SUB-13",

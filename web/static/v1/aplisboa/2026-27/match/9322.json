@@ -785,6 +785,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "CLAUDIO REIS",
+   "Árbitro Auxiliar": "HUGO SALVADO",
+   "Cronometrista": "MARCO RIBEIRO",
+   "Auxiliar 45 Seg.": "RITA MOREIRA",
+   "Gestor de segurança": "DAVID PINTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   2,
+   1
+  ],
+  "faltas_fora": [
+   4,
+   5
+  ],
+  "inicio": [
+   "16:30",
+   "17:14"
+  ],
+  "termo": [
+   "17:04",
+   "17:47"
+  ],
+  "capitao_casa": "ALICE DOMINGUES",
+  "capitao_fora": "MARIANA AGULHAS"
+ },
  "competicao_id": 433,
  "categoria": "SENIORES FEMININOS",
  "jornada": "JORNADA 1",

@@ -876,6 +876,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "ALEXANDRE ARAUJO",
+   "Árbitro 2": "VASCO FERREIRA",
+   "Árbitro Auxiliar": "ANDREIA GONÇALVES",
+   "Cronometrista": "MÓNICA SOUSA",
+   "Diretor de campo": "PEDRO SANTOS"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   3,
+   5
+  ],
+  "faltas_fora": [
+   2,
+   2
+  ],
+  "inicio": [
+   "12:45",
+   "13:20"
+  ],
+  "termo": [
+   "13:15",
+   "13:54"
+  ],
+  "capitao_casa": "VASCO GONÇALVES",
+  "capitao_fora": "DANIEL AFONSO"
+ },
  "competicao_id": 439,
  "categoria": "SUB-19",
  "jornada": "QUARTOS FINAL",

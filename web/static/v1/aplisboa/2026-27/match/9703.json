@@ -622,6 +622,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE BENEDI",
+   "Árbitro Auxiliar": "RUI GOMES",
+   "Cronometrista": "LUIS DANTAS",
+   "Diretor de campo": "JOSE RODRIGUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   4,
+   2
+  ],
+  "inicio": [
+   "15:15",
+   "15:56"
+  ],
+  "termo": [
+   "15:46",
+   "16:22"
+  ],
+  "capitao_casa": "GONÇALO HERMENEGILDO",
+  "capitao_fora": "HUGO PEREIRA"
+ },
  "competicao_id": 453,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

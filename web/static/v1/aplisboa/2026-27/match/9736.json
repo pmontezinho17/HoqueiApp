@@ -774,6 +774,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
+   "Árbitro Auxiliar": "TANIA PEREIRA",
+   "Cronometrista": "AURA RODRIGUES",
+   "Diretor de campo": "ANA RODRIGUES",
+   "Gestor de segurança": "JOÃO JANEIRO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 8
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 10
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 18
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "14:30",
+   "15:12"
+  ],
+  "termo": [
+   "15:02",
+   "15:41"
+  ],
+  "capitao_casa": "AFONSO CESAR",
+  "capitao_fora": "AFONSO SANTOS"
+ },
  "competicao_id": 454,
  "categoria": "SUB-17",
  "jornada": "2ª JORNADA",

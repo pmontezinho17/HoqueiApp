@@ -607,6 +607,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MIGUEL SOARES",
+   "Árbitro Auxiliar": "MESSIAS FERNANDES",
+   "Cronometrista": "FABIO JESUS",
+   "Diretor de campo": "RAQUEL PINTO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   3,
+   1
+  ],
+  "faltas_fora": [
+   3,
+   2
+  ],
+  "inicio": [
+   "10:15",
+   "10:41"
+  ],
+  "termo": [
+   "10:36",
+   "11:02"
+  ],
+  "capitao_casa": "MARTIM CHORINCAS",
+  "capitao_fora": "GONÇALO SILVA"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "1ª JORNADA",

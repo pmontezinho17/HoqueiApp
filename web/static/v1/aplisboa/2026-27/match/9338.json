@@ -548,6 +548,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO HENRIQUES",
+   "Árbitro Auxiliar": "Francisco Candido",
+   "Cronometrista": "Bruno Gaitinha",
+   "Diretor de campo": "Paulo Pereira",
+   "Gestor de segurança": "António Rocha"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   0,
+   4
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "18:03",
+   "18:27"
+  ],
+  "termo": [
+   "18:22",
+   "18:48"
+  ],
+  "capitao_casa": "RODRIGO GODINHO",
+  "capitao_fora": "RAFAEL CAMPINA"
+ },
  "competicao_id": 434,
  "categoria": "TORNEIOS PARTICULARES",
  "jornada": "SUB-17",

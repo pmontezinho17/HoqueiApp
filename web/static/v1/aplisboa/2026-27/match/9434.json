@@ -800,6 +800,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO HENRIQUES",
+   "Árbitro 2": "RICARDO GOMES",
+   "Árbitro Auxiliar": "MESSIAS FERNANDES",
+   "Cronometrista": "FABIO JESUS",
+   "Diretor de campo": "RAQUEL PINTO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 5,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   1,
+   4
+  ],
+  "faltas_fora": [
+   7,
+   2
+  ],
+  "inicio": [
+   "18:15",
+   "18:43"
+  ],
+  "termo": [
+   "18:38",
+   "19:06"
+  ],
+  "capitao_casa": "RODRIGO POTIER",
+  "capitao_fora": "PEDRO GOUVEIA"
+ },
  "competicao_id": 439,
  "categoria": "SUB-19",
  "jornada": "3ª JORNADA",

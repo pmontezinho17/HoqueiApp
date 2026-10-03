@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BoletimOficial from '$lib/BoletimOficial.svelte';
 	import Cronologia from '$lib/Cronologia.svelte';
 	import Emblema from '$lib/Emblema.svelte';
 	import FichaEquipas from '$lib/FichaEquipas.svelte';
@@ -8,13 +9,17 @@
 	let { data } = $props();
 	const f = $derived(data.ficha);
 
-	type Tab = 'cronologia' | 'ficha';
+	type Tab = 'cronologia' | 'ficha' | 'boletim';
 	let tab = $state<Tab>('cronologia');
 
 	// W3.6d: sem acontecimentos reais, a tab de cronologia seria um ecrã vazio
 	const ESTRUTURA = new Set(['inicio_parte', 'fim_parte', 'fim_jogo', 'por_iniciar']);
 	const temCronologia = $derived(f.cronologia.some((e) => !ESTRUTURA.has(e.tipo)));
 	const temFicha = $derived(f.equipas.some((e) => e.jogadores.length > 0));
+	/** A tab do boletim só existe quando há boletim — e não há quase nunca: a fonte só o
+	 *  anexa minutos depois do apito, e nunca nos escalões de formação. Oferecer uma tab
+	 *  que abre vazia é pior do que não a ter. */
+	const temBoletim = $derived(!!f.boletim?.parciais?.length);
 
 	/** W7.2: marcadores por equipa, com minuto — vê-se quem marcou sem abrir a cronologia. */
 	const marcadores = $derived.by(() => {
@@ -62,9 +67,9 @@
 
 	{#if temMarcadores}
 		<div class="marcadores">
-			<ul>{#each marcadores.casa as m (m)}<li>{m}</li>{/each}</ul>
+			<ul>{#each marcadores.casa as m, i (i)}<li>{m}</li>{/each}</ul>
 			<Bola tamanho={13} />
-			<ul class="dir">{#each marcadores.fora as m (m)}<li>{m}</li>{/each}</ul>
+			<ul class="dir">{#each marcadores.fora as m, i (i)}<li>{m}</li>{/each}</ul>
 		</div>
 	{/if}
 
@@ -86,7 +91,7 @@
 	<span class="seta" aria-hidden="true">›</span>
 </a>
 
-{#if temCronologia || temFicha}
+{#if temCronologia || temFicha || temBoletim}
 	<div class="tabs" role="tablist">
 		{#if temCronologia}
 			<button role="tab" aria-selected={tab === 'cronologia'} onclick={() => (tab = 'cronologia')}>
@@ -98,13 +103,22 @@
 				Ficha
 			</button>
 		{/if}
+		{#if temBoletim}
+			<button role="tab" aria-selected={tab === 'boletim'} onclick={() => (tab = 'boletim')}>
+				Boletim
+			</button>
+		{/if}
 	</div>
 
-	{#if tab === 'cronologia' && temCronologia}
+	{#if tab === 'boletim' && temBoletim && f.boletim}
+		<BoletimOficial boletim={f.boletim} casa={f.casa} fora={f.fora} />
+	{:else if tab === 'cronologia' && temCronologia}
 		<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
 		omitidos={f.individuais_omitidos ?? false} />
 	{:else if temFicha}
 		<FichaEquipas equipas={f.equipas} />
+	{:else if temBoletim && f.boletim}
+		<BoletimOficial boletim={f.boletim} casa={f.casa} fora={f.fora} />
 	{/if}
 {:else}
 	<p class="vazio">Este jogo não tem detalhe publicado.</p>

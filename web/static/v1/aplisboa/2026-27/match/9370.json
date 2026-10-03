@@ -560,6 +560,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
+   "Árbitro Auxiliar": "JOSE SIMOES",
+   "Cronometrista": "LUIS SOUSA",
+   "Diretor de campo": "RAQUEL PINTO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   2,
+   0
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "16:00",
+   "16:22"
+  ],
+  "termo": [
+   "16:17",
+   "16:42"
+  ],
+  "capitao_casa": "MARIO SILVA",
+  "capitao_fora": "LOURENÇO MACHADO"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "2ª JORNADA",

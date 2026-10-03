@@ -1,11 +1,11 @@
 {
  "id": 9457,
- "competicao": "Intervalo CAMP. REG. SUB-13 - 1ª FASE - SERIE A",
+ "competicao": "CAMP. REG. SUB-13 - 1ª FASE - SERIE A",
  "casa": "AD OEIRAS A",
  "fora": "CACO A",
- "golos_casa": 4,
- "golos_fora": 1,
- "estado": null,
+ "golos_casa": 6,
+ "golos_fora": 2,
+ "estado": "Jogo Terminado",
  "data": "2026-10-03",
  "hora": "15:30:00",
  "recinto": "PAV. A.D.OEIRAS",
@@ -13,7 +13,7 @@
   "LUORENÇO GONÇALVES"
  ],
  "faltas": [
-  2,
+  6,
   0
  ],
  "equipas": [
@@ -38,7 +38,7 @@
      "numero": "2",
      "nome": "TOMÁS DUARTE",
      "titular": true,
-     "golos": 1,
+     "golos": 2,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -66,7 +66,7 @@
      "numero": "4",
      "nome": "MANUEL CAPELA",
      "titular": true,
-     "golos": 1,
+     "golos": 2,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -225,7 +225,7 @@
      "numero": "3",
      "nome": "AFONSO CARVALHEIRA",
      "titular": true,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -310,7 +310,7 @@
      "nome": "RODRIGO VALLE",
      "titular": true,
      "golos": 1,
-     "assistencias": 0,
+     "assistencias": 1,
      "defesas": 0,
      "penalidades": "1/1",
      "livres_diretos": "0/0",
@@ -499,8 +499,187 @@
    "golos_casa": null,
    "golos_fora": null,
    "texto": "Final da 1ª parte"
+  },
+  {
+   "ordem": 9,
+   "tipo": "inicio_parte",
+   "relogio": "18:00",
+   "parte": 2,
+   "minuto": 18,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 2ª parte"
+  },
+  {
+   "ordem": 10,
+   "tipo": "golo",
+   "relogio": "5:39",
+   "parte": 2,
+   "minuto": 30,
+   "equipa": "CACO A",
+   "jogador": "AFONSO CARVALHEIRA",
+   "assistencia": "RODRIGO VALLE",
+   "variante": null,
+   "numero": null,
+   "golos_casa": 4,
+   "golos_fora": 2,
+   "texto": "Golo para CACO A | AFONSO CARVALHEIRA | Assistência por RODRIGO VALLE"
+  },
+  {
+   "ordem": 11,
+   "tipo": "falta_equipa",
+   "relogio": "4:31",
+   "parte": 2,
+   "minuto": 31,
+   "equipa": "AD OEIRAS A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 3,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 3 para AD OEIRAS A"
+  },
+  {
+   "ordem": 12,
+   "tipo": "falta_equipa",
+   "relogio": "2:50",
+   "parte": 2,
+   "minuto": 33,
+   "equipa": "AD OEIRAS A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 4,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 4 para AD OEIRAS A"
+  },
+  {
+   "ordem": 13,
+   "tipo": "falta_equipa",
+   "relogio": "2:36",
+   "parte": 2,
+   "minuto": 33,
+   "equipa": "AD OEIRAS A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 5,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 5 para AD OEIRAS A"
+  },
+  {
+   "ordem": 14,
+   "tipo": "golo",
+   "relogio": "2:09",
+   "parte": 2,
+   "minuto": 33,
+   "equipa": "AD OEIRAS A",
+   "jogador": "MANUEL CAPELA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 5,
+   "golos_fora": 2,
+   "texto": "Golo para AD OEIRAS A | MANUEL CAPELA"
+  },
+  {
+   "ordem": 15,
+   "tipo": "golo",
+   "relogio": "1:27",
+   "parte": 2,
+   "minuto": 34,
+   "equipa": "AD OEIRAS A",
+   "jogador": "TOMÁS DUARTE",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 6,
+   "golos_fora": 2,
+   "texto": "Golo para AD OEIRAS A | TOMÁS DUARTE"
+  },
+  {
+   "ordem": 16,
+   "tipo": "falta_equipa",
+   "relogio": "0:28",
+   "parte": 2,
+   "minuto": 35,
+   "equipa": "AD OEIRAS A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 6,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 6 para AD OEIRAS A"
+  },
+  {
+   "ordem": 17,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 2,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "LUORENÇO GONÇALVES",
+   "Árbitro Auxiliar": "JOSE VILELA",
+   "Cronometrista": "DIOGO DUARTE",
+   "Diretor de campo": "ANA ZEFERINO",
+   "Gestor de segurança": "LUISA ROBALO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 4,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 6,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   2,
+   4
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "15:30",
+   "16:04"
+  ],
+  "termo": [
+   "15:54",
+   "16:27"
+  ],
+  "capitao_casa": "TOMÁS DUARTE",
+  "capitao_fora": "BERNARDO OLIVAL"
+ },
  "competicao_id": 443,
  "categoria": "SUB-13",
  "jornada": "2ª JORNADA",

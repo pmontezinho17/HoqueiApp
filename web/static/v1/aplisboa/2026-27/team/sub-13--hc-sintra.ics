@@ -14,10 +14,10 @@ DTSTAMP:20261003T000000Z
 DTSTART:20261003T143000Z
 DTEND:20261003T160000Z
 SUMMARY:🏑 Sub-13 🏑 HC Sintra vs APAC Tojal
-LOCATION:PAV. HC SINTRA
-DESCRIPTION:HC Sintra 1–6 APAC Tojal\nCAMP. REG. SUB-13 - 1ª FASE · Sé
- rie A · SUB-13\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9456\nDados
-  da Associação de Patinagem de Lisboa. Site não oficial.
+LOCATION:Hockey Club de Sintra
+DESCRIPTION:HC Sintra 1–10 APAC Tojal\nCAMP. REG. SUB-13 - 1ª FASE · S
+ érie A · SUB-13\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9456\nDad
+ os da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9456
 END:VEVENT
 BEGIN:VEVENT
@@ -26,7 +26,7 @@ DTSTAMP:20261010T000000Z
 DTSTART:20261010T153000Z
 DTEND:20261010T170000Z
 SUMMARY:🏑 Sub-13 🏑 SC Torres vs HC Sintra
-LOCATION:PAV. HC SINTRA
+LOCATION:Hockey Club de Sintra
 DESCRIPTION:SC Torres vs HC Sintra\nCAMP. REG. SUB-13 - 1ª FASE · Série 
  A · SUB-13\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9459\nDados da 
  Associação de Patinagem de Lisboa. Site não oficial.
@@ -38,7 +38,7 @@ DTSTAMP:20261017T000000Z
 DTSTART:20261017T140000Z
 DTEND:20261017T153000Z
 SUMMARY:🏑 Sub-13 🏑 HC Sintra vs CD Paço Arcos A
-LOCATION:PAV. HC SINTRA
+LOCATION:Hockey Club de Sintra
 DESCRIPTION:HC Sintra vs CD Paço Arcos A\nCAMP. REG. SUB-13 - 1ª FASE · 
  Série A · SUB-13\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9462\nDa
  dos da Associação de Patinagem de Lisboa. Site não oficial.
@@ -62,7 +62,7 @@ DTSTAMP:20261024T000000Z
 DTSTART:20261024T153000Z
 DTEND:20261024T170000Z
 SUMMARY:🏑 Sub-13 🏑 HC Sintra vs Caco A
-LOCATION:PAV. HC SINTRA
+LOCATION:Hockey Club de Sintra
 DESCRIPTION:HC Sintra vs Caco A\nCAMP. REG. SUB-13 - 1ª FASE · Série A 
  · SUB-13\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9468\nDados da As
  sociação de Patinagem de Lisboa. Site não oficial.
@@ -86,7 +86,7 @@ DTSTAMP:20261107T000000Z
 DTSTART:20261107T143000Z
 DTEND:20261107T160000Z
 SUMMARY:🏑 Sub-13 🏑 HC Sintra vs SC Torres
-LOCATION:PAV. SC TORRES
+LOCATION:Sporting Clube de Torres (SCT)
 DESCRIPTION:HC Sintra vs SC Torres\nCAMP. REG. SUB-13 - 1ª FASE · Série 
  A · SUB-13\nPAV. SC TORRES\nhttps://hoquei.pages.dev/jogo/9474\nDados da 
  Associação de Patinagem de Lisboa. Site não oficial.
@@ -110,7 +110,7 @@ DTSTAMP:20261121T000000Z
 DTSTART:20261121T144500Z
 DTEND:20261121T161500Z
 SUMMARY:🏑 Sub-13 🏑 HC Sintra vs AD Oeiras A
-LOCATION:PAV. HC SINTRA
+LOCATION:Hockey Club de Sintra
 DESCRIPTION:HC Sintra vs AD Oeiras A\nCAMP. REG. SUB-13 - 1ª FASE · Séri
  e A · SUB-13\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9480\nDados d
  a Associação de Patinagem de Lisboa. Site não oficial.

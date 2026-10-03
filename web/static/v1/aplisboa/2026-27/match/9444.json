@@ -891,6 +891,55 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO HENRIQUES",
+   "Árbitro 2": "JOSE MARTINS",
+   "Árbitro Auxiliar": "ANDREIA GONÇALVES",
+   "Cronometrista": "ROGERIO NETO",
+   "Diretor de campo": "FILIPA FERNANDES",
+   "Gestor de segurança": "LUISA ROBALO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   1,
+   6
+  ],
+  "faltas_fora": [
+   3,
+   4
+  ],
+  "inicio": [
+   "14:30",
+   "15:20",
+   "15:57",
+   "16:13"
+  ],
+  "termo": [
+   "15:10",
+   "15:54",
+   "16:11",
+   "16:19"
+  ],
+  "capitao_casa": "VASCO GONÇALVES",
+  "capitao_fora": "TOMÁS MARTINS"
+ },
  "competicao_id": 439,
  "categoria": "SUB-19",
  "jornada": "FINAL",

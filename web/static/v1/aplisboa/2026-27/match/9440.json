@@ -983,6 +983,65 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RICARDO GOMES",
+   "Árbitro 2": "JOAO GUILHERME",
+   "Árbitro Auxiliar": "CARLOS CAROLA",
+   "Cronometrista": "JORGE GOMES",
+   "Diretor de campo": "JOÃO MORALES",
+   "Gestor de segurança": "ARMANDO FONSECA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "Prolongamento 1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "Prolongamento 2ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   3,
+   4
+  ],
+  "faltas_fora": [
+   3,
+   3
+  ],
+  "inicio": [
+   "12:00",
+   "12:36",
+   "13:07",
+   "13:19"
+  ],
+  "termo": [
+   "12:31",
+   "13:04",
+   "13:17",
+   "13:25"
+  ],
+  "capitao_casa": "MIGUEL ANDRÉ",
+  "capitao_fora": "AFONSO REIS"
+ },
  "competicao_id": 439,
  "categoria": "SUB-19",
  "jornada": "QUARTOS FINAL",

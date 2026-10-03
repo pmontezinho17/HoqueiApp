@@ -983,6 +983,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE BENEDI",
+   "Árbitro Auxiliar": "CLAUDIA LUCIO",
+   "Cronometrista": "RICARDO NEVES",
+   "Diretor de campo": "JOSE RODRIGUES",
+   "Gestor de segurança": "LUIS PAULINO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 4,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 7,
+    "fora": 5
+   }
+  ],
+  "faltas_casa": [
+   4,
+   6
+  ],
+  "faltas_fora": [
+   7,
+   4
+  ],
+  "inicio": [
+   "16:45",
+   "17:34"
+  ],
+  "termo": [
+   "17:25",
+   "18:18"
+  ],
+  "capitao_casa": "DINIS VALENTE",
+  "capitao_fora": "DUARTE ALVES"
+ },
  "competicao_id": 452,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

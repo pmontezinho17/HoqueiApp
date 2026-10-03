@@ -842,6 +842,52 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
+   "Árbitro 2": "MIGUEL GUILHERME",
+   "Árbitro Auxiliar": "ANA TEIXEIRA",
+   "Cronometrista": "TANIA GONCALVES",
+   "Auxiliar 45 Seg.": "RUI GONCALVES",
+   "Diretor de campo": "ANA TORRAO",
+   "Gestor de segurança": "PAULO TORRAO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 4
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 7
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 11
+   }
+  ],
+  "faltas_casa": [
+   0,
+   1
+  ],
+  "faltas_fora": [
+   4,
+   0
+  ],
+  "inicio": [
+   "17:00",
+   "17:44"
+  ],
+  "termo": [
+   "17:34",
+   "18:20"
+  ],
+  "capitao_casa": "MARTIM SILVA",
+  "capitao_fora": "ANDRÉ GASPAR"
+ },
  "competicao_id": 432,
  "categoria": "SENIORES MASCULINOS",
  "jornada": "2ª JORNADA - 1ª FASE",

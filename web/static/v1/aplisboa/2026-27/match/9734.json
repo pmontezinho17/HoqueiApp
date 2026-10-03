@@ -864,6 +864,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARCO LOPES",
+   "Árbitro Auxiliar": "AURA RODRIGUES",
+   "Cronometrista": "MESSIAS FERNANDES",
+   "Diretor de campo": "RAQUEL PINTO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 14,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 8,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 22,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   3,
+   1
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "20:30",
+   "21:15"
+  ],
+  "termo": [
+   "21:05",
+   "21:42"
+  ],
+  "capitao_casa": "DIOGO SIMÕES",
+  "capitao_fora": "MARIA PAÇO"
+ },
  "competicao_id": 454,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

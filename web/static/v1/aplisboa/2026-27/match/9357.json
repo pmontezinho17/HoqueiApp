@@ -710,6 +710,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "ALEXANDRE ARAUJO",
+   "Árbitro Auxiliar": "ISABEL ANDRADE",
+   "Cronometrista": "AURORA FIGUEIREDO",
+   "Diretor de campo": "LUIS SIMÃO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 4
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 5
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 9
+   }
+  ],
+  "faltas_casa": [
+   1,
+   0
+  ],
+  "faltas_fora": [
+   2,
+   2
+  ],
+  "inicio": [
+   "9:30",
+   "9:59"
+  ],
+  "termo": [
+   "9:54",
+   "10:19"
+  ],
+  "capitao_casa": "VICENTE MATOS",
+  "capitao_fora": "MANUEL ANDRADE"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",

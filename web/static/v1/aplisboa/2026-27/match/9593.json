@@ -784,6 +784,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO RILHAS",
+   "Árbitro Auxiliar": "Rui Gomes",
+   "Cronometrista": "RICARDO ROCHA",
+   "Gestor de segurança": "David pinto"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   2,
+   3
+  ],
+  "faltas_fora": [
+   2,
+   2
+  ],
+  "inicio": [
+   "16:30",
+   "17:12"
+  ],
+  "termo": [
+   "17:02",
+   "17:37"
+  ],
+  "capitao_casa": "RODRIGO AGULHAS",
+  "capitao_fora": "VASCO SALVADOR"
+ },
  "competicao_id": 448,
  "categoria": "SUB-15",
  "jornada": "1ª JORNADA",

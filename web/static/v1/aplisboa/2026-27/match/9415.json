@@ -680,6 +680,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
+   "Árbitro Auxiliar": "MESSIAS FERNANDES",
+   "Cronometrista": "LUIS SOUSA",
+   "Diretor de campo": "RAQUEL PINTO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   1,
+   1
+  ],
+  "faltas_fora": [
+   3,
+   4
+  ],
+  "inicio": [
+   "17:15",
+   "17:45"
+  ],
+  "termo": [
+   "17:40",
+   "18:14"
+  ],
+  "capitao_casa": "FÁBIO DUARTE",
+  "capitao_fora": "DIOGO SIMÕES"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "3ª JORNADA",

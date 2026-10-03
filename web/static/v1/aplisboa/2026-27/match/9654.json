@@ -801,6 +801,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARTIM CARVALHO",
+   "Árbitro Auxiliar": "NELSON MIGUEL",
+   "Cronometrista": "RICARDO FONSECA",
+   "Gestor de segurança": "JOÃO CANDEIAS"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 7
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 8
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 15
+   }
+  ],
+  "faltas_casa": [
+   1,
+   0
+  ],
+  "faltas_fora": [
+   6,
+   0
+  ],
+  "inicio": [
+   "20:00",
+   "20:40"
+  ],
+  "termo": [
+   "20:30",
+   "21:09"
+  ],
+  "capitao_casa": "MATEUS TORRADO",
+  "capitao_fora": "MARIA MARQUES"
+ },
  "competicao_id": 451,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

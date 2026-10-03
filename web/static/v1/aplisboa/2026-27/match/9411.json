@@ -771,6 +771,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "GONÇALO RAMIRES",
+   "Árbitro Auxiliar": "LUIS PAULINO",
+   "Cronometrista": "TANIA PEREIRA",
+   "Diretor de campo": "ANA TORRAO",
+   "Gestor de segurança": "PAULO TORRAO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 4,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 6,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   3,
+   1
+  ],
+  "faltas_fora": [
+   2,
+   5
+  ],
+  "inicio": [
+   "20:30",
+   "21:02"
+  ],
+  "termo": [
+   "20:57",
+   "21:36"
+  ],
+  "capitao_casa": "TIAGO FERREIRA",
+  "capitao_fora": "AFONSO SANTOS"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "2ª JORNADA",

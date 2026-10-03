@@ -120,6 +120,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "ANTÓNIO PEDRO",
+   "equipa": "HC TURQUEL",
+   "jogos": 1,
+   "numero": "9",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DUARTE FARIA",
    "equipa": "UF ENTRONCAMENTO",
    "jogos": 1,
@@ -289,19 +302,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANTÓNIO PEDRO",
-   "equipa": "HC TURQUEL",
-   "jogos": 1,
-   "numero": "9",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIEGO INÁCIO",
    "equipa": "UF ENTRONCAMENTO",
    "jogos": 1,
@@ -393,36 +393,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME MIGUEL SOUSA",
-   "equipa": "BIBLIOTECA IR A",
-   "jogos": 1,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GUILHERME NEVES",
    "equipa": "BIBLIOTECA IR B",
    "jogos": 1,
    "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUILHERME SOUSA",
-   "equipa": "BIBLIOTECA IR A",
-   "jogos": 1,
-   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -566,6 +540,19 @@
    "equipa": "BIBLIOTECA IR A",
    "jogos": 2,
    "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME MIGUEL SOUSA",
+   "equipa": "BIBLIOTECA IR A",
+   "jogos": 2,
+   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

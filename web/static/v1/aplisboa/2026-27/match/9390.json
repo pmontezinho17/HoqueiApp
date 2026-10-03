@@ -771,6 +771,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARTIM GONÇALVES",
+   "Árbitro Auxiliar": "RUI GOMES",
+   "Cronometrista": "ANTONIO SERRANO",
+   "Gestor de segurança": "JOÃO VENTURA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 4,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 5,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   1,
+   1
+  ],
+  "faltas_fora": [
+   4,
+   3
+  ],
+  "inicio": [
+   "17:15",
+   "17:34"
+  ],
+  "termo": [
+   "17:29",
+   "17:58"
+  ],
+  "capitao_casa": "VASCO SALVADOR",
+  "capitao_fora": "JOÃO MARQUES"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "3ª JORNADA",

@@ -921,6 +921,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARTIM GONÇALVES",
+   "Árbitro Auxiliar": "CLAUDIA LUCIO",
+   "Cronometrista": "CARLOS ALVES",
+   "Diretor de campo": "Vera Agostinho",
+   "Gestor de segurança": "JOAO VENTURA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 5,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   4,
+   2
+  ],
+  "faltas_fora": [
+   4,
+   3
+  ],
+  "inicio": [
+   "11:00",
+   "11:44"
+  ],
+  "termo": [
+   "11:34",
+   "12:16"
+  ],
+  "capitao_casa": "DIOGO CAVACO",
+  "capitao_fora": "DUARTE ALVES"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "QUARTOS FINAL",

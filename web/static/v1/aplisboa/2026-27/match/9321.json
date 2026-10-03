@@ -740,6 +740,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "CLAUDIO REIS",
+   "Árbitro Auxiliar": "JORGE SANTANA",
+   "Cronometrista": "NELSON HELENO",
+   "Auxiliar 45 Seg.": "MARCO JANEIRO",
+   "Diretor de campo": "BRUNO PEREIRA",
+   "Gestor de segurança": "JOANA MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   1,
+   2
+  ],
+  "faltas_fora": [
+   4,
+   5
+  ],
+  "inicio": [
+   "14:45",
+   "15:29"
+  ],
+  "termo": [
+   "15:19",
+   "16:07"
+  ],
+  "capitao_casa": "DIANA PINTO",
+  "capitao_fora": "MARIA LERENO"
+ },
  "competicao_id": 433,
  "categoria": "SENIORES FEMININOS",
  "jornada": "JORNADA 1",

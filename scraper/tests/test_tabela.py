@@ -66,6 +66,15 @@ class TestRegras:
         linhas = so(calcular([jogo("A", "B", 2, 1), jogo("-", "-")]))
         assert {l.equipa for l in linhas} == {"A", "B"}
 
+    def test_racio_arredonda_para_o_par_no_empate_exacto(self):
+        """`1/40 = 0.025` → `0.02`, como o `Round()` do Classic ASP em que a fonte corre.
+
+        O `round()` do Python daria 0.03, porque 0.025 em binário fica um fio acima de meio.
+        Um caso em 137 — e foi o teste de reprodução que o encontrou, com dados novos.
+        """
+        linhas = {l.equipa: l for l in so(calcular([jogo("A", "B", 1, 40)]))}
+        assert linhas["A"].racio == 0.02
+
     def test_racio_e_none_quando_nao_sofreu_golos(self):
         linhas = {l.equipa: l for l in so(calcular([jogo("A", "B", 4, 0)]))}
         assert linhas["A"].racio is None

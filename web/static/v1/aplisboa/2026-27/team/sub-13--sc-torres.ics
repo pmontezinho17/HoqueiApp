@@ -15,9 +15,9 @@ DTSTART:20261003T160000Z
 DTEND:20261003T173000Z
 SUMMARY:🏑 Sub-13 🏑 CD Paço Arcos A vs SC Torres
 LOCATION:Pavilhão do Clube Desportivo de Paço de Arcos (CDPA)
-DESCRIPTION:CD Paço Arcos A vs SC Torres\nCAMP. REG. SUB-13 - 1ª FASE · 
- Série A · SUB-13\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/945
- 8\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+DESCRIPTION:CD Paço Arcos A 19–0 SC Torres\nCAMP. REG. SUB-13 - 1ª FASE
+  · Série A · SUB-13\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo
+ /9458\nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9458
 END:VEVENT
 BEGIN:VEVENT
@@ -26,7 +26,7 @@ DTSTAMP:20261010T000000Z
 DTSTART:20261010T153000Z
 DTEND:20261010T170000Z
 SUMMARY:🏑 Sub-13 🏑 SC Torres vs HC Sintra
-LOCATION:PAV. HC SINTRA
+LOCATION:Hockey Club de Sintra
 DESCRIPTION:SC Torres vs HC Sintra\nCAMP. REG. SUB-13 - 1ª FASE · Série 
  A · SUB-13\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9459\nDados da 
  Associação de Patinagem de Lisboa. Site não oficial.
@@ -50,7 +50,7 @@ DTSTAMP:20261018T000000Z
 DTSTART:20261018T103000Z
 DTEND:20261018T120000Z
 SUMMARY:🏑 Sub-13 🏑 SC Torres vs APAC Tojal
-LOCATION:PAV. SC TORRES
+LOCATION:Sporting Clube de Torres (SCT)
 DESCRIPTION:SC Torres vs APAC Tojal\nCAMP. REG. SUB-13 - 1ª FASE · Série
   A · SUB-13\nPAV. SC TORRES\nhttps://hoquei.pages.dev/jogo/9467\nDados da
   Associação de Patinagem de Lisboa. Site não oficial.
@@ -74,7 +74,7 @@ DTSTAMP:20261031T000000Z
 DTSTART:20261031T113000Z
 DTEND:20261031T130000Z
 SUMMARY:🏑 Sub-13 🏑 SC Torres vs CD Paço Arcos A
-LOCATION:PAV. SC TORRES
+LOCATION:Sporting Clube de Torres (SCT)
 DESCRIPTION:SC Torres vs CD Paço Arcos A\nCAMP. REG. SUB-13 - 1ª FASE · 
  Série A · SUB-13\nPAV. SC TORRES\nhttps://hoquei.pages.dev/jogo/9473\nDa
  dos da Associação de Patinagem de Lisboa. Site não oficial.
@@ -86,7 +86,7 @@ DTSTAMP:20261107T000000Z
 DTSTART:20261107T143000Z
 DTEND:20261107T160000Z
 SUMMARY:🏑 Sub-13 🏑 HC Sintra vs SC Torres
-LOCATION:PAV. SC TORRES
+LOCATION:Sporting Clube de Torres (SCT)
 DESCRIPTION:HC Sintra vs SC Torres\nCAMP. REG. SUB-13 - 1ª FASE · Série 
  A · SUB-13\nPAV. SC TORRES\nhttps://hoquei.pages.dev/jogo/9474\nDados da 
  Associação de Patinagem de Lisboa. Site não oficial.
@@ -98,7 +98,7 @@ DTSTAMP:20261114T000000Z
 DTSTART:20261114T113000Z
 DTEND:20261114T130000Z
 SUMMARY:🏑 Sub-13 🏑 SC Torres vs Caco A
-LOCATION:PAV. SC TORRES
+LOCATION:Sporting Clube de Torres (SCT)
 DESCRIPTION:SC Torres vs Caco A\nCAMP. REG. SUB-13 - 1ª FASE · Série A 
  · SUB-13\nPAV. SC TORRES\nhttps://hoquei.pages.dev/jogo/9478\nDados da As
  sociação de Patinagem de Lisboa. Site não oficial.

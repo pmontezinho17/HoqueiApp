@@ -771,6 +771,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "CLAUDIO REIS",
+   "Árbitro 2": "MARCO LOPES",
+   "Árbitro Auxiliar": "HUGO BICA",
+   "Cronometrista": "JORGE GOMES",
+   "Diretor de campo": "ANA PEREIRA",
+   "Gestor de segurança": "ARMANDO FONSECA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   4,
+   4
+  ],
+  "faltas_fora": [
+   3,
+   2
+  ],
+  "inicio": [
+   "14:30",
+   "15:09"
+  ],
+  "termo": [
+   "15:04",
+   "15:43"
+  ],
+  "capitao_casa": "MATEUS PALMEIRIM",
+  "capitao_fora": "PEDRO SANTOS"
+ },
  "competicao_id": 439,
  "categoria": "SUB-19",
  "jornada": "2ª JORNADA",

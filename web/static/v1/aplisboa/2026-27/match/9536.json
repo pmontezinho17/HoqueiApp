@@ -711,6 +711,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO HENRIQUES",
+   "Árbitro Auxiliar": "Marisa ramos",
+   "Cronometrista": "SILVIA CARMO",
+   "Diretor de campo": "VASCO MARTINHO",
+   "Gestor de segurança": "ANTÓNIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   2,
+   1
+  ],
+  "faltas_fora": [
+   1,
+   2
+  ],
+  "inicio": [
+   "14:30",
+   "15:05"
+  ],
+  "termo": [
+   "14:55",
+   "15:30"
+  ],
+  "capitao_casa": "EDUARDO SILVA",
+  "capitao_fora": "TIAGO RIBEIRO"
+ },
  "competicao_id": 446,
  "categoria": "SUB-13",
  "jornada": "2ª JORNADA",

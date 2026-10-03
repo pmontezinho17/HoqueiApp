@@ -786,6 +786,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "EVA VIEIRA",
+   "Árbitro Auxiliar": "ROGÉRIO NETO",
+   "Cronometrista": "ANA TEIXEIRA",
+   "Gestor de segurança": "MARCO MORAIS"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 4
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 4
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 8
+   }
+  ],
+  "faltas_casa": [
+   4,
+   2
+  ],
+  "faltas_fora": [
+   2,
+   3
+  ],
+  "inicio": [
+   "16:30",
+   "17:09"
+  ],
+  "termo": [
+   "16:59",
+   "17:42"
+  ],
+  "capitao_casa": "BERNARDO OURIVES",
+  "capitao_fora": "GABRIEL FERREIRA"
+ },
  "competicao_id": 455,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

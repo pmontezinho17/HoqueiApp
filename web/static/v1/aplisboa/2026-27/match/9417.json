@@ -785,6 +785,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "CLAUDIO REIS",
+   "Árbitro Auxiliar": "CARLOS PINOTE",
+   "Cronometrista": "AURORA FIGUEIREDO",
+   "Diretor de campo": "LUIS SIMÃO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 10,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 11,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   5,
+   3
+  ],
+  "faltas_fora": [
+   1,
+   2
+  ],
+  "inicio": [
+   "14:15",
+   "14:48"
+  ],
+  "termo": [
+   "14:43",
+   "15:11"
+  ],
+  "capitao_casa": "DANIEL ANTUNES",
+  "capitao_fora": "RODRIGO PINTO"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "2ª JORNADA",

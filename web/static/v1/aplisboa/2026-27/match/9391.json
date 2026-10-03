@@ -650,6 +650,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
+   "Árbitro Auxiliar": "MESSIAS FERNANDES",
+   "Cronometrista": "FABIO JESUS",
+   "Diretor de campo": "RAQUEL PINTO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 4
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   1,
+   1
+  ],
+  "faltas_fora": [
+   3,
+   3
+  ],
+  "inicio": [
+   "21:45",
+   "22:10"
+  ],
+  "termo": [
+   "22:00",
+   "22:29"
+  ],
+  "capitao_casa": "GONÇALO SILVA",
+  "capitao_fora": "TIAGO GOMES"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "1ª JORNADA",

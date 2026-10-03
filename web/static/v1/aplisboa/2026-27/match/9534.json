@@ -665,6 +665,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARTIM GONÇALVES",
+   "Árbitro Auxiliar": "JOAO ANDRADE",
+   "Cronometrista": "MARISA RAMOS",
+   "Diretor de campo": "Diogo Sousa",
+   "Gestor de segurança": "DAVID PINTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 3
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   0,
+   1
+  ],
+  "faltas_fora": [
+   2,
+   3
+  ],
+  "inicio": [
+   "15:52",
+   "16:27"
+  ],
+  "termo": [
+   "16:17",
+   "16:50"
+  ],
+  "capitao_casa": "VICENTE MATOS",
+  "capitao_fora": "GONÇALO SILVA"
+ },
  "competicao_id": 446,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",

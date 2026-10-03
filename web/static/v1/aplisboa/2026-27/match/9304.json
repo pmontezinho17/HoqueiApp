@@ -872,6 +872,52 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO ESTEVES",
+   "Árbitro 2": "EVA VIEIRA",
+   "Árbitro Auxiliar": "RICARDO GUERREIRO",
+   "Cronometrista": "PAULO  MENDES",
+   "Auxiliar 45 Seg.": "JOAO POTRA",
+   "Diretor de campo": "BRUNO PEREIRA",
+   "Gestor de segurança": "JOANA MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 5
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 5
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 10
+   }
+  ],
+  "faltas_casa": [
+   4,
+   4
+  ],
+  "faltas_fora": [
+   1,
+   1
+  ],
+  "inicio": [
+   "21:45",
+   "22:26"
+  ],
+  "termo": [
+   "22:16",
+   "23:02"
+  ],
+  "capitao_casa": "DIOGO LOURENÇO",
+  "capitao_fora": "GONÇALO PINTO"
+ },
  "competicao_id": 432,
  "categoria": "SENIORES MASCULINOS",
  "jornada": "2ª JORNADA - 1ª FASE",

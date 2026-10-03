@@ -949,6 +949,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RICARDO GOMES",
+   "Árbitro Auxiliar": "FILIPE MARQUES",
+   "Cronometrista": "ANA FERREIRA",
+   "Diretor de campo": "TIAGO POETA",
+   "Gestor de segurança": "MARCO POVOA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 6,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 8,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 14,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   1,
+   5
+  ],
+  "faltas_fora": [
+   3,
+   0
+  ],
+  "inicio": [
+   "17:05",
+   "17:50"
+  ],
+  "termo": [
+   "17:40",
+   "18:18"
+  ],
+  "capitao_casa": "HENRIQUE DANIEL",
+  "capitao_fora": "ANA RODRIGUES"
+ },
  "competicao_id": 438,
  "categoria": "SUB-13",
  "jornada": "MEIA FINAL",

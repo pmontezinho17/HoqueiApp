@@ -842,6 +842,52 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO HENRIQUES",
+   "Árbitro 2": "MARCO LOPES",
+   "Árbitro Auxiliar": "MARIO ANDRE",
+   "Cronometrista": "DAVID MATIAS",
+   "Auxiliar 45 Seg.": "EURICO PIRES",
+   "Diretor de campo": "ANA PEREIRA",
+   "Gestor de segurança": "ARMANDO FONSECA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   1,
+   4
+  ],
+  "faltas_fora": [
+   2,
+   3
+  ],
+  "inicio": [
+   "17:00",
+   "17:40"
+  ],
+  "termo": [
+   "17:30",
+   "18:18"
+  ],
+  "capitao_casa": "ANDRÉ COIMBRA",
+  "capitao_fora": "GONÇALO PINTO"
+ },
  "competicao_id": 432,
  "categoria": "SENIORES MASCULINOS",
  "jornada": "1ª JORNADA - 1ª FASE",

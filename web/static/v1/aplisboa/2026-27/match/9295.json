@@ -1082,6 +1082,52 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "TIAGO ALVES",
+   "Árbitro 2": "ALEXANDRE ARAUJO",
+   "Árbitro Auxiliar": "António Serrano",
+   "Cronometrista": "LUIS DANTAS",
+   "Auxiliar 45 Seg.": "JOSE RODRIGUES",
+   "Diretor de campo": "CARLOS POTIER",
+   "Gestor de segurança": "LUIS PAULINO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 5,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 7,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   6,
+   3
+  ],
+  "faltas_fora": [
+   3,
+   6
+  ],
+  "inicio": [
+   "17:00",
+   "17:51"
+  ],
+  "termo": [
+   "17:41",
+   "18:34"
+  ],
+  "capitao_casa": "DIOGO RODRIGUES",
+  "capitao_fora": "FRANCISCO CONTINS"
+ },
  "competicao_id": 432,
  "categoria": "SENIORES MASCULINOS",
  "jornada": "1ª JORNADA - 1ª FASE",

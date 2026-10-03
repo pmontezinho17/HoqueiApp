@@ -814,6 +814,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "GONÇALO RAMIRES",
+   "Árbitro Auxiliar": "JUAN HERNANDEZ",
+   "Cronometrista": "LUIS ROLHAS",
+   "Diretor de campo": "JOÃO MAIA",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 5,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   4,
+   2
+  ],
+  "faltas_fora": [
+   2,
+   1
+  ],
+  "inicio": [
+   "11:15",
+   "11:55"
+  ],
+  "termo": [
+   "11:45",
+   "12:25"
+  ],
+  "capitao_casa": "TOMÁS PEREIRA",
+  "capitao_fora": "GONÇALO SILVA"
+ },
  "competicao_id": 449,
  "categoria": "SUB-15",
  "jornada": "1ª JORNADA",

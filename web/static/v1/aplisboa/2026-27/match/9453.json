@@ -815,6 +815,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "LUORENÇO GONÇALVES",
+   "Árbitro Auxiliar": "RÚBEN DORDIO",
+   "Cronometrista": "SARA CRUZ",
+   "Diretor de campo": "JOSÉ VILELA",
+   "Gestor de segurança": "MARCO POVOA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 11,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 6,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 17,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   1,
+   0
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "17:50",
+   "18:27"
+  ],
+  "termo": [
+   "18:17",
+   "18:52"
+  ],
+  "capitao_casa": "RODRIGO VALLE",
+  "capitao_fora": "MARTIM SILVA"
+ },
  "competicao_id": 443,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",

@@ -117,6 +117,16 @@ def comando_jogo(args) -> int:
     return 0
 
 
+def _sem_chave(caminho: pathlib.Path, chave: str) -> bool:
+    """Se a ficha guardada ainda não conhece este campo, há que ir buscá-lo à fonte."""
+    if not caminho.exists():
+        return False
+    try:
+        return chave not in json.loads(caminho.read_text())
+    except (OSError, json.JSONDecodeError):
+        return True
+
+
 def _resultado_conhecido(caminho: pathlib.Path) -> tuple | None:
     """Resultado já publicado para este jogo, ou None se ainda não existe ficheiro."""
     try:
@@ -198,7 +208,12 @@ def comando_publicar(args) -> int:
                 if jogo.id is None or not jogo.disputado:
                     continue
                 alvo = destino / "match" / f"{jogo.id}.json"
-                if _resultado_conhecido(alvo) == (jogo.golos_casa, jogo.golos_fora, "Jogo Terminado"):
+                # Um campo novo que venha da **página** — e não do que já temos aqui — obriga
+                # a revisitar a ficha uma vez. A chave ausente é o sinal; depois de revisitada
+                # fica lá, mesmo que a null (a formação nunca tem boletim), e não se repete.
+                falta_campo_novo = _sem_chave(alvo, "boletim")
+                if not falta_campo_novo and _resultado_conhecido(alvo) == (
+                        jogo.golos_casa, jogo.golos_fora, "Jogo Terminado"):
                     saltadas += 1
                     # O contexto (escalão, jornada, série) é derivado do que já temos aqui,
                     # não da página da fonte. Quando o esquema ganha campos novos, actualiza-se

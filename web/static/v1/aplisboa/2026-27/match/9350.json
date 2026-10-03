@@ -1101,6 +1101,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARTIM GONÇALVES",
+   "Árbitro 2": "LUORENÇO GONÇALVES",
+   "Árbitro Auxiliar": "SANDRA BOLOGAN",
+   "Cronometrista": "ROGÉRIO NETO",
+   "Diretor de campo": "FREDERICO RAMOS"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   9,
+   5
+  ],
+  "faltas_fora": [
+   5,
+   7
+  ],
+  "inicio": [
+   "18:15",
+   "18:54"
+  ],
+  "termo": [
+   "18:44",
+   "19:33"
+  ],
+  "capitao_casa": "MARTIM PIRES",
+  "capitao_fora": "DINIS VALENTE"
+ },
  "competicao_id": 436,
  "categoria": "SUB-17",
  "jornada": "FINAL",

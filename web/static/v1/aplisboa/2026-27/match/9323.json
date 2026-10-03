@@ -740,6 +740,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "FABIO LEITAO",
+   "Árbitro Auxiliar": "ANA PINTO",
+   "Cronometrista": "JORGE SANTANA",
+   "Auxiliar 45 Seg.": "JOÃO LERENO",
+   "Diretor de campo": "FÁBIO ABRAÇOS",
+   "Gestor de segurança": "FERNANDO MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   3,
+   3
+  ],
+  "faltas_fora": [
+   2,
+   4
+  ],
+  "inicio": [
+   "18:00",
+   "18:47"
+  ],
+  "termo": [
+   "18:35",
+   "19:21"
+  ],
+  "capitao_casa": "MARIA LERENO",
+  "capitao_fora": "ALICE DOMINGUES"
+ },
  "competicao_id": 433,
  "categoria": "SENIORES FEMININOS",
  "jornada": "JORNADA 2",

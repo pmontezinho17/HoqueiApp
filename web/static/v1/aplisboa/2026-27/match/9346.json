@@ -741,6 +741,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARTIM GONÇALVES",
+   "Árbitro 2": "LUORENÇO GONÇALVES",
+   "Árbitro Auxiliar": "CAIO PRADO",
+   "Cronometrista": "VERA AGOSTINHO",
+   "Gestor de segurança": "JOÃO VENTURA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   3,
+   2
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "15:30",
+   "16:10"
+  ],
+  "termo": [
+   "16:00",
+   "16:33"
+  ],
+  "capitao_casa": "FRANCISCO PIÇARRA",
+  "capitao_fora": "MATILDE COSTA"
+ },
  "competicao_id": 437,
  "categoria": "SUB-15",
  "jornada": "MEIA FINAL",

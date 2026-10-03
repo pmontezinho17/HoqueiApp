@@ -698,6 +698,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
+   "Árbitro 2": "BRUNO ESTEVES",
+   "Árbitro Auxiliar": "BRUNO GAITINHA",
+   "Cronometrista": "FRANCISCO CÂNDIDO",
+   "Diretor de campo": "Paulo Pereira",
+   "Gestor de segurança": "António Rocha"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 5,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 6,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   3,
+   2
+  ],
+  "faltas_fora": [
+   1,
+   2
+  ],
+  "inicio": [
+   "20:30",
+   "21:09"
+  ],
+  "termo": [
+   "21:04",
+   "21:39"
+  ],
+  "capitao_casa": "GONÇALO FERNANDES",
+  "capitao_fora": "BERNARDO ROSMANINHO"
+ },
  "competicao_id": 434,
  "categoria": "TORNEIOS PARTICULARES",
  "jornada": "SUB-19",

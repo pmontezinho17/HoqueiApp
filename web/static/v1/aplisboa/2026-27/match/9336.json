@@ -561,6 +561,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "GONÇALO RAMIRES",
+   "Árbitro Auxiliar": "CAIO PRADO",
+   "Cronometrista": "LUIS ROLHAS",
+   "Diretor de campo": "Paulo Pereia",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   0,
+   1
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "16:00",
+   "16:27"
+  ],
+  "termo": [
+   "16:22",
+   "16:54"
+  ],
+  "capitao_casa": "NANCY SOUSA",
+  "capitao_fora": "JOÃO OLIVAL"
+ },
  "competicao_id": 434,
  "categoria": "TORNEIOS PARTICULARES",
  "jornada": "SUB-15",

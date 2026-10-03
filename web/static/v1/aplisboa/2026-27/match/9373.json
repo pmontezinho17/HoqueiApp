@@ -562,6 +562,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RITA ALMEIDA",
+   "Árbitro Auxiliar": "JOANA BALOLA",
+   "Cronometrista": "JOÃO POTRA",
+   "Diretor de campo": "BRUNO PEREIRA",
+   "Gestor de segurança": "JOANA MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   2,
+   0
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "10:15",
+   "10:42"
+  ],
+  "termo": [
+   "10:38",
+   "11:05"
+  ],
+  "capitao_casa": "TOMÁS DUARTE",
+  "capitao_fora": "FRANCISCO FATELA"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "QUARTOS FINAL",

@@ -589,6 +589,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "CLAUDIO REIS",
+   "Árbitro Auxiliar": "LUIS FARIA",
+   "Cronometrista": "AURORA FIGUEIREDO",
+   "Diretor de campo": "LUIS SIMÃO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 5,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   1,
+   2
+  ],
+  "inicio": [
+   "15:45",
+   "16:08"
+  ],
+  "termo": [
+   "16:03",
+   "16:28"
+  ],
+  "capitao_casa": "FRANCISCO GOMES",
+  "capitao_fora": "BENEDITA MACHADO"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "3ª JORNADA",

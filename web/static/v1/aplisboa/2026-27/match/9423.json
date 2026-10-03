@@ -817,6 +817,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARTIM GONÇALVES",
+   "Árbitro Auxiliar": "NUNO SANTOS",
+   "Cronometrista": "CARLOS ALVES",
+   "Gestor de segurança": "JOAO VENTURA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   0,
+   3
+  ],
+  "faltas_fora": [
+   4,
+   2
+  ],
+  "inicio": [
+   "12:40",
+   "13:21"
+  ],
+  "termo": [
+   "13:11",
+   "13:50"
+  ],
+  "capitao_casa": "GONÇALO HERMENEGILDO",
+  "capitao_fora": "DAVID BANDEIRA"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "QUARTOS FINAL",

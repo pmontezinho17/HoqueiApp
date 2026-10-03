@@ -15,10 +15,10 @@ DTSTART:20261003T160000Z
 DTEND:20261003T173000Z
 SUMMARY:🏑 Sub-17 🏑 S Alenquer Benfica vs FSE/AJ Salesiana B
 LOCATION:Sport Alenquer e Benfica
-DESCRIPTION:S Alenquer Benfica vs FSE/AJ Salesiana B\nCAMP. REG. SUB-17 - 1
- ª FASE · Série B · SUB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pa
- ges.dev/jogo/9678\nDados da Associação de Patinagem de Lisboa. Site não
-  oficial.
+DESCRIPTION:S Alenquer Benfica 9–2 FSE/AJ Salesiana B\nCAMP. REG. SUB-17 
+ - 1ª FASE · Série B · SUB-17\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei
+ .pages.dev/jogo/9678\nDados da Associação de Patinagem de Lisboa. Site n
+ ão oficial.
 URL:https://hoquei.pages.dev/jogo/9678
 END:VEVENT
 BEGIN:VEVENT
@@ -27,7 +27,7 @@ DTSTAMP:20261010T000000Z
 DTSTART:20261010T140000Z
 DTEND:20261010T153000Z
 SUMMARY:🏑 Sub-17 🏑 Criar-T GD vs S Alenquer Benfica
-LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
+LOCATION:Pavilhão de Hóquei do CRIAR-T
 DESCRIPTION:Criar-T GD vs S Alenquer Benfica\nCAMP. REG. SUB-17 - 1ª FASE 
  · Série B · SUB-17\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoqu
  ei.pages.dev/jogo/9681\nDados da Associação de Patinagem de Lisboa. Site
@@ -103,7 +103,7 @@ DTSTAMP:20261114T000000Z
 DTSTART:20261114T183000Z
 DTEND:20261114T200000Z
 SUMMARY:🏑 Sub-17 🏑 S Alenquer Benfica vs SL Benfica B
-LOCATION:PAV. MURCHES
+LOCATION:Pavilhão Desportivo de Murches
 DESCRIPTION:S Alenquer Benfica vs SL Benfica B\nCAMP. REG. SUB-17 - 1ª FAS
  E · Série B · SUB-17\nPAV. MURCHES\nhttps://hoquei.pages.dev/jogo/9697\
  nDados da Associação de Patinagem de Lisboa. Site não oficial.

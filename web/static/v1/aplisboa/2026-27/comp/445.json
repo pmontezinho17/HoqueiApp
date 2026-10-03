@@ -113,8 +113,8 @@
    "hora": "16:15:00",
    "casa": "A STUART HCM",
    "fora": "CD MAFRA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 10,
+   "golos_fora": 1,
    "recinto": "PAV.PROF.JOÃO CAMPELO"
   },
   {
@@ -478,6 +478,20 @@
     },
     {
      "posicao": 4,
+     "equipa": "A STUART HCM",
+     "logo": "/intranet/logos/10.png",
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 10,
+     "golos_sofridos": 14,
+     "diferenca": -4,
+     "racio": 0.71,
+     "pontos": 3
+    },
+    {
+     "posicao": 5,
      "equipa": "FSE/AJ SALESIANA",
      "logo": "/intranet/logos/9.png",
      "jogos": 2,
@@ -491,31 +505,17 @@
      "pontos": 0
     },
     {
-     "posicao": 5,
-     "equipa": "A STUART HCM",
-     "logo": "/intranet/logos/10.png",
-     "jogos": 1,
-     "vitorias": 0,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 0,
-     "golos_sofridos": 13,
-     "diferenca": -13,
-     "racio": 0.0,
-     "pontos": 0
-    },
-    {
      "posicao": 6,
      "equipa": "CD MAFRA",
      "logo": "/intranet/logos/32.png",
-     "jogos": 1,
+     "jogos": 2,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 0,
-     "golos_sofridos": 14,
-     "diferenca": -14,
-     "racio": 0.0,
+     "derrotas": 2,
+     "golos_marcados": 1,
+     "golos_sofridos": 24,
+     "diferenca": -23,
+     "racio": 0.04,
      "pontos": 0
     }
    ]

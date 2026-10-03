@@ -832,6 +832,52 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
+   "Árbitro 2": "BRUNO ESTEVES",
+   "Árbitro Auxiliar": "TANIA GONÇALVES",
+   "Cronometrista": "MARCIO LOPES",
+   "Auxiliar 45 Seg.": "ROGERIO NETO",
+   "Diretor de campo": "PEDRO DIAS",
+   "Gestor de segurança": "LUISA ROBALO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 3
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   4,
+   4
+  ],
+  "faltas_fora": [
+   2,
+   1
+  ],
+  "inicio": [
+   "21:45",
+   "22:30"
+  ],
+  "termo": [
+   "22:20",
+   "23:04"
+  ],
+  "capitao_casa": "MANUEL SANTOS",
+  "capitao_fora": "DUARTE DIAS"
+ },
  "competicao_id": 432,
  "categoria": "SENIORES MASCULINOS",
  "jornada": "1ª JORNADA - 1ª FASE",

@@ -60,19 +60,19 @@
       "jogos": 39
     },
     "PAV. HC SINTRA": {
-      "morada": null,
+      "morada": "Hockey Club de Sintra",
       "jogos": 36
     },
     "PAV. MURCHES": {
-      "morada": null,
+      "morada": "Pavilhão Desportivo de Murches",
       "jogos": 28
     },
     "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T": {
-      "morada": null,
+      "morada": "Pavilhão de Hóquei do CRIAR-T",
       "jogos": 25
     },
     "PAV. SC TORRES": {
-      "morada": null,
+      "morada": "Sporting Clube de Torres (SCT)",
       "jogos": 18
     },
     "PAV. MAFRA": {
@@ -80,39 +80,39 @@
       "jogos": 14
     },
     "PAV. VALADO DE FRADES": {
-      "morada": null,
+      "morada": "Pavilhão Gimnodesportivo de Valado dos Frades",
       "jogos": 13
     },
     "PAV. A. MATEUS- ENTRONCAMENTO": {
-      "morada": null,
+      "morada": "Pavilhão Albano Mateus",
       "jogos": 9
     },
     "PAV. HC TURQUEL": {
-      "morada": null,
+      "morada": "Hockey club Turquel",
       "jogos": 9
     },
     "PAV. SESIMBRA": {
-      "morada": null,
+      "morada": "Pavilhão Desportivo De Sesimbra",
       "jogos": 5
     },
     "PAV. MONTES ALVOR": {
-      "morada": null,
+      "morada": "Pavilhão Desportivo Montes de Alvor",
       "jogos": 4
     },
     "PAV. BOLIQUEIME": {
-      "morada": null,
+      "morada": "Pavilhao Desportivo Boliqueime",
       "jogos": 4
     },
     "PAV. ESTREMOZ": {
-      "morada": null,
+      "morada": "Pavilhão Municipal de Estremoz",
       "jogos": 4
     },
     "PAV. SINES": {
-      "morada": null,
+      "morada": "Pavilhão dos Desportos Sines",
       "jogos": 4
     },
     "PAV.JACOME RATTON": {
-      "morada": null,
+      "morada": "Pavilhão Jacome Ratton",
       "jogos": 4
     },
     "PAV. MUN. ANTONIO DOS ANJOS": {
@@ -120,11 +120,11 @@
       "jogos": 4
     },
     "PAV. CASCAIS": {
-      "morada": null,
+      "morada": "Grupo Dramático E Sportivo De Cascais",
       "jogos": 2
     },
     "PAVILHÃO JOÃO ROCHA": {
-      "morada": null,
+      "morada": "Pavilhão João Rocha",
       "jogos": 1
     }
   }

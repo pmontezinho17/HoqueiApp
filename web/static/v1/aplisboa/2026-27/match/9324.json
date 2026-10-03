@@ -905,6 +905,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO HENRIQUES",
+   "Árbitro Auxiliar": "ELISABETE SIMOES",
+   "Cronometrista": "HUGO SALVADO",
+   "Gestor de segurança": "AURORA FIGUEIREDO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   3,
+   6
+  ],
+  "faltas_fora": [
+   1,
+   2
+  ],
+  "inicio": [
+   "18:00",
+   "18:46"
+  ],
+  "termo": [
+   "18:36",
+   "19:27"
+  ],
+  "capitao_casa": "MARIANA AGULHAS",
+  "capitao_fora": "DIANA PINTO"
+ },
  "competicao_id": 433,
  "categoria": "SENIORES FEMININOS",
  "jornada": "JORNADA 2",

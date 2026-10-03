@@ -875,6 +875,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "HENRIQUE MATIAS",
+   "Árbitro Auxiliar": "LUIS FARIA",
+   "Cronometrista": "CARLOS FREIXO",
+   "Diretor de campo": "JOSE SILVA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 4,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 10,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 14,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   2,
+   4
+  ],
+  "faltas_fora": [
+   0,
+   3
+  ],
+  "inicio": [
+   "16:30",
+   "17:06"
+  ],
+  "termo": [
+   "16:56",
+   "17:37"
+  ],
+  "capitao_casa": "SIMÃO MORAIS",
+  "capitao_fora": "ANDRE FARIA"
+ },
  "competicao_id": 444,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",

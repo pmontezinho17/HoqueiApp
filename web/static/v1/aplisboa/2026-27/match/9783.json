@@ -726,6 +726,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "ANGELO MARIANO",
+   "Árbitro Auxiliar": "HUGO CALHORDAS",
+   "Cronometrista": "ARMANDO GONCALVES",
+   "Gestor de segurança": "OSVALDO CARDOSO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   7,
+   1
+  ],
+  "faltas_fora": [
+   2,
+   2
+  ],
+  "inicio": [
+   "11:59",
+   "12:42"
+  ],
+  "termo": [
+   "12:31",
+   "13:08"
+  ],
+  "capitao_casa": "LOURENÇO SILVA",
+  "capitao_fora": "PEDRO BANDOVAS"
+ },
  "competicao_id": 456,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

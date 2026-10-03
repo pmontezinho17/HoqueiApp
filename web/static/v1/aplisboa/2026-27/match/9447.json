@@ -858,6 +858,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO RILHAS",
+   "Árbitro 2": "MARTIM GONÇALVES",
+   "Árbitro Auxiliar": "RICARDO DIAS",
+   "Cronometrista": "PATRICIA MOREIRA",
+   "Auxiliar 45 Seg.": "MÁRIO LEITÃO",
+   "Gestor de segurança": "DAVID PINTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   4,
+   1
+  ],
+  "faltas_fora": [
+   3,
+   3
+  ],
+  "inicio": [
+   "19:00",
+   "19:45"
+  ],
+  "termo": [
+   "19:35",
+   "20:32"
+  ],
+  "capitao_casa": "ANTÓNIO SILVA",
+  "capitao_fora": "ANTONIO PEREIRA"
+ },
  "competicao_id": 431,
  "categoria": "TORNEIOS PARTICULARES",
  "jornada": "APRESENTAÇAO - SENIORES MASC.",

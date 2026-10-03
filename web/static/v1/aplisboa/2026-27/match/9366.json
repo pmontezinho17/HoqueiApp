@@ -667,6 +667,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO HENRIQUES",
+   "Árbitro Auxiliar": "Joana Balola",
+   "Cronometrista": "Paula Sobral",
+   "Diretor de campo": "Vera Agostinho",
+   "Gestor de segurança": "João Ventura"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 4,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 7,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   2,
+   3
+  ],
+  "faltas_fora": [
+   3,
+   1
+  ],
+  "inicio": [
+   "11:00",
+   "11:24"
+  ],
+  "termo": [
+   "11:19",
+   "11:43"
+  ],
+  "capitao_casa": "IVO MATOS",
+  "capitao_fora": "RODRIGO LEITE"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",

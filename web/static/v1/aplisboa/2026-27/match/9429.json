@@ -919,6 +919,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "CARLOS ALMEIDA",
+   "Árbitro 2": "RICARDO GOMES",
+   "Árbitro Auxiliar": "HUGO BICA",
+   "Cronometrista": "MÁRIO ANDRÉ",
+   "Diretor de campo": "ANA PEREIRA",
+   "Gestor de segurança": "ARMADO FONSECA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   1,
+   6
+  ],
+  "faltas_fora": [
+   4,
+   6
+  ],
+  "inicio": [
+   "10:45",
+   "11:24"
+  ],
+  "termo": [
+   "11:19",
+   "12:01"
+  ],
+  "capitao_casa": "PEDRO SANTOS",
+  "capitao_fora": "MIGUEL ANDRÉ"
+ },
  "competicao_id": 439,
  "categoria": "SUB-19",
  "jornada": "1ª JORNADA",

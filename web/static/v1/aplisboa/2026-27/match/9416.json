@@ -786,6 +786,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "ALEXANDRE ARAUJO",
+   "Árbitro Auxiliar": "ANA TEIXEIRA",
+   "Cronometrista": "AURORA FIGUEIREDO",
+   "Diretor de campo": "LUIS SIMÃO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 3
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   2,
+   2
+  ],
+  "faltas_fora": [
+   2,
+   1
+  ],
+  "inicio": [
+   "10:45",
+   "11:19"
+  ],
+  "termo": [
+   "11:14",
+   "11:51"
+  ],
+  "capitao_casa": "NUNO ESTANISLAU",
+  "capitao_fora": "BERNARDO OURIVES"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

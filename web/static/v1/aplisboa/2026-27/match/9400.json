@@ -579,6 +579,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO AGULHAS",
+   "Árbitro Auxiliar": "CAIO PRADO",
+   "Cronometrista": "ROGÉRIO NETO",
+   "Diretor de campo": "FILIPA FERREIRA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "11:30",
+   "11:58"
+  ],
+  "termo": [
+   "11:48",
+   "12:17"
+  ],
+  "capitao_casa": "MARTIM CHORINCAS",
+  "capitao_fora": "MATILDE COSTA"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "QUARTOS FINAL",

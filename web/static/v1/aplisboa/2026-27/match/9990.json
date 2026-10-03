@@ -712,6 +712,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RUI MATOSO",
+   "Árbitro Auxiliar": "FILIPA FERREIRA",
+   "Cronometrista": "RICARDO DIAS",
+   "Diretor de campo": "FILIPE MARQUES",
+   "Gestor de segurança": "JOANA MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 6
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 5
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 11
+   }
+  ],
+  "faltas_casa": [
+   2,
+   1
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "14:45",
+   "15:11"
+  ],
+  "termo": [
+   "15:06",
+   "15:33"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
  "competicao_id": 465,
  "categoria": "BENJAMINS",
  "jornada": "2ª JORNADA",

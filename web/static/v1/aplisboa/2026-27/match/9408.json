@@ -638,6 +638,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "VASCO FERREIRA",
+   "Árbitro Auxiliar": "EDUARDO HENRIQUES",
+   "Cronometrista": "BRUNO GAITINHA",
+   "Diretor de campo": "VASCO MARTINHO",
+   "Gestor de segurança": "ANTÓNIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 7
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 6
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 13
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   1,
+   1
+  ],
+  "inicio": [
+   "13:09",
+   "13:41"
+  ],
+  "termo": [
+   "13:36",
+   "14:07"
+  ],
+  "capitao_casa": "AFONSO GIL",
+  "capitao_fora": "MANUEL ALMEIDA"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "2ª JORNADA",

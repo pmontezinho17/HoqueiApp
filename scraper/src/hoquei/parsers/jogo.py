@@ -12,6 +12,7 @@ from datetime import date, time
 from selectolax.parser import HTMLParser
 
 from ..modelos import EquipaFicha, EventoJogo, FichaJogo, LinhaJogador
+from .boletim import boletim
 
 _MESES = {"janeiro": 1, "fevereiro": 2, "março": 3, "abril": 4, "maio": 5, "junho": 6,
           "julho": 7, "agosto": 8, "setembro": 9, "outubro": 10, "novembro": 11, "dezembro": 12}
@@ -266,4 +267,5 @@ def ficha(html: str, id_jogo: int) -> FichaJogo:
         faltas=cab.get("faltas", (None, None)),
         equipas=equipas,
         cronologia=cronologia(html),
+        boletim=boletim(html),
     )

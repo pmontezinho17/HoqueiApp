@@ -773,6 +773,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "ALEXANDRE ARAUJO",
+   "Árbitro Auxiliar": "MARISA RAMOS",
+   "Cronometrista": "JOSE RODRIGUES",
+   "Diretor de campo": "CARLA RAMOS"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 6
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 9
+   }
+  ],
+  "faltas_casa": [
+   1,
+   1
+  ],
+  "faltas_fora": [
+   4,
+   1
+  ],
+  "inicio": [
+   "19:30",
+   "20:10"
+  ],
+  "termo": [
+   "20:00",
+   "20:34"
+  ],
+  "capitao_casa": "BALTASAR PELIZ",
+  "capitao_fora": "SARA DANTAS"
+ },
  "competicao_id": 446,
  "categoria": "SUB-13",
  "jornada": "5ª JORNADA",

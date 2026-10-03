@@ -384,8 +384,8 @@
    "hora": "16:00:00",
    "casa": "GRF MURCHES",
    "fora": "AD OEIRAS",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 3,
+   "golos_fora": 5,
    "recinto": "PAV. MURCHES"
   },
   {
@@ -682,30 +682,30 @@
    "linhas": [
     {
      "posicao": 1,
-     "equipa": "GRF MURCHES",
-     "logo": "/intranet/logos/31.png",
-     "jogos": 2,
-     "vitorias": 2,
+     "equipa": "AD OEIRAS",
+     "logo": "/intranet/logos/6.png",
+     "jogos": 3,
+     "vitorias": 3,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 17,
-     "golos_sofridos": 3,
-     "diferenca": 14,
-     "racio": 5.67,
-     "pontos": 6
+     "golos_marcados": 11,
+     "golos_sofridos": 6,
+     "diferenca": 5,
+     "racio": 1.83,
+     "pontos": 9
     },
     {
      "posicao": 2,
-     "equipa": "AD OEIRAS",
-     "logo": "/intranet/logos/6.png",
-     "jogos": 2,
+     "equipa": "GRF MURCHES",
+     "logo": "/intranet/logos/31.png",
+     "jogos": 3,
      "vitorias": 2,
      "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 6,
-     "golos_sofridos": 3,
-     "diferenca": 3,
-     "racio": 2.0,
+     "derrotas": 1,
+     "golos_marcados": 20,
+     "golos_sofridos": 8,
+     "diferenca": 12,
+     "racio": 2.5,
      "pontos": 6
     },
     {

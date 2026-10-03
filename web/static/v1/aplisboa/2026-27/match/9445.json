@@ -1145,6 +1145,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOAQUIM SEQUEIRA",
+   "Árbitro 2": "TIAGO ALVES",
+   "Árbitro Auxiliar": "RUI PIMENTEL",
+   "Cronometrista": "ANDREIA RIBEIRO",
+   "Auxiliar 45 Seg.": "EURICO PIRES",
+   "Gestor de segurança": "ARMANDO FONSECA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 4
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 5
+   }
+  ],
+  "faltas_casa": [
+   7,
+   4
+  ],
+  "faltas_fora": [
+   9,
+   3
+  ],
+  "inicio": [
+   "19:30",
+   "20:18"
+  ],
+  "termo": [
+   "20:08",
+   "21:05"
+  ],
+  "capitao_casa": "ANDRÉ COIMBRA",
+  "capitao_fora": "PEDRO GOMES"
+ },
  "competicao_id": 431,
  "categoria": "TORNEIOS PARTICULARES",
  "jornada": "APRESENTAÇAO - SENIORES MASC.",

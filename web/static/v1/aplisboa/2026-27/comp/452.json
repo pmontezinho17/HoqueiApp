@@ -100,8 +100,8 @@
    "hora": "17:30:00",
    "casa": "CRIAR-T GD",
    "fora": "CACO A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 1,
+   "golos_fora": 3,
    "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
   },
   {
@@ -113,8 +113,8 @@
    "hora": "17:00:00",
    "casa": "S ALENQUER BENFICA",
    "fora": "FSE/AJ SALESIANA B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 9,
+   "golos_fora": 2,
    "recinto": "PAV.S.ALENQUER E BENFICA"
   },
   {
@@ -436,20 +436,34 @@
    "linhas": [
     {
      "posicao": 1,
-     "equipa": "CRIAR-T GD",
-     "logo": "/intranet/logos/17.png",
-     "jogos": 1,
-     "vitorias": 1,
+     "equipa": "CACO A",
+     "logo": "/intranet/logos/26.png",
+     "jogos": 2,
+     "vitorias": 2,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 4,
-     "golos_sofridos": 0,
+     "golos_marcados": 8,
+     "golos_sofridos": 4,
      "diferenca": 4,
-     "racio": null,
-     "pontos": 3
+     "racio": 2.0,
+     "pontos": 6
     },
     {
      "posicao": 2,
+     "equipa": "S ALENQUER BENFICA",
+     "logo": "/intranet/logos/5.png",
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 14,
+     "golos_sofridos": 9,
+     "diferenca": 5,
+     "racio": 1.56,
+     "pontos": 3
+    },
+    {
+     "posicao": 3,
      "equipa": "CD PAÇO ARCOS A",
      "logo": "/intranet/logos/7.png",
      "jogos": 1,
@@ -463,32 +477,18 @@
      "pontos": 3
     },
     {
-     "posicao": 3,
-     "equipa": "CACO A",
-     "logo": "/intranet/logos/26.png",
-     "jogos": 1,
+     "posicao": 4,
+     "equipa": "CRIAR-T GD",
+     "logo": "/intranet/logos/17.png",
+     "jogos": 2,
      "vitorias": 1,
      "empates": 0,
-     "derrotas": 0,
+     "derrotas": 1,
      "golos_marcados": 5,
      "golos_sofridos": 3,
      "diferenca": 2,
      "racio": 1.67,
      "pontos": 3
-    },
-    {
-     "posicao": 4,
-     "equipa": "S ALENQUER BENFICA",
-     "logo": "/intranet/logos/5.png",
-     "jogos": 1,
-     "vitorias": 0,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 5,
-     "golos_sofridos": 7,
-     "diferenca": -2,
-     "racio": 0.71,
-     "pontos": 0
     },
     {
      "posicao": 5,
@@ -508,14 +508,14 @@
      "posicao": 6,
      "equipa": "FSE/AJ SALESIANA B",
      "logo": "/intranet/logos/9.png",
-     "jogos": 1,
+     "jogos": 2,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 0,
-     "golos_sofridos": 4,
-     "diferenca": -4,
-     "racio": 0.0,
+     "derrotas": 2,
+     "golos_marcados": 2,
+     "golos_sofridos": 13,
+     "diferenca": -11,
+     "racio": 0.15,
      "pontos": 0
     }
    ]

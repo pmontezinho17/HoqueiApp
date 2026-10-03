@@ -681,6 +681,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RUI MATOSO",
+   "Árbitro Auxiliar": "ANA FERREIRA",
+   "Cronometrista": "TIAGO POETA",
+   "Diretor de campo": "SERGIO DOMINGOS",
+   "Gestor de segurança": "MARCO POVOA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   1,
+   2
+  ],
+  "faltas_fora": [
+   2,
+   3
+  ],
+  "inicio": [
+   "22:05",
+   "22:40"
+  ],
+  "termo": [
+   "22:30",
+   "23:11"
+  ],
+  "capitao_casa": "PEDRO SOARES",
+  "capitao_fora": "MARTIM NEVES"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "3ª JORNADA",

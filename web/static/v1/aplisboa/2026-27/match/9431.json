@@ -681,6 +681,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARCO LOPES",
+   "Árbitro 2": "CLAUDIO REIS",
+   "Árbitro Auxiliar": "Sandra Fonseca",
+   "Cronometrista": "MÁRIO ANDRÉ",
+   "Diretor de campo": "ANA PEREIRA",
+   "Gestor de segurança": "ARMANDO FONSECA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   4,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   1
+  ],
+  "inicio": [
+   "17:44",
+   "18:14"
+  ],
+  "termo": [
+   "18:09",
+   "18:44"
+  ],
+  "capitao_casa": "MIGUEL ANDRÉ",
+  "capitao_fora": "AFONSO SOARES"
+ },
  "competicao_id": 439,
  "categoria": "SUB-19",
  "jornada": "3ª JORNADA",

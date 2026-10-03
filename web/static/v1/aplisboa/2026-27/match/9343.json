@@ -1072,6 +1072,69 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RICARDO GOMES",
+   "Árbitro Auxiliar": "DAVIDE REIS",
+   "Cronometrista": "TIAGO POETA",
+   "Diretor de campo": "ANA FERREIRA",
+   "Gestor de segurança": "MARCO POVOA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "Prolongamento 1ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "Prolongamento 2ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "Desempate g.p.",
+    "casa": 2,
+    "fora": 3
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   6,
+   3
+  ],
+  "faltas_fora": [
+   4,
+   1
+  ],
+  "inicio": [
+   "20:15",
+   "20:54",
+   "21:26",
+   "21:30"
+  ],
+  "termo": [
+   "20:44",
+   "21:21",
+   "21:29",
+   "21:36"
+  ],
+  "capitao_casa": "PEDRO LUZ",
+  "capitao_fora": "RODRIGO VALLE"
+ },
  "competicao_id": 438,
  "categoria": "SUB-13",
  "jornada": "MEIA FINAL",

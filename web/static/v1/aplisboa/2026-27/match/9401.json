@@ -862,6 +862,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE BENEDI",
+   "Árbitro Auxiliar": "RUI GOMES",
+   "Cronometrista": "ROGÉRIO NETO",
+   "Diretor de campo": "FILIPA FERREIRA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 5,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 7,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   3,
+   2
+  ],
+  "faltas_fora": [
+   3,
+   2
+  ],
+  "inicio": [
+   "13:00",
+   "13:29"
+  ],
+  "termo": [
+   "13:24",
+   "13:53"
+  ],
+  "capitao_casa": "ALEXANDRE FARIAS",
+  "capitao_fora": "VASCO SALVADOR"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "MEIA FINAL",

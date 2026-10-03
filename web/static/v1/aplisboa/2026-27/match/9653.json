@@ -195,7 +195,7 @@
     },
     {
      "numero": "3",
-     "nome": "GUILHERME SOUSA",
+     "nome": "GUILHERME MIGUEL SOUSA",
      "titular": false,
      "golos": 0,
      "assistencias": 0,
@@ -968,6 +968,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "NUNO MONTEIRO",
+   "Árbitro Auxiliar": "PEDRO PAIVA",
+   "Cronometrista": "LUIS SILVA",
+   "Gestor de segurança": "RICARDO RUA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 5,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 8,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   4,
+   5
+  ],
+  "faltas_fora": [
+   3,
+   8
+  ],
+  "inicio": [
+   "15:00",
+   "15:40"
+  ],
+  "termo": [
+   "15:30",
+   "16:12"
+  ],
+  "capitao_casa": "TOMÁS SILVA",
+  "capitao_fora": "MARTIM PESSA"
+ },
  "competicao_id": 451,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

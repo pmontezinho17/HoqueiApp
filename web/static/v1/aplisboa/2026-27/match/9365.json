@@ -606,6 +606,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "GONÇALO RAMIRES",
+   "Árbitro Auxiliar": "SILVIA DE OLIVEIRA",
+   "Cronometrista": "RUI GONÇALVES",
+   "Diretor de campo": "ANA TORRAO",
+   "Gestor de segurança": "PAULO TORRAO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   1,
+   1
+  ],
+  "faltas_fora": [
+   0,
+   3
+  ],
+  "inicio": [
+   "14:00",
+   "14:27"
+  ],
+  "termo": [
+   "14:22",
+   "14:46"
+  ],
+  "capitao_casa": "SANTIAGO DIAS",
+  "capitao_fora": "PEDRO REIS"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "3ª JORNADA",

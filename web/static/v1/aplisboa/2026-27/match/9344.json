@@ -831,6 +831,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE BENEDI",
+   "Árbitro Auxiliar": "JOSE VILELA",
+   "Cronometrista": "ROGÉRIO NETO",
+   "Diretor de campo": "FILIPA FERREIRA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 5,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 8,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   3,
+   5
+  ],
+  "faltas_fora": [
+   3,
+   1
+  ],
+  "inicio": [
+   "16:30",
+   "17:07"
+  ],
+  "termo": [
+   "16:57",
+   "17:35"
+  ],
+  "capitao_casa": "HENRIQUE DANIEL",
+  "capitao_fora": "RODRIGO VALLE"
+ },
  "competicao_id": 438,
  "categoria": "SUB-13",
  "jornada": "FINAL",

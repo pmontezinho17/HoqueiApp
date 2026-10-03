@@ -653,6 +653,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO RILHAS",
+   "Árbitro Auxiliar": "Carla Silva",
+   "Cronometrista": "CARLOS FERREIRA",
+   "Auxiliar 45 Seg.": "ana pinto",
+   "Gestor de segurança": "DAVID PINTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   1,
+   1
+  ],
+  "faltas_fora": [
+   1,
+   1
+  ],
+  "inicio": [
+   "17:20",
+   "18:02"
+  ],
+  "termo": [
+   "17:51",
+   "18:37"
+  ],
+  "capitao_casa": "ALICE DOMINGUES",
+  "capitao_fora": "MATILDE FREITAS"
+ },
  "competicao_id": 431,
  "categoria": "TORNEIOS PARTICULARES",
  "jornada": "APRESENTAÇAO - SENIORES FEM.",

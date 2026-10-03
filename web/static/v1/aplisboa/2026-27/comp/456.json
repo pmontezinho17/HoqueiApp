@@ -70,7 +70,7 @@
    "casa": "CF ESTREMOZ",
    "fora": "FC CASTRENSE",
    "golos_casa": 3,
-   "golos_fora": 1,
+   "golos_fora": 2,
    "recinto": "PAV. ESTREMOZ"
   },
   {
@@ -336,9 +336,9 @@
      "empates": 0,
      "derrotas": 1,
      "golos_marcados": 3,
-     "golos_sofridos": 3,
-     "diferenca": 0,
-     "racio": 1.0,
+     "golos_sofridos": 4,
+     "diferenca": -1,
+     "racio": 0.75,
      "pontos": 3
     },
     {
@@ -363,10 +363,10 @@
      "vitorias": 0,
      "empates": 0,
      "derrotas": 2,
-     "golos_marcados": 1,
+     "golos_marcados": 2,
      "golos_sofridos": 15,
-     "diferenca": -14,
-     "racio": 0.07,
+     "diferenca": -13,
+     "racio": 0.13,
      "pontos": 0
     }
    ]

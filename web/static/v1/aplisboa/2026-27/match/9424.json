@@ -1012,6 +1012,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARTIM GONÇALVES",
+   "Árbitro Auxiliar": "DÉBORA OLIVEIRA",
+   "Cronometrista": "CLAUDIA LUCIO",
+   "Diretor de campo": "MONICA MARVAO",
+   "Gestor de segurança": "JOÃO VENTURA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 6,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 6,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 12,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   2,
+   6
+  ],
+  "faltas_fora": [
+   4,
+   3
+  ],
+  "inicio": [
+   "14:20",
+   "15:06"
+  ],
+  "termo": [
+   "14:56",
+   "15:35"
+  ],
+  "capitao_casa": "MANUEL ALMEIDA",
+  "capitao_fora": "FÁBIO DUARTE"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "QUARTOS FINAL",

@@ -817,6 +817,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO AGULHAS",
+   "Árbitro Auxiliar": "RITA GUERREIRO",
+   "Cronometrista": "SUSANA BENTO",
+   "Diretor de campo": "HUGO PEDRO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 9
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 11
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 20
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   2
+  ],
+  "inicio": [
+   "11:30",
+   "12:12"
+  ],
+  "termo": [
+   "12:02",
+   "12:39"
+  ],
+  "capitao_casa": "FREDERICK VENTURA",
+  "capitao_fora": "DIOGO PINHO"
+ },
  "competicao_id": 443,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",

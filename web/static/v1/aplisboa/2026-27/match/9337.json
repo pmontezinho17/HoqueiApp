@@ -621,6 +621,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO HENRIQUES",
+   "Árbitro Auxiliar": "BRUNO GAITINHA",
+   "Cronometrista": "JUAN HERNANDEZ",
+   "Diretor de campo": "PAULO PEREIRA",
+   "Gestor de segurança": "ANTÓNIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 5,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 7,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "17:00",
+   "17:40"
+  ],
+  "termo": [
+   "17:33",
+   "18:15"
+  ],
+  "capitao_casa": "TOMÁS PEREIRA",
+  "capitao_fora": "LEONARDO GOMES"
+ },
  "competicao_id": 434,
  "categoria": "TORNEIOS PARTICULARES",
  "jornada": "SUB-15",

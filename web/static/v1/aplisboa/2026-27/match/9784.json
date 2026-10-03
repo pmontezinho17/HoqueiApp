@@ -922,6 +922,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "ANGELO MARIANO",
+   "Árbitro Auxiliar": "CATARINA BELCHIOR",
+   "Cronometrista": "SANCHO LOURENÇO",
+   "Gestor de segurança": "INÁCIO MACHADO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 5
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 7
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 12
+   }
+  ],
+  "faltas_casa": [
+   4,
+   2
+  ],
+  "faltas_fora": [
+   3,
+   4
+  ],
+  "inicio": [
+   "17:15",
+   "17:58"
+  ],
+  "termo": [
+   "17:48",
+   "18:34"
+  ],
+  "capitao_casa": "MARTIM PEDRO",
+  "capitao_fora": "SANTIAGO EUSÉBIO"
+ },
  "competicao_id": 456,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

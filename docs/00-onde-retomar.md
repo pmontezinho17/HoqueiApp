@@ -61,7 +61,6 @@ Das sete funcionalidades que pediste no Keep, **quatro estão feitas**, uma est�
 preenchidas podem não ser encontradas pelo Maps — ver o commit de 03/10.
 
 ```
-1.  B1.9c           boletim oficial → 3ª tab (atenção: só existe depois do apito)
 2.  L7.4            política de privacidade
 3.  Q6.11           testar em iPhone e Android reais   ← precisa de ti
 4.  Fase 9 (B9.2 + B9.6)  contagens por ronda — protege o que já existe

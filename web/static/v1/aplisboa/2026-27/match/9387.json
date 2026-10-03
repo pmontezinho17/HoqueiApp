@@ -756,6 +756,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "TIAGO ALVES",
+   "Árbitro Auxiliar": "BRUNO AFONSO",
+   "Cronometrista": "LUIS ROLHAS",
+   "Diretor de campo": "Paulo Pereira",
+   "Gestor de segurança": "ANTÓNIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 5,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 6,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   4,
+   3
+  ],
+  "faltas_fora": [
+   2,
+   5
+  ],
+  "inicio": [
+   "14:30",
+   "14:56"
+  ],
+  "termo": [
+   "14:47",
+   "15:18"
+  ],
+  "capitao_casa": "RODRIGO AGULHAS",
+  "capitao_fora": "MARTIM JANEIRO"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "3ª JORNADA",

@@ -651,6 +651,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARCO LOPES",
+   "Árbitro Auxiliar": "SARA CRUZ",
+   "Cronometrista": "Paula Sobral",
+   "Diretor de campo": "Vera Agostinho",
+   "Gestor de segurança": "João Ventura"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 6,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 9,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   3,
+   1
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "16:30",
+   "16:58"
+  ],
+  "termo": [
+   "16:53",
+   "17:18"
+  ],
+  "capitao_casa": "RODRIGO LEITE",
+  "capitao_fora": "ANTÓNIO CABRAL"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "3ª JORNADA",

@@ -711,6 +711,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MATEUS LEHNERT",
+   "Árbitro Auxiliar": "DAVIDE REIS",
+   "Cronometrista": "MARCO JANEIRO",
+   "Diretor de campo": "BRUNO PEREIRA",
+   "Gestor de segurança": "JOANA MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   2,
+   0
+  ],
+  "faltas_fora": [
+   3,
+   2
+  ],
+  "inicio": [
+   "17:45",
+   "18:13"
+  ],
+  "termo": [
+   "18:08",
+   "18:33"
+  ],
+  "capitao_casa": "SALVADOR MONTEZINHO",
+  "capitao_fora": "PEDRO LUZ"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "MEIA FINAL",

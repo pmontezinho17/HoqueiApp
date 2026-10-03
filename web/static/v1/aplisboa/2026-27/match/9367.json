@@ -684,6 +684,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO HENRIQUES",
+   "Árbitro Auxiliar": "Joana Balola",
+   "Cronometrista": "RICARDO SILVA",
+   "Diretor de campo": "Vera Agostinho",
+   "Gestor de segurança": "João Ventura"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 10
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 8
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 18
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   1,
+   1
+  ],
+  "inicio": [
+   "13:30",
+   "13:59"
+  ],
+  "termo": [
+   "13:54",
+   "14:15"
+  ],
+  "capitao_casa": "ANTÓNIO CABRAL",
+  "capitao_fora": "TIAGO SILVA"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "2ª JORNADA",

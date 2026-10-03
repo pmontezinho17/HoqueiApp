@@ -1070,6 +1070,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARCO LOPES",
+   "Árbitro Auxiliar": "JOSE SIMOES",
+   "Cronometrista": "JORGE GOMES",
+   "Diretor de campo": "ANA ALVES",
+   "Gestor de segurança": "ARMADO FONSECA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 4
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 5
+   }
+  ],
+  "faltas_casa": [
+   6,
+   5
+  ],
+  "faltas_fora": [
+   9,
+   5
+  ],
+  "inicio": [
+   "16:30",
+   "17:13"
+  ],
+  "termo": [
+   "17:03",
+   "17:47"
+  ],
+  "capitao_casa": "DUARTE HENRIQUES",
+  "capitao_fora": "TIAGO GOMES"
+ },
  "competicao_id": 448,
  "categoria": "SUB-15",
  "jornada": "1ª JORNADA",

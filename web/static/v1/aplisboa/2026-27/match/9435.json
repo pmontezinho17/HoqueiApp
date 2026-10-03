@@ -873,6 +873,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOAQUIM SEQUEIRA",
+   "Árbitro 2": "GONÇALO RAMIRES",
+   "Árbitro Auxiliar": "RUI GONÇALVES",
+   "Cronometrista": "TANIA GONÇALVES",
+   "Diretor de campo": "ANA TORRAO",
+   "Gestor de segurança": "PAULO TORRAO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   2,
+   5
+  ],
+  "faltas_fora": [
+   2,
+   6
+  ],
+  "inicio": [
+   "10:00",
+   "10:41"
+  ],
+  "termo": [
+   "10:36",
+   "11:10"
+  ],
+  "capitao_casa": "SANTIAGO GONÇALVES",
+  "capitao_fora": "VASCO GONÇALVES"
+ },
  "competicao_id": 439,
  "categoria": "SUB-19",
  "jornada": "1ª JORNADA",

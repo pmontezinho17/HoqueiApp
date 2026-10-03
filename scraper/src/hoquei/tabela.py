@@ -26,6 +26,7 @@ avisa no dia em que existir.
 from __future__ import annotations
 
 from collections.abc import Iterable
+from decimal import ROUND_HALF_EVEN, Decimal
 
 from .modelos import GrupoClassificacao, Jogo, LinhaClassificacao
 
@@ -64,8 +65,18 @@ def _real(equipa: str | None) -> bool:
 
 
 def _racio(marcados: int, sofridos: int) -> float | None:
-    """A fonte mostra "-" quando ainda não sofreu golos; nós pomos None."""
-    return None if sofridos == 0 else round(marcados / sofridos, 2)
+    """A fonte mostra "-" quando ainda não sofreu golos; nós pomos None.
+
+    **Arredondamento bancário sobre o valor exacto**, e não `round(m / s, 2)`. O empate
+    exacto a meio decide-se para o par, que é o que o `Round()` do Classic ASP faz — e a
+    fonte corre em ASP. Diferem num caso em 137: `1/40 = 0.025`, onde a fonte diz `0.02` e
+    o `round()` do Python diz `0.03`, porque em binário 0.025 fica um fio acima de meio.
+    Foi o teste de reprodução (B9.13) que apanhou isto, com dados novos.
+    """
+    if sofridos == 0:
+        return None
+    return float((Decimal(marcados) / Decimal(sofridos))
+                 .quantize(Decimal("0.01"), rounding=ROUND_HALF_EVEN))
 
 
 def _linhas(jogos: list[Jogo]) -> list[LinhaClassificacao]:

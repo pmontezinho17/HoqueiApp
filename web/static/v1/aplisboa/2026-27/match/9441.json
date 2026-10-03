@@ -1028,6 +1028,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RICARDO GOMES",
+   "Árbitro 2": "JOAO GUILHERME",
+   "Árbitro Auxiliar": "TÂNIA GONÇALVES",
+   "Cronometrista": "CARLOS CAROLA",
+   "Diretor de campo": "ANDREIA RIBEIRO",
+   "Gestor de segurança": "ARMANDO FONSECA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 3
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 6
+   }
+  ],
+  "faltas_casa": [
+   4,
+   4
+  ],
+  "faltas_fora": [
+   4,
+   7
+  ],
+  "inicio": [
+   "14:00",
+   "14:45"
+  ],
+  "termo": [
+   "14:40",
+   "15:15"
+  ],
+  "capitao_casa": "SANTIAGO GONÇALVES",
+  "capitao_fora": "DUARTE DIAS"
+ },
  "competicao_id": 439,
  "categoria": "SUB-19",
  "jornada": "QUARTOS FINAL",

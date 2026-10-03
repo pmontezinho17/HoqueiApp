@@ -640,6 +640,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "ARB CLUBE 1",
+   "Árbitro Auxiliar": "SERGIO MAGGIOLLI",
+   "Cronometrista": "RITA NASCIMENTO",
+   "Diretor de campo": "PAULO PEREIRA",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 5,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 4,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 9,
+    "fora": 5
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "10:34",
+   "10:57"
+  ],
+  "termo": [
+   "10:52",
+   "11:10"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
  "competicao_id": 434,
  "categoria": "TORNEIOS PARTICULARES",
  "jornada": "BENJAMINS",

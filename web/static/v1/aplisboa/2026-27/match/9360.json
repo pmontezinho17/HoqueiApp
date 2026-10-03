@@ -550,6 +550,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MIGUEL SOARES",
+   "Árbitro Auxiliar": "JOSÉ RODRIGUES",
+   "Cronometrista": "AURA RODRIGUES",
+   "Diretor de campo": "JOÃO JANEIRO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 8,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 10,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "9:30",
+   "10:05"
+  ],
+  "termo": [
+   "9:58",
+   "10:24"
+  ],
+  "capitao_casa": "TOMÁS DUARTE",
+  "capitao_fora": "DIOGO POTIER"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",

@@ -742,6 +742,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARCO LOPES",
+   "Árbitro Auxiliar": "JUAN HERNANDEZ",
+   "Cronometrista": "RICARDO SILVA",
+   "Diretor de campo": "RICARDO COSTA",
+   "Gestor de segurança": "JOAO VENTURA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 5,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 7,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   0,
+   4
+  ],
+  "faltas_fora": [
+   3,
+   2
+  ],
+  "inicio": [
+   "15:00",
+   "15:31"
+  ],
+  "termo": [
+   "15:26",
+   "16:03"
+  ],
+  "capitao_casa": "ANTÓNIO PEREIRA",
+  "capitao_fora": "SALVADOR BIZARRO"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "3ª JORNADA",

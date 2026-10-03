@@ -1098,6 +1098,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO REIS",
+   "Árbitro Auxiliar": "FRANCISCO NEVES",
+   "Cronometrista": "TÂNIA BOTAS",
+   "Diretor de campo": "JOSE ELVAS",
+   "Gestor de segurança": "AFONSO FALCÃO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 4
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 6
+   }
+  ],
+  "faltas_casa": [
+   6,
+   2
+  ],
+  "faltas_fora": [
+   6,
+   7
+  ],
+  "inicio": [
+   "17:00",
+   "17:38"
+  ],
+  "termo": [
+   "17:28",
+   "18:11"
+  ],
+  "capitao_casa": "MARTIM RAMALHO",
+  "capitao_fora": "MANUEL ALMEIDA"
+ },
  "competicao_id": 454,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

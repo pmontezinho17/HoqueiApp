@@ -88,7 +88,7 @@
    "casa": "HC SINTRA",
    "fora": "APAC TOJAL",
    "golos_casa": 1,
-   "golos_fora": 6,
+   "golos_fora": 10,
    "recinto": "PAV. HC SINTRA"
   },
   {
@@ -100,8 +100,8 @@
    "hora": "15:30:00",
    "casa": "AD OEIRAS A",
    "fora": "CACO A",
-   "golos_casa": 4,
-   "golos_fora": 1,
+   "golos_casa": 6,
+   "golos_fora": 2,
    "recinto": "PAV. A.D.OEIRAS"
   },
   {
@@ -113,8 +113,8 @@
    "hora": "17:00:00",
    "casa": "CD PAÇO ARCOS A",
    "fora": "SC TORRES",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 19,
+   "golos_fora": 0,
    "recinto": "PAV. PAÇO DE ARCOS"
   },
   {
@@ -436,31 +436,31 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "CD PAÇO ARCOS A",
+     "logo": "/intranet/logos/7.png",
+     "jogos": 2,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 36,
+     "golos_sofridos": 0,
+     "diferenca": 36,
+     "racio": null,
+     "pontos": 6
+    },
+    {
+     "posicao": 2,
      "equipa": "AD OEIRAS A",
      "logo": "/intranet/logos/6.png",
      "jogos": 2,
      "vitorias": 2,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 24,
-     "golos_sofridos": 2,
-     "diferenca": 22,
-     "racio": 12.0,
+     "golos_marcados": 26,
+     "golos_sofridos": 3,
+     "diferenca": 23,
+     "racio": 8.67,
      "pontos": 6
-    },
-    {
-     "posicao": 2,
-     "equipa": "CD PAÇO ARCOS A",
-     "logo": "/intranet/logos/7.png",
-     "jogos": 1,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 17,
-     "golos_sofridos": 0,
-     "diferenca": 17,
-     "racio": null,
-     "pontos": 3
     },
     {
      "posicao": 3,
@@ -470,10 +470,10 @@
      "vitorias": 1,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 18,
-     "golos_sofridos": 4,
-     "diferenca": 14,
-     "racio": 4.5,
+     "golos_marcados": 19,
+     "golos_sofridos": 6,
+     "diferenca": 13,
+     "racio": 3.17,
      "pontos": 3
     },
     {
@@ -484,28 +484,14 @@
      "vitorias": 1,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 6,
+     "golos_marcados": 10,
      "golos_sofridos": 18,
-     "diferenca": -12,
-     "racio": 0.33,
+     "diferenca": -8,
+     "racio": 0.56,
      "pontos": 3
     },
     {
      "posicao": 5,
-     "equipa": "SC TORRES",
-     "logo": "/intranet/logos/25.png",
-     "jogos": 1,
-     "vitorias": 0,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 1,
-     "golos_sofridos": 20,
-     "diferenca": -19,
-     "racio": 0.05,
-     "pontos": 0
-    },
-    {
-     "posicao": 6,
      "equipa": "HC SINTRA",
      "logo": "/intranet/logos/8.png",
      "jogos": 2,
@@ -513,9 +499,23 @@
      "empates": 0,
      "derrotas": 2,
      "golos_marcados": 1,
-     "golos_sofridos": 23,
-     "diferenca": -22,
+     "golos_sofridos": 27,
+     "diferenca": -26,
      "racio": 0.04,
+     "pontos": 0
+    },
+    {
+     "posicao": 6,
+     "equipa": "SC TORRES",
+     "logo": "/intranet/logos/25.png",
+     "jogos": 2,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 1,
+     "golos_sofridos": 39,
+     "diferenca": -38,
+     "racio": 0.03,
      "pontos": 0
     }
    ]

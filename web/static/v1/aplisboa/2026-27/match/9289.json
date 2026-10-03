@@ -844,6 +844,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO HENRIQUES",
+   "Árbitro 2": "GONÇALO RAMIRES",
+   "Árbitro Auxiliar": "PEDRO PIMENTA",
+   "Cronometrista": "JOÃO GONÇALVES",
+   "Auxiliar 45 Seg.": "VICENTE ALVES",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   1,
+   6
+  ],
+  "faltas_fora": [
+   2,
+   7
+  ],
+  "inicio": [
+   "10:00",
+   "10:44"
+  ],
+  "termo": [
+   "10:34",
+   "11:20"
+  ],
+  "capitao_casa": "MARCELO ARAÚJO",
+  "capitao_fora": "ALESSANDRO VERONA"
+ },
  "competicao_id": 432,
  "categoria": "SENIORES MASCULINOS",
  "jornada": "1ª JORNADA - 1ª FASE",

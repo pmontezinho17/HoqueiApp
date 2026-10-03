@@ -1023,6 +1023,52 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO ESTEVES",
+   "Árbitro 2": "JOSE MARTINS",
+   "Árbitro Auxiliar": "PEDRO PIMENTA",
+   "Cronometrista": "ROGÉRIO NETO",
+   "Auxiliar 45 Seg.": "WAGNER CORREA",
+   "Diretor de campo": "FILIPA FERREIRA",
+   "Gestor de segurança": "LUISA ROBALO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 4,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   7,
+   1
+  ],
+  "faltas_fora": [
+   7,
+   2
+  ],
+  "inicio": [
+   "18:30",
+   "19:19"
+  ],
+  "termo": [
+   "19:09",
+   "20:00"
+  ],
+  "capitao_casa": "AFONSO ROSÁRIO",
+  "capitao_fora": "JOÃO LAMPREIA"
+ },
  "competicao_id": 435,
  "categoria": "SUB-19",
  "jornada": "FINAL",

@@ -699,6 +699,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO ESTEVES",
+   "Árbitro 2": "JOSE MARTINS",
+   "Árbitro Auxiliar": "Francisco Candido",
+   "Cronometrista": "Bruno Gaitinha",
+   "Diretor de campo": "Paulo Pereira",
+   "Gestor de segurança": "António Rocha"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 5,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   4,
+   2
+  ],
+  "faltas_fora": [
+   2,
+   0
+  ],
+  "inicio": [
+   "22:00",
+   "22:47"
+  ],
+  "termo": [
+   "22:37",
+   "23:15"
+  ],
+  "capitao_casa": "DIOGO RUIVO",
+  "capitao_fora": "TOMÁS MATIAS"
+ },
  "competicao_id": 434,
  "categoria": "TORNEIOS PARTICULARES",
  "jornada": "SENIORES",

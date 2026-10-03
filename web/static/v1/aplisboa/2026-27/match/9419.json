@@ -725,6 +725,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RUI MATOSO",
+   "Árbitro Auxiliar": "Marco Janeiro",
+   "Cronometrista": "Rui Gomes",
+   "Diretor de campo": "ANA FERREIRA",
+   "Gestor de segurança": "MARCO POVOA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 6,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 6,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   4,
+   3
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "18:40",
+   "19:25"
+  ],
+  "termo": [
+   "19:15",
+   "19:48"
+  ],
+  "capitao_casa": "ANDRÉ ROSADO",
+  "capitao_fora": "PEDRO SOARES"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

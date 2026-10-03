@@ -607,6 +607,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "VASCO FERREIRA",
+   "Árbitro Auxiliar": "RITA GUERREIRO",
+   "Cronometrista": "INÊS LUÍS",
+   "Gestor de segurança": "PEDRO SANTOS"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 4,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 7,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "15:00",
+   "15:29"
+  ],
+  "termo": [
+   "15:24",
+   "15:52"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
  "competicao_id": 465,
  "categoria": "BENJAMINS",
  "jornada": "2ª JORNADA",

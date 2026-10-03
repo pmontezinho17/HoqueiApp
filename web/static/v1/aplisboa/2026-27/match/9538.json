@@ -742,6 +742,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO ANDRADE",
+   "Árbitro Auxiliar": "ALVARO PELIZ",
+   "Cronometrista": "JOAO ANDRADE",
+   "Diretor de campo": "ISABEL ANDRADE",
+   "Gestor de segurança": "DANIEL SANTIAGO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 4,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 7,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 11,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   3,
+   2
+  ],
+  "faltas_fora": [
+   2,
+   1
+  ],
+  "inicio": [
+   "11:00",
+   "11:33"
+  ],
+  "termo": [
+   "11:23",
+   "11:59"
+  ],
+  "capitao_casa": "SIMÃO PEDRO",
+  "capitao_fora": "RODRIGO GARRANCHO"
+ },
  "competicao_id": 446,
  "categoria": "SUB-13",
  "jornada": "2ª JORNADA",

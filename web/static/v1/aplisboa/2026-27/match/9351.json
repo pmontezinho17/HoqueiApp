@@ -787,6 +787,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO ESTEVES",
+   "Árbitro 2": "JOSE MARTINS",
+   "Árbitro Auxiliar": "SANDRA FONSECA",
+   "Cronometrista": "RUI GONÇALVES",
+   "Diretor de campo": "ANA TORRAO",
+   "Gestor de segurança": "PAULO TORRAO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 4,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 7,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   2,
+   1
+  ],
+  "faltas_fora": [
+   0,
+   1
+  ],
+  "inicio": [
+   "11:40",
+   "12:23"
+  ],
+  "termo": [
+   "12:13",
+   "12:58"
+  ],
+  "capitao_casa": "SANTIAGO PEREIRA",
+  "capitao_fora": "AFONSO SOARES"
+ },
  "competicao_id": 435,
  "categoria": "SUB-19",
  "jornada": "MEIA FINAL",

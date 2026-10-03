@@ -725,6 +725,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "VASCO FERREIRA",
+   "Árbitro Auxiliar": "NUNO FERREIRA",
+   "Cronometrista": "RUI GONÇALVES",
+   "Diretor de campo": "ANA TORRAO",
+   "Gestor de segurança": "PAULO TORRAO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 6
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 8
+   }
+  ],
+  "faltas_casa": [
+   3,
+   2
+  ],
+  "faltas_fora": [
+   2,
+   1
+  ],
+  "inicio": [
+   "15:14",
+   "15:48"
+  ],
+  "termo": [
+   "15:43",
+   "16:13"
+  ],
+  "capitao_casa": "AFONSO SANTOS",
+  "capitao_fora": "SALVADOR LUIS"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

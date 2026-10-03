@@ -961,6 +961,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO ESTEVES",
+   "Árbitro 2": "JOSE MARTINS",
+   "Árbitro Auxiliar": "PEDRO PIMENTA",
+   "Cronometrista": "JOÃO GONÇALVES",
+   "Auxiliar 45 Seg.": "VICENTE ALVES",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   4,
+   4
+  ],
+  "faltas_fora": [
+   2,
+   5
+  ],
+  "inicio": [
+   "17:30",
+   "18:14"
+  ],
+  "termo": [
+   "18:04",
+   "18:47"
+  ],
+  "capitao_casa": "ALESSANDRO VERONA",
+  "capitao_fora": "TIAGO MATEUS"
+ },
  "competicao_id": 431,
  "categoria": "TORNEIOS PARTICULARES",
  "jornada": "TORNEIO PEDRO ROSADO",

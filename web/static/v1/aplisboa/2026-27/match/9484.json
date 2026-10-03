@@ -1053,6 +1053,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RICARDO GOMES",
+   "Árbitro Auxiliar": "PAULA SOBRAL",
+   "Cronometrista": "LUIS SOUSA",
+   "Diretor de campo": "RAQUEL PINTO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 7,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 10,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   5,
+   5
+  ],
+  "faltas_fora": [
+   3,
+   6
+  ],
+  "inicio": [
+   "16:00",
+   "16:40"
+  ],
+  "termo": [
+   "16:30",
+   "17:14"
+  ],
+  "capitao_casa": "DAVID RAMOS",
+  "capitao_fora": "RODRIGO LEITE"
+ },
  "competicao_id": 444,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",

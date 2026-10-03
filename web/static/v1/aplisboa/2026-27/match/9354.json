@@ -727,6 +727,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MIGUEL SOARES",
+   "Árbitro Auxiliar": "MARCIO ALVES",
+   "Cronometrista": "AURA RODRIGUES",
+   "Diretor de campo": "JOAO JANEIRO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 8,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 7,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 15,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   2
+  ],
+  "inicio": [
+   "10:45",
+   "11:25"
+  ],
+  "termo": [
+   "11:20",
+   "11:45"
+  ],
+  "capitao_casa": "DINIS RAMOS",
+  "capitao_fora": "HENRIQUE JANEIRO"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",

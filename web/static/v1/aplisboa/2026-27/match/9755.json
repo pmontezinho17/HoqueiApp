@@ -679,6 +679,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RUI MATOSO",
+   "Árbitro Auxiliar": "TIAGO COELHO",
+   "Cronometrista": "HUMBERTO AGUEDA",
+   "Gestor de segurança": "FREDERICO VENTURA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   1,
+   1
+  ],
+  "faltas_fora": [
+   1,
+   2
+  ],
+  "inicio": [
+   "16:45",
+   "17:22"
+  ],
+  "termo": [
+   "17:12",
+   "17:49"
+  ],
+  "capitao_casa": "ANDRÉ CARREIRO",
+  "capitao_fora": "MARTIM NEVES"
+ },
  "competicao_id": 455,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

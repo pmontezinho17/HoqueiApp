@@ -679,6 +679,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE BENEDI",
+   "Árbitro Auxiliar": "RUI GOMES",
+   "Cronometrista": "DIOGO DUARTE",
+   "Diretor de campo": "ANDREIA SOARES",
+   "Gestor de segurança": "LUISA ROBALO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 5
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 6
+   }
+  ],
+  "faltas_casa": [
+   0,
+   2
+  ],
+  "faltas_fora": [
+   5,
+   1
+  ],
+  "inicio": [
+   "19:34",
+   "20:11"
+  ],
+  "termo": [
+   "20:01",
+   "20:35"
+  ],
+  "capitao_casa": "TOMÁS RIBEIRO",
+  "capitao_fora": "FRANCISCO PIÇARRA"
+ },
  "competicao_id": 450,
  "categoria": "SUB-15",
  "jornada": "1ª JORNADA",

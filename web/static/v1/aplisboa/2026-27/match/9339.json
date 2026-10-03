@@ -786,6 +786,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO HENRIQUES",
+   "Árbitro Auxiliar": "FRANCISCO CANDIDO",
+   "Cronometrista": "BRUNO GAITINHA",
+   "Diretor de campo": "PAULO PEREIRA",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 6,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 9,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   4,
+   3
+  ],
+  "faltas_fora": [
+   2,
+   1
+  ],
+  "inicio": [
+   "19:16",
+   "19:44"
+  ],
+  "termo": [
+   "19:39",
+   "20:05"
+  ],
+  "capitao_casa": "AFONSO MATOS",
+  "capitao_fora": "BERNARDO ROSMANINHO"
+ },
  "competicao_id": 434,
  "categoria": "TORNEIOS PARTICULARES",
  "jornada": "SUB-17",

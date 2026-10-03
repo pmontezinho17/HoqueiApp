@@ -745,6 +745,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE BENEDI",
+   "Árbitro Auxiliar": "JOSÉ RODRIGUES",
+   "Cronometrista": "ROGÉRIO NETO",
+   "Diretor de campo": "FILIPA FERREIRA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 5
+   }
+  ],
+  "faltas_casa": [
+   3,
+   2
+  ],
+  "faltas_fora": [
+   3,
+   3
+  ],
+  "inicio": [
+   "14:30",
+   "14:55"
+  ],
+  "termo": [
+   "14:50",
+   "15:19"
+  ],
+  "capitao_casa": "RAFAEL CARAPINHA",
+  "capitao_fora": "MARTIM CHORINCAS"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "MEIA FINAL",

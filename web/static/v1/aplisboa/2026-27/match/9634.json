@@ -757,6 +757,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARTIM GONÇALVES",
+   "Árbitro Auxiliar": "ALEXANDRA CABRAL",
+   "Cronometrista": "JOAO COSTA",
+   "Diretor de campo": "BRUNO AFONSO",
+   "Gestor de segurança": "JOANA MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   1,
+   4
+  ],
+  "faltas_fora": [
+   4,
+   3
+  ],
+  "inicio": [
+   "19:15",
+   "19:56"
+  ],
+  "termo": [
+   "19:46",
+   "20:21"
+  ],
+  "capitao_casa": "JOÃO MARQUES",
+  "capitao_fora": "GABRIEL SANTOS"
+ },
  "competicao_id": 450,
  "categoria": "SUB-15",
  "jornada": "1ª JORNADA",

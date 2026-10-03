@@ -994,6 +994,52 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RICARDO GOMES",
+   "Árbitro 2": "CARLOS ALMEIDA",
+   "Árbitro Auxiliar": "NELSON MARTINS",
+   "Cronometrista": "PEDRO CARVALHO",
+   "Auxiliar 45 Seg.": "TIAGO RAMOS",
+   "Diretor de campo": "RAQUEL PINTO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   5,
+   5
+  ],
+  "faltas_fora": [
+   4,
+   3
+  ],
+  "inicio": [
+   "18:30",
+   "19:23"
+  ],
+  "termo": [
+   "19:13",
+   "20:04"
+  ],
+  "capitao_casa": "JOÃO BEIROLAS",
+  "capitao_fora": "DAVID FERREIRA"
+ },
  "competicao_id": 432,
  "categoria": "SENIORES MASCULINOS",
  "jornada": "1ª JORNADA - 1ª FASE",

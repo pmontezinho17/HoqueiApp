@@ -863,6 +863,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO HENRIQUES",
+   "Árbitro Auxiliar": "DAVIDE REIS",
+   "Cronometrista": "ROGÉRIO NETO",
+   "Diretor de campo": "FILIPA FERREIRA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   4,
+   3
+  ],
+  "faltas_fora": [
+   2,
+   4
+  ],
+  "inicio": [
+   "9:30",
+   "10:06"
+  ],
+  "termo": [
+   "9:56",
+   "10:31"
+  ],
+  "capitao_casa": "FRANCISCO FATELA",
+  "capitao_fora": "PEDRO LUZ"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "FINAL",

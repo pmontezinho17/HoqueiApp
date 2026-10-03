@@ -563,6 +563,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO AGULHAS",
+   "Árbitro Auxiliar": "BRUNO MARCELO",
+   "Cronometrista": "ROGÉRIO NETO",
+   "Diretor de campo": "FILIPA FERREIRA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   0,
+   1
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "10:15",
+   "10:36"
+  ],
+  "termo": [
+   "10:31",
+   "10:56"
+  ],
+  "capitao_casa": "RAFAEL CARAPINHA",
+  "capitao_fora": "DUARTE HENRIQUES"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "QUARTOS FINAL",

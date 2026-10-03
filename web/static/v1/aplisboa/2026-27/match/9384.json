@@ -651,6 +651,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "CARLOS ALMEIDA",
+   "Árbitro Auxiliar": "MÁRIO OLIVEIRA",
+   "Cronometrista": "MÁRIO ANDRÉ",
+   "Diretor de campo": "JORGE GOMES",
+   "Gestor de segurança": "ARMANDO FONSECA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 3
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 5
+   }
+  ],
+  "faltas_casa": [
+   3,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   1
+  ],
+  "inicio": [
+   "16:00",
+   "16:30"
+  ],
+  "termo": [
+   "16:25",
+   "16:52"
+  ],
+  "capitao_casa": "DAVID SEQUEIRA",
+  "capitao_fora": "DANIEL BORGES"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "3ª JORNADA",

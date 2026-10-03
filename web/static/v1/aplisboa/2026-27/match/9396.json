@@ -548,6 +548,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RITA ALMEIDA",
+   "Árbitro 2": "MIGUEL SOARES",
+   "Árbitro Auxiliar": "PEDRO PINTO",
+   "Cronometrista": "FABIO JESUS",
+   "Diretor de campo": "RAQUEL PINTO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 4
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 6
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "14:00",
+   "14:26"
+  ],
+  "termo": [
+   "14:20",
+   "14:45"
+  ],
+  "capitao_casa": "GONÇALO SILVA",
+  "capitao_fora": "ALEXANDRE FARIAS"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "3ª JORNADA",

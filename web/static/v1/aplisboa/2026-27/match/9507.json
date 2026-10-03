@@ -695,6 +695,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "CARLOS ALMEIDA",
+   "Árbitro Auxiliar": "DAVIDE REIS",
+   "Cronometrista": "MIGUEL SEMEDO",
+   "Diretor de campo": "MIGUEL MONTEIRO",
+   "Gestor de segurança": "PAULO SANTIAGO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   3,
+   1
+  ],
+  "faltas_fora": [
+   4,
+   1
+  ],
+  "inicio": [
+   "15:00",
+   "15:33"
+  ],
+  "termo": [
+   "15:23",
+   "15:54"
+  ],
+  "capitao_casa": "PEDRO LUZ",
+  "capitao_fora": "MANUEL ALVES"
+ },
  "competicao_id": 445,
  "categoria": "SUB-13",
  "jornada": "2ª JORNADA",

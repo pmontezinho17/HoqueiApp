@@ -711,6 +711,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RUI MATOSO",
+   "Árbitro Auxiliar": "Tania Morgado",
+   "Cronometrista": "Luis Simão",
+   "Diretor de campo": "Mario Cruz",
+   "Gestor de segurança": "AURORA FIGUEIREDO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 5
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 4
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 9
+   }
+  ],
+  "faltas_casa": [
+   0,
+   1
+  ],
+  "faltas_fora": [
+   2,
+   1
+  ],
+  "inicio": [
+   "14:00",
+   "14:30"
+  ],
+  "termo": [
+   "14:25",
+   "14:53"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
  "competicao_id": 461,
  "categoria": "ESCOLARES",
  "jornada": "1ª JORNADA",

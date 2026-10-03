@@ -711,6 +711,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "LUORENÇO GONÇALVES",
+   "Árbitro Auxiliar": "MIGUEL MARTINS",
+   "Cronometrista": "RICARDO DIAS",
+   "Diretor de campo": "FILIPE MARQUES",
+   "Gestor de segurança": "JOANA MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   3,
+   3
+  ],
+  "faltas_fora": [
+   0,
+   2
+  ],
+  "inicio": [
+   "14:45",
+   "15:12"
+  ],
+  "termo": [
+   "15:07",
+   "15:34"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
  "competicao_id": 462,
  "categoria": "ESCOLARES",
  "jornada": "1ª JORNADA",

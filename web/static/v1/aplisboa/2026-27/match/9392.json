@@ -474,6 +474,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
+   "Árbitro Auxiliar": "Ana Carina Batista",
+   "Cronometrista": "FÁBIO JESUS",
+   "Diretor de campo": "RAQUEL PINTO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "20:30",
+   "21:01"
+  ],
+  "termo": [
+   "20:51",
+   "21:17"
+  ],
+  "capitao_casa": "ALEXANDRE FARIAS",
+  "capitao_fora": "SIMÃO COSTA"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "2ª JORNADA",

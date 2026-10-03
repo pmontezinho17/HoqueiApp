@@ -815,6 +815,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "TIAGO ALVES",
+   "Árbitro Auxiliar": "BRUNO AFONSO",
+   "Cronometrista": "LUIS ROLHAS",
+   "Diretor de campo": "PAULO PEREIRA",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 7
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 10
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 17
+   }
+  ],
+  "faltas_casa": [
+   1,
+   2
+  ],
+  "faltas_fora": [
+   2,
+   2
+  ],
+  "inicio": [
+   "17:00",
+   "17:28"
+  ],
+  "termo": [
+   "17:20",
+   "17:50"
+  ],
+  "capitao_casa": "MARTIM JANEIRO",
+  "capitao_fora": "TOMÁS PEREIRA"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "2ª JORNADA",

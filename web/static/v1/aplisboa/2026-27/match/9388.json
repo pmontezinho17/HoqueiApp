@@ -606,6 +606,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RUI MATOSO",
+   "Árbitro Auxiliar": "RUI GOMES",
+   "Cronometrista": "ANTONIO SERRANO",
+   "Gestor de segurança": "JOAO VENTURA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 3
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   2,
+   0
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "10:00",
+   "10:28"
+  ],
+  "termo": [
+   "10:23",
+   "10:52"
+  ],
+  "capitao_casa": "HENRIQUE SILVA",
+  "capitao_fora": "VASCO SALVADOR"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "1ª JORNADA",

@@ -577,6 +577,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "CARLOS ALMEIDA",
+   "Árbitro Auxiliar": "JOSÉ LOPES",
+   "Cronometrista": "MÁRIO ANDRÉ",
+   "Diretor de campo": "ANA PEREIRA",
+   "Gestor de segurança": "ARMANDO FONSECA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   3,
+   0
+  ],
+  "faltas_fora": [
+   3,
+   1
+  ],
+  "inicio": [
+   "12:25",
+   "12:48"
+  ],
+  "termo": [
+   "12:43",
+   "13:10"
+  ],
+  "capitao_casa": "GUILHERME NETO",
+  "capitao_fora": "DAVID SEQUEIRA"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "1ª JORNADA",

@@ -620,6 +620,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "CLAUDIO REIS",
+   "Árbitro 2": "MIGUEL SOARES",
+   "Árbitro Auxiliar": "JOSE SIMOES",
+   "Cronometrista": "MESSIAS FERNANDES",
+   "Diretor de campo": "Raquel Pinto",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   2,
+   1
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "11:45",
+   "12:16"
+  ],
+  "termo": [
+   "12:06",
+   "12:41"
+  ],
+  "capitao_casa": "PEDRO GOUVEIA",
+  "capitao_fora": "DANIEL AFONSO"
+ },
  "competicao_id": 439,
  "categoria": "SUB-19",
  "jornada": "2ª JORNADA",

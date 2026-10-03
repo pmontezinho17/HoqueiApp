@@ -113,8 +113,8 @@
    "hora": "15:00:00",
    "casa": "APAC TOJAL",
    "fora": "A STUART HCM",
-   "golos_casa": 5,
-   "golos_fora": 1,
+   "golos_casa": 9,
+   "golos_fora": 2,
    "recinto": "PAV. A.P.A.C.TOJAL"
   },
   {
@@ -436,6 +436,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "APAC TOJAL",
+     "logo": "/intranet/logos/12.png",
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 10,
+     "golos_sofridos": 4,
+     "diferenca": 6,
+     "racio": 2.5,
+     "pontos": 3
+    },
+    {
+     "posicao": 2,
      "equipa": "SL BENFICA A",
      "logo": "/intranet/logos/1.png",
      "jogos": 1,
@@ -446,20 +460,6 @@
      "golos_sofridos": 0,
      "diferenca": 4,
      "racio": null,
-     "pontos": 3
-    },
-    {
-     "posicao": 2,
-     "equipa": "APAC TOJAL",
-     "logo": "/intranet/logos/12.png",
-     "jogos": 2,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 6,
-     "golos_sofridos": 3,
-     "diferenca": 3,
-     "racio": 2.0,
      "pontos": 3
     },
     {
@@ -498,10 +498,10 @@
      "vitorias": 1,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 4,
-     "golos_sofridos": 7,
-     "diferenca": -3,
-     "racio": 0.57,
+     "golos_marcados": 5,
+     "golos_sofridos": 11,
+     "diferenca": -6,
+     "racio": 0.45,
      "pontos": 3
     },
     {

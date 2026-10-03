@@ -665,6 +665,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO AGULHAS",
+   "Árbitro Auxiliar": "ARTUR ROLDAO",
+   "Cronometrista": "MARCIO ALVES",
+   "Diretor de campo": "PAULO PEREIRA",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 4,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 6,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   1,
+   3
+  ],
+  "faltas_fora": [
+   0,
+   1
+  ],
+  "inicio": [
+   "14:30",
+   "15:01"
+  ],
+  "termo": [
+   "14:51",
+   "15:24"
+  ],
+  "capitao_casa": "MANUEL ALVES",
+  "capitao_fora": "GUSTAVO FAVINHA"
+ },
  "competicao_id": 445,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",

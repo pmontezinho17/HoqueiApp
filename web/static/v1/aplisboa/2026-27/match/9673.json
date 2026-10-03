@@ -740,6 +740,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "HENRIQUE MATIAS",
+   "Árbitro Auxiliar": "NUNO SANTOS",
+   "Cronometrista": "RUI GOMES",
+   "Diretor de campo": "joSÉ SILVA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 4,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 5,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   0,
+   2
+  ],
+  "faltas_fora": [
+   1,
+   2
+  ],
+  "inicio": [
+   "18:30",
+   "19:12"
+  ],
+  "termo": [
+   "19:02",
+   "19:40"
+  ],
+  "capitao_casa": "DAVID BANDEIRA",
+  "capitao_fora": "DIOGO CAVACO"
+ },
  "competicao_id": 452,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

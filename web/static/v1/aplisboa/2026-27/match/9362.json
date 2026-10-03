@@ -562,6 +562,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO AGULHAS",
+   "Árbitro Auxiliar": "JOSÉ RODRIGUES",
+   "Cronometrista": "AURA RODRIGUES",
+   "Diretor de campo": "JOÃO JANEIRO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   3
+  ],
+  "inicio": [
+   "15:19",
+   "15:42"
+  ],
+  "termo": [
+   "15:36",
+   "16:04"
+  ],
+  "capitao_casa": "RODRIGO GARRANCHO",
+  "capitao_fora": "GUSTAVO FAVINHA"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "3ª JORNADA",

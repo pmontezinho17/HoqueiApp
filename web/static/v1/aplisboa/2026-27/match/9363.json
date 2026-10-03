@@ -577,6 +577,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "VASCO FERREIRA",
+   "Árbitro Auxiliar": "SILVIA OLIVEIRA",
+   "Cronometrista": "RUI GONÇALVES",
+   "Gestor de segurança": "PAULO TORRAO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 4,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 6,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 10,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "16:45",
+   "17:09"
+  ],
+  "termo": [
+   "17:04",
+   "17:29"
+  ],
+  "capitao_casa": "SALVADOR MONTEZINHO",
+  "capitao_fora": "DAVID PINTO"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",

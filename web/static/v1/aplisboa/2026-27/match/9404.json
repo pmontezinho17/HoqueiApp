@@ -846,6 +846,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO HENRIQUES",
+   "Árbitro Auxiliar": "VITOR PINTO",
+   "Cronometrista": "CARLOS ALVES",
+   "Diretor de campo": "MONICA MARVAO",
+   "Gestor de segurança": "SERGIO SANTOS"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 4,
+    "fora": 3
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   2,
+   3
+  ],
+  "faltas_fora": [
+   4,
+   4
+  ],
+  "inicio": [
+   "12:15",
+   "12:43"
+  ],
+  "termo": [
+   "12:38",
+   "13:17"
+  ],
+  "capitao_casa": "DIOGO PINTO",
+  "capitao_fora": "ANTÓNIO PEREIRA"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "1ª JORNADA",

@@ -265,7 +265,7 @@
     },
     {
      "numero": "22",
-     "nome": "MATEO MONJE",
+     "nome": "MATEO FERNANDEZ",
      "titular": false,
      "golos": 0,
      "assistencias": 0,
@@ -606,6 +606,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO AGULHAS",
+   "Árbitro Auxiliar": "SUSANA BENTO",
+   "Cronometrista": "SORAIA BRAZ",
+   "Diretor de campo": "HUGO PEDRO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 4,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 5,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "10:00",
+   "10:27"
+  ],
+  "termo": [
+   "10:22",
+   "10:52"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
  "competicao_id": 465,
  "categoria": "BENJAMINS",
  "jornada": "1ª JORNADA",

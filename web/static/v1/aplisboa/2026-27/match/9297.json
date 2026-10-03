@@ -1143,6 +1143,52 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RICARDO GOMES",
+   "Árbitro 2": "MARCO LOPES",
+   "Árbitro Auxiliar": "DIOGO VENTURA",
+   "Cronometrista": "PEDRO CARVALHO",
+   "Auxiliar 45 Seg.": "TIAGO RAMOS",
+   "Diretor de campo": "RAQUEL PINTO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 5
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 7
+   }
+  ],
+  "faltas_casa": [
+   3,
+   3
+  ],
+  "faltas_fora": [
+   11,
+   5
+  ],
+  "inicio": [
+   "18:30",
+   "19:24"
+  ],
+  "termo": [
+   "19:14",
+   "20:07"
+  ],
+  "capitao_casa": "JOÃO BEIROLAS",
+  "capitao_fora": "FRANCISCO CONTINS"
+ },
  "competicao_id": 432,
  "categoria": "SENIORES MASCULINOS",
  "jornada": "2ª JORNADA - 1ª FASE",

@@ -666,6 +666,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE BENEDI",
+   "Árbitro Auxiliar": "MARCIO ALVES",
+   "Cronometrista": "JOAO JANEIRO",
+   "Diretor de campo": "AURA RODRIGUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 5
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 7
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   4,
+   1
+  ],
+  "inicio": [
+   "14:00",
+   "14:27"
+  ],
+  "termo": [
+   "14:22",
+   "14:47"
+  ],
+  "capitao_casa": "DUARTE GASPAR",
+  "capitao_fora": "XAVIER SILVA"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "2ª JORNADA",

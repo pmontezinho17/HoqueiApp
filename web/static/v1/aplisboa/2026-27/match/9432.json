@@ -818,6 +818,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RICARDO GOMES",
+   "Árbitro 2": "MIGUEL SOARES",
+   "Árbitro Auxiliar": "Mónica Sousa",
+   "Cronometrista": "FÁBIO JESUS",
+   "Diretor de campo": "RAQUEL PINTO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 7
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 9
+   }
+  ],
+  "faltas_casa": [
+   3,
+   4
+  ],
+  "faltas_fora": [
+   6,
+   4
+  ],
+  "inicio": [
+   "15:15",
+   "15:40"
+  ],
+  "termo": [
+   "15:35",
+   "16:18"
+  ],
+  "capitao_casa": "DANIEL AFONSO",
+  "capitao_fora": "RODRIGO POTIER"
+ },
  "competicao_id": 439,
  "categoria": "SUB-19",
  "jornada": "1ª JORNADA",

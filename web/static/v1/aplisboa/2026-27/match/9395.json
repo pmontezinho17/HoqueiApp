@@ -669,6 +669,51 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MIGUEL SOARES",
+   "Árbitro 2": "RITA ALMEIDA",
+   "Árbitro Auxiliar": "Ana Carina Batista",
+   "Cronometrista": "MESSIAS FERNANDES",
+   "Diretor de campo": "Raquel Pinto",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   2,
+   6
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "16:45",
+   "17:13"
+  ],
+  "termo": [
+   "17:08",
+   "17:38"
+  ],
+  "capitao_casa": "TIAGO ESTEVES",
+  "capitao_fora": "FRANCISCO FATELA"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "2ª JORNADA",

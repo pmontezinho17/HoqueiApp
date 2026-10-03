@@ -740,6 +740,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MATEUS LEHNERT",
+   "Árbitro Auxiliar": "DAVIDE REIS",
+   "Cronometrista": "FILIPE MARQUES",
+   "Diretor de campo": "BRUNO PEREIRA",
+   "Gestor de segurança": "JOANA MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   2,
+   3
+  ],
+  "faltas_fora": [
+   3,
+   1
+  ],
+  "inicio": [
+   "13:00",
+   "13:26"
+  ],
+  "termo": [
+   "13:21",
+   "13:48"
+  ],
+  "capitao_casa": "DAVID RAMOS",
+  "capitao_fora": "PEDRO LUZ"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "QUARTOS FINAL",

@@ -47,7 +47,7 @@
 | B1.9 | Parser da ficha de jogo: `#resultado` + `#jugadores` | must | L | ✅ cabeçalho, árbitros, faltas, jogadores e equipa técnica |
 | B1.9a | Parser da cronologia `#desarrollo` | must | L | ✅ 11 tipos de evento, 0 por classificar em 9 jogos reais |
 | B1.9b | Normalizar o relógio decrescente em minuto absoluto | must | M | ✅ nº e duração das partes lidos da fonte (2×25min, 2×15min, 4×8min confirmados) |
-| B1.9c | Parser do boletim oficial `#acta` | could | L | aberto. **Atenção (02/10):** o boletim só é anexado ~6 min depois do apito final (+41 915 bytes) — a 3ª tab precisa de estado vazio para jogos a decorrer |
+| B1.9c | Parser do boletim oficial `#acta` | could | L | ✅ `parsers/boletim.py` + 14 testes. Traz o que a ficha não dá: **resultado parte a parte**, faltas de equipa **por parte** (a ficha só as soma), equipa de arbitragem completa, horas de início e termo, e os capitães. **207 das 216 fichas têm boletim**, em todos os escalões |
 | B1.9d | Flag `has_timeline` por jogo | should | XS | ✅ `FichaJogo.tem_cronologia` |
 | B1.10 | Modelo normalizado + escrita dos JSON do contrato | must | M | ✅ `publicar` gera competitions, comp/, match/ e meta.json |
 | B1.11 | Testes do parser contra amostras | must | M | ✅ 32 testes, sem rede, incluindo cruzamento entre parsers |
@@ -107,7 +107,7 @@ Objetivo: **um ecrã** com jogos reais, no telemóvel, instalável. É aqui que 
 | W3.6 | Ecrã Detalhe de Jogo | must | XL | ✅ cabeçalho + tabs Cronologia e Ficha (Boletim depende de B1.9c) |
 | W3.6a | Tab Cronologia | must | L | ✅ timeline com minuto absoluto, ícones, partes, resultado corrente, marcador e assistente |
 | W3.6b | Tab Ficha | must | L | ✅ jogadores com G/A/D e equipa técnica |
-| W3.6c | Tab Boletim: arbitragem, resultado por parte, prolongamento | could | M | Mostra os parciais e a equipa de arbitragem |
+| W3.6c | Tab Boletim: arbitragem, resultado por parte, prolongamento | could | M | ✅ tab Boletim no detalhe de jogo, só quando há boletim — oferecer uma tab que abre vazia é pior do que não a ter |
 | W3.6d | Esconder tabs vazias | should | XS | ✅ sem cronologia ou sem ficha, a tab não aparece |
 | W3.7 | Ecrã Equipa: próximos jogos, últimos resultados, posição, plantel | should | L | ✅ feito pelo W8.1 — `/equipa/[cat]/[nome]` com Resumo · Jogos · Classificação · Plantel |
 | W3.8 | Ecrã Quadros | must | L | ✅ top 50 com clube, total e média por jogo |
@@ -345,7 +345,7 @@ pedida há duas sessões. O `/clube` era um resumo fino, não uma página.
 | W8.2 | `/clube` passa a **lançador**: cartão por equipa seguida com o próximo jogo, que liga à página | must | M | ✅ escala com várias equipas, ao contrário do painel empilhado |
 | W8.3 | Nomes de equipa **clicáveis** na classificação da competição | should | S | ✅ |
 | W8.4 | Nomes de equipa clicáveis também na agenda, no calendário e no detalhe de jogo | should | M | aberto |
-| W8.5 | Agrupar o plantel por posição (GR/JC) | could | M | aberto — a posição vem do boletim oficial, que ainda não é parseado (B1.9c) |
+| W8.5 | Agrupar o plantel por posição (GR/JC) | could | M | ❌ **impossível, verificado a 03/10** — a posição (GR/JC) **não existe no boletim**: zero ocorrências de GR, JC ou "guarda-redes" no bloco. A coluna `5I` é o cinco inicial (`X` titular, `J` suplente), que já temos. O backlog assumia que o B1.9c desbloqueava isto; não desbloqueia, porque a fonte não publica a posição em lado nenhum |
 | W8.6 | **Calendário dentro da equipa**, não no lançador | must | M | ✅ `Lista · Calendário` na aba Jogos da equipa. Agregado, dois jogos no mesmo dia ficavam escondidos atrás de um `+1` que não se podia abrir |
 | W8.7 | Data nas listas corridas de jogos | should | S | ✅ uma lista de 15 jogos só com horas não diz de que dia é cada um |
 | B8.8 | **Parsear as colunas de cartões** da ficha (amarelo, azul, vermelho) | should | S | ✅ colunas 9–11, identificadas na fonte só pelos ícones `tamarilla`/`tazul`/`troja`; teste cruza o total com os eventos da cronologia |
@@ -655,6 +655,7 @@ Daí saem três cadências, e não duas:
 | B9.16 | Ronda de **fecho do dia** às 00:30, que sela o dia e recalcula | must | S | o `cron` actual de 2h fica para frescura |
 | B9.17 | Ronda **ao vivo** sobre os jogos a decorrer, sem saber favoritos | could | M | ≤15 jogos em simultâneo no pico. **Desbloqueado a 02/10**: a sonda provou que vale a pena |
 | B9.18 | **Normalizar grafias de clube** | should | S | a fonte tem `A STRUART HCM` vs `A STUART HCM` e `HC LOURINHA` vs `HC LOURINHÃ`. É literalmente a "limpeza" do pedido, e hoje parte emblemas e junções por nome |
+| W3.6e | **Correcção**: marcadores com chave duplicada deixavam a página em branco | must | XS | ✅ dois golos do mesmo jogador no mesmo minuto davam a mesma chave no `{#each}`, o Svelte lançava e o ecrã do jogo **não renderizava de todo**. Apareceu ao republicar com dados novos |
 | B9.19 | **Impressão estrutural por ronda**: nº de colunas por tipo de tabela, com aviso quando muda | should | S | ideia emprestada do Scrapling (ver [07](07-avaliacao-scrapling.md)), sem a dependência nem a relocalização silenciosa |
 | Q4.7 | **A sonda pára quando já não há nada a observar** | must | XS | ✅ corria as 4 horas inteiras depois do apito final — ~57 pedidos inúteis a um servidor pequeno de uma federação, contra a nossa própria postura, e o diário só era comitado no fim. Agora sai `--apos-fim` rondas (5) depois de todos os jogos terminarem, e essas rondas medem quanto tempo o boletim ainda mexe |
 

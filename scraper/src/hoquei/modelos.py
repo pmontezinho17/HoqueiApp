@@ -138,12 +138,46 @@ class FichaJogo:
     faltas: tuple[int | None, int | None] = (None, None)
     equipas: list[EquipaFicha] = field(default_factory=list)
     cronologia: list[EventoJogo] = field(default_factory=list)
+    #: `None` quando a fonte ainda não anexou o boletim, ou nunca o anexa (ver `Boletim`)
+    boletim: "Boletim | None" = None
 
     @property
     def tem_cronologia(self) -> bool:
         """B1.9d: a app usa isto para não abrir uma tab vazia."""
         marcadores = {"fim_jogo", "inicio_parte", "fim_parte", "por_iniciar"}
         return any(e.tipo not in marcadores for e in self.cronologia)
+
+
+@dataclass(frozen=True)
+class Parcial:
+    """O resultado num momento do jogo: cada parte, o prolongamento, os grandes penalidades."""
+    nome: str
+    casa: int | None
+    fora: int | None
+
+
+@dataclass(frozen=True)
+class Boletim:
+    """O boletim oficial (`#acta`) — o documento que as equipas assinam no fim.
+
+    Existe quase sempre — 207 das 216 fichas publicadas a 03/10, **em todos os escalões** —
+    mas não desde o início: **só aparece depois do apito final**, e nem logo. Medido a 02/10
+    com a sonda: a ficha saltou 41 915 bytes **seis minutos** depois do "Jogo Terminado".
+    Das nove que faltam, seis são jogos que a fonte nunca fechou.
+
+    Por isso o parser devolve `None` em vez de um objecto vazio: quem consome tem de decidir
+    o que mostrar, e "não há" é diferente de "está tudo a zeros".
+    """
+    #: papel → nome, só os que estão preenchidos (cronometrista, delegado técnico, …)
+    oficiais: dict[str, str] = field(default_factory=dict)
+    parciais: list[Parcial] = field(default_factory=list)
+    #: faltas de equipa por parte, que a ficha só dá somadas
+    faltas_casa: list[int] = field(default_factory=list)
+    faltas_fora: list[int] = field(default_factory=list)
+    inicio: list[str] = field(default_factory=list)
+    termo: list[str] = field(default_factory=list)
+    capitao_casa: str | None = None
+    capitao_fora: str | None = None
 
 
 # --- classificação ---------------------------------------------------------

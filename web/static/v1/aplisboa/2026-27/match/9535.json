@@ -638,6 +638,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE BENEDI",
+   "Árbitro Auxiliar": "HENRIQUE GOMES",
+   "Cronometrista": "JOSE RODRIGUES",
+   "Diretor de campo": "CARLOS POTIER",
+   "Gestor de segurança": "LUIS PAULINO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 5
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 7
+   }
+  ],
+  "faltas_casa": [
+   1,
+   0
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "13:45",
+   "14:22"
+  ],
+  "termo": [
+   "14:12",
+   "14:44"
+  ],
+  "capitao_casa": "DIOGO POTIER",
+  "capitao_fora": "MÁRIO SILVA"
+ },
  "competicao_id": 446,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",

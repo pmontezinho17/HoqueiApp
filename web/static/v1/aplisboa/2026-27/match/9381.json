@@ -620,6 +620,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "TIAGO ALVES",
+   "Árbitro Auxiliar": "JOÃO DIAS",
+   "Cronometrista": "JUAN HERNANDEZ",
+   "Diretor de campo": "PAULO PEREIRA",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   3,
+   3
+  ],
+  "faltas_fora": [
+   0,
+   2
+  ],
+  "inicio": [
+   "15:45",
+   "16:11"
+  ],
+  "termo": [
+   "16:06",
+   "16:30"
+  ],
+  "capitao_casa": "JOÃO NEGRÃO",
+  "capitao_fora": "MIGUEL REIMÃO"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "3ª JORNADA",

@@ -713,6 +713,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "GONÇALO RAMIRES",
+   "Árbitro Auxiliar": "LUIS PAULINO",
+   "Cronometrista": "RUI GONÇALVES",
+   "Diretor de campo": "ANA TORRAO",
+   "Gestor de segurança": "PAULO TORRAO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   2,
+   1
+  ],
+  "faltas_fora": [
+   3,
+   2
+  ],
+  "inicio": [
+   "18:00",
+   "18:32"
+  ],
+  "termo": [
+   "18:27",
+   "19:00"
+  ],
+  "capitao_casa": "SALVADOR LUIS",
+  "capitao_fora": "SANTIAGO FERREIRA"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "3ª JORNADA",

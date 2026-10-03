@@ -14,11 +14,11 @@ DTSTAMP:20261003T000000Z
 DTSTART:20261003T163000Z
 DTEND:20261003T180000Z
 SUMMARY:🏑 Sub-17 🏑 Criar-T GD vs Caco A
-LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
-DESCRIPTION:Criar-T GD vs Caco A\nCAMP. REG. SUB-17 - 1ª FASE · Série B 
- · SUB-17\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoquei.pages.dev
- /jogo/9677\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
+LOCATION:Pavilhão de Hóquei do CRIAR-T
+DESCRIPTION:Criar-T GD 1–3 Caco A\nCAMP. REG. SUB-17 - 1ª FASE · Série
+  B · SUB-17\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoquei.pages.
+ dev/jogo/9677\nDados da Associação de Patinagem de Lisboa. Site não ofi
+ cial.
 URL:https://hoquei.pages.dev/jogo/9677
 END:VEVENT
 BEGIN:VEVENT
@@ -27,7 +27,7 @@ DTSTAMP:20261010T000000Z
 DTSTART:20261010T140000Z
 DTEND:20261010T153000Z
 SUMMARY:🏑 Sub-17 🏑 Criar-T GD vs S Alenquer Benfica
-LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
+LOCATION:Pavilhão de Hóquei do CRIAR-T
 DESCRIPTION:Criar-T GD vs S Alenquer Benfica\nCAMP. REG. SUB-17 - 1ª FASE 
  · Série B · SUB-17\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoqu
  ei.pages.dev/jogo/9681\nDados da Associação de Patinagem de Lisboa. Site
@@ -52,7 +52,7 @@ DTSTAMP:20261017T000000Z
 DTSTART:20261017T170000Z
 DTEND:20261017T183000Z
 SUMMARY:🏑 Sub-17 🏑 Criar-T GD vs SL Benfica B
-LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
+LOCATION:Pavilhão de Hóquei do CRIAR-T
 DESCRIPTION:Criar-T GD vs SL Benfica B\nCAMP. REG. SUB-17 - 1ª FASE · Sé
  rie B · SUB-17\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoquei.pag
  es.dev/jogo/9685\nDados da Associação de Patinagem de Lisboa. Site não 
@@ -65,7 +65,7 @@ DTSTAMP:20261024T000000Z
 DTSTART:20261024T170000Z
 DTEND:20261024T183000Z
 SUMMARY:🏑 Sub-17 🏑 Criar-T GD vs FSE/AJ Salesiana B
-LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
+LOCATION:Pavilhão de Hóquei do CRIAR-T
 DESCRIPTION:Criar-T GD vs FSE/AJ Salesiana B\nCAMP. REG. SUB-17 - 1ª FASE 
  · Série B · SUB-17\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoqu
  ei.pages.dev/jogo/9690\nDados da Associação de Patinagem de Lisboa. Site
@@ -103,7 +103,7 @@ DTSTAMP:20261114T000000Z
 DTSTART:20261114T150000Z
 DTEND:20261114T163000Z
 SUMMARY:🏑 Sub-17 🏑 Criar-T GD vs CD Paço Arcos A
-LOCATION:PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T
+LOCATION:Pavilhão de Hóquei do CRIAR-T
 DESCRIPTION:Criar-T GD vs CD Paço Arcos A\nCAMP. REG. SUB-17 - 1ª FASE ·
   Série B · SUB-17\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoquei
  .pages.dev/jogo/9699\nDados da Associação de Patinagem de Lisboa. Site n
@@ -116,7 +116,7 @@ DTSTAMP:20261121T000000Z
 DTSTART:20261121T163000Z
 DTEND:20261121T180000Z
 SUMMARY:🏑 Sub-17 🏑 SL Benfica B vs Criar-T GD
-LOCATION:PAV. MURCHES
+LOCATION:Pavilhão Desportivo de Murches
 DESCRIPTION:SL Benfica B vs Criar-T GD\nCAMP. REG. SUB-17 - 1ª FASE · Sé
  rie B · SUB-17\nPAV. MURCHES\nhttps://hoquei.pages.dev/jogo/9700\nDados d
  a Associação de Patinagem de Lisboa. Site não oficial.

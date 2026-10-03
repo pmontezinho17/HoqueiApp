@@ -666,6 +666,49 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO AGULHAS",
+   "Árbitro Auxiliar": "FILIPA FERREIRA",
+   "Cronometrista": "ROGÉRIO NETO",
+   "Diretor de campo": "INES NOGUEIRA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 4
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 5
+   }
+  ],
+  "faltas_casa": [
+   2,
+   1
+  ],
+  "faltas_fora": [
+   0,
+   1
+  ],
+  "inicio": [
+   "09:00",
+   "09:24"
+  ],
+  "termo": [
+   "09:19",
+   "09:44"
+  ],
+  "capitao_casa": "MATIAS FELICIANO",
+  "capitao_fora": "ALEXANDRE FARIAS"
+ },
  "competicao_id": 441,
  "categoria": "SUB-15",
  "jornada": "QUARTOS FINAL",

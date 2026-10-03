@@ -622,6 +622,47 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO AGULHAS",
+   "Árbitro Auxiliar": "RUBEN DORDIO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 5
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 8
+   }
+  ],
+  "faltas_casa": [
+   1,
+   1
+  ],
+  "faltas_fora": [
+   0,
+   1
+  ],
+  "inicio": [
+   "16:33",
+   "16:59"
+  ],
+  "termo": [
+   "16:52",
+   "17:19"
+  ],
+  "capitao_casa": "HENRIQUE JANEIRO",
+  "capitao_fora": "MARIA DORDIO"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "3ª JORNADA",

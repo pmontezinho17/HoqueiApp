@@ -743,6 +743,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MIGUEL SOARES",
+   "Árbitro Auxiliar": "ANA CANEIRAS",
+   "Cronometrista": "HUGO BICA",
+   "Diretor de campo": "MONICA MARVAO",
+   "Gestor de segurança": "JOÃO VENTURA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 7,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 4,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 11,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   1,
+   1
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "17:46",
+   "18:20"
+  ],
+  "termo": [
+   "18:15",
+   "18:53"
+  ],
+  "capitao_casa": "DIOGO CAVACO",
+  "capitao_fora": "GONÇALO HERMENEGILDO"
+ },
  "competicao_id": 440,
  "categoria": "SUB-17",
  "jornada": "MEIA FINAL",

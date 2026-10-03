@@ -838,6 +838,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "LUORENÇO GONÇALVES",
+   "Árbitro Auxiliar": "Jessica felgueiras",
+   "Cronometrista": "DIOGO DUARTE",
+   "Diretor de campo": "LUIS LOPES",
+   "Gestor de segurança": "LUISA ROBALO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 12
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 9
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 21
+   }
+  ],
+  "faltas_casa": [
+   2,
+   3
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "14:01",
+   "14:37"
+  ],
+  "termo": [
+   "14:32",
+   "14:56"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
  "competicao_id": 466,
  "categoria": "BENJAMINS",
  "jornada": "1ª JORNADA",

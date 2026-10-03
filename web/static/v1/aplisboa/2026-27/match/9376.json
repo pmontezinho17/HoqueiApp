@@ -728,6 +728,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MATEUS LEHNERT",
+   "Árbitro Auxiliar": "JOANA BALOLA",
+   "Cronometrista": "JOAO POTRA",
+   "Diretor de campo": "HELENA ABREU",
+   "Gestor de segurança": "JOANA MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 4
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 6
+   }
+  ],
+  "faltas_casa": [
+   1,
+   1
+  ],
+  "faltas_fora": [
+   3,
+   1
+  ],
+  "inicio": [
+   "16:30",
+   "17:02"
+  ],
+  "termo": [
+   "16:57",
+   "17:24"
+  ],
+  "capitao_casa": "NANCY SOUSA",
+  "capitao_fora": "TIAGO SILVA"
+ },
  "competicao_id": 442,
  "categoria": "SUB-13",
  "jornada": "MEIA FINAL",

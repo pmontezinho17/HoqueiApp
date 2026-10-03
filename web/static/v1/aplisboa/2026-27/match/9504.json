@@ -680,6 +680,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO RILHAS",
+   "Árbitro Auxiliar": "JOSE BARROS",
+   "Cronometrista": "MARISA RAMOS",
+   "Diretor de campo": "Diogo Sousa",
+   "Gestor de segurança": "DAVID PINTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 4,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 9,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 13,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "14:30",
+   "15:05"
+  ],
+  "termo": [
+   "14:55",
+   "15:31"
+  ],
+  "capitao_casa": "SALVADOR MONTEZINHO",
+  "capitao_fora": "ANA RODRIGUES"
+ },
  "competicao_id": 445,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",

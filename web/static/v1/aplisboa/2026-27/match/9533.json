@@ -606,6 +606,50 @@
    "texto": "Jogo Terminado"
   }
  ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "LUORENÇO GONÇALVES",
+   "Árbitro Auxiliar": "SÍLVIA CARMO",
+   "Cronometrista": "SARA CRUZ",
+   "Diretor de campo": "JOSÉ VILELA",
+   "Gestor de segurança": "MARCO POVOA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   1,
+   2
+  ],
+  "faltas_fora": [
+   0,
+   1
+  ],
+  "inicio": [
+   "19:18",
+   "19:50"
+  ],
+  "termo": [
+   "19:40",
+   "20:20"
+  ],
+  "capitao_casa": "GABRIEL JOLIVET",
+  "capitao_fora": "MARIANA ARAUJO"
+ },
  "competicao_id": 446,
  "categoria": "SUB-13",
  "jornada": "1ª JORNADA",
