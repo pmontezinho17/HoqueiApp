@@ -24,7 +24,11 @@
 		// telefone do dono do projecto estava a 32%.
 		const puxar = () => {
 			if (document.visibilityState !== 'visible') return;
-			invalidate((url) => url.pathname.endsWith('/agenda.json'));
+			// A agenda alimenta as listas; a ficha alimenta o ecrã do jogo, com a cronologia.
+			// Só com a agenda, quem estivesse **dentro** de um jogo a decorrer — que é onde
+			// se está numa bancada — não via nada mexer.
+			invalidate((url) =>
+				url.pathname.endsWith('/agenda.json') || url.pathname.includes('/match/'));
 		};
 
 		const t = setInterval(puxar, periodo);
