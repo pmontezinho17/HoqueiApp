@@ -103,8 +103,8 @@
    "hora": "18:00:00",
    "casa": "A STRUART HCM",
    "fora": "PAREDE FC",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 3,
+   "golos_fora": 2,
    "recinto": "PAV.PROF.JOÃO CAMPELO"
   },
   {
@@ -155,15 +155,15 @@
      "posicao": 1,
      "equipa": "A STRUART HCM",
      "logo": "/intranet/logos/10.png",
-     "jogos": 2,
-     "vitorias": 2,
+     "jogos": 3,
+     "vitorias": 3,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 5,
-     "golos_sofridos": 2,
-     "diferenca": 3,
-     "racio": 2.5,
-     "pontos": 6
+     "golos_marcados": 8,
+     "golos_sofridos": 4,
+     "diferenca": 4,
+     "racio": 2.0,
+     "pontos": 9
     },
     {
      "posicao": 2,
@@ -197,14 +197,14 @@
      "posicao": 4,
      "equipa": "PAREDE FC",
      "logo": "/intranet/logos/3.png",
-     "jogos": 2,
+     "jogos": 3,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 2,
-     "golos_marcados": 3,
-     "golos_sofridos": 7,
-     "diferenca": -4,
-     "racio": 0.43,
+     "derrotas": 3,
+     "golos_marcados": 5,
+     "golos_sofridos": 10,
+     "diferenca": -5,
+     "racio": 0.5,
      "pontos": 0
     }
    ]

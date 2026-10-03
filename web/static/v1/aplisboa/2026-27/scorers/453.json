@@ -1,6 +1,6 @@
 {
  "competicao_id": 453,
- "jogos_considerados": 5,
+ "jogos_considerados": 6,
  "jogadores": [
   {
    "nome": "TIAGO BARATA",
@@ -42,19 +42,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO FERREIRA",
-   "equipa": "SL BENFICA A",
-   "jogos": 1,
-   "numero": "5",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ANTÓNIO PEREIRA",
    "equipa": "APAC TOJAL",
    "jogos": 2,
@@ -77,6 +64,19 @@
    "defesas": 0,
    "pontos": 2,
    "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO FERREIRA",
+   "equipa": "SL BENFICA A",
+   "jogos": 2,
+   "numero": "5",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -109,46 +109,7 @@
   {
    "nome": "AFONSO ANDRÉ",
    "equipa": "SL BENFICA A",
-   "jogos": 1,
-   "numero": "3",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ANDRÉ COSTA",
-   "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "9",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MANUEL SOUSA",
-   "equipa": "SL BENFICA A",
-   "jogos": 1,
-   "numero": "4",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RICARDO SILVA",
-   "equipa": "AE FISICA D B",
-   "jogos": 1,
+   "jogos": 2,
    "numero": "3",
    "golos": 1,
    "assistencias": 0,
@@ -163,6 +124,19 @@
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 2,
    "numero": "3",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANDRÉ COSTA",
+   "equipa": "AE FISICA D B",
+   "jogos": 2,
+   "numero": "9",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -211,6 +185,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MANUEL SOUSA",
+   "equipa": "SL BENFICA A",
+   "jogos": 2,
+   "numero": "4",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "NUNO ESTANISLAU",
    "equipa": "PAREDE FC",
    "jogos": 2,
@@ -228,6 +215,19 @@
    "equipa": "A STUART HCM",
    "jogos": 2,
    "numero": "74",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RICARDO SILVA",
+   "equipa": "AE FISICA D B",
+   "jogos": 2,
+   "numero": "3",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -265,7 +265,7 @@
   {
    "nome": "DIOGO ATAÍDE",
    "equipa": "SL BENFICA A",
-   "jogos": 1,
+   "jogos": 2,
    "numero": "7",
    "golos": 0,
    "assistencias": 1,
@@ -278,8 +278,8 @@
   {
    "nome": "RODRIGO GODINHO",
    "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "11",
+   "jogos": 2,
+   "numero": "6",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -289,23 +289,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO ROSÁRIO",
-   "equipa": "SL BENFICA A",
-   "jogos": 1,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ALEXANDRE FONSECA",
+   "nome": "AGOSTINHO SILVA",
    "equipa": "AE FISICA D B",
    "jogos": 1,
-   "numero": "5",
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -326,19 +313,6 @@
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 1
-  },
-  {
-   "nome": "ANDRÉ GOMES",
-   "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
   },
   {
    "nome": "ANTÓNIO OLIVEIRA",
@@ -458,10 +432,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "HUGO PEREIRA",
+   "nome": "JOSE MATA",
    "equipa": "SL BENFICA A",
    "jogos": 1,
-   "numero": "1",
+   "numero": "2",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -523,19 +497,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "LEONARDO JALECO",
-   "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "7",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MÁRIO FRANCISCO",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 1,
@@ -553,19 +514,6 @@
    "equipa": "APAC TOJAL",
    "jogos": 1,
    "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RAFAEL SANTOS",
-   "equipa": "SL BENFICA A",
-   "jogos": 1,
-   "numero": "9",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -614,49 +562,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "RODRIGO SANTOS",
-   "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SALVADOR BIZARRO",
-   "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "8",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "SANTIAGO FERREIRA",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 1,
    "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SANTIAGO VALENTE",
-   "equipa": "SL BENFICA A",
-   "jogos": 1,
-   "numero": "8",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -744,10 +653,75 @@
    "vermelhos": 0
   },
   {
+   "nome": "TOMÁS CAMACHO",
+   "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TOMÁS PRUDÊNCIO",
    "equipa": "PAREDE FC",
    "jogos": 1,
    "numero": "8",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VASCO SALVADOR",
+   "equipa": "SL BENFICA A",
+   "jogos": 1,
+   "numero": "6",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "AFONSO ROSÁRIO",
+   "equipa": "SL BENFICA A",
+   "jogos": 2,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ALEXANDRE FONSECA",
+   "equipa": "AE FISICA D B",
+   "jogos": 2,
+   "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANDRÉ GOMES",
+   "equipa": "AE FISICA D B",
+   "jogos": 2,
+   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -809,10 +783,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "HUGO PEREIRA",
+   "equipa": "SL BENFICA A",
+   "jogos": 2,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOSÉ GONÇALVES",
    "equipa": "A STUART HCM",
    "jogos": 2,
    "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LEONARDO JALECO",
+   "equipa": "AE FISICA D B",
+   "jogos": 2,
+   "numero": "7",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -848,6 +848,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "RAFAEL SANTOS",
+   "equipa": "SL BENFICA A",
+   "jogos": 2,
+   "numero": "9",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RODRIGO MARTINHO",
    "equipa": "A STUART HCM",
    "jogos": 2,
@@ -874,6 +887,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "RODRIGO SANTOS",
+   "equipa": "AE FISICA D B",
+   "jogos": 2,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SALVADOR BIZARRO",
+   "equipa": "AE FISICA D B",
+   "jogos": 2,
+   "numero": "8",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "SALVADOR CARDOSO",
    "equipa": "APAC TOJAL",
    "jogos": 2,
@@ -889,6 +928,19 @@
   {
    "nome": "SANTIAGO MARQUES",
    "equipa": "A STUART HCM",
+   "jogos": 2,
+   "numero": "8",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SANTIAGO VALENTE",
+   "equipa": "SL BENFICA A",
    "jogos": 2,
    "numero": "8",
    "golos": 0,

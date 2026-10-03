@@ -113,7 +113,7 @@
    "hora": "17:00:00",
    "casa": "CD PAÇO ARCOS A",
    "fora": "SC TORRES",
-   "golos_casa": 19,
+   "golos_casa": 24,
    "golos_fora": 0,
    "recinto": "PAV. PAÇO DE ARCOS"
   },
@@ -442,9 +442,9 @@
      "vitorias": 2,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 36,
+     "golos_marcados": 41,
      "golos_sofridos": 0,
-     "diferenca": 36,
+     "diferenca": 41,
      "racio": null,
      "pontos": 6
     },
@@ -513,9 +513,9 @@
      "empates": 0,
      "derrotas": 2,
      "golos_marcados": 1,
-     "golos_sofridos": 39,
-     "diferenca": -38,
-     "racio": 0.03,
+     "golos_sofridos": 44,
+     "diferenca": -43,
+     "racio": 0.02,
      "pontos": 0
     }
    ]

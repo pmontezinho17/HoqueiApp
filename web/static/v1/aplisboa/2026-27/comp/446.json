@@ -100,7 +100,7 @@
    "hora": "17:00:00",
    "casa": "AD OEIRAS B",
    "fora": "CACO B",
-   "golos_casa": 16,
+   "golos_casa": 17,
    "golos_fora": 0,
    "recinto": "PAV. A.D.OEIRAS"
   },
@@ -442,10 +442,10 @@
      "vitorias": 2,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 23,
+     "golos_marcados": 24,
      "golos_sofridos": 2,
-     "diferenca": 21,
-     "racio": 11.5,
+     "diferenca": 22,
+     "racio": 12.0,
      "pontos": 6
     },
     {
@@ -499,8 +499,8 @@
      "empates": 0,
      "derrotas": 2,
      "golos_marcados": 0,
-     "golos_sofridos": 18,
-     "diferenca": -18,
+     "golos_sofridos": 19,
+     "diferenca": -19,
      "racio": 0.0,
      "pontos": 0
     },

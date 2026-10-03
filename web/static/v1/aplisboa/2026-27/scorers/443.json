@@ -33,10 +33,23 @@
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 2,
    "numero": "4",
-   "golos": 8,
+   "golos": 9,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 8,
+   "pontos": 9,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "CARLOS ROCHA",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 2,
+   "numero": "6",
+   "golos": 7,
+   "assistencias": 4,
+   "defesas": 0,
+   "pontos": 11,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -55,6 +68,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "IVO MATOS",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 2,
+   "numero": "7",
+   "golos": 5,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 8,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "XAVIER LOPES",
    "equipa": "AD OEIRAS A",
    "jogos": 2,
@@ -63,32 +89,6 @@
    "assistencias": 0,
    "defesas": 0,
    "pontos": 5,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "CARLOS ROCHA",
-   "equipa": "CD PAÇO ARCOS A",
-   "jogos": 2,
-   "numero": "6",
-   "golos": 4,
-   "assistencias": 4,
-   "defesas": 0,
-   "pontos": 8,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "IVO MATOS",
-   "equipa": "CD PAÇO ARCOS A",
-   "jogos": 2,
-   "numero": "7",
-   "golos": 4,
-   "assistencias": 3,
-   "defesas": 0,
-   "pontos": 7,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0

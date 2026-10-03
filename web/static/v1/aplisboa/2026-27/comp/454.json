@@ -69,8 +69,8 @@
    "hora": "18:30:00",
    "casa": "AD OEIRAS A",
    "fora": "UD VILAFRANQUENSE",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 14,
+   "golos_fora": 0,
    "recinto": "PAV. A.D.OEIRAS"
   },
   {
@@ -301,17 +301,17 @@
    "linhas": [
     {
      "posicao": 1,
-     "equipa": "UD VILAFRANQUENSE",
-     "logo": "/intranet/logos/15.png",
-     "jogos": 1,
-     "vitorias": 1,
+     "equipa": "AD OEIRAS A",
+     "logo": "/intranet/logos/6.png",
+     "jogos": 2,
+     "vitorias": 2,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 22,
-     "golos_sofridos": 0,
-     "diferenca": 22,
-     "racio": null,
-     "pontos": 3
+     "golos_marcados": 20,
+     "golos_sofridos": 4,
+     "diferenca": 16,
+     "racio": 5.0,
+     "pontos": 6
     },
     {
      "posicao": 2,
@@ -329,16 +329,16 @@
     },
     {
      "posicao": 3,
-     "equipa": "AD OEIRAS A",
-     "logo": "/intranet/logos/6.png",
-     "jogos": 1,
+     "equipa": "UD VILAFRANQUENSE",
+     "logo": "/intranet/logos/15.png",
+     "jogos": 2,
      "vitorias": 1,
      "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 6,
-     "golos_sofridos": 4,
-     "diferenca": 2,
-     "racio": 1.5,
+     "derrotas": 1,
+     "golos_marcados": 22,
+     "golos_sofridos": 14,
+     "diferenca": 8,
+     "racio": 1.57,
      "pontos": 3
     },
     {
