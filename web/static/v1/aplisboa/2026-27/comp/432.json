@@ -407,12 +407,12 @@
    "grupo": null,
    "jornada": "FINAL FOUR - QUARTOS FINAL",
    "data": "2026-10-10",
-   "hora": "00:00:00",
+   "hora": "21:00:00",
    "casa": "-",
    "fora": "-",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": null
+   "recinto": "PAV. PAÇO DE ARCOS"
   },
   {
    "id": 9314,
@@ -420,12 +420,12 @@
    "grupo": null,
    "jornada": "FINAL FOUR - QUARTOS FINAL",
    "data": "2026-10-10",
-   "hora": "00:00:00",
+   "hora": "19:00:00",
    "casa": "-",
    "fora": "-",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": null
+   "recinto": "PAV. PAÇO DE ARCOS"
   },
   {
    "id": 9315,
@@ -433,12 +433,12 @@
    "grupo": null,
    "jornada": "FINAL FOUR - QUARTOS FINAL",
    "data": "2026-10-10",
-   "hora": "00:00:00",
+   "hora": "16:15:00",
    "casa": "-",
    "fora": "-",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": null
+   "recinto": "PAV. PAREDE"
   },
   {
    "id": 9316,
@@ -446,12 +446,12 @@
    "grupo": null,
    "jornada": "FINAL FOUR - QUARTOS FINAL",
    "data": "2026-10-10",
-   "hora": "00:00:00",
+   "hora": "18:15:00",
    "casa": "-",
    "fora": "-",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": null
+   "recinto": "PAV. PAREDE"
   },
   {
    "id": 9317,

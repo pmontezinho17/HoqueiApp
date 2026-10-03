@@ -56,7 +56,7 @@
 | B1.14 | GitHub Action com cron | must | M | ✅ 2h aos fins-de-semana, 6h nos dias úteis — ver nota de cadência |
 | B1.15 | Publicação dos JSON **no mesmo domínio da PWA** (Cloudflare Pages) | must | M | ✅ mesmo domínio da PWA, sem CORS |
 | B1.16 | `meta.json` com `generated_at` e estado | must | XS | ✅ |
-| B1.17 | Alerta de quebra do parser | should | S | aberto |
+| B1.17 | Alerta de quebra do parser | should | S | ✅ feito pelo B9.6 — a ronda falha e o GitHub manda email, em vez de publicar menos em silêncio |
 | B1.18 | Backfill de temporadas anteriores | could | M | aberto |
 | B1.19 | Crawl incremental das fichas de jogo | must | M | ✅ 2ª execução: 0 buscadas, 80 já actuais |
 | B1.20 | Agregação por jogador → `scorers/{comp}.json` | should | L | ✅ soma por (equipa, nome); 93 jogadores na Taça Jesus Correia |
@@ -544,11 +544,11 @@ Esta fase não é um refactor — é a peça que falta antes das notificações.
 | # | Item | Prioridade | Esforço | Notas |
 |---|---|---|---|---|
 | B9.1 | Esquema SQLite: `competicao`, `equipa`, `jogo`, `ficha`, `evento`, `jogador_jogo`, `classificacao_linha` | must | M | chaves naturais da fonte (`id_comp`, `id` do jogo), como já fazemos no JSON |
-| B9.2 | **`ronda`** — uma linha por execução do scraper, com contagens por tabela | must | S | é o que permite comparar rondas; sem isto não há histórico, há só um instantâneo |
+| B9.2 | **`ronda`** — uma linha por execução do scraper, com contagens por tabela | must | S | ✅ `scraper/src/hoquei/rondas.py` — 10 contagens por ronda em `data-samples/rondas/<tenant>.jsonl`, **fora** de `web/static/v1`: lá dentro, uma linha nova por ronda fazia a Action publicar de 2 em 2 horas para sempre. Só grava quando os números mudam |
 | B9.3 | Carregar a BD a partir do que o scraper já produz, sem tocar nos parsers | must | M | os parsers estão testados e não se mexem; isto é uma camada de persistência |
 | B9.4 | **Escrita versionada**: cada ronda insere, não substitui, com `visto_em`/`valido_ate` | must | M | é a decisão que cria o histórico. Sem ela, uma BD é um JSON mais caro |
 | B9.5 | Gerar o JSON de `/v1/` **a partir da BD** | must | M | mantém o contrato e a PWA inalterados |
-| B9.6 | **Guarda de qualidade**: a ronda falha se as contagens caírem acima de um limiar | must | S | apanhava o bug das 9-vs-10 colunas (256 de 307 linhas) na ronda seguinte, em vez de 11 dias depois |
+| B9.6 | **Guarda de qualidade**: a ronda falha se as contagens caírem acima de um limiar | must | S | ✅ a ronda sai com **código 2** se uma contagem cair >5%, e os passos de comitar e publicar não correm. Verificado a simular a avaria de Setembro: `jogos: 4800 → 801 (83% a menos)` e saída 2. Válvula `--sem-guarda` para quando a queda é real |
 | B9.7 | `events.json` gerado por diff entre rondas (adiamentos, mudanças de recinto, golos) | should | M | **desbloqueia a Fase 5**; substitui o `events.json` que o plano assumia |
 | B9.8 | Guardar a BD entre execuções do Action (artefacto ou R2) | must | S | um Action é efémero; sem isto o histórico morre a cada ronda |
 | B9.9 | Histórico de classificação na app — "era 3º, subiu a 1º" | could | M | o primeiro ganho visível para o utilizador, e só possível com B9.4 |
@@ -691,7 +691,7 @@ que melhor protege o que já temos, e são meio dia de trabalho.)
 | **Desenhar para a plataforma errada** | Médio | O W4.12 saiu com um botão que não funciona no Android — o sistema mais usado pelos utilizadores-alvo — porque foi pensado a partir do que o `webcal:` faz no Mac. Antes de dar por feito algo que depende do sistema operativo, verificar em qual deles corre quem vai usar |
 | Âmbito a crescer antes da v1 | Alto | Fase 8 existe para isso |
 | Crawl das fichas a crescer | Médio | Crawl incremental obrigatório (B1.19) |
-| **Mudança silenciosa na fonte: o parser não falha, só devolve menos** | **Alto** | Aconteceu (9-vs-10 colunas, 83% das linhas perdidas, 11 dias sem ninguém dar por isso). Mitigação real é a guarda de contagens entre rondas — B9.2 + B9.6 |
+| ~~Mudança silenciosa na fonte: o parser não falha, só devolve menos~~ | ~~Alto~~ | ✅ **mitigado a 03/10** pelo B9.2 + B9.6: a ronda compara-se com a anterior e falha se uma contagem cair >5%. Era o risco mais provável do projecto e o único que já se tinha concretizado |
 | **Escrever por cima a cada ronda: não há passado** | Médio | Fase 9 (B9.4). Sem histórico não há notificações nem auditoria |
 
 ---

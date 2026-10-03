@@ -26,6 +26,7 @@ from .grupos import identificar
 from .ics import feed, nome_ficheiro
 from .recintos import conhecidas
 from .quadros import agregar
+from .rondas import TOLERANCIA, contar, diario_de, quedas, registar, ultima
 
 
 def _temporada_corrente(fonte: Fonte) -> int:
@@ -429,6 +430,31 @@ def comando_publicar(args) -> int:
         "feeds_ics": len(escritos),
     }, ensure_ascii=False, indent=1))
 
+    # B9.2 + B9.6 — a guarda contra uma perda silenciosa. Corre **depois** de escrever:
+    # as contagens saem dos ficheiros, e no CI o runner é descartável, por isso dados
+    # suspeitos ficam lá sem nunca serem comitados nem publicados.
+    diario = (pathlib.Path(args.rondas).resolve() if args.rondas
+              else diario_de(destino, args.tenant))
+    agora_cont = contar(destino)
+    antes = ultima(diario)
+    suspeitas = quedas(antes, agora_cont, args.tolerancia) if antes else []
+
+    if suspeitas and not args.sem_guarda:
+        print("\n*** RONDA SUSPEITA — nada foi registado ***", file=sys.stderr)
+        for s in suspeitas:
+            print(f"    {s}", file=sys.stderr)
+        print("\nAs contagens desta fonte só crescem ao longo da época. Uma queda é quase",
+              file=sys.stderr)
+        print("sempre um parser a devolver menos sem se queixar — foi o que aconteceu em",
+              file=sys.stderr)
+        print("Setembro, 256 linhas a menos durante 11 dias. Verificar antes de publicar.",
+              file=sys.stderr)
+        print("Se a queda for real, repetir com --sem-guarda.", file=sys.stderr)
+        return 2
+
+    if registar(diario, agora_cont, args.tenant):
+        print(f"ronda registada em {diario.name}", file=sys.stderr)
+
     nota = f"{restritas} sem dados individuais" if args.anonimizar_formacao else "nomes em todos os escalões"
     print(f"\nemblemas: {novos_emb} convertidos, {emb_existentes} já existentes")
     print(f"feeds de calendário: {len(escritos)}")
@@ -460,6 +486,12 @@ def main(argv=None) -> int:
     b.add_argument("--destino", required=True)
     b.add_argument("--emblemas", default=None,
                    help="pasta dos emblemas (default: <destino>/../../../emblemas)")
+    b.add_argument("--rondas", default=None,
+                   help="diário das contagens (default: data-samples/rondas/<tenant>.jsonl)")
+    b.add_argument("--tolerancia", type=float, default=TOLERANCIA,
+                   help=f"queda relativa aceitável numa contagem (default {TOLERANCIA})")
+    b.add_argument("--sem-guarda", action="store_true",
+                   help="publicar mesmo com contagens a cair — usar quando a queda é real")
     b.add_argument("--anonimizar-formacao", action="store_true",
                    help="omitir nomes de atletas, árbitros e equipa técnica abaixo de sub-17")
     b.set_defaults(func=comando_publicar)

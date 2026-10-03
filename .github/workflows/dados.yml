@@ -35,6 +35,9 @@ jobs:
         working-directory: scraper
         run: uv run pytest -q
 
+      # B9.6: se as contagens caírem acima do limiar, este passo sai com 2 e os passos
+      # seguintes não correm — nem comita, nem publica. O runner é descartável, por isso
+      # os dados suspeitos morrem aqui. O diário fica em data-samples/rondas/.
       - name: Regenerar /v1
         working-directory: scraper
         run: uv run python -m hoquei.cli publicar --tenant aplisboa --destino ../web/static/v1/aplisboa/2026-27
@@ -54,7 +57,10 @@ jobs:
           echo "mudou=true" >> "$GITHUB_OUTPUT"
           git config user.name  "hoquei-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add web/static/v1
+          # O diário das contagens vai no mesmo commit, mas **fora** de web/static/v1:
+          # lá dentro, uma linha nova por ronda fazia a verificação acima ver sempre
+          # alterações e publicar de 2 em 2 horas para sempre.
+          git add web/static/v1 data-samples/rondas
           git commit -m "Dados: $(date -u '+%Y-%m-%d %H:%M') UTC [skip ci]"
           git push
 

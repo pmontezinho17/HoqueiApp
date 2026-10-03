@@ -113,12 +113,12 @@
    "grupo": null,
    "jornada": "MEIA FINAL",
    "data": "2026-10-11",
-   "hora": "00:00:00",
+   "hora": "16:30:00",
    "casa": "-",
    "fora": "-",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": null
+   "recinto": "PAV.PROF.JOÃO CAMPELO"
   },
   {
    "id": 9328,
@@ -126,12 +126,12 @@
    "grupo": null,
    "jornada": "MEIA FINAL",
    "data": "2026-10-11",
-   "hora": "00:00:00",
+   "hora": "18:30:00",
    "casa": "-",
    "fora": "-",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": null
+   "recinto": "PAV.PROF.JOÃO CAMPELO"
   },
   {
    "id": 9329,

@@ -133,6 +133,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "RAFAEL SANTOS",
+   "equipa": "SL BENFICA A",
+   "jogos": 2,
+   "numero": "9",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "AFONSO HELFRICH",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 2,
@@ -267,19 +280,6 @@
    "equipa": "SL BENFICA A",
    "jogos": 2,
    "numero": "7",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RAFAEL SANTOS",
-   "equipa": "SL BENFICA A",
-   "jogos": 2,
-   "numero": "9",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -909,7 +909,7 @@
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
-   "azuis": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
