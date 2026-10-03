@@ -214,7 +214,9 @@
 		<!-- sem filtro: o calendário mostra o mês da equipa inteiro, de todas as provas -->
 		<CalendarioMes {jogos} equipa={data.equipa} emblemas={data.emblemas} />
 		<div class="subscrever">
-			<AdicionarCalendario equipa={data.equipa} categoria={data.categoria} {jogos} />
+			<AdicionarCalendario
+				equipa={data.equipa} categoria={data.categoria} {jogos}
+				recintos={data.recintos} />
 		</div>
 	{:else}
 		{#if provas.length > 1}

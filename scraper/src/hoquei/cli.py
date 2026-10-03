@@ -23,6 +23,7 @@ from .privacidade import anonimizar_ficha, escalao_permite_individual
 from .emblemas import caminho_publico, garantir, id_do_logo
 from .grupos import identificar
 from .ics import feed, nome_ficheiro
+from .recintos import conhecidas
 from .quadros import agregar
 
 
@@ -264,6 +265,11 @@ def comando_publicar(args) -> int:
     for velho in pasta_ics.glob("*.ics"):       # equipas que desapareceram da época
         if velho.name not in escritos:
             velho.unlink()
+
+    # as moradas vão para a app porque os links de "adicionar ao calendário" são montados
+    # no browser; sem isto levavam o nome do recinto, que não geocodifica
+    (destino / "recintos.json").write_text(
+        json.dumps({"recintos": conhecidas()}, ensure_ascii=False, indent=1))
 
     (destino / "teams.json").write_text(json.dumps(
         {"equipas": [{"equipa": eq, "categoria": cat, "competicoes": sorted(ids)}

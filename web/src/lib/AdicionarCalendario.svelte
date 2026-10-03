@@ -8,8 +8,16 @@
 	let {
 		equipa,
 		categoria,
-		jogos
-	}: { equipa: string; categoria: string; jogos: Jogo[] } = $props();
+		jogos,
+		recintos = {}
+	}: {
+		equipa: string;
+		categoria: string;
+		jogos: Jogo[];
+		/** nome do recinto → morada. O nome sozinho não geocodifica: tocar na localização
+		 *  do evento não levava a lado nenhum. */
+		recintos?: Record<string, string>;
+	} = $props();
 
 	let aberta = $state(false);
 	let copiado = $state(false);
@@ -62,7 +70,7 @@
 		} else if (j.data) {
 			p.set('dates', `${j.data.replace(/-/g, '')}/${j.data.replace(/-/g, '')}`);
 		}
-		if (j.recinto) p.set('location', j.recinto);
+		if (j.recinto) p.set('location', recintos[j.recinto] ?? j.recinto);
 		const detalhes = [`${clube(j.casa)} vs ${clube(j.fora)}`];
 		if (j.id) detalhes.push(`https://hoquei.pages.dev/jogo/${j.id}`);
 		p.set('details', detalhes.join('\n'));

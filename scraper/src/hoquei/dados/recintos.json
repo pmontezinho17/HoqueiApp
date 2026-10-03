@@ -12,47 +12,47 @@
   ],
   "recintos": {
     "PAV. FÍSICA TORRES VEDRAS": {
-      "morada": null,
+      "morada": "Fisica Torres Vedras",
       "jogos": 79
     },
     "PAV. A.D.OEIRAS": {
-      "morada": null,
+      "morada": "Sports Association of Oeiras",
       "jogos": 65
     },
     "PAV. PAÇO DE ARCOS": {
-      "morada": "Av. Eng. Bonneville Franco, 2770-055 Paço de Arcos",
+      "morada": "Pavilhão do Clube Desportivo de Paço de Arcos (CDPA)",
       "jogos": 59
     },
     "PAV.C.A.C.OURIQUE": {
-      "morada": null,
+      "morada": "Clube Atlético de Campo de Ourique (CACO)",
       "jogos": 54
     },
     "PAV. VILAFRANQUENSE": {
-      "morada": null,
+      "morada": "Pavilhão José Mário Cerejo",
       "jogos": 53
     },
     "PAV.PROF.JOÃO CAMPELO": {
-      "morada": null,
+      "morada": "Pavilhão João Campelo - A. Stuart Hóquei Clube de Massamá",
       "jogos": 49
     },
     "PAV.G.S.SACAVENENSE": {
-      "morada": null,
+      "morada": "Pavilhão do Sacavenense ( Hóquei Formação SCP)",
       "jogos": 46
     },
     "PAV. SALESIANA": {
-      "morada": null,
+      "morada": "Salesianos do Estoril",
       "jogos": 43
     },
     "PAV. PAREDE": {
-      "morada": Av. Cmte. Gilberto Duarte e Duarte 210, São Domingos de Rana,
+      "morada": "Pavilhão Parede F.C.",
       "jogos": 41
     },
     "PAV. A.P.A.C.TOJAL": {
-      "morada": null,
+      "morada": "APAC Tojal - Associação de Patinagem Atlético Clube do Tojal",
       "jogos": 40
     },
     "PAV.S.ALENQUER E BENFICA": {
-      "morada": null,
+      "morada": "Sport Alenquer e Benfica",
       "jogos": 39
     },
     "PAV. GIMNO. DA LOURINHÃ": {
@@ -76,7 +76,7 @@
       "jogos": 18
     },
     "PAV. MAFRA": {
-      "morada": null,
+      "morada": "Pavilhão Clube Desportivo de Mafra",
       "jogos": 14
     },
     "PAV. VALADO DE FRADES": {

@@ -113,11 +113,20 @@ class TestEventos:
         assert p["DESCRIPTION"].startswith("CD Paço Arcos B 2–9 Parede FC B")
 
     def test_morada_do_recinto_quando_a_sabemos(self):
-        # sem morada, tocar na localização do evento não leva a lado nenhum
-        p = propriedades(cal("E", "SUB-13", [JOGO]))
-        assert p["LOCATION"].startswith("Av. Eng. Bonneville Franco")
+        """Sem morada, tocar na localização do evento não leva a lado nenhum.
+
+        O teste não fixa a morada: a lista é preenchida à mão e vai crescendo, e um teste
+        que trave a cada linha nova não guarda nada de útil. O que tem de valer sempre é
+        que um recinto conhecido sai como morada e não como nome.
+        """
+        from hoquei.recintos import conhecidas
+
+        recinto, morada = next(iter(conhecidas().items()))
+        p = propriedades(cal("E", "SUB-13", [dict(JOGO, recinto=recinto)]))
+        assert p["LOCATION"] == morada
+        assert p["LOCATION"] != recinto
         # e o nome do recinto não se perde — fica na descrição
-        assert "PAV. PAÇO DE ARCOS" in p["DESCRIPTION"]
+        assert recinto in p["DESCRIPTION"]
 
     def test_sem_morada_cai_no_nome_do_recinto(self):
         p = propriedades(cal("E", "SUB-13", [dict(JOGO, recinto="PAV. INVENTADO")]))

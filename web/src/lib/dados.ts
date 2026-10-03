@@ -13,6 +13,10 @@ async function json<T>(caminho: string, fetchFn: typeof fetch): Promise<T> {
 export const carregarIndice = (f: typeof fetch) =>
 	json<IndiceCompeticoes>(`${BASE}/competitions.json`, f);
 
+/** Moradas dos recintos: a fonte só publica o nome, que não geocodifica. */
+export const carregarRecintos = (f: typeof fetch) =>
+	json<{ recintos: Record<string, string> }>(`${BASE}/recintos.json`, f);
+
 export const carregarCompeticao = (id: number, f: typeof fetch) =>
 	json<FicheiroCompeticao>(`${BASE}/comp/${id}.json`, f);
 

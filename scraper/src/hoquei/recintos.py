@@ -28,6 +28,15 @@ def localizacao(recinto: str | None) -> str | None:
     return _MORADAS.get(recinto.strip()) or recinto
 
 
+def conhecidas() -> dict[str, str]:
+    """O mapa nome → morada, para publicar ao lado dos dados.
+
+    A app precisa dele: os links de "adicionar este jogo" são montados no browser, e sem
+    isto levavam o nome do recinto em vez da morada — a morada só chegava ao `.ics`.
+    """
+    return dict(_MORADAS)
+
+
 def por_preencher() -> list[str]:
     """Os recintos ainda sem morada — usado pelo teste que impede a lista de apodrecer."""
     todos = json.loads(_FICHEIRO.read_text(encoding="utf-8"))["recintos"]
