@@ -87,8 +87,8 @@
    "hora": "10:45:00",
    "casa": "FSE/AJ SALESIANA",
    "fora": "PAREDE FC A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 3,
    "recinto": "PAV. SALESIANA"
   },
   {
@@ -436,6 +436,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "PAREDE FC A",
+     "logo": "/intranet/logos/3.png",
+     "jogos": 2,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 16,
+     "golos_sofridos": 0,
+     "diferenca": 16,
+     "racio": null,
+     "pontos": 6
+    },
+    {
+     "posicao": 2,
      "equipa": "SPORTING CP A",
      "logo": "/intranet/logos/2.png",
      "jogos": 1,
@@ -445,20 +459,6 @@
      "golos_marcados": 14,
      "golos_sofridos": 0,
      "diferenca": 14,
-     "racio": null,
-     "pontos": 3
-    },
-    {
-     "posicao": 2,
-     "equipa": "PAREDE FC A",
-     "logo": "/intranet/logos/3.png",
-     "jogos": 1,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 13,
-     "golos_sofridos": 0,
-     "diferenca": 13,
      "racio": null,
      "pontos": 3
     },
@@ -480,14 +480,14 @@
      "posicao": 4,
      "equipa": "FSE/AJ SALESIANA",
      "logo": "/intranet/logos/9.png",
-     "jogos": 1,
+     "jogos": 2,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 1,
+     "derrotas": 2,
      "golos_marcados": 1,
-     "golos_sofridos": 6,
-     "diferenca": -5,
-     "racio": 0.17,
+     "golos_sofridos": 9,
+     "diferenca": -8,
+     "racio": 0.11,
      "pontos": 0
     },
     {

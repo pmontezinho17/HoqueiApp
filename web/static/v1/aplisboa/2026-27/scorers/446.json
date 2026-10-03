@@ -1,6 +1,6 @@
 {
  "competicao_id": 446,
- "jogos_considerados": 4,
+ "jogos_considerados": 5,
  "jogadores": [
   {
    "nome": "TIAGO RIBEIRO",
@@ -18,12 +18,12 @@
   {
    "nome": "MANUEL ANDRADE",
    "equipa": "SPORTING CP B",
-   "jogos": 1,
+   "jogos": 2,
    "numero": "5",
    "golos": 3,
-   "assistencias": 1,
+   "assistencias": 2,
    "defesas": 0,
-   "pontos": 4,
+   "pontos": 5,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -55,9 +55,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "SANTIAGO TOMÁS",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "numero": "6",
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TOMÁS PITA",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "7",
    "golos": 2,
    "assistencias": 1,
@@ -81,12 +94,12 @@
    "vermelhos": 0
   },
   {
-   "nome": "SANTIAGO TOMÁS",
+   "nome": "FRANCISCO GOMES",
    "equipa": "SPORTING CP B",
-   "jogos": 1,
-   "numero": "6",
-   "golos": 1,
-   "assistencias": 1,
+   "jogos": 2,
+   "numero": "9",
+   "golos": 2,
+   "assistencias": 0,
    "defesas": 0,
    "pontos": 2,
    "amarelos": 0,
@@ -96,7 +109,7 @@
   {
    "nome": "RODRIGO GARRANCHO",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "3",
    "golos": 1,
    "assistencias": 1,
@@ -172,19 +185,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "BALTASAR PELIZ",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 2,
-   "numero": "4",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIOGO SANTOS",
    "equipa": "PAREDE FC B",
    "jogos": 2,
@@ -202,6 +202,19 @@
    "equipa": "PAREDE FC B",
    "jogos": 2,
    "numero": "6",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "BALTASAR PELIZ",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 3,
+   "numero": "4",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -276,19 +289,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ALEXANDRE CLÉRIGO",
-   "equipa": "SPORTING CP B",
-   "jogos": 1,
-   "numero": "7",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ANDRE GOMES",
    "equipa": "PAREDE FC B",
    "jogos": 1,
@@ -328,10 +328,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DANIEL SIMÕES",
-   "equipa": "CACO B",
+   "nome": "ANTÓNIO CORREIA",
+   "equipa": "CD PAÇO ARCOS B",
    "jogos": 1,
-   "numero": "49",
+   "numero": "6",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -341,10 +341,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DINIS MADEIRA",
-   "equipa": "SPORTING CP B",
+   "nome": "DANIEL SIMÕES",
+   "equipa": "CACO B",
    "jogos": 1,
-   "numero": "1",
+   "numero": "49",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -380,19 +380,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO GOMES",
-   "equipa": "SPORTING CP B",
-   "jogos": 1,
-   "numero": "9",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GABRIEL JOLIVET",
    "equipa": "CACO B",
    "jogos": 1,
@@ -410,19 +397,6 @@
    "equipa": "CACO B",
    "jogos": 1,
    "numero": "7",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO SILVA",
-   "equipa": "SPORTING CP B",
-   "jogos": 1,
-   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -499,6 +473,19 @@
   {
    "nome": "JOAO MONTEIRO",
    "equipa": "AD OEIRAS B",
+   "jogos": 1,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOSÉ HENRIQUES",
+   "equipa": "SPORTING CP B",
    "jogos": 1,
    "numero": "10",
    "golos": 0,
@@ -601,10 +588,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO ALMEIDA",
+   "nome": "SIMÃO PEDRO",
    "equipa": "SPORTING CP B",
    "jogos": 1,
-   "numero": "8",
+   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -614,23 +601,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "VICENTE QUINTELA",
+   "nome": "ALEXANDRE CLÉRIGO",
    "equipa": "SPORTING CP B",
-   "jogos": 1,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DAVID LEU",
-   "equipa": "CD PAÇO ARCOS B",
    "jogos": 2,
-   "numero": "2",
+   "numero": "7",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DINIS MADEIRA",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -653,36 +640,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "FELIPE RODRIGUES",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 2,
-   "numero": "11",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "FILIPE SANTOS",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 2,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "FRANCISCO SANTOS",
    "equipa": "PAREDE FC B",
    "jogos": 2,
    "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GONÇALO SILVA",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -718,9 +692,74 @@
    "vermelhos": 0
   },
   {
+   "nome": "TIAGO ALMEIDA",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "numero": "8",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VICENTE QUINTELA",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DAVID LEU",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 3,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FELIPE RODRIGUES",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 3,
+   "numero": "11",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FILIPE SANTOS",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 3,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MARIA ROCHA",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "6",
    "golos": 0,
    "assistencias": 0,
