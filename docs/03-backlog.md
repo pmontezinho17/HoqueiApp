@@ -143,7 +143,7 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 | W4.10 | Partilhar jogo ou resultado (Web Share API) | should | S | Abre o menu de partilha nativo do telemóvel |
 | W4.15 | Vista Agenda, transversal às competições | should | L | ✅ `/agenda` com Próximos e Resultados, agrupado por dia, filtro "só as minhas equipas" ligado por omissão |
 | B4.16 | `agenda.json`: índice transversal de jogos para a vista Agenda | should | M | ✅ 791 jogos, 13,7 KB comprimido, num só pedido |
-| B4.11 | **Feed ICS por equipa**: `/v1/{tenant}/{season}/team/{id}.ics` | must | M | ✅ `scraper/src/hoquei/ics.py` + 21 testes, 214 feeds e 1582 eventos. **UID e DTSTAMP deterministas** — sem isso o calendário duplicava eventos em vez de os corrigir, e a app republicava a cada corrida do cron |
+| B4.11 | **Feed ICS por equipa**: `/v1/{tenant}/{season}/team/{id}.ics` | must | M | ✅ `scraper/src/hoquei/ics.py` + 21 testes, 214 feeds e 1582 eventos. **UID e DTSTAMP deterministas** — sem isso o calendário duplicava eventos em vez de os corrigir, e a app republicava a cada corrida do cron. ⚠️ **Na prática a subscrição não chegou a funcionar**: 24h depois, zero eventos no Google Calendar do dono do projecto. O feed está irrepreensível (200, `text/calendar`, sem bloqueio no robots, verificado com o user-agent do importador), por isso o problema é do lado da Google. O caminho fiável é o de um toque por jogo, que já é a acção principal |
 | W4.12 | Botão "Adicionar ao meu calendário" com o URL do feed + instruções | must | M | ✅ **validado em Android real a 03/10** — toque num jogo abre o Google Calendar preenchido e o Maps abre no sítio certo. Chegou lá à terceira: `webcal:` não existe no Android, o `.ics` ficava nas Transferências, e a subscrição só dá sinal horas depois |
 | W4.13 | Descarregar um jogo isolado como `.ics` | should | S | Ficheiro abre no calendário com data, hora e recinto |
 | B4.15 | **Moradas dos recintos** (`scraper/src/hoquei/dados/recintos.json`) | must | M | ✅ **28 de 29 preenchidas pelo dono do projecto a 03/10**, a cobrir 787 de 791 jogos. Falta o `PAV. MUN. ANTONIO DOS ANJOS` (4 jogos) |
@@ -408,7 +408,7 @@ apareciam no site móvel.
 | W6.6 | Selector de temporada no cabeçalho da competição | could | S | Passar para 2025/26 na própria página |
 | W6.7 | Destino Mais | should | M | ✅ `/mais` com dados, fonte, aviso de não-oficial e contacto para remoção de nome |
 | W6.8 | Interruptor `Todas as séries · Só a minha` | should | M | ✅ aparece quando se segue uma equipa do grupo; nunca funde tabelas |
-| W6.9 | **Legenda** das cores e marcadores da classificação | should | XS | Nenhum marcador de cor sem explicação, como a NHL faz |
+| W6.9 | **Legenda** das cores e marcadores da classificação | should | XS | ✅ legenda das colunas em `<details>`, nas duas páginas de classificação. O `title` de um `<abbr>` **não serve de nada num telemóvel**: só aparece ao passar o rato, e num telefone não há rato. Dez abreviaturas com a explicação escondida atrás de um gesto que não existe. **Reportado pelo utilizador**: "tem colunas que eu não entendo" |
 | W6.10 | Declaração de frescura mais explícita que o indicador actual de idade | could | XS | "Actualizado após cada jogo; dados de 1 out, 00:00" em vez de só "há 3 dias" |
 | W6.11 | Linha de jogo plana | should | S | ✅ separador de 1px, sem raio nem margem |
 | W6.12 | Competição no cabeçalho da secção | should | M | ✅ deixou de ser repetida em cada linha |

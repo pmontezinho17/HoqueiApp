@@ -262,11 +262,6 @@
 		<TabelaClassificacao
 			linhas={tabela.linhas} emblemas={data.emblemas} categoria={data.categoria}
 			{completa} destaque={(e) => e === data.equipa} assistencias={tabela.assist} />
-		<p class="nota">
-			As assistências não vêm da tabela oficial — são somadas das fichas de jogo, onde a
-			fonte as registra por defeito (451 em 1417 golos). Um <code>–</code> é uma equipa
-			sem fichas publicadas nesta prova, não um zero.
-		</p>
 		<a class="verProva" href={`/competicoes/${tabela.grupoId}`}>Ver a competição ›</a>
 	{/if}
 {:else}
@@ -368,7 +363,6 @@
 		border-radius: 8px; border: 1px solid var(--borda);
 		background: var(--cartao); color: inherit; }
 
-	.nota code { font-family: inherit; }
 	.verProva { display: inline-block; margin-top: 0.7rem; font-size: 0.74rem;
 		color: var(--acento); text-decoration: none; }
 
