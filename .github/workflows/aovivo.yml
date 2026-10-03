@@ -1,0 +1,61 @@
+name: Acompanhar jogos ao vivo
+
+# A sonda de 02/10 provou que a fonte reflecte os golos enquanto o jogo decorre, e a
+# medição de 03/10 — com o dono do projecto na bancada a cronometrar — deu ~20 s da mesa
+# mais ~15 s nossos. Menos de um minuto de ponta a ponta. Isto é o que torna esse minuto
+# possível sem ninguém à frente de um computador.
+#
+# Custo à fonte: um pedido por jogo a decorrer e por ronda. No pico da época são 15 jogos
+# à mesma hora, logo 15 pedidos por ronda de 45 s — uma média de um pedido a cada 3 s,
+# contra um jogo que a federação já está a publicar ao vivo no seu próprio site.
+on:
+  schedule:
+    # fins-de-semana: três janelas de ~4h a cobrir 10:00–22:00 WEST. Os jogos de 03/10
+    # começaram às 10:45 e acabaram depois das 21:00.
+    - cron: '0 9,13,17 * * 6,0'
+    - cron: '0 18 * * 5'        # sexta ao serão, onde há jornadas às 19:30
+  workflow_dispatch:
+    inputs:
+      minutos:
+        description: Duração máxima do ciclo
+        default: '235'
+      intervalo:
+        description: Segundos entre rondas
+        default: '45'
+
+concurrency:
+  group: aovivo
+  cancel-in-progress: false
+
+# Só leitura: este ciclo publica no CDN e **não** comita. Ver scripts/aovivo.sh.
+permissions:
+  contents: read
+
+jobs:
+  seguir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 250     # 235 de ciclo + margem para o build inicial
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      # O build completo corre uma vez; dentro do ciclo só se copiam os JSON, que poupa
+      # ~10 s por ronda e é tudo o que muda durante um jogo.
+      - name: Construir a PWA uma vez
+        working-directory: web
+        run: npm ci && npm run build
+
+      - name: Seguir os jogos
+        run: ./scripts/aovivo.sh
+        env:
+          MINUTOS: ${{ inputs.minutos || '235' }}
+          INTERVALO: ${{ inputs.intervalo || '45' }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

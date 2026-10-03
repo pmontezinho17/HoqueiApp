@@ -88,7 +88,7 @@
    "casa": "AD OEIRAS B",
    "fora": "AE FISICA D A",
    "golos_casa": 0,
-   "golos_fora": 0,
+   "golos_fora": 1,
    "recinto": "PAV. A.D.OEIRAS"
   },
   {
@@ -450,20 +450,6 @@
     },
     {
      "posicao": 2,
-     "equipa": "AD OEIRAS B",
-     "logo": "/intranet/logos/6.png",
-     "jogos": 2,
-     "vitorias": 1,
-     "empates": 1,
-     "derrotas": 0,
-     "golos_marcados": 8,
-     "golos_sofridos": 0,
-     "diferenca": 8,
-     "racio": null,
-     "pontos": 4
-    },
-    {
-     "posicao": 3,
      "equipa": "CACO B",
      "logo": "/intranet/logos/26.png",
      "jogos": 2,
@@ -477,18 +463,32 @@
      "pontos": 4
     },
     {
+     "posicao": 3,
+     "equipa": "AD OEIRAS B",
+     "logo": "/intranet/logos/6.png",
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 8,
+     "golos_sofridos": 1,
+     "diferenca": 7,
+     "racio": 8.0,
+     "pontos": 3
+    },
+    {
      "posicao": 4,
      "equipa": "AE FISICA D A",
      "logo": "/intranet/logos/11.png",
      "jogos": 2,
-     "vitorias": 0,
-     "empates": 1,
+     "vitorias": 1,
+     "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 2,
+     "golos_marcados": 3,
      "golos_sofridos": 3,
-     "diferenca": -1,
-     "racio": 0.67,
-     "pontos": 1
+     "diferenca": 0,
+     "racio": 1.0,
+     "pontos": 3
     },
     {
      "posicao": 5,

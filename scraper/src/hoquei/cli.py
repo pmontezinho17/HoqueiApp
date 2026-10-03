@@ -179,15 +179,20 @@ def comando_aovivo(args) -> int:
 
     acorda = [j for j in agenda if a_decorrer(j)]
     if not acorda:
+        # linha lida pelo ciclo que corre isto em CI: é por ela que sabe quando parar
+        print("a_decorrer=0")
         print("nenhum jogo a decorrer", file=sys.stderr)
         return 0
 
     por_id = {j["id"]: j for j in agenda}
     mudou = 0
+    por_fechar = 0
     provas_tocadas: set[int] = set()
     with Fonte(args.tenant) as fonte:
         for j in acorda:
             fx = ficha(fonte.jogo(j["id"]).html, j["id"])
+            if fx.estado != "Jogo Terminado":
+                por_fechar += 1
             if fx.golos_casa is None:
                 continue
             alvo = destino / "match" / f"{j['id']}.json"
@@ -238,7 +243,12 @@ def comando_aovivo(args) -> int:
         meta["generated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
         meta["ao_vivo"] = True
         meta_f.write_text(json.dumps(meta, ensure_ascii=False, indent=1))
-    print(f"{len(acorda)} jogos sondados, {mudou} com novidade", file=sys.stderr)
+    # `a_decorrer` conta os que a fonte ainda **não** fechou. O ciclo em CI pára por este
+    # número e não por "quantos mudaram": entre dois golos pode não mudar nada durante
+    # minutos, e desligar aí era desligar a meio do jogo.
+    print(f"a_decorrer={por_fechar}")
+    print(f"{len(acorda)} jogos sondados, {mudou} com novidade, "
+          f"{por_fechar} ainda a decorrer", file=sys.stderr)
     return 0
 
 

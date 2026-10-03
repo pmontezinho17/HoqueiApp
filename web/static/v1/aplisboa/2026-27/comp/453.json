@@ -87,7 +87,7 @@
    "hora": "21:00:00",
    "casa": "SL BENFICA A",
    "fora": "AE FISICA D B",
-   "golos_casa": 2,
+   "golos_casa": 3,
    "golos_fora": 0,
    "recinto": "PAV. MURCHES"
   },
@@ -442,9 +442,9 @@
      "vitorias": 2,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 6,
+     "golos_marcados": 7,
      "golos_sofridos": 0,
-     "diferenca": 6,
+     "diferenca": 7,
      "racio": null,
      "pontos": 6
     },
@@ -485,9 +485,9 @@
      "empates": 0,
      "derrotas": 1,
      "golos_marcados": 2,
-     "golos_sofridos": 3,
-     "diferenca": -1,
-     "racio": 0.67,
+     "golos_sofridos": 4,
+     "diferenca": -2,
+     "racio": 0.5,
      "pontos": 3
     },
     {

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import AutoRefrescar from '$lib/AutoRefrescar.svelte';
 	import AvisoVersao from '$lib/AvisoVersao.svelte';
 	import { pwaInfo } from 'virtual:pwa-info';
 
@@ -75,6 +76,7 @@
 	<p><a href="/mais">Sobre e contactos</a></p>
 </footer>
 
+<AutoRefrescar agenda={data.agenda} />
 <AvisoVersao />
 
 <style>
