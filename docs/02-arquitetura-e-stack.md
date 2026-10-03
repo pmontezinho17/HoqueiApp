@@ -56,7 +56,7 @@ Estas três não são detalhes — mudam itens concretos do backlog:
 
 | Perda | Consequência real |
 |---|---|
-| **Sem tópicos de push** | No Android nativo, o telefone subscreve um tópico FCM e **não é preciso servidor nenhum**. O Web Push (VAPID) não tem tópicos: cada browser tem um *endpoint* de subscrição que temos de guardar e a quem temos de enviar um a um. **Isto anula o argumento que dei antes de "notificações sem estado"** — na web, notificar exige mesmo um serviço com estado. |
+| **Sem tópicos de push** | No Android nativo, o telefone subscreve um tópico FCM e **não é preciso servidor nenhum**. O Web Push (VAPID) não tem tópicos: cada browser tem um *endpoint* de subscrição que temos de guardar e a quem temos de enviar um a um. **Isto anula o argumento que dei antes de "notificações sem estado"** — na web, notificar exige mesmo um serviço com estado. Estado, note-se, **não** identidade: ver Decisão 3. |
 | **Push no iPhone só depois de instalar** | O Web Push funciona em iOS 16.4+, **mas só se o utilizador adicionar ao ecrã principal**. E o iOS não tem API para sugerir a instalação — tem de ser ensinado na interface (Partilhar → Adicionar ao ecrã principal). |
 | **Sem escrita no calendário do telefone** | A web não tem API de calendário. O antigo item "adicionar todos os jogos de uma equipa ao calendário local" é **impossível**. Fica só o feed ICS subscritível — ver Decisão 4. |
 
@@ -73,15 +73,44 @@ e um ecrã de detalhe de jogo que se abre com link direto (deep link de graça).
 - **Kotlin + Compose** — a escolha anterior. Continua a ser a resposta certa *se e quando* a app
   precisar de execução em segundo plano, widgets ou integração profunda com o sistema.
 
-## Decisão 3 — Conta é opcional. Preferências são local-first. (revisto)
+## Decisão 3 — Não há login. (revisto a 03/10/2026)
 
-Os favoritos vivem no browser (`localStorage`) e o site é 100% utilizável sem nunca autenticar.
-O login com Google entra tarde e serve **uma coisa só**: recuperar favoritos noutro dispositivo.
+**O login com Google sai do plano.** Estava lá desde a primeira lista de funcionalidades, e
+quando o dono do projecto perguntou *"qual a mais-valia de ter um login, se a informação é
+pública?"* a resposta honesta foi: quase nenhuma.
 
-O que muda com a PWA: na web o login é **mais** simples (Google Identity Services, sem SDK nativo).
-Mas o argumento de que "as notificações não precisam de identidade" **deixa de ser verdade** —
-ver Decisão 2. Mesmo assim mantém-se a ordem: favoritos e calendário funcionam sem conta, e o
-primeiro componente com estado só aparece na fase das notificações.
+### O que o login dava, e o que custava
+
+Dava **uma coisa só**: recuperar favoritos noutro dispositivo. Para quem tem um telemóvel —
+a maioria dos pais que vão usar isto — vale zero.
+
+Custava: o **primeiro componente com estado** do projecto, o **primeiro dado pessoal** que
+passamos a guardar (um email, quando hoje não guardamos nada), ecrãs de eliminação de conta,
+uma política de privacidade mais pesada, e a manutenção de um consentimento OAuth que
+caduca. Trocar "nada guardado em servidor nenhum" por "sincronizar favoritos" é mau negócio.
+
+### A correcção de uma frase que sustentava o item
+
+A versão anterior desta decisão dizia que *"o argumento de que as notificações não precisam
+de identidade deixa de ser verdade"*. **Está errado, e era o que mantinha o login vivo.**
+
+As notificações precisam de **estado**, não de **identidade**. Uma subscrição de Web Push é
+um `endpoint` que o browser gera; guarda-se esse endpoint com as equipas que quer seguir, e
+envia-se para lá. O endpoint **é** o identificador. Nunca é preciso saber quem é a pessoa, e
+desligar as notificações apaga o registo. Confundi "guardar algo" com "ter contas".
+
+### E para o problema real — não perder os favoritos
+
+Quem muda de telefone, ou quer as mesmas equipas no telemóvel do cônjuge, não precisa de
+conta: precisa de **levar a lista consigo**. Um link que carrega os favoritos resolve isso
+sem servidor e sem dados pessoais:
+
+```
+/clube?seguir=sub-13:parede-fc-b,seniores-masculinos:cd-paco-arcos
+```
+
+Partilha-se por WhatsApp, que é por onde esta app se espalha, funciona offline depois de
+abrir, e não há nada para apagar depois. Fica como **W5.26**.
 
 ## Decisão 4 — O calendário é um feed ICS. Não havia escolha, e ainda bem. (nova)
 

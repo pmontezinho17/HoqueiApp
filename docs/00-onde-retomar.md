@@ -54,7 +54,7 @@ Das sete funcionalidades que pediste no Keep, **quatro estão feitas**, uma est�
 | Informação das fichas de jogo | 🟡 falta o boletim oficial (B1.9c) |
 | Adicionar ao calendário os jogos de um clube/escalão | ✅ **03/10, testado em Android real** — um toque por jogo, mais feed subscritível |
 | Notificações de alterações de jogos | ❌ Fase 5, a maior |
-| Entrar com conta Google | ❌ Fase 5 |
+| ~~Entrar com conta Google~~ | ❌ **retirado a 03/10** — ver Decisão 3 |
 
 ```
 1.  L7.4            política de privacidade

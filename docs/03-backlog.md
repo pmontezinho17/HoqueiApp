@@ -201,12 +201,13 @@ Local-first: funciona sem conta e sem rede depois da primeira visita.
 
 | ID | Item | Prio | Est. | Critério de aceitação |
 |---|---|---|---|---|
-| W5.16 | Login com Google (Google Identity Services) | should | M | Login e logout funcionam; o site continua utilizável sem |
-| W5.17 | **Nunca bloquear nada atrás do login** | must | S | Visita nova chega a todos os ecrãs sem autenticar |
-| B5.18 | Sincronizar favoritos na conta | should | L | Abrir noutro dispositivo e entrar recupera os favoritos |
-| W5.19 | Conflito entre favoritos locais e da conta no 1º login → união | should | M | Não perde escolhas locais |
-| L5.20 | Eliminação de conta e dados dentro da app | must | M | Apaga conta, subscrições e preferências |
-| L5.21 | Política de privacidade a cobrir conta e subscrições push | must | M | Coerente com o que o site faz |
+| W5.16 | Login com Google (Google Identity Services) | should | M | ❌ **retirado a 03/10.** Dava uma coisa só — favoritos noutro dispositivo — e custava o primeiro estado e o primeiro dado pessoal do projecto. Ver Decisão 3 |
+| W5.17 | **Nunca bloquear nada atrás do login** | must | S | ✅ por construção: sem login, nada pode estar atrás dele |
+| B5.18 | Sincronizar favoritos na conta | should | L | ❌ retirado com o W5.16. Substituído pelo W5.26, que resolve o mesmo sem conta |
+| W5.19 | Conflito entre favoritos locais e da conta no 1º login → união | should | M | ❌ sem login não há conflito a resolver |
+| L5.20 | Eliminação de conta e dados dentro da app | must | M | ❌ sem conta não há conta para eliminar. As subscrições de push apagam-se ao desligar as notificações |
+| L5.21 | Política de privacidade a cobrir conta e subscrições push | must | M | 🟡 a política existe (L7.4) e já diz que as notificações ainda não existem. Actualizar **antes** de elas funcionarem, com o endpoint de subscrição |
+| W5.26 | **Levar os favoritos num link**, em vez de os sincronizar numa conta | should | S | `/clube?seguir=sub-13:parede-fc-b,…` — partilha-se por WhatsApp, que é por onde esta app se espalha, e não há servidor nem dado pessoal nenhum. Resolve o problema real do W5.16 (mudar de telefone, telemóvel do cônjuge) sem nada do seu custo |
 
 ---
 
@@ -266,7 +267,7 @@ Muito mais leve do que o plano Android: sem loja, sem revisão, sem conta de pro
 
 | Funcionalidade pedida | Onde está | Fase |
 |---|---|---|
-| Entrar com conta Google | W5.16–W5.19, L5.20–L5.21 (opcional) | 5 |
+| Entrar com conta Google | ❌ **retirado a 03/10** — a pedido de quem o pediu, e com razão: a informação é pública e o login só dava sincronizar favoritos. Substituído pelo W5.26 | — |
 | Escolher equipas favoritas | W4.1, W4.3 (clube **e** escalão), W4.4, W4.6 | 4 |
 | Quadro com golos gerais | B1.19–B1.21, W3.8–W3.10 | 1 + 3 |
 | Informação das fichas de jogo | B1.9–B1.9d, W3.6–W3.6d | 1 + 3 |
