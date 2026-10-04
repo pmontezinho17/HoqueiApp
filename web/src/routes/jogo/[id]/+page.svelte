@@ -69,6 +69,17 @@
 <a class="voltar" href="/">← Jogos</a>
 
 <article class="cabecalho">
+	{#if aDecorrer}
+		<!-- Acima do resultado e em faixa própria. Estava debaixo dos números a 0,6rem —
+		     9 píxeis — e o utilizador disse que "desapareceu de todo". Num jogo a decorrer
+		     o período e o relógio são a segunda coisa mais importante do ecrã, depois do
+		     resultado: é o que diz se ainda há jogo para jogar. -->
+		<p class="aovivo">
+			<i aria-hidden="true"></i>AO VIVO
+			<strong>{f.periodo}</strong>{#if f.relogio}<span class="conta">{f.relogio}</span>{/if}
+		</p>
+	{/if}
+
 	<div class="placar">
 		<svelte:element this={f.categoria ? 'a' : 'span'}
 			href={f.categoria ? caminhoEquipa(f.casa, f.categoria) : null}
@@ -76,12 +87,7 @@
 			<Emblema equipa={f.casa} src={data.emblemas[f.casa]} tamanho={30} />
 			<span class="nome">{f.casa}</span>
 		</svelte:element>
-		<span class="numeros">
-			{f.golos_casa}<span class="tr">–</span>{f.golos_fora}
-			{#if aDecorrer}
-				<span class="relogio">{f.periodo}{f.relogio ? ` · ${f.relogio}` : ''}</span>
-			{/if}
-		</span>
+		<span class="numeros">{f.golos_casa}<span class="tr">–</span>{f.golos_fora}</span>
 		<svelte:element this={f.categoria ? 'a' : 'span'}
 			href={f.categoria ? caminhoEquipa(f.fora, f.categoria) : null}
 			class="equipa" class:venceu={(f.golos_fora ?? 0) > (f.golos_casa ?? 0)}>
@@ -177,8 +183,20 @@
 	.migalhas:hover, .migalhas:focus-visible { border-color: var(--acento); outline: none; }
 	.seta { color: var(--suave); }
 	.venceu { font-weight: 700; }
-	.relogio { display: block; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.03em;
-		color: var(--vivo); white-space: nowrap; }
+	.aovivo {
+		display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+		gap: 0.3rem 0.45rem; margin: 0 0 0.7rem; padding: 0.35rem 0.7rem;
+		font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;
+		color: var(--vivo); border: 1px solid var(--vivo); border-radius: 999px;
+	}
+	.aovivo i { width: 7px; height: 7px; border-radius: 50%; background: var(--vivo);
+		animation: pulsar 1.6s ease-in-out infinite; }
+	@keyframes pulsar { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+	@media (prefers-reduced-motion: reduce) { .aovivo i { animation: none; } }
+	.aovivo strong { font-weight: 700; letter-spacing: 0; }
+	/* o relógio em números tabulares, senão dança a cada segundo que muda de largura */
+	.aovivo .conta { font-size: 0.86rem; font-weight: 700; letter-spacing: 0;
+		font-variant-numeric: tabular-nums; }
 	.numeros { font-size: 1.7rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 	.tr { color: var(--suave); margin: 0 0.25rem; font-weight: 400; }
 	.meta { font-size: 0.74rem; color: var(--suave); margin: 0.5rem 0 0; }
