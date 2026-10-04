@@ -166,11 +166,6 @@ def _cabecalho(arvore, equipa_fora: str | None = None) -> dict:
     elif m := re.search(r"\b(\d{1,2})[.:](\d{2})\b", bruto):
         dados["hora"] = time(int(m.group(1)), int(m.group(2)))
 
-    # O período e o relógio de um jogo a decorrer. Antes vinham dentro do nome da prova,
-    # que ficava "1ª Parte (13:26) CAMP. REG. SUB-15…" nas migalhas.
-    if m := re.search(r"(\d+[ªa]\s*[Pp]arte)\s*\((\d{1,2}:\d{2})\)", bruto):
-        dados["periodo"] = m.group(1).replace("a ", "ª ").strip()
-        dados["relogio"] = m.group(2)
     if m := re.search(r"Recinto:\s*(.+?)\s*(?:[ÁA]rbitros?:|$)", bruto):
         dados["recinto"] = m.group(1).strip() or None
     if m := re.search(r"[ÁA]rbitros?:\s*(.+)$", bruto):
@@ -179,7 +174,25 @@ def _cabecalho(arvore, equipa_fora: str | None = None) -> dict:
         dados["arbitros"] = [a.strip() for a in lista.split(",") if a.strip()]
     faltas = [int(f) for c in bloco.css("div.box_faltas") if (f := _texto(c)).isdigit()]
     dados["faltas"] = tuple(faltas[:2]) if len(faltas) >= 2 else (None, None)
-    dados["competicao"] = _competicao(bruto, dados.get("estado"), equipa_fora)
+    # O bloco do resultado tem cinco <span> na mesma ordem em todos os estados do jogo:
+    #   casa | resultado | fora | SITUAÇÃO | COMPETIÇÃO
+    # A situação é a única fonte fiável do que está a acontecer: "1ª Parte (13:26)",
+    # "Intervalo", "Jogo Terminado", "Jogo sem começar". Antes eu apanhava-a com um padrão
+    # feito a partir de um exemplo — e ao intervalo a app ficava sem sinal nenhum de que o
+    # jogo estava a decorrer, com "Intervalo" a aparecer colado ao nome da prova.
+    spans = [s.text(strip=True) for s in bloco.css("span")]
+    if len(spans) >= 5:
+        dados["situacao"] = spans[3] or None
+        dados["competicao"] = spans[4] or None
+    else:                                   # estrutura inesperada: cai no texto corrido
+        dados["competicao"] = _competicao(bruto, dados.get("estado"), equipa_fora)
+
+    if (sit := dados.get("situacao")):
+        if m := re.search(r"(\d+[ªa]\s*[Pp]arte)\s*\((\d{1,2}:\d{2})\)", sit):
+            dados["periodo"], dados["relogio"] = m.group(1), m.group(2)
+        elif sit not in _ESTADOS and "come" not in sit.lower():
+            # "Intervalo", "Prolongamento" e companhia: período sem relógio
+            dados["periodo"] = sit
     return dados
 
 
@@ -278,6 +291,7 @@ def ficha(html: str, id_jogo: int) -> FichaJogo:
         recinto=cab.get("recinto"),
         arbitros=cab.get("arbitros", []),
         faltas=cab.get("faltas", (None, None)),
+        situacao=cab.get("situacao"),
         periodo=cab.get("periodo"),
         relogio=cab.get("relogio"),
         equipas=equipas,

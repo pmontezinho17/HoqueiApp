@@ -27,9 +27,17 @@
 	 * "Início da 1ª Parte", e era precisamente aí que o utilizador abria o jogo à procura
 	 * do que estava a acontecer — e não encontrava tab nenhuma.
 	 */
-	const aDecorrer = $derived(!!f.periodo && f.estado !== 'Jogo Terminado');
+	/** Nem terminado, nem por começar: está a acontecer alguma coisa.
+	 *
+	 *  A regra era "tem período", e o período vinha de um padrão que só reconhecia
+	 *  "Nª Parte (relógio)". Ao intervalo a app ficava **sem sinal nenhum** de que o jogo
+	 *  estava a decorrer — foi o que o utilizador viu. A fonte diz-o num campo próprio. */
+	const FECHADO = new Set(['Jogo Terminado', 'Jogo Suspendido', 'Jogo Adiado']);
+	const aDecorrer = $derived(
+		!!f.situacao && !FECHADO.has(f.situacao) && !/come[çc]ar/i.test(f.situacao)
+	);
 	/** Nem começou: a ficha que existe é a convocatória, e as colunas estão todas a zero. */
-	const porComecar = $derived(f.golos_casa === null && !aDecorrer);
+	const porComecar = $derived(!aDecorrer && /come[çc]ar/i.test(f.situacao ?? ''));
 	const temCronologia = $derived(
 		aDecorrer || f.cronologia.some((e) => !ESTRUTURA.has(e.tipo))
 	);
@@ -78,7 +86,7 @@
 		     resultado: é o que diz se ainda há jogo para jogar. -->
 		<p class="aovivo">
 			<i aria-hidden="true"></i>AO VIVO
-			<strong>{f.periodo}</strong>{#if f.relogio}<span class="conta">{f.relogio}</span>{/if}
+			<strong>{f.periodo ?? f.situacao}</strong>{#if f.relogio}<span class="conta">{f.relogio}</span>{/if}
 		</p>
 	{/if}
 

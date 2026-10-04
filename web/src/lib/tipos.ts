@@ -86,7 +86,9 @@ export interface FichaJogo {
 	equipas: EquipaFicha[];
 	cronologia: EventoJogo[];
 	boletim?: Boletim | null;
-	/** só num jogo a decorrer: "2ª Parte" e o relógio da fonte a contar */
+	/** o que a fonte diz estar a acontecer: "1ª Parte (13:26)", "Intervalo", "Jogo Terminado" */
+	situacao?: string | null;
+	/** só num jogo a decorrer: "2ª Parte" ou "Intervalo", e o relógio quando há */
 	periodo?: string | null;
 	relogio?: string | null;
 	/** presente e true quando o escalão é de formação e os nomes foram omitidos */

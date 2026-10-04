@@ -139,7 +139,10 @@ class FichaJogo:
     recinto: str | None
     arbitros: list[str] = field(default_factory=list)
     faltas: tuple[int | None, int | None] = (None, None)
-    #: só num jogo a decorrer: "2ª Parte" e o relógio que a fonte mostra a contar
+    #: o que a fonte diz estar a acontecer: "1ª Parte (13:26)", "Intervalo",
+    #: "Jogo Terminado", "Jogo sem começar". É daqui que sai tudo o resto.
+    situacao: str | None = None
+    #: só num jogo a decorrer: "2ª Parte" ou "Intervalo", e o relógio quando há
     periodo: str | None = None
     relogio: str | None = None
     equipas: list[EquipaFicha] = field(default_factory=list)
