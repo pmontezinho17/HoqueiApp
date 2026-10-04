@@ -98,6 +98,19 @@ nada:
 }
 ```
 
+Para provar que o token tem permissão para lançar workflows, **sem lançar nenhum**:
+
+```bash
+curl -s "https://hoquei-relogio.torneiopa.workers.dev/?verificar" | python3 -m json.tool
+```
+
+Pede o disparo sobre um ramo que não existe. Sem permissão, a GitHub responde 403 antes de
+olhar para o ramo; com permissão, chega a olhar e responde 422 *No ref found*. **Aqui o 422 é
+a boa notícia** e a resposta di-lo por palavras.
+
+Serve porque a prova a sério — um disparo verdadeiro — só aparece quando há jogos, e isso
+pode ser no dia seguinte.
+
 Para ver os disparos a acontecer em tempo real:
 
 ```bash

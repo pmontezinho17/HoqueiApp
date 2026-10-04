@@ -73,7 +73,7 @@ async function decidir(env, quando) {
   return { agora, razoes: precisamDeCobertura(JSON.parse(texto).jogos, agora) };
 }
 
-async function disparar(env) {
+async function disparar(env, ref = env.REF || 'main') {
   const url = `https://api.github.com/repos/${env.REPO}/actions/workflows/${env.WORKFLOW}/dispatches`;
   const r = await fetch(url, {
     method: 'POST',
@@ -84,7 +84,7 @@ async function disparar(env) {
       'user-agent': 'hoquei-relogio',
       'content-type': 'application/json',
     },
-    body: JSON.stringify({ ref: env.REF || 'main' }),
+    body: JSON.stringify({ ref }),
   });
   // 204 é o "aceite" da GitHub. Uma corrida que dispare com outra a correr fica **em
   // espera** pela `concurrency` do workflow, e arranca mal a primeira acabe — é esse
@@ -104,8 +104,28 @@ export default {
     })());
   },
 
-  /** Só para espreitar: diz o que faria agora, e não dispara nada. */
   async fetch(pedido, env) {
+    // `?verificar` prova que o token tem permissão para lançar workflows **sem lançar
+    // nenhum**: pede o disparo sobre um ramo que não existe. Sem permissão a GitHub
+    // responde 403 antes de olhar para o ramo; com permissão chega a olhar e responde 422
+    // "No ref found". Ou seja, aqui o 422 é a boa notícia.
+    //
+    // Era preciso porque a única prova real — um disparo a sério — só aparece quando há
+    // jogos, e num domingo à noite isso são 12 horas de espera para saber se um token
+    // está bem.
+    if (new URL(pedido.url).searchParams.has('verificar')) {
+      const r = await disparar(env, 'refs/heads/ramo-que-nao-existe-para-testar-o-token');
+      const pode = r.status === 422;
+      return Response.json({
+        token: pode ? 'pode lançar workflows' : 'NÃO pode lançar workflows',
+        http: r.status,
+        resposta: r.corpo.slice(0, 200),
+        nota: pode
+          ? 'o 422 é o esperado: a permissão está boa e o ramo de teste não existe, de propósito'
+          : 'um 403 aqui é falta da permissão Actions: Read and write — ver o README',
+      }, { status: pode ? 200 : 502, headers: { 'cache-control': 'no-store' } });
+    }
+
     const d = await decidir(env, new Date());
     return Response.json({
       agora: `${d.agora.data} ${d.agora.hora} Europe/Lisbon`,
