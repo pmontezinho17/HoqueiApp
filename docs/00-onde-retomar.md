@@ -1,7 +1,8 @@
 # Onde retomar
 
-**Última sessão:** 01/10/2026 · **Estado:** 🟢 https://hoquei.pages.dev — **reestruturado em três
-separadores** com base no benchmarking, e com as séries dos campeonatos regionais agrupadas.
+**Última sessão:** 04/10/2026 · **Estado:** 🟢 https://hoquei.pages.dev — três separadores,
+séries agrupadas, e o ecrã de jogo refeito a partir de dois vídeos que o Pedro gravou
+(theScore e Sofascore — ver [04-benchmarking.md](04-benchmarking.md)).
 
 ## A estrutura actual
 
@@ -25,6 +26,37 @@ separadores** com base no benchmarking, e com as séries dos campeonatos regiona
 **Porque três e não cinco:** ver [04-benchmarking.md](04-benchmarking.md). Nem a FotMob nem a
 Sofascore têm classificações ou marcadores como separadores de topo — vivem dentro da competição.
 E esconder navegação primária num menu corta a descoberta a metade (medido).
+
+## Feito a 04/10/2026, dos dois vídeos
+
+- **Arrastar o dedo muda de dia** na lista (`FaixaDias.svelte`), com os dias vizinhos em
+  posição absoluta e `overflow-x: clip` — não com um contentor de scroll, que roubava o
+  scroll vertical de um sábado com 41 jogos.
+- **Chips de escalão preenchidos** quando activos. A função já existia; faltava-lhe peso.
+- **Barra compacta colada ao topo do ecrã de jogo**, com resultado e relógio, a partir do
+  momento em que o cabeçalho sai do ecrã. É o que resolve de vez a queixa de que o relógio
+  desaparecia: é na cronologia que se passa o tempo, e é lá que o cabeçalho já não se vê.
+- **Caixa de informação do jogo** com ícones, incluindo a **morada com ligação ao mapa** —
+  tínhamos as moradas dos 29 recintos e só serviam o botão do calendário.
+- **Minuto do jogo na lista** (`3ª p / 7:42`, `Interv.`): a ronda ao vivo já tinha o período
+  e o relógio e não os escrevia na agenda. Zero pedidos extra. Guardado por `test_aovivo.py`.
+- **Resultado de entrada em cada parte** na cronologia (`2ª parte 4–5`).
+
+## Como ler um vídeo que o Pedro envia
+
+Esta máquina não tem `ffmpeg` nem skill de vídeo. O caminho é Swift compilado na hora:
+`AVAssetReader` para os fotogramas (**não** `AVAssetImageGenerator`, que encosta ao keyframe e
+devolve o mesmo fotograma várias vezes) e `SpeechTranscriber` do macOS 26 para o áudio, em
+`pt-PT`, tudo no aparelho. 65 s de vídeo = ~14 s. **O pedido real estava no áudio nas duas
+vezes** — nos fotogramas sozinhos classifiquei mal a prioridade.
+
+## Uma mudança só de código não se publica sozinha
+
+A `dados.yml` só constrói e publica **se os dados tiverem mudado** (`steps.commit.outputs.mudou`),
+e a `aovivo.yml` só publica quando há novidade num jogo. Um commit que mexa apenas em código
+fica no repositório sem chegar ao site até os dados mudarem por conta própria. A 04/10 publicou-se
+com `gh workflow run dados.yml`, que serviu porque havia resultados novos do dia. Vale a pena
+pensar numa publicação que não dependa disso.
 
 ## O que este ficheiro já não precisa de dizer
 
