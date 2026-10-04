@@ -50,7 +50,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": 0,
    "golos_fora": 8,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9754,
@@ -63,7 +64,8 @@
    "fora": "SPORTING CP A",
    "golos_casa": 2,
    "golos_fora": 3,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9755,
@@ -76,7 +78,8 @@
    "fora": "CACO B",
    "golos_casa": 1,
    "golos_fora": 1,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9756,
@@ -89,7 +92,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": 0,
    "golos_fora": 1,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9757,
@@ -102,7 +106,8 @@
    "fora": "HC SINTRA",
    "golos_casa": 2,
    "golos_fora": 1,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9758,
@@ -115,7 +120,8 @@
    "fora": "FSE/AJ SALESIANA A",
    "golos_casa": 15,
    "golos_fora": 2,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9759,
@@ -128,7 +134,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9760,
@@ -141,7 +148,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9761,
@@ -154,7 +162,8 @@
    "fora": "SPORTING CP A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9762,
@@ -167,7 +176,8 @@
    "fora": "SPORTING CP A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9763,
@@ -180,7 +190,8 @@
    "fora": "FSE/AJ SALESIANA A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9764,
@@ -193,7 +204,8 @@
    "fora": "CACO B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9765,
@@ -206,7 +218,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9766,
@@ -219,7 +232,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9767,
@@ -232,7 +246,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9768,
@@ -245,7 +260,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9769,
@@ -258,7 +274,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9770,
@@ -271,7 +288,8 @@
    "fora": "FSE/AJ SALESIANA A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9771,
@@ -284,7 +302,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9772,
@@ -297,7 +316,8 @@
    "fora": "CACO B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9773,
@@ -310,7 +330,8 @@
    "fora": "SPORTING CP A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9774,
@@ -323,7 +344,8 @@
    "fora": "FSE/AJ SALESIANA A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9775,
@@ -336,7 +358,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9776,
@@ -349,7 +372,8 @@
    "fora": "CACO B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9777,
@@ -362,7 +386,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9778,
@@ -375,7 +400,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9779,
@@ -388,7 +414,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9780,
@@ -401,7 +428,8 @@
    "fora": "CACO B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9781,
@@ -414,7 +442,8 @@
    "fora": "SPORTING CP A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9782,
@@ -427,7 +456,8 @@
    "fora": "FSE/AJ SALESIANA A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   }
  ],
  "classificacao": [

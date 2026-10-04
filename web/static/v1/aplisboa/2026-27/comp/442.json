@@ -110,7 +110,8 @@
    "fora": "CD MAFRA",
    "golos_casa": 15,
    "golos_fora": 0,
-   "recinto": "PAV. MAFRA"
+   "recinto": "PAV. MAFRA",
+   "ao_vivo": false
   },
   {
    "id": 9357,
@@ -123,7 +124,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": 1,
    "golos_fora": 9,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9360,
@@ -136,7 +138,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": 10,
    "golos_fora": 0,
-   "recinto": "PAV. MAFRA"
+   "recinto": "PAV. MAFRA",
+   "ao_vivo": false
   },
   {
    "id": 9363,
@@ -149,7 +152,8 @@
    "fora": "AE FISICA B",
    "golos_casa": 10,
    "golos_fora": 1,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9366,
@@ -162,7 +166,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": 7,
    "golos_fora": 1,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9369,
@@ -175,7 +180,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": 6,
    "golos_fora": 2,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9355,
@@ -188,7 +194,8 @@
    "fora": "AE FISICA A",
    "golos_casa": 1,
    "golos_fora": 7,
-   "recinto": "PAV. MAFRA"
+   "recinto": "PAV. MAFRA",
+   "ao_vivo": false
   },
   {
    "id": 9358,
@@ -201,7 +208,8 @@
    "fora": "PAREDE FC B",
    "golos_casa": 3,
    "golos_fora": 4,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9361,
@@ -214,7 +222,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": 0,
    "golos_fora": 11,
-   "recinto": "PAV. MAFRA"
+   "recinto": "PAV. MAFRA",
+   "ao_vivo": false
   },
   {
    "id": 9364,
@@ -227,7 +236,8 @@
    "fora": "PAREDE FC A",
    "golos_casa": 2,
    "golos_fora": 6,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9367,
@@ -240,7 +250,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": 0,
    "golos_fora": 18,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9370,
@@ -253,7 +264,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": 2,
    "golos_fora": 1,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9356,
@@ -266,7 +278,8 @@
    "fora": "HC SINTRA",
    "golos_casa": 2,
    "golos_fora": 8,
-   "recinto": "PAV. MAFRA"
+   "recinto": "PAV. MAFRA",
+   "ao_vivo": false
   },
   {
    "id": 9359,
@@ -279,7 +292,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": 5,
    "golos_fora": 1,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9362,
@@ -292,7 +306,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": 1,
    "golos_fora": 3,
-   "recinto": "PAV. MAFRA"
+   "recinto": "PAV. MAFRA",
+   "ao_vivo": false
   },
   {
    "id": 9365,
@@ -305,7 +320,8 @@
    "fora": "HC LOURINHA",
    "golos_casa": 1,
    "golos_fora": 4,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9368,
@@ -318,7 +334,8 @@
    "fora": "CACO B",
    "golos_casa": 9,
    "golos_fora": 2,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9371,
@@ -331,7 +348,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": 1,
    "golos_fora": 1,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9372,
@@ -344,7 +362,8 @@
    "fora": "AE FISICA A",
    "golos_casa": 0,
    "golos_fora": 3,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9373,
@@ -357,7 +376,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": 0,
    "golos_fora": 1,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9374,
@@ -370,7 +390,8 @@
    "fora": "PAREDE FC A",
    "golos_casa": 0,
    "golos_fora": 2,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9375,
@@ -383,7 +404,8 @@
    "fora": "SPORTING CP",
    "golos_casa": 0,
    "golos_fora": 4,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9376,
@@ -396,7 +418,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": 2,
    "golos_fora": 6,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9377,
@@ -409,7 +432,8 @@
    "fora": "SPORTING CP",
    "golos_casa": 0,
    "golos_fora": 4,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9378,
@@ -422,7 +446,8 @@
    "fora": "SPORTING CP",
    "golos_casa": 3,
    "golos_fora": 1,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   }
  ],
  "classificacao": [

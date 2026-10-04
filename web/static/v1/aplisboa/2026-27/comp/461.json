@@ -45,7 +45,8 @@
    "fora": "CACO A",
    "golos_casa": 0,
    "golos_fora": 5,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9906,
@@ -58,7 +59,8 @@
    "fora": "UD VILAFRANQUENSE A",
    "golos_casa": 2,
    "golos_fora": 9,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9907,
@@ -71,7 +73,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9908,
@@ -84,7 +87,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9909,
@@ -97,7 +101,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9910,
@@ -110,7 +115,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9911,
@@ -123,7 +129,8 @@
    "fora": "UD VILAFRANQUENSE A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9912,
@@ -136,7 +143,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9913,
@@ -149,7 +157,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9914,
@@ -162,7 +171,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9915,
@@ -175,7 +185,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9916,
@@ -188,7 +199,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9917,
@@ -201,7 +213,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9918,
@@ -214,7 +227,8 @@
    "fora": "UD VILAFRANQUENSE A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9919,
@@ -227,7 +241,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9920,
@@ -240,7 +255,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9921,
@@ -253,7 +269,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9922,
@@ -266,7 +283,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9923,
@@ -279,7 +297,8 @@
    "fora": "UD VILAFRANQUENSE A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9924,
@@ -292,7 +311,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   }
  ],
  "classificacao": []

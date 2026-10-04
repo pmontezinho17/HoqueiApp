@@ -50,7 +50,8 @@
    "fora": "AE FISICA D B",
    "golos_casa": 0,
    "golos_fora": 2,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9534,
@@ -63,7 +64,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": 1,
    "golos_fora": 4,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9535,
@@ -76,7 +78,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": 2,
    "golos_fora": 7,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9536,
@@ -89,7 +92,8 @@
    "fora": "PAREDE FC B",
    "golos_casa": 1,
    "golos_fora": 4,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9537,
@@ -102,7 +106,8 @@
    "fora": "CACO B",
    "golos_casa": 17,
    "golos_fora": 0,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9538,
@@ -115,7 +120,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": 11,
    "golos_fora": 0,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9539,
@@ -128,7 +134,8 @@
    "fora": "AE FISICA D B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9540,
@@ -141,7 +148,8 @@
    "fora": "CACO B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9541,
@@ -154,7 +162,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9542,
@@ -167,7 +176,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9543,
@@ -180,7 +190,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9544,
@@ -193,7 +204,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9545,
@@ -206,7 +218,8 @@
    "fora": "AE FISICA D B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9546,
@@ -219,7 +232,8 @@
    "fora": "CACO B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9547,
@@ -232,7 +246,8 @@
    "fora": "PAREDE FC B",
    "golos_casa": 2,
    "golos_fora": 9,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9548,
@@ -245,7 +260,8 @@
    "fora": "CACO B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9549,
@@ -258,7 +274,8 @@
    "fora": "PAREDE FC B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9550,
@@ -271,7 +288,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9551,
@@ -284,7 +302,8 @@
    "fora": "AE FISICA D B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9552,
@@ -297,7 +316,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9553,
@@ -310,7 +330,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9554,
@@ -323,7 +344,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9555,
@@ -336,7 +358,8 @@
    "fora": "PAREDE FC B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9556,
@@ -349,7 +372,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9557,
@@ -362,7 +386,8 @@
    "fora": "AE FISICA D B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9558,
@@ -375,7 +400,8 @@
    "fora": "CACO B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9559,
@@ -388,7 +414,8 @@
    "fora": "PAREDE FC B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9560,
@@ -401,7 +428,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9561,
@@ -414,7 +442,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9562,
@@ -427,7 +456,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   }
  ],
  "classificacao": [

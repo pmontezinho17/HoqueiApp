@@ -45,7 +45,8 @@
    "fora": "SL BENFICA A",
    "golos_casa": 1,
    "golos_fora": 6,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9634,
@@ -58,7 +59,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": 0,
    "golos_fora": 3,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9635,
@@ -69,10 +71,10 @@
    "hora": "11:00:00",
    "casa": "SL BENFICA A",
    "fora": "FSE/AJ SALESIANA",
-   "golos_casa": 0,
-   "golos_fora": 0,
+   "golos_casa": 4,
+   "golos_fora": 2,
    "recinto": "PAV. MURCHES",
-   "ao_vivo": true
+   "ao_vivo": false
   },
   {
    "id": 9636,
@@ -85,7 +87,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9637,
@@ -98,7 +101,8 @@
    "fora": "SL BENFICA A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9638,
@@ -111,7 +115,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9639,
@@ -124,7 +129,8 @@
    "fora": "A STUART HCM A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9640,
@@ -137,7 +143,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9641,
@@ -150,7 +157,8 @@
    "fora": "SL BENFICA A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9642,
@@ -163,7 +171,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9643,
@@ -176,7 +185,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9644,
@@ -189,7 +199,8 @@
    "fora": "A STUART HCM A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9645,
@@ -202,7 +213,8 @@
    "fora": "SL BENFICA A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9646,
@@ -215,7 +227,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9647,
@@ -228,7 +241,8 @@
    "fora": "A STUART HCM A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9648,
@@ -241,7 +255,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9649,
@@ -254,7 +269,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9650,
@@ -267,7 +283,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9651,
@@ -280,7 +297,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9652,
@@ -293,7 +311,8 @@
    "fora": "A STUART HCM A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   }
  ],
  "classificacao": [
@@ -304,15 +323,15 @@
      "posicao": 1,
      "equipa": "SL BENFICA A",
      "logo": "/intranet/logos/1.png",
-     "jogos": 1,
-     "vitorias": 1,
+     "jogos": 2,
+     "vitorias": 2,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 6,
-     "golos_sofridos": 1,
-     "diferenca": 5,
-     "racio": 6.0,
-     "pontos": 3
+     "golos_marcados": 10,
+     "golos_sofridos": 3,
+     "diferenca": 7,
+     "racio": 3.33,
+     "pontos": 6
     },
     {
      "posicao": 2,
@@ -332,14 +351,14 @@
      "posicao": 3,
      "equipa": "FSE/AJ SALESIANA",
      "logo": "/intranet/logos/9.png",
-     "jogos": 0,
+     "jogos": 1,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 0,
-     "golos_sofridos": 0,
-     "diferenca": 0,
-     "racio": null,
+     "derrotas": 1,
+     "golos_marcados": 2,
+     "golos_sofridos": 4,
+     "diferenca": -2,
+     "racio": 0.5,
      "pontos": 0
     },
     {

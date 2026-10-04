@@ -40,7 +40,8 @@
    "fora": "CD PAÇO ARCOS",
    "golos_casa": 2,
    "golos_fora": 3,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9346,
@@ -53,7 +54,8 @@
    "fora": "CACO",
    "golos_casa": 3,
    "golos_fora": 0,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9347,
@@ -66,7 +68,8 @@
    "fora": "SL BENFICA",
    "golos_casa": 1,
    "golos_fora": 3,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   }
  ],
  "classificacao": []

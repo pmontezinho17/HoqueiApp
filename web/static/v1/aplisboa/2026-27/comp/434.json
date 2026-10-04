@@ -130,7 +130,8 @@
    "fora": "CD MAFRA (B)",
    "golos_casa": 0,
    "golos_fora": 10,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9331,
@@ -143,7 +144,8 @@
    "fora": "HC TURQUEL (B)",
    "golos_casa": 9,
    "golos_fora": 5,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9332,
@@ -156,7 +158,8 @@
    "fora": "HC TURQUEL (E)",
    "golos_casa": 2,
    "golos_fora": 1,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9334,
@@ -169,7 +172,8 @@
    "fora": "CACO A (S13)",
    "golos_casa": 1,
    "golos_fora": 2,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9335,
@@ -182,7 +186,8 @@
    "fora": "CACO B (S13)",
    "golos_casa": 1,
    "golos_fora": 2,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9336,
@@ -195,7 +200,8 @@
    "fora": "CACO (S15)",
    "golos_casa": 2,
    "golos_fora": 0,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9337,
@@ -208,7 +214,8 @@
    "fora": "AA COIMBRA (S15)",
    "golos_casa": 7,
    "golos_fora": 2,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9338,
@@ -221,7 +228,8 @@
    "fora": "HC MEALHADA (S17)",
    "golos_casa": 3,
    "golos_fora": 1,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9339,
@@ -234,7 +242,8 @@
    "fora": "HC MEALHADA (S17)",
    "golos_casa": 9,
    "golos_fora": 1,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9340,
@@ -247,7 +256,8 @@
    "fora": "HC MEALHADA (S19)",
    "golos_casa": 6,
    "golos_fora": 1,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9341,
@@ -260,7 +270,8 @@
    "fora": "HC MEALHADA (S23)",
    "golos_casa": 5,
    "golos_fora": 3,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   }
  ],
  "classificacao": []

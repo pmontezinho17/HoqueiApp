@@ -40,7 +40,8 @@
    "fora": "SL BENFICA",
    "golos_casa": 4,
    "golos_fora": 3,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9349,
@@ -53,7 +54,8 @@
    "fora": "AE FISICA",
    "golos_casa": 3,
    "golos_fora": 2,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9350,
@@ -66,7 +68,8 @@
    "fora": "CD PAÇO ARCOS",
    "golos_casa": 4,
    "golos_fora": 1,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   }
  ],
  "classificacao": []

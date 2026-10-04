@@ -40,7 +40,8 @@
    "fora": "PAREDE FC",
    "golos_casa": 7,
    "golos_fora": 2,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9352,
@@ -53,7 +54,8 @@
    "fora": "AD OEIRAS",
    "golos_casa": 9,
    "golos_fora": 1,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9353,
@@ -66,7 +68,8 @@
    "fora": "SPORTING CP",
    "golos_casa": 4,
    "golos_fora": 3,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   }
  ],
  "classificacao": []

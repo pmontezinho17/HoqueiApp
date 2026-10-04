@@ -45,7 +45,8 @@
    "fora": "BIBLIOTECA IR A",
    "golos_casa": 8,
    "golos_fora": 3,
-   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO"
+   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO",
+   "ao_vivo": false
   },
   {
    "id": 9654,
@@ -58,7 +59,8 @@
    "fora": "SC TOMAR",
    "golos_casa": 2,
    "golos_fora": 15,
-   "recinto": "PAV. VALADO DE FRADES"
+   "recinto": "PAV. VALADO DE FRADES",
+   "ao_vivo": false
   },
   {
    "id": 9655,
@@ -71,7 +73,8 @@
    "fora": "HC TURQUEL",
    "golos_casa": 2,
    "golos_fora": 3,
-   "recinto": "PAV. VALADO DE FRADES"
+   "recinto": "PAV. VALADO DE FRADES",
+   "ao_vivo": false
   },
   {
    "id": 9656,
@@ -84,7 +87,8 @@
    "fora": "UF ENTRONCAMENTO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.JACOME RATTON"
+   "recinto": "PAV.JACOME RATTON",
+   "ao_vivo": false
   },
   {
    "id": 9657,
@@ -97,7 +101,8 @@
    "fora": "BIBLIOTECA IR A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VALADO DE FRADES"
+   "recinto": "PAV. VALADO DE FRADES",
+   "ao_vivo": false
   },
   {
    "id": 9658,
@@ -110,7 +115,8 @@
    "fora": "UF ENTRONCAMENTO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC TURQUEL"
+   "recinto": "PAV. HC TURQUEL",
+   "ao_vivo": false
   },
   {
    "id": 9659,
@@ -123,7 +129,8 @@
    "fora": "BIBLIOTECA IR B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO"
+   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO",
+   "ao_vivo": false
   },
   {
    "id": 9660,
@@ -136,7 +143,8 @@
    "fora": "SC TOMAR",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC TURQUEL"
+   "recinto": "PAV. HC TURQUEL",
+   "ao_vivo": false
   },
   {
    "id": 9661,
@@ -149,7 +157,8 @@
    "fora": "BIBLIOTECA IR A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.JACOME RATTON"
+   "recinto": "PAV.JACOME RATTON",
+   "ao_vivo": false
   },
   {
    "id": 9662,
@@ -162,7 +171,8 @@
    "fora": "HC TURQUEL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VALADO DE FRADES"
+   "recinto": "PAV. VALADO DE FRADES",
+   "ao_vivo": false
   },
   {
    "id": 9663,
@@ -175,7 +185,8 @@
    "fora": "UF ENTRONCAMENTO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VALADO DE FRADES"
+   "recinto": "PAV. VALADO DE FRADES",
+   "ao_vivo": false
   },
   {
    "id": 9664,
@@ -188,7 +199,8 @@
    "fora": "BIBLIOTECA IR B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.JACOME RATTON"
+   "recinto": "PAV.JACOME RATTON",
+   "ao_vivo": false
   },
   {
    "id": 9665,
@@ -201,7 +213,8 @@
    "fora": "BIBLIOTECA IR A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC TURQUEL"
+   "recinto": "PAV. HC TURQUEL",
+   "ao_vivo": false
   },
   {
    "id": 9666,
@@ -214,7 +227,8 @@
    "fora": "SC TOMAR",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO"
+   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO",
+   "ao_vivo": false
   },
   {
    "id": 9667,
@@ -227,7 +241,8 @@
    "fora": "BIBLIOTECA IR B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VALADO DE FRADES"
+   "recinto": "PAV. VALADO DE FRADES",
+   "ao_vivo": false
   },
   {
    "id": 9668,
@@ -240,7 +255,8 @@
    "fora": "HC TURQUEL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO"
+   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO",
+   "ao_vivo": false
   },
   {
    "id": 9669,
@@ -253,7 +269,8 @@
    "fora": "UF ENTRONCAMENTO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VALADO DE FRADES"
+   "recinto": "PAV. VALADO DE FRADES",
+   "ao_vivo": false
   },
   {
    "id": 9670,
@@ -266,7 +283,8 @@
    "fora": "HC TURQUEL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.JACOME RATTON"
+   "recinto": "PAV.JACOME RATTON",
+   "ao_vivo": false
   },
   {
    "id": 9671,
@@ -279,7 +297,8 @@
    "fora": "SC TOMAR",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VALADO DE FRADES"
+   "recinto": "PAV. VALADO DE FRADES",
+   "ao_vivo": false
   },
   {
    "id": 9672,
@@ -292,7 +311,8 @@
    "fora": "BIBLIOTECA IR B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC TURQUEL"
+   "recinto": "PAV. HC TURQUEL",
+   "ao_vivo": false
   }
  ],
  "classificacao": [

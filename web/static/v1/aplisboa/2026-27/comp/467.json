@@ -50,7 +50,8 @@
    "fora": "SPORTING CP",
    "golos_casa": 6,
    "golos_fora": 4,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 10062,
@@ -63,7 +64,8 @@
    "fora": "PAREDE FC",
    "golos_casa": 1,
    "golos_fora": 17,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 10063,
@@ -76,7 +78,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": 21,
    "golos_fora": 7,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 10064,
@@ -89,7 +92,8 @@
    "fora": "CACO B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 10065,
@@ -102,7 +106,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 10066,
@@ -115,7 +120,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 10067,
@@ -128,7 +134,8 @@
    "fora": "SPORTING CP",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 10068,
@@ -141,7 +148,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 10069,
@@ -154,7 +162,8 @@
    "fora": "PAREDE FC",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 10070,
@@ -167,7 +176,8 @@
    "fora": "PAREDE FC",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 10071,
@@ -180,7 +190,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 10072,
@@ -193,7 +204,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 10073,
@@ -206,7 +218,8 @@
    "fora": "SPORTING CP",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 10074,
@@ -219,7 +232,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 10075,
@@ -232,7 +246,8 @@
    "fora": "CACO B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 10076,
@@ -245,7 +260,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 10077,
@@ -258,7 +274,8 @@
    "fora": "CACO B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 10078,
@@ -271,7 +288,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 10079,
@@ -284,7 +302,8 @@
    "fora": "SPORTING CP",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 10080,
@@ -297,7 +316,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 10081,
@@ -310,7 +330,8 @@
    "fora": "PAREDE FC",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 10082,
@@ -323,7 +344,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 10083,
@@ -336,7 +358,8 @@
    "fora": "CACO B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 10084,
@@ -349,7 +372,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 10085,
@@ -362,7 +386,8 @@
    "fora": "SPORTING CP",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 10086,
@@ -375,7 +400,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 10087,
@@ -388,7 +414,8 @@
    "fora": "CACO B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 10088,
@@ -401,7 +428,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 10089,
@@ -414,7 +442,8 @@
    "fora": "PAREDE FC",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 10090,
@@ -427,7 +456,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   }
  ],
  "classificacao": []

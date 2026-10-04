@@ -45,7 +45,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": 4,
    "golos_fora": 6,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9734,
@@ -58,7 +59,8 @@
    "fora": "CD MAFRA",
    "golos_casa": 22,
    "golos_fora": 0,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9735,
@@ -71,7 +73,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": 14,
    "golos_fora": 0,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9736,
@@ -84,7 +87,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": 1,
    "golos_fora": 18,
-   "recinto": "PAV. MAFRA"
+   "recinto": "PAV. MAFRA",
+   "ao_vivo": false
   },
   {
    "id": 9737,
@@ -97,7 +101,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9738,
@@ -110,7 +115,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9739,
@@ -123,7 +129,8 @@
    "fora": "CD MAFRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MAFRA"
+   "recinto": "PAV. MAFRA",
+   "ao_vivo": false
   },
   {
    "id": 9740,
@@ -136,7 +143,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9741,
@@ -149,7 +157,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9742,
@@ -162,7 +171,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9743,
@@ -175,7 +185,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9744,
@@ -188,7 +199,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MAFRA"
+   "recinto": "PAV. MAFRA",
+   "ao_vivo": false
   },
   {
    "id": 9745,
@@ -201,7 +213,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9746,
@@ -214,7 +227,8 @@
    "fora": "CD MAFRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9747,
@@ -227,7 +241,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9748,
@@ -240,7 +255,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9749,
@@ -253,7 +269,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9750,
@@ -266,7 +283,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9751,
@@ -279,7 +297,8 @@
    "fora": "CD MAFRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9752,
@@ -292,7 +311,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   }
  ],
  "classificacao": [

@@ -45,7 +45,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": 0,
    "golos_fora": 16,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9946,
@@ -58,7 +59,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   },
   {
    "id": 9947,
@@ -71,7 +73,8 @@
    "fora": "SC TORRES",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9948,
@@ -84,7 +87,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9949,
@@ -97,7 +101,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9950,
@@ -110,7 +115,8 @@
    "fora": "A STUART HCM B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   },
   {
    "id": 9951,
@@ -123,7 +129,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9952,
@@ -136,7 +143,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9953,
@@ -149,7 +157,8 @@
    "fora": "A STUART HCM B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9954,
@@ -162,7 +171,8 @@
    "fora": "SC TORRES",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9955,
@@ -175,7 +185,8 @@
    "fora": "A STUART HCM B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9956,
@@ -188,7 +199,8 @@
    "fora": "SC TORRES",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9957,
@@ -201,7 +213,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   },
   {
    "id": 9958,
@@ -214,7 +227,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9959,
@@ -227,7 +241,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9960,
@@ -240,7 +255,8 @@
    "fora": "SC TORRES",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9961,
@@ -253,7 +269,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9962,
@@ -266,7 +283,8 @@
    "fora": "A STUART HCM B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9963,
@@ -279,7 +297,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9964,
@@ -292,7 +311,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   }
  ],
  "classificacao": []

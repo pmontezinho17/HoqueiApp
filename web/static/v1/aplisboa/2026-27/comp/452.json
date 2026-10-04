@@ -50,7 +50,8 @@
    "fora": "SL BENFICA B",
    "golos_casa": 5,
    "golos_fora": 3,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9674,
@@ -63,7 +64,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": 7,
    "golos_fora": 5,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9675,
@@ -76,7 +78,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": 0,
    "golos_fora": 4,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9676,
@@ -89,7 +92,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": 2,
    "golos_fora": 1,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9677,
@@ -102,7 +106,8 @@
    "fora": "CACO A",
    "golos_casa": 1,
    "golos_fora": 10,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9678,
@@ -115,7 +120,8 @@
    "fora": "FSE/AJ SALESIANA B",
    "golos_casa": 10,
    "golos_fora": 2,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9679,
@@ -128,7 +134,8 @@
    "fora": "SL BENFICA B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9680,
@@ -141,7 +148,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9681,
@@ -154,7 +162,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9682,
@@ -167,7 +176,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9683,
@@ -180,7 +190,8 @@
    "fora": "FSE/AJ SALESIANA B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9684,
@@ -193,7 +204,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9685,
@@ -206,7 +218,8 @@
    "fora": "SL BENFICA B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9686,
@@ -219,7 +232,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9687,
@@ -232,7 +246,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9688,
@@ -245,7 +260,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9689,
@@ -258,7 +274,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9690,
@@ -271,7 +288,8 @@
    "fora": "FSE/AJ SALESIANA B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9691,
@@ -284,7 +302,8 @@
    "fora": "SL BENFICA B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9692,
@@ -297,7 +316,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9693,
@@ -310,7 +330,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9694,
@@ -323,7 +344,8 @@
    "fora": "FSE/AJ SALESIANA B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9695,
@@ -336,7 +358,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9696,
@@ -349,7 +372,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9697,
@@ -362,7 +386,8 @@
    "fora": "SL BENFICA B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9698,
@@ -375,7 +400,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9699,
@@ -388,7 +414,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9700,
@@ -401,7 +428,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9701,
@@ -414,7 +442,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9702,
@@ -427,7 +456,8 @@
    "fora": "FSE/AJ SALESIANA B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   }
  ],
  "classificacao": [

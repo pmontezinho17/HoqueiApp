@@ -40,7 +40,8 @@
    "fora": "A STUART HCM",
    "golos_casa": 14,
    "golos_fora": 0,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9343,
@@ -53,7 +54,8 @@
    "fora": "CACO",
    "golos_casa": 3,
    "golos_fora": 4,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9344,
@@ -66,7 +68,8 @@
    "fora": "CACO",
    "golos_casa": 8,
    "golos_fora": 0,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   }
  ],
  "classificacao": []

@@ -45,7 +45,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": 1,
    "golos_fora": 2,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 9926,
@@ -58,7 +59,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": 3,
    "golos_fora": 3,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9927,
@@ -71,7 +73,8 @@
    "fora": "A STUART HCM A",
    "golos_casa": 3,
    "golos_fora": 2,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9928,
@@ -84,7 +87,8 @@
    "fora": "PAREDE FC A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9929,
@@ -97,7 +101,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9930,
@@ -110,7 +115,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9931,
@@ -123,7 +129,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9932,
@@ -136,7 +143,8 @@
    "fora": "PAREDE FC A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 9933,
@@ -149,7 +157,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 9934,
@@ -162,7 +171,8 @@
    "fora": "A STUART HCM A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9935,
@@ -175,7 +185,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9936,
@@ -188,7 +199,8 @@
    "fora": "A STUART HCM A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9937,
@@ -201,7 +213,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9938,
@@ -214,7 +227,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9939,
@@ -227,7 +241,8 @@
    "fora": "PAREDE FC A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9940,
@@ -240,7 +255,8 @@
    "fora": "A STUART HCM A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 9941,
@@ -253,7 +269,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9942,
@@ -266,7 +283,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9943,
@@ -279,7 +297,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9944,
@@ -292,7 +311,8 @@
    "fora": "PAREDE FC A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   }
  ],
  "classificacao": []

@@ -45,7 +45,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": 0,
    "golos_fora": 13,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9614,
@@ -58,7 +59,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": 5,
    "golos_fora": 0,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9615,
@@ -71,7 +73,8 @@
    "fora": "CACO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9616,
@@ -84,7 +87,8 @@
    "fora": "A STUART HCM B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9617,
@@ -97,7 +101,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9618,
@@ -110,7 +115,8 @@
    "fora": "A STUART HCM B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9619,
@@ -123,7 +129,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9620,
@@ -136,7 +143,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9621,
@@ -149,7 +157,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9622,
@@ -162,7 +171,8 @@
    "fora": "CACO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9623,
@@ -175,7 +185,8 @@
    "fora": "A STUART HCM B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9624,
@@ -188,7 +199,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9625,
@@ -201,7 +213,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9626,
@@ -214,7 +227,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9627,
@@ -227,7 +241,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9628,
@@ -240,7 +255,8 @@
    "fora": "CACO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9629,
@@ -253,7 +269,8 @@
    "fora": "A STUART HCM B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9630,
@@ -266,7 +283,8 @@
    "fora": "CACO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9631,
@@ -279,7 +297,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9632,
@@ -292,7 +311,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   }
  ],
  "classificacao": [

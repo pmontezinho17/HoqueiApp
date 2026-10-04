@@ -45,7 +45,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 10042,
@@ -58,7 +59,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": 2,
    "golos_fora": 21,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 10043,
@@ -71,7 +73,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 10044,
@@ -84,7 +87,8 @@
    "fora": "AE FISICA D B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 10045,
@@ -97,7 +101,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 10046,
@@ -110,7 +115,8 @@
    "fora": "AE FISICA D B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 10047,
@@ -123,7 +129,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 10048,
@@ -136,7 +143,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 10049,
@@ -149,7 +157,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 10050,
@@ -162,7 +171,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 10051,
@@ -175,7 +185,8 @@
    "fora": "AE FISICA D B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 10052,
@@ -188,7 +199,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 10053,
@@ -201,7 +213,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 10054,
@@ -214,7 +227,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 10055,
@@ -227,7 +241,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 10056,
@@ -240,7 +255,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 10057,
@@ -253,7 +269,8 @@
    "fora": "AE FISICA D B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 10058,
@@ -266,7 +283,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 10059,
@@ -279,7 +297,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 10060,
@@ -292,7 +311,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   }
  ],
  "classificacao": []

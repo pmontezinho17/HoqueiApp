@@ -85,7 +85,8 @@
    "fora": "AD OERIAS",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAVILHÃO JOÃO ROCHA"
+   "recinto": "PAVILHÃO JOÃO ROCHA",
+   "ao_vivo": false
   },
   {
    "id": 9445,
@@ -98,7 +99,8 @@
    "fora": "GDS CASCAIS",
    "golos_casa": 1,
    "golos_fora": 5,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 9447,
@@ -111,7 +113,8 @@
    "fora": "HC GRANDOLA",
    "golos_casa": 4,
    "golos_fora": 1,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9446,
@@ -124,7 +127,8 @@
    "fora": "BIBLIOTECA IR (SF)",
    "golos_casa": 3,
    "golos_fora": 2,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9452,
@@ -137,7 +141,8 @@
    "fora": "BIBLIOTECA IR (SF)",
    "golos_casa": 3,
    "golos_fora": 2,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9448,
@@ -150,7 +155,8 @@
    "fora": "CANDELARIA SC",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9449,
@@ -163,7 +169,8 @@
    "fora": "AA COIMBRA",
    "golos_casa": 8,
    "golos_fora": 5,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9450,
@@ -176,7 +183,8 @@
    "fora": "AA COIMBRA",
    "golos_casa": 5,
    "golos_fora": 4,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9451,
@@ -189,7 +197,8 @@
    "fora": "HC TURQUEL",
    "golos_casa": 3,
    "golos_fora": 1,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   }
  ],
  "classificacao": []

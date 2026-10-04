@@ -100,7 +100,8 @@
    "fora": "SPORTING CP B",
    "golos_casa": 0,
    "golos_fora": 6,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9382,
@@ -113,7 +114,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": 2,
    "golos_fora": 1,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 9385,
@@ -126,7 +128,8 @@
    "fora": "PAREDE FC",
    "golos_casa": 2,
    "golos_fora": 0,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9388,
@@ -139,7 +142,8 @@
    "fora": "SL BENFICA B",
    "golos_casa": 0,
    "golos_fora": 4,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9391,
@@ -152,7 +156,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": 2,
    "golos_fora": 4,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9394,
@@ -165,7 +170,8 @@
    "fora": "HC LOURINHA",
    "golos_casa": 2,
    "golos_fora": 1,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9380,
@@ -178,7 +184,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": 4,
    "golos_fora": 4,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9383,
@@ -191,7 +198,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": 2,
    "golos_fora": 4,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 9386,
@@ -204,7 +212,8 @@
    "fora": "AE FISICA A",
    "golos_casa": 0,
    "golos_fora": 17,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9389,
@@ -217,7 +226,8 @@
    "fora": "HC SINTRA",
    "golos_casa": 9,
    "golos_fora": 0,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9392,
@@ -230,7 +240,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": 4,
    "golos_fora": 1,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9395,
@@ -243,7 +254,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": 2,
    "golos_fora": 4,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9381,
@@ -256,7 +268,8 @@
    "fora": "AE FISICA B",
    "golos_casa": 3,
    "golos_fora": 1,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9384,
@@ -269,7 +282,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": 3,
    "golos_fora": 5,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 9387,
@@ -282,7 +296,8 @@
    "fora": "A STUART HCM B",
    "golos_casa": 6,
    "golos_fora": 2,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9390,
@@ -295,7 +310,8 @@
    "fora": "A STUART HCM A",
    "golos_casa": 5,
    "golos_fora": 1,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9393,
@@ -308,7 +324,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": 0,
    "golos_fora": 5,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9396,
@@ -321,7 +338,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": 1,
    "golos_fora": 6,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9397,
@@ -334,7 +352,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": 0,
    "golos_fora": 5,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9398,
@@ -347,7 +366,8 @@
    "fora": "SL BENFICA B",
    "golos_casa": 2,
    "golos_fora": 4,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9399,
@@ -360,7 +380,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": 3,
    "golos_fora": 2,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9400,
@@ -373,7 +394,8 @@
    "fora": "CACO",
    "golos_casa": 2,
    "golos_fora": 1,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9401,
@@ -386,7 +408,8 @@
    "fora": "SL BENFICA B",
    "golos_casa": 7,
    "golos_fora": 1,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9402,
@@ -399,7 +422,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": 2,
    "golos_fora": 5,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9403,
@@ -412,7 +436,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": 10,
    "golos_fora": 0,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   }
  ],
  "classificacao": [

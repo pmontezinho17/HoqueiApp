@@ -40,7 +40,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": 2,
    "golos_fora": 0,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9322,
@@ -53,7 +54,8 @@
    "fora": "HC SINTRA",
    "golos_casa": 2,
    "golos_fora": 4,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9323,
@@ -66,7 +68,8 @@
    "fora": "PAREDE FC",
    "golos_casa": 3,
    "golos_fora": 1,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9324,
@@ -79,7 +82,8 @@
    "fora": "A STRUART HCM",
    "golos_casa": 2,
    "golos_fora": 3,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9325,
@@ -92,7 +96,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9326,
@@ -105,7 +110,8 @@
    "fora": "PAREDE FC",
    "golos_casa": 3,
    "golos_fora": 2,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9327,
@@ -118,7 +124,8 @@
    "fora": "-",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9328,
@@ -131,7 +138,8 @@
    "fora": "-",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9329,
@@ -144,7 +152,8 @@
    "fora": "-",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   }
  ],
  "classificacao": [

@@ -50,7 +50,8 @@
    "fora": "A STUART HCM",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO"
+   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO",
+   "ao_vivo": false
   },
   {
    "id": 9864,
@@ -63,7 +64,8 @@
    "fora": "CACO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9865,
@@ -76,7 +78,8 @@
    "fora": "PAREDE FC",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9866,
@@ -89,7 +92,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9867,
@@ -102,7 +106,8 @@
    "fora": "UF ENTRONCAMENTO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9868,
@@ -115,7 +120,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9869,
@@ -128,7 +134,8 @@
    "fora": "A STUART HCM",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9870,
@@ -141,7 +148,8 @@
    "fora": "UF ENTRONCAMENTO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9871,
@@ -154,7 +162,8 @@
    "fora": "CACO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9872,
@@ -167,7 +176,8 @@
    "fora": "CACO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9873,
@@ -180,7 +190,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO"
+   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO",
+   "ao_vivo": false
   },
   {
    "id": 9874,
@@ -193,7 +204,8 @@
    "fora": "PAREDE FC",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9875,
@@ -206,7 +218,8 @@
    "fora": "A STUART HCM",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9876,
@@ -219,7 +232,8 @@
    "fora": "UF ENTRONCAMENTO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9877,
@@ -232,7 +246,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9878,
@@ -245,7 +260,8 @@
    "fora": "UF ENTRONCAMENTO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9879,
@@ -258,7 +274,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9880,
@@ -271,7 +288,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9881,
@@ -284,7 +302,8 @@
    "fora": "A STUART HCM",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9882,
@@ -297,7 +316,8 @@
    "fora": "PAREDE FC",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO"
+   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO",
+   "ao_vivo": false
   },
   {
    "id": 9883,
@@ -310,7 +330,8 @@
    "fora": "CACO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9884,
@@ -323,7 +344,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9885,
@@ -336,7 +358,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO"
+   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO",
+   "ao_vivo": false
   },
   {
    "id": 9886,
@@ -349,7 +372,8 @@
    "fora": "PAREDE FC",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9887,
@@ -362,7 +386,8 @@
    "fora": "A STUART HCM",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9888,
@@ -375,7 +400,8 @@
    "fora": "UF ENTRONCAMENTO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9889,
@@ -388,7 +414,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAREDE"
+   "recinto": "PAV. PAREDE",
+   "ao_vivo": false
   },
   {
    "id": 9890,
@@ -401,7 +428,8 @@
    "fora": "PAREDE FC",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9891,
@@ -414,7 +442,8 @@
    "fora": "CACO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO"
+   "recinto": "PAV. A. MATEUS- ENTRONCAMENTO",
+   "ao_vivo": false
   },
   {
    "id": 9892,
@@ -427,7 +456,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   }
  ],
  "classificacao": [

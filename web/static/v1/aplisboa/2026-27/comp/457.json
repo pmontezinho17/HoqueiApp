@@ -50,7 +50,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VALADO DE FRADES"
+   "recinto": "PAV. VALADO DE FRADES",
+   "ao_vivo": false
   },
   {
    "id": 9804,
@@ -63,7 +64,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9805,
@@ -76,7 +78,8 @@
    "fora": "HC TURQUEL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9806,
@@ -89,7 +92,8 @@
    "fora": "SL BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9807,
@@ -102,7 +106,8 @@
    "fora": "BIBLIOTECA IR",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VALADO DE FRADES"
+   "recinto": "PAV. VALADO DE FRADES",
+   "ao_vivo": false
   },
   {
    "id": 9808,
@@ -115,7 +120,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9809,
@@ -128,7 +134,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9810,
@@ -141,7 +148,8 @@
    "fora": "BIBLIOTECA IR",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VALADO DE FRADES"
+   "recinto": "PAV. VALADO DE FRADES",
+   "ao_vivo": false
   },
   {
    "id": 9811,
@@ -154,7 +162,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC TURQUEL"
+   "recinto": "PAV. HC TURQUEL",
+   "ao_vivo": false
   },
   {
    "id": 9812,
@@ -167,7 +176,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9813,
@@ -180,7 +190,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VALADO DE FRADES"
+   "recinto": "PAV. VALADO DE FRADES",
+   "ao_vivo": false
   },
   {
    "id": 9814,
@@ -193,7 +204,8 @@
    "fora": "HC TURQUEL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9815,
@@ -206,7 +218,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC TURQUEL"
+   "recinto": "PAV. HC TURQUEL",
+   "ao_vivo": false
   },
   {
    "id": 9816,
@@ -219,7 +232,8 @@
    "fora": "BIBLIOTECA IR",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9817,
@@ -232,7 +246,8 @@
    "fora": "SL BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9818,
@@ -245,7 +260,8 @@
    "fora": "BIBLIOTECA IR",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9819,
@@ -258,7 +274,8 @@
    "fora": "SL BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9820,
@@ -271,7 +288,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC TURQUEL"
+   "recinto": "PAV. HC TURQUEL",
+   "ao_vivo": false
   },
   {
    "id": 9821,
@@ -284,7 +302,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9822,
@@ -297,7 +316,8 @@
    "fora": "HC TURQUEL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC TURQUEL"
+   "recinto": "PAV. HC TURQUEL",
+   "ao_vivo": false
   },
   {
    "id": 9823,
@@ -310,7 +330,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9824,
@@ -323,7 +344,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9825,
@@ -336,7 +358,8 @@
    "fora": "SL BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9826,
@@ -349,7 +372,8 @@
    "fora": "HC TURQUEL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9827,
@@ -362,7 +386,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9828,
@@ -375,7 +400,8 @@
    "fora": "BIBLIOTECA IR",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9829,
@@ -388,7 +414,8 @@
    "fora": "SL BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC TURQUEL"
+   "recinto": "PAV. HC TURQUEL",
+   "ao_vivo": false
   },
   {
    "id": 9830,
@@ -401,7 +428,8 @@
    "fora": "HC TURQUEL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9831,
@@ -414,7 +442,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VALADO DE FRADES"
+   "recinto": "PAV. VALADO DE FRADES",
+   "ao_vivo": false
   },
   {
    "id": 9832,
@@ -427,7 +456,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   }
  ],
  "classificacao": [

@@ -50,7 +50,8 @@
    "fora": "HC SINTRA",
    "golos_casa": 17,
    "golos_fora": 0,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9454,
@@ -63,7 +64,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": 0,
    "golos_fora": 17,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 9455,
@@ -76,7 +78,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": 1,
    "golos_fora": 20,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   },
   {
    "id": 9456,
@@ -89,7 +92,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": 1,
    "golos_fora": 10,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9457,
@@ -102,7 +106,8 @@
    "fora": "CACO A",
    "golos_casa": 6,
    "golos_fora": 2,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9458,
@@ -115,7 +120,8 @@
    "fora": "SC TORRES",
    "golos_casa": 24,
    "golos_fora": 0,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9459,
@@ -128,7 +134,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9460,
@@ -141,7 +148,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 9461,
@@ -154,7 +162,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9462,
@@ -167,7 +176,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9463,
@@ -180,7 +190,8 @@
    "fora": "SC TORRES",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9464,
@@ -193,7 +204,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 9465,
@@ -206,7 +218,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9466,
@@ -219,7 +232,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9467,
@@ -232,7 +246,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   },
   {
    "id": 9468,
@@ -245,7 +260,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9469,
@@ -258,7 +274,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9470,
@@ -271,7 +288,8 @@
    "fora": "SC TORRES",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9471,
@@ -284,7 +302,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   },
   {
    "id": 9472,
@@ -297,7 +316,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9473,
@@ -310,7 +330,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   },
   {
    "id": 9474,
@@ -323,7 +344,8 @@
    "fora": "SC TORRES",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   },
   {
    "id": 9475,
@@ -336,7 +358,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9476,
@@ -349,7 +372,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9477,
@@ -362,7 +386,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9478,
@@ -375,7 +400,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   },
   {
    "id": 9479,
@@ -388,7 +414,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9480,
@@ -401,7 +428,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9481,
@@ -414,7 +442,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9482,
@@ -427,7 +456,8 @@
    "fora": "SC TORRES",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.P.A.C.TOJAL"
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
   }
  ],
  "classificacao": [

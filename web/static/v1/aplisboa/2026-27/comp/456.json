@@ -45,7 +45,8 @@
    "fora": "CF ESTREMOZ",
    "golos_casa": 2,
    "golos_fora": 0,
-   "recinto": "PAV. MONTES ALVOR"
+   "recinto": "PAV. MONTES ALVOR",
+   "ao_vivo": false
   },
   {
    "id": 9784,
@@ -58,7 +59,8 @@
    "fora": "CD BOLIQUEIME",
    "golos_casa": 0,
    "golos_fora": 12,
-   "recinto": "PAV. BOLIQUEIME"
+   "recinto": "PAV. BOLIQUEIME",
+   "ao_vivo": false
   },
   {
    "id": 9785,
@@ -71,7 +73,8 @@
    "fora": "FC CASTRENSE",
    "golos_casa": 3,
    "golos_fora": 2,
-   "recinto": "PAV. ESTREMOZ"
+   "recinto": "PAV. ESTREMOZ",
+   "ao_vivo": false
   },
   {
    "id": 9786,
@@ -84,7 +87,8 @@
    "fora": "HC PORTIMÃO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SINES"
+   "recinto": "PAV. SINES",
+   "ao_vivo": false
   },
   {
    "id": 9787,
@@ -97,7 +101,8 @@
    "fora": "HC PORTIMÃO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MUN. ANTONIO DOS ANJOS"
+   "recinto": "PAV. MUN. ANTONIO DOS ANJOS",
+   "ao_vivo": false
   },
   {
    "id": 9788,
@@ -110,7 +115,8 @@
    "fora": "CD BOLIQUEIME",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SINES"
+   "recinto": "PAV. SINES",
+   "ao_vivo": false
   },
   {
    "id": 9789,
@@ -123,7 +129,8 @@
    "fora": "CD BOLIQUEIME",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. ESTREMOZ"
+   "recinto": "PAV. ESTREMOZ",
+   "ao_vivo": false
   },
   {
    "id": 9790,
@@ -136,7 +143,8 @@
    "fora": "HC VASCO GAMA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MUN. ANTONIO DOS ANJOS"
+   "recinto": "PAV. MUN. ANTONIO DOS ANJOS",
+   "ao_vivo": false
   },
   {
    "id": 9791,
@@ -149,7 +157,8 @@
    "fora": "CF ESTREMOZ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SINES"
+   "recinto": "PAV. SINES",
+   "ao_vivo": false
   },
   {
    "id": 9792,
@@ -162,7 +171,8 @@
    "fora": "HC PORTIMÃO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. BOLIQUEIME"
+   "recinto": "PAV. BOLIQUEIME",
+   "ao_vivo": false
   },
   {
    "id": 9793,
@@ -175,7 +185,8 @@
    "fora": "HC PORTIMÃO",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. ESTREMOZ"
+   "recinto": "PAV. ESTREMOZ",
+   "ao_vivo": false
   },
   {
    "id": 9794,
@@ -188,7 +199,8 @@
    "fora": "FC CASTRENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MUN. ANTONIO DOS ANJOS"
+   "recinto": "PAV. MUN. ANTONIO DOS ANJOS",
+   "ao_vivo": false
   },
   {
    "id": 9795,
@@ -201,7 +213,8 @@
    "fora": "CF ESTREMOZ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MUN. ANTONIO DOS ANJOS"
+   "recinto": "PAV. MUN. ANTONIO DOS ANJOS",
+   "ao_vivo": false
   },
   {
    "id": 9796,
@@ -214,7 +227,8 @@
    "fora": "HC VASCO GAMA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MONTES ALVOR"
+   "recinto": "PAV. MONTES ALVOR",
+   "ao_vivo": false
   },
   {
    "id": 9797,
@@ -227,7 +241,8 @@
    "fora": "FC CASTRENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MONTES ALVOR"
+   "recinto": "PAV. MONTES ALVOR",
+   "ao_vivo": false
   },
   {
    "id": 9798,
@@ -240,7 +255,8 @@
    "fora": "HC VASCO GAMA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. BOLIQUEIME"
+   "recinto": "PAV. BOLIQUEIME",
+   "ao_vivo": false
   },
   {
    "id": 9799,
@@ -253,7 +269,8 @@
    "fora": "CF ESTREMOZ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. BOLIQUEIME"
+   "recinto": "PAV. BOLIQUEIME",
+   "ao_vivo": false
   },
   {
    "id": 9800,
@@ -266,7 +283,8 @@
    "fora": "FC CASTRENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SINES"
+   "recinto": "PAV. SINES",
+   "ao_vivo": false
   },
   {
    "id": 9801,
@@ -279,7 +297,8 @@
    "fora": "HC VASCO GAMA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. ESTREMOZ"
+   "recinto": "PAV. ESTREMOZ",
+   "ao_vivo": false
   },
   {
    "id": 9802,
@@ -292,7 +311,8 @@
    "fora": "CD BOLIQUEIME",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MONTES ALVOR"
+   "recinto": "PAV. MONTES ALVOR",
+   "ao_vivo": false
   }
  ],
  "classificacao": [

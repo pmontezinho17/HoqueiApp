@@ -40,7 +40,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9894,
@@ -53,7 +54,8 @@
    "fora": "SPORTING CP A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9895,
@@ -66,7 +68,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9896,
@@ -79,7 +82,8 @@
    "fora": "FSE/AJ SALESIANA A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9897,
@@ -92,7 +96,8 @@
    "fora": "SPORTING CP A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9898,
@@ -105,7 +110,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9899,
@@ -118,7 +124,8 @@
    "fora": "FSE/AJ SALESIANA A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9900,
@@ -131,7 +138,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9901,
@@ -144,7 +152,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9902,
@@ -157,7 +166,8 @@
    "fora": "SPORTING CP A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9903,
@@ -170,7 +180,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.G.S.SACAVENENSE"
+   "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
   },
   {
    "id": 9904,
@@ -183,7 +194,8 @@
    "fora": "FSE/AJ SALESIANA A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   }
  ],
  "classificacao": []

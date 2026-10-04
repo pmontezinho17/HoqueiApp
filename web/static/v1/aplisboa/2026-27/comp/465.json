@@ -60,7 +60,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": 20,
    "golos_fora": 1,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9986,
@@ -73,7 +74,8 @@
    "fora": "CACO A",
    "golos_casa": 5,
    "golos_fora": 3,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   },
   {
    "id": 9987,
@@ -86,7 +88,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": 11,
    "golos_fora": 7,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9988,
@@ -99,7 +102,8 @@
    "fora": "A STUART HCM",
    "golos_casa": 5,
    "golos_fora": 2,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9989,
@@ -112,7 +116,8 @@
    "fora": "SC TORRES",
    "golos_casa": 7,
    "golos_fora": 2,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9990,
@@ -125,7 +130,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": 2,
    "golos_fora": 11,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9991,
@@ -138,7 +144,8 @@
    "fora": "HC SINTRA",
    "golos_casa": 11,
    "golos_fora": 5,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9992,
@@ -151,7 +158,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9993,
@@ -164,7 +172,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9994,
@@ -177,7 +186,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9995,
@@ -190,7 +200,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 9996,
@@ -203,7 +214,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 9997,
@@ -216,7 +228,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9998,
@@ -229,7 +242,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 9999,
@@ -242,7 +256,8 @@
    "fora": "A STUART HCM",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   },
   {
    "id": 10000,
@@ -255,7 +270,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 10001,
@@ -268,7 +284,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 10002,
@@ -281,7 +298,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 10003,
@@ -294,7 +312,8 @@
    "fora": "SC TORRES",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 10004,
@@ -307,7 +326,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 10005,
@@ -320,7 +340,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 10006,
@@ -333,7 +354,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 10007,
@@ -346,7 +368,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   },
   {
    "id": 10008,
@@ -359,7 +382,8 @@
    "fora": "A STUART HCM",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 10009,
@@ -372,7 +396,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 10010,
@@ -385,7 +410,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 10011,
@@ -398,7 +424,8 @@
    "fora": "SC TORRES",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 10012,
@@ -411,7 +438,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 10013,
@@ -424,7 +452,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 10014,
@@ -437,7 +466,8 @@
    "fora": "SC TORRES",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 10015,
@@ -450,7 +480,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 10016,
@@ -463,7 +494,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 10017,
@@ -476,7 +508,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   },
   {
    "id": 10018,
@@ -489,7 +522,8 @@
    "fora": "A STUART HCM",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 10019,
@@ -502,7 +536,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 10020,
@@ -515,7 +550,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 10021,
@@ -528,7 +564,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 10022,
@@ -541,7 +578,8 @@
    "fora": "SC TORRES",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   },
   {
    "id": 10023,
@@ -554,7 +592,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 10024,
@@ -567,7 +606,8 @@
    "fora": "A STUART HCM",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 10025,
@@ -580,7 +620,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 10026,
@@ -593,7 +634,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 10027,
@@ -606,7 +648,8 @@
    "fora": "SC TORRES",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 10028,
@@ -619,7 +662,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 10029,
@@ -632,7 +676,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 10030,
@@ -645,7 +690,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 10031,
@@ -658,7 +704,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   },
   {
    "id": 10032,
@@ -671,7 +718,8 @@
    "fora": "A STUART HCM",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 10033,
@@ -684,7 +732,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 10034,
@@ -697,7 +746,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 10035,
@@ -710,7 +760,8 @@
    "fora": "SC TORRES",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS"
+   "recinto": "PAV. PAÇO DE ARCOS",
+   "ao_vivo": false
   },
   {
    "id": 10036,
@@ -723,7 +774,8 @@
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.PROF.JOÃO CAMPELO"
+   "recinto": "PAV.PROF.JOÃO CAMPELO",
+   "ao_vivo": false
   },
   {
    "id": 10037,
@@ -736,7 +788,8 @@
    "fora": "A STUART HCM",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 10038,
@@ -749,7 +802,8 @@
    "fora": "CACO A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   },
   {
    "id": 10039,
@@ -762,7 +816,8 @@
    "fora": "AE FISICA D A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. SC TORRES"
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
   },
   {
    "id": 10040,
@@ -775,7 +830,8 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   }
  ],
  "classificacao": []

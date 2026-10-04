@@ -110,7 +110,8 @@
    "fora": "APAC TOJAL",
    "golos_casa": 4,
    "golos_fora": 3,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9407,
@@ -123,7 +124,8 @@
    "fora": "AE FISICA B",
    "golos_casa": 12,
    "golos_fora": 2,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9410,
@@ -136,7 +138,8 @@
    "fora": "AD OEIRAS B",
    "golos_casa": 2,
    "golos_fora": 8,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9413,
@@ -149,7 +152,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": 0,
    "golos_fora": 3,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9416,
@@ -162,7 +166,8 @@
    "fora": "HC SINTRA",
    "golos_casa": 3,
    "golos_fora": 4,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9419,
@@ -175,7 +180,8 @@
    "fora": "A STUART HCM",
    "golos_casa": 6,
    "golos_fora": 1,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9405,
@@ -188,7 +194,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": 1,
    "golos_fora": 3,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9408,
@@ -201,7 +208,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": 0,
    "golos_fora": 13,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9411,
@@ -214,7 +222,8 @@
    "fora": "HC LOURINHA",
    "golos_casa": 6,
    "golos_fora": 0,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9414,
@@ -227,7 +236,8 @@
    "fora": "FSE/AJ SALESIANA A",
    "golos_casa": 1,
    "golos_fora": 3,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9417,
@@ -240,7 +250,8 @@
    "fora": "PAREDE FC",
    "golos_casa": 11,
    "golos_fora": 0,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9420,
@@ -253,7 +264,8 @@
    "fora": "SL BENFICA B",
    "golos_casa": 0,
    "golos_fora": 4,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9406,
@@ -266,7 +278,8 @@
    "fora": "AE FISICA C",
    "golos_casa": 7,
    "golos_fora": 3,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9409,
@@ -279,7 +292,8 @@
    "fora": "FSE/AJ SALESIANA B",
    "golos_casa": 5,
    "golos_fora": 0,
-   "recinto": "PAV. FÍSICA TORRES VEDRAS"
+   "recinto": "PAV. FÍSICA TORRES VEDRAS",
+   "ao_vivo": false
   },
   {
    "id": 9412,
@@ -292,7 +306,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": 4,
    "golos_fora": 4,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9415,
@@ -305,7 +320,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": 1,
    "golos_fora": 1,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9418,
@@ -318,7 +334,8 @@
    "fora": "CACO A",
    "golos_casa": 0,
    "golos_fora": 7,
-   "recinto": "PAV. HC SINTRA"
+   "recinto": "PAV. HC SINTRA",
+   "ao_vivo": false
   },
   {
    "id": 9421,
@@ -331,7 +348,8 @@
    "fora": "CACO B",
    "golos_casa": 1,
    "golos_fora": 3,
-   "recinto": "PAV.C.A.C.OURIQUE"
+   "recinto": "PAV.C.A.C.OURIQUE",
+   "ao_vivo": false
   },
   {
    "id": 9422,
@@ -344,7 +362,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": 5,
    "golos_fora": 1,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9423,
@@ -357,7 +376,8 @@
    "fora": "CACO A",
    "golos_casa": 4,
    "golos_fora": 3,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9424,
@@ -370,7 +390,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": 12,
    "golos_fora": 0,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9425,
@@ -383,7 +404,8 @@
    "fora": "AE FISICA",
    "golos_casa": 1,
    "golos_fora": 3,
-   "recinto": "PAV. SALESIANA"
+   "recinto": "PAV. SALESIANA",
+   "ao_vivo": false
   },
   {
    "id": 9426,
@@ -396,7 +418,8 @@
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": 11,
    "golos_fora": 0,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9427,
@@ -409,7 +432,8 @@
    "fora": "AE FISICA",
    "golos_casa": 4,
    "golos_fora": 2,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9428,
@@ -422,7 +446,8 @@
    "fora": "AD OEIRAS A",
    "golos_casa": 2,
    "golos_fora": 1,
-   "recinto": "PAV. A.D.OEIRAS"
+   "recinto": "PAV. A.D.OEIRAS",
+   "ao_vivo": false
   }
  ],
  "classificacao": [

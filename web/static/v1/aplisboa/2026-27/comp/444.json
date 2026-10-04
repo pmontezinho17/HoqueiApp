@@ -45,7 +45,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": 14,
    "golos_fora": 1,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9484,
@@ -58,7 +59,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": 10,
    "golos_fora": 4,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9485,
@@ -71,7 +73,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": 0,
    "golos_fora": 3,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9486,
@@ -84,7 +87,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": 4,
    "golos_fora": 1,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9487,
@@ -97,7 +101,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9488,
@@ -110,7 +115,8 @@
    "fora": "SL BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9489,
@@ -123,7 +129,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9490,
@@ -136,7 +143,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9491,
@@ -149,7 +157,8 @@
    "fora": "SL BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9492,
@@ -162,7 +171,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9493,
@@ -175,7 +185,8 @@
    "fora": "SL BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9494,
@@ -188,7 +199,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9495,
@@ -201,7 +213,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   },
   {
    "id": 9496,
@@ -214,7 +227,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9497,
@@ -227,7 +241,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "ao_vivo": false
   },
   {
    "id": 9498,
@@ -240,7 +255,8 @@
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": false
   },
   {
    "id": 9499,
@@ -253,7 +269,8 @@
    "fora": "CRIAR-T GD",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9500,
@@ -266,7 +283,8 @@
    "fora": "SL BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ"
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "ao_vivo": false
   },
   {
    "id": 9501,
@@ -279,7 +297,8 @@
    "fora": "S ALENQUER BENFICA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.S.ALENQUER E BENFICA"
+   "recinto": "PAV.S.ALENQUER E BENFICA",
+   "ao_vivo": false
   },
   {
    "id": 9502,
@@ -292,7 +311,8 @@
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. VILAFRANQUENSE"
+   "recinto": "PAV. VILAFRANQUENSE",
+   "ao_vivo": false
   }
  ],
  "classificacao": [
