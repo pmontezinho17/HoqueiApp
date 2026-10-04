@@ -9,7 +9,7 @@ import argparse
 import json
 import pathlib
 import sys
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, datetime, time, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 import httpx
@@ -166,7 +166,11 @@ def comando_aovivo(args) -> int:
         """
         if j["data"] != hoje or not j.get("id") or not j.get("hora"):
             return False
-        if not (limite <= j["hora"][:5] <= agora.strftime("%H:%M")):
+        # `--antes` minutos antes da hora marcada: é quando a mesa lança a convocatória,
+        # e é a única janela em que ela existe na fonte. Medido a 04/10: três horas antes,
+        # a ficha está vazia.
+        inicio = (agora + timedelta(minutes=args.antes)).strftime("%H:%M")
+        if not (limite <= j["hora"][:5] <= inicio):
             return False
         if args.todos:
             return True
@@ -351,6 +355,14 @@ def comando_publicar(args) -> int:
                 restritas += 1
             fichas_da_prova: list[dict] = []
             for jogo in cal.jogos:
+                # Os jogos por disputar ficam de fora, e **medi-o antes de desistir**: das
+                # seis fichas de jogos "sem começar" que fui ver a 04/10, todas tinham zero
+                # jogadores. A fonte só preenche a convocatória quando a mesa a lança, que
+                # é à hora do jogo. Ir buscar 16 fichas por corrida para publicar ficheiros
+                # vazios era desperdício contra o servidor de uma federação.
+                #
+                # Quem apanha a convocatória é a ronda ao vivo, que começa a seguir cada
+                # jogo `--antes` minutos antes da hora marcada.
                 if jogo.id is None or not jogo.disputado:
                     continue
                 alvo = destino / "match" / f"{jogo.id}.json"
@@ -404,6 +416,13 @@ def comando_publicar(args) -> int:
         json.dumps(emblema_da_equipa, ensure_ascii=False, indent=1))
 
     agenda.sort(key=lambda j: (j["data"], j["hora"] or "99:99"))
+    # Um jogo por disputar só é clicável na app se houver ficha para mostrar. A app não
+    # pode adivinhar — tentar e apanhar um 404 dava um ecrã de erro a quem só queria ver
+    # os convocados.
+    com_ficha = {int(f.stem) for f in (destino / "match").glob("*.json")}
+    for j in agenda:
+        if j["gc"] is None and j["id"] in com_ficha:
+            j["tem_ficha"] = True
     (destino / "agenda.json").write_text(json.dumps({"jogos": agenda}, ensure_ascii=False))
 
     # B4.11 — um feed de calendário por equipa+escalão, com os jogos que a agenda já tem.
@@ -516,6 +535,9 @@ def main(argv=None) -> int:
     v = sub.add_parser("aovivo", parents=[comum],
                        help="actualizar só os jogos a decorrer, sem percorrer tudo")
     v.add_argument("--destino", required=True)
+    v.add_argument("--antes", type=float, default=25.0, metavar="MIN",
+                   help="começar a seguir um jogo N minutos antes da hora marcada, para "
+                        "apanhar a convocatória quando a mesa a lança (default 25)")
     v.add_argument("--janela", type=float, default=3.0,
                    help="há quantas horas um jogo pode ter começado e ainda contar (default 3)")
     v.add_argument("--todos", action="store_true",

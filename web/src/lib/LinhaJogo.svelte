@@ -21,7 +21,11 @@
 	const live = $derived(emCurso(jogo));
 	const ganhouCasa = $derived(jogado && jogo.gc! > jogo.gf!);
 	const ganhouFora = $derived(jogado && jogo.gf! > jogo.gc!);
-	const destino = $derived(jogado && jogo.id ? `/jogo/${jogo.id}` : null);
+	// Um jogo por disputar passa a ser clicável quando já há ficha: a fonte publica a
+	// convocatória dias antes, e é isso que se quer ver na véspera.
+	const destino = $derived(
+		jogo.id && (jogado || jogo.tem_ficha) ? `/jogo/${jogo.id}` : null
+	);
 
 	const diaCurto = (iso: string) => {
 		const d = new Date(`${iso}T00:00:00`);

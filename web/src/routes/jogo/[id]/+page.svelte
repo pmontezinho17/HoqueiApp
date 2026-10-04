@@ -28,6 +28,8 @@
 	 * do que estava a acontecer — e não encontrava tab nenhuma.
 	 */
 	const aDecorrer = $derived(!!f.periodo && f.estado !== 'Jogo Terminado');
+	/** Nem começou: a ficha que existe é a convocatória, e as colunas estão todas a zero. */
+	const porComecar = $derived(f.golos_casa === null && !aDecorrer);
 	const temCronologia = $derived(
 		aDecorrer || f.cronologia.some((e) => !ESTRUTURA.has(e.tipo))
 	);
@@ -131,7 +133,9 @@
 		{/if}
 		{#if temFicha}
 			<button role="tab" aria-selected={tab === 'ficha'} onclick={() => (tab = 'ficha')}>
-				Ficha
+				<!-- num jogo por começar chamar-lhe "Ficha" engana: os zeros nas colunas de
+				     golos parecem resultado, quando são só a convocatória -->
+				{porComecar ? 'Convocados' : 'Ficha'}
 			</button>
 		{/if}
 		{#if temBoletim}
@@ -147,7 +151,13 @@
 		<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
 		omitidos={f.individuais_omitidos ?? false} />
 	{:else if temFicha}
-		<FichaEquipas equipas={f.equipas} />
+		{#if porComecar}
+			<p class="aviso">
+				Este jogo ainda não começou. Esta é a <strong>convocatória</strong> publicada pela
+				associação, e pode mudar até ao apito inicial.
+			</p>
+		{/if}
+		<FichaEquipas equipas={f.equipas} {porComecar} />
 	{:else if temBoletim && f.boletim}
 		<BoletimOficial boletim={f.boletim} casa={f.casa} fora={f.fora} />
 	{/if}
@@ -208,5 +218,7 @@
 	}
 	.tabs button[aria-selected='true'] { color: var(--acento); border-color: var(--acento);
 		font-weight: 600; }
+	.aviso { margin: 0 0 0.8rem; padding: 0.6rem 0.7rem; font-size: 0.76rem; line-height: 1.45;
+		border-radius: 8px; background: var(--aviso-fundo); color: var(--aviso); }
 	.vazio { color: var(--suave); font-size: 0.85rem; }
 </style>

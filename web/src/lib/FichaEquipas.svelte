@@ -1,7 +1,12 @@
 <script lang="ts">
 	import { nomeProprio } from '$lib/formato';
 	import type { EquipaFicha } from './tipos';
-	let { equipas }: { equipas: EquipaFicha[] } = $props();
+	let {
+		equipas,
+		/** Antes do apito as colunas de estatística estão todas a zero e não dizem nada:
+		 *  mostrar dez colunas de zeros é pior do que não as mostrar. */
+		porComecar = false
+	}: { equipas: EquipaFicha[]; porComecar?: boolean } = $props();
 	const jogadores = (e: EquipaFicha) => e.jogadores.filter((j) => !j.papel);
 	const tecnicos = (e: EquipaFicha) => e.jogadores.filter((j) => j.papel);
 	// "0/0" é o caso esmagador; só vale a pena destacar quem realmente rematou
@@ -17,6 +22,7 @@
 					<tr>
 						<th class="n" scope="col">#</th>
 						<th class="nome" scope="col">Jogador</th>
+						{#if !porComecar}
 						<th scope="col"><abbr title="Golos">G</abbr></th>
 						<th scope="col"><abbr title="Assistências">A</abbr></th>
 						<th scope="col"><abbr title="Defesas">D</abbr></th>
@@ -25,6 +31,7 @@
 						<th scope="col"><span class="cartao am" aria-hidden="true"></span><span class="sr">Cartões amarelos</span></th>
 						<th scope="col"><span class="cartao az" aria-hidden="true"></span><span class="sr">Cartões azuis</span></th>
 						<th scope="col"><span class="cartao vm" aria-hidden="true"></span><span class="sr">Cartões vermelhos</span></th>
+					{/if}
 					</tr>
 				</thead>
 				<tbody>
@@ -32,6 +39,7 @@
 						<tr>
 							<td class="n">{j.numero ?? ''}{#if j.titular}<span class="tit" title="Cinco inicial">•</span>{/if}</td>
 							<th class="nome" scope="row">{nomeProprio(j.nome)}</th>
+							{#if !porComecar}
 							<td class:marcou={(j.golos ?? 0) > 0}>{j.golos ?? '–'}</td>
 							<td>{j.assistencias ?? '–'}</td>
 							<td>{j.defesas ?? '–'}</td>
@@ -40,6 +48,7 @@
 							<td class:levou={j.cartoes_amarelos > 0}>{j.cartoes_amarelos || '–'}</td>
 							<td class:levou={j.cartoes_azuis > 0}>{j.cartoes_azuis || '–'}</td>
 							<td class:levou={j.cartoes_vermelhos > 0}>{j.cartoes_vermelhos || '–'}</td>
+							{/if}
 						</tr>
 					{/each}
 				</tbody>
