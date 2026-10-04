@@ -85,8 +85,8 @@
    "hora": "16:00:00",
    "casa": "CD PAÇO ARCOS B",
    "fora": "AD OEIRAS B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 1,
    "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
   },
@@ -337,18 +337,32 @@
      "posicao": 2,
      "equipa": "CD PAÇO ARCOS B",
      "logo": "/intranet/logos/7.png",
-     "jogos": 1,
+     "jogos": 2,
      "vitorias": 1,
      "empates": 0,
-     "derrotas": 0,
+     "derrotas": 1,
      "golos_marcados": 3,
-     "golos_sofridos": 0,
-     "diferenca": 3,
-     "racio": null,
+     "golos_sofridos": 1,
+     "diferenca": 2,
+     "racio": 3.0,
      "pontos": 3
     },
     {
      "posicao": 3,
+     "equipa": "AD OEIRAS B",
+     "logo": "/intranet/logos/6.png",
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 2,
+     "golos_sofridos": 6,
+     "diferenca": -4,
+     "racio": 0.33,
+     "pontos": 3
+    },
+    {
+     "posicao": 4,
      "equipa": "FSE/AJ SALESIANA",
      "logo": "/intranet/logos/9.png",
      "jogos": 1,
@@ -362,7 +376,7 @@
      "pontos": 0
     },
     {
-     "posicao": 4,
+     "posicao": 5,
      "equipa": "A STUART HCM A",
      "logo": "/intranet/logos/10.png",
      "jogos": 1,
@@ -373,20 +387,6 @@
      "golos_sofridos": 3,
      "diferenca": -3,
      "racio": 0.0,
-     "pontos": 0
-    },
-    {
-     "posicao": 5,
-     "equipa": "AD OEIRAS B",
-     "logo": "/intranet/logos/6.png",
-     "jogos": 1,
-     "vitorias": 0,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 1,
-     "golos_sofridos": 6,
-     "diferenca": -5,
-     "racio": 0.17,
      "pontos": 0
     }
    ]

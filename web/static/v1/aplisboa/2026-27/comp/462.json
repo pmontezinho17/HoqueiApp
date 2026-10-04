@@ -85,8 +85,8 @@
    "hora": "15:00:00",
    "casa": "HC LOURINHÃ",
    "fora": "PAREDE FC A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 6,
+   "golos_fora": 10,
    "recinto": "PAV. GIMNO. DA LOURINHÃ",
    "ao_vivo": false
   },

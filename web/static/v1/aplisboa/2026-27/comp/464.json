@@ -85,8 +85,8 @@
    "hora": "14:30:00",
    "casa": "UD VILAFRANQUENSE B",
    "fora": "AE FISICA D B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 10,
+   "golos_fora": 4,
    "recinto": "PAV. VILAFRANQUENSE",
    "ao_vivo": false
   },

@@ -1,7 +1,33 @@
 {
  "competicao_id": 462,
- "jogos_considerados": 3,
+ "jogos_considerados": 4,
  "jogadores": [
+  {
+   "nome": "INÊS QUEIRÓS",
+   "equipa": "PAREDE FC A",
+   "jogos": 1,
+   "numero": "6",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "THÉO FURTADO",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 2,
+   "numero": "4",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
   {
    "nome": "ANTONIO PEREIRA",
    "equipa": "CRIAR-T GD",
@@ -16,10 +42,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "THÉO FURTADO",
-   "equipa": "HC LOURINHÃ",
+   "nome": "FRANCISCO CLEMENTE",
+   "equipa": "PAREDE FC A",
    "jogos": 1,
-   "numero": "4",
+   "numero": "2",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SEBASTIÃO PILÃO",
+   "equipa": "PAREDE FC A",
+   "jogos": 1,
+   "numero": "7",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -42,6 +81,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DUARTE MARTINS",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 2,
+   "numero": "6",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GONÇALO BORGES",
    "equipa": "A STUART HCM A",
    "jogos": 2,
@@ -55,6 +107,45 @@
    "vermelhos": 0
   },
   {
+   "nome": "VALENTIM MARTINS",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 2,
+   "numero": "5",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "XAVIER FEIO",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 2,
+   "numero": "17",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RODRIGO QUEIROS",
+   "equipa": "PAREDE FC A",
+   "jogos": 1,
+   "numero": "4",
+   "golos": 1,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "VASCO FRAÚSTO",
    "equipa": "CRIAR-T GD",
    "jogos": 2,
@@ -63,6 +154,19 @@
    "assistencias": 1,
    "defesas": 0,
    "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO SANTOS",
+   "equipa": "PAREDE FC A",
+   "jogos": 1,
+   "numero": "3",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -98,19 +202,6 @@
    "equipa": "A STUART HCM A",
    "jogos": 1,
    "numero": "18",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "VALENTIM MARTINS",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 1,
-   "numero": "5",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -172,10 +263,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE MARTINS",
-   "equipa": "HC LOURINHÃ",
+   "nome": "DINIS SARAIVA",
+   "equipa": "PAREDE FC A",
    "jogos": 1,
-   "numero": "6",
+   "numero": "9",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -237,6 +328,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "GUILHERME PINTO",
+   "equipa": "PAREDE FC A",
+   "jogos": 1,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "LEONOR FERNANDES",
    "equipa": "APAC TOJAL",
    "jogos": 1,
@@ -263,6 +367,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MARIANA ANTUNES",
+   "equipa": "PAREDE FC A",
+   "jogos": 1,
+   "numero": "8",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MARIANA CAMPOS",
    "equipa": "APAC TOJAL",
    "jogos": 1,
@@ -276,23 +393,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM TORRÃO",
+   "nome": "MIGUEL MORAIS",
    "equipa": "HC LOURINHÃ",
    "jogos": 1,
-   "numero": "99",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "NOAH ALVES",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 1,
-   "numero": "88",
+   "numero": "77",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -306,19 +410,6 @@
    "equipa": "CRIAR-T GD",
    "jogos": 1,
    "numero": "06",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "PEDRO PINTO",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 1,
-   "numero": "16",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -354,6 +445,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "SALVADOR RAMOS",
+   "equipa": "PAREDE FC A",
+   "jogos": 1,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TIAGO CRUZ",
    "equipa": "A STUART HCM A",
    "jogos": 1,
@@ -380,10 +484,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO RIBEIRO",
+   "nome": "TIAGO MATEUS",
+   "equipa": "PAREDE FC A",
+   "jogos": 1,
+   "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VASCO FERREIRA",
    "equipa": "HC LOURINHÃ",
    "jogos": 1,
-   "numero": "97",
+   "numero": "9",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -397,19 +514,6 @@
    "equipa": "A STUART HCM A",
    "jogos": 1,
    "numero": "80",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "XAVIER FEIO",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 1,
-   "numero": "17",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -484,6 +588,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MARTIM TORRÃO",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 2,
+   "numero": "99",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MATEUS CABRERA",
    "equipa": "CRIAR-T GD",
    "jogos": 2,
@@ -501,6 +618,45 @@
    "equipa": "A STUART HCM A",
    "jogos": 2,
    "numero": "77",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "NOAH ALVES",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 2,
+   "numero": "88",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PEDRO PINTO",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 2,
+   "numero": "16",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO RIBEIRO",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 2,
+   "numero": "97",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

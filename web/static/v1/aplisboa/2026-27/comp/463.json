@@ -85,8 +85,8 @@
    "hora": "14:30:00",
    "casa": "CD PAÇO ARCOS B",
    "fora": "SPORTING CP B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 15,
    "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
   },
