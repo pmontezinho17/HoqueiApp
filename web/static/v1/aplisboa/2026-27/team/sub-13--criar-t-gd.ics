@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9485@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T140000Z
-DTEND:20261003T153000Z
-SUMMARY:🏑 Sub-13 🏑 Criar-T GD vs UD Vilafranquense
-LOCATION:Pavilhão de Hóquei do CRIAR-T
-DESCRIPTION:Criar-T GD 0–3 UD Vilafranquense\nCAMP. REG. SUB-13 - 1ª FAS
- E · Série B · SUB-13\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://ho
- quei.pages.dev/jogo/9485\nDados da Associação de Patinagem de Lisboa. Si
- te não oficial.
-URL:https://hoquei.pages.dev/jogo/9485
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9487@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T153000Z

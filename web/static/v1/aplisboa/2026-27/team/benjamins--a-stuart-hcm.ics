@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9990@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T134500Z
-DTEND:20261003T151500Z
-SUMMARY:🏑 Benjamins 🏑 A Stuart HCM vs AD Oeiras A
-LOCATION:Pavilhão João Campelo - A. Stuart Hóquei Clube de Massamá
-DESCRIPTION:A Stuart HCM 2–11 AD Oeiras A\nENCONTROS DISTRITAIS BENJAMINS
-  - 1ª FASE NIVEL I · Série A · BENJAMINS\nPAV.PROF.JOÃO CAMPELO\nhttp
- s://hoquei.pages.dev/jogo/9990\nDados da Associação de Patinagem de Lisb
- oa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9990
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9996@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T134500Z

@@ -8,17 +8,4 @@ X-WR-CALDESC:Jogos de APAC Tojal (Seniores Masculinos)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-9305@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T183000Z
-DTEND:20261003T200000Z
-SUMMARY:🏑 Seniores Masculinos 🏑 A Stuart HCM vs APAC Tojal
-LOCATION:Pavilhão João Campelo - A. Stuart Hóquei Clube de Massamá
-DESCRIPTION:A Stuart HCM 2–3 APAC Tojal\nTAÇA JESUS CORREIA - SENIORES M
- ASCULINOS · SENIORES MASCULINOS\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.p
- ages.dev/jogo/9305\nDados da Associação de Patinagem de Lisboa. Site nã
- o oficial.
-URL:https://hoquei.pages.dev/jogo/9305
-END:VEVENT
 END:VCALENDAR

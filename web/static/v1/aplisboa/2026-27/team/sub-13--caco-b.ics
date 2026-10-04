@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9537@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T160000Z
-DTEND:20261003T173000Z
-SUMMARY:🏑 Sub-13 🏑 AD Oeiras B vs Caco B
-LOCATION:Sports Association of Oeiras
-DESCRIPTION:AD Oeiras B 17–0 Caco B\nCAMP. REG. SUB-13 - 1ª FASE · Sér
- ie D · SUB-13\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9537\nDados
-  da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9537
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9540@hoquei.pages.dev
 DTSTAMP:20261005T000000Z
 DTSTART:20261005T180000Z

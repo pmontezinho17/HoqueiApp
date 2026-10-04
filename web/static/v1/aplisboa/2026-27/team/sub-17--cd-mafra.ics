@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9736@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T133000Z
-DTEND:20261003T150000Z
-SUMMARY:🏑 Sub-17 🏑 CD Mafra vs HC Lourinhã
-LOCATION:Pavilhão Clube Desportivo de Mafra
-DESCRIPTION:CD Mafra 1–18 HC Lourinhã\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie D · SUB-17\nPAV. MAFRA\nhttps://hoquei.pages.dev/jogo/9736\nDados d
- a Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9736
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9739@hoquei.pages.dev
 DTSTAMP:20261008T000000Z
 DTSTART:20261008T190000Z

@@ -8,17 +8,4 @@ X-WR-CALDESC:Jogos de SC Torres (Seniores Masculinos)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-9299@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T170000Z
-DTEND:20261003T183000Z
-SUMMARY:🏑 Seniores Masculinos 🏑 SC Torres vs S Alenquer B
-LOCATION:Sporting Clube de Torres (SCT)
-DESCRIPTION:SC Torres 4–7 S Alenquer B\nTAÇA JESUS CORREIA - SENIORES MA
- SCULINOS · SENIORES MASCULINOS\nPAV. SC TORRES\nhttps://hoquei.pages.dev/
- jogo/9299\nDados da Associação de Patinagem de Lisboa. Site não oficial
- .
-URL:https://hoquei.pages.dev/jogo/9299
-END:VEVENT
 END:VCALENDAR

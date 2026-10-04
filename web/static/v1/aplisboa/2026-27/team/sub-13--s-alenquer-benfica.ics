@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9486@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T140000Z
-DTEND:20261003T153000Z
-SUMMARY:🏑 Sub-13 🏑 S Alenquer Benfica vs HC Lourinhã
-LOCATION:Sport Alenquer e Benfica
-DESCRIPTION:S Alenquer Benfica 4–1 HC Lourinhã\nCAMP. REG. SUB-13 - 1ª 
- FASE · Série B · SUB-13\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages
- .dev/jogo/9486\nDados da Associação de Patinagem de Lisboa. Site não of
- icial.
-URL:https://hoquei.pages.dev/jogo/9486
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9489@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T140000Z

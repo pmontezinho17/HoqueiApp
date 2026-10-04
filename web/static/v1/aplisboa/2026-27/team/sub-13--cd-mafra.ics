@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9508@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T151500Z
-DTEND:20261003T164500Z
-SUMMARY:🏑 Sub-13 🏑 A Stuart HCM vs CD Mafra
-LOCATION:Pavilhão João Campelo - A. Stuart Hóquei Clube de Massamá
-DESCRIPTION:A Stuart HCM 10–1 CD Mafra\nCAMP. REG. SUB-13 - 1ª FASE · S
- érie C · SUB-13\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.dev/jogo/9
- 508\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9508
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9509@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T133000Z

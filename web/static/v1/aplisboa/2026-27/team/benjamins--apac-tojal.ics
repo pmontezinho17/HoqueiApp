@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-10063@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T154500Z
-DTEND:20261003T171500Z
-SUMMARY:🏑 Benjamins 🏑 APAC Tojal vs HC Lourinhã
-LOCATION:APAC Tojal - Associação de Patinagem Atlético Clube do Tojal
-DESCRIPTION:APAC Tojal 21–7 HC Lourinhã\nENCONTROS DISTRITAIS BENJAMINS 
- - 1ª FASE NIVEL II · Série C · BENJAMINS\nPAV. A.P.A.C.TOJAL\nhttps://
- hoquei.pages.dev/jogo/10063\nDados da Associação de Patinagem de Lisboa.
-  Site não oficial.
-URL:https://hoquei.pages.dev/jogo/10063
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-10066@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T133000Z

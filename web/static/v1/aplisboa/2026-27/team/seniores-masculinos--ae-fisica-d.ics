@@ -8,16 +8,4 @@ X-WR-CALDESC:Jogos de AE Fisica D (Seniores Masculinos)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-9294@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T170000Z
-DTEND:20261003T183000Z
-SUMMARY:🏑 Seniores Masculinos 🏑 HC Sintra vs AE Fisica D
-LOCATION:Hockey Club de Sintra
-DESCRIPTION:HC Sintra 4–3 AE Fisica D\nTAÇA JESUS CORREIA - SENIORES MAS
- CULINOS · SENIORES MASCULINOS\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/j
- ogo/9294\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9294
-END:VEVENT
 END:VCALENDAR

@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9785@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T140000Z
-DTEND:20261003T153000Z
-SUMMARY:🏑 Sub-17 🏑 CF Estremoz vs FC Castrense
-LOCATION:Pavilhão Municipal de Estremoz
-DESCRIPTION:CF Estremoz 3–2 FC Castrense\nCAMP. REG. SUB-17 - 1ª FASE ·
-  Série F · SUB-17\nPAV. ESTREMOZ\nhttps://hoquei.pages.dev/jogo/9785\nDa
- dos da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9785
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9787@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T163000Z

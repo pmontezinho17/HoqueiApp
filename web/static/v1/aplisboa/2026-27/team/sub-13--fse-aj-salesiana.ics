@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9506@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T094500Z
-DTEND:20261003T111500Z
-SUMMARY:🏑 Sub-13 🏑 FSE/AJ Salesiana vs Parede FC A
-LOCATION:Salesianos do Estoril
-DESCRIPTION:FSE/AJ Salesiana 2–4 Parede FC A\nCAMP. REG. SUB-13 - 1ª FAS
- E · Série C · SUB-13\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/950
- 6\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9506
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9509@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T133000Z

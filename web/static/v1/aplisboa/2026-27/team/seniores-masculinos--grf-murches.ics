@@ -8,16 +8,4 @@ X-WR-CALDESC:Jogos de GRF Murches (Seniores Masculinos)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-9311@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T150000Z
-DTEND:20261003T163000Z
-SUMMARY:🏑 Seniores Masculinos 🏑 GRF Murches vs AD Oeiras
-LOCATION:Pavilhão Desportivo de Murches
-DESCRIPTION:GRF Murches 3–5 AD Oeiras\nTAÇA JESUS CORREIA - SENIORES MAS
- CULINOS · SENIORES MASCULINOS\nPAV. MURCHES\nhttps://hoquei.pages.dev/jog
- o/9311\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9311
-END:VEVENT
 END:VCALENDAR

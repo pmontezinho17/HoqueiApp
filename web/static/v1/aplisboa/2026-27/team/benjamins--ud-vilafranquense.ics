@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-10061@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T153000Z
-DTEND:20261003T170000Z
-SUMMARY:🏑 Benjamins 🏑 UD Vilafranquense vs Sporting CP
-LOCATION:Pavilhão José Mário Cerejo
-DESCRIPTION:UD Vilafranquense 6–4 Sporting CP\nENCONTROS DISTRITAIS BENJA
- MINS - 1ª FASE NIVEL II · Série C · BENJAMINS\nPAV. VILAFRANQUENSE\nht
- tps://hoquei.pages.dev/jogo/10061\nDados da Associação de Patinagem de L
- isboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/10061
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-10065@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T140000Z

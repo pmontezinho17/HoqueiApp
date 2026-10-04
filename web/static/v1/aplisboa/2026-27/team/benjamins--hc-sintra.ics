@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9991@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T173000Z
-DTEND:20261003T190000Z
-SUMMARY:🏑 Benjamins 🏑 Caco A vs HC Sintra
-LOCATION:Clube Atlético de Campo de Ourique (CACO)
-DESCRIPTION:Caco A 11–5 HC Sintra\nENCONTROS DISTRITAIS BENJAMINS - 1ª F
- ASE NIVEL I · Série A · BENJAMINS\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pa
- ges.dev/jogo/9991\nDados da Associação de Patinagem de Lisboa. Site não
-  oficial.
-URL:https://hoquei.pages.dev/jogo/9991
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9993@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T140000Z

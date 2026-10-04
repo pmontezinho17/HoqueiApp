@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9756@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T200000Z
-DTEND:20261003T213000Z
-SUMMARY:🏑 Sub-17 🏑 AD Oeiras B vs AE Fisica D A
-LOCATION:Sports Association of Oeiras
-DESCRIPTION:AD Oeiras B 0–1 AE Fisica D A\nCAMP. REG. SUB-17 - 1ª FASE 
- · Série E · SUB-17\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9756
- \nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9756
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9762@hoquei.pages.dev
 DTSTAMP:20261008T000000Z
 DTSTART:20261008T201500Z

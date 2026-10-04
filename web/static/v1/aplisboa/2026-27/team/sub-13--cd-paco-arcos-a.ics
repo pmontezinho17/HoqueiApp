@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9458@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T160000Z
-DTEND:20261003T173000Z
-SUMMARY:🏑 Sub-13 🏑 CD Paço Arcos A vs SC Torres
-LOCATION:Pavilhão do Clube Desportivo de Paço de Arcos (CDPA)
-DESCRIPTION:CD Paço Arcos A 24–0 SC Torres\nCAMP. REG. SUB-13 - 1ª FASE
-  · Série A · SUB-13\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo
- /9458\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9458
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9461@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T133000Z

@@ -8,17 +8,4 @@ X-WR-CALDESC:Jogos de UD Vilafranquense (Seniores Masculinos)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-9300@hoquei.pages.dev
-DTSTAMP:20261003T000000Z
-DTSTART:20261003T173000Z
-DTEND:20261003T190000Z
-SUMMARY:🏑 Seniores Masculinos 🏑 UD Vilafranquense vs CD Paço Arcos
-LOCATION:Pavilhão José Mário Cerejo
-DESCRIPTION:UD Vilafranquense 3–5 CD Paço Arcos\nTAÇA JESUS CORREIA - S
- ENIORES MASCULINOS · SENIORES MASCULINOS\nPAV. VILAFRANQUENSE\nhttps://ho
- quei.pages.dev/jogo/9300\nDados da Associação de Patinagem de Lisboa. Si
- te não oficial.
-URL:https://hoquei.pages.dev/jogo/9300
-END:VEVENT
 END:VCALENDAR
