@@ -34,10 +34,16 @@
 </script>
 
 <!--
-  Linha plana com separador de 1px, não cartão: medido contra a FotMob, o cartão
-  (raio + borda + margem) punha a linha a 81,6px contra os 56px deles. E a competição
-  vive no cabeçalho da secção, não repetida aqui — era a terceira linha de texto que
-  custava 25px por jogo. Ver docs/04-benchmarking.md.
+  Equipas empilhadas, uma por linha, e não lado a lado.
+
+  O desenho simétrico — `casa | resultado | fora` — dá **metade** da largura a cada nome, e
+  com nomes portugueses isso não chega: medido, 15 dos 34 nomes de um domingo apareciam
+  cortados, `UD VILAFRANQUENSE B` como `UD VILAFR…`. Empilhadas, cada nome tem a largura
+  toda e o problema desaparece de vez em vez de se adiar com meio rem aqui e ali.
+
+  É também o que a theScore e a Sofascore fazem, e por isso é que os nomes delas cabem
+  sempre. O custo é a linha passar de ~44px para ~56px — exactamente a altura que medimos
+  nas duas (ver docs/04-benchmarking.md).
 -->
 <svelte:element this={destino ? 'a' : 'div'} href={destino} class="linha" class:ligavel={destino}>
 	<span class="quando">
@@ -56,36 +62,39 @@
 		{#if comEscalao}<span class="escalao">{escalaoCurto(jogo.cat)}</span>{/if}
 	</span>
 
-	<span class="equipa casa" class:vencedor={ganhouCasa} class:minha={seguida?.(jogo.casa)}>
-		<span class="nome">{jogo.casa}</span>
-		<Emblema equipa={jogo.casa} src={emblemas[jogo.casa]} tamanho={18} />
+	<span class="equipas">
+		<span class="equipa" class:vencedor={ganhouCasa} class:minha={seguida?.(jogo.casa)}>
+			<Emblema equipa={jogo.casa} src={emblemas[jogo.casa]} tamanho={18} />
+			<span class="nome">{jogo.casa}</span>
+		</span>
+		<span class="equipa" class:vencedor={ganhouFora} class:minha={seguida?.(jogo.fora)}>
+			<Emblema equipa={jogo.fora} src={emblemas[jogo.fora]} tamanho={18} />
+			<span class="nome">{jogo.fora}</span>
+		</span>
 	</span>
 
-	<span class="meio">
-		{#if jogado}
-			<span class="placar"><b class:vencedor={ganhouCasa}>{jogo.gc}</b><i>–</i><b class:vencedor={ganhouFora}>{jogo.gf}</b></span>
-		{:else}
-			<span class="vs" aria-hidden="true">v</span>
-		{/if}
-	</span>
-
-	<span class="equipa fora" class:vencedor={ganhouFora} class:minha={seguida?.(jogo.fora)}>
-		<Emblema equipa={jogo.fora} src={emblemas[jogo.fora]} tamanho={18} />
-		<span class="nome">{jogo.fora}</span>
-	</span>
+	{#if jogado}
+		<span class="golos" aria-label={`${jogo.gc} a ${jogo.gf}`}>
+			<b class:vencedor={ganhouCasa}>{jogo.gc}</b>
+			<b class:vencedor={ganhouFora}>{jogo.gf}</b>
+		</span>
+	{/if}
 </svelte:element>
 
 <style>
 	.linha {
 		display: grid;
-		grid-template-columns: 3.1rem 1fr auto 1fr;
-		align-items: center; gap: var(--e-3);
-		padding: var(--e-4) var(--e-1);
+		/* sem coluna de resultado quando não há resultado: o nome fica com esse espaço */
+		grid-template-columns: 3.1rem 1fr auto;
+		align-items: center;
+		gap: var(--e-3);
+		padding: var(--e-3) var(--e-1);
 		/* separador fraco **dentro** de uma secção; o forte fica para a dividir da
 		   seguinte. São dois níveis onde antes havia um, e é isso que faz a lista ler-se
 		   como blocos em vez de uma régua contínua. */
 		border-bottom: 1px solid var(--borda-fraca);
-		text-decoration: none; color: inherit;
+		text-decoration: none;
+		color: inherit;
 		font-size: var(--t-base);
 	}
 	.ligavel:hover, .ligavel:focus-visible { background: var(--acento-fraco); outline: none; }
@@ -112,19 +121,24 @@
 	@media (prefers-reduced-motion: reduce) { .vivo i { animation: none; } }
 	.dia { font-weight: 600; }
 
+	.equipas { display: grid; gap: var(--e-0); min-width: 0; }
 	.equipa { display: flex; align-items: center; gap: var(--e-2); min-width: 0; }
-	.equipa.casa { justify-content: flex-end; text-align: right; }
 	/* quem perdeu recua para o nível secundário: lê-se quem ganhou sem ler os números */
 	.nome { overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 		color: var(--texto-2); }
 	.vencedor .nome { color: var(--texto); font-weight: 600; }
 	.minha .nome { color: var(--acento); font-weight: 600; }
 
-	.meio { min-width: 2.6rem; text-align: center; }
-	.placar { font-variant-numeric: tabular-nums; font-size: var(--t-destaque); }
-	.placar i { color: var(--suave); font-style: normal; margin: 0 var(--e-0);
-		font-size: var(--t-pequeno); vertical-align: 0.08em; }
-	.placar b { font-weight: 400; color: var(--texto-2); }
-	.placar b.vencedor { font-weight: 600; color: var(--texto); }
-	.vs { color: var(--suave); font-size: var(--t-pequeno); }
+	/* os golos alinhados com as equipas, linha a linha, e em números tabulares para que o
+	   7 e o 11 fiquem na mesma coluna */
+	.golos {
+		display: grid;
+		gap: var(--e-0);
+		justify-items: end;
+		min-width: 1.2rem;
+		font-variant-numeric: tabular-nums;
+		font-size: var(--t-destaque);
+	}
+	.golos b { font-weight: 400; color: var(--texto-2); line-height: 1.25; }
+	.golos b.vencedor { font-weight: 600; color: var(--texto); }
 </style>

@@ -566,6 +566,21 @@ parte, e a ficha do resultado em cada golo. Três coisas não existiam.
 - **O resto do ecrã deles**: três espaços de publicidade (banner, odds da bwin e um vídeo com
   "Skip Ad") e um bloco de prognósticos. Não ter isso não é uma lacuna.
 
+## Equipas empilhadas (4/10/2026, à noite)
+
+A linha de jogo era simétrica — `casa | resultado | fora` — e isso dá **metade** da largura
+a cada nome. Com nomes portugueses não chega: medido num domingo, **15 dos 34 nomes
+apareciam cortados**, `UD VILAFRANQUENSE B` como `UD VILAFR…`. Tinha-se tentado adiar o
+problema com meio rem aqui e ali; não dá, é aritmética.
+
+Empilhadas, uma equipa por linha, cada nome tem a largura toda: **0 de 34 cortados**. É o
+que a theScore e a Sofascore fazem, e é por isso que os nomes delas cabem sempre.
+
+O custo é a altura: de ~44px para **57px** por jogo. Que é exactamente a altura que
+medimos nas duas — os 56px que estão na nota do cartão mais acima. Ou seja, não é um custo
+novo: é o preço que as referências também pagam, e que nós estávamos a poupar à custa de
+cortar os nomes.
+
 ## Fontes
 
 - [FotMob](https://www.fotmob.com) e [Sofascore](https://www.sofascore.com) — usadas diretamente a 375×812
