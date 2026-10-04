@@ -136,6 +136,9 @@ class FichaJogo:
     recinto: str | None
     arbitros: list[str] = field(default_factory=list)
     faltas: tuple[int | None, int | None] = (None, None)
+    #: só num jogo a decorrer: "2ª Parte" e o relógio que a fonte mostra a contar
+    periodo: str | None = None
+    relogio: str | None = None
     equipas: list[EquipaFicha] = field(default_factory=list)
     cronologia: list[EventoJogo] = field(default_factory=list)
     #: `None` quando a fonte ainda não anexou o boletim, ou nunca o anexa (ver `Boletim`)

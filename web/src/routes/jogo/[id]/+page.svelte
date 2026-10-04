@@ -12,10 +12,25 @@
 
 	type Tab = 'cronologia' | 'ficha' | 'boletim';
 	let tab = $state<Tab>('cronologia');
+	// num jogo a decorrer é a cronologia que se quer, não a ficha
+	$effect(() => {
+		if (aDecorrer) tab = 'cronologia';
+	});
 
 	// W3.6d: sem acontecimentos reais, a tab de cronologia seria um ecrã vazio
 	const ESTRUTURA = new Set(['inicio_parte', 'fim_parte', 'fim_jogo', 'por_iniciar']);
-	const temCronologia = $derived(f.cronologia.some((e) => !ESTRUTURA.has(e.tipo)));
+	/**
+	 * Num jogo a decorrer a cronologia mostra-se **sempre**, mesmo só com o apito inicial.
+	 *
+	 * A regra era "só se houver um evento que não seja estrutural", para não abrir uma tab
+	 * vazia. Num jogo a decorrer isso está ao contrário: aos dois minutos ainda só há o
+	 * "Início da 1ª Parte", e era precisamente aí que o utilizador abria o jogo à procura
+	 * do que estava a acontecer — e não encontrava tab nenhuma.
+	 */
+	const aDecorrer = $derived(!!f.periodo && f.estado !== 'Jogo Terminado');
+	const temCronologia = $derived(
+		aDecorrer || f.cronologia.some((e) => !ESTRUTURA.has(e.tipo))
+	);
 	const temFicha = $derived(f.equipas.some((e) => e.jogadores.length > 0));
 	/** A tab do boletim só existe quando há boletim — e não há quase nunca: a fonte só o
 	 *  anexa minutos depois do apito, e nunca nos escalões de formação. Oferecer uma tab
@@ -61,7 +76,12 @@
 			<Emblema equipa={f.casa} src={data.emblemas[f.casa]} tamanho={30} />
 			<span class="nome">{f.casa}</span>
 		</svelte:element>
-		<span class="numeros">{f.golos_casa}<span class="tr">–</span>{f.golos_fora}</span>
+		<span class="numeros">
+			{f.golos_casa}<span class="tr">–</span>{f.golos_fora}
+			{#if aDecorrer}
+				<span class="relogio">{f.periodo}{f.relogio ? ` · ${f.relogio}` : ''}</span>
+			{/if}
+		</span>
 		<svelte:element this={f.categoria ? 'a' : 'span'}
 			href={f.categoria ? caminhoEquipa(f.fora, f.categoria) : null}
 			class="equipa" class:venceu={(f.golos_fora ?? 0) > (f.golos_casa ?? 0)}>
@@ -157,6 +177,8 @@
 	.migalhas:hover, .migalhas:focus-visible { border-color: var(--acento); outline: none; }
 	.seta { color: var(--suave); }
 	.venceu { font-weight: 700; }
+	.relogio { display: block; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.03em;
+		color: var(--vivo); white-space: nowrap; }
 	.numeros { font-size: 1.7rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 	.tr { color: var(--suave); margin: 0 0.25rem; font-weight: 400; }
 	.meta { font-size: 0.74rem; color: var(--suave); margin: 0.5rem 0 0; }

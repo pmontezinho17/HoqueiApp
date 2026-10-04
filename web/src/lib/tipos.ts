@@ -86,6 +86,9 @@ export interface FichaJogo {
 	equipas: EquipaFicha[];
 	cronologia: EventoJogo[];
 	boletim?: Boletim | null;
+	/** só num jogo a decorrer: "2ª Parte" e o relógio da fonte a contar */
+	periodo?: string | null;
+	relogio?: string | null;
 	/** presente e true quando o escalão é de formação e os nomes foram omitidos */
 	individuais_omitidos?: boolean;
 	/** contexto para as migalhas (W7.3) */

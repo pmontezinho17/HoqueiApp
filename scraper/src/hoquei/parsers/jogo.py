@@ -158,8 +158,19 @@ def _cabecalho(arvore, equipa_fora: str | None = None) -> dict:
     if m := re.search(r"(\d{1,2}) de ([a-zç]+) de (\d{4})", bruto, re.I):
         if (mes := _MESES.get(m.group(2).lower())):
             dados["data"] = date(int(m.group(3)), mes, int(m.group(1)))
-    if m := re.search(r"\b(\d{1,2})[.:](\d{2})\b", bruto):
+    # A hora **depois da data**, e não a primeira do bloco. Num jogo a decorrer o bloco
+    # abre com o relógio do jogo — "1ª Parte (13:26)" — e a primeira hora que lá está é
+    # esse. O ecrã mostrava "4 out, 16:10" num jogo das 11:00.
+    if m := re.search(r"de \d{4}\s*\|?\s*(\d{1,2})[.:](\d{2})", bruto):
         dados["hora"] = time(int(m.group(1)), int(m.group(2)))
+    elif m := re.search(r"\b(\d{1,2})[.:](\d{2})\b", bruto):
+        dados["hora"] = time(int(m.group(1)), int(m.group(2)))
+
+    # O período e o relógio de um jogo a decorrer. Antes vinham dentro do nome da prova,
+    # que ficava "1ª Parte (13:26) CAMP. REG. SUB-15…" nas migalhas.
+    if m := re.search(r"(\d+[ªa]\s*[Pp]arte)\s*\((\d{1,2}:\d{2})\)", bruto):
+        dados["periodo"] = m.group(1).replace("a ", "ª ").strip()
+        dados["relogio"] = m.group(2)
     if m := re.search(r"Recinto:\s*(.+?)\s*(?:[ÁA]rbitros?:|$)", bruto):
         dados["recinto"] = m.group(1).strip() or None
     if m := re.search(r"[ÁA]rbitros?:\s*(.+)$", bruto):
@@ -182,6 +193,8 @@ def _competicao(bruto: str, estado: str | None, equipa_fora: str | None) -> str 
     if not m:
         return None
     antes = bruto[:m.start()]
+    # num jogo a decorrer o relógio vem imediatamente antes do nome da prova
+    antes = re.sub(r".*?\d+[ªa]\s*[Pp]arte\s*\(\d{1,2}:\d{2}\)", "", antes, count=1)
     for ancora in (estado, equipa_fora):
         if ancora and ancora in antes:
             antes = antes.rsplit(ancora, 1)[-1]
@@ -265,6 +278,8 @@ def ficha(html: str, id_jogo: int) -> FichaJogo:
         recinto=cab.get("recinto"),
         arbitros=cab.get("arbitros", []),
         faltas=cab.get("faltas", (None, None)),
+        periodo=cab.get("periodo"),
+        relogio=cab.get("relogio"),
         equipas=equipas,
         cronologia=cronologia(html),
         boletim=boletim(html),
