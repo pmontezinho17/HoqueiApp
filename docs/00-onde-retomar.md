@@ -41,6 +41,17 @@ têm tabela nenhuma** — Escolares, Benjamins e Torneios Particulares.
 seria informação nova, criada por nós, e a ausência é provavelmente uma escolha pedagógica da
 federação. Está no email à APL por responder. Ver o travão na Fase 9 do backlog.
 
+## ⚠️ Durante uma janela ao vivo há dois publicadores
+
+A Action `aovivo.yml` publica no CDN **sem comitar**, e republica o build que fez no
+arranque. Portanto, enquanto ela corre:
+
+* um `wrangler pages deploy` feito à mão **apaga os resultados ao vivo** dela;
+* e a ronda seguinte dela **reverte o código** que tenhas publicado à mão.
+
+Aconteceu a 04/10 às 10:23, com um jogo a decorrer. Para publicar código durante uma janela:
+`gh run cancel <id>`, publicar, e `gh workflow run aovivo.yml`.
+
 ## Próximo passo
 
 Das sete funcionalidades que pediste no Keep, **quatro estão feitas**, uma está a meio e
@@ -134,6 +145,17 @@ Prova de ponta a ponta: `uv run python -m hoquei.cli despejar --tenant aplisboa 
 (`css("div.a, div.b")`) devolve os nós **agrupados por seletor**, não por ordem no documento.
 A primeira versão do parser de competições caminhava por irmãos e punha todas as provas na última
 categoria. A ligação correta é explícita: `onclick="verComp(N)"` → `div#cN`.
+
+## ⚠️ Durante uma janela ao vivo há dois publicadores
+
+A Action `aovivo.yml` publica no CDN **sem comitar**, e republica o build que fez no
+arranque. Portanto, enquanto ela corre:
+
+* um `wrangler pages deploy` feito à mão **apaga os resultados ao vivo** dela;
+* e a ronda seguinte dela **reverte o código** que tenhas publicado à mão.
+
+Aconteceu a 04/10 às 10:23, com um jogo a decorrer. Para publicar código durante uma janela:
+`gh run cancel <id>`, publicar, e `gh workflow run aovivo.yml`.
 
 ## Próximo passo concreto
 

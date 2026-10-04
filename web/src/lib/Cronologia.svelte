@@ -7,6 +7,16 @@
 		eventos, casa, fora, omitidos
 	}: { eventos: EventoJogo[]; casa: string; fora: string; omitidos: boolean } = $props();
 
+	/**
+	 * Do mais recente para o mais antigo.
+	 *
+	 * A fonte dá-os por ordem de jogo, e era assim que os mostrávamos — o que obriga a
+	 * rolar até ao fim para ver o que acabou de acontecer. Num jogo a decorrer é o
+	 * contrário do que se quer: o golo de agora tem de estar onde o polegar já está.
+	 * Os antigos vão descendo.
+	 */
+	const porOrdemInversa = $derived([...eventos].reverse());
+
 	// marcações de estrutura: ocupam a largura toda e não pertencem a nenhum lado
 	const ESTRUTURA = new Set(['inicio_parte', 'fim_parte', 'fim_jogo', 'por_iniciar']);
 
@@ -39,7 +49,7 @@
 {/if}
 
 <ol class="linha">
-	{#each eventos as e (e.ordem)}
+	{#each porOrdemInversa as e (e.ordem)}
 		{#if e.tipo === 'inicio_parte'}
 			<li class="marca"><span>{e.parte}ª parte</span></li>
 		{:else if e.tipo === 'fim_jogo'}

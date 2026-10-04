@@ -10,6 +10,13 @@
 # **Não comita.** Um commit a cada 45 segundos seria absurdo, e colidiria com a Action dos
 # dados — já aconteceu duas vezes num dia. O registo definitivo fica para o `dados.yml`,
 # que passa de 2 em 2 horas; isto só actualiza o que o CDN serve.
+#
+# ⚠️ **Consequência: durante uma janela ao vivo há dois publicadores.** Os resultados deste
+# ciclo vivem só no CDN, e um `wrangler pages deploy` feito à mão a partir de uma cópia
+# local apaga-os — aconteceu a 04/10 às 10:23, com um jogo a decorrer. Ao contrário, este
+# ciclo republica o build que fez no arranque, por isso também reverte código publicado
+# entretanto. Enquanto uma janela estiver a correr: ou não se publica à mão, ou cancela-se
+# a corrida, publica-se, e lança-se outra.
 set -uo pipefail
 
 MINUTOS=${MINUTOS:-235}

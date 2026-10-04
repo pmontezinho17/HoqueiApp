@@ -69,8 +69,8 @@
    "hora": "10:00:00",
    "casa": "CRIAR-T GD",
    "fora": "A STUART HCM A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 1,
    "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T"
   },
   {
