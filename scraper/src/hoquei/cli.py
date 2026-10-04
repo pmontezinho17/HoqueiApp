@@ -213,7 +213,11 @@ def comando_aovivo(args) -> int:
             por_id[j["id"]].update(gc=fx.golos_casa, gf=fx.golos_fora,
                                    ao_vivo=fx.estado != "Jogo Terminado")
             _actualizar_calendario(destino, j, fx.golos_casa, fx.golos_fora)
-            provas_tocadas.add(j["comp"])
+            # A classificação da fonte só muda quando o jogo fecha, não a cada golo. Pedi-la
+            # em cada ronda eram dois terços dos nossos pedidos a não trazer nada de novo,
+            # contra o servidor de uma federação.
+            if fx.estado == "Jogo Terminado" and antigo.get("estado") != "Jogo Terminado":
+                provas_tocadas.add(j["comp"])
             mudou += 1
             print(f"  {j['hora'][:5]} #{j['id']} {j['casa']} {fx.golos_casa}-{fx.golos_fora} "
                   f"{j['fora']}  {fx.estado or 'a decorrer'}", file=sys.stderr)
@@ -223,6 +227,8 @@ def comando_aovivo(args) -> int:
         # os conta. Foi o teste de reprodução (B9.13) que apanhou isto, e tinha razão — é
         # incoerência a sério, e via-se na app.
         if provas_tocadas:
+            # a época não muda a meio de uma janela de quatro horas; pedi-la por ronda era
+            # um pedido inteiro a confirmar o que já sabíamos
             id_temp = args.id_temp or _temporada_corrente(fonte)
             for comp in sorted(provas_tocadas):
                 try:

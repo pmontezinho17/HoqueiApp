@@ -1,20 +1,20 @@
 {
  "id": 9927,
- "competicao": "3ª Parte (2:43) ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE C",
+ "competicao": "4ª Parte (4:15) ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE C",
  "casa": "CRIAR-T GD",
  "fora": "A STUART HCM A",
  "golos_casa": 2,
- "golos_fora": 1,
+ "golos_fora": 2,
  "estado": null,
  "data": "2026-10-04",
- "hora": "02:43:00",
+ "hora": "04:15:00",
  "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
  "arbitros": [
   "MIGUEL SOARES"
  ],
  "faltas": [
-  2,
-  5
+  3,
+  7
  ],
  "equipas": [
   {
@@ -225,7 +225,7 @@
      "numero": "9",
      "nome": "GONÇALO BORGES",
      "titular": true,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -533,6 +533,96 @@
    "golos_casa": null,
    "golos_fora": null,
    "texto": "Falta 5 para A STUART HCM A"
+  },
+  {
+   "ordem": 15,
+   "tipo": "falta_equipa",
+   "relogio": "1:53",
+   "parte": 3,
+   "minuto": 22,
+   "equipa": "A STUART HCM A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 6,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 6 para A STUART HCM A"
+  },
+  {
+   "ordem": 16,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 3,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 3ª parte"
+  },
+  {
+   "ordem": 17,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 4ª parte"
+  },
+  {
+   "ordem": 18,
+   "tipo": "falta_equipa",
+   "relogio": "7:01",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": "A STUART HCM A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 7,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 7 para A STUART HCM A"
+  },
+  {
+   "ordem": 19,
+   "tipo": "falta_equipa",
+   "relogio": "6:11",
+   "parte": 4,
+   "minuto": 25,
+   "equipa": "CRIAR-T GD",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 3,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 3 para CRIAR-T GD"
+  },
+  {
+   "ordem": 20,
+   "tipo": "golo",
+   "relogio": "6:00",
+   "parte": 4,
+   "minuto": 26,
+   "equipa": "A STUART HCM A",
+   "jogador": "GONÇALO BORGES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 2,
+   "golos_fora": 2,
+   "texto": "Golo para A STUART HCM A | GONÇALO BORGES"
   }
  ],
  "boletim": null
