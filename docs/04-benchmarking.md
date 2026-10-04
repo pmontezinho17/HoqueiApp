@@ -479,6 +479,47 @@ Juntando tudo: **3 separadores visíveis, 2 ícones no cabeçalho.**
 Cinco separadores que não cabiam passam a três que cabem. E nada do que o utilizador usa fica
 escondido atrás de um ícone.
 
+## theScore — o menu dos jogos (4/10/2026)
+
+Gravação de 65 s da app **theScore**, enviada pelo Pedro, sobre o menu dos jogos e a forma de
+interagir com eles. Lida de duas maneiras: 17 ecrãs distintos extraídos do vídeo, e o áudio
+transcrito no aparelho — e foi no áudio que estava o pedido real, que as imagens sozinhas não
+davam.
+
+O que ele pediu, nas suas palavras: *"se andar com o dedo para a esquerda, para a direita, ele
+vai mexendo nos dias e vai-me trocando lá em cima, com suavidade"*, e chips *"onde tínhamos os
+escalões e depois por baixo apareciam todos os jogos desses escalões em que eu carregar"*.
+
+**Adoptado**
+
+- **Arrastar o dedo muda de dia** (`FaixaDias.svelte`). Feito à mão, com *pointer events* e
+  `touch-action: pan-y`, e não com `scroll-snap`: um contentor com scroll horizontal rouba
+  também o scroll vertical, e um sábado com 41 jogos é precisamente uma página alta. Os dias
+  vizinhos ficam montados em posição absoluta — não entram no fluxo, logo não mudam a altura —
+  e `overflow-x: clip` corta-os. O recuo de 0.9rem do `main` vive dentro de cada página, para o
+  passo do arrasto ser exactamente a largura do ecrã; com o recuo na faixa ficava uma fenda de
+  0.9rem de conteúdo vizinho visível nos bordos.
+- **Chips de escalão preenchidos quando activos**, iguais ao dia escolhido na fita, e presentes
+  mesmo quando o dia tem um só escalão. A função já existia desde o início; o que faltava era
+  peso visual — o Pedro pediu-a como se não existisse.
+- Um arrasto horizontal **engole o clique** que lhe segue, senão mudar de dia abria o jogo que
+  estava sob o dedo.
+
+**Rejeitado**
+
+- **A nota de contexto sob cada linha** (`ALDS | White Sox lead series 1-0`). É a terceira linha
+  de texto que medimos e cortámos acima, a 25px por jogo: num sábado de 41 jogos é um ecrã
+  inteiro.
+- **Odds de apostas**, que ocupam metade da linha nos jogos por começar.
+- **Não ter secção de jogos ao vivo.** Na theScore um jogo a decorrer fica no grupo da liga; a
+  nossa `A decorrer agora` atravessa escalões e ignora o dia, que é o que serve um pai a querer
+  o jogo do filho. Fica fora da faixa que se arrasta, por não pertencer a nenhum dia.
+
+**Onde já estávamos melhor:** a fita diz *Hoje / Amanhã / Ontem* e recentra-se sozinha (a deles
+diz `TODAY OCT 4`); as secções por competição colapsam com contador, que eles não precisam de
+ter; e a linha simétrica aguenta `SPORT LISBOA E BENFICA`, enquanto a deles empilha emblema e
+nome em duas linhas.
+
 ## Fontes
 
 - [FotMob](https://www.fotmob.com) e [Sofascore](https://www.sofascore.com) — usadas diretamente a 375×812
@@ -488,3 +529,5 @@ escondido atrás de um ícone.
 - [Página de equipa da FotMob](https://www.fotmob.com/teams/9772/overview/sl-benfica) — separadores de uma página de clube
 - [Hamburger Menu vs Tab Bar](https://www.onething.design/post/hamburger-menu-vs-tab-bar) e
   [The End of Hamburger Menus?](https://www.simantaparida.com/blog/end-of-hamburger-menus-mobile-navigation) — medições de descoberta e o caso da Spotify
+- [theScore](https://www.thescore.com) — vídeo de 65 s gravado pelo Pedro a 4/10/2026, lido por
+  fotogramas e por transcrição do áudio no próprio aparelho

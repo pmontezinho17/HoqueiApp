@@ -90,7 +90,8 @@
 	.escalao { font-size: 0.54rem; font-weight: 600; letter-spacing: 0.03em;
 		color: var(--suave); white-space: nowrap; }
 
-	.vivo { display: inline-flex; align-items: center; gap: 0.25rem;
+	/* `nowrap`: na coluna de 3.1rem o "AO VIVO" partia-se em duas linhas */
+	.vivo { display: inline-flex; align-items: center; gap: 0.25rem; white-space: nowrap;
 		font-size: 0.58rem; font-weight: 700; letter-spacing: 0.04em; color: var(--vivo); }
 	.vivo i { width: 6px; height: 6px; border-radius: 50%; background: var(--vivo);
 		animation: pulsar 1.6s ease-in-out infinite; }
