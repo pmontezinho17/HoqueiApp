@@ -41,16 +41,18 @@ têm tabela nenhuma** — Escolares, Benjamins e Torneios Particulares.
 seria informação nova, criada por nós, e a ausência é provavelmente uma escolha pedagógica da
 federação. Está no email à APL por responder. Ver o travão na Fase 9 do backlog.
 
-## ⚠️ Durante uma janela ao vivo há dois publicadores
+## Durante uma janela ao vivo há dois publicadores
 
-A Action `aovivo.yml` publica no CDN **sem comitar**, e republica o build que fez no
-arranque. Portanto, enquanto ela corre:
+A Action `aovivo.yml` publica no CDN **sem comitar**. Enquanto ela corre, um
+`wrangler pages deploy` feito à mão apaga os resultados ao vivo dela — mas a ronda seguinte
+repõe-nos, por isso cura-se sozinho em menos de um minuto.
 
-* um `wrangler pages deploy` feito à mão **apaga os resultados ao vivo** dela;
-* e a ronda seguinte dela **reverte o código** que tenhas publicado à mão.
+A metade pior já está resolvida: o ciclo **detecta código novo em `origin/main` e
+reconstrói-se**. Antes republicava para sempre o build do arranque e revertia o que fosse
+publicado entretanto. Aconteceu duas vezes a 04/10, a segunda logo depois de eu ter escrito
+um aviso a pedir cuidado — um aviso não é uma defesa.
 
-Aconteceu a 04/10 às 10:23, com um jogo a decorrer. Para publicar código durante uma janela:
-`gh run cancel <id>`, publicar, e `gh workflow run aovivo.yml`.
+**Mesmo assim, comita antes de publicar à mão.** O ciclo só sabe do que está em `origin/main`.
 
 ## Próximo passo
 
@@ -146,16 +148,18 @@ Prova de ponta a ponta: `uv run python -m hoquei.cli despejar --tenant aplisboa 
 A primeira versão do parser de competições caminhava por irmãos e punha todas as provas na última
 categoria. A ligação correta é explícita: `onclick="verComp(N)"` → `div#cN`.
 
-## ⚠️ Durante uma janela ao vivo há dois publicadores
+## Durante uma janela ao vivo há dois publicadores
 
-A Action `aovivo.yml` publica no CDN **sem comitar**, e republica o build que fez no
-arranque. Portanto, enquanto ela corre:
+A Action `aovivo.yml` publica no CDN **sem comitar**. Enquanto ela corre, um
+`wrangler pages deploy` feito à mão apaga os resultados ao vivo dela — mas a ronda seguinte
+repõe-nos, por isso cura-se sozinho em menos de um minuto.
 
-* um `wrangler pages deploy` feito à mão **apaga os resultados ao vivo** dela;
-* e a ronda seguinte dela **reverte o código** que tenhas publicado à mão.
+A metade pior já está resolvida: o ciclo **detecta código novo em `origin/main` e
+reconstrói-se**. Antes republicava para sempre o build do arranque e revertia o que fosse
+publicado entretanto. Aconteceu duas vezes a 04/10, a segunda logo depois de eu ter escrito
+um aviso a pedir cuidado — um aviso não é uma defesa.
 
-Aconteceu a 04/10 às 10:23, com um jogo a decorrer. Para publicar código durante uma janela:
-`gh run cancel <id>`, publicar, e `gh workflow run aovivo.yml`.
+**Mesmo assim, comita antes de publicar à mão.** O ciclo só sabe do que está em `origin/main`.
 
 ## Próximo passo concreto
 

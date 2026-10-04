@@ -1,20 +1,20 @@
 {
  "id": 9927,
- "competicao": "Intervalo 2º ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE C",
+ "competicao": "3ª Parte (2:43) ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE C",
  "casa": "CRIAR-T GD",
  "fora": "A STUART HCM A",
  "golos_casa": 2,
  "golos_fora": 1,
  "estado": null,
  "data": "2026-10-04",
- "hora": "10:00:00",
+ "hora": "02:43:00",
  "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
  "arbitros": [
   "MIGUEL SOARES"
  ],
  "faltas": [
-  1,
-  2
+  2,
+  5
  ],
  "equipas": [
   {
@@ -458,6 +458,81 @@
    "golos_casa": null,
    "golos_fora": null,
    "texto": "Final da 2ª parte"
+  },
+  {
+   "ordem": 10,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 3ª parte"
+  },
+  {
+   "ordem": 11,
+   "tipo": "falta_equipa",
+   "relogio": "5:40",
+   "parte": 3,
+   "minuto": 18,
+   "equipa": "A STUART HCM A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 3,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 3 para A STUART HCM A"
+  },
+  {
+   "ordem": 12,
+   "tipo": "falta_equipa",
+   "relogio": "5:29",
+   "parte": 3,
+   "minuto": 18,
+   "equipa": "CRIAR-T GD",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 2,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 2 para CRIAR-T GD"
+  },
+  {
+   "ordem": 13,
+   "tipo": "falta_equipa",
+   "relogio": "4:58",
+   "parte": 3,
+   "minuto": 19,
+   "equipa": "A STUART HCM A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 4,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 4 para A STUART HCM A"
+  },
+  {
+   "ordem": 14,
+   "tipo": "falta_equipa",
+   "relogio": "2:43",
+   "parte": 3,
+   "minuto": 21,
+   "equipa": "A STUART HCM A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 5,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 5 para A STUART HCM A"
   }
  ],
  "boletim": null
