@@ -10,15 +10,20 @@ name: Acompanhar jogos ao vivo
 # contra um jogo que a federação já está a publicar ao vivo no seu próprio site.
 on:
   schedule:
-    # fins-de-semana: três janelas de ~4h a cobrir 10:00–22:00 WEST. Os jogos de 03/10
-    # começaram às 10:45 e acabaram depois das 21:00.
-    - cron: '0 9,13,17 * * 6,0'
-    - cron: '0 18 * * 5'        # sexta ao serão, onde há jornadas às 19:30
+    # Fins-de-semana: três janelas de ~4h20 a cobrir 09:30–22:00 WEST, **meia hora antes**
+    # do primeiro jogo. O agendador da GitHub atrasa-se — 18 minutos medidos na sonda de
+    # 02/10, e a 04/10 às 09:03 UTC a corrida das 09:00 ainda não tinha arrancado. Pedir às
+    # 08:30 para cobrir um jogo das 10:00 é a única forma de não perder o início.
+    #
+    # As janelas sobrepõem-se de propósito: com `concurrency` a segunda espera pela
+    # primeira, e é a espera que fecha as falhas em vez de as abrir.
+    - cron: '30 8,12,16 * * 6,0'
+    - cron: '30 17 * * 5'       # sexta ao serão, onde há jornadas às 19:30
   workflow_dispatch:
     inputs:
       minutos:
         description: Duração máxima do ciclo
-        default: '235'
+        default: '260'
       intervalo:
         description: Segundos entre rondas
         default: '45'
@@ -34,7 +39,7 @@ permissions:
 jobs:
   seguir:
     runs-on: ubuntu-latest
-    timeout-minutes: 250     # 235 de ciclo + margem para o build inicial
+    timeout-minutes: 280     # 260 de ciclo + margem para o build inicial
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
@@ -55,7 +60,7 @@ jobs:
       - name: Seguir os jogos
         run: ./scripts/aovivo.sh
         env:
-          MINUTOS: ${{ inputs.minutos || '235' }}
+          MINUTOS: ${{ inputs.minutos || '260' }}
           INTERVALO: ${{ inputs.intervalo || '45' }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

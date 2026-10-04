@@ -5,6 +5,7 @@
 	import FichaEquipas from '$lib/FichaEquipas.svelte';
 	import Bola from '$lib/Bola.svelte';
 	import { dataCurta, horaCurta, nomeProprio } from '$lib/formato';
+	import { caminhoEquipa } from '$lib/slug';
 
 	let { data } = $props();
 	const f = $derived(data.ficha);
@@ -54,15 +55,19 @@
 
 <article class="cabecalho">
 	<div class="placar">
-		<span class="equipa" class:venceu={(f.golos_casa ?? 0) > (f.golos_fora ?? 0)}>
+		<svelte:element this={f.categoria ? 'a' : 'span'}
+			href={f.categoria ? caminhoEquipa(f.casa, f.categoria) : null}
+			class="equipa" class:venceu={(f.golos_casa ?? 0) > (f.golos_fora ?? 0)}>
 			<Emblema equipa={f.casa} src={data.emblemas[f.casa]} tamanho={30} />
 			<span class="nome">{f.casa}</span>
-		</span>
+		</svelte:element>
 		<span class="numeros">{f.golos_casa}<span class="tr">–</span>{f.golos_fora}</span>
-		<span class="equipa" class:venceu={(f.golos_fora ?? 0) > (f.golos_casa ?? 0)}>
+		<svelte:element this={f.categoria ? 'a' : 'span'}
+			href={f.categoria ? caminhoEquipa(f.fora, f.categoria) : null}
+			class="equipa" class:venceu={(f.golos_fora ?? 0) > (f.golos_casa ?? 0)}>
 			<Emblema equipa={f.fora} src={data.emblemas[f.fora]} tamanho={30} />
 			<span class="nome">{f.fora}</span>
-		</span>
+		</svelte:element>
 	</div>
 
 	{#if temMarcadores}
@@ -131,7 +136,10 @@
 		border-radius: 12px; padding: 1rem 0.9rem; margin-bottom: 1rem; text-align: center; }
 	.placar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: start; gap: 0.6rem; }
 	.equipa { display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
-		font-size: 0.8rem; min-width: 0; }
+		font-size: 0.8rem; min-width: 0; text-decoration: none; color: inherit; }
+	/* leva à equipa, mas sem se vestir de link: o sublinhado num nome centrado debaixo
+	   de um emblema fica a competir com o resultado, que é o que se vem aqui ver */
+	a.equipa:hover .nome, a.equipa:focus-visible .nome { text-decoration: underline; }
 	.equipa .nome { overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 		max-width: 100%; }
 	.marcadores { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0.5rem;
