@@ -1,19 +1,19 @@
 {
  "id": 9927,
- "competicao": "4ª Parte (4:15) ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE C",
+ "competicao": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE C",
  "casa": "CRIAR-T GD",
  "fora": "A STUART HCM A",
- "golos_casa": 2,
+ "golos_casa": 3,
  "golos_fora": 2,
- "estado": null,
+ "estado": "Jogo Terminado",
  "data": "2026-10-04",
- "hora": "04:15:00",
+ "hora": "10:00:00",
  "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
  "arbitros": [
   "MIGUEL SOARES"
  ],
  "faltas": [
-  3,
+  4,
   7
  ],
  "equipas": [
@@ -52,7 +52,7 @@
      "numero": "03",
      "nome": "ANTONIO PEREIRA",
      "titular": false,
-     "golos": 1,
+     "golos": 2,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -236,20 +236,6 @@
      "papel": null
     },
     {
-     "numero": "11",
-     "nome": "DIOGO REIS",
-     "titular": false,
-     "golos": 1,
-     "assistencias": 0,
-     "defesas": 0,
-     "penalidades": "0/0",
-     "livres_diretos": "0/0",
-     "cartoes_amarelos": 0,
-     "cartoes_azuis": 0,
-     "cartoes_vermelhos": 0,
-     "papel": null
-    },
-    {
      "numero": "77",
      "nome": "MATILDE VENTURA",
      "titular": true,
@@ -268,6 +254,20 @@
      "nome": "VICENTE BARROS",
      "titular": false,
      "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "91",
+     "nome": "DIOGO REIS",
+     "titular": false,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -623,7 +623,94 @@
    "golos_casa": 2,
    "golos_fora": 2,
    "texto": "Golo para A STUART HCM A | GONÇALO BORGES"
+  },
+  {
+   "ordem": 21,
+   "tipo": "golo",
+   "relogio": "1:34",
+   "parte": 4,
+   "minuto": 30,
+   "equipa": "CRIAR-T GD",
+   "jogador": "ANTONIO PEREIRA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 3,
+   "golos_fora": 2,
+   "texto": "Golo para CRIAR-T GD | ANTONIO PEREIRA"
+  },
+  {
+   "ordem": 22,
+   "tipo": "falta_equipa",
+   "relogio": "0:57",
+   "parte": 4,
+   "minuto": 31,
+   "equipa": "CRIAR-T GD",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 4,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 4 para CRIAR-T GD"
+  },
+  {
+   "ordem": 23,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 4,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
   }
  ],
- "boletim": null
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MIGUEL SOARES",
+   "Árbitro Auxiliar": "jose barros",
+   "Cronometrista": "BRUNO MARCELO",
+   "Gestor de segurança": "BRUNO PEREIRA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   1,
+   3
+  ],
+  "faltas_fora": [
+   2,
+   5
+  ],
+  "inicio": [
+   "9:59",
+   "10:25"
+  ],
+  "termo": [
+   "10:18",
+   "10:47"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ }
 }

@@ -179,10 +179,20 @@ def comando_aovivo(args) -> int:
             return True
 
     acorda = [j for j in agenda if a_decorrer(j)]
+
+    # Jogos de hoje cuja hora ainda não chegou. O ciclo em CI precisa disto para **não**
+    # desligar nos intervalos: a 04/10 saiu às 10:51, assim que o jogo das 10:00 acabou, e
+    # deixou o das 11:00 sem cobertura nenhuma. "Não há nada a decorrer" não é o mesmo que
+    # "o dia acabou".
+    por_vir = sum(1 for j in agenda
+                  if j["data"] == hoje and j.get("hora")
+                  and j["hora"][:5] > agora.strftime("%H:%M"))
+
     if not acorda:
-        # linha lida pelo ciclo que corre isto em CI: é por ela que sabe quando parar
+        # linhas lidas pelo ciclo que corre isto em CI: é por elas que sabe quando parar
         print("a_decorrer=0")
-        print("nenhum jogo a decorrer", file=sys.stderr)
+        print(f"por_vir={por_vir}")
+        print(f"nenhum jogo a decorrer, {por_vir} ainda por começar hoje", file=sys.stderr)
         return 0
 
     por_id = {j["id"]: j for j in agenda}
@@ -254,8 +264,9 @@ def comando_aovivo(args) -> int:
     # número e não por "quantos mudaram": entre dois golos pode não mudar nada durante
     # minutos, e desligar aí era desligar a meio do jogo.
     print(f"a_decorrer={por_fechar}")
+    print(f"por_vir={por_vir}")
     print(f"{len(acorda)} jogos sondados, {mudou} com novidade, "
-          f"{por_fechar} ainda a decorrer", file=sys.stderr)
+          f"{por_fechar} a decorrer, {por_vir} por começar", file=sys.stderr)
     return 0
 
 

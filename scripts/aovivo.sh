@@ -22,8 +22,10 @@ set -uo pipefail
 
 MINUTOS=${MINUTOS:-235}
 INTERVALO=${INTERVALO:-45}
-#: rondas sem **nenhum** jogo a decorrer antes de desistir. Não se conta "sem novidade":
-#: entre dois golos pode não mudar nada durante minutos.
+#: rondas sem nada a decorrer **e** sem nada por começar hoje antes de desistir.
+#: Não se conta "sem novidade" (entre dois golos pode não mudar nada durante minutos), nem
+#: só "a decorrer" — a 04/10 o ciclo saiu às 10:51 assim que o jogo das 10:00 acabou e
+#: deixou o das 11:00 sem cobertura. Um intervalo entre jogos não é o fim do dia.
 PACIENCIA=${PACIENCIA:-4}
 DESTINO=web/static/v1/aplisboa/2026-27
 
@@ -63,19 +65,20 @@ while [ "$(date +%s)" -lt "$fim" ]; do
   saida=$(cd scraper && uv run python -m hoquei.cli aovivo \
             --tenant aplisboa --destino "../$DESTINO" 2>&1)
   vivos=$(echo "$saida" | grep -oE '^a_decorrer=[0-9]+' | cut -d= -f2)
+  porvir=$(echo "$saida" | grep -oE '^por_vir=[0-9]+' | cut -d= -f2)
   novos=$(echo "$saida" | grep -oE '[0-9]+ com novidade' | grep -oE '^[0-9]+')
 
   if [ "${novos:-0}" -gt 0 ]; then
     publicar && echo "[$(date -u +%H:%M:%S)] ronda $ronda · ${novos} novidades · ${vivos:-0} a decorrer · $(( $(date +%s) - t0 ))s"
     echo "$saida" | grep -E 'a decorrer$' | sed 's/^/    /'
   else
-    echo "[$(date -u +%H:%M:%S)] ronda $ronda · sem novidade · ${vivos:-0} a decorrer"
+    echo "[$(date -u +%H:%M:%S)] ronda $ronda · sem novidade · ${vivos:-0} a decorrer · ${porvir:-0} por começar"
   fi
 
-  if [ "${vivos:-0}" -eq 0 ]; then
+  if [ "${vivos:-0}" -eq 0 ] && [ "${porvir:-0}" -eq 0 ]; then
     vazias=$((vazias + 1))
     if [ "$vazias" -ge "$PACIENCIA" ]; then
-      echo "nada a decorrer há $PACIENCIA rondas — a sair"
+      echo "nada a decorrer e nada por começar hoje — a sair"
       exit 0
     fi
   else
