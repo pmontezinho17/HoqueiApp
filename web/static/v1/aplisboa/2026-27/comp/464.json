@@ -71,8 +71,8 @@
    "hora": "18:30:00",
    "casa": "CACO B",
    "fora": "PAREDE FC B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 6,
+   "golos_fora": 1,
    "recinto": "PAV.C.A.C.OURIQUE",
    "ao_vivo": false
   },

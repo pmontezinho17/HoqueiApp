@@ -71,8 +71,8 @@
    "hora": "17:00:00",
    "casa": "AD OEIRAS B",
    "fora": "SC TORRES",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 7,
+   "golos_fora": 0,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
   },

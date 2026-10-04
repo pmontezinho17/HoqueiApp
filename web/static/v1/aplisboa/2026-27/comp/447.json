@@ -118,8 +118,8 @@
    "hora": "18:30:00",
    "casa": "UD VILAFRANQUENSE B",
    "fora": "AE FISICA D B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 0,
    "recinto": "PAV. VILAFRANQUENSE",
    "ao_vivo": false
   },
@@ -496,18 +496,32 @@
      "posicao": 3,
      "equipa": "AE FISICA D B",
      "logo": "/intranet/logos/11.png",
-     "jogos": 1,
+     "jogos": 2,
      "vitorias": 1,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 0,
      "golos_marcados": 5,
      "golos_sofridos": 3,
      "diferenca": 2,
      "racio": 1.67,
-     "pontos": 3
+     "pontos": 4
     },
     {
      "posicao": 4,
+     "equipa": "UD VILAFRANQUENSE B",
+     "logo": "/intranet/logos/15.png",
+     "jogos": 2,
+     "vitorias": 0,
+     "empates": 1,
+     "derrotas": 1,
+     "golos_marcados": 0,
+     "golos_sofridos": 21,
+     "diferenca": -21,
+     "racio": 0.0,
+     "pontos": 1
+    },
+    {
+     "posicao": 5,
      "equipa": "CRIAR-T GD",
      "logo": "/intranet/logos/17.png",
      "jogos": 2,
@@ -518,20 +532,6 @@
      "golos_sofridos": 19,
      "diferenca": -16,
      "racio": 0.16,
-     "pontos": 0
-    },
-    {
-     "posicao": 5,
-     "equipa": "UD VILAFRANQUENSE B",
-     "logo": "/intranet/logos/15.png",
-     "jogos": 1,
-     "vitorias": 0,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 0,
-     "golos_sofridos": 21,
-     "diferenca": -21,
-     "racio": 0.0,
      "pontos": 0
     },
     {

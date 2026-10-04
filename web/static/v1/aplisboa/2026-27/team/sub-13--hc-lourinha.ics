@@ -21,6 +21,19 @@ DESCRIPTION:HC Lourinhã vs Criar-T GD\nCAMP. REG. SUB-13 - 1ª FASE · Sé
 URL:https://hoquei.pages.dev/jogo/9487
 END:VEVENT
 BEGIN:VEVENT
+UID:jogo-9492@hoquei.pages.dev
+DTSTAMP:20261011T000000Z
+DTSTART:20261011T100000Z
+DTEND:20261011T113000Z
+SUMMARY:🏑 Sub-13 🏑 HC Lourinhã vs UD Vilafranquense
+LOCATION:Hoquei Clube da Lourinhã
+DESCRIPTION:HC Lourinhã vs UD Vilafranquense\nCAMP. REG. SUB-13 - 1ª FASE
+  · Série B · SUB-13\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev
+ /jogo/9492\nDados da Associação de Patinagem de Lisboa. Site não oficia
+ l.
+URL:https://hoquei.pages.dev/jogo/9492
+END:VEVENT
+BEGIN:VEVENT
 UID:jogo-9490@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T150000Z
@@ -31,19 +44,6 @@ DESCRIPTION:SL Benfica vs HC Lourinhã\nCAMP. REG. SUB-13 - 1ª FASE · Sé
  rie B · SUB-13\nPAV. MURCHES\nhttps://hoquei.pages.dev/jogo/9490\nDados d
  a Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9490
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9492@hoquei.pages.dev
-DTSTAMP:20261018T000000Z
-DTSTART:20261017T230000Z
-DTEND:20261018T003000Z
-SUMMARY:🏑 Sub-13 🏑 HC Lourinhã vs UD Vilafranquense
-LOCATION:Hoquei Clube da Lourinhã
-DESCRIPTION:HC Lourinhã vs UD Vilafranquense\nCAMP. REG. SUB-13 - 1ª FASE
-  · Série B · SUB-13\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev
- /jogo/9492\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
-URL:https://hoquei.pages.dev/jogo/9492
 END:VEVENT
 BEGIN:VEVENT
 UID:jogo-9496@hoquei.pages.dev

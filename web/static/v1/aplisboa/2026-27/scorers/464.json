@@ -1,6 +1,6 @@
 {
  "competicao_id": 464,
- "jogos_considerados": 3,
+ "jogos_considerados": 4,
  "jogadores": [
   {
    "nome": "GONCALO RODRIGUES",
@@ -55,6 +55,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "FRANCISCO FIGUEIREDO",
+   "equipa": "CACO B",
+   "jogos": 2,
+   "numero": "18",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "CAETANA VICENTE",
    "equipa": "UD VILAFRANQUENSE B",
    "jogos": 2,
@@ -81,19 +94,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "GABRIEL VIEIRA",
-   "equipa": "CACO B",
-   "jogos": 1,
-   "numero": "32",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOÃO CONSTANTINO",
    "equipa": "FSE/AJ SALESIANA B",
    "jogos": 1,
@@ -107,9 +107,35 @@
    "vermelhos": 0
   },
   {
+   "nome": "MARTIM RODRIGUES",
+   "equipa": "CACO B",
+   "jogos": 1,
+   "numero": "39",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GABRIEL VIEIRA",
+   "equipa": "CACO B",
+   "jogos": 2,
+   "numero": "99",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MARIA ROCHA",
    "equipa": "PAREDE FC B",
-   "jogos": 1,
+   "jogos": 2,
    "numero": "9",
    "golos": 2,
    "assistencias": 0,
@@ -122,7 +148,7 @@
   {
    "nome": "SOFIA SANTOS",
    "equipa": "PAREDE FC B",
-   "jogos": 1,
+   "jogos": 2,
    "numero": "3",
    "golos": 2,
    "assistencias": 0,
@@ -137,19 +163,6 @@
    "equipa": "AE FISICA D B",
    "jogos": 1,
    "numero": "2",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "FRANCISCO FIGUEIREDO",
-   "equipa": "CACO B",
-   "jogos": 1,
-   "numero": "18",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -198,6 +211,45 @@
    "vermelhos": 0
   },
   {
+   "nome": "CATARINA DOMINGOS",
+   "equipa": "CACO B",
+   "jogos": 2,
+   "numero": "97",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LOURENÇO GUERREIRO",
+   "equipa": "PAREDE FC B",
+   "jogos": 2,
+   "numero": "8",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VASCO HENRIQUES",
+   "equipa": "CACO B",
+   "jogos": 2,
+   "numero": "19",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "VASCO RODRIGUES",
    "equipa": "FSE/AJ SALESIANA B",
    "jogos": 1,
@@ -237,10 +289,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "CATARINA DOMINGOS",
-   "equipa": "CACO B",
+   "nome": "ANTONIO ROSA",
+   "equipa": "PAREDE FC B",
    "jogos": 1,
-   "numero": "97",
+   "numero": "7",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -267,6 +319,19 @@
    "equipa": "AE FISICA D B",
    "jogos": 1,
    "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DJERIDANE KAMIL",
+   "equipa": "CACO B",
+   "jogos": 1,
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -315,19 +380,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO LUIS",
-   "equipa": "CACO B",
-   "jogos": 1,
-   "numero": "88",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "FRANCISCO RIBEIRO",
    "equipa": "CACO B",
    "jogos": 1,
@@ -343,32 +395,6 @@
   {
    "nome": "GONÇALO POVOA",
    "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO SANTOS",
-   "equipa": "PAREDE FC B",
-   "jogos": 1,
-   "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "HENRIQUE ANTUNES",
-   "equipa": "PAREDE FC B",
    "jogos": 1,
    "numero": "10",
    "golos": 0,
@@ -419,49 +445,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOANA RODRIGUES",
-   "equipa": "CACO B",
-   "jogos": 1,
-   "numero": "35",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOSÉ GARIN",
    "equipa": "FSE/AJ SALESIANA B",
    "jogos": 1,
    "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LOURENÇO GUERREIRO",
-   "equipa": "PAREDE FC B",
-   "jogos": 1,
-   "numero": "8",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LOURENÇO MENDES",
-   "equipa": "PAREDE FC B",
-   "jogos": 1,
-   "numero": "6",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -484,10 +471,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARIA CATRAU",
+   "nome": "MICAIAS CARDOSO",
    "equipa": "PAREDE FC B",
    "jogos": 1,
-   "numero": "2",
+   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -510,36 +497,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMAS MARÇAL",
-   "equipa": "PAREDE FC B",
-   "jogos": 1,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "TOMÁS GRILO",
    "equipa": "UD VILAFRANQUENSE B",
    "jogos": 1,
    "numero": "57",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "VASCO HENRIQUES",
-   "equipa": "CACO B",
-   "jogos": 1,
-   "numero": "19",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -562,6 +523,84 @@
    "vermelhos": 0
   },
   {
+   "nome": "FRANCISCO LUIS",
+   "equipa": "CACO B",
+   "jogos": 2,
+   "numero": "88",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GONÇALO SANTOS",
+   "equipa": "PAREDE FC B",
+   "jogos": 2,
+   "numero": "4",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "HENRIQUE ANTUNES",
+   "equipa": "PAREDE FC B",
+   "jogos": 2,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOANA RODRIGUES",
+   "equipa": "CACO B",
+   "jogos": 2,
+   "numero": "35",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LOURENÇO MENDES",
+   "equipa": "PAREDE FC B",
+   "jogos": 2,
+   "numero": "6",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARIA CATRAU",
+   "equipa": "PAREDE FC B",
+   "jogos": 2,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RODRIGO VENTURA",
    "equipa": "UD VILAFRANQUENSE B",
    "jogos": 2,
@@ -569,6 +608,19 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMAS MARÇAL",
+   "equipa": "PAREDE FC B",
+   "jogos": 2,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -588,5 +640,5 @@
    "vermelhos": 0
   }
  ],
- "tem_defesas": false
+ "tem_defesas": true
 }

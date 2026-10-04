@@ -85,8 +85,8 @@
    "hora": "16:30:00",
    "casa": "HC LOURINHÃ",
    "fora": "A STUART HCM B",
-   "golos_casa": 0,
-   "golos_fora": 0,
+   "golos_casa": 9,
+   "golos_fora": 1,
    "recinto": "PAV. GIMNO. DA LOURINHÃ",
    "ao_vivo": false
   },
@@ -352,31 +352,17 @@
      "equipa": "HC LOURINHÃ",
      "logo": "/intranet/logos/21.png",
      "jogos": 2,
-     "vitorias": 0,
-     "empates": 1,
+     "vitorias": 1,
+     "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 0,
-     "golos_sofridos": 5,
-     "diferenca": -5,
-     "racio": 0.0,
-     "pontos": 1
+     "golos_marcados": 9,
+     "golos_sofridos": 6,
+     "diferenca": 3,
+     "racio": 1.5,
+     "pontos": 3
     },
     {
      "posicao": 4,
-     "equipa": "A STUART HCM B",
-     "logo": "/intranet/logos/10.png",
-     "jogos": 2,
-     "vitorias": 0,
-     "empates": 1,
-     "derrotas": 1,
-     "golos_marcados": 0,
-     "golos_sofridos": 13,
-     "diferenca": -13,
-     "racio": 0.0,
-     "pontos": 1
-    },
-    {
-     "posicao": 5,
      "equipa": "CACO",
      "logo": "/intranet/logos/26.png",
      "jogos": 1,
@@ -387,6 +373,20 @@
      "golos_sofridos": 3,
      "diferenca": -2,
      "racio": 0.33,
+     "pontos": 0
+    },
+    {
+     "posicao": 5,
+     "equipa": "A STUART HCM B",
+     "logo": "/intranet/logos/10.png",
+     "jogos": 2,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 1,
+     "golos_sofridos": 22,
+     "diferenca": -21,
+     "racio": 0.05,
      "pontos": 0
     }
    ]
