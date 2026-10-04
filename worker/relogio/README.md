@@ -112,9 +112,32 @@ jogos, `1 jogo(s) — disparo aceite`.
 | O que vês no `wrangler tail` | O que é |
 |---|---|
 | `disparo falhou 401` | o token está errado ou expirou — repete os passos 1 e 3 |
-| `disparo falhou 403` | o token não tem *Actions: Read and write*, ou não tem acesso ao repositório |
+| `disparo falhou 403 {"message":"Resource not accessible by personal access token"}` | o token autentica, mas falta-lhe a permissão. Ver abaixo — **não é preciso criar um token novo** |
 | `disparo falhou 404` | o nome do repositório ou do workflow está errado no `wrangler.toml` |
 | `agenda: HTTP 404` | o endereço da agenda mudou — está no `wrangler.toml` |
+
+### O 403 "Resource not accessible by personal access token"
+
+Aconteceu à primeira, e é fácil de deixar passar: a permissão **Actions** não vem no ecrã
+principal de criação do token — está dentro de *Repository permissions*, que começa fechado e
+tem três dezenas de linhas.
+
+**Arranja-se no token que já existe, sem criar outro** — o valor do token não muda, por isso
+o segredo na Cloudflare continua bom e não é preciso repetir o `wrangler secret put`:
+
+1. github.com → **Settings → Developer settings → Personal access tokens → Fine-grained
+   tokens** → clica no `hoquei-relogio`.
+2. Em **Repository access**, confirma que está *Only select repositories* **com o HoqueiApp
+   na lista**.
+3. Abre **Permissions → Repository permissions**, procura **Actions** e põe
+   **Read and write**.
+4. Botão **Update token** no fundo da página.
+
+Fica a valer dentro de segundos. O próximo tique do cron (de 10 em 10 minutos) já deve dizer
+`disparo aceite` no `wrangler tail`.
+
+Se mesmo assim der 403, acrescenta **Contents: Read-only** — a documentação da GitHub diz que
+`Actions: write` chega, mas é a única outra permissão que alguma vez é precisa aqui.
 
 Para desligar o relógio sem apagar nada: `npx wrangler deployments` e depois
 `npx wrangler delete`, ou tira os `crons` do `wrangler.toml` e volta a publicar.
