@@ -85,12 +85,18 @@ jogo acabou 9–1. A ficha que a mesma ronda gravou até trazia `situacao: "1ª 
 Agora há **uma só definição de "a decorrer"** no scraper — `modelos.em_curso()` — partilhada
 pelas duas rondas, e `_marcar_em_curso()` põe ou tira a marca na agenda a partir da ficha.
 
-### O que ficou por fazer desta fase
+### O relógio externo
 
-O **relógio externo** (cron da Cloudflare a chamar a API da GitHub) e o
-**auto-encadeamento explícito** precisam de um *personal access token* com permissão de
-`workflow`, guardado como segredo. Não o posso criar. A rede de `cron` mais o revezamento
-cobrem o caso normal; isto é o cinto a mais.
+`worker/relogio/` — um Worker da Cloudflare que, de 10 em 10 minutos, lê a nossa própria
+agenda e lança a `aovivo.yml` se houver jogo a decorrer ou a começar dentro de 45 minutos.
+Os `cron` da Cloudflare disparam; os da GitHub não.
+
+**Está escrito e testado, mas não instalado:** precisa de um *fine-grained token* com
+`Actions: Read and write` só neste repositório, guardado com `wrangler secret put`. As
+instruções estão no [README do Worker](../worker/relogio/README.md). Instalação única, ~10
+minutos; não há nada a fazer todos os dias.
+
+Enquanto não estiver instalado, a rede de `cron` mais o revezamento cobrem o caso normal.
 
 ## Uma mudança só de código não se publica sozinha
 

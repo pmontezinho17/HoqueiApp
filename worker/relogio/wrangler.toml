@@ -1,0 +1,18 @@
+name = "hoquei-relogio"
+main = "src/index.js"
+compatibility_date = "2026-10-04"
+
+# Os `cron` da Cloudflare são em UTC, como os da GitHub — mas estes disparam.
+# 07:00–23:59 em Portugal cobre folgadamente o primeiro jogo (10:00) e o último (21:30).
+# São ~100 invocações por dia, contra as 100 000 do plano gratuito.
+[triggers]
+crons = ["*/10 6-22 * * *"]
+
+[vars]
+REPO = "pmontezinho17/HoqueiApp"
+WORKFLOW = "aovivo.yml"
+REF = "main"
+AGENDA = "https://hoquei.pages.dev/v1/aplisboa/2026-27/agenda.json"
+
+# GITHUB_TOKEN **não** vive aqui. É um segredo, posto com `wrangler secret put` — ver o
+# README ao lado.

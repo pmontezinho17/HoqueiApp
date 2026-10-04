@@ -16,3 +16,7 @@ data-samples/json/
 # Snapshots da sonda: ~80KB cada, centenas por dia de jogos. Os achados ficam nos .jsonl;
 # se um snapshot em concreto for prova de algo, copia-o para data-samples/paginas/.
 data-samples/sondagem/html/
+
+# o Worker não tem dependências; se o wrangler criar estado local, fica de fora
+worker/**/node_modules/
+worker/**/.wrangler/
