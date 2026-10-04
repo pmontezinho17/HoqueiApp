@@ -3,9 +3,9 @@
  "competicao": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE E",
  "casa": "CACO B",
  "fora": "PAREDE FC B",
- "golos_casa": 6,
- "golos_fora": 1,
- "estado": null,
+ "golos_casa": 11,
+ "golos_fora": 2,
+ "estado": "Jogo Terminado",
  "data": "2026-10-04",
  "hora": "18:30:00",
  "recinto": "PAV.C.A.C.OURIQUE",
@@ -16,9 +16,9 @@
   0,
   1
  ],
- "situacao": "3ª Parte (4:02)",
- "periodo": "3ª Parte",
- "relogio": "4:02",
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "CACO B",
@@ -41,7 +41,7 @@
      "numero": "10",
      "nome": "DJERIDANE KAMIL",
      "titular": false,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -69,7 +69,7 @@
      "numero": "19",
      "nome": "VASCO HENRIQUES",
      "titular": true,
-     "golos": 1,
+     "golos": 2,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -125,7 +125,7 @@
      "numero": "97",
      "nome": "CATARINA DOMINGOS",
      "titular": true,
-     "golos": 1,
+     "golos": 4,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -134,6 +134,20 @@
      "cartoes_azuis": 0,
      "cartoes_vermelhos": 0,
      "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "NUNO HENRIQUES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "D"
     },
     {
      "numero": null,
@@ -270,7 +284,7 @@
      "numero": "7",
      "nome": "ANTONIO ROSA",
      "titular": false,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -563,9 +577,187 @@
    "golos_casa": null,
    "golos_fora": null,
    "texto": "Penálti para CACO B | Falhado por FRANCISCO FIGUEIREDO | Defendido por TOMAS MARÇAL"
+  },
+  {
+   "ordem": 14,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 3,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 3ª parte"
+  },
+  {
+   "ordem": 15,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 4ª parte"
+  },
+  {
+   "ordem": 16,
+   "tipo": "golo",
+   "relogio": "6:48",
+   "parte": 4,
+   "minuto": 25,
+   "equipa": "PAREDE FC B",
+   "jogador": "ANTONIO ROSA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 6,
+   "golos_fora": 2,
+   "texto": "Golo para PAREDE FC B | ANTONIO ROSA"
+  },
+  {
+   "ordem": 17,
+   "tipo": "golo",
+   "relogio": "6:28",
+   "parte": 4,
+   "minuto": 25,
+   "equipa": "CACO B",
+   "jogador": "CATARINA DOMINGOS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 7,
+   "golos_fora": 2,
+   "texto": "Golo para CACO B | CATARINA DOMINGOS"
+  },
+  {
+   "ordem": 18,
+   "tipo": "golo",
+   "relogio": "4:33",
+   "parte": 4,
+   "minuto": 27,
+   "equipa": "CACO B",
+   "jogador": "CATARINA DOMINGOS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 8,
+   "golos_fora": 2,
+   "texto": "Golo para CACO B | CATARINA DOMINGOS"
+  },
+  {
+   "ordem": 19,
+   "tipo": "golo",
+   "relogio": "4:22",
+   "parte": 4,
+   "minuto": 27,
+   "equipa": "CACO B",
+   "jogador": "DJERIDANE KAMIL",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 9,
+   "golos_fora": 2,
+   "texto": "Golo para CACO B | DJERIDANE KAMIL"
+  },
+  {
+   "ordem": 20,
+   "tipo": "golo",
+   "relogio": "2:42",
+   "parte": 4,
+   "minuto": 29,
+   "equipa": "CACO B",
+   "jogador": "CATARINA DOMINGOS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 10,
+   "golos_fora": 2,
+   "texto": "Golo para CACO B | CATARINA DOMINGOS"
+  },
+  {
+   "ordem": 21,
+   "tipo": "golo",
+   "relogio": "0:56",
+   "parte": 4,
+   "minuto": 31,
+   "equipa": "CACO B",
+   "jogador": "VASCO HENRIQUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 11,
+   "golos_fora": 2,
+   "texto": "Golo para CACO B | VASCO HENRIQUES"
+  },
+  {
+   "ordem": 22,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 4,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO ANDRADE",
+   "Árbitro Auxiliar": "RICARDO ROCHA",
+   "Cronometrista": "SERGIO DOMINGOS",
+   "Diretor de campo": "JOSE VILELA",
+   "Gestor de segurança": "MARCO POVOA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 4,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 7,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 11,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   1
+  ],
+  "inicio": [
+   "18:30",
+   "18:57"
+  ],
+  "termo": [
+   "18:52",
+   "19:22"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
  "competicao_id": 464,
  "categoria": "ESCOLARES",
  "jornada": "2ª JORNADA",
