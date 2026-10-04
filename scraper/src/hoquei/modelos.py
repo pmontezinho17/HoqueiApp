@@ -39,6 +39,9 @@ class Jogo:
     golos_casa: int | None
     golos_fora: int | None
     recinto: str | None
+    #: posto pela ronda ao vivo. Um jogo a decorrer **tem** resultado mas ainda não conta
+    #: para a classificação — sem isto, um 0-0 ao primeiro minuto entrava como empate.
+    ao_vivo: bool = False
 
     @property
     def disputado(self) -> bool:

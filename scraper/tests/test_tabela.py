@@ -20,10 +20,10 @@ from hoquei.tabela import calcular
 PUBLICADO = pathlib.Path(__file__).resolve().parents[2] / "web" / "static" / "v1"
 
 
-def jogo(casa, fora, gc=None, gf=None, grupo=None) -> Jogo:
+def jogo(casa, fora, gc=None, gf=None, grupo=None, ao_vivo=False) -> Jogo:
     return Jogo(
         id=None, numero=None, grupo=grupo, jornada="1ª JORNADA", data=None, hora=None,
-        casa=casa, fora=fora, golos_casa=gc, golos_fora=gf, recinto=None,
+        casa=casa, fora=fora, golos_casa=gc, golos_fora=gf, recinto=None, ao_vivo=ao_vivo,
     )
 
 
@@ -48,6 +48,19 @@ class TestRegras:
         assert (linhas["A"].golos_marcados, linhas["A"].golos_sofridos) == (5, 2)
         assert (linhas["B"].golos_marcados, linhas["B"].golos_sofridos) == (2, 5)
         assert (linhas["A"].diferenca, linhas["B"].diferenca) == (3, -3)
+
+    def test_jogo_a_decorrer_nao_conta_mas_a_equipa_aparece(self):
+        """Um jogo a decorrer **tem** resultado e não pode entrar na tabela.
+
+        Apareceu quando a ronda ao vivo começou a escrever resultados no ficheiro da
+        competição: um 0-0 ao primeiro minuto dava um empate e um ponto a cada equipa.
+        """
+        linhas = {l.equipa: l for l in so(calcular([
+            jogo("A", "B", 0, 0, ao_vivo=True),
+            jogo("A", "C", 3, 1),
+        ]))}
+        assert (linhas["A"].jogos, linhas["A"].pontos) == (1, 3)
+        assert (linhas["B"].jogos, linhas["B"].pontos) == (0, 0)
 
     def test_jogo_por_disputar_nao_conta_mas_a_equipa_aparece(self):
         linhas = so(calcular([jogo("A", "B"), jogo("A", "C", 1, 0)]))
@@ -137,7 +150,8 @@ def _provas_publicadas():
 
 
 def _jogos_de(d) -> list[Jogo]:
-    return [jogo(j["casa"], j["fora"], j["golos_casa"], j["golos_fora"], j["grupo"])
+    return [jogo(j["casa"], j["fora"], j["golos_casa"], j["golos_fora"], j["grupo"],
+                 j.get("ao_vivo", False))
             for j in d["jogos"]]
 
 

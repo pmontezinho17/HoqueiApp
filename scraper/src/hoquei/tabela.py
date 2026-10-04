@@ -91,6 +91,12 @@ def _linhas(jogos: list[Jogo]) -> list[LinhaClassificacao]:
     for j in jogos:
         if j.golos_casa is None or j.golos_fora is None:
             continue
+        # Um jogo a decorrer tem resultado e não conta. Apareceu quando a ronda ao vivo
+        # começou a escrever resultados no ficheiro da competição: um 0-0 ao primeiro
+        # minuto entrava na tabela como empate, com um ponto para cada equipa. Foi o teste
+        # de reprodução (B9.13) que o apanhou, terceira vez que se paga.
+        if getattr(j, "ao_vivo", False):
+            continue
         if not (_real(j.casa) and _real(j.fora)):
             continue
         acc[j.casa].somar(j.golos_casa, j.golos_fora)

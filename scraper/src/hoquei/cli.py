@@ -226,7 +226,8 @@ def comando_aovivo(args) -> int:
             # meio, a marca expira sozinha em vez de ficar acesa para sempre.
             por_id[j["id"]].update(gc=fx.golos_casa, gf=fx.golos_fora,
                                    ao_vivo=fx.estado != "Jogo Terminado")
-            _actualizar_calendario(destino, j, fx.golos_casa, fx.golos_fora)
+            _actualizar_calendario(destino, j, fx.golos_casa, fx.golos_fora,
+                                   fx.estado != "Jogo Terminado")
             # A classificação da fonte só muda quando o jogo fecha, não a cada golo. Pedi-la
             # em cada ronda eram dois terços dos nossos pedidos a não trazer nada de novo,
             # contra o servidor de uma federação.
@@ -274,8 +275,12 @@ def comando_aovivo(args) -> int:
     return 0
 
 
-def _actualizar_calendario(destino: pathlib.Path, jogo: dict, gc: int, gf: int) -> None:
-    """O resultado também vive no ficheiro da competição, que é o que alimenta a tabela."""
+def _actualizar_calendario(destino: pathlib.Path, jogo: dict, gc: int, gf: int,
+                           ao_vivo: bool) -> None:
+    """O resultado também vive no ficheiro da competição, que é o que alimenta a tabela.
+
+    Daí o `ao_vivo`: a tabela tem de saber que este resultado ainda não conta.
+    """
     alvo = destino / "comp" / f"{jogo['comp']}.json"
     if not alvo.exists():
         return
@@ -283,6 +288,10 @@ def _actualizar_calendario(destino: pathlib.Path, jogo: dict, gc: int, gf: int) 
     for j in d["jogos"]:
         if j.get("id") == jogo["id"]:
             j["golos_casa"], j["golos_fora"] = gc, gf
+            if ao_vivo:
+                j["ao_vivo"] = True
+            else:
+                j.pop("ao_vivo", None)
     alvo.write_text(json.dumps(d, ensure_ascii=False, indent=1))
 
 

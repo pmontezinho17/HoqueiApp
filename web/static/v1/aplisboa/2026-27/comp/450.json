@@ -71,7 +71,8 @@
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": 0,
    "golos_fora": 0,
-   "recinto": "PAV. MURCHES"
+   "recinto": "PAV. MURCHES",
+   "ao_vivo": true
   },
   {
    "id": 9636,
