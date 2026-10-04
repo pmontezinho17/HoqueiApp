@@ -40,6 +40,12 @@
 		<!-- apito -->
 		<path d="M3 9.2h6.4l5.4-2.1v7l-5.4-2.1H3Z" />
 		<path d="M5.6 12v2.6a1.9 1.9 0 0 0 3.8 0V12" />
+	{:else if nome === 'jogos'}
+		<!-- placar: duas equipas e um resultado -->
+		<rect x="2.6" y="5.2" width="14.8" height="9.6" rx="2" />
+		<path d="M10 7.4v5.2M5.6 10h1.8M12.6 10h1.8" />
+	{:else if nome === 'clube'}
+		<path d="M10 3.1l5.6 1.9v5.1c0 3-2.3 5.4-5.6 6.8-3.3-1.4-5.6-3.8-5.6-6.8V5Z" />
 	{:else if nome === 'faltas'}
 		<!-- contagem -->
 		<path d="M4.4 6h11.2M4.4 10h7.6M4.4 14h9.4" />

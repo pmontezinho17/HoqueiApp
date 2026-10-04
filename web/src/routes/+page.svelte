@@ -4,6 +4,7 @@
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import PaginaDia from '$lib/PaginaDia.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
+	import { porEscalao } from '$lib/escaloes';
 	import { emCurso } from '$lib/formato';
 	import type { JogoAgenda } from '$lib/tipos';
 
@@ -38,10 +39,6 @@
 	});
 
 	let escalao = $state<string | null>(null);
-	const ORDEM = [
-		'SENIORES MASCULINOS', 'SENIORES FEMININOS', 'SUB-23', 'SUB-19',
-		'SUB-17', 'SUB-15', 'SUB-13', 'ESCOLARES', 'BENJAMINS', 'BAMBIS'
-	];
 
 	// seguir é por clube E escalão
 	const chave = (e: string, c: string) => `${c}\u0000${e}`;
@@ -62,14 +59,8 @@
 		return (data.agenda as JogoAgenda[]).filter(emCurso);
 	});
 
-	const escaloes = $derived.by(() => {
-		const vistos = [...new Set(doDia.map((j) => j.cat))];
-		return vistos.sort((a, b) => {
-			const ia = ORDEM.indexOf(a),
-				ib = ORDEM.indexOf(b);
-			return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b);
-		});
-	});
+	// a mesma ordem dos blocos da lista, de `escaloes.ts`: estavam em dois sítios e divergiam
+	const escaloes = $derived([...new Set(doDia.map((j) => j.cat))].sort(porEscalao));
 	// ao mudar de dia o escalão escolhido pode não existir lá; o chip volta a "Todos"
 	$effect(() => {
 		if (escalao && !escaloes.includes(escalao)) escalao = null;
@@ -153,9 +144,19 @@
 	}
 
 	.destacada {
-		margin-bottom: var(--e-6);
-		border-left: 2px solid var(--acento);
-		padding-left: var(--e-4);
+		margin-bottom: var(--e-4);
+		background: var(--cartao);
+		border: 1px solid var(--acento);
+		border-radius: var(--raio-cartao);
+		overflow: hidden;
+		padding: 0 var(--e-2) var(--e-2);
+	}
+	.destacada :global(.linha) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.destacada :global(.linha:last-child) {
+		border-bottom: 0;
 	}
 	.vivo {
 		border-color: var(--vivo);
@@ -184,10 +185,11 @@
 	}
 	.destacada h2 {
 		font-size: var(--t-micro);
-		letter-spacing: 0.04em;
+		letter-spacing: 0.05em;
 		text-transform: uppercase;
 		color: var(--acento);
-		margin: 0 0 var(--e-2);
+		margin: 0;
+		padding: var(--e-4) var(--e-1) var(--e-2);
 		font-weight: 600;
 	}
 </style>

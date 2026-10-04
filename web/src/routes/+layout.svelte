@@ -9,6 +9,7 @@
 
 	import { page, navigating } from '$app/state';
 	import Desatualizado from '$lib/Desatualizado.svelte';
+	import Icone from '$lib/Icone.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
 
 	let { data, children } = $props();
@@ -16,10 +17,14 @@
 	// Três destinos primários, sempre visíveis. O secundário vive nos ícones do cabeçalho —
 	// medido: esconder navegação primária num menu corta a descoberta a metade
 	// (ver docs/04-benchmarking.md).
+	//
+	// **Em baixo**, e não em cima: num telemóvel grande o topo do ecrã não se alcança com o
+	// polegar da mão que segura o aparelho. É onde a theScore, a Sofascore e a FotMob a
+	// põem, e o cabeçalho fica só com a marca e os dois ícones.
 	const SECCOES = [
-		{ href: '/', rotulo: 'Jogos' },
-		{ href: '/clube', rotulo: 'O Meu Clube' },
-		{ href: '/competicoes', rotulo: 'Competições' }
+		{ href: '/', rotulo: 'Jogos', icone: 'jogos' },
+		{ href: '/clube', rotulo: 'O Meu Clube', icone: 'clube' },
+		{ href: '/competicoes', rotulo: 'Competições', icone: 'prova' }
 	];
 	const activa = (href: string) =>
 		href === '/' ? page.url.pathname === '/' : page.url.pathname.startsWith(href);
@@ -59,13 +64,6 @@
 			</a>
 		</div>
 	</div>
-	<nav aria-label="Secções">
-		{#each SECCOES as s (s.href)}
-			<a href={s.href} aria-current={activa(s.href) ? 'page' : undefined}>
-				{s.rotulo}{#if s.href === '/clube' && favoritos.lista.length}<span class="conta">{favoritos.lista.length}</span>{/if}
-			</a>
-		{/each}
-	</nav>
 </header>
 
 <!-- `--topo` é a altura real deste cabeçalho, medida e não adivinhada: as páginas que
@@ -73,15 +71,20 @@
      acompanham-no quando a navegação parte em duas linhas num ecrã estreito. -->
 <main id="conteudo" style="--topo: {alturaTopo}px">{@render children()}</main>
 
-<footer>
-	<!-- L7.5: a atribuição tem de estar em todas as páginas, e não só no /mais. É o que
-	     dissemos à APL que faríamos, e quem abrir uma página a fundo não passa pelo /mais -->
-	<p>
-		Dados da <a href="https://aplisboa.pt/resultados/" rel="external noopener">Associação de
-		Patinagem de Lisboa</a>. Site não oficial, feito por adeptos.
-	</p>
-	<p><a href="/mais">Sobre e contactos</a> · <a href="/privacidade">Privacidade</a></p>
-</footer>
+<!--
+  A atribuição saiu do rodapé para a página do ⋮, que já a tinha por extenso em "Dados" e
+  "Este site não é oficial". O que dissemos à APL foi que a aplicação "identifica a APL como
+  fonte" — o "em todas as páginas" era regra nossa, não promessa. Fica em dois cliques em vez
+  de um, e em troca o rodapé deixa de empurrar a barra de navegação.
+-->
+<nav class="barra" aria-label="Secções">
+	{#each SECCOES as s (s.href)}
+		<a href={s.href} aria-current={activa(s.href) ? 'page' : undefined}>
+			<Icone nome={s.icone} tamanho={21} />
+			<span>{s.rotulo}{#if s.href === '/clube' && favoritos.lista.length}<i class="conta">{favoritos.lista.length}</i>{/if}</span>
+		</a>
+	{/each}
+</nav>
 
 <AutoRefrescar agenda={data.agenda} />
 <AvisoVersao />
@@ -173,19 +176,11 @@
 		:global(*) { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 	}
 
-	footer {
-		margin: 2rem 0 0; padding: 1rem 0.8rem calc(1rem + env(safe-area-inset-bottom));
-		border-top: 1px solid var(--borda); font-size: 0.68rem;
-		color: var(--suave); text-align: center;
-	}
-	footer p { margin: 0.2rem 0; }
-	footer a { text-decoration: underline; }
-
 	/* cromado compacto: 178px antes do 1º jogo era 22% do ecrã (ver benchmarking) */
 	header {
 		position: sticky; top: 0; z-index: 10; background: var(--fundo);
 		border-bottom: 1px solid var(--borda);
-		max-width: 44rem; margin: 0 auto; padding: 0.5rem 0.9rem 0;
+		max-width: 44rem; margin: 0 auto; padding: var(--e-2) 0.9rem;
 	}
 	.topo { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
 	.marca { font-weight: 700; font-size: 0.98rem; text-decoration: none; }
@@ -195,17 +190,36 @@
 		width: 44px; height: 44px; color: var(--suave); text-decoration: none; }
 	.icone:hover, .icone:focus-visible { color: var(--acento); }
 
-	nav { display: flex; gap: 0.1rem; }
-	nav a {
-		flex: 1; text-align: center; padding: 0.55rem 0.2rem; min-height: 44px;
-		font-size: 0.82rem; text-decoration: none; color: var(--suave);
-		border-bottom: 2px solid transparent; white-space: nowrap;
+	/* Barra de navegação em baixo, fixa.
+	 *
+	 * `env(safe-area-inset-bottom)` não é enfeite: no iPhone a barra ficava por baixo da
+	 * risca de gestos e o terceiro separador era impossível de tocar. */
+	.barra {
+		position: fixed; inset: auto 0 0 0; z-index: 10;
+		background: var(--fundo); border-top: 1px solid var(--borda);
+		padding-bottom: env(safe-area-inset-bottom);
+		display: flex; justify-content: center;
 	}
-	nav a[aria-current='page'] { color: var(--acento); border-bottom-color: var(--acento); font-weight: 600; }
-	.conta { margin-left: 0.25rem; padding: 0.02rem 0.32rem; border-radius: 999px;
-		background: var(--acento); color: var(--cartao); font-size: 0.64rem; }
+	.barra a {
+		flex: 1 1 0; max-width: 10rem;
+		display: flex; flex-direction: column; align-items: center; justify-content: center;
+		gap: 2px; min-height: 52px; padding: var(--e-2) var(--e-1);
+		font-size: var(--t-micro); text-decoration: none; color: var(--suave);
+		white-space: nowrap;
+	}
+	.barra a[aria-current='page'] { color: var(--acento); font-weight: 600; }
+	.barra a[aria-current='page'] :global(svg) { color: var(--acento); }
+	.conta {
+		margin-left: var(--e-1); padding: 0 var(--e-2); border-radius: var(--raio-pilula);
+		background: var(--acento); color: var(--cartao); font-size: var(--t-micro);
+		font-style: normal;
+	}
 
-	main { max-width: 44rem; margin: 0 auto; padding: 0.7rem 0.9rem 2.5rem; }
+	/* o `padding-bottom` tem de limpar a barra fixa, senão o último jogo fica debaixo dela */
+	main {
+		max-width: 44rem; margin: 0 auto;
+		padding: var(--e-4) 0.9rem calc(52px + env(safe-area-inset-bottom) + var(--e-6));
+	}
 
 	.progresso {
 		position: fixed; inset: 0 0 auto 0; height: 3px; background: var(--acento);

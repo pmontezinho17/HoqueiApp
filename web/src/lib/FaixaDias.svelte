@@ -175,12 +175,21 @@
 	.carris.suave {
 		transition: transform 0.22s cubic-bezier(0.22, 0.61, 0.36, 1);
 	}
-	/* fora do fluxo: os vizinhos não contam para a altura da faixa */
+	/*
+	  Fora do fluxo: os vizinhos não contam para a altura da faixa.
+	  Mas estar fora do fluxo não os tira do **scroll** da página — e com os blocos todos
+	  abertos por omissão isso passou a ver-se: um domingo ao lado de um sábado de 41 jogos
+	  esticava a barra de scroll por centenas de píxeis de nada. `max-height: 100%` corta-os
+	  à altura do dia que está à vista; durante o arrasto o dia que entra pode aparecer
+	  cortado em baixo, e volta ao normal mal assente.
+	*/
 	.pag.esquerda,
 	.pag.direita {
 		position: absolute;
 		top: 0;
 		width: 100%;
+		max-height: 100%;
+		overflow: hidden;
 	}
 	.pag.esquerda {
 		right: 100%;

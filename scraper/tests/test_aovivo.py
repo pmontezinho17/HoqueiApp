@@ -172,3 +172,37 @@ def test_proxima_hora_ignora_ontem_e_o_que_ja_passou():
     agora = datetime(2026, 10, 4, 11, 0)
     assert _proxima_hora(agenda, "2026-10-04", agora) == "16:30"
     assert _proxima_hora(agenda, "2026-10-04", datetime(2026, 10, 4, 19, 0)) is None
+
+
+def test_a_janela_nao_se_parte_a_meia_noite(tmp_path, monkeypatch):
+    """Um jogo a decorrer às 23:41 não pode desaparecer da ronda.
+
+    A janela era comparada como texto `"HH:MM"`: às 23:41 o limite de cima — hora mais 25
+    minutos — dava `"00:06"`, e `"23:31" <= "00:06"` é falso. O jogo caía fora da ronda no
+    momento em que ainda estava a ser jogado. Só se via entre as 23:35 e a meia-noite, que
+    é precisamente quando ninguém está a olhar.
+    """
+    import json
+    from datetime import datetime, timedelta
+    from zoneinfo import ZoneInfo
+
+    LX = ZoneInfo("Europe/Lisbon")
+    quase_meia_noite = datetime(2026, 10, 9, 23, 41, tzinfo=LX)
+
+    class Relogio(datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return quase_meia_noite
+
+    monkeypatch.setattr(cli, "datetime", Relogio)
+    (tmp_path / "match").mkdir(parents=True, exist_ok=True)
+    (tmp_path / "meta.json").write_text(json.dumps({"generated_at": "2026-10-09T00:00:00+00:00"}))
+    (tmp_path / "agenda.json").write_text(json.dumps({"jogos": [{
+        "id": ID, "data": "2026-10-09", "hora": "23:31",
+        "casa": "A", "fora": "B", "gc": None, "gf": None,
+        "recinto": None, "comp": COMP, "prova": "P", "cat": "SUB-15",
+    }]}))
+
+    j = _correr(tmp_path, _ficha(None, "1ª Parte", "4:12", "1ª Parte (4:12)", 1, 0), monkeypatch)
+    assert j["ao_vivo"] is True, "o jogo das 23:31 saiu da ronda às 23:41"
+    assert j["relogio"] == "4:12"

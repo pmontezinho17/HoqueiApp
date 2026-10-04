@@ -168,7 +168,6 @@ def comando_aovivo(args) -> int:
 
     agora = datetime.now(ZoneInfo("Europe/Lisbon"))
     hoje = agora.date().isoformat()
-    limite = (agora - timedelta(hours=args.janela)).strftime("%H:%M")
     def a_decorrer(j: dict) -> bool:
         """Começou, ainda não acabou.
 
@@ -182,8 +181,18 @@ def comando_aovivo(args) -> int:
         # `--antes` minutos antes da hora marcada: é quando a mesa lança a convocatória,
         # e é a única janela em que ela existe na fonte. Medido a 04/10: três horas antes,
         # a ficha está vazia.
-        inicio = (agora + timedelta(minutes=args.antes)).strftime("%H:%M")
-        if not (limite <= j["hora"][:5] <= inicio):
+        #
+        # A comparação é entre instantes e não entre textos "HH:MM". Com texto, a janela
+        # partia-se à meia-noite: às 23:41 o limite de cima era "00:06" e `"23:31" <= "00:06"`
+        # é falso, por isso um jogo ainda a decorrer desaparecia da ronda. Foram os testes
+        # a apanhá-lo, por acaso de estarem a correr às 23:41.
+        try:
+            hora = datetime.strptime(j["hora"][:5], "%H:%M").time()
+        except ValueError:
+            return False
+        inicio_jogo = datetime.combine(agora.date(), hora, tzinfo=agora.tzinfo)
+        if not (agora - timedelta(hours=args.janela) <= inicio_jogo
+                <= agora + timedelta(minutes=args.antes)):
             return False
         if args.todos:
             return True
