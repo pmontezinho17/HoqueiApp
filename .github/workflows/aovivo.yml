@@ -6,27 +6,36 @@ name: Acompanhar jogos ao vivo
 # possível sem ninguém à frente de um computador.
 #
 # Custo à fonte: um pedido por jogo a decorrer e por ronda. No pico da época são 15 jogos
-# à mesma hora, logo 15 pedidos por ronda de 45 s — uma média de um pedido a cada 3 s,
-# contra um jogo que a federação já está a publicar ao vivo no seu próprio site.
+# à mesma hora, logo 15 pedidos por ronda de 30 s — uma média de um pedido a cada 2 s,
+# contra um jogo que a federação já está a publicar ao vivo no seu próprio site. E o ciclo
+# sai quando não há nada a decorrer e o próximo jogo ainda está a mais de 40 minutos, por
+# isso o custo é pelas janelas dos jogos e não pelo relógio.
 on:
   schedule:
-    # Fins-de-semana: três janelas de ~4h20 a cobrir 09:30–22:00 WEST, **meia hora antes**
-    # do primeiro jogo. O agendador da GitHub atrasa-se — 18 minutos medidos na sonda de
-    # 02/10, e a 04/10 às 09:03 UTC a corrida das 09:00 ainda não tinha arrancado. Pedir às
-    # 08:30 para cobrir um jogo das 10:00 é a única forma de não perder o início.
+    # **Uma rede, não três disparos.** A 04/10, um sábado inteiro de jogos, as três
+    # corridas agendadas deste workflow foram **todas** perdidas — as quatro que correram
+    # tinham sido lançadas à mão. E não é atraso de fila: medido, o tempo entre a criação e
+    # o arranque de cada corrida agendada é 0 s. A GitHub não atrasa as corridas, não as
+    # cria. No mesmo dia o `dados.yml` perdeu 6 das 8 dele.
     #
-    # As janelas sobrepõem-se de propósito: com `concurrency` a segunda espera pela
-    # primeira, e é a espera que fecha as falhas em vez de as abrir.
-    - cron: '30 8,12,16 * * 6,0'
-    - cron: '30 17 * * 5'       # sexta ao serão, onde há jornadas às 19:30
+    # Com 30 tentativas em vez de 3, basta uma acertar de manhã: o ciclo dura 5 h e a
+    # `concurrency` abaixo transforma cada disparo seguinte em revezamento — uma corrida
+    # que dispare com outra a correr fica em espera e arranca mal a primeira acabe. É
+    # auto-encadeamento sem precisar de um token pessoal, que o `GITHUB_TOKEN` não pode
+    # fazer por desenho (uma Action não dispara outra com ele).
+    #
+    # Uma corrida que não tenha nada para fazer custa ~40 s e sai.
+    - cron: '0,30 7-21 * * 6,0'   # fins-de-semana, 08:00–22:30 WEST
+    - cron: '0,30 16-21 * * 5'    # sexta ao serão
+    - cron: '0,30 17-20 * * 1-4'  # jogos remarcados para dias úteis
   workflow_dispatch:
     inputs:
       minutos:
         description: Duração máxima do ciclo
-        default: '260'
+        default: '300'
       intervalo:
         description: Segundos entre rondas
-        default: '45'
+        default: '30'
 
 concurrency:
   group: aovivo
@@ -39,7 +48,7 @@ permissions:
 jobs:
   seguir:
     runs-on: ubuntu-latest
-    timeout-minutes: 280     # 260 de ciclo + margem para o build inicial
+    timeout-minutes: 310     # 300 de ciclo + margem para o build inicial (máx. da GitHub: 360)
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
@@ -60,7 +69,7 @@ jobs:
       - name: Seguir os jogos
         run: ./scripts/aovivo.sh
         env:
-          MINUTOS: ${{ inputs.minutos || '260' }}
-          INTERVALO: ${{ inputs.intervalo || '45' }}
+          MINUTOS: ${{ inputs.minutos || '300' }}
+          INTERVALO: ${{ inputs.intervalo || '30' }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

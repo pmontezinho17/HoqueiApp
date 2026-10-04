@@ -99,8 +99,7 @@ def test_o_apito_final_apaga_a_marca_e_o_minuto(tmp_path, monkeypatch):
     _correr(tmp_path, _ficha(None, "2ª Parte", "7:42", "2ª Parte (7:42)", 2, 1), monkeypatch)
     j = _correr(tmp_path, _ficha("Jogo Terminado", None, None, "Jogo Terminado", 3, 1),
                 monkeypatch)
-    assert j["ao_vivo"] is False
-    for chave in ("periodo", "relogio", "situacao"):
+    for chave in ("ao_vivo", "periodo", "relogio", "situacao"):
         assert chave not in j, f"{chave} ficou na agenda depois do apito final"
     assert (j["gc"], j["gf"]) == (3, 1)
 
@@ -127,3 +126,49 @@ def test_uma_ronda_e_um_pedido_por_jogo(tmp_path, monkeypatch):
 def arvore(tmp_path):
     """A árvore publicada que a ronda lê e reescreve."""
     _agenda(tmp_path)
+
+
+def test_ronda_completa_nao_publica_parcial_como_final():
+    """O bug de 04/10 às 16:26, fixado onde ele nasceu.
+
+    A ronda completa monta a agenda a partir da página de **calendário**, que durante um
+    jogo mostra o resultado corrente sem dizer que ainda está a contar. Apanhou o
+    Lourinhã–Stuart ao minuto 1, leu 0–0, e a app mostrou "terminado 0–0" o resto do dia.
+    O jogo acabou 9–1.
+    """
+    from hoquei.cli import _marcar_em_curso
+
+    entrada = {"id": 9616, "gc": 0, "gf": 0}
+    _marcar_em_curso(entrada, {"situacao": "1ª Parte (19:00)", "periodo": "1ª Parte",
+                               "relogio": "19:00"})
+    assert entrada["ao_vivo"] is True
+    assert entrada["relogio"] == "19:00"
+
+    _marcar_em_curso(entrada, {"situacao": "Jogo Terminado"})
+    for chave in ("ao_vivo", "periodo", "relogio", "situacao"):
+        assert chave not in entrada
+
+
+def test_um_jogo_por_comecar_nao_e_marcado_a_decorrer():
+    """A ronda ao vivo vai buscar a ficha 25 min antes, e aí ainda não há jogo nenhum."""
+    from hoquei.cli import _marcar_em_curso
+
+    entrada = {"id": 1}
+    for situacao in (None, "Jogo sem começar", "Jogo não iniciado", "Jogo Adiado"):
+        _marcar_em_curso(entrada, {"situacao": situacao})
+        assert "ao_vivo" not in entrada, situacao
+
+
+def test_proxima_hora_ignora_ontem_e_o_que_ja_passou():
+    from hoquei.cli import _proxima_hora
+    from datetime import datetime
+
+    agenda = [
+        {"data": "2026-10-05", "hora": "09:00"},
+        {"data": "2026-10-04", "hora": "10:00"},
+        {"data": "2026-10-04", "hora": "16:30"},
+        {"data": "2026-10-04", "hora": "18:00"},
+    ]
+    agora = datetime(2026, 10, 4, 11, 0)
+    assert _proxima_hora(agenda, "2026-10-04", agora) == "16:30"
+    assert _proxima_hora(agenda, "2026-10-04", datetime(2026, 10, 4, 19, 0)) is None

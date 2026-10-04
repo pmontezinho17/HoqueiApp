@@ -15,7 +15,7 @@ from zoneinfo import ZoneInfo
 import httpx
 
 from .fonte import UA, Fonte
-from .modelos import para_dicionario
+from .modelos import em_curso, para_dicionario
 from .parsers.calendario import calendario
 from .parsers.classificacao import classificacao
 from .parsers.competicoes import competicoes, temporadas
@@ -138,6 +138,19 @@ def _resultado_conhecido(caminho: pathlib.Path) -> tuple | None:
     return (d.get("golos_casa"), d.get("golos_fora"), d.get("estado"))
 
 
+def _proxima_hora(agenda: list[dict], hoje: str, agora: datetime) -> str | None:
+    """A hora do próximo jogo de hoje que ainda não começou, ou `None` se não há mais.
+
+    É o que permite ao ciclo em CI decidir entre ficar a sondar e sair já: sem isto só sabe
+    "há jogos por começar", e ficava acordado horas a fazer rondas vazias contra o servidor
+    da federação por causa de um jogo que só é às 18:00.
+    """
+    agora_hm = agora.strftime("%H:%M")
+    horas = [j["hora"][:5] for j in agenda
+             if j["data"] == hoje and j.get("hora") and j["hora"][:5] > agora_hm]
+    return min(horas) if horas else None
+
+
 def comando_aovivo(args) -> int:
     """Actualiza só os jogos que estão a decorrer (B9.17).
 
@@ -196,6 +209,7 @@ def comando_aovivo(args) -> int:
         # linhas lidas pelo ciclo que corre isto em CI: é por elas que sabe quando parar
         print("a_decorrer=0")
         print(f"por_vir={por_vir}")
+        print(f"proximo={_proxima_hora(agenda, hoje, agora) or ''}")
         print(f"nenhum jogo a decorrer, {por_vir} ainda por começar hoje", file=sys.stderr)
         return 0
 
@@ -226,17 +240,12 @@ def comando_aovivo(args) -> int:
             # meio, a marca expira sozinha em vez de ficar acesa para sempre.
             vivo = fx.estado != "Jogo Terminado"
             entrada = por_id[j["id"]]
-            entrada.update(gc=fx.golos_casa, gf=fx.golos_fora, ao_vivo=vivo)
-            # O minuto do jogo na **lista**, e não só dentro da ficha: na lista dizia só
-            # "AO VIVO", e saber se o jogo vai no início ou no fim é o que decide se se
-            # entra. A ficha já veio neste mesmo pedido, portanto isto custa zero pedidos.
-            # `situacao` vem com ela porque ao intervalo não há relógio para mostrar.
-            for chave, valor in (("periodo", fx.periodo), ("relogio", fx.relogio),
-                                 ("situacao", fx.situacao)):
-                if vivo and valor:
-                    entrada[chave] = valor
-                else:
-                    entrada.pop(chave, None)
+            entrada.update(gc=fx.golos_casa, gf=fx.golos_fora)
+            # Uma só definição de "a decorrer" no scraper, partilhada com a ronda completa:
+            # a marca, o período e o relógio saem todos da `situacao` que a ficha trouxe
+            # neste mesmo pedido, e por isso custam zero pedidos. O minuto na **lista** é o
+            # que diz se o jogo vai no início ou no fim, que é o que decide se se entra.
+            _marcar_em_curso(entrada, dados)
             _actualizar_calendario(destino, j, fx.golos_casa, fx.golos_fora,
                                    fx.estado != "Jogo Terminado")
             # A classificação da fonte só muda quando o jogo fecha, não a cada golo. Pedi-la
@@ -281,9 +290,33 @@ def comando_aovivo(args) -> int:
     # minutos, e desligar aí era desligar a meio do jogo.
     print(f"a_decorrer={por_fechar}")
     print(f"por_vir={por_vir}")
+    print(f"proximo={_proxima_hora(agenda, hoje, agora) or ''}")
     print(f"{len(acorda)} jogos sondados, {mudou} com novidade, "
           f"{por_fechar} a decorrer, {por_vir} por começar", file=sys.stderr)
     return 0
+
+
+def _marcar_em_curso(entrada: dict | None, ficha: dict) -> None:
+    """Põe — ou tira — a marca de "a decorrer" numa entrada da agenda, a partir da ficha.
+
+    Um jogo a decorrer **tem** resultado, e a página de calendário dá-o sem dizer que ainda
+    está a contar. Sem esta marca, uma ronda completa apanhada a meio de um jogo publica o
+    parcial como se fosse final: a 04/10 às 16:26 a ronda apanhou o Lourinhã–Stuart ao
+    minuto 1 e a app mostrou "terminado 0–0" até ao fim do dia — o jogo acabou 9–1.
+
+    A ficha que a mesma ronda grava até trazia `situacao: "1ª Parte (19:00)"`. A informação
+    estava lá; a agenda é que a deitava fora.
+    """
+    if entrada is None:
+        return
+    if em_curso(ficha.get("situacao")):
+        entrada["ao_vivo"] = True
+        for chave in ("periodo", "relogio", "situacao"):
+            if ficha.get(chave):
+                entrada[chave] = ficha[chave]
+    else:
+        for chave in ("ao_vivo", "periodo", "relogio", "situacao"):
+            entrada.pop(chave, None)
 
 
 def _actualizar_calendario(destino: pathlib.Path, jogo: dict, gc: int, gf: int,
@@ -323,6 +356,8 @@ def comando_publicar(args) -> int:
         provas, total, buscadas, saltadas, restritas = [], 0, 0, 0, 0
         equipas_por_escalao: dict[tuple[str, str], set[int]] = {}
         agenda: list[dict] = []
+        #: id do jogo → a sua entrada na agenda, para a ficha poder marcá-lo a decorrer
+        agenda_por_id: dict[int, dict] = {}
         logos: dict[str, str] = {}
         emblema_da_equipa: dict[str, str] = {}
 
@@ -369,6 +404,8 @@ def comando_publicar(args) -> int:
                     **{k: v for k, v in identificar(prova.categoria, prova.nome).items()
                        if k in ("grupo_id", "grupo_nome", "serie")},
                 })
+                if j.id is not None:
+                    agenda_por_id[j.id] = agenda[-1]
 
             publica_nomes = not args.anonimizar_formacao or escalao_permite_individual(prova.categoria)
             if not publica_nomes:
@@ -413,6 +450,7 @@ def comando_publicar(args) -> int:
                 dados.update(identificar(prova.categoria, prova.nome))
                 if not publica_nomes:
                     dados = anonimizar_ficha(dados)
+                _marcar_em_curso(agenda_por_id.get(jogo.id), dados)
                 alvo.write_text(json.dumps(dados, ensure_ascii=False, indent=1))
                 fichas_da_prova.append(dados)
                 buscadas += 1

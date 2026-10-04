@@ -7,12 +7,22 @@ name: Actualizar dados
 # As fichas de jogo são incrementais: só se busca a de um jogo novo ou com resultado novo.
 on:
   schedule:
+    # **Fecho do dia, 00:30 WEST.** É a ronda canónica: às 00:30 o dia que acabou está
+    # fechado — todos os jogos jogados, todas as fichas disponíveis — e a mesma corrida
+    # republica a agenda, que é o que estabelece os jogos de hoje para a ronda ao vivo
+    # trabalhar em cima. Um jogo antecipado ou adiado entra por aqui.
+    - cron: '30 23 * * *'
     - cron: '0 8-22/2 * * 6,0'   # fins-de-semana, de 2 em 2 horas (UTC)
     - cron: '0 */6 * * 1-5'      # dias úteis, de 6 em 6 horas
     # sexta ao serão: há jornadas às 19:30 e, só com o cron de 6h, o resultado
     # ficava por publicar até às 00:06 — quase cinco horas depois do apito final
     - cron: '0 21 * * 5'
   workflow_dispatch:
+    inputs:
+      publicar_sempre:
+        description: Publicar mesmo sem dados novos (para levar código novo ao site)
+        type: boolean
+        default: true
 
 concurrency:
   group: dados
@@ -66,20 +76,23 @@ jobs:
 
       # Sem este passo o ciclo não fecha: a Action comitava dados novos e o site
       # continuava a servir os antigos até alguém publicar à mão.
+      # `mudou` **ou** um pedido manual. Sem a segunda metade, um commit que mexa só em
+      # código ficava no repositório sem chegar ao site até os dados mudarem por conta
+      # própria — num dia sem jogos, dias.
       - uses: actions/setup-node@v4
-        if: steps.commit.outputs.mudou == 'true'
+        if: steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: web/package-lock.json
 
       - name: Construir a PWA
-        if: steps.commit.outputs.mudou == 'true'
+        if: steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre
         working-directory: web
         run: npm ci && npm run build
 
       - name: Publicar no Cloudflare Pages
-        if: steps.commit.outputs.mudou == 'true'
+        if: steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

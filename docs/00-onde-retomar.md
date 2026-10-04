@@ -50,13 +50,55 @@ devolve o mesmo fotograma várias vezes) e `SpeechTranscriber` do macOS 26 para 
 `pt-PT`, tudo no aparelho. 65 s de vídeo = ~14 s. **O pedido real estava no áudio nas duas
 vezes** — nos fotogramas sozinhos classifiquei mal a prioridade.
 
+## As rondas de recolha (revistas a 04/10, à noite)
+
+O problema não era a cadência: era **ninguém acordar o processo**. Medido num sábado inteiro
+de jogos: das 8 corridas agendadas de `dados.yml` saíram 2, das 3 de `aovivo.yml` saíram
+**zero**, e as quatro que correram foram todas lançadas à mão. O tempo entre a criação e o
+arranque de cada corrida agendada é **0 s** — a GitHub não as atrasa, não as cria.
+
+Três camadas, que se cobrem umas às outras:
+
+1. **Rede de `cron`** de 30 em 30 min nas horas de jogo, em vez de três disparos. 30
+   tentativas em vez de 3.
+2. **Ciclo longo** (5 h, rondas de 30 s): basta uma tentativa acertar de manhã para cobrir
+   quase o dia.
+3. **`concurrency` como revezamento**: uma corrida que dispare com outra a correr fica *em
+   espera* e arranca mal a primeira acabe. É auto-encadeamento de graça — e é a única forma
+   sem um token pessoal, porque o `GITHUB_TOKEN` não pode disparar outro workflow, por
+   desenho.
+
+E o ciclo **sai** quando não há nada a decorrer e o próximo jogo está a mais de 40 min: o
+custo passa a ser pelas janelas dos jogos e não pelo relógio.
+
+**Fecho do dia às 00:30** (`dados.yml`): o dia que acabou está fechado, e a mesma corrida
+republica a agenda, que é o que estabelece os jogos de hoje — é por aqui que entra um jogo
+antecipado ou adiado.
+
+### O bug que não era de agenda
+
+A ronda completa montava a agenda a partir da página de **calendário**, que durante um jogo
+mostra o resultado corrente sem dizer que ainda está a contar. A 04/10 às 16:26 apanhou o
+Lourinhã–Stuart ao minuto 1, leu 0–0, e a app mostrou *"terminado 0–0"* o resto do dia. O
+jogo acabou 9–1. A ficha que a mesma ronda gravou até trazia `situacao: "1ª Parte (19:00)"`.
+
+Agora há **uma só definição de "a decorrer"** no scraper — `modelos.em_curso()` — partilhada
+pelas duas rondas, e `_marcar_em_curso()` põe ou tira a marca na agenda a partir da ficha.
+
+### O que ficou por fazer desta fase
+
+O **relógio externo** (cron da Cloudflare a chamar a API da GitHub) e o
+**auto-encadeamento explícito** precisam de um *personal access token* com permissão de
+`workflow`, guardado como segredo. Não o posso criar. A rede de `cron` mais o revezamento
+cobrem o caso normal; isto é o cinto a mais.
+
 ## Uma mudança só de código não se publica sozinha
 
-A `dados.yml` só constrói e publica **se os dados tiverem mudado** (`steps.commit.outputs.mudou`),
-e a `aovivo.yml` só publica quando há novidade num jogo. Um commit que mexa apenas em código
-fica no repositório sem chegar ao site até os dados mudarem por conta própria. A 04/10 publicou-se
-com `gh workflow run dados.yml`, que serviu porque havia resultados novos do dia. Vale a pena
-pensar numa publicação que não dependa disso.
+A `aovivo.yml` só publica quando há novidade num jogo, e a `dados.yml` só construía e publicava
+**se os dados tivessem mudado** — um commit que mexesse apenas em código ficava no repositório
+sem chegar ao site até os dados mudarem por conta própria. ✅ Resolvido: um
+`gh workflow run dados.yml` publica sempre (`publicar_sempre`, ligado por omissão); as corridas
+agendadas mantêm o critério antigo, para não publicarem de 2 em 2 horas sem nada ter acontecido.
 
 ## O que este ficheiro já não precisa de dizer
 

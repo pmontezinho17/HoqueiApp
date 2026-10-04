@@ -218,3 +218,24 @@ class Classificacao:
     competicao_id: int
     temporada_id: int
     grupos: list[GrupoClassificacao] = field(default_factory=list)
+
+
+#: O que a fonte escreve em `situacao` quando o jogo **não** está a decorrer.
+#: "Jogo sem começar" e "Jogo não iniciado" são a mesma coisa em dois sítios da página.
+FECHADO = frozenset({"Jogo Terminado", "Jogo Suspendido", "Jogo Adiado",
+                     "Jogo sem começar", "Jogo não iniciado"})
+
+
+def em_curso(situacao: str | None) -> bool:
+    """O jogo está a decorrer, segundo o campo que a fonte publica na ficha.
+
+    A regra é por exclusão e não por reconhecimento: durante o jogo a `situacao` é
+    `"2ª Parte (13:26)"` ou `"Intervalo"`, e ao intervalo não há sequer relógio. Reconhecer
+    os textos de jogo a decorrer deixaria de fora o primeiro que a fonte inventasse; excluir
+    os de jogo fechado falha do lado seguro — um jogo a mais marcado como a decorrer corrige-se
+    na ronda seguinte, um jogo a menos deixa o utilizador sem nada durante todo o jogo.
+    """
+    if not situacao:
+        return False
+    s = situacao.strip()
+    return s not in FECHADO and "come" not in s.lower()
