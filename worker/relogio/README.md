@@ -34,6 +34,12 @@ ela arranca mal a primeira acabe. É esse revezamento que dá cobertura contínu
 
 ## Instalação
 
+Todos os comandos abaixo começam por saltar para a pasta do Worker a partir da raiz do
+repositório, seja qual for a pasta onde estás. Se usasses `cd worker/relogio` à bruta, o
+comando corria à primeira e falhava à segunda — a partir de dentro da pasta já não há
+`worker/relogio` para onde entrar.
+
+
 ### 1. Criar o token
 
 O Worker precisa de permissão para lançar um workflow, e só isso.
@@ -57,7 +63,7 @@ directamente à Cloudflare.
 ### 2. Entrar na Cloudflare
 
 ```bash
-cd worker/relogio && npx wrangler login
+cd "$(git rev-parse --show-toplevel)/worker/relogio" && npx wrangler login
 ```
 
 Abre o browser e autoriza. É a mesma conta onde está o `hoquei` do Pages.
@@ -65,7 +71,7 @@ Abre o browser e autoriza. É a mesma conta onde está o `hoquei` do Pages.
 ### 3. Guardar o token como segredo
 
 ```bash
-cd worker/relogio && npx wrangler secret put GITHUB_TOKEN
+cd "$(git rev-parse --show-toplevel)/worker/relogio" && npx wrangler secret put GITHUB_TOKEN
 ```
 
 Cola o token quando ele pedir. Fica guardado na Cloudflare, encriptado, e **não aparece no
@@ -74,7 +80,7 @@ repositório nem nos registos**.
 ### 4. Publicar
 
 ```bash
-cd worker/relogio && npx wrangler deploy
+cd "$(git rev-parse --show-toplevel)/worker/relogio" && npx wrangler deploy
 ```
 
 No fim ele diz o endereço do Worker e os `cron` que registou.
@@ -95,7 +101,7 @@ nada:
 Para ver os disparos a acontecer em tempo real:
 
 ```bash
-cd worker/relogio && npx wrangler tail
+cd "$(git rev-parse --show-toplevel)/worker/relogio" && npx wrangler tail
 ```
 
 Num dia sem jogos deves ver `nada a cobrir (sem jogos hoje)` de 10 em 10 minutos. Num dia de
@@ -118,5 +124,5 @@ Para desligar o relógio sem apagar nada: `npx wrangler deployments` e depois
 A lógica de decisão — fusos, janelas, que jogos contam — corre em Node, sem Cloudflare:
 
 ```bash
-cd worker/relogio && node teste.mjs
+cd "$(git rev-parse --show-toplevel)/worker/relogio" && node teste.mjs
 ```
