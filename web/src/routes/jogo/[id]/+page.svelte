@@ -4,7 +4,8 @@
 	import Emblema from '$lib/Emblema.svelte';
 	import FichaEquipas from '$lib/FichaEquipas.svelte';
 	import Bola from '$lib/Bola.svelte';
-	import { dataCurta, horaCurta, nomeProprio } from '$lib/formato';
+	import Icone from '$lib/Icone.svelte';
+	import { dataLonga, horaCurta, nomeProprio } from '$lib/formato';
 	import { caminhoEquipa } from '$lib/slug';
 
 	let { data } = $props();
@@ -72,11 +73,66 @@
 	const migalhas = $derived(
 		[f.categoria, provaCurta, f.serie ? `Série ${f.serie}` : null, f.jornada].filter(Boolean)
 	);
+
+	/** A fonte só publica o nome do recinto, que não geocodifica; a morada é nossa. */
+	const morada = $derived(f.recinto ? (data.recintos?.[f.recinto] ?? null) : null);
+	const linkMapa = $derived(
+		morada ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(morada)}` : null
+	);
+
+	/**
+	 * Barra compacta colada ao topo, com o resultado e o relógio, quando o cabeçalho já
+	 * saiu do ecrã.
+	 *
+	 * Foi o pormenor que o Pedro destacou no vídeo do Sofascore, e resolve de vez a queixa
+	 * dele de que o relógio "desaparecia": num jogo a decorrer passa-se o tempo a ler a
+	 * cronologia, que é precisamente onde o cabeçalho já não se vê. Pôr o relógio em
+	 * destaque no topo não bastava — tem de continuar lá depois de se rolar.
+	 *
+	 * O gatilho é uma sentinela no fim do cabeçalho, e não o `scrollY`: assim não há
+	 * nenhum número de píxeis escrito à mão que deixe de servir quando o cabeçalho muda
+	 * de altura (um nome comprido, uma faixa de "ao vivo" a mais).
+	 */
+	let compacto = $state(false);
+	let sentinela = $state<HTMLElement | null>(null);
+	$effect(() => {
+		const alvo = sentinela;
+		if (!alvo || typeof IntersectionObserver === 'undefined') return;
+		let obs: IntersectionObserver;
+		const ligar = () => {
+			obs?.disconnect();
+			// `--topo` é a altura real do cabeçalho do layout, medida lá e herdada até aqui
+			const topo = parseFloat(getComputedStyle(alvo).getPropertyValue('--topo')) || 96;
+			obs = new IntersectionObserver(
+				([e]) => (compacto = !e.isIntersecting && e.boundingClientRect.top < 0),
+				{ rootMargin: `-${Math.round(topo)}px 0px 0px 0px` }
+			);
+			obs.observe(alvo);
+		};
+		ligar();
+		addEventListener('resize', ligar);
+		return () => {
+			obs?.disconnect();
+			removeEventListener('resize', ligar);
+		};
+	});
 </script>
 
 <svelte:head><title>{f.casa} {f.golos_casa}–{f.golos_fora} {f.fora}</title></svelte:head>
 
 <a class="voltar" href="/">← Jogos</a>
+
+<!-- decorativa: o cabeçalho logo abaixo diz o mesmo, e melhor, a quem lê por voz -->
+<div class="barra" class:visivel={compacto} aria-hidden="true">
+	<div class="interior">
+		<Emblema equipa={f.casa} src={data.emblemas[f.casa]} tamanho={20} />
+		<span class="res">{f.golos_casa}<span class="tr">–</span>{f.golos_fora}</span>
+		<Emblema equipa={f.fora} src={data.emblemas[f.fora]} tamanho={20} />
+		{#if aDecorrer}
+			<span class="rel"><i></i>{f.relogio ?? f.periodo ?? f.situacao}</span>
+		{/if}
+	</div>
+</div>
 
 <article class="cabecalho">
 	{#if aDecorrer}
@@ -114,23 +170,67 @@
 		</div>
 	{/if}
 
-	<p class="meta">
-		{dataCurta(f.data)}{#if f.hora}, {horaCurta(f.hora)}{/if}
-		{#if f.recinto} · {f.recinto}{/if}
-	</p>
-	{#if f.faltas[0] !== null}
-		<p class="meta">Faltas de equipa: {f.faltas[0]}–{f.faltas[1]}</p>
-	{/if}
-	{#if f.arbitros.length}<p class="meta">Arbitragem: {f.arbitros.join(', ')}</p>{/if}
 </article>
+<!-- sentinela da barra compacta: quando esta linha sai por cima, a barra entra -->
+<div bind:this={sentinela} class="sentinela" aria-hidden="true"></div>
 
-<!-- W7.3: dá caminho de volta à competição, que antes não existia no detalhe -->
-<a class="migalhas" href={f.grupo_id ? `/competicoes/${f.grupo_id}` : '/competicoes'}>
-	<span class="trilho">
-		{#each migalhas as m, i (m)}{#if i}<span class="sep">›</span>{/if}<span class:escalao={i === 0}>{m}</span>{/each}
-	</span>
-	<span class="seta" aria-hidden="true">›</span>
-</a>
+<!--
+  Tudo o que diz respeito ao jogo numa caixa só, um ícone por linha.
+  Antes era a migalha da competição num cartão e, solta dentro do cabeçalho, data, hora,
+  recinto, faltas e arbitragem em três linhas de 0,74rem — a informação estava lá, mas
+  arrumada em dois sítios e a competir com o resultado.
+  A morada é a única linha nova: temos as moradas dos 29 recintos e até aqui só serviam o
+  botão do calendário, pelo que a app nunca teve forma de levar ninguém ao pavilhão.
+  W7.3: a primeira linha continua a ser o caminho de volta à competição.
+-->
+<ul class="info">
+	<li>
+		<Icone nome="prova" />
+		<a class="trilho" href={f.grupo_id ? `/competicoes/${f.grupo_id}` : '/competicoes'}>
+			<span class="migalhas"
+				>{#each migalhas as m, i (m)}{#if i}<span class="sep">›</span
+					>{/if}<span class:escalao={i === 0}>{m}</span>{/each}</span
+			>
+			<span class="seta" aria-hidden="true">›</span>
+		</a>
+	</li>
+	{#if f.data || f.hora}
+		<li>
+			<Icone nome="data" />
+			<!-- os espaços em volta do ponto têm de ser entidades: o compilador apara o
+			     espaço em branco que fica colado a uma etiqueta, e saía "outubro·16:45" -->
+			<span
+				>{f.data ? dataLonga(f.data) : ''}{#if f.data && f.hora}&nbsp;·&nbsp;{/if}{#if f.hora}{horaCurta(
+						f.hora
+					)}{/if}</span
+			>
+		</li>
+	{/if}
+	{#if f.recinto}
+		<li><Icone nome="recinto" /><span>{f.recinto}</span></li>
+	{/if}
+	{#if morada && linkMapa}
+		<li>
+			<Icone nome="local" />
+			<a class="trilho" href={linkMapa} rel="external noopener" target="_blank">
+				<span>{morada}</span>
+				<span class="seta" aria-hidden="true">›</span>
+			</a>
+		</li>
+	{/if}
+	{#if f.arbitros.length}
+		<li>
+			<Icone nome="arbitro" />
+			<span>{f.arbitros.map(nomeProprio).join(', ')}</span>
+		</li>
+	{/if}
+	{#if f.faltas[0] !== null}
+		<li>
+			<Icone nome="faltas" />
+			<span>Faltas de equipa: {f.faltas[0]}–{f.faltas[1]}</span>
+		</li>
+	{/if}
+</ul>
 
 {#if temCronologia || temFicha || temBoletim}
 	<div class="tabs" role="tablist">
@@ -191,15 +291,43 @@
 	.marcadores ul { list-style: none; margin: 0; padding: 0; text-align: right;
 		font-size: 0.72rem; color: var(--suave); }
 	.marcadores ul.dir { text-align: left; }
-	.migalhas { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
-		padding: 0.55rem 0.7rem; margin-bottom: 0.9rem; font-size: 0.72rem;
-		text-decoration: none; border: 1px solid var(--borda); border-radius: 8px;
-		background: var(--cartao); color: var(--suave); }
-	.trilho { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem; min-width: 0; }
-	.trilho .escalao { color: var(--acento); font-weight: 600; }
+	/* a sentinela não ocupa espaço: é só uma posição no documento */
+	.sentinela { height: 0; }
+
+	.info { list-style: none; margin: 0 0 0.9rem; padding: 0.2rem 0.7rem;
+		border: 1px solid var(--borda); border-radius: 10px; background: var(--cartao); }
+	.info li { display: flex; align-items: center; gap: 0.55rem; min-height: 40px;
+		padding: 0.3rem 0; font-size: 0.78rem; line-height: 1.35; }
+	.info li + li { border-top: 1px solid var(--borda); }
+	.info li > span { min-width: 0; }
+	/* linhas que levam a algum lado ocupam a largura toda, com a seta encostada à direita */
+	.info a.trilho { display: flex; align-items: center; justify-content: space-between;
+		gap: 0.4rem; flex: 1; min-width: 0; text-decoration: none; color: inherit; }
+	.info a.trilho:hover span, .info a.trilho:focus-visible span { text-decoration: underline; }
+	.migalhas { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem; min-width: 0;
+		color: var(--suave); }
+	.migalhas .escalao { color: var(--acento); font-weight: 600; }
 	.sep { color: var(--borda); }
-	.migalhas:hover, .migalhas:focus-visible { border-color: var(--acento); outline: none; }
 	.seta { color: var(--suave); }
+
+	/* Barra compacta: fixa, e não `sticky`. Em `sticky` aparecer e desaparecer empurrava
+	   o conteúdo para baixo e para cima a cada passagem pelo limiar. Fica debaixo do
+	   cabeçalho do layout (z-index 10) e por cima do resto. */
+	.barra {
+		position: fixed; inset: var(--topo, 96px) 0 auto 0; z-index: 9;
+		background: var(--fundo); border-bottom: 1px solid var(--borda);
+		opacity: 0; transform: translateY(-6px); pointer-events: none;
+		transition: opacity 0.16s ease, transform 0.16s ease;
+	}
+	.barra.visivel { opacity: 1; transform: none; pointer-events: auto; }
+	.interior { display: flex; align-items: center; justify-content: center; gap: 0.45rem;
+		max-width: 44rem; margin: 0 auto; padding: 0.35rem 0.9rem; }
+	.barra .res { font-size: 1.05rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+	.barra .rel { display: inline-flex; align-items: center; gap: 0.3rem; margin-left: 0.3rem;
+		font-size: 0.8rem; font-weight: 700; color: var(--vivo);
+		font-variant-numeric: tabular-nums; }
+	.barra .rel i { width: 6px; height: 6px; border-radius: 50%; background: var(--vivo);
+		animation: pulsar 1.6s ease-in-out infinite; }
 	.venceu { font-weight: 700; }
 	.aovivo {
 		display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
@@ -217,7 +345,6 @@
 		font-variant-numeric: tabular-nums; }
 	.numeros { font-size: 1.7rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 	.tr { color: var(--suave); margin: 0 0.25rem; font-weight: 400; }
-	.meta { font-size: 0.74rem; color: var(--suave); margin: 0.5rem 0 0; }
 	.tabs { display: flex; gap: 0.3rem; margin-bottom: 0.9rem; }
 	.tabs button {
 		flex: 1; min-height: 44px; padding: 0.5rem; font-size: 0.85rem; cursor: pointer;

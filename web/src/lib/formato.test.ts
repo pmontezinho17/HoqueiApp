@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { nomeProprio } from './formato';
+import { faseCurta, nomeProprio } from './formato';
 
 describe('nomeProprio', () => {
 	it('põe em caixa de título o que a fonte publica em maiúsculas', () => {
@@ -36,5 +36,39 @@ describe('nomeProprio', () => {
 
 	it('preserva o espaçamento interior', () => {
 		expect(nomeProprio('ANA  SILVA')).toBe('Ana  Silva');
+	});
+});
+
+describe('faseCurta', () => {
+	it('encurta a parte para caber na coluna da linha de jogo', () => {
+		expect(faseCurta({ periodo: '2ª Parte' })).toBe('2ª p');
+		expect(faseCurta({ periodo: '4ª Parte' })).toBe('4ª p');
+	});
+
+	it('aceita o "a" que a fonte às vezes manda em vez do ordinal', () => {
+		expect(faseCurta({ periodo: '1a Parte' })).toBe('1ª p');
+	});
+
+	it('abrevia o intervalo, que é quando não há relógio para mostrar', () => {
+		expect(faseCurta({ periodo: 'Intervalo' })).toBe('Interv.');
+	});
+
+	it('cai para a situação quando o período não foi separado', () => {
+		expect(faseCurta({ periodo: null, situacao: '1ª Parte (13:26)' })).toBe('1ª p');
+	});
+
+	it('prefere o período à situação quando há os dois', () => {
+		expect(faseCurta({ periodo: '3ª Parte', situacao: 'Intervalo' })).toBe('3ª p');
+	});
+
+	it('devolve null sem dados, para a linha voltar a dizer AO VIVO', () => {
+		expect(faseCurta({})).toBeNull();
+		expect(faseCurta({ periodo: null, situacao: null })).toBeNull();
+		expect(faseCurta({ periodo: '   ' })).toBeNull();
+	});
+
+	it('não deixa passar um texto longo desconhecido, que partia a coluna em três linhas', () => {
+		expect(faseCurta({ situacao: 'Jogo interrompido por falta de luz' })).toBeNull();
+		expect(faseCurta({ situacao: 'Suspenso' })).toBe('Suspenso');
 	});
 });

@@ -520,6 +520,52 @@ diz `TODAY OCT 4`); as secções por competição colapsam com contador, que ele
 ter; e a linha simétrica aguenta `SPORT LISBOA E BENFICA`, enquanto a deles empilha emblema e
 nome em duas linhas.
 
+## Sofascore — o ecrã de jogo (4/10/2026)
+
+Segunda gravação do Pedro, de 78 s, sobre o ecrã de um jogo a decorrer (Farense–Chaves da
+Liga 2). Lida como a outra: 2006 fotogramas descodificados → 63 ecrãs distintos, mais o
+áudio transcrito no aparelho.
+
+Antes de responder fui ver o que já tínhamos, porque na avaliação da theScore afirmei coisas
+sem o fazer. **Quase tudo o que ele descreve já existia**: resultado grande com casa à
+esquerda e fora à direita, relógio junto ao resultado, marcadores por equipa logo abaixo,
+cronologia do mais recente para o mais antigo com os acontecimentos de cada lado, marcas de
+parte, e a ficha do resultado em cada golo. Três coisas não existiam.
+
+**Adoptado**
+
+- **Barra compacta colada ao topo** (`.barra` em `jogo/[id]`), com emblemas, resultado e
+  relógio, a partir do momento em que o cabeçalho sai do ecrã. Foi o pormenor que ele
+  destacou — *"esta barra superior vai-se colapsando, é engraçado"* — e é a resposta
+  definitiva à queixa de que o relógio desaparecia: num jogo a decorrer passa-se o tempo na
+  cronologia, que é exactamente onde o cabeçalho já não se vê. É `fixed` e não `sticky`
+  (em `sticky`, aparecer e desaparecer empurrava o conteúdo), e o gatilho é uma sentinela no
+  fim do cabeçalho, não um número de píxeis: o cabeçalho muda de altura com a faixa de "ao
+  vivo" e com nomes compridos. A altura do cabeçalho do layout é publicada em `--topo`,
+  medida com `bind:clientHeight`.
+- **Caixa de informação do jogo**, um ícone por linha: competição e jornada (que continua a
+  ser o caminho de volta), data e hora, pavilhão, **morada com ligação ao mapa**, arbitragem
+  e faltas de equipa. A informação já existia toda, arrumada em dois sítios — um cartão de
+  migalhas e três linhas de 0,74rem soltas dentro do cabeçalho, a competir com o resultado.
+  A morada é a única linha nova: temos as dos 29 recintos e só serviam o botão do calendário.
+- **Minuto do jogo na lista**, debaixo da hora, como eles fazem. A lista dizia só "AO VIVO" e
+  não dizia se o jogo ia no início ou no fim — que é o que decide se se entra. A ronda ao
+  vivo já tinha o período e o relógio na mão e não os escrevia na `agenda.json`: **zero
+  pedidos extra**. `faseCurta()` encurta `"2ª Parte"` para `"2ª p"` e `"Intervalo"` para
+  `"Interv."`, porque a coluna tem 3.1rem.
+- **Resultado com que cada parte começou** na marca da cronologia (`2ª parte 4–5`), o `HT 2-0`
+  deles. Lida do mais recente para o mais antigo, essa marca é a linha que separa as duas
+  partes, e ali o número que faz sentido é o resultado de entrada.
+
+**Rejeitado**
+
+- **Classificação dentro do ecrã de jogo** — o próprio Pedro disse backlog.
+- **Caixas (cartões) por competição na lista do dia.** Um cartão custa ~16px por secção em
+  borda e margem; um sábado tem dez secções, meio ecrã de telefone. As secções planas com
+  contador aguentam 41 jogos, problema que o Sofascore não tem.
+- **O resto do ecrã deles**: três espaços de publicidade (banner, odds da bwin e um vídeo com
+  "Skip Ad") e um bloco de prognósticos. Não ter isso não é uma lacuna.
+
 ## Fontes
 
 - [FotMob](https://www.fotmob.com) e [Sofascore](https://www.sofascore.com) — usadas diretamente a 375×812
@@ -531,3 +577,5 @@ nome em duas linhas.
   [The End of Hamburger Menus?](https://www.simantaparida.com/blog/end-of-hamburger-menus-mobile-navigation) — medições de descoberta e o caso da Spotify
 - [theScore](https://www.thescore.com) — vídeo de 65 s gravado pelo Pedro a 4/10/2026, lido por
   fotogramas e por transcrição do áudio no próprio aparelho
+- [Sofascore](https://www.sofascore.com) — vídeo de 78 s gravado pelo Pedro a 4/10/2026 sobre
+  o ecrã de um jogo a decorrer

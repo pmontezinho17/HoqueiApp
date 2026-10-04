@@ -224,8 +224,19 @@ def comando_aovivo(args) -> int:
             # `ao_vivo` é o que a app usa para marcar o jogo em curso. A app só confia nele
             # dentro de uma janela de horas a contar da hora do jogo — se esta ronda parar a
             # meio, a marca expira sozinha em vez de ficar acesa para sempre.
-            por_id[j["id"]].update(gc=fx.golos_casa, gf=fx.golos_fora,
-                                   ao_vivo=fx.estado != "Jogo Terminado")
+            vivo = fx.estado != "Jogo Terminado"
+            entrada = por_id[j["id"]]
+            entrada.update(gc=fx.golos_casa, gf=fx.golos_fora, ao_vivo=vivo)
+            # O minuto do jogo na **lista**, e não só dentro da ficha: na lista dizia só
+            # "AO VIVO", e saber se o jogo vai no início ou no fim é o que decide se se
+            # entra. A ficha já veio neste mesmo pedido, portanto isto custa zero pedidos.
+            # `situacao` vem com ela porque ao intervalo não há relógio para mostrar.
+            for chave, valor in (("periodo", fx.periodo), ("relogio", fx.relogio),
+                                 ("situacao", fx.situacao)):
+                if vivo and valor:
+                    entrada[chave] = valor
+                else:
+                    entrada.pop(chave, None)
             _actualizar_calendario(destino, j, fx.golos_casa, fx.golos_fora,
                                    fx.estado != "Jogo Terminado")
             # A classificação da fonte só muda quando o jogo fecha, não a cada golo. Pedi-la

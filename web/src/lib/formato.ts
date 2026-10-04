@@ -94,6 +94,27 @@ export function emCurso(jogo: { ao_vivo?: boolean; data: string; hora: string | 
 }
 
 
+/**
+ * A fase do jogo em duas ou três letras, para a coluna de 3.1rem da linha de jogo.
+ *
+ * `"2ª Parte"` → `"2ª p"`, `"Intervalo"` → `"Interv."`. A fonte diz a fase em dois
+ * campos: `periodo`, quando consegue separá-la do relógio, e `situacao`, que é o texto
+ * cru (`"1ª Parte (13:26)"`). Vale o primeiro que houver.
+ *
+ * Devolve `null` quando não há nada de útil — e aí a linha mostra "AO VIVO", como antes.
+ * Um texto desconhecido e comprido não entra: numa coluna desta largura partia-se em
+ * três linhas e empurrava o resultado para baixo.
+ */
+export function faseCurta(jogo: { periodo?: string | null; situacao?: string | null }): string | null {
+	const bruto = (jogo.periodo ?? jogo.situacao ?? '').trim();
+	if (!bruto) return null;
+	const m = bruto.match(/^(\d+)\s*[ªa]\s*parte/i);
+	if (m) return `${m[1]}ª p`;
+	if (/^intervalo/i.test(bruto)) return 'Interv.';
+	return bruto.length <= 8 ? bruto : null;
+}
+
+
 const ESCALAO_CURTO: Record<string, string> = {
 	BENJAMINS: 'BENJ',
 	ESCOLARES: 'ESCOL',

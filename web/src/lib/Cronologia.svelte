@@ -20,6 +20,28 @@
 	// marcações de estrutura: ocupam a largura toda e não pertencem a nenhum lado
 	const ESTRUTURA = new Set(['inicio_parte', 'fim_parte', 'fim_jogo', 'por_iniciar']);
 
+	/**
+	 * O resultado com que cada parte começou, por `ordem` da marca que a abre.
+	 *
+	 * Lida do mais recente para o mais antigo, a marca da 2ª parte fica **abaixo** dos
+	 * acontecimentos dessa parte: é a linha que separa o que se passou na 2ª parte, acima,
+	 * do que se passou na 1ª, abaixo. Dizer ali o resultado é dizer com que resultado se
+	 * entrou — é o `HT 2-0` do Sofascore. Na 1ª parte não se diz nada: começou 0–0.
+	 */
+	const placarDaParte = $derived.by(() => {
+		const m = new Map<number, [number, number]>();
+		let c = 0,
+			f = 0;
+		for (const e of eventos) {
+			if (e.tipo === 'inicio_parte' && (e.parte ?? 1) > 1) m.set(e.ordem, [c, f]);
+			if (e.tipo === 'golo' && e.golos_casa !== null && e.golos_fora !== null) {
+				c = e.golos_casa;
+				f = e.golos_fora;
+			}
+		}
+		return m;
+	});
+
 	const ICONE: Record<string, string> = {
 		cartao: '▬', falta_equipa: '✋', desconto_tempo: '⏱',
 		penalti_falhado: '✕', livre_direto_falhado: '✕'
@@ -51,7 +73,13 @@
 <ol class="linha">
 	{#each porOrdemInversa as e (e.ordem)}
 		{#if e.tipo === 'inicio_parte'}
-			<li class="marca"><span>{e.parte}ª parte</span></li>
+			{@const p = placarDaParte.get(e.ordem)}
+			<li class="marca">
+				<span
+					>{e.parte}ª parte{#if p}<b title={`Começou ${p[0]}–${p[1]}`}>{p[0]}–{p[1]}</b
+						>{/if}</span
+				>
+			</li>
 		{:else if e.tipo === 'fim_jogo'}
 			<li class="marca fim"><span>Fim do jogo</span></li>
 		{:else if !ESTRUTURA.has(e.tipo)}
@@ -105,9 +133,14 @@
 	.marca span { position: relative; background: var(--fundo); padding: 0 0.6rem;
 		font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--suave); }
 	.marca.fim span { color: var(--acento); font-weight: 600; }
+	/* o resultado com que a parte começou, a seguir ao nome dela */
+	.marca b { margin-left: 0.4rem; color: var(--texto); font-weight: 700;
+		letter-spacing: 0; font-variant-numeric: tabular-nums; }
 
 	.evento {
-		display: grid; grid-template-columns: 1fr 3.6rem 1fr;
+		/* a coluna do meio cresce se precisar: num 21–7 a ficha do resultado não cabia em
+		   3.6rem e partia-se em duas linhas ("14–" / "5") */
+		display: grid; grid-template-columns: 1fr minmax(3.6rem, auto) 1fr;
 		align-items: center; gap: 0.3rem; padding: 0.3rem 0;
 	}
 	.evento.golo { background: var(--acento-fraco); border-radius: 8px; }
@@ -123,7 +156,7 @@
 
 	.centro { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; }
 	.minuto { font-size: 0.7rem; color: var(--suave); font-variant-numeric: tabular-nums; }
-	.placar { display: inline-flex; align-items: center; gap: 0.2rem;
+	.placar { display: inline-flex; align-items: center; gap: 0.2rem; white-space: nowrap;
 		padding: 0.1rem 0.35rem; border-radius: 999px;
 		background: var(--cartao); border: 1px solid var(--acento);
 		font-size: 0.74rem; font-weight: 700; font-variant-numeric: tabular-nums; }

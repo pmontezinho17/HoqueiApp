@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Emblema from './Emblema.svelte';
-	import { emCurso, escalaoCurto } from './formato';
+	import { emCurso, escalaoCurto, faseCurta } from './formato';
 	import type { JogoAgenda } from './tipos';
 
 	let {
@@ -42,8 +42,13 @@
 <svelte:element this={destino ? 'a' : 'div'} href={destino} class="linha" class:ligavel={destino}>
 	<span class="quando">
 		{#if live}
-			<!-- o ponto a pulsar lê-se antes do texto; o texto é para quem não vê cor -->
-			<span class="vivo"><i aria-hidden="true"></i>AO VIVO</span>
+			<!-- O ponto a pulsar lê-se antes do texto; o texto é para quem não vê cor.
+			     E o texto é a fase do jogo, não "AO VIVO": a cor e o ponto já dizem que
+			     está a decorrer, e o que não se sabia era se ia no início ou no fim — era
+			     isso que decidia se valia a pena entrar. Sem fase nos dados (ficheiro
+			     antigo, ou ronda que não chegou a escrevê-la) volta a "AO VIVO". -->
+			<span class="vivo"><i aria-hidden="true"></i>{faseCurta(jogo) ?? 'AO VIVO'}</span>
+			{#if jogo.relogio}<span class="conta">{jogo.relogio}</span>{/if}
 		{:else}
 			{#if comData && jogo.data}<span class="dia">{diaCurto(jogo.data)}</span>{/if}
 			<span class="hora">{jogo.hora ?? '—'}</span>
@@ -95,6 +100,9 @@
 		font-size: 0.58rem; font-weight: 700; letter-spacing: 0.04em; color: var(--vivo); }
 	.vivo i { width: 6px; height: 6px; border-radius: 50%; background: var(--vivo);
 		animation: pulsar 1.6s ease-in-out infinite; }
+	/* tabulares: o relógio muda a cada ronda e com largura variável dançava na coluna */
+	.conta { font-size: 0.7rem; font-weight: 700; color: var(--vivo);
+		font-variant-numeric: tabular-nums; }
 	@keyframes pulsar { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
 	@media (prefers-reduced-motion: reduce) { .vivo i { animation: none; } }
 	.dia { font-weight: 600; }

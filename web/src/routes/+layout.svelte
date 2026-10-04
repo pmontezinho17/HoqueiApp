@@ -24,6 +24,10 @@
 	const activa = (href: string) =>
 		href === '/' ? page.url.pathname === '/' : page.url.pathname.startsWith(href);
 
+	/** altura real do cabeçalho colado, publicada em `--topo` para quem precise de colar
+	 *  algo imediatamente abaixo dele */
+	let alturaTopo = $state(96);
+
 	// os favoritos vivem no localStorage e só existem no browser; sem isto a app abria
 	// sempre como se não se seguisse ninguém (perdido na reestruturação dos separadores)
 	$effect(() => favoritos.carregar());
@@ -35,7 +39,7 @@
 
 <a class="salto" href="#conteudo">Saltar para o conteúdo</a>
 
-<header>
+<header bind:clientHeight={alturaTopo}>
 	<div class="topo">
 		<a class="marca" href="/">Hóquei<span>em patins</span></a>
 		<div class="acoes">
@@ -64,7 +68,10 @@
 	</nav>
 </header>
 
-<main id="conteudo">{@render children()}</main>
+<!-- `--topo` é a altura real deste cabeçalho, medida e não adivinhada: as páginas que
+     precisam de colar algo abaixo dele (a barra compacta do jogo) leem-na daqui, e
+     acompanham-no quando a navegação parte em duas linhas num ecrã estreito. -->
+<main id="conteudo" style="--topo: {alturaTopo}px">{@render children()}</main>
 
 <footer>
 	<!-- L7.5: a atribuição tem de estar em todas as páginas, e não só no /mais. É o que
