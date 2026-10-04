@@ -79,44 +79,52 @@
 	.linha {
 		display: grid;
 		grid-template-columns: 3.1rem 1fr auto 1fr;
-		align-items: center; gap: 0.45rem;
-		padding: 0.5rem 0.2rem;
-		border-bottom: 1px solid var(--borda);
+		align-items: center; gap: var(--e-3);
+		padding: var(--e-4) var(--e-1);
+		/* separador fraco **dentro** de uma secção; o forte fica para a dividir da
+		   seguinte. São dois níveis onde antes havia um, e é isso que faz a lista ler-se
+		   como blocos em vez de uma régua contínua. */
+		border-bottom: 1px solid var(--borda-fraca);
 		text-decoration: none; color: inherit;
-		/* 12px como a referência: a hierarquia faz-se com peso e cor, não com tamanho */
-		font-size: 0.75rem;
+		font-size: var(--t-base);
 	}
 	.ligavel:hover, .ligavel:focus-visible { background: var(--acento-fraco); outline: none; }
+	/* no telemóvel não há `hover`: sem isto, tocar numa linha não dá retorno nenhum */
+	.ligavel:active { background: var(--acento-fraco); }
 
-	.quando { display: flex; flex-direction: column; line-height: 1.25; }
-	.dia, .hora { color: var(--suave); font-variant-numeric: tabular-nums; font-size: 0.7rem; }
+	.quando { display: flex; flex-direction: column; line-height: 1.3; }
+	.dia, .hora { color: var(--suave); font-variant-numeric: tabular-nums;
+		font-size: var(--t-pequeno); }
 
 	/* um jogo a decorrer tem de se distinguir de um já fechado antes de ser lido */
-	.escalao { font-size: 0.54rem; font-weight: 600; letter-spacing: 0.03em;
+	.escalao { font-size: var(--t-micro); font-weight: 600; letter-spacing: 0.03em;
 		color: var(--suave); white-space: nowrap; }
 
 	/* `nowrap`: na coluna de 3.1rem o "AO VIVO" partia-se em duas linhas */
-	.vivo { display: inline-flex; align-items: center; gap: 0.25rem; white-space: nowrap;
-		font-size: 0.58rem; font-weight: 700; letter-spacing: 0.04em; color: var(--vivo); }
+	.vivo { display: inline-flex; align-items: center; gap: var(--e-1); white-space: nowrap;
+		font-size: var(--t-micro); font-weight: 600; letter-spacing: 0.03em; color: var(--vivo); }
 	.vivo i { width: 6px; height: 6px; border-radius: 50%; background: var(--vivo);
 		animation: pulsar 1.6s ease-in-out infinite; }
 	/* tabulares: o relógio muda a cada ronda e com largura variável dançava na coluna */
-	.conta { font-size: 0.7rem; font-weight: 700; color: var(--vivo);
+	.conta { font-size: var(--t-pequeno); font-weight: 600; color: var(--vivo);
 		font-variant-numeric: tabular-nums; }
 	@keyframes pulsar { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
 	@media (prefers-reduced-motion: reduce) { .vivo i { animation: none; } }
 	.dia { font-weight: 600; }
 
-	.equipa { display: flex; align-items: center; gap: 0.35rem; min-width: 0; }
+	.equipa { display: flex; align-items: center; gap: var(--e-2); min-width: 0; }
 	.equipa.casa { justify-content: flex-end; text-align: right; }
-	.nome { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-	.vencedor { font-weight: 700; }
+	/* quem perdeu recua para o nível secundário: lê-se quem ganhou sem ler os números */
+	.nome { overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+		color: var(--texto-2); }
+	.vencedor .nome { color: var(--texto); font-weight: 600; }
 	.minha .nome { color: var(--acento); font-weight: 600; }
 
-	.meio { min-width: 2.4rem; text-align: center; }
-	.placar { font-variant-numeric: tabular-nums; font-size: 0.82rem; }
-	.placar i { color: var(--suave); font-style: normal; margin: 0 0.1rem; }
-	.placar b { font-weight: 400; }
-	.placar b.vencedor { font-weight: 700; }
-	.vs { color: var(--suave); font-size: 0.68rem; }
+	.meio { min-width: 2.6rem; text-align: center; }
+	.placar { font-variant-numeric: tabular-nums; font-size: var(--t-destaque); }
+	.placar i { color: var(--suave); font-style: normal; margin: 0 var(--e-0);
+		font-size: var(--t-pequeno); vertical-align: 0.08em; }
+	.placar b { font-weight: 400; color: var(--texto-2); }
+	.placar b.vencedor { font-weight: 600; color: var(--texto); }
+	.vs { color: var(--suave); font-size: var(--t-pequeno); }
 </style>

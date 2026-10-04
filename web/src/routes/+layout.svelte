@@ -87,15 +87,44 @@
 <AvisoVersao />
 
 <style>
+	/*
+	 * Os tokens. Contei antes de os escrever: a app tinha **30 tamanhos de letra**
+	 * distintos — vinte deles entre 0,54rem e 0,86rem — e **25 espaçamentos**. Ninguém vê a
+	 * diferença entre 0,74 e 0,76rem; o que se vê é que nada alinha com nada, e é isso que
+	 * o olho lê como amador. Daqui para a frente escolhe-se desta lista, não se inventa um
+	 * número de cada vez.
+	 */
 	:global(:root) {
-		--fundo: #f6f7f9; --cartao: #fff; --texto: #15181d; --suave: #6b7280;
-		--borda: #e4e6ea; --acento: #0a7d54; --acento-fraco: #e8f4ef;
+		/* escala de texto: 6 degraus, e nenhum entre eles */
+		--t-micro: 0.6875rem;     /* 11px — escalão, série, legendas */
+		--t-pequeno: 0.75rem;     /* 12px — horas, texto secundário */
+		--t-base: 0.8125rem;      /* 13px — nomes de equipa, corpo */
+		--t-destaque: 0.9375rem;  /* 15px — resultado na lista, títulos de secção */
+		--t-titulo: 1.125rem;     /* 18px */
+		--t-placar: 1.75rem;      /* 28px — o resultado no ecrã do jogo */
+
+		/* espaçamento: base de 4px, com um 6px porque numa lista densa 4 é pouco e 8 é
+		   demasiado — e sem esse degrau voltaríamos a inventar números */
+		--e-0: 2px; --e-1: 4px; --e-2: 6px; --e-3: 8px;
+		--e-4: 12px; --e-5: 16px; --e-6: 24px; --e-7: 32px;
+
+		--raio: 8px; --raio-cartao: 12px; --raio-pilula: 999px;
+
+		/* Três níveis de texto e dois de separador, onde antes havia dois e um. É o que
+		   permite o cabeçalho de uma secção recuar atrás do conteúdo em vez de competir
+		   com ele. */
+		--fundo: #f5f6f8; --cartao: #fff;
+		--texto: #14171c; --texto-2: #4b525c; --suave: #767e8a;
+		--borda: #e3e6ea; --borda-fraca: #eef0f3;
+		--acento: #0a7d54; --acento-fraco: #e8f4ef;
 		--aviso: #92400e; --aviso-fundo: #fef3c7; --vivo: #c2410c;
 	}
 	@media (prefers-color-scheme: dark) {
 		:global(:root) {
-			--fundo: #0f1115; --cartao: #181b21; --texto: #e8eaed; --suave: #9aa1ab;
-			--borda: #272b33; --acento: #34d399; --acento-fraco: #12271f;
+			--fundo: #0f1115; --cartao: #181b21;
+			--texto: #e8eaed; --texto-2: #b6bcc5; --suave: #868d98;
+			--borda: #272b33; --borda-fraca: #1f232a;
+			--acento: #34d399; --acento-fraco: #12271f;
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
 		}
 	}

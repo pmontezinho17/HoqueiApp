@@ -38,13 +38,13 @@
 </div>
 
 <style>
-	.fita { display: flex; gap: 0.25rem; overflow-x: auto; scrollbar-width: none;
-		margin: 0 -0.9rem 0.6rem; padding: 0 0.9rem 0.3rem; }
+	.fita { display: flex; gap: var(--e-1); overflow-x: auto; scrollbar-width: none;
+		margin: 0 -0.9rem var(--e-3); padding: 0 0.9rem var(--e-1); }
 	.fita::-webkit-scrollbar { display: none; }
 	button {
-		flex: 0 0 auto; min-height: 44px; padding: 0.3rem 0.65rem; cursor: pointer;
-		font-size: 0.76rem; white-space: nowrap; border-radius: 999px;
-		border: 1px solid var(--borda); background: var(--cartao); color: var(--suave);
+		flex: 0 0 auto; min-height: 44px; padding: var(--e-2) var(--e-4); cursor: pointer;
+		font-size: var(--t-pequeno); white-space: nowrap; border-radius: var(--raio-pilula);
+		border: 1px solid var(--borda); background: var(--cartao); color: var(--texto-2);
 	}
 	button.hoje { font-weight: 600; }
 	button[aria-current='true'] {

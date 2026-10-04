@@ -117,27 +117,30 @@
 </FaixaDias>
 
 <style>
+	/* Um degrau visual abaixo da fita de datas: a fita é navegação, isto é filtro. Com os
+	   dois no mesmo tamanho liam-se como duas filas iguais a competir pela atenção. */
 	.escaloes {
 		display: flex;
-		gap: 0.25rem;
+		gap: var(--e-1);
 		overflow-x: auto;
 		scrollbar-width: none;
-		margin: 0 -0.9rem 0.7rem;
-		padding: 0 0.9rem 0.2rem;
+		margin: 0 -0.9rem var(--e-4);
+		padding: 0 0.9rem var(--e-1);
 	}
 	.escaloes::-webkit-scrollbar {
 		display: none;
 	}
 	.escaloes button {
 		flex: 0 0 auto;
-		min-height: 44px;
-		padding: 0.25rem 0.7rem;
-		font-size: 0.74rem;
+		min-height: 36px;
+		padding: var(--e-1) var(--e-3);
+		font-size: var(--t-micro);
+		letter-spacing: 0.02em;
 		white-space: nowrap;
 		cursor: pointer;
-		border-radius: 999px;
+		border-radius: var(--raio-pilula);
 		border: 1px solid var(--borda);
-		background: var(--cartao);
+		background: transparent;
 		color: var(--suave);
 	}
 	/* preenchido, como o dia escolhido na fita: era o que faltava para se ver que isto
@@ -150,9 +153,9 @@
 	}
 
 	.destacada {
-		margin-bottom: 1.1rem;
+		margin-bottom: var(--e-6);
 		border-left: 2px solid var(--acento);
-		padding-left: 0.6rem;
+		padding-left: var(--e-4);
 	}
 	.vivo {
 		border-color: var(--vivo);
@@ -180,9 +183,11 @@
 		}
 	}
 	.destacada h2 {
-		font-size: 0.72rem;
+		font-size: var(--t-micro);
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
 		color: var(--acento);
-		margin: 0 0 0.2rem;
+		margin: 0 0 var(--e-2);
 		font-weight: 600;
 	}
 </style>

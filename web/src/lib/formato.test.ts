@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { faseCurta, nomeProprio } from './formato';
+import { faseCurta, nomeProprio, nomeProva } from './formato';
 
 describe('nomeProprio', () => {
 	it('põe em caixa de título o que a fonte publica em maiúsculas', () => {
@@ -70,5 +70,37 @@ describe('faseCurta', () => {
 	it('não deixa passar um texto longo desconhecido, que partia a coluna em três linhas', () => {
 		expect(faseCurta({ situacao: 'Jogo interrompido por falta de luz' })).toBeNull();
 		expect(faseCurta({ situacao: 'Suspenso' })).toBe('Suspenso');
+	});
+});
+
+describe('nomeProva', () => {
+	it('tira as maiúsculas que a fonte publica', () => {
+		expect(nomeProva('CAMP. REG. SUB-15 - 1ª FASE')).toBe('Camp. Reg. Sub-15 - 1ª Fase');
+	});
+
+	it('não transforma algarismos romanos em palavras', () => {
+		// `nomeProprio` sozinho devolvia "Nivel Ii", que é o tipo de erro que se nota logo
+		expect(nomeProva('ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II')).toBe(
+			'Encontros Distritais Escolares - 1ª Fase NIVEL II'.replace('NIVEL', 'Nivel')
+		);
+		expect(nomeProva('FASE III')).toBe('Fase III');
+		expect(nomeProva('GRUPO IV')).toBe('Grupo IV');
+	});
+
+	it('deixa em pé a letra solta de uma série', () => {
+		expect(nomeProva('CAMP. REG. SUB-13 - 1ª FASE - SERIE D')).toBe(
+			'Camp. Reg. Sub-13 - 1ª Fase - Serie D'
+		);
+	});
+
+	it('baixa as partículas, como nos nomes de pessoas', () => {
+		expect(nomeProva('TAÇA PROF. JOAO CAMPELO - SENIORES FEMININOS')).toBe(
+			'Taça Prof. Joao Campelo - Seniores Femininos'
+		);
+	});
+
+	it('aguenta vazio e nulo', () => {
+		expect(nomeProva(null)).toBe('');
+		expect(nomeProva('')).toBe('');
 	});
 });

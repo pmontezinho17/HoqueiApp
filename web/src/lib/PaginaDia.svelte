@@ -9,7 +9,7 @@
 	 * local que nasce e morre com a página.
 	 */
 	import LinhaJogo from './LinhaJogo.svelte';
-	import { dataLonga } from './formato';
+	import { dataLonga, nomeProva } from './formato';
 	import type { JogoAgenda } from './tipos';
 
 	let {
@@ -97,7 +97,7 @@
 				aria-expanded={!fechadas.has(s.id)}
 			>
 				<span class="escalao">{s.cat}</span>
-				<span class="prova">{s.nome}</span>
+				<span class="prova">{nomeProva(s.nome)}</span>
 				<span class="conta">{s.total}</span>
 				<span class="chevron" class:fechado={fechadas.has(s.id)} aria-hidden="true">⌃</span>
 			</button>
@@ -115,29 +115,36 @@
 
 <style>
 	section {
-		margin-bottom: 1.1rem;
+		margin-bottom: var(--e-6);
 	}
 	.destacada {
 		border-left: 2px solid var(--acento);
-		padding-left: 0.6rem;
+		padding-left: var(--e-4);
 	}
 	.destacada h2 {
-		font-size: 0.72rem;
+		font-size: var(--t-micro);
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
 		color: var(--acento);
-		margin: 0 0 0.2rem;
+		margin: 0 0 var(--e-2);
 		font-weight: 600;
 	}
 
-	/* cabeçalho discreto: peso normal, sem maiúsculas, como a referência */
+	/*
+	  O cabeçalho da secção **recua atrás do conteúdo**, e isto era o contrário.
+	  O nome da prova estava a 0.82rem e os nomes das equipas a 0.75rem: o rótulo da
+	  competição era maior do que os jogos, que é o que se vem aqui ver. Agora a prova é um
+	  degrau abaixo das equipas e em texto secundário; o escalão fica no degrau mais pequeno.
+	*/
 	.cabecalho {
 		display: grid;
 		grid-template-columns: 1fr auto auto;
 		align-items: baseline;
-		gap: 0 0.5rem;
+		gap: 0 var(--e-3);
 		width: 100%;
 		text-align: left;
 		cursor: pointer;
-		padding: 0.45rem 0.2rem;
+		padding: var(--e-4) var(--e-1) var(--e-2);
 		background: none;
 		border: 0;
 		border-bottom: 1px solid var(--borda);
@@ -145,13 +152,15 @@
 	}
 	.escalao {
 		grid-column: 1;
-		font-size: 0.64rem;
+		font-size: var(--t-micro);
+		font-weight: 600;
 		color: var(--acento);
-		letter-spacing: 0.04em;
+		letter-spacing: 0.05em;
 	}
 	.prova {
 		grid-column: 1;
-		font-size: 0.82rem;
+		font-size: var(--t-pequeno);
+		color: var(--texto-2);
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -163,7 +172,7 @@
 		grid-row: 1 / 3;
 		align-self: center;
 		color: var(--suave);
-		font-size: 0.72rem;
+		font-size: var(--t-pequeno);
 		font-variant-numeric: tabular-nums;
 	}
 	.chevron {
@@ -171,7 +180,7 @@
 		grid-row: 1 / 3;
 		align-self: center;
 		color: var(--suave);
-		font-size: 0.7rem;
+		font-size: var(--t-pequeno);
 		transition: transform 0.15s;
 	}
 	.chevron.fechado {
@@ -184,12 +193,13 @@
 	}
 
 	.serie {
-		font-size: 0.66rem;
+		font-size: var(--t-micro);
+		letter-spacing: 0.04em;
 		color: var(--suave);
-		margin: 0.45rem 0 0.1rem 0.2rem;
+		margin: var(--e-4) 0 var(--e-0) var(--e-1);
 	}
 	.vazio {
 		color: var(--suave);
-		font-size: 0.82rem;
+		font-size: var(--t-base);
 	}
 </style>

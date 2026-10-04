@@ -94,6 +94,29 @@ export function emCurso(jogo: { ao_vivo?: boolean; data: string; hora: string | 
 }
 
 
+/** algarismos romanos usados nos níveis e nas fases: `NIVEL II`, `FASE III` */
+const ROMANOS = /^(?:i{1,3}|iv|vi{0,3}|ix|xi{0,2})$/i;
+
+/**
+ * O nome de uma prova, legível.
+ *
+ * A fonte publica tudo em maiúsculas — `CAMP. REG. SUB-15 - 1ª FASE` — e em maiúsculas
+ * todas as letras têm a mesma altura, sem hastes nem caudas. O resultado é um bloco sólido
+ * que pesa mais do que os nomes das equipas que estão por baixo, por mais pequeno que se
+ * ponha. Foi isso que ficou a saltar à vista depois de arrumar os tamanhos: o problema não
+ * era o tamanho, era a caixa.
+ *
+ * `nomeProprio` faz o trabalho todo menos uma coisa: trata `II` como palavra e devolve
+ * `Ii`. Os algarismos romanos voltam a subir aqui.
+ */
+export function nomeProva(nome: string | null | undefined): string {
+	if (!nome) return '';
+	return nomeProprio(nome)
+		.split(' ')
+		.map((p) => (ROMANOS.test(p) ? p.toUpperCase() : p))
+		.join(' ');
+}
+
 /**
  * A fase do jogo em duas ou três letras, para a coluna de 3.1rem da linha de jogo.
  *
