@@ -69,7 +69,7 @@
   },
   {
    "id": 1889,
-   "nome": "HC LOURINHA",
+   "nome": "HC LOURINHÃ",
    "logo": "/emblemas/21.webp"
   },
   {
@@ -134,7 +134,7 @@
    "jornada": "1ª JORNADA",
    "data": "2026-09-12",
    "hora": "15:15:00",
-   "casa": "HC LOURINHA",
+   "casa": "HC LOURINHÃ",
    "fora": "AD OEIRAS B",
    "golos_casa": 2,
    "golos_fora": 8,
@@ -219,7 +219,7 @@
    "data": "2026-09-12",
    "hora": "20:30:00",
    "casa": "CD PAÇO ARCOS B",
-   "fora": "HC LOURINHA",
+   "fora": "HC LOURINHÃ",
    "golos_casa": 6,
    "golos_fora": 0,
    "recinto": "PAV. GIMNO. DA LOURINHÃ",
@@ -578,7 +578,7 @@
     },
     {
      "posicao": 3,
-     "equipa": "HC LOURINHA",
+     "equipa": "HC LOURINHÃ",
      "logo": "/intranet/logos/21.png",
      "jogos": 2,
      "vitorias": 0,

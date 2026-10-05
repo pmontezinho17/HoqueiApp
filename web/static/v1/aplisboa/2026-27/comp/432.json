@@ -49,7 +49,7 @@
   },
   {
    "id": 1804,
-   "nome": "HC LOURINHA",
+   "nome": "HC LOURINHÃ",
    "logo": "/emblemas/21.webp"
   },
   {
@@ -180,7 +180,7 @@
    "jornada": "1ª JORNADA - 1ª FASE",
    "data": "2026-09-23",
    "hora": "21:45:00",
-   "casa": "HC LOURINHA",
+   "casa": "HC LOURINHÃ",
    "fora": "AD OEIRAS",
    "golos_casa": 2,
    "golos_fora": 4,
@@ -306,7 +306,7 @@
    "jornada": "2ª JORNADA - 1ª FASE",
    "data": "2026-09-27",
    "hora": "17:00:00",
-   "casa": "HC LOURINHA",
+   "casa": "HC LOURINHÃ",
    "fora": "GRF MURCHES",
    "golos_casa": 1,
    "golos_fora": 11,
@@ -418,7 +418,7 @@
    "jornada": "3ª JORNADA - 1ª FASE",
    "data": "2026-10-03",
    "hora": "19:30:00",
-   "casa": "HC LOURINHA",
+   "casa": "HC LOURINHÃ",
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": 2,
    "golos_fora": 11,
@@ -755,7 +755,7 @@
     },
     {
      "posicao": 4,
-     "equipa": "HC LOURINHA",
+     "equipa": "HC LOURINHÃ",
      "logo": "/intranet/logos/21.png",
      "jogos": 3,
      "vitorias": 0,

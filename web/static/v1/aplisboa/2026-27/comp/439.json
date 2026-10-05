@@ -34,7 +34,7 @@
   },
   {
    "id": 1907,
-   "nome": "HC LOURINHA",
+   "nome": "HC LOURINHÃ",
    "logo": "/emblemas/21.webp"
   },
   {
@@ -89,7 +89,7 @@
    "jornada": "1ª JORNADA",
    "data": "2026-09-13",
    "hora": "10:00:00",
-   "casa": "HC LOURINHA",
+   "casa": "HC LOURINHÃ",
    "fora": "AE FISICA",
    "golos_casa": 1,
    "golos_fora": 3,
@@ -132,7 +132,7 @@
    "data": "2026-09-13",
    "hora": "17:30:00",
    "casa": "A STUART HCM",
-   "fora": "HC LOURINHA",
+   "fora": "HC LOURINHÃ",
    "golos_casa": 4,
    "golos_fora": 6,
    "recinto": "PAV. GIMNO. DA LOURINHÃ",
@@ -229,7 +229,7 @@
    "jornada": "QUARTOS FINAL",
    "data": "2026-09-19",
    "hora": "14:00:00",
-   "casa": "HC LOURINHA",
+   "casa": "HC LOURINHÃ",
    "fora": "AD OEIRAS",
    "golos_casa": 0,
    "golos_fora": 6,
@@ -393,7 +393,7 @@
     },
     {
      "posicao": 2,
-     "equipa": "HC LOURINHA",
+     "equipa": "HC LOURINHÃ",
      "logo": "/intranet/logos/21.png",
      "jogos": 2,
      "vitorias": 1,

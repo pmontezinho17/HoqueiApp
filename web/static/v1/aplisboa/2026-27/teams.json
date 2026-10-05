@@ -302,7 +302,7 @@
    ]
   },
   {
-   "equipa": "A STRUART HCM",
+   "equipa": "A STUART HCM",
    "categoria": "SENIORES FEMININOS",
    "competicoes": [
     433
@@ -386,7 +386,7 @@
    ]
   },
   {
-   "equipa": "HC LOURINHA",
+   "equipa": "HC LOURINHÃ",
    "categoria": "SENIORES MASCULINOS",
    "competicoes": [
     432
@@ -565,16 +565,10 @@
    ]
   },
   {
-   "equipa": "HC LOURINHA",
-   "categoria": "SUB-13",
-   "competicoes": [
-    442
-   ]
-  },
-  {
    "equipa": "HC LOURINHÃ",
    "categoria": "SUB-13",
    "competicoes": [
+    442,
     444
    ]
   },
@@ -772,16 +766,10 @@
    ]
   },
   {
-   "equipa": "HC LOURINHA",
-   "categoria": "SUB-15",
-   "competicoes": [
-    441
-   ]
-  },
-  {
    "equipa": "HC LOURINHÃ",
    "categoria": "SUB-15",
    "competicoes": [
+    441,
     449
    ]
   },
@@ -1040,16 +1028,10 @@
    ]
   },
   {
-   "equipa": "HC LOURINHA",
-   "categoria": "SUB-17",
-   "competicoes": [
-    440
-   ]
-  },
-  {
    "equipa": "HC LOURINHÃ",
    "categoria": "SUB-17",
    "competicoes": [
+    440,
     454
    ]
   },
@@ -1254,16 +1236,10 @@
    ]
   },
   {
-   "equipa": "HC LOURINHA",
-   "categoria": "SUB-19",
-   "competicoes": [
-    439
-   ]
-  },
-  {
    "equipa": "HC LOURINHÃ",
    "categoria": "SUB-19",
    "competicoes": [
+    439,
     457
    ]
   },

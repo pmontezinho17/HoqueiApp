@@ -64,7 +64,7 @@
   },
   {
    "id": 1859,
-   "nome": "HC LOURINHA",
+   "nome": "HC LOURINHÃ",
    "logo": "/emblemas/21.webp"
   },
   {
@@ -232,7 +232,7 @@
    "jornada": "2ª JORNADA",
    "data": "2026-09-12",
    "hora": "19:15:00",
-   "casa": "HC LOURINHA",
+   "casa": "HC LOURINHÃ",
    "fora": "PAREDE FC A",
    "golos_casa": 2,
    "golos_fora": 6,
@@ -317,7 +317,7 @@
    "data": "2026-09-12",
    "hora": "14:00:00",
    "casa": "AE FISICA B",
-   "fora": "HC LOURINHA",
+   "fora": "HC LOURINHÃ",
    "golos_casa": 1,
    "golos_fora": 4,
    "recinto": "PAV. GIMNO. DA LOURINHÃ",
@@ -611,7 +611,7 @@
     },
     {
      "posicao": 2,
-     "equipa": "HC LOURINHA",
+     "equipa": "HC LOURINHÃ",
      "logo": "/intranet/logos/21.png",
      "jogos": 2,
      "vitorias": 1,

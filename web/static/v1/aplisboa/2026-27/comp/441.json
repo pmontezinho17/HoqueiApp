@@ -59,7 +59,7 @@
   },
   {
    "id": 1879,
-   "nome": "HC LOURINHA",
+   "nome": "HC LOURINHÃ",
    "logo": "/emblemas/21.webp"
   },
   {
@@ -152,7 +152,7 @@
    "jornada": "1ª JORNADA",
    "data": "2026-09-11",
    "hora": "21:45:00",
-   "casa": "HC LOURINHA",
+   "casa": "HC LOURINHÃ",
    "fora": "UD VILAFRANQUENSE",
    "golos_casa": 2,
    "golos_fora": 4,
@@ -167,7 +167,7 @@
    "data": "2026-09-13",
    "hora": "10:15:00",
    "casa": "CD PAÇO ARCOS B",
-   "fora": "HC LOURINHA",
+   "fora": "HC LOURINHÃ",
    "golos_casa": 2,
    "golos_fora": 1,
    "recinto": "PAV. VILAFRANQUENSE",
@@ -334,7 +334,7 @@
    "jornada": "3ª JORNADA",
    "data": "2026-09-13",
    "hora": "14:00:00",
-   "casa": "HC LOURINHA",
+   "casa": "HC LOURINHÃ",
    "fora": "AD OEIRAS A",
    "golos_casa": 1,
    "golos_fora": 6,
@@ -676,7 +676,7 @@
     },
     {
      "posicao": 4,
-     "equipa": "HC LOURINHA",
+     "equipa": "HC LOURINHÃ",
      "logo": "/intranet/logos/21.png",
      "jogos": 3,
      "vitorias": 0,

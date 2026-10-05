@@ -9,7 +9,7 @@
  "equipas": [
   {
    "id": 1810,
-   "nome": "A STRUART HCM",
+   "nome": "A STUART HCM",
    "logo": "/emblemas/10.webp"
   },
   {
@@ -36,7 +36,7 @@
    "jornada": "JORNADA 1",
    "data": "2026-09-19",
    "hora": "14:45:00",
-   "casa": "A STRUART HCM",
+   "casa": "A STUART HCM",
    "fora": "CRIAR-T GD",
    "golos_casa": 2,
    "golos_fora": 0,
@@ -79,7 +79,7 @@
    "data": "2026-09-27",
    "hora": "18:00:00",
    "casa": "HC SINTRA",
-   "fora": "A STRUART HCM",
+   "fora": "A STUART HCM",
    "golos_casa": 2,
    "golos_fora": 3,
    "recinto": "PAV. HC SINTRA",
@@ -106,7 +106,7 @@
    "jornada": "JORNADA 3",
    "data": "2026-10-03",
    "hora": "18:00:00",
-   "casa": "A STRUART HCM",
+   "casa": "A STUART HCM",
    "fora": "PAREDE FC",
    "golos_casa": 3,
    "golos_fora": 2,
@@ -162,7 +162,7 @@
    "linhas": [
     {
      "posicao": 1,
-     "equipa": "A STRUART HCM",
+     "equipa": "A STUART HCM",
      "logo": "/intranet/logos/10.png",
      "jogos": 3,
      "vitorias": 3,
