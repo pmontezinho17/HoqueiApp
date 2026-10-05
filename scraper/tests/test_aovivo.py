@@ -60,6 +60,12 @@ def _agenda(tmp_path: pathlib.Path) -> pathlib.Path:
     return tmp_path
 
 
+def _args(tmp_path: pathlib.Path, **extra) -> Namespace:
+    base = dict(destino=str(tmp_path), tenant="aplisboa", janela=3, antes=25,
+                todos=False, id_temp=5, ronda=1, cada_atraso=10, atraso_max=8.0)
+    return Namespace(**{**base, **extra})
+
+
 def _ficha(estado: str | None, periodo: str | None, relogio: str | None,
            situacao: str | None, gc: int, gf: int) -> FichaJogo:
     return FichaJogo(
@@ -72,8 +78,7 @@ def _ficha(estado: str | None, periodo: str | None, relogio: str | None,
 def _correr(tmp_path: pathlib.Path, fx: FichaJogo, monkeypatch) -> dict:
     monkeypatch.setattr(cli, "Fonte", _FonteFalsa)
     monkeypatch.setattr(cli, "ficha", lambda _html, _id: fx)
-    args = Namespace(destino=str(tmp_path), tenant="aplisboa", janela=3,
-                     antes=25, todos=False, id_temp=5)
+    args = _args(tmp_path)
     assert cli.comando_aovivo(args) == 0
     return json.loads((tmp_path / "agenda.json").read_text())["jogos"][0]
 
@@ -116,8 +121,7 @@ def test_uma_ronda_e_um_pedido_por_jogo(tmp_path, monkeypatch):
     monkeypatch.setattr(cli, "Fonte", Espia)
     monkeypatch.setattr(cli, "ficha",
                         lambda _h, _i: _ficha(None, "1ª Parte", "3:10", "1ª Parte (3:10)", 0, 0))
-    args = Namespace(destino=str(tmp_path), tenant="aplisboa", janela=3,
-                     antes=25, todos=False, id_temp=5)
+    args = _args(tmp_path)
     assert cli.comando_aovivo(args) == 0
     assert [f.pedidos for f in fontes] == [1]
 
@@ -206,3 +210,101 @@ def test_a_janela_nao_se_parte_a_meia_noite(tmp_path, monkeypatch):
     j = _correr(tmp_path, _ficha(None, "1ª Parte", "4:12", "1ª Parte (4:12)", 1, 0), monkeypatch)
     assert j["ao_vivo"] is True, "o jogo das 23:31 saiu da ronda às 23:41"
     assert j["relogio"] == "4:12"
+
+
+# ─── a recolha dos que escaparam ────────────────────────────────────────────────────────
+#
+# A 05/10 o `dados.yml` perdeu as corridas das 14h e das 16h e este ciclo não esteve de pé
+# entre as 12h30 e as 17h50. O A STUART HCM–PAREDE FC A das 15h30 ficou sem resultado na app
+# até à noite — a fonte tinha-o, e tinha-o na página de calendário. A janela de três horas
+# serve para decidir quem seguir ao vivo; não pode ser também quem desistimos de ir buscar.
+
+
+def _agenda_com(tmp_path: pathlib.Path, *jogos: dict) -> None:
+    (tmp_path / "match").mkdir(parents=True, exist_ok=True)
+    (tmp_path / "meta.json").write_text(json.dumps({"generated_at": "2026-10-04T00:00:00+00:00"}))
+    (tmp_path / "agenda.json").write_text(json.dumps({"jogos": list(jogos)}))
+
+
+def _jogo(horas_atras: float, **extra) -> dict:
+    agora = datetime.now(ZoneInfo("Europe/Lisbon"))
+    return {
+        "id": extra.pop("id", ID),
+        "data": agora.date().isoformat(),
+        "hora": (agora - timedelta(hours=horas_atras)).strftime("%H:%M"),
+        "casa": "A", "fora": "B", "gc": None, "gf": None,
+        "recinto": None, "comp": COMP, "prova": "P", "cat": "SUB-13",
+        **extra,
+    }
+
+
+def test_um_jogo_de_ha_quatro_horas_sem_resultado_e_ido_buscar(tmp_path, monkeypatch):
+    """Fora da janela de três horas, mas sem resultado: escapou-nos, não é irrelevante."""
+    _agenda_com(tmp_path, _jogo(4))
+    monkeypatch.setattr(cli, "Fonte", _FonteFalsa)
+    monkeypatch.setattr(cli, "ficha",
+                        lambda _h, _i: _ficha("Jogo Terminado", None, None, "Jogo Terminado", 0, 3))
+    assert cli.comando_aovivo(_args(tmp_path)) == 0
+    j = json.loads((tmp_path / "agenda.json").read_text())["jogos"][0]
+    assert (j["gc"], j["gf"]) == (0, 3)
+
+
+def test_um_jogo_de_ha_quatro_horas_com_resultado_fica_em_paz(tmp_path, monkeypatch):
+    """A recolha é para quem ficou sem resultado. O resto não se volta a pedir."""
+    _agenda_com(tmp_path, _jogo(4, gc=2, gf=2))
+    monkeypatch.setattr(cli, "Fonte", _FonteFalsa)
+    monkeypatch.setattr(cli, "ficha", lambda _h, _i: pytest.fail("não devia ter sido pedido"))
+    assert cli.comando_aovivo(_args(tmp_path)) == 0
+
+
+def test_a_marca_de_ao_vivo_presa_horas_depois_e_reconciliada(tmp_path, monkeypatch):
+    """O HC VASCO GAMA das 12h estava "2ª Parte (3:41)" às 19h37, sete horas depois.
+
+    Tem resultado, logo a regra do "sem resultado" não o apanha — mas um jogo que diz estar
+    a decorrer muito depois da janela é, ele próprio, o sinal de que alguém perdeu o apito
+    final.
+    """
+    _agenda_com(tmp_path, _jogo(7, gc=3, gf=2, ao_vivo=True, periodo="2ª Parte",
+                                relogio="3:41", situacao="2ª Parte (3:41)"))
+    monkeypatch.setattr(cli, "Fonte", _FonteFalsa)
+    monkeypatch.setattr(cli, "ficha",
+                        lambda _h, _i: _ficha("Jogo Terminado", None, None, "Jogo Terminado", 5, 2))
+    assert cli.comando_aovivo(_args(tmp_path)) == 0
+    j = json.loads((tmp_path / "agenda.json").read_text())["jogos"][0]
+    assert (j["gc"], j["gf"]) == (5, 2)
+    for chave in ("ao_vivo", "periodo", "relogio", "situacao"):
+        assert chave not in j, f"{chave} ficou preso na agenda"
+
+
+def test_um_jogo_adiado_nao_se_pergunta_para_sempre(tmp_path, monkeypatch):
+    """Sem este limite, um jogo que nunca teve resultado era um pedido de 5 em 5 minutos
+    contra o servidor da associação até à meia-noite."""
+    _agenda_com(tmp_path, _jogo(9))
+    monkeypatch.setattr(cli, "Fonte", _FonteFalsa)
+    monkeypatch.setattr(cli, "ficha", lambda _h, _i: pytest.fail("não devia ter sido pedido"))
+    assert cli.comando_aovivo(_args(tmp_path)) == 0
+
+
+def test_a_recolha_nao_acontece_em_todas_as_rondas(tmp_path, monkeypatch):
+    """De 30 em 30 segundos seria um pedido por ronda por jogo em atraso. De 5 em 5 minutos."""
+    _agenda_com(tmp_path, _jogo(4))
+    monkeypatch.setattr(cli, "Fonte", _FonteFalsa)
+    monkeypatch.setattr(cli, "ficha", lambda _h, _i: pytest.fail("não devia ter sido pedido"))
+    assert cli.comando_aovivo(_args(tmp_path, ronda=4)) == 0
+
+
+def test_um_jogo_dentro_da_janela_nao_e_pedido_duas_vezes(tmp_path, monkeypatch):
+    """A ronda normal e a recolha não se podem sobrepor: um jogo, um pedido."""
+    fontes: list[_FonteFalsa] = []
+
+    class Espia(_FonteFalsa):
+        def __init__(self, *a, **k):
+            super().__init__(*a, **k)
+            fontes.append(self)
+
+    _agenda_com(tmp_path, _jogo(0.2))
+    monkeypatch.setattr(cli, "Fonte", Espia)
+    monkeypatch.setattr(cli, "ficha",
+                        lambda _h, _i: _ficha(None, "1ª Parte", "3:10", "1ª Parte (3:10)", 1, 0))
+    assert cli.comando_aovivo(_args(tmp_path)) == 0
+    assert [f.pedidos for f in fontes] == [1]

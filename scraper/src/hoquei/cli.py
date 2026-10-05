@@ -204,7 +204,48 @@ def comando_aovivo(args) -> int:
         except (OSError, json.JSONDecodeError):
             return True
 
+    def em_atraso(j: dict) -> bool:
+        """Hoje, a hora já passou há muito, e continuamos sem o resultado final.
+
+        É a rede de recolha deste comando, e nasceu de um buraco real. A 05/10 o `dados.yml`
+        perdeu as corridas das 14h e das 16h — o agendador da GitHub outra vez — e este
+        ciclo não estava de pé entre as 12h30 e as 17h50. Resultado: o A STUART HCM–PAREDE
+        FC A das 15h30 ficou sem resultado nenhum na app até à noite, como se não tivesse
+        sido jogado, e o HC VASCO GAMA das 12h ficou preso em "2ª Parte" sete horas depois
+        do apito final. A fonte tinha os dois, e tinha-os na página de calendário.
+
+        A `janela` de três horas é a razão: serve para decidir quem **seguir ao vivo**, e um
+        jogo das 15h30 às 19h37 está fora dela. Mas um jogo fora da janela e sem resultado
+        não é um jogo que não interessa — é um jogo que nos escapou.
+
+        Duas cautelas, porque isto bate num servidor de uma federação:
+        só de `cada_atraso` em `cada_atraso` rondas (cinco minutos, por omissão), e só
+        enquanto o apito inicial estiver a menos de `atraso_max` horas. Um jogo adiado
+        nunca terá resultado, e sem o segundo limite ficaríamos a perguntar por ele até à
+        meia-noite.
+        """
+        if j["data"] != hoje or not j.get("id") or not j.get("hora"):
+            return False
+        try:
+            hora = datetime.strptime(j["hora"][:5], "%H:%M").time()
+        except ValueError:
+            return False
+        inicio_jogo = datetime.combine(agora.date(), hora, tzinfo=agora.tzinfo)
+        # dentro da janela já é a ronda normal que trata dele
+        if inicio_jogo >= agora - timedelta(hours=args.janela):
+            return False
+        if agora - inicio_jogo > timedelta(hours=args.atraso_max):
+            return False
+        # sem resultado, ou ainda com a marca de "a decorrer" acesa muito depois do fim
+        return j.get("gc") is None or bool(j.get("ao_vivo"))
+
     acorda = [j for j in agenda if a_decorrer(j)]
+    atrasados: list[dict] = []
+    # `<= 1` para `--cada-atraso 1` querer dizer "em todas as rondas" e não "nunca"
+    if args.cada_atraso <= 1 or args.ronda % args.cada_atraso == 1:
+        vistos = {j["id"] for j in acorda}
+        atrasados = [j for j in agenda if j.get("id") not in vistos and em_atraso(j)]
+        acorda += atrasados
 
     # Jogos de hoje cuja hora ainda não chegou. O ciclo em CI precisa disto para **não**
     # desligar nos intervalos: a 04/10 saiu às 10:51, assim que o jogo das 10:00 acabou, e
@@ -301,7 +342,8 @@ def comando_aovivo(args) -> int:
     print(f"por_vir={por_vir}")
     print(f"proximo={_proxima_hora(agenda, hoje, agora) or ''}")
     print(f"{len(acorda)} jogos sondados, {mudou} com novidade, "
-          f"{por_fechar} a decorrer, {por_vir} por começar", file=sys.stderr)
+          f"{por_fechar} a decorrer, {por_vir} por começar"
+          + (f", {len(atrasados)} em atraso" if atrasados else ""), file=sys.stderr)
     return 0
 
 
@@ -609,6 +651,15 @@ def main(argv=None) -> int:
                    help="há quantas horas um jogo pode ter começado e ainda contar (default 3)")
     v.add_argument("--todos", action="store_true",
                    help="rever também os que já têm resultado (apanha correcções)")
+    v.add_argument("--ronda", type=int, default=1, metavar="N",
+                   help="número da ronda dentro do ciclo; decide quando se faz a recolha "
+                        "dos jogos em atraso (default 1)")
+    v.add_argument("--cada-atraso", type=int, default=10, metavar="N",
+                   help="de quantas em quantas rondas se vai buscar os jogos de hoje que "
+                        "ficaram sem resultado (default 10, ou 5 min a 30 s por ronda)")
+    v.add_argument("--atraso-max", type=float, default=8.0, metavar="H",
+                   help="até quantas horas depois da hora marcada ainda se insiste num "
+                        "jogo sem resultado (default 8)")
     v.set_defaults(func=comando_aovivo)
 
     d = sub.add_parser("despejar", parents=[comum], help="escrever todas as competições em JSON")

@@ -25,8 +25,10 @@
 # aconteceu a 04/10 às 10:23, com um jogo a decorrer. A ronda seguinte deste ciclo repõe os
 # dados, por isso essa metade cura-se sozinha.
 #
-# A outra metade era pior e está resolvida abaixo: o ciclo detecta código novo em
-# `origin/main` e reconstrói-se, em vez de republicar para sempre o build do arranque.
+# As outras duas eram piores, porque aconteciam sozinhas, e estão resolvidas abaixo: o ciclo
+# detecta **código** novo em `origin/main` e reconstrói-se, em vez de republicar para sempre
+# o build do arranque; e detecta **dados** novos e traz-nos, em vez de republicar de 30 em
+# 30 segundos a árvore que tinha quando começou.
 set -uo pipefail
 
 MINUTOS=${MINUTOS:-300}
@@ -52,16 +54,46 @@ ronda=0
 # publicado entretanto — aconteceu duas vezes a 04/10, a segunda logo depois de eu ter
 # escrito o aviso a dizer para ter cuidado. Um aviso não é uma defesa.
 #
-# Só o código é actualizado, nunca `web/static/v1`: os dados ao vivo desta ronda vivem
-# aí e um `git pull` em cima deles dava conflito.
 CODIGO=(web/src web/static/_headers web/vite.config.ts web/package.json scraper/src scripts)
 
 reconstruir_se_houver_codigo_novo() {
-  git fetch -q origin main 2>/dev/null || return 0
   git diff --quiet HEAD origin/main -- "${CODIGO[@]}" && return 0
   echo "    código novo em origin/main — a actualizar e reconstruir"
   git checkout -q origin/main -- "${CODIGO[@]}" || return 0
   (cd web && npm run build >/dev/null 2>&1)
+}
+
+# **E os dados também.** Isto estava de fora de propósito — "os dados ao vivo desta ronda
+# vivem aí e um `git pull` em cima deles dava conflito" — e era um erro que custou um jogo
+# inteiro.
+#
+# A 05/10 a ronda completa das 18h07 commitou o A STUART HCM–PAREDE FC A das 15h30 a 0–3,
+# certo e vindo da página de calendário da fonte. Às 18h39 a app dizia que o jogo não tinha
+# resultado nenhum. A razão é que este ciclo publica a árvore `web/static/v1` **toda**, e a
+# dele era a do arranque: de 30 em 30 segundos republicava o `null` por cima do 0–3. O aviso
+# que está em cima deste ficheiro falava do perigo na outra direcção — um deploy à mão a
+# apagar os dados ao vivo — e esta, que é a que acontece sozinha, não estava coberta.
+#
+# Trazer os dados commitados é seguro porque eles são, por construção, melhores: vêm de uma
+# raspagem completa e recente. O que esta ronda sabe dos jogos a decorrer volta a ser
+# escrito em cima, no mesmo segundo, porque é o que ela faz a seguir — e o que ela sabia de
+# um jogo **fora** da janela fica a cargo da recolha dos atrasados, que é por isso que a
+# ronda logo depois de uma actualização de dados corre como ronda 1.
+DADOS_NOVOS=0
+# O estado dos dados com que arrancámos. Guarda-se a *hash da árvore* e não um `git diff`
+# contra o `HEAD`: o `HEAD` nunca avança — este ciclo não comita — e um diff contra ele
+# passaria a diferir para sempre depois da primeira actualização, o que daria uma reposição
+# a cada 30 segundos e faria piscar de volta o que esta ronda já sabia.
+SHA_DADOS=$(git rev-parse "HEAD:$DESTINO" 2>/dev/null || true)
+
+actualizar_dados_commitados() {
+  local sha
+  sha=$(git rev-parse "origin/main:$DESTINO" 2>/dev/null) || return 0
+  [ "$sha" = "$SHA_DADOS" ] && return 0
+  echo "    dados novos em origin/main — a trazer para cima dos locais"
+  git checkout -q "origin/main" -- "$DESTINO" || return 0
+  SHA_DADOS=$sha
+  DADOS_NOVOS=1
 }
 
 publicar() {
@@ -75,9 +107,15 @@ echo "ciclo ao vivo: até $MINUTOS min, de $INTERVALO em $INTERVALO s"
 while [ "$(date +%s)" -lt "$fim" ]; do
   ronda=$((ronda + 1))
   t0=$(date +%s)
+  git fetch -q origin main 2>/dev/null
   reconstruir_se_houver_codigo_novo
+  actualizar_dados_commitados
+  # A ronda que vem logo depois de chegarem dados novos conta como a primeira: é nas rondas
+  # `1 mod 10` que o comando vai buscar os jogos de hoje que ficaram sem resultado, e é
+  # precisamente depois de trocar a base que isso faz falta.
+  if [ "$DADOS_NOVOS" = "1" ]; then ronda=1; DADOS_NOVOS=0; fi
   saida=$(cd scraper && uv run python -m hoquei.cli aovivo \
-            --tenant aplisboa --destino "../$DESTINO" 2>&1)
+            --tenant aplisboa --destino "../$DESTINO" --ronda "$ronda" 2>&1)
   vivos=$(echo "$saida" | grep -oE '^a_decorrer=[0-9]+' | cut -d= -f2)
   porvir=$(echo "$saida" | grep -oE '^por_vir=[0-9]+' | cut -d= -f2)
   proximo=$(echo "$saida" | grep -oE '^proximo=[0-9:]*' | cut -d= -f2)
