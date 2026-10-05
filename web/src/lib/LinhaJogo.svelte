@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Emblema from './Emblema.svelte';
 	import { emCurso, escalaoCurto, faseCurta } from './formato';
+	import { piscar } from './piscar';
 	import type { JogoAgenda } from './tipos';
 
 	let {
@@ -75,8 +76,8 @@
 
 	{#if jogado}
 		<span class="golos" aria-label={`${jogo.gc} a ${jogo.gf}`}>
-			<b class:vencedor={ganhouCasa}>{jogo.gc}</b>
-			<b class:vencedor={ganhouFora}>{jogo.gf}</b>
+			<b class:vencedor={ganhouCasa} use:piscar={jogo.gc}>{jogo.gc}</b>
+			<b class:vencedor={ganhouFora} use:piscar={jogo.gf}>{jogo.gf}</b>
 		</span>
 	{/if}
 </svelte:element>
@@ -139,6 +140,7 @@
 		font-variant-numeric: tabular-nums;
 		font-size: var(--t-destaque);
 	}
-	.golos b { font-weight: 400; color: var(--texto-2); line-height: 1.25; }
+	.golos b { font-weight: 400; color: var(--texto-2); line-height: 1.25;
+		padding: 0 var(--e-1); margin: 0 calc(var(--e-1) * -1); }
 	.golos b.vencedor { font-weight: 600; color: var(--texto); }
 </style>

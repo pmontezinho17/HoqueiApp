@@ -11,6 +11,7 @@ import re
 from selectolax.parser import HTMLParser
 
 from ..modelos import Classificacao, GrupoClassificacao, LinhaClassificacao
+from ..nomes import canonico
 
 # posição | logo | equipa | JJ | V | E | D | GM | GS | GA | GM/GS | TP
 _COLUNAS = 12
@@ -52,7 +53,7 @@ def classificacao(html: str, competicao_id: int, temporada_id: int) -> Classific
             numeros = [int(c) if re.fullmatch(r"-?\d+", c) else 0 for c in celulas[3:10]]
             grupo.linhas.append(LinhaClassificacao(
                 posicao=int(celulas[0]),
-                equipa=celulas[2],
+                equipa=canonico(celulas[2]) or celulas[2],
                 logo=img.attributes.get("src") if img is not None else None,
                 jogos=numeros[0], vitorias=numeros[1], empates=numeros[2], derrotas=numeros[3],
                 golos_marcados=numeros[4], golos_sofridos=numeros[5], diferenca=numeros[6],

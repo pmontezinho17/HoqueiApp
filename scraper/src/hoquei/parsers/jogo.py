@@ -12,6 +12,7 @@ from datetime import date, time
 from selectolax.parser import HTMLParser
 
 from ..modelos import EquipaFicha, EventoJogo, FichaJogo, LinhaJogador
+from ..nomes import canonico
 from .boletim import boletim
 
 _MESES = {"janeiro": 1, "fevereiro": 2, "março": 3, "abril": 4, "maio": 5, "junho": 6,
@@ -129,8 +130,8 @@ def cronologia(html: str) -> list[EventoJogo]:
             if not re.match(r"assist[êe]ncia por", primeiro, re.I):
                 jogador = primeiro.strip() or None
 
-        equipa = _equipa(cabeca) or (cauda.split(" | ")[0].strip()
-                                     if tipo == "desconto_tempo" and cauda else None)
+        equipa = canonico(_equipa(cabeca) or (cauda.split(" | ")[0].strip()
+                                              if tipo == "desconto_tempo" and cauda else None))
         if tipo == "desconto_tempo":
             jogador = None
 
@@ -241,7 +242,7 @@ def equipas_ficha(html: str) -> list[EquipaFicha]:
         linhas = tabela.css("tr")
         if not linhas:
             continue
-        atual = EquipaFicha(nome=_texto(linhas[0]))
+        atual = EquipaFicha(nome=canonico(_texto(linhas[0])) or "")
         for linha in linhas[1:]:
             celulas = [_texto(c) for c in linha.css("td")]
             if len(celulas) == 12:

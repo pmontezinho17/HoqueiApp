@@ -44,3 +44,31 @@ def escalao(nome: str) -> str:
         re.sub(r"(^|-)(\w)", lambda m: m.group(1) + m.group(2).upper(), p.lower())
         for p in nome.split()
     )
+
+
+#: Grafias que a fonte escreve de duas maneiras para o **mesmo** clube.
+#:
+#: Tabela explícita e não um algoritmo de semelhança, por uma razão medida: dos 79 pares de
+#: nomes "a uma letra de distância" na agenda de 05/10, **77 são equipas mesmo diferentes** —
+#: `CACO A` e `CACO B`, `SL BENFICA` e `SL BENFICA A`. Um algoritmo esperto juntava-as.
+#:
+#: Cada entrada foi confirmada a olhar para as provas em que cada grafia aparece:
+#: - `HC LOURINHA` só nas taças e torneios de abertura (13 jogos); `HC LOURINHÃ` nos
+#:   campeonatos regionais (52). O mesmo clube, sem o til nalgumas páginas da fonte.
+#: - `A STRUART HCM` só na Taça Prof. João Campelo (3 jogos), onde `A STUART HCM` não
+#:   aparece de todo. Gralha da fonte.
+#:
+#: **Não entra aqui** o `AE FISICA D (B)`: o `(B)` é o escalão dentro do torneio Zeca Pinto
+#: — há um `AE FISICA D B (B)` ao lado dele, que é a equipa B no mesmo torneio. Juntá-los
+#: fundia duas equipas diferentes. Cheguei a anunciá-lo como caso a corrigir, e era engano.
+ALIAS = {
+    "HC LOURINHA": "HC LOURINHÃ",
+    "A STRUART HCM": "A STUART HCM",
+}
+
+
+def canonico(nome: str | None) -> str | None:
+    """A grafia boa de um clube, quando a fonte usa duas."""
+    if not nome:
+        return nome
+    return ALIAS.get(nome.strip(), nome)

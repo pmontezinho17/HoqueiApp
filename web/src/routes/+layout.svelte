@@ -184,6 +184,18 @@
 		border-radius: 4px; }
 	:global(a:focus-visible), :global(button:focus-visible) { outline-offset: 3px; }
 
+	/* O brilho de quem acabou de mudar — ver lib/piscar.ts. Global porque é uma acção que
+	   se aplica a elementos de vários componentes. */
+	:global(.piscou) {
+		animation: brilho 1.6s ease-out;
+		border-radius: var(--raio);
+	}
+	@keyframes brilho {
+		0% { background: var(--acento); color: var(--cartao); }
+		18% { background: var(--acento); color: var(--cartao); }
+		100% { background: transparent; }
+	}
+
 	/* respeitar quem pede menos movimento */
 	@media (prefers-reduced-motion: reduce) {
 		:global(*) { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }

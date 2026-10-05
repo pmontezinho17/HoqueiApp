@@ -132,3 +132,39 @@ def test_cartoes_batem_certo_com_a_cronologia(ficha_seniores):
     )
     da_cronologia = sum(1 for e in cronologia(ficha_seniores) if e.tipo == "cartao")
     assert da_ficha == da_cronologia
+
+
+def test_grafias_que_a_fonte_escreve_de_duas_maneiras():
+    """Duas grafias, um clube — e **só** estas duas.
+
+    Medido na agenda de 05/10: dos 79 pares de nomes a uma letra de distância, 77 são
+    equipas mesmo diferentes (`CACO A` e `CACO B`, `SL BENFICA` e `SL BENFICA A`). Por isso
+    a tabela é explícita e não um algoritmo de semelhança, que as fundiria.
+    """
+    from hoquei.nomes import canonico
+
+    assert canonico("HC LOURINHA") == "HC LOURINHÃ"
+    assert canonico("A STRUART HCM") == "A STUART HCM"
+    # já canónicos, não se mexe
+    assert canonico("HC LOURINHÃ") == "HC LOURINHÃ"
+    assert canonico("A STUART HCM") == "A STUART HCM"
+
+
+def test_o_sufixo_de_escalao_nao_e_uma_equipa_b():
+    """`AE FISICA D (B)` é a equipa A nos benjamins do Zeca Pinto; `AE FISICA D B` é a
+    equipa B. Cheguei a anunciá-las como a mesma grafia escrita de duas maneiras, e era
+    engano — no mesmo torneio existe `AE FISICA D B (B)`, que é a equipa B lá dentro.
+    """
+    from hoquei.nomes import canonico
+
+    for n in ("AE FISICA D (B)", "AE FISICA D B", "AE FISICA D B (B)", "CACO A", "CACO B"):
+        assert canonico(n) == n
+
+
+def test_equipas_distintas_nunca_se_fundem():
+    from hoquei.nomes import canonico
+
+    pares = [("SL BENFICA", "SL BENFICA A"), ("PAREDE FC A", "PAREDE FC B"),
+             ("AE FISICA D", "AE FISICA D A"), ("A STUART HCM A", "A STUART HCM B")]
+    for a, b in pares:
+        assert canonico(a) != canonico(b), f"{a} e {b} ficaram iguais"

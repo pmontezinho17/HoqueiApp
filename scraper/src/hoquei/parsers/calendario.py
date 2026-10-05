@@ -8,6 +8,7 @@ from datetime import date, time
 from selectolax.parser import HTMLParser
 
 from ..modelos import Calendario, Equipa, Jogo
+from ..nomes import canonico
 
 _ID_EQUIPA = re.compile(r"id_equipo=(\d+)")
 _ID_JOGO = re.compile(r"partido\.asp\?id=(\d+)")
@@ -27,7 +28,7 @@ def equipas(html: str) -> list[Equipa]:
         id_equipa = int(m.group(1))
         encontradas.setdefault(id_equipa, Equipa(
             id=id_equipa,
-            nome=(img.attributes.get("title") or "").strip(),
+            nome=canonico((img.attributes.get("title") or "").strip()) or "",
             logo=img.attributes.get("src"),
         ))
     return sorted(encontradas.values(), key=lambda e: e.nome)
@@ -99,8 +100,8 @@ def jogos(html: str) -> tuple[list[Jogo], int]:
                 jornada=jornada,
                 data=_data(campos["data"]),
                 hora=_hora(campos["hora"]),
-                casa=campos["casa"],
-                fora=campos["fora"],
+                casa=canonico(campos["casa"]),
+                fora=canonico(campos["fora"]),
                 golos_casa=int(mr.group(1)) if mr else None,
                 golos_fora=int(mr.group(2)) if mr else None,
                 recinto=campos["recinto"] or None,

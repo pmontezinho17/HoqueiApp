@@ -7,6 +7,7 @@
 	import InfoJogo from './InfoJogo.svelte';
 	import Icone from '$lib/Icone.svelte';
 	import { nomeProprio, nomeProva } from '$lib/formato';
+	import { piscar } from '$lib/piscar';
 	import { caminhoEquipa } from '$lib/slug';
 	import type { EventoJogo } from '$lib/tipos';
 
@@ -172,7 +173,9 @@
 	<div class="placar">
 		<span class="emb"><Emblema equipa={f.casa} src={data.emblemas[f.casa]} tamanho={44} /></span>
 		<span class="centro">
-			<span class="numeros">{f.golos_casa}<span class="tr">–</span>{f.golos_fora}</span>
+			<span class="numeros" use:piscar={`${f.golos_casa}-${f.golos_fora}`}
+				>{f.golos_casa}<span class="tr">–</span>{f.golos_fora}</span
+			>
 			<span class="estado" class:vivo={aDecorrer}>
 				{#if aDecorrer}<i aria-hidden="true"></i>{/if}{estado}
 			</span>
@@ -325,6 +328,7 @@
 
 	.centro { display: flex; flex-direction: column; align-items: center; gap: 1px; }
 	.numeros {
+		padding: 0 var(--e-2); margin: 0 calc(var(--e-2) * -1);
 		font-size: calc(var(--t-placar) - var(--k) * 0.75rem);
 		font-weight: 700; line-height: 1.1;
 		font-variant-numeric: tabular-nums;
