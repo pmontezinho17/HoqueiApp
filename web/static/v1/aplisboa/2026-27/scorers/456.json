@@ -1,6 +1,6 @@
 {
  "competicao_id": 456,
- "jogos_considerados": 3,
+ "jogos_considerados": 4,
  "jogadores": [
   {
    "nome": "SANTIAGO EUSÉBIO",
@@ -55,6 +55,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "SEBASTIÃO JESUS",
+   "equipa": "HC VASCO GAMA",
+   "jogos": 1,
+   "numero": "8",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RAFAEL CARUJO",
    "equipa": "CF ESTREMOZ",
    "jogos": 2,
@@ -94,10 +107,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO MOURA",
-   "equipa": "HC PORTIMÃO",
+   "nome": "DUARTE AMENDOEIRA",
+   "equipa": "HC VASCO GAMA",
    "jogos": 1,
-   "numero": "5",
+   "numero": "6",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -107,10 +120,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "SEBASTIÃO COSTA",
+   "nome": "FRANCISCO MOURA",
    "equipa": "HC PORTIMÃO",
-   "jogos": 1,
-   "numero": "77",
+   "jogos": 2,
+   "numero": "5",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -133,6 +146,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MARTIM RIJO",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 2,
+   "numero": "4",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MIGUEL PRIMO",
    "equipa": "CF ESTREMOZ",
    "jogos": 2,
@@ -146,10 +172,36 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO SILVA",
+   "nome": "MUNI FERNANDES",
    "equipa": "HC PORTIMÃO",
+   "jogos": 2,
+   "numero": "2",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SEBASTIÃO COSTA",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 2,
+   "numero": "77",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARTIM MARTINHO",
+   "equipa": "HC VASCO GAMA",
    "jogos": 1,
-   "numero": "11",
+   "numero": "9",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -172,10 +224,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "VASCO GOMES",
-   "equipa": "CF ESTREMOZ",
+   "nome": "LOURENÇO SILVA",
+   "equipa": "HC PORTIMÃO",
    "jogos": 2,
-   "numero": "2",
+   "numero": "11",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -185,14 +237,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO MARTINS",
-   "equipa": "HC PORTIMÃO",
-   "jogos": 1,
-   "numero": "6",
+   "nome": "VASCO GOMES",
+   "equipa": "CF ESTREMOZ",
+   "jogos": 2,
+   "numero": "2",
    "golos": 0,
-   "assistencias": 0,
+   "assistencias": 1,
    "defesas": 0,
-   "pontos": 0,
+   "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -250,10 +302,49 @@
    "vermelhos": 0
   },
   {
-   "nome": "DINIS GONÇALVES",
-   "equipa": "HC PORTIMÃO",
+   "nome": "DINIS RAPOSO",
+   "equipa": "HC VASCO GAMA",
    "jogos": 1,
-   "numero": "69",
+   "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DUARTE RUFINO",
+   "equipa": "HC VASCO GAMA",
+   "jogos": 1,
+   "numero": "4",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FRANCISCO PARREIRA",
+   "equipa": "HC VASCO GAMA",
+   "jogos": 1,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOSE ZAMBUJEIRO",
+   "equipa": "HC VASCO GAMA",
+   "jogos": 1,
+   "numero": "2",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -276,10 +367,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "LUCAS GARCIA",
-   "equipa": "HC PORTIMÃO",
+   "nome": "MIGUEL MESTRE",
+   "equipa": "HC VASCO GAMA",
    "jogos": 1,
-   "numero": "88",
+   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -289,10 +380,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "LUCAS MONTEIRO",
-   "equipa": "HC PORTIMÃO",
+   "nome": "PEDRO DO Ó",
+   "equipa": "HC VASCO GAMA",
    "jogos": 1,
-   "numero": "9",
+   "numero": "7",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -302,23 +393,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM RIJO",
-   "equipa": "HC PORTIMÃO",
+   "nome": "SIMAO MARTINS",
+   "equipa": "HC VASCO GAMA",
    "jogos": 1,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MUNI FERNANDES",
-   "equipa": "HC PORTIMÃO",
-   "jogos": 1,
-   "numero": "2",
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -341,10 +419,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "VICENTE HIGINO",
+   "nome": "AFONSO MARTINS",
    "equipa": "HC PORTIMÃO",
-   "jogos": 1,
-   "numero": "96",
+   "jogos": 2,
+   "numero": "6",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -363,6 +441,19 @@
    "defesas": 0,
    "pontos": 0,
    "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DINIS GONÇALVES",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 2,
+   "numero": "69",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -458,6 +549,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "LUCAS GARCIA",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 2,
+   "numero": "88",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LUCAS MONTEIRO",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 2,
+   "numero": "9",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MIGUEL BELCHIOR",
    "equipa": "FC CASTRENSE",
    "jogos": 2,
@@ -478,6 +595,19 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VICENTE HIGINO",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 2,
+   "numero": "96",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
