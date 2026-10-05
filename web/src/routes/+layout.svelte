@@ -121,9 +121,13 @@
 		--borda: #e3e6ea; --borda-fraca: #eef0f3;
 		--acento: #0a7d54; --acento-fraco: #e8f4ef;
 		--aviso: #92400e; --aviso-fundo: #fef3c7; --vivo: #c2410c;
-		/* o herói do ecrã de jogo: uma faixa escura de ponta a ponta, em ambos os temas */
-		--heroi: #10251e; --heroi-texto: #f2f6f4; --heroi-suave: #9db5ab;
-		--heroi-borda: #1d3b31;
+		/* O herói do ecrã de jogo.
+		 * Era quase preto, e os emblemas de contorno escuro — que são muitos: Lourinhã,
+		 * Stuart, Sintra — desapareciam lá dentro. Passa a seguir o tema: claro no claro,
+		 * escuro no escuro, sempre um degrau afastado do fundo da página para continuar a
+		 * ler-se como uma área à parte. */
+		--heroi: #eceff3; --heroi-texto: #14171c; --heroi-suave: #5f6872;
+		--heroi-borda: #dadee4;
 	}
 	@media (prefers-color-scheme: dark) {
 		:global(:root) {
@@ -132,8 +136,8 @@
 			--borda: #272b33; --borda-fraca: #1f232a;
 			--acento: #34d399; --acento-fraco: #12271f;
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
-			--heroi: #16241f; --heroi-texto: #eef2f0; --heroi-suave: #8fa79d;
-			--heroi-borda: #24352e;
+			--heroi: #1b2027; --heroi-texto: #eef1f4; --heroi-suave: #949ca6;
+			--heroi-borda: #2a313a;
 		}
 	}
 	:global(*) { box-sizing: border-box; }

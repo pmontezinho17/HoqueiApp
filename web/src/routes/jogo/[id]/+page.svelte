@@ -4,6 +4,7 @@
 	import FichaEquipas from '$lib/FichaEquipas.svelte';
 	import TabelaClassificacao from '$lib/TabelaClassificacao.svelte';
 	import InfoJogo from './InfoJogo.svelte';
+	import Icone from '$lib/Icone.svelte';
 	import { nomeProprio, nomeProva } from '$lib/formato';
 	import { caminhoEquipa } from '$lib/slug';
 	import type { EventoJogo } from '$lib/tipos';
@@ -39,6 +40,7 @@
 	/** Há provas sem tabela publicada — todos os Escolares e Benjamins. Aí não há separador. */
 	const grupos = $derived(data.competicao?.classificacao ?? []);
 	const temTabela = $derived(grupos.some((g) => g.linhas.length > 0));
+	const temSeparadores = $derived(temEventos || temTabela || temEquipas || temInfo);
 
 	type Tab = 'eventos' | 'tabela' | 'equipas' | 'info';
 	let tab = $state<Tab>('eventos');
@@ -78,11 +80,6 @@
 		}
 		return linhas;
 	});
-	/** Um 21–7 são 28 linhas: no cabeçalho isso empurra tudo para fora do ecrã. */
-	const LIMITE = 5;
-	const golosVisiveis = $derived(golos.slice(0, LIMITE));
-	const golosEscondidos = $derived(golos.filter((l) => l.tipo === 'golo').length
-		- golosVisiveis.filter((l) => l.tipo === 'golo').length);
 
 	/** A fonte repete o escalão no nome da prova ("TAÇA ... - SENIORES MASCULINOS"). */
 	const provaCurta = $derived.by(() => {
@@ -98,36 +95,49 @@
 	);
 
 	/**
-	 * O herói colapsa, e o que fica nunca desaparece.
+	 * O herói colapsa **a acompanhar o scroll**, e nunca desaparece.
 	 *
-	 * Num jogo a decorrer passa-se o tempo a ler os eventos, que é precisamente onde o
-	 * cabeçalho já não se vê — e foi essa a queixa. O gatilho é uma sentinela no fim do
-	 * herói, e não o `scrollY`: assim não há nenhum número de píxeis escrito à mão que
-	 * deixe de servir quando o herói muda de altura (mais golos, um nome comprido).
+	 * Era um salto: o cabeçalho ia-se embora e uma barra à parte aparecia por cima. Agora é
+	 * o mesmo elemento, colado ao topo, a encolher entre 0 e 1 à medida que se rola — os
+	 * nomes, os golos e a competição fecham-se, os emblemas e o resultado diminuem, e o que
+	 * fica é a faixa com o essencial.
+	 *
+	 * O alcance é a altura real do que se fecha, medida: assim não há número de píxeis
+	 * escrito à mão que deixe de servir num jogo com vinte golos.
 	 */
-	let compacto = $state(false);
-	let sentinela = $state<HTMLElement | null>(null);
-	/** altura da barra, medida — é por baixo dela que os separadores se colam */
-	let alturaBarra = $state(35);
+	let k = $state(0);
+	/** altura natural do que colapsa, medida num invólucro que não é constrangido */
+	let alturaExtras = $state(0);
+	let cromado = $state<HTMLElement | null>(null);
+	/**
+	 * As duas alturas do cromado, apanhadas quando ele lá está.
+	 *
+	 * A expandida é o que a reserva guarda no fluxo; a diferença entre as duas é o alcance
+	 * do colapso. Enquanto a colapsada ainda não foi vista, serve a altura do que se fecha,
+	 * que lhe anda perto — e à primeira passagem o valor afina-se sozinho.
+	 */
+	let alturaExpandida = $state(0);
+	let alturaColapsada = $state(0);
 	$effect(() => {
-		const alvo = sentinela;
-		if (!alvo || typeof IntersectionObserver === 'undefined') return;
-		let obs: IntersectionObserver;
-		const ligar = () => {
-			obs?.disconnect();
-			const topo = parseFloat(getComputedStyle(alvo).getPropertyValue('--topo')) || 60;
-			obs = new IntersectionObserver(
-				([e]) => (compacto = !e.isIntersecting && e.boundingClientRect.top < 0),
-				{ rootMargin: `-${Math.round(topo)}px 0px 0px 0px` }
-			);
-			obs.observe(alvo);
-		};
-		ligar();
-		addEventListener('resize', ligar);
-		return () => {
-			obs?.disconnect();
-			removeEventListener('resize', ligar);
-		};
+		if (!cromado) return;
+		if (k === 0) alturaExpandida = cromado.offsetHeight;
+		else if (k === 1) alturaColapsada = cromado.offsetHeight;
+	});
+	const alcance = $derived(
+		Math.max(1, alturaExpandida && alturaColapsada
+			? alturaExpandida - alturaColapsada
+			: alturaExtras)
+	);
+
+	$effect(() => {
+		const limite = alcance;
+		// Directamente no `scroll` e **não** dentro de um `requestAnimationFrame`: o browser
+		// estrangula o rAF quando o separador não está à vista, e aí o cabeçalho deixava de
+		// colapsar. Ler o `scrollY` não força cálculo de layout, por isso não custa nada.
+		const ao = () => (k = Math.min(1, Math.max(0, scrollY / limite)));
+		ao();
+		addEventListener('scroll', ao, { passive: true });
+		return () => removeEventListener('scroll', ao);
 	});
 
 	const estado = $derived(
@@ -139,107 +149,103 @@
 
 <svelte:head><title>{f.casa} {f.golos_casa}–{f.golos_fora} {f.fora}</title></svelte:head>
 
-<!-- decorativa: o herói logo abaixo diz o mesmo, e melhor, a quem lê por voz -->
-<div class="compacta" class:visivel={compacto} bind:clientHeight={alturaBarra} aria-hidden="true">
-	<div class="interior">
-		<Emblema equipa={f.casa} src={data.emblemas[f.casa]} tamanho={22} />
-		<span class="res">{f.golos_casa}<span class="tr">–</span>{f.golos_fora}</span>
-		<Emblema equipa={f.fora} src={data.emblemas[f.fora]} tamanho={22} />
-		<span class="estado" class:vivo={aDecorrer}>
-			{#if aDecorrer}<i aria-hidden="true"></i>{/if}{estado}
-		</span>
-	</div>
-</div>
+<!--
+  A reserva guarda no fluxo a altura do cromado **expandido**, e não muda.
 
-<article class="heroi">
+  Sem ela havia um ciclo: o herói encolhia, o documento encurtava, o browser puxava o scroll
+  para trás e o herói voltava a crescer. Media-se: pedir 300px de scroll dava 263, e o
+  colapso ficava preso. Com a reserva, encolher não mexe no documento.
+-->
+<div class="reserva" style="height: {alturaExpandida || ''}px">
+<div class="cromado" class:fixo={k === 1} bind:this={cromado}>
+<article class="heroi" style="--k: {k}; --alt: {alturaExtras}px">
 	<a class="voltar" href="/" aria-label="Voltar aos jogos">←</a>
 
+	<!-- sempre visível: é isto que sobra quando tudo o resto se fecha -->
 	<div class="placar">
-		<svelte:element this={f.categoria ? 'a' : 'span'}
-			href={f.categoria ? caminhoEquipa(f.casa, f.categoria) : null} class="equipa">
-			<Emblema equipa={f.casa} src={data.emblemas[f.casa]} tamanho={44} />
-			<span class="nome">{f.casa}</span>
-		</svelte:element>
-
+		<span class="emb"><Emblema equipa={f.casa} src={data.emblemas[f.casa]} tamanho={44} /></span>
 		<span class="centro">
 			<span class="numeros">{f.golos_casa}<span class="tr">–</span>{f.golos_fora}</span>
 			<span class="estado" class:vivo={aDecorrer}>
 				{#if aDecorrer}<i aria-hidden="true"></i>{/if}{estado}
 			</span>
 		</span>
-
-		<svelte:element this={f.categoria ? 'a' : 'span'}
-			href={f.categoria ? caminhoEquipa(f.fora, f.categoria) : null} class="equipa">
-			<Emblema equipa={f.fora} src={data.emblemas[f.fora]} tamanho={44} />
-			<span class="nome">{f.fora}</span>
-		</svelte:element>
+		<span class="emb"><Emblema equipa={f.fora} src={data.emblemas[f.fora]} tamanho={44} /></span>
 	</div>
 
-	{#if golosVisiveis.length}
-		<ul class="golos">
-			{#each golosVisiveis as l, i (i)}
-				{#if l.tipo === 'parte'}
-					<li class="parte"><span>{l.rotulo}</span></li>
-				{:else}
-					<li>
-						<span class="texto">
-							<span class="minuto">{l.minuto !== null ? `${l.minuto}'` : ''}</span>
-							<span class="quem">{l.quem}</span>
-						</span>
-						<span class="conta">
-							<b class:marcou={l.casa}>{l.gc}</b><i>-</i><b class:marcou={!l.casa}>{l.gf}</b>
-						</span>
-					</li>
-				{/if}
-			{/each}
-			{#if golosEscondidos > 0}
-				<li class="mais">
-					<button onclick={() => (tab = 'eventos')}>e mais {golosEscondidos} golos</button>
-				</li>
+	<div class="extras">
+		<div class="medida" bind:clientHeight={alturaExtras}>
+			<div class="nomes">
+				<svelte:element this={f.categoria ? 'a' : 'span'}
+					href={f.categoria ? caminhoEquipa(f.casa, f.categoria) : null}>{f.casa}</svelte:element>
+				<svelte:element this={f.categoria ? 'a' : 'span'}
+					href={f.categoria ? caminhoEquipa(f.fora, f.categoria) : null}>{f.fora}</svelte:element>
+			</div>
+
+			{#if golos.length}
+				<ul class="golos">
+					{#each golos as l, i (i)}
+						{#if l.tipo === 'parte'}
+							<li class="parte"><span>{l.rotulo}</span></li>
+						{:else}
+							<li>
+								<span class="texto">
+									<span class="minuto">{l.minuto !== null ? `${l.minuto}'` : ''}</span>
+									<span class="quem">{l.quem}</span>
+								</span>
+								<span class="conta">
+									<b class:marcou={l.casa}>{l.gc}</b><i>-</i><b class:marcou={!l.casa}>{l.gf}</b>
+								</span>
+							</li>
+						{/if}
+					{/each}
+				</ul>
 			{/if}
-		</ul>
-	{/if}
 
-	<!-- W7.3: o caminho de volta à competição, agora dentro do herói -->
-	<a class="prova" href={f.grupo_id ? `/competicoes/${f.grupo_id}` : '/competicoes'}>
-		<span class="texto">
-			<span class="escalao">{f.categoria ?? ''}</span>
-			<span class="nome">{nomeProva(provaCurta)}</span>
-		</span>
-		<span class="jornada">
-			{f.serie ? `Série ${f.serie}` : ''}{#if f.serie && f.jornada}&nbsp;·&nbsp;{/if}{f.jornada ?? ''}
-			<span class="seta" aria-hidden="true">→</span>
-		</span>
-	</a>
+			<!-- W7.3: o caminho de volta à competição, dentro do herói -->
+			<a class="prova" href={f.grupo_id ? `/competicoes/${f.grupo_id}` : '/competicoes'}>
+				<span class="texto">
+					<span class="escalao">{f.categoria ?? ''}</span>
+					<span class="nome">{nomeProva(provaCurta)}</span>
+				</span>
+				<span class="jornada">
+					{f.serie ? `Série ${f.serie}` : ''}{#if f.serie && f.jornada}&nbsp;·&nbsp;{/if}{f.jornada ?? ''}
+					<span class="seta" aria-hidden="true">→</span>
+				</span>
+			</a>
+		</div>
+	</div>
 </article>
-<div bind:this={sentinela} class="sentinela" aria-hidden="true"></div>
 
-{#if temEventos || temTabela || temEquipas || temInfo}
-	<div class="tabs" role="tablist" style="--barra: {alturaBarra}px">
+{#if temSeparadores}
+	<!-- Ícones e não texto: cabem os quatro de ponta a ponta sem apertar, e o rótulo
+	     continua a existir para quem lê por voz. Dentro do cromado, para ficarem sempre
+	     agarrados ao herói e nunca passarem por baixo dele. -->
+	<div class="tabs" role="tablist">
 		{#if temEventos}
-			<button role="tab" aria-selected={tab === 'eventos'} onclick={() => (tab = 'eventos')}>
-				Eventos
-			</button>
+			<button role="tab" aria-selected={tab === 'eventos'} aria-label="Eventos do jogo"
+				onclick={() => (tab = 'eventos')}><Icone nome="eventos" tamanho={22} /></button>
 		{/if}
 		{#if temTabela}
-			<button role="tab" aria-selected={tab === 'tabela'} onclick={() => (tab = 'tabela')}>
-				Classificação
-			</button>
+			<button role="tab" aria-selected={tab === 'tabela'} aria-label="Classificação"
+				onclick={() => (tab = 'tabela')}><Icone nome="tabela" tamanho={22} /></button>
 		{/if}
 		{#if temEquipas}
-			<button role="tab" aria-selected={tab === 'equipas'} onclick={() => (tab = 'equipas')}>
-				<!-- num jogo por começar chamar-lhe "Equipas" engana menos do que "Ficha":
-				     os zeros nas colunas parecem resultado, quando são só a convocatória -->
-				{porComecar ? 'Convocados' : 'Equipas'}
-			</button>
+			<!-- num jogo por começar isto é a convocatória, não a ficha -->
+			<button role="tab" aria-selected={tab === 'equipas'}
+				aria-label={porComecar ? 'Convocados' : 'Equipas'}
+				onclick={() => (tab = 'equipas')}><Icone nome="equipas" tamanho={22} /></button>
 		{/if}
 		{#if temInfo}
-			<button role="tab" aria-selected={tab === 'info'} onclick={() => (tab = 'info')}>
-				Informações
-			</button>
+			<button role="tab" aria-selected={tab === 'info'} aria-label="Informações"
+				onclick={() => (tab = 'info')}><Icone nome="informacoes" tamanho={22} /></button>
 		{/if}
 	</div>
+{/if}
+</div>
+</div>
 
+{#if temSeparadores}
 	{#if tab === 'eventos' && temEventos}
 		<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
 			omitidos={f.individuais_omitidos ?? false} />
@@ -269,39 +275,58 @@
 
 <style>
 	/* ---------------------------------------------------------------- o herói */
+	/* a reserva guarda o espaço; o cromado é o que cola ao topo e encolhe */
+	.reserva { margin: calc(var(--e-4) * -1) -0.9rem var(--e-4); }
+	.cromado {
+		position: sticky;
+		top: var(--topo, 60px);
+		z-index: 9;
+	}
+	/*
+	  `sticky` só segura dentro da reserva, e a reserva acaba exactamente quando o colapso
+	  acaba — a partir daí o cromado ia-se embora com ela. Ao chegar ao fim passa a `fixed`,
+	  no mesmo sítio onde o `sticky` o tinha deixado, por isso a troca não se vê. E como a
+	  reserva mantém a altura, o conteúdo encosta-lhe por baixo sem salto.
+	*/
+	.cromado.fixo {
+		position: fixed;
+		top: var(--topo, 60px);
+		left: 50%;
+		transform: translateX(-50%);
+		width: min(100vw, calc(44rem + 1.8rem));
+	}
 	.heroi {
-		/* de ponta a ponta: sai do recuo de 0.9rem do `main` */
-		position: relative;
-		margin: calc(var(--e-4) * -1) -0.9rem var(--e-4);
-		padding: var(--e-5) var(--e-4) var(--e-4);
+		padding: calc(var(--e-4) - var(--k) * 6px) var(--e-4) calc(var(--e-3) - var(--k) * 2px);
 		background: var(--heroi);
 		color: var(--heroi-texto);
+		border-bottom: 1px solid var(--heroi-borda);
 		text-align: center;
 	}
-	/* absoluta: num bloco centrado, `margin-right: auto` não encosta nada à esquerda */
+	/* Absoluta: num bloco centrado, `margin-right: auto` não encosta nada à esquerda.
+	   Fica visível também no estado colapsado — se desaparecesse, de lá não havia como
+	   voltar atrás sem sair da página. */
 	.voltar {
-		position: absolute; left: var(--e-1); top: var(--e-1);
+		position: absolute; left: var(--e-1); top: calc(var(--e-1) - var(--k) * 2px);
 		display: inline-flex; align-items: center; justify-content: center;
 		width: 44px; height: 44px;
 		font-size: var(--t-destaque); text-decoration: none;
 		color: var(--heroi-texto);
 	}
+
+	/* o espaço entre os emblemas fecha-se com o colapso, para o resultado ficar compacto */
 	.placar {
-		display: grid; grid-template-columns: 1fr auto 1fr;
-		align-items: start; gap: var(--e-3);
+		display: flex; align-items: center; justify-content: center;
+		gap: calc(var(--e-4) + (1 - var(--k)) * 2.2rem);
 	}
-	.equipa {
-		display: flex; flex-direction: column; align-items: center; gap: var(--e-2);
-		min-width: 0; text-decoration: none; color: inherit;
-		font-size: var(--t-base);
-	}
-	.equipa .nome {
-		overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%;
-	}
-	a.equipa:hover .nome, a.equipa:focus-visible .nome { text-decoration: underline; }
-	.centro { display: flex; flex-direction: column; align-items: center; gap: var(--e-1); }
+	/* a Emblema fixa width/height em linha; aqui a medida tem de variar com o colapso */
+	.emb { display: inline-flex; flex: 0 0 auto;
+		width: calc(44px - var(--k) * 20px); height: calc(44px - var(--k) * 20px); }
+	.emb :global(img), .emb :global(.iniciais) { width: 100% !important; height: 100% !important; }
+
+	.centro { display: flex; flex-direction: column; align-items: center; gap: 1px; }
 	.numeros {
-		font-size: var(--t-placar); font-weight: 700; line-height: 1;
+		font-size: calc(var(--t-placar) - var(--k) * 0.75rem);
+		font-weight: 700; line-height: 1.1;
 		font-variant-numeric: tabular-nums;
 	}
 	.tr { color: var(--heroi-suave); margin: 0 var(--e-1); font-weight: 400; }
@@ -318,48 +343,60 @@
 	@keyframes pulsar { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
 	@media (prefers-reduced-motion: reduce) { .estado i { animation: none; } }
 
-	/* os golos por ordem de jogo, com o resultado a andar */
-	.golos { list-style: none; margin: var(--e-4) 0 0; padding: 0; }
-	/* duas colunas: o texto encostado à direita e o resultado à esquerda, de modo a que a
-	   lista fique centrada na fronteira entre os dois — é o alinhamento da referência */
-	.golos li {
-		display: grid; grid-template-columns: 1fr 3.2rem; gap: var(--e-3);
-		align-items: baseline; padding: 2px 0;
-		font-size: var(--t-pequeno);
+	/* o que se fecha: nomes, golos e competição. `--k` vai de 0 a 1 com o scroll. */
+	.extras {
+		max-height: calc((1 - var(--k)) * var(--alt, 0px));
+		opacity: calc(1 - var(--k) * 1.8);
+		overflow: hidden;
 	}
+	/* invólucro não constrangido: é dele que se mede a altura natural */
+	.medida { padding-top: var(--e-3); }
+
+	.nomes {
+		display: grid; grid-template-columns: 1fr 1fr; gap: var(--e-3);
+		font-size: var(--t-base);
+	}
+	.nomes > :global(*) {
+		overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+		text-decoration: none; color: inherit;
+	}
+	.nomes > :global(a:hover), .nomes > :global(a:focus-visible) { text-decoration: underline; }
+
+	/*
+	  Centrado como bloco, e não encostado à direita: encostado, parecia que todos os
+	  golos eram da equipa de fora. `inline-grid` dá as duas coisas ao mesmo tempo — o
+	  conjunto fica ao centro e as colunas continuam alinhadas entre linhas.
+	*/
+	.golos {
+		display: inline-grid; grid-template-columns: auto auto;
+		gap: 2px var(--e-3); align-items: baseline;
+		list-style: none; margin: var(--e-3) 0 0; padding: 0;
+		font-size: var(--t-pequeno); text-align: left;
+	}
+	.golos li { display: contents; }
 	.golos .texto {
 		display: flex; align-items: baseline; justify-content: flex-end; gap: var(--e-2);
 		min-width: 0;
 	}
 	.minuto { color: var(--heroi-suave); font-variant-numeric: tabular-nums; }
-	.quem {
-		color: var(--heroi-texto);
-		overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-	}
-	.conta {
-		justify-self: start; color: var(--heroi-suave);
-		font-variant-numeric: tabular-nums;
-	}
+	.quem { color: var(--heroi-texto); }
+	.conta { color: var(--heroi-suave); font-variant-numeric: tabular-nums; }
 	.conta b { font-weight: 400; }
 	.conta b.marcou { font-weight: 700; color: var(--heroi-texto); }
 	.conta i { font-style: normal; margin: 0 2px; }
-	.golos .parte {
-		display: block; text-align: center; color: var(--heroi-suave);
-		font-size: var(--t-micro); letter-spacing: 0.06em; padding: var(--e-2) 0;
+	.golos .parte > span {
+		grid-column: 1 / -1; display: block; text-align: center;
+		color: var(--heroi-suave); font-size: var(--t-micro);
+		letter-spacing: 0.06em; padding: var(--e-2) 0;
 	}
-	.golos .parte span::before,
-	.golos .parte span::after { content: '—'; margin: 0 var(--e-2); opacity: 0.6; }
-	.golos .mais { display: block; text-align: center; padding-top: var(--e-2); }
-	.golos .mais button {
-		background: none; border: 0; cursor: pointer; padding: var(--e-1) var(--e-3);
-		color: var(--heroi-suave); font-size: var(--t-micro); text-decoration: underline;
-	}
+	.golos .parte > span::before,
+	.golos .parte > span::after { content: '—'; margin: 0 var(--e-2); opacity: 0.6; }
 
 	/* a ligação para a competição, dentro do herói */
 	.prova {
 		display: flex; align-items: center; justify-content: space-between; gap: var(--e-3);
-		margin: var(--e-4) calc(var(--e-4) * -1) calc(var(--e-4) * -1);
-		padding: var(--e-3) var(--e-4);
+		margin: var(--e-3) calc(var(--e-4) * -1) 0;
+		padding: var(--e-3) var(--e-4) 0;
 		border-top: 1px solid var(--heroi-borda);
 		text-decoration: none; color: var(--heroi-texto); text-align: left;
 	}
@@ -375,52 +412,27 @@
 		display: inline-flex; align-items: center; gap: var(--e-2);
 		font-size: var(--t-pequeno); color: var(--heroi-suave); white-space: nowrap;
 	}
-	.prova:hover, .prova:focus-visible { background: rgb(255 255 255 / 0.06); outline: none; }
-
-	.sentinela { height: 0; }
-
-	/* ------------------------------------------------ a barra que nunca desaparece */
-	.compacta {
-		position: fixed; inset: var(--topo, 60px) 0 auto 0; z-index: 9;
-		background: var(--heroi); color: var(--heroi-texto);
-		border-bottom: 1px solid var(--heroi-borda);
-		opacity: 0; transform: translateY(-6px); pointer-events: none;
-		transition: opacity 0.16s ease, transform 0.16s ease;
-	}
-	.compacta.visivel { opacity: 1; transform: none; pointer-events: auto; }
-	.interior {
-		display: flex; align-items: center; justify-content: center; gap: var(--e-3);
-		max-width: 44rem; margin: 0 auto; padding: var(--e-2) var(--e-4);
-	}
-	.compacta .res {
-		font-size: var(--t-destaque); font-weight: 700;
-		font-variant-numeric: tabular-nums;
-	}
 
 	/* ------------------------------------------------------------- separadores */
-	/* Colados logo por baixo da barra do resultado, e não no topo do ecrã: só assim se
-	   troca de separador sem ter de rolar para cima. A altura da barra é medida, não
-	   adivinhada — se um dia lá couber mais coisa, os separadores acompanham. */
+	/* Colados por baixo do herói, que muda de altura ao colapsar — daí a altura vir
+	   medida e não escrita à mão. Nunca ficam escondidos. */
 	.tabs {
-		position: sticky;
-		top: calc(var(--topo, 60px) + var(--barra, 35px));
-		z-index: 8;
-		display: flex; gap: var(--e-1);
-		margin: 0 -0.9rem var(--e-5); padding: var(--e-2) 0.9rem;
-		background: var(--fundo);
-		overflow-x: auto; scrollbar-width: none;
+		display: flex;
+		background: var(--cartao);
+		border-bottom: 1px solid var(--borda);
 	}
-	.tabs::-webkit-scrollbar { display: none; }
 	.tabs button {
-		flex: 1 0 auto; min-height: 40px; padding: var(--e-2) var(--e-4);
-		font-size: var(--t-pequeno); cursor: pointer; white-space: nowrap;
-		border-radius: var(--raio-pilula); border: 1px solid var(--borda);
-		background: var(--cartao); color: var(--texto-2);
+		flex: 1 1 0; min-height: 46px; padding: var(--e-2) 0;
+		display: flex; align-items: center; justify-content: center;
+		cursor: pointer; background: none; border: 0;
+		border-bottom: 2px solid transparent;
+		color: var(--suave);
 	}
 	.tabs button[aria-selected='true'] {
-		background: var(--acento); border-color: var(--acento);
-		color: var(--cartao); font-weight: 600;
+		color: var(--acento);
+		border-bottom-color: var(--acento);
 	}
+	.tabs button[aria-selected='true'] :global(svg) { color: var(--acento); }
 
 	.serie {
 		font-size: var(--t-micro); letter-spacing: 0.05em; text-transform: uppercase;
