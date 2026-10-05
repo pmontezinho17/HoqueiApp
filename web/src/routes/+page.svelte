@@ -3,6 +3,8 @@
 	import FitaDatas from '$lib/FitaDatas.svelte';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import PaginaDia from '$lib/PaginaDia.svelte';
+	import { page } from '$app/state';
+	import { replaceState } from '$app/navigation';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import { porEscalao } from '$lib/escaloes';
 	import { emCurso } from '$lib/formato';
@@ -32,10 +34,28 @@
 			.filter((d) => d >= limite(-JANELA_ATRAS) && d <= limite(JANELA_FRENTE))
 			.sort()
 	);
-	// abre no dia com jogos mais próximo de hoje, para frente
+	/**
+	 * Abre no dia com jogos mais próximo de hoje — ou no que vier no endereço.
+	 *
+	 * O `?dia=` existe para quem volta de um jogo: sair de um jogo de quinta-feira e cair
+	 * em hoje é perder o sítio onde se estava. E de caminho torna um dia partilhável.
+	 */
 	let dia = $state('');
 	$effect(() => {
-		if (!dia) dia = dias.find((d) => d >= hoje) ?? dias.at(-1) ?? '';
+		if (dia) return;
+		const pedido = page.url.searchParams.get('dia');
+		dia = (pedido && dias.includes(pedido) ? pedido : null)
+			?? dias.find((d) => d >= hoje)
+			?? dias.at(-1)
+			?? '';
+	});
+	// mantém o endereço a par do dia, sem encher o histórico
+	$effect(() => {
+		if (!dia || typeof history === 'undefined') return;
+		const u = new URL(location.href);
+		if (u.searchParams.get('dia') === dia) return;
+		u.searchParams.set('dia', dia);
+		replaceState(u, {});
 	});
 
 	/** quanto da página já foi arrastada: a fita de datas usa-o para acompanhar o dedo */

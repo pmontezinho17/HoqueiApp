@@ -47,9 +47,9 @@
 	{:else if nome === 'clube'}
 		<path d="M10 3.1l5.6 1.9v5.1c0 3-2.3 5.4-5.6 6.8-3.3-1.4-5.6-3.8-5.6-6.8V5Z" />
 	{:else if nome === 'eventos'}
-		<!-- bola: o que aconteceu no jogo -->
-		<circle cx="10" cy="10" r="7.2" />
-		<path d="M10 2.8l2.6 2.1-1 3.2h-3.2l-1-3.2ZM3.1 8.2l2.9 1.9-1 3.2-2.8.1M16.9 8.2l-2.9 1.9 1 3.2 2.8.1M6.6 16.4l1.7-2.5h3.4l1.7 2.5" />
+		<!-- stick e bola: isto é hóquei, não futebol -->
+		<path d="M13.9 2.9v7.4c0 2.1-1.5 3.6-3.6 3.6H7.4a2.5 2.5 0 0 0 0 5h1.9" />
+		<circle cx="4.6" cy="15.4" r="2" />
 	{:else if nome === 'tabela'}
 		<!-- lista numerada: a classificação -->
 		<path d="M8.4 5.6h8.4M8.4 10h8.4M8.4 14.4h8.4" />

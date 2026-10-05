@@ -43,8 +43,12 @@
 	});
 
 	const ICONE: Record<string, string> = {
-		cartao: '▬', falta_equipa: '✋', desconto_tempo: '⏱',
+		falta_equipa: '✋', desconto_tempo: '⏱',
 		penalti_falhado: '✕', livre_direto_falhado: '✕'
+	};
+	/** A cor do cartão é a informação — um rectângulo preto não distingue azul de vermelho. */
+	const COR_CARTAO: Record<string, string> = {
+		amarelo: '#eab308', azul: '#2563eb', vermelho: '#dc2626'
 	};
 
 	function descricao(e: EventoJogo): string {
@@ -103,7 +107,13 @@
 					{#if e.tipo === 'golo' && e.golos_casa !== null}
 						<span class="placar"><Bola tamanho={11} />{e.golos_casa}–{e.golos_fora}</span>
 					{:else}
-						<span class="icone" aria-hidden="true">{ICONE[e.tipo] ?? '·'}</span>
+						{#if e.tipo === 'cartao'}
+							<span class="cartao" aria-hidden="true"
+								style="background: {COR_CARTAO[e.variante ?? ''] ?? 'var(--suave)'}"
+							></span>
+						{:else}
+							<span class="icone" aria-hidden="true">{ICONE[e.tipo] ?? '·'}</span>
+						{/if}
 					{/if}
 				</div>
 
@@ -161,4 +171,9 @@
 		background: var(--cartao); border: 1px solid var(--acento);
 		font-size: 0.74rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 	.icone { font-size: 0.72rem; }
+	/* o cartão desenhado como cartão, na cor que a fonte dá */
+	.cartao {
+		display: inline-block; width: 9px; height: 12px; border-radius: 2px;
+		box-shadow: 0 0 0 1px rgb(0 0 0 / 0.15) inset;
+	}
 </style>

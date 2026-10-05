@@ -44,42 +44,85 @@
 
 	type Tab = 'eventos' | 'tabela' | 'equipas' | 'info';
 	let tab = $state<Tab>('eventos');
+	/** os separadores que existem neste jogo, pela ordem em que aparecem na barra */
+	const abas = $derived(
+		(
+			[
+				['eventos', temEventos],
+				['tabela', temTabela],
+				['equipas', temEquipas],
+				['info', temInfo]
+			] as [Tab, boolean][]
+		)
+			.filter(([, ha]) => ha)
+			.map(([id]) => id)
+	);
+	const irPara = (passo: number) => {
+		const i = abas.indexOf(tab);
+		const alvo = abas[i + passo];
+		if (alvo) tab = alvo;
+	};
+
+	/**
+	 * Arrastar o dedo troca de separador.
+	 *
+	 * `touch-action: pan-y` deixa o browser com o arrasto vertical — que é o mais usado
+	 * nesta página — e só o horizontal nos chega. Sem isso, rolar a cronologia mudava de
+	 * separador por engano.
+	 */
+	let gesto: number | null = null;
+	let x0 = 0;
+	let y0 = 0;
+	let eixo: '' | 'x' | 'y' = '';
+	function baixo(e: PointerEvent) {
+		if (!e.isPrimary) return;
+		gesto = e.pointerId;
+		x0 = e.clientX;
+		y0 = e.clientY;
+		eixo = '';
+	}
+	function mover(e: PointerEvent) {
+		if (e.pointerId !== gesto || eixo) return;
+		const ax = e.clientX - x0;
+		const ay = e.clientY - y0;
+		if (Math.abs(ax) < 10 && Math.abs(ay) < 10) return;
+		eixo = Math.abs(ax) > Math.abs(ay) ? 'x' : 'y';
+	}
+	function largar(e: PointerEvent) {
+		if (e.pointerId !== gesto) return;
+		gesto = null;
+		if (eixo !== 'x') return;
+		eixo = '';
+		const ax = e.clientX - x0;
+		if (Math.abs(ax) >= 60) irPara(ax < 0 ? 1 : -1);
+	}
 	// num jogo a decorrer é a cronologia que se quer, não a ficha
 	$effect(() => {
 		if (aDecorrer) tab = 'eventos';
 	});
 
 	/**
-	 * Os golos por ordem de jogo, com o resultado ao momento e a marca de mudança de parte.
+	 * Os marcadores, numa coluna por equipa e por baixo dela.
 	 *
-	 * Era uma lista por equipa, de um lado e do outro. Assim lê-se a história do jogo de
-	 * cima para baixo — quem marcou, quando, e como é que o resultado foi andando — que é
-	 * o que se quer ver num cabeçalho sem ter de abrir nada.
+	 * Já tinham estado ao centro, numa só lista por ordem de jogo com o resultado a andar.
+	 * Lia-se bem a história do jogo, mas não se via de quem era cada golo sem ir ler os
+	 * números — e num 21–7 isso é trabalho a mais. Por baixo de cada equipa não há dúvida
+	 * nenhuma. A história completa continua no separador dos eventos.
 	 */
-	const golos = $derived.by(() => {
-		const linhas: Array<
-			| { tipo: 'golo'; minuto: number | null; quem: string; gc: number; gf: number; casa: boolean }
-			| { tipo: 'parte'; rotulo: string }
-		> = [];
-		let parte = 1;
+	const marcadores = $derived.by(() => {
+		const por = { casa: [] as string[], fora: [] as string[] };
 		for (const e of f.cronologia as EventoJogo[]) {
-			if (e.tipo === 'inicio_parte' && e.parte && e.parte > parte) {
-				parte = e.parte;
-				if (linhas.length) linhas.push({ tipo: 'parte', rotulo: `${parte}ª parte` });
-				continue;
-			}
-			if (e.tipo !== 'golo' || e.golos_casa === null || e.golos_fora === null) continue;
-			linhas.push({
-				tipo: 'golo',
-				minuto: e.minuto,
-				quem: e.jogador ? nomeProprio(e.jogador) : '',
-				gc: e.golos_casa,
-				gf: e.golos_fora,
-				casa: e.equipa === f.casa
-			});
+			if (e.tipo !== 'golo') continue;
+			const minuto = e.minuto !== null ? `${e.minuto}'` : '';
+			const nome = e.jogador ? nomeProprio(e.jogador) : '';
+			const rotulo = [minuto, nome].filter(Boolean).join(' ');
+			if (!rotulo) continue;
+			if (e.equipa === f.casa) por.casa.push(rotulo);
+			else if (e.equipa === f.fora) por.fora.push(rotulo);
 		}
-		return linhas;
+		return por;
 	});
+	const temMarcadores = $derived(marcadores.casa.length + marcadores.fora.length > 0);
 
 	/** A fonte repete o escalão no nome da prova ("TAÇA ... - SENIORES MASCULINOS"). */
 	const provaCurta = $derived.by(() => {
@@ -159,7 +202,9 @@
 <div class="reserva" style="height: {alturaExpandida || ''}px">
 <div class="cromado" class:fixo={k === 1} bind:this={cromado}>
 <article class="heroi" style="--k: {k}; --alt: {alturaExtras}px">
-	<a class="voltar" href="/" aria-label="Voltar aos jogos">←</a>
+	<!-- leva ao dia **deste** jogo e não a hoje: quem abriu um jogo de quinta-feira quer
+	     voltar a quinta-feira, e não ao dia em que calha estar -->
+	<a class="voltar" href={f.data ? `/?dia=${f.data}` : '/'} aria-label="Voltar aos jogos">←</a>
 
 	<!-- sempre visível: é isto que sobra quando tudo o resto se fecha -->
 	<div class="placar">
@@ -182,24 +227,11 @@
 					href={f.categoria ? caminhoEquipa(f.fora, f.categoria) : null}>{f.fora}</svelte:element>
 			</div>
 
-			{#if golos.length}
-				<ul class="golos">
-					{#each golos as l, i (i)}
-						{#if l.tipo === 'parte'}
-							<li class="parte"><span>{l.rotulo}</span></li>
-						{:else}
-							<li>
-								<span class="texto">
-									<span class="minuto">{l.minuto !== null ? `${l.minuto}'` : ''}</span>
-									<span class="quem">{l.quem}</span>
-								</span>
-								<span class="conta">
-									<b class:marcou={l.casa}>{l.gc}</b><i>-</i><b class:marcou={!l.casa}>{l.gf}</b>
-								</span>
-							</li>
-						{/if}
-					{/each}
-				</ul>
+			{#if temMarcadores}
+				<div class="marcadores">
+					<ul>{#each marcadores.casa as m, i (i)}<li>{m}</li>{/each}</ul>
+					<ul>{#each marcadores.fora as m, i (i)}<li>{m}</li>{/each}</ul>
+				</div>
 			{/if}
 
 			<!-- W7.3: o caminho de volta à competição, dentro do herói -->
@@ -246,6 +278,14 @@
 </div>
 
 {#if temSeparadores}
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<div
+		class="painel"
+		onpointerdown={baixo}
+		onpointermove={mover}
+		onpointerup={largar}
+		onpointercancel={largar}
+	>
 	{#if tab === 'eventos' && temEventos}
 		<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
 			omitidos={f.individuais_omitidos ?? false} />
@@ -269,6 +309,7 @@
 	{:else if tab === 'info' && temInfo}
 		<InfoJogo {f} {morada} {linkMapa} />
 	{/if}
+	</div>
 {:else}
 	<p class="vazio">Este jogo não tem detalhe publicado.</p>
 {/if}
@@ -362,35 +403,20 @@
 	}
 	.nomes > :global(a:hover), .nomes > :global(a:focus-visible) { text-decoration: underline; }
 
-	/*
-	  Centrado como bloco, e não encostado à direita: encostado, parecia que todos os
-	  golos eram da equipa de fora. `inline-grid` dá as duas coisas ao mesmo tempo — o
-	  conjunto fica ao centro e as colunas continuam alinhadas entre linhas.
-	*/
-	.golos {
-		display: inline-grid; grid-template-columns: auto auto;
-		gap: 2px var(--e-3); align-items: baseline;
-		list-style: none; margin: var(--e-3) 0 0; padding: 0;
-		font-size: var(--t-pequeno); text-align: left;
+	/* uma coluna por equipa, debaixo dela: assim não é preciso ler números para saber
+	   de quem é cada golo */
+	.marcadores {
+		display: grid; grid-template-columns: 1fr 1fr; gap: var(--e-3);
+		margin-top: var(--e-3);
 	}
-	.golos li { display: contents; }
-	.golos .texto {
-		display: flex; align-items: baseline; justify-content: flex-end; gap: var(--e-2);
-		min-width: 0;
+	.marcadores ul {
+		list-style: none; margin: 0; padding: 0;
+		font-size: var(--t-pequeno); color: var(--heroi-suave);
+		display: flex; flex-direction: column; gap: 2px;
 	}
-	.minuto { color: var(--heroi-suave); font-variant-numeric: tabular-nums; }
-	.quem { color: var(--heroi-texto); }
-	.conta { color: var(--heroi-suave); font-variant-numeric: tabular-nums; }
-	.conta b { font-weight: 400; }
-	.conta b.marcou { font-weight: 700; color: var(--heroi-texto); }
-	.conta i { font-style: normal; margin: 0 2px; }
-	.golos .parte > span {
-		grid-column: 1 / -1; display: block; text-align: center;
-		color: var(--heroi-suave); font-size: var(--t-micro);
-		letter-spacing: 0.06em; padding: var(--e-2) 0;
+	.marcadores li {
+		overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 	}
-	.golos .parte > span::before,
-	.golos .parte > span::after { content: '—'; margin: 0 var(--e-2); opacity: 0.6; }
 
 	/* a ligação para a competição, dentro do herói */
 	.prova {
@@ -433,6 +459,9 @@
 		border-bottom-color: var(--acento);
 	}
 	.tabs button[aria-selected='true'] :global(svg) { color: var(--acento); }
+
+	/* o browser fica com o arrasto vertical; o horizontal é nosso, para trocar de separador */
+	.painel { touch-action: pan-y; }
 
 	.serie {
 		font-size: var(--t-micro); letter-spacing: 0.05em; text-transform: uppercase;
