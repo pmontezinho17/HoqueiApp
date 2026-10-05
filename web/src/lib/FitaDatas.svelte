@@ -33,6 +33,24 @@
 
 	let fita = $state<HTMLElement | null>(null);
 	let primeira = true;
+	/**
+	 * Se a fita já está encostada ao topo.
+	 *
+	 * Só então leva o fio por baixo: em repouso, uma risca entre a fita e os chips separava
+	 * duas coisas que andam juntas; colada, sem ela o conteúdo passa-lhe por baixo e parece
+	 * cortado a meio.
+	 */
+	let colada = $state(false);
+	$effect(() => {
+		const ao = () => {
+			if (!fita) return;
+			const topo = parseFloat(getComputedStyle(fita).top) || 0;
+			colada = fita.getBoundingClientRect().top <= topo + 0.5;
+		};
+		ao();
+		addEventListener('scroll', ao, { passive: true });
+		return () => removeEventListener('scroll', ao);
+	});
 
 	const actual = () => fita?.querySelector<HTMLElement>('[aria-current="true"]') ?? null;
 	/** onde o scroll tem de estar para o dia escolhido ficar ao centro */
@@ -69,7 +87,7 @@
 	});
 </script>
 
-<div class="fita" bind:this={fita} role="tablist" aria-label="Dia">
+<div class="fita" class:colada bind:this={fita} role="tablist" aria-label="Dia">
 	{#each dias as d (d)}
 		{@const c = celula(d)}
 		<button
@@ -86,14 +104,26 @@
 </div>
 
 <style>
+	/*
+	  Colada ao topo, debaixo do cabeçalho da app.
+	  Ao rolar por um sábado de 41 jogos perdia-se de vista o dia que se estava a ver, e a
+	  única forma de confirmar era voltar ao cima. `--topo` é a altura real do cabeçalho,
+	  medida no layout — não um número escrito aqui que deixa de servir quando ele muda.
+	*/
 	.fita {
+		position: sticky;
+		top: var(--topo, 60px);
+		z-index: 8;
 		display: flex;
 		gap: var(--e-1);
 		overflow-x: auto;
 		scrollbar-width: none;
 		margin: 0 -0.9rem var(--e-3);
-		padding: 0 0.9rem var(--e-1);
+		padding: var(--e-2) 0.9rem var(--e-2);
+		background: var(--fundo);
+		border-bottom: 1px solid transparent;
 	}
+	.fita.colada { border-bottom-color: var(--borda); }
 	.fita::-webkit-scrollbar { display: none; }
 
 	button {
