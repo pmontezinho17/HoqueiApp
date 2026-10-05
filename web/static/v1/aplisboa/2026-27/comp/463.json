@@ -57,8 +57,8 @@
    "hora": "11:00:00",
    "casa": "SC TORRES",
    "fora": "CD PAÇO ARCOS B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 1,
+   "golos_fora": 0,
    "recinto": "PAV. SC TORRES",
    "ao_vivo": false
   },
