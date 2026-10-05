@@ -121,6 +121,9 @@
 		--borda: #e3e6ea; --borda-fraca: #eef0f3;
 		--acento: #0a7d54; --acento-fraco: #e8f4ef;
 		--aviso: #92400e; --aviso-fundo: #fef3c7; --vivo: #c2410c;
+		/* o herói do ecrã de jogo: uma faixa escura de ponta a ponta, em ambos os temas */
+		--heroi: #10251e; --heroi-texto: #f2f6f4; --heroi-suave: #9db5ab;
+		--heroi-borda: #1d3b31;
 	}
 	@media (prefers-color-scheme: dark) {
 		:global(:root) {
@@ -129,6 +132,8 @@
 			--borda: #272b33; --borda-fraca: #1f232a;
 			--acento: #34d399; --acento-fraco: #12271f;
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
+			--heroi: #16241f; --heroi-texto: #eef2f0; --heroi-suave: #8fa79d;
+			--heroi-borda: #24352e;
 		}
 	}
 	:global(*) { box-sizing: border-box; }

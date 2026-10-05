@@ -1,4 +1,4 @@
-import { carregarJogo } from '$lib/dados';
+import { carregarCompeticao, carregarJogo } from '$lib/dados';
 import { emCurso } from '$lib/formato';
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
@@ -14,9 +14,17 @@ export const load: PageLoad = async ({ params, fetch, parent }) => {
 	// não de uma cópia de 20 s atrás, senão entra-se num jogo que a lista dava 2–1 e vê-se 1–0.
 	const { agenda } = await parent();
 	const aoVivo = agenda.some((j) => j.id === id && emCurso(j));
+	let ficha;
 	try {
-		return { ficha: await carregarJogo(id, fetch, aoVivo) };
+		ficha = await carregarJogo(id, fetch, aoVivo);
 	} catch {
 		throw error(404, 'Não há ficha publicada para este jogo.');
 	}
+	// A classificação da prova, para o separador homónimo. Vem num segundo pedido e **não**
+	// pode derrubar a página: há provas sem tabela publicada — todos os Escolares e
+	// Benjamins, por exemplo — e aí o separador simplesmente não aparece.
+	const competicao = ficha.competicao_id
+		? await carregarCompeticao(ficha.competicao_id, fetch).catch(() => null)
+		: null;
+	return { ficha, competicao };
 };
