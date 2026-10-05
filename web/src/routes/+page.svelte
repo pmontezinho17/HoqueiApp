@@ -1,13 +1,11 @@
 <script lang="ts">
 	import Faixa from '$lib/Faixa.svelte';
 	import FitaDatas from '$lib/FitaDatas.svelte';
-	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import PaginaDia from '$lib/PaginaDia.svelte';
 	import { page } from '$app/state';
 	import { afterNavigate, replaceState } from '$app/navigation';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import { porEscalao } from '$lib/escaloes';
-	import { emCurso } from '$lib/formato';
 	import type { JogoAgenda } from '$lib/tipos';
 
 	let { data } = $props();
@@ -79,29 +77,20 @@
 	const doDia = $derived(jogosDe(dia));
 
 	/**
-	 * A decorrer **agora**, de todos os escalões, mas só no dia a que os jogos pertencem.
+	 * O minuto a que vamos, para a secção dos jogos a decorrer.
 	 *
-	 * Estava a aparecer em todos os dias: quem navegasse para quinta-feira via lá o jogo
-	 * que estava a decorrer hoje, como se fosse de quinta. Tinha sido decisão minha —
-	 * "quem abre a app a meio de um sábado quer ver isto primeiro" — e o raciocínio
-	 * continua certo, só que a app já abre no dia de hoje por omissão. Não era preciso
-	 * trazer a secção para os outros dias para o conseguir.
+	 * A secção em si vive na página do dia, em `PaginaDia` — tem de entrar e sair com o dia
+	 * quando se arrasta, e aqui fora ficava agarrada ao ecrã enquanto tudo o resto deslizava.
+	 * O relógio fica deste lado porque há três dias montados ao mesmo tempo e um contador
+	 * chega para os três.
 	 *
-	 * Filtra pela data do próprio jogo e não por "é hoje", para o caso de um jogo tardio
-	 * que atravesse a meia-noite continuar a aparecer no dia em que começou.
-	 *
-	 * Reavalia de minuto a minuto para a secção se apagar sozinha no fim.
+	 * De minuto a minuto, para a secção se apagar sozinha quando o último jogo acabar.
 	 */
 	let agora = $state(Date.now());
 	$effect(() => {
 		const t = setInterval(() => (agora = Date.now()), 60_000);
 		return () => clearInterval(t);
 	});
-	const aoVivo = $derived.by(() => {
-		void agora;
-		return (data.agenda as JogoAgenda[]).filter((j) => j.data === dia && emCurso(j));
-	});
-
 	// a mesma ordem dos blocos da lista, de `escaloes.ts`: estavam em dois sítios e divergiam
 	const escaloes = $derived([...new Set(doDia.map((j) => j.cat))].sort(porEscalao));
 	// ao mudar de dia o escalão escolhido pode não existir lá; o chip volta a "Todos"
@@ -129,15 +118,6 @@
 	</div>
 {/if}
 
-{#if aoVivo.length}
-	<section class="destacada vivo">
-		<h2><i aria-hidden="true"></i>A decorrer agora</h2>
-		{#each aoVivo as j (j.id ?? `${j.casa}${j.fora}`)}
-			<LinhaJogo jogo={j} emblemas={data.emblemas} seguida={eSeguida(j.cat)} comEscalao />
-		{/each}
-	</section>
-{/if}
-
 <Faixa itens={dias} bind:escolhido={dia} bind:progresso>
 	{#snippet pagina(d)}
 		<PaginaDia
@@ -146,6 +126,7 @@
 			emblemas={data.emblemas}
 			{eSeguida}
 			{escalao}
+			{agora}
 		/>
 	{/snippet}
 </Faixa>
@@ -186,53 +167,4 @@
 		font-weight: 600;
 	}
 
-	.destacada {
-		margin-bottom: var(--e-4);
-		background: var(--cartao);
-		border: 1px solid var(--acento);
-		border-radius: var(--raio-cartao);
-		overflow: hidden;
-		padding: 0 var(--e-2) var(--e-2);
-	}
-	.destacada :global(.linha) {
-		padding-left: 0;
-		padding-right: 0;
-	}
-	.destacada :global(.linha:last-child) {
-		border-bottom: 0;
-	}
-	.vivo {
-		border-color: var(--vivo);
-	}
-	.vivo h2 {
-		display: flex;
-		align-items: center;
-		gap: 0.35rem;
-		color: var(--vivo);
-	}
-	.vivo h2 i {
-		width: 7px;
-		height: 7px;
-		border-radius: 50%;
-		background: var(--vivo);
-		animation: pulsar 1.6s ease-in-out infinite;
-	}
-	@keyframes pulsar {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0.25; }
-	}
-	@media (prefers-reduced-motion: reduce) {
-		.vivo h2 i {
-			animation: none;
-		}
-	}
-	.destacada h2 {
-		font-size: var(--t-micro);
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
-		color: var(--acento);
-		margin: 0;
-		padding: var(--e-4) var(--e-1) var(--e-2);
-		font-weight: 600;
-	}
 </style>

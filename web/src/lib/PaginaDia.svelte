@@ -11,7 +11,7 @@
 	 * ao mesmo tempo, e o estado "que blocos estão fechados" é de cada dia.
 	 */
 	import LinhaJogo from './LinhaJogo.svelte';
-	import { dataLonga, nomeProva } from './formato';
+	import { dataLonga, emCurso, nomeProva } from './formato';
 	import { porEscalao } from './escaloes';
 	import type { JogoAgenda } from './tipos';
 
@@ -20,7 +20,8 @@
 		jogos,
 		emblemas,
 		eSeguida,
-		escalao = null
+		escalao = null,
+		agora = 0
 	}: {
 		dia: string;
 		jogos: JogoAgenda[];
@@ -28,7 +29,25 @@
 		eSeguida: (cat: string) => (equipa: string) => boolean;
 		/** o escalão escolhido nos chips, ou `null` para todos */
 		escalao?: string | null;
+		/**
+		 * O minuto a que vamos, dado de fora. Serve só para a secção dos jogos a decorrer
+		 * se reavaliar — e se apagar sozinha quando o último apito toca. O contador vive na
+		 * página porque há três dias montados ao mesmo tempo e um relógio chega para todos.
+		 */
+		agora?: number;
 	} = $props();
+
+	/**
+	 * Os jogos a decorrer, **deste** dia.
+	 *
+	 * Esta secção vivia na página, acima da faixa, e por isso ficava parada enquanto os dias
+	 * deslizavam por baixo dela — um jogo ao vivo agarrado ao ecrã enquanto o resto andava.
+	 * Aqui dentro pertence ao dia: entra e sai com ele, como tudo o resto.
+	 */
+	const aoVivo = $derived.by(() => {
+		void agora;
+		return jogos.filter(emCurso);
+	});
 
 	const seguida = (j: JogoAgenda) => eSeguida(j.cat)(j.casa) || eSeguida(j.cat)(j.fora);
 	const minhas = $derived(jogos.filter(seguida));
@@ -91,6 +110,17 @@
 {#if jogos.length === 0}
 	<p class="vazio">Sem jogos em {dataLonga(dia)}.</p>
 {:else}
+	{#if aoVivo.length}
+		<section class="bloco destacada vivo">
+			<h2><i aria-hidden="true"></i>A decorrer agora</h2>
+			<div class="conteudo">
+				{#each aoVivo as j (j.id ?? `${j.casa}${j.fora}`)}
+					<LinhaJogo jogo={j} {emblemas} seguida={eSeguida(j.cat)} comEscalao />
+				{/each}
+			</div>
+		</section>
+	{/if}
+
 	{#if minhas.length}
 		<section class="bloco destacada">
 			<h2>As minhas equipas</h2>
@@ -148,6 +178,29 @@
 		font-weight: 600;
 		margin: 0;
 		padding: var(--e-4) var(--e-4) var(--e-2);
+	}
+
+	/* o destaque do ao vivo é a cor da modalidade a arder, não o verde do acento */
+	.vivo { border-color: var(--vivo); }
+	.vivo h2 {
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+		color: var(--vivo);
+	}
+	.vivo h2 i {
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: var(--vivo);
+		animation: pulsar 1.6s ease-in-out infinite;
+	}
+	@keyframes pulsar {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0.25; }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.vivo h2 i { animation: none; }
 	}
 
 	.cabecalho {
