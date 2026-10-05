@@ -1,23 +1,61 @@
 <script lang="ts">
 	import { invalidate } from '$app/navigation';
-	import { emCurso } from '$lib/formato';
 	import type { JogoAgenda } from '$lib/tipos';
 
 	let { agenda }: { agenda: JogoAgenda[] } = $props();
 
-	/** Com um jogo a decorrer, de 30 em 30 s; com jogos marcados para hoje, de 5 em 5 min. */
+	/** Dentro da janela de um jogo, de 30 em 30 s; com jogos marcados para hoje, de 5 em 5 min. */
 	const AO_VIVO_MS = 30_000;
 	const ESPERA_MS = 5 * 60_000;
+	/** A janela de um jogo: dos 20 min antes do apito às 3 h depois. */
+	const ANTES_MS = 20 * 60_000;
+	const DEPOIS_MS = 3 * 60 * 60_000;
 
-	const hoje = new Date().toISOString().slice(0, 10);
-	const temVivo = $derived(agenda.some(emCurso));
-	/** Há jogos hoje cuja hora já passou e que ainda não acabaram? Então um pode começar
-	 *  a qualquer momento, e sem este ritmo lento nunca descobríamos o primeiro golo. */
+	/**
+	 * O ritmo sai da **hora marcada** e não da marca de "a decorrer".
+	 *
+	 * A versão anterior perguntava `agenda.some(emCurso)`, e isso é um impasse: a marca
+	 * `ao_vivo` só aparece na agenda quando um refrescamento a traz, e o refrescamento só é
+	 * de 30 em 30 segundos se a marca já lá estiver. Quem abrisse a app antes do apito
+	 * ficava no ritmo lento durante os primeiros cinco minutos de jogo — que são
+	 * precisamente aqueles em que se está a olhar para o ecrã.
+	 *
+	 * A hora marcada já vem na agenda do arranque e não depende de nada, por isso serve de
+	 * relógio fiável: 20 minutos antes já há convocatória para ir buscar, e três horas
+	 * depois até o jogo mais esticado acabou.
+	 *
+	 * `agora` é reavaliado de minuto a minuto para a janela abrir e fechar sozinha, sem
+	 * precisar de uma navegação.
+	 */
+	let agora = $state(Date.now());
+	$effect(() => {
+		const t = setInterval(() => (agora = Date.now()), 60_000);
+		return () => clearInterval(t);
+	});
+
+	const inicioDe = (j: JogoAgenda) =>
+		j.hora ? new Date(`${j.data}T${j.hora.slice(0, 5)}:00`).getTime() : null;
+
+	const naJanela = $derived(
+		agenda.some((j) => {
+			const i = inicioDe(j);
+			return i !== null && agora >= i - ANTES_MS && agora <= i + DEPOIS_MS;
+		})
+	);
+
+	// A data local, e **não** `toISOString()`: esse devolve a data em UTC, e no horário de
+	// verão um jogo às 23:30 de Lisboa já está escrito no dia seguinte. É a mesma troca que
+	// fez a ronda ao vivo sair cedo a 05/10, e que custou meio dia de jogos.
+	const hoje = $derived.by(() => {
+		const d = new Date(agora);
+		const p = (n: number) => String(n).padStart(2, '0');
+		return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+	});
 	const diaDeJogos = $derived(agenda.some((j) => j.data === hoje));
 
 	$effect(() => {
-		if (!diaDeJogos) return;
-		const periodo = temVivo ? AO_VIVO_MS : ESPERA_MS;
+		if (!diaDeJogos && !naJanela) return;
+		const periodo = naJanela ? AO_VIVO_MS : ESPERA_MS;
 
 		// Só com o ecrã à frente. Um telemóvel no bolso a pedir dados de 30 em 30 segundos
 		// gasta bateria para nada, e numa bancada a bateria é o recurso escasso — hoje o

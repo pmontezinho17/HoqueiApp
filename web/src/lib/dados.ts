@@ -41,10 +41,26 @@ export const carregarQuadro = (comp: number, f: typeof fetch) =>
 export const carregarEmblemas = (f: typeof fetch) =>
 	json<Record<string, string>>(`${BASE}/emblemas.json`, f);
 
-export const carregarAgenda = (f: typeof fetch) =>
-	json<Agenda>(`${BASE}/agenda.json`, f);
+/**
+ * A agenda. Com `aoVivo`, salta **todas** as caches — pela mesma razão que a ficha.
+ *
+ * E isto é mais apertado do que parece: `/v1/*` é servido com
+ * `max-age=20, stale-while-revalidate=600`, e o que essa segunda metade autoriza é a cache
+ * do browser a responder **de imediato com uma cópia de até dez minutos** enquanto vai
+ * buscar a nova por trás. O `AutoRefrescar` já pedia a agenda de 30 em 30 segundos; era a
+ * cache que lhe devolvia sempre a de antes.
+ *
+ * Deu nisto, a 05/10 às 19:08: o PAREDE FC B–CACO B estava 1–0 na ficha, com o golo aos 4'
+ * na cronologia, e a lista de jogos dizia 0–0 — com o relógio a andar, o que torna a
+ * mentira pior, porque parece fresca. A ficha ia à rede; a lista não.
+ */
+export const carregarAgenda = (f: typeof fetch, aoVivo = false) =>
+	json<Agenda>(`${BASE}/agenda.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);
 
 export const carregarEquipas = (f: typeof fetch) =>
 	json<IndiceEquipas>(`${BASE}/teams.json`, f);
 
-export const carregarMeta = (f: typeof fetch) => json<Meta>(`${BASE}/meta.json`, f);
+/** A hora dos dados. É ela que escreve o "agora mesmo" no cabeçalho, por isso vir de uma
+ *  cópia velha é a app a dizer que está fresca quando não está. */
+export const carregarMeta = (f: typeof fetch, aoVivo = false) =>
+	json<Meta>(`${BASE}/meta.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);
