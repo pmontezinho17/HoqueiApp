@@ -47,13 +47,17 @@
 	{:else if nome === 'clube'}
 		<path d="M10 3.1l5.6 1.9v5.1c0 3-2.3 5.4-5.6 6.8-3.3-1.4-5.6-3.8-5.6-6.8V5Z" />
 	{:else if nome === 'eventos'}
-		<!-- stick e bola: isto é hóquei, não futebol -->
-		<path d="M13.9 2.9v7.4c0 2.1-1.5 3.6-3.6 3.6H7.4a2.5 2.5 0 0 0 0 5h1.9" />
-		<circle cx="4.6" cy="15.4" r="2" />
+		<!-- Stick e bola. Comparei cinco desenhos a 22px, que é o tamanho a que isto vive:
+		     o gancho fechado lia-se como uma vírgula, a lâmina recta ficava dura, e dois
+		     sticks cruzados liam-se como um X de fechar. A lâmina curva é a que se parece
+		     mesmo com um stick. -->
+		<path d="M15.2 3 9.8 12.4c-1 1.8-2.6 2.9-4.9 3.3" />
+		<circle cx="14.4" cy="16.4" r="1.6" fill="currentColor" stroke="none" />
 	{:else if nome === 'tabela'}
-		<!-- lista numerada: a classificação -->
-		<path d="M8.4 5.6h8.4M8.4 10h8.4M8.4 14.4h8.4" />
-		<path d="M3.3 4.6l1.3-.8v3.2M3.2 9.4h2.4l-2.4 3h2.4M3.2 13.4h2.3v1.5H3.4v1.5h2.1" />
+		<!-- pódio: o 1º ao meio, como em qualquer classificação. A lista numerada que estava
+		     aqui punha o 2 e o 3 em cima um do outro a 22px. -->
+		<path d="M8 4.4h4v13H8z" />
+		<path d="M3 9.2h5v8.2H3zM12 11.6h5v5.8h-5z" />
 	{:else if nome === 'equipas'}
 		<!-- duas pessoas: os convocados -->
 		<circle cx="7.6" cy="7" r="2.6" />

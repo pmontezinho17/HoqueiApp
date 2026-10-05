@@ -1,7 +1,9 @@
 <script lang="ts">
 	/**
-	 * Arrastar o dedo para o lado muda de dia — o pedido do vídeo da theScore, onde a lista
-	 * desliza e a fita de datas em cima acompanha.
+	 * Arrastar o dedo para o lado muda de página.
+	 *
+	 * Serve os dias na lista de jogos e os separadores no ecrã de jogo: nos dois o que se
+	 * quer é ver a página a seguir o dedo, e não saltar quando ele se levanta.
 	 *
 	 * Porque é feito à mão e não com `scroll-snap`: um contentor com scroll horizontal
 	 * rouba também o scroll vertical (quando um eixo tem scroll, o outro deixa de poder ser
@@ -17,15 +19,16 @@
 	import type { Snippet } from 'svelte';
 
 	let {
-		dias,
+		itens,
 		escolhido = $bindable(),
 		progresso = $bindable(0),
 		pagina
 	}: {
-		dias: string[];
+		/** as páginas, pela ordem em que se arrastam */
+		itens: string[];
 		escolhido: string;
 		/**
-		 * Fracção de página já arrastada, de −1 a 1 — negativa a caminhar para o dia
+		 * Fracção de página já arrastada, de −1 a 1 — negativa a caminhar para a página
 		 * seguinte. É o que permite à fita de datas lá em cima acompanhar o dedo em vez de
 		 * saltar no fim.
 		 */
@@ -34,9 +37,9 @@
 		pagina: Snippet<[string]>;
 	} = $props();
 
-	const idx = $derived(dias.indexOf(escolhido));
-	const anterior = $derived(idx > 0 ? dias[idx - 1] : null);
-	const seguinte = $derived(idx >= 0 && idx < dias.length - 1 ? dias[idx + 1] : null);
+	const idx = $derived(itens.indexOf(escolhido));
+	const anterior = $derived(idx > 0 ? itens[idx - 1] : null);
+	const seguinte = $derived(idx >= 0 && idx < itens.length - 1 ? itens[idx + 1] : null);
 
 	let caixa = $state<HTMLElement | null>(null);
 	/** deslocamento horizontal em px: o arrasto em curso, ou a animação a assentar */
@@ -155,7 +158,7 @@
 		cancelAnimationFrame(quadro);
 		clearTimeout(salvaguarda);
 		if (pendente) {
-			escolhido = dias[idx + pendente] ?? escolhido;
+			escolhido = itens[idx + pendente] ?? escolhido;
 			pendente = 0;
 		}
 		dx = 0;
@@ -167,7 +170,7 @@
 	bind:this={caixa}
 	bind:clientWidth={largura}
 	role="group"
-	aria-label="Jogos do dia"
+	aria-label="Conteúdo que se arrasta"
 	onpointerdown={baixo}
 	onpointermove={mover}
 	onpointerup={largar}

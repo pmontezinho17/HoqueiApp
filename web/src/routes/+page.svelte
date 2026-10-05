@@ -1,10 +1,10 @@
 <script lang="ts">
-	import FaixaDias from '$lib/FaixaDias.svelte';
+	import Faixa from '$lib/Faixa.svelte';
 	import FitaDatas from '$lib/FitaDatas.svelte';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import PaginaDia from '$lib/PaginaDia.svelte';
 	import { page } from '$app/state';
-	import { replaceState } from '$app/navigation';
+	import { afterNavigate, replaceState } from '$app/navigation';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import { porEscalao } from '$lib/escaloes';
 	import { emCurso } from '$lib/formato';
@@ -49,9 +49,19 @@
 			?? dias.at(-1)
 			?? '';
 	});
-	// mantém o endereço a par do dia, sem encher o histórico
+	/**
+	 * Mantém o endereço a par do dia, sem encher o histórico.
+	 *
+	 * O `afterNavigate` não é enfeite: na primeira renderização o `$effect` corre **antes**
+	 * de o router do SvelteKit estar pronto, e o `replaceState` atira
+	 * "Cannot call replaceState(...) before router is initialized" — o que partia a página
+	 * inteira, não só o endereço. O `afterNavigate` dispara quando a navegação inicial já
+	 * acabou, que é exactamente o sinal de que o router existe.
+	 */
+	let routerPronto = $state(false);
+	afterNavigate(() => (routerPronto = true));
 	$effect(() => {
-		if (!dia || typeof history === 'undefined') return;
+		if (!routerPronto || !dia) return;
 		const u = new URL(location.href);
 		if (u.searchParams.get('dia') === dia) return;
 		u.searchParams.set('dia', dia);
@@ -118,7 +128,7 @@
 	</section>
 {/if}
 
-<FaixaDias {dias} bind:escolhido={dia} bind:progresso>
+<Faixa itens={dias} bind:escolhido={dia} bind:progresso>
 	{#snippet pagina(d)}
 		<PaginaDia
 			dia={d}
@@ -128,7 +138,7 @@
 			{escalao}
 		/>
 	{/snippet}
-</FaixaDias>
+</Faixa>
 
 <style>
 	/* Um degrau visual abaixo da fita de datas: a fita é navegação, isto é filtro. Com os

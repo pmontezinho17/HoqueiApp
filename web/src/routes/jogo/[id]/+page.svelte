@@ -3,6 +3,7 @@
 	import Emblema from '$lib/Emblema.svelte';
 	import FichaEquipas from '$lib/FichaEquipas.svelte';
 	import TabelaClassificacao from '$lib/TabelaClassificacao.svelte';
+	import Faixa from '$lib/Faixa.svelte';
 	import InfoJogo from './InfoJogo.svelte';
 	import Icone from '$lib/Icone.svelte';
 	import { nomeProprio, nomeProva } from '$lib/formato';
@@ -43,7 +44,7 @@
 	const temSeparadores = $derived(temEventos || temTabela || temEquipas || temInfo);
 
 	type Tab = 'eventos' | 'tabela' | 'equipas' | 'info';
-	let tab = $state<Tab>('eventos');
+	let tab = $state<string>('eventos');
 	/** os separadores que existem neste jogo, pela ordem em que aparecem na barra */
 	const abas = $derived(
 		(
@@ -57,45 +58,6 @@
 			.filter(([, ha]) => ha)
 			.map(([id]) => id)
 	);
-	const irPara = (passo: number) => {
-		const i = abas.indexOf(tab);
-		const alvo = abas[i + passo];
-		if (alvo) tab = alvo;
-	};
-
-	/**
-	 * Arrastar o dedo troca de separador.
-	 *
-	 * `touch-action: pan-y` deixa o browser com o arrasto vertical — que é o mais usado
-	 * nesta página — e só o horizontal nos chega. Sem isso, rolar a cronologia mudava de
-	 * separador por engano.
-	 */
-	let gesto: number | null = null;
-	let x0 = 0;
-	let y0 = 0;
-	let eixo: '' | 'x' | 'y' = '';
-	function baixo(e: PointerEvent) {
-		if (!e.isPrimary) return;
-		gesto = e.pointerId;
-		x0 = e.clientX;
-		y0 = e.clientY;
-		eixo = '';
-	}
-	function mover(e: PointerEvent) {
-		if (e.pointerId !== gesto || eixo) return;
-		const ax = e.clientX - x0;
-		const ay = e.clientY - y0;
-		if (Math.abs(ax) < 10 && Math.abs(ay) < 10) return;
-		eixo = Math.abs(ax) > Math.abs(ay) ? 'x' : 'y';
-	}
-	function largar(e: PointerEvent) {
-		if (e.pointerId !== gesto) return;
-		gesto = null;
-		if (eixo !== 'x') return;
-		eixo = '';
-		const ax = e.clientX - x0;
-		if (Math.abs(ax) >= 60) irPara(ax < 0 ? 1 : -1);
-	}
 	// num jogo a decorrer é a cronologia que se quer, não a ficha
 	$effect(() => {
 		if (aDecorrer) tab = 'eventos';
@@ -278,38 +240,35 @@
 </div>
 
 {#if temSeparadores}
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div
-		class="painel"
-		onpointerdown={baixo}
-		onpointermove={mover}
-		onpointerup={largar}
-		onpointercancel={largar}
-	>
-	{#if tab === 'eventos' && temEventos}
-		<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
-			omitidos={f.individuais_omitidos ?? false} />
-	{:else if tab === 'tabela' && temTabela}
-		{#each grupos as g (g.nome ?? '')}
-			{#if g.linhas.length}
-				{#if g.nome}<h2 class="serie">{g.nome}</h2>{/if}
-				<TabelaClassificacao linhas={g.linhas} emblemas={data.emblemas}
-					categoria={f.categoria ?? ''}
-					destaque={(e) => e === f.casa || e === f.fora} />
+	<!-- A mesma faixa que troca de dia na lista de jogos: o separador segue o dedo em vez
+	     de saltar quando ele se levanta. -->
+	<Faixa itens={abas} bind:escolhido={tab}>
+		{#snippet pagina(aba)}
+			{#if aba === 'eventos'}
+				<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
+					omitidos={f.individuais_omitidos ?? false} />
+			{:else if aba === 'tabela'}
+				{#each grupos as g (g.nome ?? '')}
+					{#if g.linhas.length}
+						{#if g.nome}<h2 class="serie">{g.nome}</h2>{/if}
+						<TabelaClassificacao linhas={g.linhas} emblemas={data.emblemas}
+							categoria={f.categoria ?? ''}
+							destaque={(e) => e === f.casa || e === f.fora} />
+					{/if}
+				{/each}
+			{:else if aba === 'equipas'}
+				{#if porComecar}
+					<p class="aviso">
+						Este jogo ainda não começou. Esta é a <strong>convocatória</strong> publicada
+						pela associação, e pode mudar até ao apito inicial.
+					</p>
+				{/if}
+				<FichaEquipas equipas={f.equipas} {porComecar} />
+			{:else if aba === 'info'}
+				<InfoJogo {f} {morada} {linkMapa} />
 			{/if}
-		{/each}
-	{:else if tab === 'equipas' && temEquipas}
-		{#if porComecar}
-			<p class="aviso">
-				Este jogo ainda não começou. Esta é a <strong>convocatória</strong> publicada pela
-				associação, e pode mudar até ao apito inicial.
-			</p>
-		{/if}
-		<FichaEquipas equipas={f.equipas} {porComecar} />
-	{:else if tab === 'info' && temInfo}
-		<InfoJogo {f} {morada} {linkMapa} />
-	{/if}
-	</div>
+		{/snippet}
+	</Faixa>
 {:else}
 	<p class="vazio">Este jogo não tem detalhe publicado.</p>
 {/if}
@@ -459,9 +418,6 @@
 		border-bottom-color: var(--acento);
 	}
 	.tabs button[aria-selected='true'] :global(svg) { color: var(--acento); }
-
-	/* o browser fica com o arrasto vertical; o horizontal é nosso, para trocar de separador */
-	.painel { touch-action: pan-y; }
 
 	.serie {
 		font-size: var(--t-micro); letter-spacing: 0.05em; text-transform: uppercase;
