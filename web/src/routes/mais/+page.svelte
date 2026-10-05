@@ -1,6 +1,7 @@
 <script lang="ts">
+	import { CONTACTO } from '$lib/contacto';
+
 	let { data } = $props();
-	const CONTACTO = 'pedro.montezinho@gmail.com';
 	const quando = $derived(
 		new Date(data.meta.generated_at).toLocaleString('pt-PT', {
 			dateStyle: 'long', timeStyle: 'short'

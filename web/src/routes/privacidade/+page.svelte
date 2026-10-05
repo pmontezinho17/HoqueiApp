@@ -7,7 +7,7 @@
 	 * externos. Se alguma destas coisas mudar, esta página tem de mudar no mesmo commit — é
 	 * a única forma de continuar verdadeira.
 	 */
-	const CONTACTO = 'pedro.montezinho@gmail.com';
+	import { CONTACTO } from '$lib/contacto';
 	const ACTUALIZADA = '5 de outubro de 2026';
 </script>
 

@@ -242,6 +242,32 @@ Muito mais leve do que o plano Android: sem loja, sem revisão, sem conta de pro
 | L7.5 | Atribuição visível da fonte em todas as páginas | must | XS | ✅ rodapé em todas as páginas, com ligação à APL e o aviso de não oficial |
 | L7.6 | Teste com 5–10 pessoas reais (pais, treinadores, adeptos) | must | M | Feedback recolhido e triado |
 | L7.7 | Partilhar o link nos grupos dos clubes | must | XS | Primeiros utilizadores a usar |
+| L7.8 | Email de suporte numa conta própria | should | S | ✅ **feito a 05/10/2026** — `info.ok4sticks@gmail.com`. Estava em três sítios no código; passou a uma constante só, em `web/src/lib/contacto.ts` |
+
+### L7.8 — porque é que uma troca de endereço precisou de um ficheiro novo
+
+O endereço estava em **três** sítios, e só um era uma constante partilhada: o
+`feedback.ts`, mais duas cópias escritas à mão — uma delas usada em dois `mailto:`
+diferentes na página de privacidade. Três cópias de um endereço é o desenho que garante que
+uma fica atrás numa troca, por isso foram todas para uma constante antes de o valor mudar.
+
+Não ficou no `feedback.ts` porque esse ficheiro é temporário por desenho: o botão de opinião
+sai quando a fase de testes acabar, e está escrito lá em cima que o ficheiro vai com ele. O
+endereço a que a política de privacidade promete responder não pode viver dentro de uma
+coisa marcada para apagar. Fica em `contacto.ts`, sozinho.
+
+**Onde está agora:** `web/src/lib/contacto.ts` — e é o único sítio. O `Feedback.svelte`, o
+`/privacidade` (dois `mailto:`) e o `/mais` importam-no de lá.
+
+**Eu tinha escrito aqui que o endereço antigo precisava de reencaminhamento** por causa das
+versões da app em cache nos telemóveis. O Pedro contestou e tinha razão: o antigo é o Gmail
+pessoal dele, não vai a lado nenhum, e continua a receber sozinho. Aquele cuidado aplica-se
+a *desactivar* um endereço, não a mudar o que a app mostra — e eu escrevi-o sem distinguir
+os dois casos.
+
+**O que fica a valer:** o email que saiu à APL a 01/10 ia assinado com o endereço pessoal, e
+é para lá que eles respondem se responderem. O rascunho em [06](06-email-apl.md) já traz o
+novo, para uma eventual insistência.
 
 > ~~Conta Play Console, keystore, ficha de loja, releases faseadas~~ — **tudo isto desapareceu.**
 > A Fase 7 passou de ~2 dias para ~1, e sem custo monetário.

@@ -14,7 +14,7 @@
 	 */
 	import Icone from './Icone.svelte';
 	import { page } from '$app/state';
-	import { CONTACTO } from './feedback';
+	import { CONTACTO } from './contacto';
 
 	let aberto = $state(false);
 	let texto = $state('');

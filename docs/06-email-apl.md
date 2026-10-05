@@ -61,11 +61,17 @@ Fico ao dispor para qualquer esclarecimento, ou para uma conversa se acharem út
 
 Com os melhores cumprimentos,
 **Pedro Montezinho**
-[telefone] · pedro.montezinho@gmail.com
+[telefone] · info.ok4sticks@gmail.com
 
 ---
 
 ## Notas sobre o rascunho
+
+**O endereço mudou a 05/10/2026**, e a assinatura acima já traz o novo —
+`info.ok4sticks@gmail.com` — para o caso de voltares a usar este texto numa insistência. Mas
+o email que **saiu** a 01/10 ia assinado com o `pedro.montezinho@gmail.com`: é para lá que a
+APL responde, se responder. Não é problema, porque essa caixa continua tua; é só saber onde
+olhar.
 
 **Porque é que diz que já está online.** Porque está, e fingir que se pede autorização prévia
 seria pior do que não escrever: eles podem abrir o link em dez segundos. Ser directo sobre isso
