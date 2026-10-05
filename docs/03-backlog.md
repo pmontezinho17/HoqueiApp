@@ -701,19 +701,23 @@ que melhor protege o que já temos, e são meio dia de trabalho.)
 
 ---
 
-## Próximo incremento
+## Próximo incremento (revisto a 05/10/2026)
 
-```
-W2.10 + B1.15   publicar em Cloudflare Pages  ← precisa de ti (ligar a conta ao repo)
-W3.7            ecrã de Equipa
-W3.8            quadro de melhores marcadores (B1.20 no backend)
-B1.9c           boletim oficial → 3ª tab no detalhe de jogo
-```
+A lista que estava aqui — publicar no Cloudflare, ecrã de equipa, quadro de marcadores,
+boletim — está **toda feita** há semanas. Ficou por actualizar, e um backlog que mente é pior
+do que não ter nenhum.
 
-A Fase 3 está quase fechada. Falta o ecrã de Equipa, o quadro de golos e o boletim.
+O que falta, por ordem de valor e não de esforço:
 
-Ao fim disto existe **um link para partilhar** com jogos reais, que qualquer pessoa abre no
-telemóvel e instala. No plano Android isso só acontecia na Fase 7.
+| | O quê | Porquê agora | Bloqueio |
+|---|---|---|---|
+| 1 | **L7.6 + L7.7** — pôr isto na mão de 5–10 pessoas e partilhar nos grupos dos clubes | Dois dias inteiros de polimento numa app que, fora o dono, ninguém usa. O próximo erro a sério vem de um telemóvel que não é o nosso | é contigo |
+| 2 | **B9.14/B9.15** — publicar as classificações calculadas dos Escolares, Benjamins e Torneios | o motor está feito e validado, 93 linhas prontas | resposta da APL (email de 01/10; telefone 213 931 710 se nada até ~22/10) |
+| 3 | **Movimento quando o resultado muda** | hoje um 2–1 passa a 3–1 e não se nota; é o que falta para o "ao vivo" parecer ao vivo | nenhum |
+| 4 | **Fase 9 — a base de dados** (B9.1, B9.3–B9.5, B9.7–B9.11) | memória: jogos antecipados, histórico, e o `events.json` que a Fase 5 assume | nenhum, ~3–4 dias |
+| 5 | **Fase 5 — notificações** (~20 itens) | o maior bloco que resta | depende do 4 |
+| 6 | **B1.13** — normalizar grafias de clube | medido a 05/10: de 86 nomes, só **3** estão mal — `AE FISICA D (B)`/`AE FISICA D B`, `HC LOURINHA`/`HC LOURINHÃ`, `A STRUART HCM`/`A STUART HCM`. Parte emblemas e junções por nome, mas é pequeno | nenhum, XS |
+| 7 | Qualidade: Q6.4 Lighthouse, Q6.5 orçamento de bundle, Q6.9 relatório de erros | nada disto se nota até haver utilizadores | depende do 1 |
 
-**Estimativa total até um lançamento útil: ~2,5 semanas** (era ~4 no plano nativo), e as Fases 0–4
-(~1,5 semanas) já dão um site completo sem nada com estado.
+**A ordem importa mais do que a lista.** O 1 muda o que vale a pena fazer a seguir; tudo o
+resto é adivinhar o que as pessoas vão precisar.
