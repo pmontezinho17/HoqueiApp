@@ -38,6 +38,9 @@
 		if (!dia) dia = dias.find((d) => d >= hoje) ?? dias.at(-1) ?? '';
 	});
 
+	/** quanto da página já foi arrastada: a fita de datas usa-o para acompanhar o dedo */
+	let progresso = $state(0);
+
 	let escalao = $state<string | null>(null);
 
 	// seguir é por clube E escalão
@@ -73,7 +76,7 @@
 
 <h1 class="sr">Jogos</h1>
 
-<FitaDatas {dias} bind:escolhido={dia} />
+<FitaDatas {dias} bind:escolhido={dia} {progresso} />
 
 {#if escaloes.length}
 	<div class="escaloes" role="group" aria-label="Filtrar por escalão">
@@ -95,7 +98,7 @@
 	</section>
 {/if}
 
-<FaixaDias {dias} bind:escolhido={dia}>
+<FaixaDias {dias} bind:escolhido={dia} bind:progresso>
 	{#snippet pagina(d)}
 		<PaginaDia
 			dia={d}

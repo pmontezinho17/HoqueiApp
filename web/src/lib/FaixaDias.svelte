@@ -19,10 +19,17 @@
 	let {
 		dias,
 		escolhido = $bindable(),
+		progresso = $bindable(0),
 		pagina
 	}: {
 		dias: string[];
 		escolhido: string;
+		/**
+		 * Fracção de página já arrastada, de −1 a 1 — negativa a caminhar para o dia
+		 * seguinte. É o que permite à fita de datas lá em cima acompanhar o dedo em vez de
+		 * saltar no fim.
+		 */
+		progresso?: number;
 		/** o conteúdo de um dia, chamado uma vez por página montada */
 		pagina: Snippet<[string]>;
 	} = $props();
@@ -34,7 +41,8 @@
 	let caixa = $state<HTMLElement | null>(null);
 	/** deslocamento horizontal em px: o arrasto em curso, ou a animação a assentar */
 	let dx = $state(0);
-	let suave = $state(false);
+	/** largura de uma página, medida — é por ela que se converte px em fracção */
+	let largura = $state(0);
 
 	let pendente = 0; // −1 / +1: o dia para onde vamos quando a animação acabar
 	let gesto: number | null = null; // pointerId do gesto em curso
@@ -43,7 +51,13 @@
 	let eixo: '' | 'x' | 'y' = '';
 	/** um arrasto horizontal não deve disparar o clique no jogo que estava sob o dedo */
 	let engolirClique = false;
+	let quadro = 0;
 	let salvaguarda: ReturnType<typeof setTimeout> | undefined;
+
+	// o que a fita de datas lê para acompanhar o dedo
+	$effect(() => {
+		progresso = largura ? dx / largura : 0;
+	});
 
 	const DECIDIR = 8; // px de movimento antes de escolher o eixo
 	const suportado = typeof CSS !== 'undefined' && CSS.supports?.('overflow-x', 'clip');
@@ -51,7 +65,11 @@
 		typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 	function baixo(e: PointerEvent) {
-		if (!suportado || !e.isPrimary || suave) return;
+		if (!suportado || !e.isPrimary) return;
+		// pegar a meio de uma animação é legítimo — pára-a e continua de onde ela ia
+		cancelAnimationFrame(quadro);
+		clearTimeout(salvaguarda);
+		pendente = 0;
 		gesto = e.pointerId;
 		x0 = e.clientX;
 		y0 = e.clientY;
@@ -81,37 +99,61 @@
 			return;
 		}
 		eixo = '';
-		const largura = caixa?.clientWidth ?? 320;
 		const limiar = Math.min(90, largura * 0.22);
 		const dir = dx <= -limiar && seguinte ? 1 : dx >= limiar && anterior ? -1 : 0;
 		if (!dir) return animar(0);
-		if (semAnimacao()) {
-			pendente = dir;
-			return assentar();
-		}
 		pendente = dir;
+		if (semAnimacao()) return assentar();
 		animar(-dir * largura);
 	}
 
+	/**
+	 * A animação é feita quadro a quadro e **não** com uma transição CSS.
+	 *
+	 * Com a transição, o `dx` saltava logo para o valor final e só os píxeis é que
+	 * interpolavam — o que chega para mover a lista, mas deixa de fora quem precise de
+	 * acompanhar o movimento. A fita de datas lá em cima é isso: ou anda ao mesmo tempo,
+	 * ou salta no fim. Aqui o `dx` percorre mesmo o caminho, e o `progresso` com ele.
+	 */
 	function animar(alvo: number) {
+		cancelAnimationFrame(quadro);
 		if (dx === alvo) return assentar();
-		suave = true;
-		dx = alvo;
-		// se o `transitionend` não chegar (página escondida a meio, por exemplo), não
-		// podemos ficar presos com a transição ligada
+		if (semAnimacao()) {
+			dx = alvo;
+			return assentar();
+		}
+		const inicio = dx;
+		const delta = alvo - inicio;
+		const t0 = performance.now();
+		const DURACAO = 240;
+		const passo = (t: number) => {
+			const k = Math.min(1, (t - t0) / DURACAO);
+			// easeOutCubic: sai depressa e encosta devagar, como um dedo a largar
+			dx = inicio + delta * (1 - (1 - k) ** 3);
+			if (k < 1) quadro = requestAnimationFrame(passo);
+			else assentar();
+		};
+		quadro = requestAnimationFrame(passo);
+		// **Salvaguarda.** O browser estrangula o `requestAnimationFrame` quando o separador
+		// não está à vista — medido aqui mesmo: 2 quadros em 300 ms. Sem isto, bloquear o
+		// ecrã a meio de um arrasto deixava a página meio deslizada até alguém lhe tocar
+		// outra vez. Era a mesma rede que a versão com transição CSS tinha, e que eu tirei
+		// ao trocar de mecanismo.
 		clearTimeout(salvaguarda);
-		salvaguarda = setTimeout(assentar, 400);
+		salvaguarda = setTimeout(() => {
+			dx = alvo;
+			assentar();
+		}, DURACAO + 250);
 	}
 
 	/**
 	 * Fim do movimento. A troca do dia e o regresso a `dx = 0` acontecem na mesma
-	 * actualização que desliga a transição: os carris estavam a `−largura` com o dia
-	 * seguinte à direita e passam a `0` com esse dia ao centro — os mesmos pixels, sem
-	 * salto.
+	 * actualização: os carris estavam a `−largura` com o dia seguinte à direita e passam a
+	 * `0` com esse dia ao centro — os mesmos pixels, sem salto.
 	 */
 	function assentar() {
+		cancelAnimationFrame(quadro);
 		clearTimeout(salvaguarda);
-		suave = false;
 		if (pendente) {
 			escolhido = dias[idx + pendente] ?? escolhido;
 			pendente = 0;
@@ -123,6 +165,7 @@
 <div
 	class="faixa"
 	bind:this={caixa}
+	bind:clientWidth={largura}
 	role="group"
 	aria-label="Jogos do dia"
 	onpointerdown={baixo}
@@ -136,12 +179,7 @@
 		e.stopPropagation();
 	}}
 >
-	<div
-		class="carris"
-		class:suave
-		style="--dx: {dx}px"
-		ontransitionend={(e) => e.propertyName === 'transform' && assentar()}
-	>
+	<div class="carris" style="--dx: {dx}px">
 		{#if anterior}
 			<div class="pag esquerda" aria-hidden="true" inert>{@render pagina(anterior)}</div>
 		{/if}
@@ -172,9 +210,6 @@
 	.pag {
 		padding: 0 0.9rem;
 	}
-	.carris.suave {
-		transition: transform 0.22s cubic-bezier(0.22, 0.61, 0.36, 1);
-	}
 	/*
 	  Fora do fluxo: os vizinhos não contam para a altura da faixa.
 	  Mas estar fora do fluxo não os tira do **scroll** da página — e com os blocos todos
@@ -204,11 +239,6 @@
 		.pag.esquerda,
 		.pag.direita {
 			display: none;
-		}
-	}
-	@media (prefers-reduced-motion: reduce) {
-		.carris.suave {
-			transition: none;
 		}
 	}
 </style>

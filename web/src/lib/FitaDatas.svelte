@@ -7,7 +7,19 @@
 	 * a ver. Agora cada célula diz sempre a mesma coisa — dia da semana em cima, dia e mês
 	 * em baixo — e o hoje distingue-se pela cor, não por uma palavra.
 	 */
-	let { dias, escolhido = $bindable() }: { dias: string[]; escolhido: string } = $props();
+	let {
+		dias,
+		escolhido = $bindable(),
+		progresso = 0
+	}: {
+		dias: string[];
+		escolhido: string;
+		/**
+		 * Fracção de página já arrastada na lista lá em baixo, de −1 a 1. É o que faz esta
+		 * fita andar **ao mesmo tempo** que os jogos em vez de saltar quando eles assentam.
+		 */
+		progresso?: number;
+	} = $props();
 
 	const hoje = new Date().toISOString().slice(0, 10);
 	const DIA = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'];
@@ -20,15 +32,40 @@
 	};
 
 	let fita = $state<HTMLElement | null>(null);
-	// depende de `escolhido` para voltar a centrar quando o dia muda, e espera um frame
-	// porque o DOM ainda não tem o atributo actualizado quando o efeito corre
+	let primeira = true;
+
+	const actual = () => fita?.querySelector<HTMLElement>('[aria-current="true"]') ?? null;
+	/** onde o scroll tem de estar para o dia escolhido ficar ao centro */
+	const centro = (alvo: HTMLElement) =>
+		alvo.offsetLeft - (fita!.clientWidth - alvo.offsetWidth) / 2;
+	/** distância entre duas células, medida e não assumida — inclui o espaço entre elas */
+	function passo(alvo: HTMLElement) {
+		const irmao = (alvo.nextElementSibling ?? alvo.previousElementSibling) as HTMLElement | null;
+		return irmao ? Math.abs(irmao.offsetLeft - alvo.offsetLeft) : alvo.offsetWidth;
+	}
+
+	/**
+	 * Acompanha o dedo. Arrastar meia página para a esquerda roda a fita meia célula para
+	 * a direita — é esta proporção que faz as duas coisas parecerem a mesma coisa.
+	 */
+	$effect(() => {
+		const p = progresso;
+		const alvo = actual();
+		if (!fita || !alvo || !p) return;
+		fita.scrollTo({ left: centro(alvo) - p * passo(alvo), behavior: 'auto' });
+	});
+
+	// Ao assentar: desliza até ao novo dia. Espera um frame porque o DOM ainda não tem o
+	// `aria-current` actualizado quando o efeito corre. Na primeira vez não desliza — abrir
+	// a app com a fita a correr sozinha é desconcertante.
 	$effect(() => {
 		escolhido;
-		requestAnimationFrame(() =>
-			fita?.querySelector('[aria-current="true"]')?.scrollIntoView({
-				inline: 'center', block: 'nearest', behavior: 'instant'
-			})
-		);
+		requestAnimationFrame(() => {
+			const alvo = actual();
+			if (!fita || !alvo) return;
+			fita.scrollTo({ left: centro(alvo), behavior: primeira ? 'instant' : 'smooth' });
+			primeira = false;
+		});
 	});
 </script>
 
