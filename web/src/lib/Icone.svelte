@@ -67,6 +67,9 @@
 		<circle cx="10" cy="10" r="7.2" />
 		<path d="M10 9.2v4.4" />
 		<circle cx="10" cy="6.4" r="0.1" stroke-width="2" />
+	{:else if nome === 'feedback'}
+		<!-- balão de fala -->
+		<path d="M17 11.4c0 2.5-2.1 4.5-4.7 4.5H9.8l-3.9 2.3.6-2.6A4.5 4.5 0 0 1 3 11.4V8.1c0-2.5 2.1-4.5 4.7-4.5h4.6c2.6 0 4.7 2 4.7 4.5Z" />
 	{:else if nome === 'faltas'}
 		<!-- contagem -->
 		<path d="M4.4 6h11.2M4.4 10h7.6M4.4 14h9.4" />

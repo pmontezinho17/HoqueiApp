@@ -8,7 +8,7 @@
 	 * a única forma de continuar verdadeira.
 	 */
 	const CONTACTO = 'pedro.montezinho@gmail.com';
-	const ACTUALIZADA = '3 de outubro de 2026';
+	const ACTUALIZADA = '5 de outubro de 2026';
 </script>
 
 <svelte:head><title>Privacidade — Hóquei em Patins</title></svelte:head>
@@ -103,8 +103,13 @@
 		</dd>
 		<dt>Ligações para a fonte</dt>
 		<dd>Levam-te ao site da Associação de Patinagem de Lisboa, que tem regras próprias.</dd>
-		<dt>"Escreve-nos"</dt>
-		<dd>Abre o teu programa de email. Só recebemos o que decidires escrever.</dd>
+		<dt>"Escreve-nos" e o botão de opinião</dt>
+		<dd>
+			Abrem o teu programa de email com o texto já escrito. <strong>Nada sai do teu
+			aparelho sem seres tu a carregar em enviar</strong>, e o que vai junto — o ecrã em
+			que estavas e a data dos dados — está à vista no corpo da mensagem antes de a
+			enviares. Não há servidor nenhum a receber opiniões.
+		</dd>
 	</dl>
 </section>
 

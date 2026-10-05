@@ -1,6 +1,9 @@
 <script lang="ts">
 	import AutoRefrescar from '$lib/AutoRefrescar.svelte';
 	import AvisoVersao from '$lib/AvisoVersao.svelte';
+	// temporário, para a fase de testes — ver web/src/lib/feedback.ts
+	import Feedback from '$lib/Feedback.svelte';
+	import { RECOLHER_FEEDBACK } from '$lib/feedback';
 	import { pwaInfo } from 'virtual:pwa-info';
 
 	// sem isto não há <link rel="manifest"> no HTML: o manifest existia e ninguém lhe apontava,
@@ -88,6 +91,7 @@
 
 <AutoRefrescar agenda={data.agenda} />
 <AvisoVersao />
+{#if RECOLHER_FEEDBACK}<Feedback />{/if}
 
 <style>
 	/*
