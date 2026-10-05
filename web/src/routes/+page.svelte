@@ -78,10 +78,20 @@
 	const seguidas = $derived(new Set(favoritos.lista.map((f) => chave(f.equipa, f.categoria))));
 	const doDia = $derived(jogosDe(dia));
 
-	/** A decorrer **agora**, de todos os escalões e independentemente do dia escolhido na
-	 *  fita: quem abre a app a meio de um sábado quer ver isto primeiro, e não ter de
-	 *  procurar. Fica fora da faixa que se arrasta, por não pertencer a nenhum dia.
-	 *  Reavalia de minuto a minuto para a secção se apagar sozinha no fim. */
+	/**
+	 * A decorrer **agora**, de todos os escalões, mas só no dia a que os jogos pertencem.
+	 *
+	 * Estava a aparecer em todos os dias: quem navegasse para quinta-feira via lá o jogo
+	 * que estava a decorrer hoje, como se fosse de quinta. Tinha sido decisão minha —
+	 * "quem abre a app a meio de um sábado quer ver isto primeiro" — e o raciocínio
+	 * continua certo, só que a app já abre no dia de hoje por omissão. Não era preciso
+	 * trazer a secção para os outros dias para o conseguir.
+	 *
+	 * Filtra pela data do próprio jogo e não por "é hoje", para o caso de um jogo tardio
+	 * que atravesse a meia-noite continuar a aparecer no dia em que começou.
+	 *
+	 * Reavalia de minuto a minuto para a secção se apagar sozinha no fim.
+	 */
 	let agora = $state(Date.now());
 	$effect(() => {
 		const t = setInterval(() => (agora = Date.now()), 60_000);
@@ -89,7 +99,7 @@
 	});
 	const aoVivo = $derived.by(() => {
 		void agora;
-		return (data.agenda as JogoAgenda[]).filter(emCurso);
+		return (data.agenda as JogoAgenda[]).filter((j) => j.data === dia && emCurso(j));
 	});
 
 	// a mesma ordem dos blocos da lista, de `escaloes.ts`: estavam em dois sítios e divergiam
