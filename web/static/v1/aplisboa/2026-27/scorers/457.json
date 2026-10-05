@@ -7,6 +7,19 @@
    "equipa": "HC TURQUEL",
    "jogos": 1,
    "numero": "8",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOSÉ FILIPE",
+   "equipa": "HC TURQUEL",
+   "jogos": 1,
+   "numero": "9",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -21,11 +34,11 @@
    "jogos": 1,
    "numero": "5",
    "golos": 1,
-   "assistencias": 1,
+   "assistencias": 2,
    "defesas": 0,
-   "pontos": 2,
+   "pontos": 3,
    "amarelos": 0,
-   "azuis": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -42,10 +55,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOSÉ FILIPE",
+   "nome": "DUARTE PAULO",
    "equipa": "HC TURQUEL",
    "jogos": 1,
-   "numero": "9",
+   "numero": "6",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -65,6 +78,19 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARTIM FERREIRA",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 1,
+   "numero": "16",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -120,19 +146,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE PAULO",
-   "equipa": "HC TURQUEL",
-   "jogos": 1,
-   "numero": "6",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DUARTE SANCHES",
    "equipa": "S ALENQUER BENFICA",
    "jogos": 1,
@@ -165,7 +178,7 @@
    "numero": "1",
    "golos": 0,
    "assistencias": 0,
-   "defesas": 0,
+   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -195,19 +208,6 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARTIM FERREIRA",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 1,
-   "numero": "16",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -263,5 +263,5 @@
    "vermelhos": 0
   }
  ],
- "tem_defesas": false
+ "tem_defesas": true
 }

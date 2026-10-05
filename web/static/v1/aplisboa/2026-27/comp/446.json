@@ -146,8 +146,8 @@
    "hora": "19:00:00",
    "casa": "PAREDE FC B",
    "fora": "CACO B",
-   "golos_casa": 1,
-   "golos_fora": 0,
+   "golos_casa": 3,
+   "golos_fora": 2,
    "recinto": "PAV. PAREDE",
    "ao_vivo": false
   },
@@ -472,10 +472,10 @@
      "vitorias": 3,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 15,
-     "golos_sofridos": 7,
+     "golos_marcados": 17,
+     "golos_sofridos": 9,
      "diferenca": 8,
-     "racio": 2.14,
+     "racio": 1.89,
      "pontos": 9
     },
     {
@@ -528,10 +528,10 @@
      "vitorias": 0,
      "empates": 0,
      "derrotas": 3,
-     "golos_marcados": 0,
-     "golos_sofridos": 20,
+     "golos_marcados": 2,
+     "golos_sofridos": 22,
      "diferenca": -20,
-     "racio": 0.0,
+     "racio": 0.09,
      "pontos": 0
     },
     {

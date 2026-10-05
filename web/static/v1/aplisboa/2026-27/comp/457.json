@@ -76,8 +76,8 @@
    "hora": "18:00:00",
    "casa": "S ALENQUER BENFICA",
    "fora": "HC TURQUEL",
-   "golos_casa": 2,
-   "golos_fora": 5,
+   "golos_casa": 3,
+   "golos_fora": 8,
    "recinto": "PAV.S.ALENQUER E BENFICA",
    "ao_vivo": false
   },
@@ -472,10 +472,10 @@
      "vitorias": 1,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 5,
-     "golos_sofridos": 2,
-     "diferenca": 3,
-     "racio": 2.5,
+     "golos_marcados": 8,
+     "golos_sofridos": 3,
+     "diferenca": 5,
+     "racio": 2.67,
      "pontos": 3
     },
     {
@@ -542,10 +542,10 @@
      "vitorias": 0,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 2,
-     "golos_sofridos": 5,
-     "diferenca": -3,
-     "racio": 0.4,
+     "golos_marcados": 3,
+     "golos_sofridos": 8,
+     "diferenca": -5,
+     "racio": 0.38,
      "pontos": 0
     }
    ]

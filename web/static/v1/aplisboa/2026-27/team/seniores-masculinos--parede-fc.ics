@@ -8,4 +8,16 @@ X-WR-CALDESC:Jogos de Parede FC (Seniores Masculinos)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9316@hoquei.pages.dev
+DTSTAMP:20261010T000000Z
+DTSTART:20261010T171500Z
+DTEND:20261010T184500Z
+SUMMARY:🏑 Seniores Masculinos 🏑 AD Oeiras vs Parede FC
+LOCATION:Pavilhão Parede F.C.
+DESCRIPTION:AD Oeiras vs Parede FC\nTAÇA JESUS CORREIA - SENIORES MASCULIN
+ OS · SENIORES MASCULINOS\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9316
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
+URL:https://hoquei.pages.dev/jogo/9316
+END:VEVENT
 END:VCALENDAR

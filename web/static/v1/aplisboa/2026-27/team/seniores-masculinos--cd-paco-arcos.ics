@@ -8,4 +8,17 @@ X-WR-CALDESC:Jogos de CD Paço Arcos (Seniores Masculinos)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9314@hoquei.pages.dev
+DTSTAMP:20261010T000000Z
+DTSTART:20261010T180000Z
+DTEND:20261010T193000Z
+SUMMARY:🏑 Seniores Masculinos 🏑 CD Paço Arcos vs HC Sintra
+LOCATION:Pavilhão do Clube Desportivo de Paço de Arcos (CDPA)
+DESCRIPTION:CD Paço Arcos vs HC Sintra\nTAÇA JESUS CORREIA - SENIORES MAS
+ CULINOS · SENIORES MASCULINOS\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.
+ dev/jogo/9314\nDados da Associação de Patinagem de Lisboa. Site não ofi
+ cial.
+URL:https://hoquei.pages.dev/jogo/9314
+END:VEVENT
 END:VCALENDAR

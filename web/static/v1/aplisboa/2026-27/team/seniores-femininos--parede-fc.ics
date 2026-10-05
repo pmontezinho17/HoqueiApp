@@ -8,4 +8,17 @@ X-WR-CALDESC:Jogos de Parede FC (Seniores Femininos)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:jogo-9327@hoquei.pages.dev
+DTSTAMP:20261011T000000Z
+DTSTART:20261011T153000Z
+DTEND:20261011T170000Z
+SUMMARY:🏑 Seniores Femininos 🏑 A Stuart HCM vs Parede FC
+LOCATION:Pavilhão João Campelo - A. Stuart Hóquei Clube de Massamá
+DESCRIPTION:A Stuart HCM vs Parede FC\nTAÇA PROF. JOAO CAMPELO - SENIORES 
+ FEMININOS · SENIORES FEMININOS\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pa
+ ges.dev/jogo/9327\nDados da Associação de Patinagem de Lisboa. Site não
+  oficial.
+URL:https://hoquei.pages.dev/jogo/9327
+END:VEVENT
 END:VCALENDAR
