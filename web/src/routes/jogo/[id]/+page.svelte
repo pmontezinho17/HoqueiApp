@@ -10,6 +10,7 @@
 	import { piscar } from '$lib/piscar';
 	import { caminhoEquipa } from '$lib/slug';
 	import type { EventoJogo } from '$lib/tipos';
+	import { untrack } from 'svelte';
 
 	let { data } = $props();
 	const f = $derived(data.ficha);
@@ -115,20 +116,50 @@
 	/** altura natural do que colapsa, medida num invólucro que não é constrangido */
 	let alturaExtras = $state(0);
 	let cromado = $state<HTMLElement | null>(null);
+	let extras = $state<HTMLElement | null>(null);
 	/**
-	 * As duas alturas do cromado, apanhadas quando ele lá está.
+	 * A altura do cromado, **somada** e não medida de uma vez só.
 	 *
-	 * A expandida é o que a reserva guarda no fluxo; a diferença entre as duas é o alcance
-	 * do colapso. Enquanto a colapsada ainda não foi vista, serve a altura do que se fecha,
-	 * que lhe anda perto — e à primeira passagem o valor afina-se sozinho.
+	 * Medir `.cromado` inteiro é uma corrida que se perde. A altura do que se fecha chega
+	 * por um `bind:clientHeight`, e quando o observador acorda o `--alt` ainda não foi ao
+	 * DOM: medido aqui, o estado já dizia 121 e o ecrã ainda dava 114. A reserva nascia
+	 * 76px curta e o cromado ficava pousado por cima do princípio da lista — a 05/10, no
+	 * SC TORRES–CD PAÇO ARCOS B, o único golo do jogo estava no separador dos eventos e
+	 * **não se via**.
+	 *
+	 * Somadas, as duas parcelas medem-se cada uma onde é fiável: a base descontando os
+	 * extras ao cromado, os extras no invólucro que não os constrange. A conta fecha logo
+	 * no primeiro quadro, haja ou não notificação de tamanho pelo meio.
+	 *
+	 * O `ResizeObserver` fica para o que muda **depois**: os emblemas chegam da rede, o
+	 * nome de uma prova parte numa linha a mais, o telemóvel roda, e numa ronda ao vivo
+	 * entra um marcador novo — que é precisamente quando ninguém quer o cromado a tapar o
+	 * que acabou de acontecer.
+	 *
+	 * A colapsada é apanhada à passagem; enquanto não foi vista, o alcance serve-se da
+	 * altura do que se fecha, que lhe anda perto.
 	 */
-	let alturaExpandida = $state(0);
+	let alturaBase = $state(0);
 	let alturaColapsada = $state(0);
 	$effect(() => {
-		if (!cromado) return;
-		if (k === 0) alturaExpandida = cromado.offsetHeight;
-		else if (k === 1) alturaColapsada = cromado.offsetHeight;
+		const el = cromado;
+		const ex = extras;
+		if (!el || !ex) return;
+		// `untrack`: ler o `k` aqui dentro faria o efeito voltar a correr — e a trocar de
+		// observador — a cada quadro de scroll. Quer-se um observador só, que leia o `k` do
+		// momento em que mede.
+		const medir = () =>
+			untrack(() => {
+				if (k === 0) alturaBase = el.offsetHeight - ex.offsetHeight;
+				else if (k === 1) alturaColapsada = el.offsetHeight;
+			});
+		medir();
+		const olho = new ResizeObserver(medir);
+		olho.observe(el);
+		return () => olho.disconnect();
 	});
+	/** o cromado aberto: o que fica mais o que se fecha */
+	const alturaExpandida = $derived(alturaBase + alturaExtras);
 	const alcance = $derived(
 		Math.max(1, alturaExpandida && alturaColapsada
 			? alturaExpandida - alturaColapsada
@@ -183,7 +214,7 @@
 		<span class="emb"><Emblema equipa={f.fora} src={data.emblemas[f.fora]} tamanho={44} /></span>
 	</div>
 
-	<div class="extras">
+	<div class="extras" bind:this={extras}>
 		<div class="medida" bind:clientHeight={alturaExtras}>
 			<div class="nomes">
 				<svelte:element this={f.categoria ? 'a' : 'span'}
