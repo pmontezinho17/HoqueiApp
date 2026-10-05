@@ -107,11 +107,17 @@ while [ "$(date +%s)" -lt "$fim" ]; do
     # minutos até ao próximo jogo, em aritmética de shell e não com `date`: o runner é
     # GNU e a máquina de desenvolvimento é BSD, e as duas não partilham sintaxe nenhuma
     # para "hoje às 16:30". `10#` força base 10 — sem isso "08" e "09" são octal inválido.
+    #
+    # `TZ=Europe/Lisbon` não é enfeite: as horas dos jogos vêm da agenda, que está na hora
+    # de Lisboa, e o runner da GitHub corre em UTC. Sem isto, a 05/10 às 10:21 o ciclo
+    # calculou que o jogo das 11:00 estava a **99** minutos em vez de 39, e saiu quando
+    # devia ter ficado. No inverno, com Portugal em UTC, o erro desaparecia sozinho — que
+    # é a pior espécie de bug.
     alvo=$(( 10#${BASH_REMATCH[1]} * 60 + 10#${BASH_REMATCH[2]} ))
-    agora_min=$(( 10#$(date +%H) * 60 + 10#$(date +%M) ))
+    agora_min=$(( 10#$(TZ=Europe/Lisbon date +%H) * 60 + 10#$(TZ=Europe/Lisbon date +%M) ))
     faltam=$(( alvo - agora_min ))
     if [ "$faltam" -gt "$ESPERA_MAX" ]; then
-      echo "próximo jogo às $proximo, daqui a ${faltam} min — a sair, o cron traz-nos de volta"
+      echo "próximo jogo às $proximo (agora $(TZ=Europe/Lisbon date +%H:%M) em Lisboa), daqui a ${faltam} min — a sair, o cron traz-nos de volta"
       exit 0
     fi
   fi
