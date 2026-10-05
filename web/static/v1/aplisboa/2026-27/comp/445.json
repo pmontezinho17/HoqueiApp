@@ -272,8 +272,8 @@
    "hora": "15:30:00",
    "casa": "A STUART HCM",
    "fora": "PAREDE FC A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 3,
    "recinto": "PAV.PROF.JOÃO CAMPELO",
    "ao_vivo": false
   },
@@ -466,6 +466,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "PAREDE FC A",
+     "logo": "/intranet/logos/3.png",
+     "jogos": 3,
+     "vitorias": 3,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 20,
+     "golos_sofridos": 2,
+     "diferenca": 18,
+     "racio": 10.0,
+     "pontos": 9
+    },
+    {
+     "posicao": 2,
      "equipa": "SPORTING CP A",
      "logo": "/intranet/logos/2.png",
      "jogos": 2,
@@ -476,20 +490,6 @@
      "golos_sofridos": 0,
      "diferenca": 17,
      "racio": null,
-     "pontos": 6
-    },
-    {
-     "posicao": 2,
-     "equipa": "PAREDE FC A",
-     "logo": "/intranet/logos/3.png",
-     "jogos": 2,
-     "vitorias": 2,
-     "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 17,
-     "golos_sofridos": 2,
-     "diferenca": 15,
-     "racio": 8.5,
      "pontos": 6
     },
     {
@@ -510,14 +510,14 @@
      "posicao": 4,
      "equipa": "A STUART HCM",
      "logo": "/intranet/logos/10.png",
-     "jogos": 2,
+     "jogos": 3,
      "vitorias": 1,
      "empates": 0,
-     "derrotas": 1,
+     "derrotas": 2,
      "golos_marcados": 10,
-     "golos_sofridos": 14,
-     "diferenca": -4,
-     "racio": 0.71,
+     "golos_sofridos": 17,
+     "diferenca": -7,
+     "racio": 0.59,
      "pontos": 3
     },
     {

@@ -146,8 +146,8 @@
    "hora": "19:00:00",
    "casa": "PAREDE FC B",
    "fora": "CACO B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 1,
+   "golos_fora": 0,
    "recinto": "PAV. PAREDE",
    "ao_vivo": false
   },
@@ -466,6 +466,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "PAREDE FC B",
+     "logo": "/intranet/logos/3.png",
+     "jogos": 4,
+     "vitorias": 3,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 15,
+     "golos_sofridos": 7,
+     "diferenca": 8,
+     "racio": 2.14,
+     "pontos": 9
+    },
+    {
+     "posicao": 2,
      "equipa": "AD OEIRAS B",
      "logo": "/intranet/logos/6.png",
      "jogos": 2,
@@ -479,7 +493,7 @@
      "pontos": 6
     },
     {
-     "posicao": 2,
+     "posicao": 3,
      "equipa": "SPORTING CP B",
      "logo": "/intranet/logos/2.png",
      "jogos": 2,
@@ -490,20 +504,6 @@
      "golos_sofridos": 1,
      "diferenca": 14,
      "racio": 15.0,
-     "pontos": 6
-    },
-    {
-     "posicao": 3,
-     "equipa": "PAREDE FC B",
-     "logo": "/intranet/logos/3.png",
-     "jogos": 3,
-     "vitorias": 2,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 14,
-     "golos_sofridos": 7,
-     "diferenca": 7,
-     "racio": 2.0,
      "pontos": 6
     },
     {
@@ -524,13 +524,13 @@
      "posicao": 5,
      "equipa": "CACO B",
      "logo": "/intranet/logos/26.png",
-     "jogos": 2,
+     "jogos": 3,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 2,
+     "derrotas": 3,
      "golos_marcados": 0,
-     "golos_sofridos": 19,
-     "diferenca": -19,
+     "golos_sofridos": 20,
+     "diferenca": -20,
      "racio": 0.0,
      "pontos": 0
     },

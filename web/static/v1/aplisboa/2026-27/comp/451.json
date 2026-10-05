@@ -127,8 +127,8 @@
    "hora": "15:00:00",
    "casa": "UF ENTRONCAMENTO",
    "fora": "BIBLIOTECA IR B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 6,
+   "golos_fora": 1,
    "recinto": "PAV. A. MATEUS- ENTRONCAMENTO",
    "ao_vivo": false
   },
@@ -321,6 +321,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "UF ENTRONCAMENTO",
+     "logo": "/intranet/logos/24.png",
+     "jogos": 2,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 14,
+     "golos_sofridos": 4,
+     "diferenca": 10,
+     "racio": 3.5,
+     "pontos": 6
+    },
+    {
+     "posicao": 2,
      "equipa": "SC TOMAR",
      "logo": "/intranet/logos/20.png",
      "jogos": 1,
@@ -331,20 +345,6 @@
      "golos_sofridos": 2,
      "diferenca": 13,
      "racio": 7.5,
-     "pontos": 3
-    },
-    {
-     "posicao": 2,
-     "equipa": "UF ENTRONCAMENTO",
-     "logo": "/intranet/logos/24.png",
-     "jogos": 1,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 8,
-     "golos_sofridos": 3,
-     "diferenca": 5,
-     "racio": 2.67,
      "pontos": 3
     },
     {
@@ -379,14 +379,14 @@
      "posicao": 5,
      "equipa": "BIBLIOTECA IR B",
      "logo": "/intranet/logos/22.png",
-     "jogos": 1,
+     "jogos": 2,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 2,
-     "golos_sofridos": 15,
-     "diferenca": -13,
-     "racio": 0.13,
+     "derrotas": 2,
+     "golos_marcados": 3,
+     "golos_sofridos": 21,
+     "diferenca": -18,
+     "racio": 0.14,
      "pontos": 0
     }
    ]

@@ -68,6 +68,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MARTIM RIJO",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 2,
+   "numero": "4",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RAFAEL CARUJO",
    "equipa": "CF ESTREMOZ",
    "jogos": 2,
@@ -146,36 +159,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM RIJO",
-   "equipa": "HC PORTIMÃO",
-   "jogos": 2,
-   "numero": "4",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MIGUEL PRIMO",
    "equipa": "CF ESTREMOZ",
    "jogos": 2,
    "numero": "9",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MUNI FERNANDES",
-   "equipa": "HC PORTIMÃO",
-   "jogos": 2,
-   "numero": "2",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -585,6 +572,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MUNI FERNANDES",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 2,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {

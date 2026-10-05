@@ -85,8 +85,8 @@
    "hora": "17:00:00",
    "casa": "UD VILAFRANQUENSE A",
    "fora": "CD PAÇO ARCOS A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 5,
+   "golos_fora": 0,
    "recinto": "PAV. VILAFRANQUENSE",
    "ao_vivo": false
   },

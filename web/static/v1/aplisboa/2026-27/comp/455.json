@@ -146,8 +146,8 @@
    "hora": "16:00:00",
    "casa": "AE FISICA D A",
    "fora": "HC SINTRA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 11,
+   "golos_fora": 1,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
   },
@@ -480,6 +480,20 @@
     },
     {
      "posicao": 2,
+     "equipa": "AE FISICA D A",
+     "logo": "/intranet/logos/11.png",
+     "jogos": 3,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 14,
+     "golos_sofridos": 4,
+     "diferenca": 10,
+     "racio": 3.5,
+     "pontos": 6
+    },
+    {
+     "posicao": 3,
      "equipa": "CACO B",
      "logo": "/intranet/logos/26.png",
      "jogos": 2,
@@ -493,7 +507,7 @@
      "pontos": 4
     },
     {
-     "posicao": 3,
+     "posicao": 4,
      "equipa": "AD OEIRAS B",
      "logo": "/intranet/logos/6.png",
      "jogos": 2,
@@ -504,20 +518,6 @@
      "golos_sofridos": 1,
      "diferenca": 7,
      "racio": 8.0,
-     "pontos": 3
-    },
-    {
-     "posicao": 4,
-     "equipa": "AE FISICA D A",
-     "logo": "/intranet/logos/11.png",
-     "jogos": 2,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 3,
-     "golos_sofridos": 3,
-     "diferenca": 0,
-     "racio": 1.0,
      "pontos": 3
     },
     {
@@ -538,13 +538,13 @@
      "posicao": 6,
      "equipa": "HC SINTRA",
      "logo": "/intranet/logos/8.png",
-     "jogos": 2,
+     "jogos": 3,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 2,
-     "golos_marcados": 1,
-     "golos_sofridos": 10,
-     "diferenca": -9,
+     "derrotas": 3,
+     "golos_marcados": 2,
+     "golos_sofridos": 21,
+     "diferenca": -19,
      "racio": 0.1,
      "pontos": 0
     }
