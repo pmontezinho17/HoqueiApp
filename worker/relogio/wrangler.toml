@@ -11,8 +11,11 @@ crons = ["*/10 6-22 * * *"]
 [vars]
 REPO = "pmontezinho17/HoqueiApp"
 WORKFLOW = "aovivo.yml"
+# o cão de guarda lança a ronda completa quando a cadeia parte em silêncio
+WORKFLOW_DADOS = "dados.yml"
 REF = "main"
 AGENDA = "https://hoquei.pages.dev/v1/aplisboa/2026-27/agenda.json"
+META = "https://hoquei.pages.dev/v1/aplisboa/2026-27/meta.json"
 
 # GITHUB_TOKEN **não** vive aqui. É um segredo, posto com `wrangler secret put` — ver o
 # README ao lado.

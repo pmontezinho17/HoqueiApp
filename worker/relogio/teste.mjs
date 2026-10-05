@@ -81,5 +81,64 @@ t('um jogo abandonado há seis horas deixa de acordar o ciclo', () => {
   assert.equal(r.length, 0);
 });
 
+// ---------------------------------------------------------------------------
+// o cão de guarda
+// ---------------------------------------------------------------------------
+import { emFalta, idadeDosDados } from './src/index.js';
+
+console.log('\ncão de guarda');
+
+const tarde = { data: '2026-10-04', hora: '18:14', minutos: emMinutos('18:14'),
+	instante: Date.parse('2026-10-04T17:14:00Z') };
+
+t('apanha o caso real de 04/10: o jogo das 16:30 sem resultado às 18:14', () => {
+	// 104 minutos depois do apito inicial. Com o limiar a 120 este caso escapava — foi o
+	// que a reprodução contra a agenda real mostrou, e é por isso que o limiar são 90.
+	const r = emFalta([
+		{ data: '2026-10-04', hora: '16:30', casa: 'SPORTING CP A', fora: 'APAC TOJAL', gc: null, gf: null },
+	], tarde);
+	assert.equal(r.length, 1);
+});
+
+t('não acusa um jogo que acabou de começar', () => {
+	assert.equal(emFalta([
+		{ data: '2026-10-04', hora: '17:30', casa: 'A', fora: 'B', gc: null, gf: null },
+	], tarde).length, 0);
+});
+
+t('não acusa um jogo a meio: 80 minutos ainda cabem num jogo de seniores', () => {
+	assert.equal(emFalta([
+		{ data: '2026-10-04', hora: '16:54', casa: 'A', fora: 'B', gc: null, gf: null },
+	], tarde).length, 0);
+});
+
+t('não acusa um jogo marcado a decorrer, por muito que já dure', () => {
+	assert.equal(emFalta([
+		{ data: '2026-10-04', hora: '15:00', casa: 'A', fora: 'B', gc: 2, gf: 1, ao_vivo: true },
+	], tarde).length, 0);
+});
+
+t('não acusa um jogo que já tem resultado', () => {
+	assert.equal(emFalta([
+		{ data: '2026-10-04', hora: '15:00', casa: 'A', fora: 'B', gc: 9, gf: 1 },
+	], tarde).length, 0);
+});
+
+t('não acusa jogos de outros dias', () => {
+	assert.equal(emFalta([
+		{ data: '2026-10-03', hora: '10:00', casa: 'A', fora: 'B', gc: null, gf: null },
+	], tarde).length, 0);
+});
+
+t('mede a idade dos dados publicados', () => {
+	// meta de 16:28 WEST = 15:28 UTC, agora 18:14 WEST → 106 minutos
+	assert.equal(idadeDosDados({ generated_at: '2026-10-04T15:28:00Z' }, tarde), 106);
+});
+
+t('meta em falta ou corrompida conta como infinitamente velha', () => {
+	assert.equal(idadeDosDados(null, tarde), Infinity);
+	assert.equal(idadeDosDados({ generated_at: 'nada disto' }, tarde), Infinity);
+});
+
 console.log(falhas ? `\n${falhas} falha(s)` : '\ntodos passaram');
 process.exit(falhas ? 1 : 0);

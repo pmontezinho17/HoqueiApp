@@ -23,14 +23,39 @@ prazo. O passo 1 explica a escolha.
 
 ## O que o Worker faz, de 10 em 10 minutos
 
-1. Lê a `agenda.json` que nós próprios publicamos — não toca na APL.
+1. Lê a `agenda.json` e o `meta.json` que nós próprios publicamos — não toca na APL.
 2. Se hoje não tem jogos, não faz mais nada (e nem sequer paga o custo de interpretar o
    ficheiro: faz uma procura de texto primeiro).
 3. Se há um jogo a decorrer, ou um que comece dentro de 45 minutos, pede à GitHub para
    lançar a `aovivo.yml`.
+4. **Cão de guarda:** se há jogos que já deviam ter acabado e continuam sem resultado, e os
+   nossos dados também já estão velhos, lança a ronda completa.
 
 Se já houver uma corrida a decorrer, a `concurrency` do workflow põe a nova **em espera** e
 ela arranca mal a primeira acabe. É esse revezamento que dá cobertura contínua.
+
+### O cão de guarda não avisa: corrige
+
+O pior modo de falha desta cadeia não é falhar — é **falhar em silêncio**. A 4 de outubro as
+rondas pararam às 16:28 e a aplicação ficou a mostrar "por começar" em jogos que já tinham
+acabado 15–0. Só se soube porque o dono do projecto reparou. Um alarme por email não resolve
+isso, porque o modo de falha é precisamente não haver ninguém a olhar.
+
+A regra tem três condições, e são as três que evitam martelar a fonte:
+
+| | Condição | Porquê |
+|---|---|---|
+| 1 | um jogo de hoje começou há **90 min** ou mais e continua sem resultado nem marca de ao vivo | em hóquei em patins o jogo mais longo decorre em 70–80 minutos |
+| 2 | o nosso `meta.json` tem **40 min** ou mais | se publicámos há cinco minutos e continua sem resultado, o atraso é da fonte e correr outra vez não traz nada |
+| 3 | a última ronda completa foi há **45 min** ou mais | uma ronda custa ~75 pedidos à APL |
+
+O limiar dos 90 minutos saiu de uma medição e não de um palpite. Com 120, reproduzi o cão de
+guarda contra a agenda real de 4/10 às 18:14 — a cadeia partida, cinco jogos sem resultado —
+e ele **não disparava**: o mais antigo tinha 104 minutos. Com 90, dispara às **18:00**,
+catorze minutos antes de o problema ter sido notado por uma pessoa.
+
+Para ver o que ele pensa agora, sem disparar nada, o endereço do Worker responde com um
+campo `guarda`.
 
 ## Instalação
 

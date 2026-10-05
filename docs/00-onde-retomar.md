@@ -91,6 +91,12 @@ pelas duas rondas, e `_marcar_em_curso()` põe ou tira a marca na agenda a parti
 agenda e lança a `aovivo.yml` se houver jogo a decorrer ou a começar dentro de 45 minutos.
 Os `cron` da Cloudflare disparam; os da GitHub não.
 
+Desde 5/10 traz também um **cão de guarda**: se houver jogos que já deviam ter acabado e
+continuam sem resultado, e os nossos dados também estiverem velhos, lança a ronda completa.
+Não avisa — corrige, porque o modo de falha a fechar é precisamente o de ninguém estar a
+olhar. Reproduzido contra a agenda real de 4/10: teria resolvido às 18:00, catorze minutos
+antes de o problema ter sido notado.
+
 **Está escrito e testado, mas não instalado:** precisa de um *fine-grained token* com
 `Actions: Read and write` só neste repositório, guardado com `wrangler secret put`. As
 instruções estão no [README do Worker](../worker/relogio/README.md). Instalação única, ~10
