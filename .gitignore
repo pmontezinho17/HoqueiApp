@@ -20,3 +20,18 @@ data-samples/sondagem/html/
 # o Worker não tem dependências; se o wrangler criar estado local, fica de fora
 worker/**/node_modules/
 worker/**/.wrangler/
+
+# agentic-project:local-only:start
+# Local-only project state. These rules do not remove or untrack existing files.
+.secrets/
+.scratch/
+.tmp/
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+.direnv/
+.venv/
+venv/
+# agentic-project:local-only:end

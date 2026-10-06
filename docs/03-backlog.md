@@ -727,6 +727,189 @@ que melhor protege o que já temos, e são meio dia de trabalho.)
 
 ---
 
+## Adopção do padrão Agentic Project — e o que dela ficou (05/10/2026)
+
+A skill `create-agentic-project` foi aplicada a 05/10 e **o vault foi abandonado no mesmo
+dia**, por decisão do dono. Ficou só o que pagava: um `AGENTS.md` canónico no topo do
+repositório e um `CLAUDE.md` que aponta para ele.
+
+Era o que faltava mesmo. Até aqui cada sessão começava com o agente a redescobrir as
+convenções deste projecto a partir do código e dos dez documentos — e algumas delas não são
+adivinháveis: que a app não faz *scraping* nunca, que um `git push` não publica, que há dois
+publicadores durante uma janela de jogos.
+
+### Porque é que o vault foi abandonado
+
+O andaime criou um `hoqueiapp-vault/` com `00 - Meta` a `06 - Archive` — vazio — ao lado de
+um `docs/` com dez documentos e um backlog de 723 linhas. E uma pasta `hoqueiapp-source-code/`
+vazia ao lado do `scraper/`, do `web/`, do `scripts/` e do `worker/`, que é onde o código
+está de facto.
+
+Migrar o `docs/` para dentro do vault parte todas as referências `docs/NN-...` que vivem
+**dentro dos comentários do código**, e essas referências são metade do valor delas: é assim
+que se chega ao raciocínio a partir do sítio onde ele importa. Manter os dois era pior: um
+vault vazio ao lado de um `docs/` cheio faz o próximo agente concluir que este projecto não
+tem conhecimento registado.
+
+Ficou o bloco gerido no `.gitignore` (`.secrets/`, `.scratch/`, `.tmp/`, ficheiros de
+ambiente, *virtualenvs*), que é útil independentemente do padrão.
+
+| ID | Item | Estado |
+|---|---|---|
+| P10.1 | Decidir entre migrar o `docs/` ou abandonar o vault | ✅ **abandonar**, 05/10/2026 |
+| P10.2 | Apagar `hoqueiapp-vault/` e `hoqueiapp-source-code/` | ✅ feito. Nunca foram commitados |
+| P10.3 | Os ponteiros do `AGENTS.md` para a suite central em `../../AgenticSuite/` só resolvem na máquina do dono, e este repositório é **público** | aberto, XS |
+
+### Cinco regras do andaime que foram substituídas, e porquê
+
+O `AGENTS.md` gerado trazia cinco regras que contradizem este projecto. Ficam aqui, porque é
+o único registo que sobrevive ao vault:
+
+| Regra gerada | Porque foi substituída |
+|---|---|
+| "be extremely concise and sacrifice grammar for the sake of concision" | O dono pede raciocínio e evidência, e várias vezes esteve certo contra a primeira conclusão do agente. Cortar o porquê destrói o valor. **Em reavaliação a 05/10** — ver nota abaixo |
+| "Use EN-GB for project knowledge" | O projecto é todo em português de propósito: código, comentários, dez documentos, mensagens de commit |
+| "Engineered source lives under `hoqueiapp-source-code/`" | Falso. O código está em `scraper/`, `web/`, `scripts/`, `worker/` |
+| "Never use the em dash or en dash" | Incompatível, e verificado: 113 travessões só neste ficheiro, e o traço de meia risca é o traço dos resultados na interface (`1 – 0`), em quatro componentes |
+| "Workspace global rules in `../../AGENTS.md`" | Não existe. Esta máquina não tem workspace Agentic OS: sem `projects.yml`, sem `WORKSPACE.md` |
+
+**Uma delas a ferramenta desfaz sozinha.** Correr o andaime outra vez repõe a regra de
+reporte — está verificado, não suposto: o `--dry-run` de confirmação diz
+`AGENTS.md [append reporting rule]`. Quem voltar a correr a skill tem de a tirar outra vez,
+ou de decidir que a quer.
+
+---
+
+## Pedidos de 06/10/2026
+
+| ID | Item | Prio | Est. | Nota |
+|---|---|---|---|---|
+| P11.1 | Caixa de email a alimentar o backlog sozinha | should | M | **Não há acesso ao Gmail nesta sessão** — não há conector de email. O caminho que não precisa de um: Cloudflare Email Routing → Worker → API da GitHub a abrir uma *issue*. Já temos Worker e a skill `cloudflare-email-service`. O token precisaria de permissão de *issues* |
+| P11.2 | Email → *issue*, **não** → Pull Request | must | XS | Separação deliberada, ver abaixo |
+| P11.3 | Logs com níveis | should | M | Hoje são 30 `print()` no `cli.py`, sem `logging` e sem `--verbose`. Saem para os logs da corrida na GitHub, que expiram e morrem com ela |
+| P11.4 | Interruptor manual de tema | should | S | ✅ **feito a 06/10/2026**, dentro do menu do ⋮ (P11.9). Três opções — Sistema, Claro, Escuro — e a escolha contraria o sistema nos dois sentidos, verificado. `sistema` **não se guarda**: a ausência da chave é a omissão |
+| P11.5 | Saber que menus as pessoas usam | should | M | **Colide com a política de privacidade.** Ver abaixo |
+| P11.6 | O texto do comentário fica escrito depois de enviar | must | XS | ✅ **feito a 06/10/2026.** Limpa ao enviar, e **só** ao enviar: fechar pelo × ou pelo véu mantém o rascunho, verificado nos três caminhos |
+| P11.8 | Um favorito com a forma antiga parte o `/clube` em silêncio | must | S | Descoberto a 06/10 ao testar o tour: o `ler()` em `favoritos.svelte.ts` aceita o que está no `localStorage` sem validar a forma. Um favorito sem `competicoes` — guardado por uma versão anterior — faz o `resumir()` rebentar no `flatMap`, e a página fica **sem cartões, sem convite e sem erro à vista**. Validar a forma ao ler e descartar o que não a tiver |
+| P11.9 | O ⋮ passa de página a menu | must | S | ✅ **feito a 06/10/2026.** Ver abaixo |
+| P11.10 | A política de privacidade tinha ficado desactualizada | must | XS | ✅ **corrigido a 06/10/2026**, no mesmo commit do tema. Ver abaixo |
+| P11.11 | Perguntas frequentes | should | S | Pedido a 06/10/2026. **Ainda não há perguntas reais** — as primeiras somos nós a inventar, e isso tem consequências no desenho. Ver abaixo |
+| P11.7 | Segundo site para testes | should | S | O Cloudflare Pages dá *preview deployments* por ramo sem custo: um ramo `testes` dá um URL próprio, testável no telemóvel |
+
+### P11.2 — porque é que um email não deve virar Pull Request
+
+Um Pull Request é código. Um email é um pedido. Abrir um PR a partir de um email seria
+implementar, sem revisão, o que um remetente não autenticado escreveu — e o endereço de
+suporte está publicado numa página legal, aberto a qualquer pessoa. Email → *issue* é
+automatizável e seguro; *issue* → PR é trabalho com um humano a decidir no meio.
+
+### P11.5 — a análise de utilização contra o que prometemos
+
+A `/privacidade` diz, hoje, "sem conta, sem cookies, sem rastreio" e "zero tipos de letra
+externos" — foi escrita a partir de uma auditoria ao código, e é verdadeira. Qualquer
+contador de cliques por menu quebra isso, e a página teria de mudar **no mesmo commit**.
+
+Três saídas, por ordem do que custa à promessa:
+
+1. **Logs do lado do servidor, agregados por caminho.** O Cloudflare já vê os pedidos; contar
+   quantos chegam a `/clube` e a `/competicoes` não acrescenta código no cliente, nem cookie,
+   nem terceiro. Não distingue pessoas — e para "que menus se usam" não é preciso.
+2. **Cloudflare Web Analytics.** Sem cookies, mas injecta um script de `cloudflareinsights.com`:
+   é código de terceiros, e a frase da página deixa de ser verdade.
+3. **Contador próprio por evento.** Máximo detalhe, exige servidor e passa a guardar
+   comportamento de outras pessoas — o que obriga a reescrever a política a sério.
+
+A recomendação é a 1. Dá a resposta à pergunta que fizeste sem tocar na promessa.
+
+### P11.9 — o que estava no ⋮, e onde ficou
+
+O ⋮ era um link directo para `/mais`, e `/mais` tinha cinco blocos: ficha técnica dos dados,
+aviso de site não oficial, guia, resumo de privacidade e nomes de atletas. Três naturezas
+diferentes — uma preferência, uma ficha técnica e duas páginas legais — num ecrã só, porque
+tudo o que não tinha casa acabava ali.
+
+Agora o ⋮ abre um menu de cinco linhas em três grupos, escolhidas pelo dono a 06/10/2026:
+
+| Linha | Onde vive |
+|---|---|
+| Ver o guia outra vez | acção — navega para `/` e arranca o `guia` |
+| Dar uma opinião | acção — abre o painel de crítica, agora com o estado em `critica.svelte.ts` |
+| Aparência | **dentro do menu**, três botões, sem ecrã próprio |
+| Sobre a app e os dados | `/mais`, reduzido a duas secções: os números e o aviso de site não oficial |
+| Política de privacidade | `/privacidade` |
+
+Duas coisas que ficaram **de fora** e porquê:
+
+- **Termos de utilização.** A linha existia na proposta e o dono não a escolheu. Fica sem
+  página até haver texto — e o texto é decisão dele, não minha.
+- **Nomes de atletas.** Tinha linha própria na proposta e não ficou: a `/privacidade` já diz
+  o mesmo por extenso, com o compromisso e o endereço. Dois textos a dizer a mesma coisa
+  divergem no dia em que um deles mudar, e o resumo em `/mais` foi apagado.
+
+A **lupa não entra no menu**: esconder navegação primária atrás de um menu corta a descoberta
+a metade (`docs/04-benchmarking.md`).
+
+Uma consequência a registar: a atribuição à APL passou de um toque para dois — ⋮ → *Sobre a
+app e os dados*. O que foi dito à associação é que a aplicação a identifica como fonte, e
+continua a identificá-la; o "em todas as páginas" era regra nossa, não promessa.
+
+### P11.10 — a política de privacidade tinha deixado de ser verdade
+
+Ela enumerava **uma** chave em `localStorage`, `hoquei:favoritos:v1`, e o comentário no topo
+do ficheiro dizia "uma única chave". Medido a 06/10/2026: eram **duas**. O guia guarda
+`guia-visto` desde 06/10 e eu não corrigi a página no mesmo commit — que é exactamente o que
+a regra "código e documento no mesmo commit" existe para impedir. O interruptor de tema
+trouxe a terceira.
+
+Estão as três na página, cada uma com o que guarda. Fica também anotada a inconsistência que
+não corrigi: a chave do guia é `guia-visto` e as outras duas são `hoquei:…:v1`. Renomeá-la
+reporia o guia a toda a gente que já o viu — e isso é uma decisão sobre o produto, não uma
+arrumação de nomes.
+
+### P11.11 — um FAQ antes de haver perguntas
+
+O pedido veio com a ressalva certa: não há perguntas feitas, inventamos as primeiras. Vale a
+pena, e o risco é conhecido — um FAQ escrito do lado de dentro responde ao que **nós** achamos
+que se pergunta, e o sinal de que acertámos ou não só chega das pessoas. Duas regras que saem
+daí:
+
+1. **Começar curto.** Dez perguntas, não trinta. Uma lista comprida de perguntas que ninguém
+   fez é trabalho a mais e, pior, esconde as três que importam.
+2. **Revisitar depois do primeiro grupo de testes** (L7.6/L7.7) e do que chegar pelo botão de
+   opinião. O que lá estiver a 06/10/2026 é um ponto de partida, não a versão final.
+
+**Onde vive:** página própria, `/ajuda`, e uma sexta linha no menu do ⋮ (P11.9) — "Perguntas
+frequentes", acima de "Sobre a app e os dados". É texto mostrado ao utilizador, logo não toca
+no contrato de dados `/v1/...`.
+
+**Critério de aceitação:** a página existe, abre do menu, cada resposta é verdadeira à data e
+as que dependem de coisas que vão mudar dizem onde vive a verdade — senão o FAQ apodrece sem
+ninguém notar.
+
+As candidatas, com a fonte da resposta já identificada (é o que torna a escrita rápida e
+honesta):
+
+| Pergunta | A resposta vem de | Apodrece? |
+|---|---|---|
+| De quanto em quanto tempo actualiza? | `dados.yml` e o ciclo ao vivo: 30 s durante os jogos, duas horas aos fins de semana, seis nos dias úteis | sim, se a cadência mudar |
+| Isto é oficial? | não — `/mais`, secção "Este site não é oficial" | não |
+| Porque é que falta um jogo, ou um resultado está errado? | republicamos o que a fonte publica, tal como lá está; o caminho é escrever-nos | não |
+| Porque é que os Escolares e os Benjamins não têm classificação? | a fonte não a publica; o motor que a calcula está feito e validado (B9.14/B9.15) e espera resposta da APL | **sim** — muda no dia em que a resposta chegar |
+| Como sigo as minhas equipas, e como as mudo depois? | `O Meu Clube` — o ecrã de escolha de emblemas | não |
+| Dá para instalar no telemóvel? | é uma PWA: "Adicionar ao ecrã principal" | não |
+| Funciona sem rede? | sim, com o que já foi lido — `/privacidade` descreve a cópia local | não |
+| Há notificações? | ainda não; é a Fase 5 e depende da base de dados | **sim** |
+| Porque é que aparecem nomes de atletas de formação, e como peço a remoção de um? | `/privacidade`, secção "Nomes de atletas — a parte séria" | não |
+| O que são as séries de um campeonato regional? | W5.22 e a vista agregada | não |
+| Porque é que o meu clube aparece com o nome estranho ou repetido? | grafias erradas na fonte: medido a 05/10, 3 em 86 (B1.13) | **sim**, quando B1.13 for feito |
+| Tem custos ou publicidade? | não tem, nem conta | não |
+
+Ficam **de fora** por agora, e de propósito: qualquer pergunta sobre notificações por clube,
+histórico de épocas anteriores ou exportação de dados. Não existem, e um FAQ que explica o
+que não há parece um roteiro de promessas.
+
+---
+
 ## Próximo incremento (revisto a 05/10/2026)
 
 A lista que estava aqui — publicar no Cloudflare, ecrã de equipa, quadro de marcadores,

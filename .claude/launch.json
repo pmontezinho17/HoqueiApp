@@ -28,6 +28,21 @@
         "4173"
       ],
       "port": 4173
+    },
+    {
+      "name": "hoquei-lan",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "web",
+        "--",
+        "--host",
+        "--port",
+        "5174"
+      ],
+      "port": 5174
     }
   ]
 }
