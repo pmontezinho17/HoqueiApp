@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9760@hoquei.pages.dev
-DTSTAMP:20261005T000000Z
-DTSTART:20261005T150000Z
-DTEND:20261005T163000Z
-SUMMARY:🏑 Sub-17 🏑 AE Fisica D A vs HC Sintra
-LOCATION:Fisica Torres Vedras
-DESCRIPTION:AE Fisica D A 11–1 HC Sintra\nCAMP. REG. SUB-17 - 1ª FASE ·
-  Série E · SUB-17\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/
- jogo/9760\nDados da Associação de Patinagem de Lisboa. Site não oficial
- .
-URL:https://hoquei.pages.dev/jogo/9760
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9764@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T133000Z

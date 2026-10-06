@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9946@hoquei.pages.dev
-DTSTAMP:20261005T000000Z
-DTSTART:20261005T100000Z
-DTEND:20261005T113000Z
-SUMMARY:🏑 Escolares 🏑 SC Torres vs CD Paço Arcos B
-LOCATION:Sporting Clube de Torres (SCT)
-DESCRIPTION:SC Torres 8–0 CD Paço Arcos B\nENCONTROS DISTRITAIS ESCOLARE
- S - 1ª FASE NIVEL II · Série D · ESCOLARES\nPAV. SC TORRES\nhttps://ho
- quei.pages.dev/jogo/9946\nDados da Associação de Patinagem de Lisboa. Si
- te não oficial.
-URL:https://hoquei.pages.dev/jogo/9946
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9950@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T100000Z

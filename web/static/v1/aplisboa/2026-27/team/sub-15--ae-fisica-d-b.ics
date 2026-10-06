@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9569@hoquei.pages.dev
-DTSTAMP:20261005T000000Z
-DTSTART:20261005T133000Z
-DTEND:20261005T150000Z
-SUMMARY:🏑 Sub-15 🏑 AE Fisica D B vs HC Sintra
-LOCATION:Fisica Torres Vedras
-DESCRIPTION:AE Fisica D B 4–0 HC Sintra\nCAMP. REG. SUB-15 - 1ª FASE · 
- Série A · SUB-15\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/j
- ogo/9569\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9569
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9573@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T173000Z

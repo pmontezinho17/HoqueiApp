@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9805@hoquei.pages.dev
-DTSTAMP:20261005T000000Z
-DTSTART:20261005T170000Z
-DTEND:20261005T183000Z
-SUMMARY:🏑 Sub-19 🏑 S Alenquer Benfica vs HC Turquel
-LOCATION:Sport Alenquer e Benfica
-DESCRIPTION:S Alenquer Benfica 3–8 HC Turquel\nCAMP. REG. SUB-19 - 1ª FA
- SE · Série A · SUB-19\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.d
- ev/jogo/9805\nDados da Associação de Patinagem de Lisboa. Site não ofic
- ial.
-URL:https://hoquei.pages.dev/jogo/9805
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9808@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T133000Z

@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9908@hoquei.pages.dev
-DTSTAMP:20261005T000000Z
-DTSTART:20261005T160000Z
-DTEND:20261005T173000Z
-SUMMARY:🏑 Escolares 🏑 UD Vilafranquense A vs CD Paço Arcos A
-LOCATION:Pavilhão José Mário Cerejo
-DESCRIPTION:UD Vilafranquense A 5–0 CD Paço Arcos A\nENCONTROS DISTRITAI
- S ESCOLARES - 1ª FASE NIVEL I · Série B · ESCOLARES\nPAV. VILAFRANQUEN
- SE\nhttps://hoquei.pages.dev/jogo/9908\nDados da Associação de Patinagem
-  de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9908
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9911@hoquei.pages.dev
 DTSTAMP:20261016T000000Z
 DTSTART:20261016T200000Z

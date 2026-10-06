@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9659@hoquei.pages.dev
-DTSTAMP:20261005T000000Z
-DTSTART:20261005T140000Z
-DTEND:20261005T153000Z
-SUMMARY:🏑 Sub-17 🏑 UF Entroncamento vs Biblioteca IR B
-LOCATION:Pavilhão Albano Mateus
-DESCRIPTION:UF Entroncamento 6–1 Biblioteca IR B\nCAMP. REG. SUB-17 - 1ª
-  FASE · Série A · SUB-17\nPAV. A. MATEUS- ENTRONCAMENTO\nhttps://hoquei
- .pages.dev/jogo/9659\nDados da Associação de Patinagem de Lisboa. Site n
- ão oficial.
-URL:https://hoquei.pages.dev/jogo/9659
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9657@hoquei.pages.dev
 DTSTAMP:20261008T000000Z
 DTSTART:20261008T190000Z

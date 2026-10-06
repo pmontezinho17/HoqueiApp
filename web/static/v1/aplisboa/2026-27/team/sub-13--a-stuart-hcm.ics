@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9519@hoquei.pages.dev
-DTSTAMP:20261005T000000Z
-DTSTART:20261005T143000Z
-DTEND:20261005T160000Z
-SUMMARY:🏑 Sub-13 🏑 A Stuart HCM vs Parede FC A
-LOCATION:Pavilhão João Campelo - A. Stuart Hóquei Clube de Massamá
-DESCRIPTION:A Stuart HCM 0–3 Parede FC A\nCAMP. REG. SUB-13 - 1ª FASE ·
-  Série C · SUB-13\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.dev/jogo
- /9519\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9519
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9511@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T140000Z
