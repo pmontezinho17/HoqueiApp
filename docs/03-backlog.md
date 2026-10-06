@@ -794,6 +794,7 @@ ou de decidir que a quer.
 | P11.9 | O ⋮ passa de página a menu | must | S | ✅ **feito a 06/10/2026.** Ver abaixo |
 | P11.10 | A política de privacidade tinha ficado desactualizada | must | XS | ✅ **corrigido a 06/10/2026**, no mesmo commit do tema. Ver abaixo |
 | P11.11 | Perguntas frequentes | should | S | Pedido a 06/10/2026. **Ainda não há perguntas reais** — as primeiras somos nós a inventar, e isso tem consequências no desenho. Ver abaixo |
+| P11.12 | O `dados.yml` aborta se alguém commitar durante a corrida | should | XS | Apanhado a 06/10/2026, na corrida 37537581781: ela raspou, comitou os dados e o `git push` foi rejeitado porque eu tinha empurrado uma correcção nesse minuto. Abortou **antes** de publicar — falhou do lado seguro, e a ronda seguinte regenerou tudo —, mas perdeu a corrida e os 150 ficheiros daquela ronda. Um `git pull --rebase` antes do `git push`, ou um laço de duas tentativas, resolve-o. O `aovivo.sh` já lida com isto; o `dados.yml` não |
 | P11.7 | Segundo site para testes | should | S | O Cloudflare Pages dá *preview deployments* por ramo sem custo: um ramo `testes` dá um URL próprio, testável no telemóvel |
 
 ### P11.2 — porque é que um email não deve virar Pull Request
