@@ -696,6 +696,73 @@ Daí saem três cadências, e não duas:
 | B9.19 | **Impressão estrutural por ronda**: nº de colunas por tipo de tabela, com aviso quando muda | should | S | ideia emprestada do Scrapling (ver [07](07-avaliacao-scrapling.md)), sem a dependência nem a relocalização silenciosa |
 | Q4.7 | **A sonda pára quando já não há nada a observar** | must | XS | ✅ corria as 4 horas inteiras depois do apito final — ~57 pedidos inúteis a um servidor pequeno de uma federação, contra a nossa própria postura, e o diário só era comitado no fim. Agora sai `--apos-fim` rondas (5) depois de todos os jogos terminarem, e essas rondas medem quanto tempo o boletim ainda mexe |
 
+### Firebase e GCP — avaliado a 06/10/2026, a pedido do dono
+
+Um colega recomendou-lhe o Firebase, com o argumento de que "tem serviços capazes de ser mais
+fidedignos". Avaliado com números, porque é com eles que a resposta muda.
+
+**O alojamento não é o elo fraco, e trocá-lo não corrige nada do que nos falhou.** O que falha
+neste projecto está registado: o agendador da GitHub — medido a 04/10/2026, das 8 corridas
+previstas saíram 2, e é por isso que existe o `worker/relogio/` —, uma avaria declarada da
+Actions, e defeitos nossos (o ciclo ao vivo a escrever dados de arranque por cima de
+resultados, o `stale-while-revalidate` a servir uma lista de dez minutos, a corrida de
+`git push` do P11.12). O Cloudflare Pages não tem um incidente registado.
+
+**Os números da transferência, medidos a 06/10/2026:**
+
+| | |
+|---|---|
+| `agenda.json` | 290 KB, **15,9 KB** com gzip |
+| uma carga fria da app | **5,3 MB** (113 entradas no precache) |
+| uma ronda ao vivo, por cliente aberto | agenda + meta a cada 30 s ≈ **1,9 MB/hora** |
+
+O Firebase Hosting no plano Spark dá 10 GB de armazenamento e **360 MB/dia** de transferência:
+~68 cargas frias por dia, ou ~22 horas-cliente de ciclo ao vivo. Uma jornada de sábado com 20
+telemóveis abertos duas horas gasta 76 MB só no *polling*, mais quem entra pela primeira vez.
+O plano gratuito estoura numa tarde de muitos jogos — exactamente à hora que interessa — e a
+saída é o Blaze, com cartão e preço por GB. O Pages gratuito não tem tecto de tráfego nem de
+pedidos, e o custo desta app é largura de banda em picos curtos.
+
+**Onde o Google ganha de verdade, e não é o alojamento:**
+
+1. **O raspador num agendador com compromisso de serviço.** O Cloud Run corre o contentor
+   Python como ele está — sem porte — e dá 240 000 vCPU-s/mês grátis; a raspagem leva ~90–120 s
+   e corre 12 vezes/dia no pior caso, ~43 000 vCPU-s/mês. O Cloud Scheduler dá 3 tarefas
+   grátis por conta de facturação e precisávamos de 2. Isto troca o cron que mede 2 em 8 por um
+   com SLA, e é o único ganho de fiabilidade real da proposta.
+2. **A base de dados desta fase.** O Firestore é candidato ao lado do SQLite em ficheiro e do
+   D1 — a decidir com os números daqui, não por afinidade.
+
+**O que não precisa do Firebase:** as notificações da Fase 5. O Web Push com chaves VAPID
+funciona no Chrome/Android e no iOS 16.4+ para apps instaladas no ecrã principal, e um Worker
+envia-as. O FCM é *uma* forma de o fazer, não a única.
+
+**Dois travões antes de decidir:**
+
+- **O SDK do Firebase no cliente quebra a `/privacidade`.** A página promete zero cookies, zero
+  rastreio e zero código de terceiros, e foi escrita a partir de uma auditoria ao código. Pôr o
+  Firestore ou o Analytics a falar do telemóvel de quem usa para a Google deixa-a falsa no
+  mesmo instante. Se formos por aí, o Firebase fica do lado do servidor, no nosso código.
+- **Mudar de origem apaga os favoritos de todos.** O `localStorage` e o *service worker* são por
+  origem. De `hoquei.pages.dev` para um `*.web.app`, quem já instalou fica preso à origem
+  antiga e quem migrar à mão encontra o ecrã de escolha vazio.
+
+**Daí sai a recomendação, e ela não é sobre o Firebase: pôr um domínio próprio à frente disto,
+agora**, enquanto a app tem cinco utilizadores e não quinhentos. Custa 10 a 15 € por ano e
+transforma a escolha de alojamento numa mudança de DNS em vez de uma porta de sentido único.
+Sem ele, cada mudança custa os favoritos de todas as pessoas.
+
+| ID | Item | Prio | Est. |
+|---|---|---|---|
+| B9.27 | Domínio próprio apontado ao Pages, antes de haver utilizadores a perder | **must** | XS |
+| B9.28 | Decidir a BD desta fase com números: SQLite em ficheiro vs D1 vs Firestore | should | S |
+| B9.29 | Avaliar Cloud Run + Cloud Scheduler para o raspador, contra o cron da GitHub | should | M |
+
+Nota sobre credenciais: a "API key" do Firebase para web é **pública por desenho** — vai dentro
+do pacote que o browser descarrega e não protege nada; quem protege são as regras de segurança.
+O que faria falta era uma conta de serviço para a CI, e essa fica como segredo do dono, ao lado
+do token da GitHub: não passa pelo repositório nem por um agente.
+
 ### O que eu faria primeiro, se quisesses só uma coisa desta lista
 
 Com o argumento dos Escolares em cima da mesa, mudo de resposta: o **B9.12 + B9.13** — o motor
