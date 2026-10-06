@@ -890,6 +890,38 @@ Três saídas, por ordem do que custa à promessa:
 
 A recomendação é a 1. Dá a resposta à pergunta que fizeste sem tocar na promessa.
 
+**Correcção de 06/10/2026, e ela muda a conclusão.** Eu disse-lhe que a contagem honesta exigia
+um domínio próprio, porque a analítica de tráfego da Cloudflare vive ao nível da zona. Estava
+incompleto: **não é preciso domínio nenhum.** Um `functions/_middleware.ts` no projecto Pages
+corre **no servidor da Cloudflare** a cada pedido, portanto a contagem pode ser nossa, sem
+script no cliente, sem cookie e sem terceiros. Verificado na documentação a 06/10/2026: o plano
+gratuito dá 100 000 pedidos/dia partilhados com os Workers, e **os ficheiros estáticos são
+grátis e ilimitados** enquanto não invocarem uma Function.
+
+Três coisas a acertar no desenho, e a terceira é a que obriga a trabalho:
+
+1. **Limitar o middleware às navegações.** Nos 548 ficheiros do `/v1` e nos 31 emblemas, uma
+   carga fria gastava ~113 invocações em vez de 1.
+2. **Onde guardar.** KV no plano gratuito dá 1 000 **escritas**/dia, e é esse o tecto real:
+   uma escrita por navegação significa ~1 000 navegações/dia. Para um grupo de testes sobra;
+   para os grupos dos clubes, não — aí agrega-se em memória ou passa-se a Durable Objects, que
+   é plano pago.
+3. **A `/privacidade` muda no mesmo commit.** Hoje ela diz que o alojamento vê o IP e guarda
+   registos técnicos, e que *nós* não vemos nada. Passar a contar nós, mesmo só caminhos
+   agregados e sem IP nem identificador, faz de nós uma parte que guarda algo sobre as visitas —
+   e a página só vale porque é exacta. A frase "sem rastreio" continua verdade: contagens por
+   caminho não distinguem pessoas.
+
+Para comparar: a analítica da zona, com domínio próprio, é mais rica e não gasta invocações,
+mas no plano gratuito vem com **24 horas de atraso** (documentação da Cloudflare). E a Web
+Analytics continua fora: é um *beacon* servido de `static.cloudflareinsights.com`, logo código
+de terceiros no telemóvel de quem usa.
+
+Domínios grátis, a propósito da pergunta: a Cloudflare **não dá** domínios. Vende-os ao preço
+de custo, sem margem — um `.com` ronda os 10,50 USD/ano. Os `.tk`/`.ml` do Freenom deixaram de
+ser registados; grátis a sério só restam subdomínios de terceiros como `eu.org`, com aprovação
+lenta e um nome que ninguém diz ao telefone num pavilhão.
+
 ### P11.9 — o que estava no ⋮, e onde ficou
 
 O ⋮ era um link directo para `/mais`, e `/mais` tinha cinco blocos: ficha técnica dos dados,
