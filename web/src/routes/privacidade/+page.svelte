@@ -14,6 +14,7 @@
 	 * terceira chave — a do tema — no mesmo commit em que ela nasceu.
 	 */
 	import { CONTACTO } from '$lib/contacto';
+	import { SITIO_NOME } from '$lib/sitio';
 	const ACTUALIZADA = '6 de outubro de 2026';
 </script>
 
@@ -101,7 +102,7 @@
 			>se pedires que um nome saia, sai</strong
 		> — o teu, ou o de um filho ou filha de quem sejas responsável. Não pedimos justificação
 		e não discutimos o pedido. Basta escreveres para
-		<a href={`mailto:${CONTACTO}?subject=Remover nome — hoquei.pages.dev`}>{CONTACTO}</a>.
+		<a href={`mailto:${CONTACTO}?subject=Remover nome — ${SITIO_NOME}`}>{CONTACTO}</a>.
 	</p>
 	<p>
 		O mecanismo para omitir todos os nomes dos escalões de formação está construído e
@@ -153,7 +154,7 @@
 
 <p class="rodape">
 	Actualizada a {ACTUALIZADA}. Dúvidas ou pedidos:
-	<a href={`mailto:${CONTACTO}?subject=Privacidade — hoquei.pages.dev`}>{CONTACTO}</a>.
+	<a href={`mailto:${CONTACTO}?subject=Privacidade — ${SITIO_NOME}`}>{CONTACTO}</a>.
 </p>
 
 <style>

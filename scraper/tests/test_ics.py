@@ -256,3 +256,28 @@ class TestSoDeHojeEmDiante:
         c = Calendar.from_ical(cal("E", "SUB-13", [dict(JOGO, data="2026-01-01")]))
         assert list(c.walk("VEVENT")) == []
         assert c.get("VERSION") == "2.0"
+
+
+class TestDominioDoUid:
+    """
+    O domínio dos UID é uma chave, não um endereço.
+
+    Este teste existe por causa do B9.27, o domínio próprio: a tentação ao trocar de domínio é
+    actualizar tudo onde o antigo apareça, e aqui isso custava **cada jogo duplicado** no
+    calendário de quem subscreveu o feed — o evento antigo fica órfão e o novo entra como se
+    fosse outro jogo. Se um dia houver razão para mudar, que seja com este teste à frente.
+    """
+
+    def test_o_uid_nao_segue_o_dominio_do_site(self):
+        from hoquei import ics
+
+        assert ics.DOMINIO_UID == "hoquei.pages.dev"
+        anterior = ics.DOMINIO
+        try:
+            ics.DOMINIO = "exemplo.pt"
+            saida = desdobrar(cal("E", "SUB-13", [JOGO]))
+            assert "UID:jogo-9547@hoquei.pages.dev" in saida
+            # o link dentro do evento, esse acompanha o site
+            assert "https://exemplo.pt/jogo/9547" in "\n".join(saida)
+        finally:
+            ics.DOMINIO = anterior

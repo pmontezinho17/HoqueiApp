@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Folha from '$lib/Folha.svelte';
+	import { SITIO } from './sitio';
 	import { dataCurta, horaCurta } from '$lib/formato';
 	import { clube, escalao } from '$lib/nomes';
 	import { slug } from '$lib/slug';
@@ -72,7 +73,7 @@
 		}
 		if (j.recinto) p.set('location', recintos[j.recinto] ?? j.recinto);
 		const detalhes = [`${clube(j.casa)} vs ${clube(j.fora)}`];
-		if (j.id) detalhes.push(`https://hoquei.pages.dev/jogo/${j.id}`);
+		if (j.id) detalhes.push(`${SITIO}/jogo/${j.id}`);
 		p.set('details', detalhes.join('\n'));
 		return `https://calendar.google.com/calendar/render?${p}`;
 	}

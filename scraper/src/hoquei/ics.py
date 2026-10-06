@@ -21,6 +21,19 @@ from .nomes import clube, escalao
 from .recintos import localizacao
 
 LISBOA = ZoneInfo("Europe/Lisbon")
+
+#: O domínio dos **UID** dos eventos, e este **não muda nunca**.
+#:
+#: O UID de um evento de calendário identifica-o para sempre, e é por ele que a aplicação de
+#: calendário sabe que o jogo das 20:00 de sábado é o mesmo evento de ontem e não um novo.
+#: Mudar este domínio — por exemplo para acompanhar um domínio próprio — reescreve o UID de
+#: todos os jogos de uma vez, e quem tem o feed subscrito passa a ver **cada jogo duas vezes**:
+#: o antigo, órfão e sem actualizações, e o novo. É da mesma família do contrato `/v1/...`:
+#: não é texto mostrado a ninguém, é uma chave que vive fora do nosso alcance.
+DOMINIO_UID = "hoquei.pages.dev"
+
+#: O endereço público do site, usado nos links **dentro** dos eventos. Este pode mudar: um
+#: link é texto, e um link que redirecciona continua a levar a pessoa ao jogo.
 DOMINIO = "hoquei.pages.dev"
 #: Sem duração na fonte. 90 min cobrem as duas partes e o intervalo em qualquer escalão,
 #: do sub-13 (2×18) aos seniores (2×25), com margem para descontos de tempo.
@@ -78,9 +91,9 @@ def _utc(data: str, hora: str | None) -> tuple[str, str] | None:
 
 def _uid(jogo: dict) -> str:
     if jogo.get("id"):
-        return f"jogo-{jogo['id']}@{DOMINIO}"
+        return f"jogo-{jogo['id']}@{DOMINIO_UID}"
     # jogos sem id na fonte (apuramentos por definir): chave estável pelo conteúdo
-    return f"{jogo['data']}-{slug(jogo['casa'])}-{slug(jogo['fora'])}@{DOMINIO}"
+    return f"{jogo['data']}-{slug(jogo['casa'])}-{slug(jogo['fora'])}@{DOMINIO_UID}"
 
 
 def _resumo(jogo: dict) -> str:
@@ -129,7 +142,7 @@ def feed(equipa: str, categoria: str, jogos: list[dict],
     linhas = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
-        f"PRODID:-//hoquei//{DOMINIO}//PT",
+        f"PRODID:-//hoquei//{DOMINIO_UID}//PT",
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
         f"X-WR-CALNAME:{_escapar(f'🏑 {clube(equipa)} · {escalao(categoria)}')}",
