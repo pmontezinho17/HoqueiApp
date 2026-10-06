@@ -114,8 +114,16 @@
 		provas={nomesDeProva}
 		concluir={() => {
 			escolhendo = false;
-			// o guia começa aqui, depois de haver equipas para ele falar sobre
-			guia.comecar();
+			/*
+			 * `talvezComecar` e **não** `comecar`: este ecrã é o primeiro de quem abre a app,
+			 * mas é também por onde se volta para acrescentar uma equipa — e com o arranque
+			 * sem condição o guia aparecia de cada vez que alguém escolhia uma equipa nova.
+			 * Apanhado pelo dono em produção a 06/10/2026.
+			 *
+			 * O guia arranca sozinho uma vez, e depois disso só a pedido: pelo menu do ⋮ ou
+			 * pelo `?guia=1`.
+			 */
+			guia.talvezComecar();
 		}}
 	/>
 {:else}
