@@ -8,6 +8,11 @@
  "temporada_id": 5,
  "equipas": [
   {
+   "id": 2064,
+   "nome": "A STUART HCM",
+   "logo": "/emblemas/10.webp"
+  },
+  {
    "id": 1921,
    "nome": "AA COIMBRA",
    "logo": "/emblemas/43.webp"
@@ -43,6 +48,11 @@
    "logo": "/emblemas/17.webp"
   },
   {
+   "id": 2065,
+   "nome": "FSE/AJ SALESIANA",
+   "logo": "/emblemas/9.webp"
+  },
+  {
    "id": 1916,
    "nome": "GDS CASCAIS",
    "logo": "/emblemas/28.webp"
@@ -66,6 +76,11 @@
    "id": 1914,
    "nome": "PAREDE FC (SM)",
    "logo": "/emblemas/3.webp"
+  },
+  {
+   "id": 2063,
+   "nome": "SC TORRES",
+   "logo": "/emblemas/25.webp"
   },
   {
    "id": 1808,
@@ -114,6 +129,34 @@
    "golos_casa": 4,
    "golos_fora": 1,
    "recinto": "PAV. PAREDE",
+   "ao_vivo": false
+  },
+  {
+   "id": 10091,
+   "numero": "791",
+   "grupo": null,
+   "jornada": "APRESENTAÇAO - SENIORES MASC.",
+   "data": "2026-10-17",
+   "hora": "18:00:00",
+   "casa": "SC TORRES",
+   "fora": "A STUART HCM",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. SC TORRES",
+   "ao_vivo": false
+  },
+  {
+   "id": 10092,
+   "numero": "792",
+   "grupo": null,
+   "jornada": "APRESENTAÇAO - SENIORES MASC.",
+   "data": "2026-10-10",
+   "hora": "18:00:00",
+   "casa": "APAC TOJAL",
+   "fora": "FSE/AJ SALESIANA",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. A.P.A.C.TOJAL",
    "ao_vivo": false
   },
   {

@@ -1299,6 +1299,13 @@
    ]
   },
   {
+   "equipa": "A STUART HCM",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
    "equipa": "AA COIMBRA",
    "categoria": "TORNEIOS PARTICULARES",
    "competicoes": [
@@ -1474,6 +1481,13 @@
    ]
   },
   {
+   "equipa": "FSE/AJ SALESIANA",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
    "equipa": "GDS CASCAIS",
    "categoria": "TORNEIOS PARTICULARES",
    "competicoes": [
@@ -1538,6 +1552,13 @@
   },
   {
    "equipa": "PAREDE FC (SM)",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
+   "equipa": "SC TORRES",
    "categoria": "TORNEIOS PARTICULARES",
    "competicoes": [
     431
