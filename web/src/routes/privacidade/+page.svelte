@@ -63,7 +63,11 @@
 	<ul class="nao">
 		<li>Não há conta, registo nem início de sessão.</li>
 		<li>Não usamos <em>cookies</em>.</li>
-		<li>Não há Google Analytics nem qualquer outra ferramenta de medição ou rastreio.</li>
+		<li>
+			Não há Google Analytics, nem a Web Analytics da Cloudflare, nem qualquer ferramenta
+			de medição de terceiros. A única contagem que existe é nossa, não corre no teu
+			telemóvel, e está descrita a seguir.
+		</li>
 		<li>
 			Não carregamos tipos de letra nem código de terceiros — usamos as letras do teu
 			próprio sistema.
@@ -80,6 +84,39 @@
 		internet, a Cloudflare recebe o teu endereço IP e o tipo de browser para te poder
 		responder, e guarda registos técnicos por pouco tempo. Isso não passa por nós, e não
 		temos acesso a nada que identifique quem visita.
+	</p>
+</section>
+
+<section>
+	<h2>A única contagem que fazemos</h2>
+	<p>
+		Queremos saber se alguém usa isto, e quais os ecrãs que valem a pena melhorar. Desde
+		<strong>6 de outubro de 2026</strong> contamos, <strong>no servidor</strong>, duas coisas:
+	</p>
+	<dl>
+		<dt>Quantos ecrãs foram abertos por dia, por <em>tipo</em> de ecrã</dt>
+		<dd>
+			"jogos do dia", "o meu clube", "uma equipa", "um jogo". <strong>Agregado</strong>:
+			fica registado que alguém abriu uma página de equipa, não <em>qual</em> equipa.
+		</dd>
+		<dt>Quantas vezes a aplicação foi aberta ou actualizada</dt>
+		<dd>
+			Contado por amostragem — um em cada dez pedidos — e o número que vemos é uma
+			estimativa.
+		</dd>
+	</dl>
+	<p>
+		O que isto <strong>não</strong> inclui, e não é por acaso: nenhum endereço IP, nenhum
+		identificador, nenhum cookie, nenhuma sessão, nada que ligue duas visitas à mesma
+		pessoa ou ao mesmo telemóvel. Se abrires a aplicação cinco vezes, o contador diz cinco
+		e não tem forma de saber que foste tu. Também não corre nada no teu telemóvel para isto
+		acontecer: é um contador do lado de quem serve as páginas, e é por isso que continua a
+		ser verdade que não carregamos código de terceiros.
+	</p>
+	<p class="nota">
+		Os números ficam guardados <strong>120 dias</strong> e apagam-se sozinhos. São
+		contadores, não um registo de visitas: o que existe é "a 6 de outubro abriram-se 14
+		páginas de equipa", e mais nada.
 	</p>
 </section>
 
@@ -209,6 +246,11 @@
 		line-height: 1.6;
 	}
 
+	/* o detalhe que não é promessa nem aviso: recua um grau */
+	.nota {
+		font-size: var(--t-micro);
+		color: var(--suave);
+	}
 	.compromisso {
 		padding: 0.7rem 0.8rem;
 		border-radius: 10px;

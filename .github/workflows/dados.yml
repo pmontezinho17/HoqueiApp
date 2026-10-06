@@ -91,10 +91,18 @@ jobs:
         working-directory: web
         run: npm ci && npm run build
 
+      # `workingDirectory: web`, e isto não é arrumação.
+      #
+      # As Pages Functions são lidas da pasta `functions/` **relativa ao sítio de onde o
+      # wrangler corre**. Este passo corria da raiz e o `scripts/aovivo.sh` corre de `web/`:
+      # com o contador em `web/functions/`, um dos dois publicadores levava-o e o outro
+      # publicava sem ele — e durante uma janela de jogos quem publica mais é o ciclo ao vivo.
+      # O resultado seria um contador que desaparece ao sábado à tarde e volta sozinho.
       - name: Publicar no Cloudflare Pages
         if: steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy web/build --project-name hoquei --branch main
+          workingDirectory: web
+          command: pages deploy build --project-name hoquei --branch main

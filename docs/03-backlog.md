@@ -856,7 +856,7 @@ ou de decidir que a quer.
 | P11.2 | Email → *issue*, **não** → Pull Request | must | XS | Separação deliberada, ver abaixo |
 | P11.3 | Logs com níveis | should | M | Hoje são 30 `print()` no `cli.py`, sem `logging` e sem `--verbose`. Saem para os logs da corrida na GitHub, que expiram e morrem com ela |
 | P11.4 | Interruptor manual de tema | should | S | ✅ **feito a 06/10/2026**, dentro do menu do ⋮ (P11.9). Três opções — Sistema, Claro, Escuro — e a escolha contraria o sistema nos dois sentidos, verificado. `sistema` **não se guarda**: a ausência da chave é a omissão |
-| P11.5 | Saber que menus as pessoas usam | should | M | **Colide com a política de privacidade.** Ver abaixo |
+| P11.5 | Saber que menus as pessoas usam | should | M | ✅ **construído a 06/10/2026**, e **falta um passo que é do dono** — criar o KV e ligá-lo ao projecto, ver abaixo. Contagem do lado do servidor, sem script no cliente, sem cookie, sem terceiros, e a `/privacidade` mudou no mesmo commit |
 | P11.6 | O texto do comentário fica escrito depois de enviar | must | XS | ✅ **feito a 06/10/2026.** Limpa ao enviar, e **só** ao enviar: fechar pelo × ou pelo véu mantém o rascunho, verificado nos três caminhos |
 | P11.8 | Um favorito com a forma antiga parte o `/clube` em silêncio | must | S | Descoberto a 06/10 ao testar o tour: o `ler()` em `favoritos.svelte.ts` aceita o que está no `localStorage` sem validar a forma. Um favorito sem `competicoes` — guardado por uma versão anterior — faz o `resumir()` rebentar no `flatMap`, e a página fica **sem cartões, sem convite e sem erro à vista**. Validar a forma ao ler e descartar o que não a tiver |
 | P11.9 | O ⋮ passa de página a menu | must | S | ✅ **feito a 06/10/2026.** Ver abaixo |
@@ -916,6 +916,48 @@ Para comparar: a analítica da zona, com domínio próprio, é mais rica e não 
 mas no plano gratuito vem com **24 horas de atraso** (documentação da Cloudflare). E a Web
 Analytics continua fora: é um *beacon* servido de `static.cloudflareinsights.com`, logo código
 de terceiros no telemóvel de quem usa.
+
+### Como ficou, e o que falta fazer à mão (06/10/2026)
+
+**Construído:** `web/functions/_middleware.js` conta no servidor, `web/functions/contagens.js`
+lê, `web/static/_routes.json` decide o que invoca a Function e o que é servido direto do CDN.
+A `/privacidade` ganhou a secção "A única contagem que fazemos" no mesmo commit, e a linha que
+dizia "nem qualquer outra ferramenta de medição ou rastreio" foi reescrita — era a frase que
+deixava de ser verdade.
+
+**Contam-se duas coisas, e a razão da segunda foi medida:** contar navegações não chegava. O
+nosso *service worker* registra um `NavigationRoute` ligado a `/`, por isso a navegação de
+quem já visitou **nunca chega ao servidor**, e dentro da app a navegação é toda do lado do
+cliente. Um contador de navegações media visitantes novos, não utilização. O que atravessa
+sempre é o `meta.json`, que é `NetworkFirst` e é pedido a cada abertura e a cada ronda — e é
+esse o sinal de "há alguém com a app aberta". Conta-se **1 em 10** porque o KV gratuito dá
+1 000 escritas/dia e uma janela de jogos com 20 telemóveis abertos duas horas faz ~4 800
+pedidos de `meta.json`.
+
+**Verificado localmente** com `wrangler pages dev build --kv CONTAGENS`: 100 pedidos de
+`meta.json` deram 9 contados → estimativa 90; as navegações de `/`, `/clube`, `/equipa/…` e
+`/jogo/…` foram para as chaves certas; o `/contagens` sem chave e com chave errada responde
+404; e — o que mais importava — o *fallback* do SPA continua a servir os links directos
+(`/equipa/sub-13/parede-fc-a` devolve HTML) com a Function a correr à frente.
+
+**Um alinhamento obrigatório:** as Functions são lidas da pasta `functions/` relativa ao sítio
+de onde o `wrangler` corre. O `dados.yml` corria da raiz e o `scripts/aovivo.sh` corre de
+`web/`: sem alinhar os dois, um publicava com contador e o outro sem, e quem publica mais
+durante uma janela de jogos é o ciclo ao vivo. O passo do workflow passou a
+`workingDirectory: web`.
+
+**O que falta, e é do dono** (dois minutos no painel da Cloudflare, e nada chega aos meus
+olhos):
+
+1. Criar um *namespace* KV chamado, por exemplo, `hoquei-contagens`.
+2. No projecto Pages `hoquei` → *Settings* → *Bindings*, ligar esse namespace com o nome
+   **`CONTAGENS`**, em *Production*.
+3. Na mesma página, adicionar a variável **`CHAVE_CONTAGENS`** com uma palavra-passe
+   inventada. É ela que abre o `/contagens?chave=…&dias=7`; sem ela, o endereço responde 404
+   e não admite que existe.
+
+Enquanto isso não existir, o middleware é um `next()` e mais nada — foi escrito assim de
+propósito, para poder ser publicado antes do KV e não partir o site se o KV desaparecer.
 
 Domínios grátis, a propósito da pergunta: a Cloudflare **não dá** domínios. Vende-os ao preço
 de custo, sem margem — um `.com` ronda os 10,50 USD/ano. Os `.tk`/`.ml` do Freenom deixaram de

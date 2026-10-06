@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "include": [
+    "/*"
+  ],
+  "exclude": [
+    "/_app/*",
+    "/emblemas/*",
+    "/escaloes/*",
+    "/icones/*",
+    "/sw.js",
+    "/workbox-*",
+    "/registerSW.js",
+    "/manifest.webmanifest",
+    "/robots.txt",
+    "/favicon.ico"
+  ]
+}

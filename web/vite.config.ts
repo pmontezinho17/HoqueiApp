@@ -40,6 +40,10 @@ export default defineConfig({
 			},
 			workbox: {
 				globPatterns: ['**/*.{js,css,html,png,ico,svg}'],
+				// O `/contagens` é uma Pages Function e tem de chegar ao servidor. Sem isto, o
+				// service worker responde-lhe com o `index.html` — ele intercepta **todas** as
+				// navegações — e a leitura das contagens devolvia a aplicação em vez de JSON.
+				navigateFallbackDenylist: [/^\/contagens/],
 				// 31 emblemas × 2,3 KB = 70 KB: vale a pena tê-los offline na app instalada
 				runtimeCaching: [
 					{

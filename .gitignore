@@ -35,3 +35,7 @@ worker/**/.wrangler/
 .venv/
 venv/
 # agentic-project:local-only:end
+
+# O `svelte-kit sync` cria o `.svelte-kit/` onde quer que seja corrido, e um comando meu
+# corrido da raiz em vez de `web/` deixou-o lá — e foi comitado uma vez, a 06/10/2026.
+.svelte-kit/
