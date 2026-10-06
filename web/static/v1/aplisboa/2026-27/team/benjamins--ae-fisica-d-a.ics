@@ -22,6 +22,19 @@ DESCRIPTION:A Stuart HCM vs AE Fisica D A\nENCONTROS DISTRITAIS BENJAMINS -
 URL:https://hoquei.pages.dev/jogo/9996
 END:VEVENT
 BEGIN:VEVENT
+UID:jogo-9992@hoquei.pages.dev
+DTSTAMP:20261011T000000Z
+DTSTART:20261011T150000Z
+DTEND:20261011T163000Z
+SUMMARY:🏑 Benjamins 🏑 AE Fisica D A vs CD Paço Arcos A
+LOCATION:Fisica Torres Vedras
+DESCRIPTION:AE Fisica D A vs CD Paço Arcos A\nENCONTROS DISTRITAIS BENJAMI
+ NS - 1ª FASE NIVEL I · Série A · BENJAMINS\nPAV. FÍSICA TORRES VEDRAS
+ \nhttps://hoquei.pages.dev/jogo/9992\nDados da Associação de Patinagem d
+ e Lisboa. Site não oficial.
+URL:https://hoquei.pages.dev/jogo/9992
+END:VEVENT
+BEGIN:VEVENT
 UID:jogo-10000@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T154500Z

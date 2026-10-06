@@ -22,6 +22,19 @@ DESCRIPTION:CD Paço Arcos B vs S Alenquer Benfica\nENCONTROS DISTRITAIS BE
 URL:https://hoquei.pages.dev/jogo/10043
 END:VEVENT
 BEGIN:VEVENT
+UID:jogo-10041@hoquei.pages.dev
+DTSTAMP:20261011T000000Z
+DTSTART:20261011T113000Z
+DTEND:20261011T130000Z
+SUMMARY:🏑 Benjamins 🏑 AE Fisica D B vs CD Paço Arcos B
+LOCATION:Fisica Torres Vedras
+DESCRIPTION:AE Fisica D B vs CD Paço Arcos B\nENCONTROS DISTRITAIS BENJAMI
+ NS - 1ª FASE NIVEL II · Série B · BENJAMINS\nPAV. FÍSICA TORRES VEDRA
+ S\nhttps://hoquei.pages.dev/jogo/10041\nDados da Associação de Patinagem
+  de Lisboa. Site não oficial.
+URL:https://hoquei.pages.dev/jogo/10041
+END:VEVENT
+BEGIN:VEVENT
 UID:jogo-10045@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T153000Z
