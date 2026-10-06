@@ -87,7 +87,7 @@
 	});
 </script>
 
-<div class="fita" class:colada bind:this={fita} role="tablist" aria-label="Dia">
+<div class="fita" class:colada bind:this={fita} role="tablist" aria-label="Dia" data-guia="dias">
 	{#each dias as d (d)}
 		{@const c = celula(d)}
 		<button

@@ -111,7 +111,7 @@
 	<p class="vazio">Sem jogos em {dataLonga(dia)}.</p>
 {:else}
 	{#if aoVivo.length}
-		<section class="bloco destacada vivo">
+		<section class="bloco destacada vivo" data-guia="vivo">
 			<h2><i aria-hidden="true"></i>A decorrer agora</h2>
 			<div class="conteudo">
 				{#each aoVivo as j (j.id ?? `${j.casa}${j.fora}`)}
@@ -132,8 +132,10 @@
 		</section>
 	{/if}
 
-	{#each blocos as b (b.cat)}
-		<section class="bloco">
+	{#each blocos as b, i (b.cat)}
+		<!-- `data-guia` só no primeiro: é o alvo do passo do tour que explica entrar num jogo,
+		     e um alvo tem de ser um elemento, não nove. -->
+		<section class="bloco" data-guia={i === 0 ? 'jogos' : undefined}>
 			<button
 				class="cabecalho"
 				onclick={() => alternar(b.cat)}

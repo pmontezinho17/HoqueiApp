@@ -3,6 +3,9 @@
 	import Folha from '$lib/Folha.svelte';
 	import { carregarCompeticao } from '$lib/dados';
 	import { favoritos } from '$lib/favoritos.svelte';
+	import EscolherClubes from '$lib/EscolherClubes.svelte';
+	import { competicoesVivas } from '$lib/clubes';
+	import { guia } from '$lib/guia.svelte';
 	import { porQuando } from '$lib/formato';
 	import { caminhoEquipa } from '$lib/slug';
 	import { disputado, type FicheiroCompeticao, type Jogo } from '$lib/tipos';
@@ -10,6 +13,49 @@
 	let { data } = $props();
 
 	let aberta = $state(false);
+	/**
+	 * A grelha de clubes está aberta.
+	 *
+	 * Abre-se sozinha a quem não segue ninguém, e **fica aberta** até a pessoa confirmar:
+	 * a condição anterior era "não tem favoritos", e essa deixa de ser verdade no primeiro
+	 * toque — a grelha fechava-se com uma equipa escolhida e ninguém chegava à segunda.
+	 *
+	 * Decide-se uma vez, quando o armazenamento já foi lido.
+	 */
+	let escolhendo = $state(false);
+	let decidido = false;
+	$effect(() => {
+		if (decidido || !favoritos.carregado) return;
+		decidido = true;
+		escolhendo = favoritos.lista.length === 0;
+	});
+
+	/**
+	 * Jogos por nome de equipa — serve para o nome do clube na grelha.
+	 *
+	 * Dois nomes com o mesmo comprimento desempatam pelo mais usado, e é isso que separa a
+	 * grafia certa da gralha: `AD OEIRAS` aparece em 16 jogos e `AD OERIAS` em 1.
+	 */
+	/** id da competição → nome da prova, para o painel dizer em que prova cada equipa anda */
+	const nomesDeProva = $derived.by(() => {
+		const n: Record<number, string> = {};
+		for (const j of data.agenda as { comp: number; prova: string }[]) n[j.comp] = j.prova;
+		return n;
+	});
+
+	/** competições que ainda têm jogos por jogar: marca as provas acabadas, não as esconde */
+	const vivas = $derived(
+		competicoesVivas(data.agenda as { comp: number; gc: number | null }[])
+	);
+
+	const jogosPorEquipa = $derived.by(() => {
+		const n: Record<string, number> = {};
+		for (const j of data.agenda as { casa: string; fora: string }[]) {
+			n[j.casa] = (n[j.casa] ?? 0) + 1;
+			n[j.fora] = (n[j.fora] ?? 0) + 1;
+		}
+		return n;
+	});
 	let procura = $state('');
 	let campo = $state<HTMLInputElement | null>(null);
 
@@ -55,15 +101,23 @@
 
 <svelte:head><title>O Meu Clube — Hóquei em Patins</title></svelte:head>
 
-{#if favoritos.lista.length === 0}
-	<div class="convite">
-		<h1>Segue as tuas equipas</h1>
-		<p>
-			Escolhe um clube e um escalão. A app passa a abrir aqui, com os próximos jogos,
-			os resultados e a posição na tabela.
-		</p>
-		<button class="principal" onclick={() => (aberta = true)}>Escolher equipa</button>
-	</div>
+{#if escolhendo}
+	<!--
+	  O primeiro ecrã de quem abre a app: escolher equipas antes de qualquer explicação.
+	  Também se chega aqui pelo "Escolher equipas" quando já se segue alguma.
+	-->
+	<EscolherClubes
+		equipas={data.equipas}
+		emblemas={data.emblemas}
+		usos={jogosPorEquipa}
+		vivas={vivas}
+		provas={nomesDeProva}
+		concluir={() => {
+			escolhendo = false;
+			// o guia começa aqui, depois de haver equipas para ele falar sobre
+			guia.comecar();
+		}}
+	/>
 {:else}
 	{#await resumir()}
 		<p class="vazio">A reunir os jogos…</p>
@@ -73,8 +127,10 @@
 			  classificação e plantel. Empilhar tudo aqui não escala com várias equipas
 			  e dava um resumo fino em vez de uma página a sério.
 			-->
-			{#each resumos as r (r.fav.equipa + r.fav.categoria)}
-				<a class="cartao" href={caminhoEquipa(r.fav.equipa, r.fav.categoria)}>
+			{#each resumos as r, i (r.fav.equipa + r.fav.categoria)}
+				<!-- `data-guia` só no primeiro: o tour ilumina um elemento, não uma lista -->
+				<a class="cartao" data-guia={i === 0 ? 'clube-cartoes' : undefined}
+					href={caminhoEquipa(r.fav.equipa, r.fav.categoria)}>
 					<Emblema equipa={r.fav.equipa} src={data.emblemas[r.fav.equipa]} tamanho={32} />
 					<span class="quem">
 						<span class="nome">{r.fav.equipa}</span>
@@ -94,7 +150,7 @@
 					<span class="seta" aria-hidden="true">›</span>
 				</a>
 			{/each}
-		<button class="secundaria" onclick={() => (aberta = true)}>Seguir outra equipa</button>
+		<button class="secundaria" data-guia="clube-seguir" onclick={() => (escolhendo = true)}>Escolher equipas</button>
 	{/await}
 {/if}
 
@@ -116,13 +172,10 @@
 </Folha>
 
 <style>
-	.convite { text-align: center; padding: 2.5rem 1rem; }
-	.convite h1 { font-size: 1.1rem; margin: 0 0 0.5rem; }
-	.convite p { color: var(--suave); font-size: 0.85rem; margin: 0 auto 1.4rem; max-width: 24rem; }
-	.principal, .secundaria { min-height: 44px; padding: 0.7rem 1.4rem; font-size: 0.88rem;
-		cursor: pointer; border-radius: 8px; border: 1px solid var(--acento); }
-	.principal { background: var(--acento); color: var(--cartao); border: 0; }
-	.secundaria { width: 100%; background: none; color: var(--acento); margin-top: 0.6rem; }
+	/* o convite de boas-vindas deu lugar à grelha de clubes, em `EscolherClubes.svelte` */
+	.secundaria { min-height: 44px; padding: 0.7rem 1.4rem; font-size: 0.88rem;
+		cursor: pointer; border-radius: 8px; border: 1px solid var(--acento);
+		width: 100%; background: none; color: var(--acento); margin-top: 0.6rem; }
 
 	.cartao { display: grid; grid-template-columns: auto 1fr auto auto; align-items: center;
 		gap: 0.6rem; padding: 0.6rem 0.5rem; text-decoration: none;

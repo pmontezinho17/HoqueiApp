@@ -2,13 +2,19 @@
 	/**
 	 * L7.4 — política de privacidade.
 	 *
-	 * Escrita a partir de uma auditoria ao código, e não de memória: uma única chave em
-	 * `localStorage`, zero cookies, zero `sessionStorage`, zero rastreio, zero tipos de letra
-	 * externos. Se alguma destas coisas mudar, esta página tem de mudar no mesmo commit — é
-	 * a única forma de continuar verdadeira.
+	 * Escrita a partir de uma auditoria ao código, e não de memória: zero cookies, zero
+	 * `sessionStorage`, zero rastreio, zero tipos de letra externos, e **três** chaves
+	 * possíveis em `localStorage` — nenhuma delas com nada que identifique uma pessoa. Se
+	 * alguma destas coisas mudar, esta página tem de mudar no mesmo commit — é a única forma
+	 * de continuar verdadeira.
+	 *
+	 * Ela já esteve errada: dizia "uma única chave" e eram duas. O guia passou a guardar
+	 * `guia-visto` a 06/10/2026 e esta página não foi corrigida no mesmo commit, que é
+	 * exactamente o que esta regra existe para impedir. Corrigido a 06/10/2026, com a
+	 * terceira chave — a do tema — no mesmo commit em que ela nasceu.
 	 */
 	import { CONTACTO } from '$lib/contacto';
-	const ACTUALIZADA = '5 de outubro de 2026';
+	const ACTUALIZADA = '6 de outubro de 2026';
 </script>
 
 <svelte:head><title>Privacidade — Hóquei em Patins</title></svelte:head>
@@ -29,6 +35,19 @@
 			<code>hoquei:favoritos:v1</code>. É o clube e o escalão, mais nada.
 			<strong>Não sai do aparelho</strong> e não temos forma de o ler. Apagas limpando os
 			dados do site, ou deixando de seguir as equipas.
+		</dd>
+		<dt>Se já viste o guia</dt>
+		<dd>
+			Numa chave chamada <code>hoquei:guia-visto:v2</code>, para a apresentação dos ecrãs
+			não voltar a aparecer sozinha. É um sim ou não, mais nada. Quando o guia mudar o
+			suficiente para valer a pena mostrá-lo outra vez, o número sobe e ele reaparece uma
+			única vez.
+		</dd>
+		<dt>O tema, se o escolheres à mão</dt>
+		<dd>
+			Numa chave chamada <code>hoquei:tema:v1</code>, com a palavra
+			<code>claro</code> ou <code>escuro</code>. Enquanto seguires o tema do sistema
+			<strong>não fica nada escrito</strong>: a chave só nasce se discordares dele.
 		</dd>
 		<dt>Uma cópia dos jogos, para funcionar sem rede</dt>
 		<dd>

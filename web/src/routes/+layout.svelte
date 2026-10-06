@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AutoRefrescar from '$lib/AutoRefrescar.svelte';
 	import AvisoVersao from '$lib/AvisoVersao.svelte';
+	import Holofote from '$lib/Holofote.svelte';
 	// temporário, para a fase de testes — ver web/src/lib/feedback.ts
 	import Feedback from '$lib/Feedback.svelte';
 	import { RECOLHER_FEEDBACK } from '$lib/feedback';
@@ -14,8 +15,12 @@
 	import Desatualizado from '$lib/Desatualizado.svelte';
 	import Icone from '$lib/Icone.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
+	import MenuMais from '$lib/MenuMais.svelte';
+	import { tema } from '$lib/tema.svelte';
 
 	let { data, children } = $props();
+
+	let menuAberto = $state(false);
 
 	// Três destinos primários, sempre visíveis. O secundário vive nos ícones do cabeçalho —
 	// medido: esconder navegação primária num menu corta a descoberta a metade
@@ -39,6 +44,9 @@
 	// os favoritos vivem no localStorage e só existem no browser; sem isto a app abria
 	// sempre como se não se seguisse ninguém (perdido na reestruturação dos separadores)
 	$effect(() => favoritos.carregar());
+
+	// a preferência de tema também só existe no browser, e aplica-se ao `<html>`
+	$effect(() => tema.carregar());
 </script>
 
 {#if navigating.to}<div class="progresso" role="status" aria-label="A carregar"></div>{/if}
@@ -52,19 +60,27 @@
 		<a class="marca" href="/">Hóquei<span>em patins</span></a>
 		<div class="acoes">
 			<Desatualizado geradoEm={data.meta.generated_at} />
-			<a class="icone" href="/procurar" aria-label="Procurar equipa">
+			<a class="icone" href="/procurar" aria-label="Procurar equipa" data-guia="procurar">
 				<svg viewBox="0 0 20 20" width="19" height="19" aria-hidden="true">
 					<circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8" />
 					<path d="M12.8 12.8 17 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
 				</svg>
 			</a>
-			<a class="icone" href="/mais" aria-label="Mais">
+			<!-- deixou de ser um link para `/mais`: abre o menu, e `/mais` é uma das linhas lá
+			     dentro — ver lib/MenuMais.svelte -->
+			<button
+				class="icone"
+				aria-label="Mais opções"
+				aria-haspopup="dialog"
+				aria-expanded={menuAberto}
+				onclick={() => (menuAberto = !menuAberto)}
+			>
 				<svg viewBox="0 0 20 20" width="19" height="19" aria-hidden="true">
 					<circle cx="10" cy="4" r="1.7" fill="currentColor" />
 					<circle cx="10" cy="10" r="1.7" fill="currentColor" />
 					<circle cx="10" cy="16" r="1.7" fill="currentColor" />
 				</svg>
-			</a>
+			</button>
 		</div>
 	</div>
 </header>
@@ -82,15 +98,24 @@
 -->
 <nav class="barra" aria-label="Secções">
 	{#each SECCOES as s (s.href)}
-		<a href={s.href} aria-current={activa(s.href) ? 'page' : undefined}>
+		<a
+			href={s.href}
+			aria-current={activa(s.href) ? 'page' : undefined}
+			data-guia={s.href === '/' ? undefined : `nav-${s.href.slice(1)}`}
+		>
 			<Icone nome={s.icone} tamanho={21} />
 			<span>{s.rotulo}{#if s.href === '/clube' && favoritos.lista.length}<i class="conta">{favoritos.lista.length}</i>{/if}</span>
 		</a>
 	{/each}
 </nav>
 
+<!-- fora do `<header>` de propósito: lá dentro o véu ficava preso ao contexto de
+     empilhamento do cabeçalho e não cobria a barra de navegação de baixo -->
+<MenuMais bind:aberto={menuAberto} topo={alturaTopo} />
+
 <AutoRefrescar agenda={data.agenda} />
 <AvisoVersao />
+<Holofote />
 {#if RECOLHER_FEEDBACK}<Feedback />{/if}
 
 <style>
@@ -125,6 +150,9 @@
 		--borda: #e3e6ea; --borda-fraca: #eef0f3;
 		--acento: #0a7d54; --acento-fraco: #e8f4ef;
 		--aviso: #92400e; --aviso-fundo: #fef3c7; --vivo: #c2410c;
+		/* a estrela do favorito: amarela nos dois temas, mais funda no claro para não
+		   desaparecer contra o branco do cartão */
+		--estrela: #d99e00;
 		/* O herói do ecrã de jogo.
 		 * Era quase preto, e os emblemas de contorno escuro — que são muitos: Lourinhã,
 		 * Stuart, Sintra — desapareciam lá dentro. Passa a seguir o tema: claro no claro,
@@ -133,17 +161,42 @@
 		--heroi: #eceff3; --heroi-texto: #14171c; --heroi-suave: #5f6872;
 		--heroi-borda: #dadee4;
 	}
+	/*
+	 * O escuro tem **dois caminhos**, e é por isso que a lista de cores aparece duas vezes.
+	 *
+	 * O primeiro é o do sistema, e é o que sempre houve. O segundo é a escolha à mão (P11.4),
+	 * que tem de poder contrariá-lo nos dois sentidos: daí o `:not([data-tema='claro'])` no
+	 * primeiro — senão quem escolhe claro num telemóvel escuro não consegue sair do escuro.
+	 *
+	 * Sim, a `light-dark()` do CSS resolvia isto com a lista escrita uma vez. Não se usa:
+	 * precisa de iOS 17.5, e num iPhone mais antigo cada *token* ficaria sem valor nenhum —
+	 * a app abria sem cores. Vinte linhas repetidas valem menos do que esse risco.
+	 */
 	@media (prefers-color-scheme: dark) {
-		:global(:root) {
+		:global(:root:not([data-tema='claro'])) {
 			--fundo: #0f1115; --cartao: #181b21;
 			--texto: #e8eaed; --texto-2: #b6bcc5; --suave: #868d98;
 			--borda: #272b33; --borda-fraca: #1f232a;
 			--acento: #34d399; --acento-fraco: #12271f;
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
+			--estrela: #fbbf24;
 			--heroi: #1b2027; --heroi-texto: #eef1f4; --heroi-suave: #949ca6;
 			--heroi-borda: #2a313a;
 		}
 	}
+	:global(:root[data-tema='escuro']) {
+			--fundo: #0f1115; --cartao: #181b21;
+			--texto: #e8eaed; --texto-2: #b6bcc5; --suave: #868d98;
+			--borda: #272b33; --borda-fraca: #1f232a;
+			--acento: #34d399; --acento-fraco: #12271f;
+			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
+			--estrela: #fbbf24;
+			--heroi: #1b2027; --heroi-texto: #eef1f4; --heroi-suave: #949ca6;
+			--heroi-borda: #2a313a;
+	}
+	/* os controlos nativos — barras de deslocamento, campos, selectores — seguem o tema;
+	   quando a escolha é à mão, o `tema.svelte.ts` escreve `color-scheme` no próprio <html> */
+	:global(:root) { color-scheme: light dark; }
 	:global(*) { box-sizing: border-box; }
 	:global(body) {
 		margin: 0; background: var(--fundo); color: var(--texto);
@@ -212,7 +265,9 @@
 	.marca span { font-weight: 400; color: var(--suave); margin-left: 0.3rem; font-size: 0.72rem; }
 	.acoes { display: flex; align-items: center; gap: 0.15rem; }
 	.icone { display: inline-flex; align-items: center; justify-content: center;
-		width: 44px; height: 44px; color: var(--suave); text-decoration: none; }
+		width: 44px; height: 44px; color: var(--suave); text-decoration: none;
+		/* o ⋮ é um <button> e a lupa um <a>: sem isto um deles vinha com moldura e fundo */
+		border: 0; background: none; padding: 0; font: inherit; cursor: pointer; }
 	.icone:hover, .icone:focus-visible { color: var(--acento); }
 
 	/* Barra de navegação em baixo, fixa.

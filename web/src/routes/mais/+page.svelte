@@ -1,7 +1,18 @@
 <script lang="ts">
-	import { CONTACTO } from '$lib/contacto';
-
+	/**
+	 * A ficha técnica da app: de onde vêm os dados, quantos são, e de quando.
+	 *
+	 * **Era um ecrã com cinco blocos** — isto, o aviso de site não oficial, o guia, um resumo
+	 * de privacidade e os nomes de atletas — porque o ⋮ vinha directo para cá e tudo o que
+	 * não tinha casa acabava aqui. Desde 06/10/2026 o ⋮ abre um menu: o guia é uma linha lá,
+	 * a privacidade é uma linha lá, e os nomes de atletas estavam a repetir em resumo o que a
+	 * `/privacidade` já diz por extenso, com o compromisso e o endereço. Dois textos a dizer
+	 * o mesmo divergem no dia em que um deles mudar.
+	 *
+	 * Fica o que é só desta página: a fonte e os números.
+	 */
 	let { data } = $props();
+
 	const quando = $derived(
 		new Date(data.meta.generated_at).toLocaleString('pt-PT', {
 			dateStyle: 'long', timeStyle: 'short'
@@ -9,9 +20,9 @@
 	);
 </script>
 
-<svelte:head><title>Mais — Hóquei em Patins</title></svelte:head>
+<svelte:head><title>Sobre — Hóquei em Patins</title></svelte:head>
 
-<h1>Sobre</h1>
+<h1>Sobre a app e os dados</h1>
 
 <section>
 	<h2>Dados</h2>
@@ -38,25 +49,6 @@
 		Patinagem de Portugal. Os dados são recolhidos da
 		<a href={data.meta.fonte} rel="noreferrer">plataforma pública da associação</a>
 		e republicados tal como lá aparecem.
-	</p>
-</section>
-
-<section>
-	<h2>Privacidade</h2>
-	<p>
-		Sem conta, sem cookies, sem rastreio: os favoritos ficam no teu telemóvel e nunca nos
-		chegam. <a href="/privacidade">Ler a política de privacidade</a>, que diz também como
-		pedir a remoção de um nome.
-	</p>
-
-	<h2>Nomes de atletas</h2>
-	<p>
-		As fichas de jogo incluem nomes de atletas em todos os escalões, incluindo os de
-		formação, tal como a fonte os apresenta.
-	</p>
-	<p>
-		Para pedir a remoção de um nome,
-		<a href={`mailto:${CONTACTO}?subject=hoquei.pages.dev`}>escreve-nos</a>.
 	</p>
 </section>
 

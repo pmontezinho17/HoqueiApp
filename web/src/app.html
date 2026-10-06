@@ -12,6 +12,28 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-title" content="Hóquei" />
 		<link rel="apple-touch-icon" href="/icones/icone-192.png" />
+		<!--
+		  O tema escolhido à mão tem de entrar no <html> **antes da primeira pintura**.
+		  Em linha e síncrono de propósito: o resto da app só decide cores depois de o pacote
+		  de JavaScript carregar e hidratar, e até lá quem escolheu escuro num telemóvel claro
+		  via a app branca e só depois escura. Medido a 06/10/2026 em `localhost`, com rede e
+		  cache ideais: este script corre aos 22 ms e o último módulo do cliente só chega aos
+		  74 ms. São 52 ms de relâmpago no melhor caso possível — num telemóvel e numa rede de
+		  pavilhão o intervalo cresce com elas, enquanto isto fica preso ao próprio HTML.
+		  A barra do browser não se corrige aqui — fica para o `tema.svelte.ts`: duplicar as
+		  cores num terceiro sítio custa mais do que a barra acertar um instante mais tarde.
+		-->
+		<script>
+			try {
+				var t = localStorage.getItem('hoquei:tema:v1');
+				if (t === 'claro' || t === 'escuro') {
+					document.documentElement.dataset.tema = t;
+					document.documentElement.style.colorScheme = t === 'escuro' ? 'dark' : 'light';
+				}
+			} catch (e) {
+				// armazenamento bloqueado: fica o tema do sistema
+			}
+		</script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

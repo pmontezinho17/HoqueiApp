@@ -6,6 +6,8 @@
 	import { afterNavigate, replaceState } from '$app/navigation';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import { porEscalao } from '$lib/escaloes';
+	import { guia } from '$lib/guia.svelte';
+	import { caminhoEquipa } from '$lib/slug';
 	import type { JogoAgenda } from '$lib/tipos';
 
 	let { data } = $props();
@@ -99,6 +101,40 @@
 	});
 
 	const eSeguida = (cat: string) => (equipa: string) => seguidas.has(chave(equipa, cat));
+
+	/**
+	 * O tour da primeira visita arranca aqui e não no arranque da app.
+	 *
+	 * Os passos vivem todos neste ecrã e na barra de baixo, e a app instalada abre em "O Meu
+	 * Clube" — que sem favoritos já é um ecrã a explicar-se. Quem instalar vê o tour na
+	 * primeira vez que abrir os jogos, que é quando ele tem alvos para iluminar.
+	 */
+	$effect(() => {
+		// Uma equipa real para o passo do tour que vive numa página de equipa. Este ecrã é o
+		// que tem a agenda carregada; o módulo do guia não vê os dados.
+		const j = doDia[0] ?? (data.agenda as JogoAgenda[])[0];
+		if (j) guia.equipaExemplo = caminhoEquipa(j.casa, j.cat);
+		guia.talvezComecar();
+	});
+
+	/**
+	 * `?guia=1` força o tour, mesmo a quem já o viu.
+	 *
+	 * Existe porque a marca de "já vi" fica no armazenamento do aparelho, e num telemóvel
+	 * que não é o nosso não há como a limpar: quem queira rever o guia e não encontre o
+	 * botão em "Sobre" fica sem saída. Um endereço resolve-o de qualquer máquina.
+	 *
+	 * **O parâmetro é consumido no mesmo instante.** Deixá-lo no endereço fazia o tour
+	 * reiniciar-se de cada vez que voltasse a esta página — e ele volta cá no fim.
+	 */
+	$effect(() => {
+		if (!routerPronto) return;
+		const u = new URL(location.href);
+		if (!u.searchParams.has('guia')) return;
+		u.searchParams.delete('guia');
+		replaceState(u, {});
+		guia.comecar();
+	});
 </script>
 
 <svelte:head><title>Jogos — Hóquei em Patins</title></svelte:head>
@@ -108,7 +144,7 @@
 <FitaDatas {dias} bind:escolhido={dia} {progresso} />
 
 {#if escaloes.length}
-	<div class="escaloes" role="group" aria-label="Filtrar por escalão">
+	<div class="escaloes" role="group" aria-label="Filtrar por escalão" data-guia="escaloes">
 		<button class:activo={escalao === null} onclick={() => (escalao = null)}>Todos</button>
 		{#each escaloes as e (e)}
 			<button class:activo={escalao === e} onclick={() => (escalao = escalao === e ? null : e)}>

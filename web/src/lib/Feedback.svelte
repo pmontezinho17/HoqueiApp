@@ -15,8 +15,8 @@
 	import Icone from './Icone.svelte';
 	import { page } from '$app/state';
 	import { CONTACTO } from './contacto';
+	import { critica } from './critica.svelte';
 
-	let aberto = $state(false);
 	let texto = $state('');
 	let copiado = $state(false);
 	let caixa = $state<HTMLTextAreaElement | null>(null);
@@ -31,12 +31,17 @@
 			`&body=${encodeURIComponent(corpo)}`
 	);
 
-	function abrir() {
-		aberto = true;
+	/**
+	 * O foco tem de ir para a caixa, senão quem usa teclado abre e fica sem saber onde está.
+	 *
+	 * Está num efeito e não no `abrir()` porque o painel passou a abrir de dois sítios — a
+	 * bolha e o menu do ⋮ — e o do menu não passa por aqui.
+	 */
+	$effect(() => {
+		if (!critica.aberto) return;
 		copiado = false;
-		// o foco tem de ir para a caixa, senão quem usa teclado abre e fica sem saber onde está
 		requestAnimationFrame(() => caixa?.focus());
-	}
+	});
 
 	async function copiar() {
 		try {
@@ -46,21 +51,45 @@
 			copiado = false;
 		}
 	}
+
+	/**
+	 * Depois de enviar, a caixa fica vazia.
+	 *
+	 * Antes não ficava: o painel fechava e o texto continuava lá, por isso quem voltasse a
+	 * abrir encontrava a crítica anterior à sua espera — e ou a apagava à mão, ou escrevia
+	 * a segunda a seguir à primeira e mandava as duas.
+	 *
+	 * **Limpar só no tique seguinte**, e não aqui dentro: o `href` deste link é derivado do
+	 * texto, e apagá-lo no mesmo instante em que o browser está a seguir o `mailto:`
+	 * arriscava abrir o programa de email com o corpo vazio. O `setTimeout` custa nada e
+	 * tira a dúvida.
+	 *
+	 * Fechar pelo × ou pelo véu **não** limpa: aí o rascunho sobrevive, que é o que se quer
+	 * de quem fechou sem querer.
+	 */
+	function enviar() {
+		if (!texto.trim()) return;
+		critica.fechar();
+		setTimeout(() => {
+			texto = '';
+			copiado = false;
+		}, 0);
+	}
 </script>
 
-<svelte:window onkeydown={(e) => e.key === 'Escape' && (aberto = false)} />
+<svelte:window onkeydown={(e) => e.key === 'Escape' && critica.fechar()} />
 
-{#if !aberto}
-	<button class="bolha" onclick={abrir} aria-label="Dar uma opinião sobre a aplicação">
+{#if !critica.aberto}
+	<button class="bolha" data-guia="feedback" onclick={() => critica.abrir()} aria-label="Dar uma opinião sobre a aplicação">
 		<Icone nome="feedback" tamanho={22} />
 	</button>
 {:else}
 	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
-	<div class="veu" onclick={() => (aberto = false)}></div>
+	<div class="veu" onclick={() => critica.fechar()}></div>
 	<div class="painel" role="dialog" aria-label="Dar uma opinião" aria-modal="true">
 		<div class="cabeca">
 			<strong>O que está mal?</strong>
-			<button class="fechar" onclick={() => (aberto = false)} aria-label="Fechar">×</button>
+			<button class="fechar" onclick={() => critica.fechar()} aria-label="Fechar">×</button>
 		</div>
 		<p class="ajuda">
 			Diz o que te incomodou, o que falta ou o que não percebeste. Quanto mais directo,
@@ -82,7 +111,7 @@
 				class:inactivo={!texto.trim()}
 				href={texto.trim() ? link : undefined}
 				aria-disabled={!texto.trim()}
-				onclick={() => texto.trim() && (aberto = false)}>Enviar por email</a
+				onclick={enviar}>Enviar por email</a
 			>
 		</div>
 		<p class="nota">
@@ -97,7 +126,9 @@
 	.bolha {
 		position: fixed;
 		right: var(--e-4);
-		bottom: calc(52px + env(safe-area-inset-bottom) + var(--e-4));
+		/* `--acima-da-barra`: um ecrã com barra de acção fixa no fundo declara ali a altura
+		   dela e a bolha sobe. Sem isso vale zero e fica onde sempre esteve. */
+		bottom: calc(52px + env(safe-area-inset-bottom) + var(--acima-da-barra, 0px) + var(--e-4));
 		z-index: 20;
 		display: flex;
 		align-items: center;

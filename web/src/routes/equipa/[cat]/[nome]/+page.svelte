@@ -10,12 +10,51 @@
 	import { provaActual } from '$lib/provas';
 	import { caminhoEquipa } from '$lib/slug';
 	import { disputado, type Jogo, type TotaisJogador } from '$lib/tipos';
+	import { afterNavigate, replaceState } from '$app/navigation';
+	import { page } from '$app/state';
 
 	let { data } = $props();
 
 	type Aba = 'resumo' | 'jogos' | 'classificacao' | 'plantel';
+	const ABAS: Aba[] = ['resumo', 'jogos', 'classificacao', 'plantel'];
+
+	/**
+	 * A aba e a vista dos jogos vivem no endereço.
+	 *
+	 * Ganham-se duas coisas com isso. Uma é poder partilhar a classificação de uma equipa
+	 * em vez de "abre a página e toca na terceira aba". A outra é o guia poder conduzir:
+	 * os passos dele são endereços, e um endereço abre a aba certa sem o guia precisar de
+	 * tocar no estado interno desta página.
+	 */
 	let aba = $state<Aba>('resumo');
 	let vistaJogos = $state<'lista' | 'calendario'>('lista');
+
+	$effect(() => {
+		const a = page.url.searchParams.get('aba');
+		if (a && ABAS.includes(a as Aba) && a !== aba) aba = a as Aba;
+		const v = page.url.searchParams.get('vista');
+		if ((v === 'lista' || v === 'calendario') && v !== vistaJogos) vistaJogos = v;
+	});
+
+	/**
+	 * O endereço acompanha a aba, mas só depois de o router estar pronto.
+	 *
+	 * O `replaceState` antes disso atira "Cannot call replaceState(...) before router is
+	 * initialized" e parte a página inteira — já aconteceu na lista de jogos, e a defesa é
+	 * a mesma: esperar pelo `afterNavigate`.
+	 */
+	let routerPronto = $state(false);
+	afterNavigate(() => (routerPronto = true));
+	$effect(() => {
+		if (!routerPronto) return;
+		const u = new URL(location.href);
+		const vistaAlvo = aba === 'jogos' ? vistaJogos : null;
+		if (u.searchParams.get('aba') === aba && u.searchParams.get('vista') === vistaAlvo) return;
+		u.searchParams.set('aba', aba);
+		if (vistaAlvo) u.searchParams.set('vista', vistaAlvo);
+		else u.searchParams.delete('vista');
+		replaceState(u, {});
+	});
 	/** '' = todas. A lista de jogos e o plantel permitem todas; a classificação não. */
 	let provaJogos = $state('');
 	let provaPlantel = $state('');
@@ -178,7 +217,7 @@
 	>{segue ? '✓ A seguir' : '+ Seguir'}</button>
 </header>
 
-<div class="abas" role="tablist">
+<div class="abas" role="tablist" data-guia="equipa-abas">
 	{#each [['resumo', 'Resumo'], ['jogos', 'Jogos'], ['classificacao', 'Classificação'], ['plantel', 'Plantel']] as const as [k, r] (k)}
 		<button role="tab" aria-selected={aba === k} onclick={() => (aba = k as Aba)}>{r}</button>
 	{/each}
@@ -205,7 +244,7 @@
 		{#if recinto}<dt>Joga em casa</dt><dd class="txt">{recinto}</dd>{/if}
 	</dl>
 {:else if aba === 'jogos'}
-	<div class="vistas" role="tablist">
+	<div class="vistas" role="tablist" data-guia="equipa-vistas">
 		<button role="tab" aria-selected={vistaJogos === 'lista'} onclick={() => (vistaJogos = 'lista')}>Lista</button>
 		<button role="tab" aria-selected={vistaJogos === 'calendario'} onclick={() => (vistaJogos = 'calendario')}>Calendário</button>
 	</div>
@@ -213,7 +252,7 @@
 	{#if vistaJogos === 'calendario'}
 		<!-- sem filtro: o calendário mostra o mês da equipa inteiro, de todas as provas -->
 		<CalendarioMes {jogos} equipa={data.equipa} emblemas={data.emblemas} />
-		<div class="subscrever">
+		<div class="subscrever" data-guia="equipa-calendario">
 			<AdicionarCalendario
 				equipa={data.equipa} categoria={data.categoria} {jogos}
 				recintos={data.recintos} />

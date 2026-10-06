@@ -73,6 +73,16 @@
 	{:else if nome === 'faltas'}
 		<!-- contagem -->
 		<path d="M4.4 6h11.2M4.4 10h7.6M4.4 14h9.4" />
+	{:else if nome === 'estrela' || nome === 'estrela-contorno'}
+		<!--
+		  Duas estrelas com o mesmo contorno, e é de propósito: a cheia diz "esta equipa é
+		  minha", a vazia diz "há aqui dentro alguma que é". Se fossem desenhos diferentes
+		  deixavam de se ler como o mesmo sinal em dois graus.
+		-->
+		<path
+			d="M10 3.2l2.06 4.18 4.61.67-3.34 3.25.79 4.59L10 13.72l-4.12 2.17.79-4.59L3.33 8.05l4.61-.67z"
+			fill={nome === 'estrela' ? 'currentColor' : 'none'}
+		/>
 	{/if}
 </svg>
 

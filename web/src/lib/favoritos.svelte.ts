@@ -15,9 +15,18 @@ function ler(): Favorito[] {
 /** Estado partilhado por toda a app. Local-first: nunca precisa de conta (Decisão 3). */
 class Favoritos {
 	lista = $state<Favorito[]>([]);
+	/**
+	 * Já se leu o armazenamento.
+	 *
+	 * Sem isto não se distingue "ainda não li" de "li e não há nada", porque a lista é `[]`
+	 * nos dois casos — e quem precisa de decidir se mostra o ecrã de escolha de equipas
+	 * decidia com base numa lista que ainda não tinha chegado.
+	 */
+	carregado = $state(false);
 
 	carregar() {
 		this.lista = ler();
+		this.carregado = true;
 	}
 
 	private gravar() {
