@@ -752,11 +752,12 @@ agora**, enquanto a app tem cinco utilizadores e não quinhentos. Custa 10 a 15 
 transforma a escolha de alojamento numa mudança de DNS em vez de uma porta de sentido único.
 Sem ele, cada mudança custa os favoritos de todas as pessoas.
 
-| ID | Item | Prio | Est. |
-|---|---|---|---|
-| B9.27 | Domínio próprio apontado ao Pages, antes de haver utilizadores a perder | **must** | XS |
-| B9.28 | Decidir a BD desta fase com números: SQLite em ficheiro vs D1 vs Firestore | should | S |
-| B9.29 | Avaliar Cloud Run + Cloud Scheduler para o raspador, contra o cron da GitHub | should | M |
+| ID | Item | Prio | Est. | Nota |
+|---|---|---|---|---|
+| B9.27 | Domínio próprio apontado ao Pages, antes de haver utilizadores a perder | **must** | XS | **Adiado por decisão do dono a 06/10/2026.** A preparação que não depende do nome está feita (`aac29bd`): o endereço vive em `web/src/lib/sitio.ts` e o `DOMINIO_UID` dos calendários foi separado e preso por um teste. Falta comprar o domínio e apontá-lo, e isso é dele. **O custo de esperar cresce**: o `localStorage` é por origem, logo cada pessoa que instale a app até lá perde as equipas que escolheu no dia em que a origem mudar — hoje são um ou dois telemóveis |
+| B9.28 | Decidir a BD desta fase com números: SQLite em ficheiro vs D1 vs Firestore | should | S | |
+| B9.29 | Avaliar Cloud Run + Cloud Scheduler para o raspador, contra o cron da GitHub | should | M | |
+| B9.30 | Ponte dos favoritos entre origens, pelo fragmento do endereço | could | S | **Recusado a 06/10/2026**, e com razão: com dois telemóveis instalados, escolher as equipas outra vez leva 20 segundos e isto era código a manter para sempre. Fica escrito porque a ideia tem uma propriedade que não é óbvia — o fragmento (`#…`) nunca é enviado ao servidor, logo os favoritos passariam de origem para origem sem passar por lado nenhum, e a `/privacidade` continuava verdade |
 
 Nota sobre credenciais: a "API key" do Firebase para web é **pública por desenho** — vai dentro
 do pacote que o browser descarrega e não protege nada; quem protege são as regras de segurança.
