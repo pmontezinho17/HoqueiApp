@@ -1,0 +1,61 @@
+name: Site de testes
+
+# Um segundo site, para experimentar no telemóvel sem tocar no que as pessoas usam (P11.7).
+#
+# O Cloudflare Pages dá um *preview deployment* por ramo sem custo: publicar com
+# `--branch testes` no mesmo projecto dá o endereço `https://testes.hoquei.pages.dev`, com o
+# `main` a continuar intocado em `hoquei.pages.dev`.
+#
+# **Isto não raspa nada.** Publica os dados que já estão commitados, e é de propósito: a regra
+# do projecto é uma raspagem central, nunca uma por ambiente — o servidor da associação não
+# tem de pagar o nosso ambiente de testes. Em troca, os dados do site de testes são os do
+# último commit de dados, que pode estar algumas horas atrás. Para experimentar interface é o
+# que se quer; para ver resultados ao vivo, o site a sério é o outro.
+#
+# O contador de utilização fica **calado** aqui, e também é de propósito: a ligação ao KV
+# está no ambiente de *Production* do projecto, e o middleware foi escrito para ser um
+# `next()` quando não a encontra. Assim o tráfego de testes não entra nas contagens reais.
+
+on:
+  push:
+    branches: [testes]
+  workflow_dispatch:
+
+concurrency:
+  group: testes
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      # Os mesmos testes do `ci.yml`: um site de testes com código que não passa os testes
+      # serve para enganar quem o abre.
+      - name: Testes da PWA
+        working-directory: web
+        run: npm ci && npm run check && npx vitest run
+
+      - name: Construir a PWA
+        working-directory: web
+        run: npm run build
+
+      # `workingDirectory: web` pela mesma razão do `dados.yml`: as Pages Functions são lidas
+      # da pasta `functions/` relativa ao sítio de onde o wrangler corre.
+      - name: Publicar no ramo de testes
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: web
+          command: pages deploy build --project-name hoquei --branch testes
+
+      - name: Onde ficou
+        run: echo "### Site de testes → https://testes.hoquei.pages.dev" >> "$GITHUB_STEP_SUMMARY"

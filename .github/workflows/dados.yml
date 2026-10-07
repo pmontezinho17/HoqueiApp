@@ -35,7 +35,17 @@ jobs:
   actualizar:
     runs-on: ubuntu-latest
     steps:
+      # `fetch-depth: 0`, e isto é o que faz a nova tentativa de `push` funcionar (P11.12).
+      #
+      # Por omissão o checkout é raso — um commit só — e um `pull --rebase` sobre uma história
+      # rasa falha por não encontrar antepassado comum. Medido a 07/10/2026: o repositório
+      # inteiro são **2,64 MiB e 137 commits**, portanto trazer tudo não custa nada de
+      # relevante. Se um dia a história pesar — os commits de dados são ~10 por dia —, a
+      # alternativa é manter o checkout raso e fazer `git fetch --unshallow` só no caminho da
+      # nova tentativa.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: astral-sh/setup-uv@v5
         with:
@@ -72,7 +82,33 @@ jobs:
           # alterações e publicar de 2 em 2 horas para sempre.
           git add web/static/v1 data-samples/rondas
           git commit -m "Dados: $(date -u '+%Y-%m-%d %H:%M') UTC [skip ci]"
-          git push
+
+          # O `push` com nova tentativa, e não um `push` seco (P11.12).
+          #
+          # Esta corrida faz `checkout` no início e empurra um a dois minutos depois, com a
+          # raspagem pelo meio. Quem commitar nesse intervalo — uma pessoa a publicar uma
+          # correcção — faz este `push` ser rejeitado, e com `shell: bash -e` o job morria
+          # aqui: a ronda perdia os dados e os passos de construir e publicar ficavam por
+          # correr. Aconteceu a 06/10/2026, na corrida 37537581781, e falhou do lado seguro
+          # — mas perdeu 150 ficheiros daquela ronda.
+          #
+          # O `--rebase` é seguro **porque estes ficheiros são gerados e não editados à mão**:
+          # o que vem de `origin/main` é dados de uma ronda anterior ou código, e a nossa
+          # árvore é a raspagem de agora. O `aovivo.sh` já fazia o equivalente, comparando
+          # contra `origin/main:web/static/v1` em vez de assumir que a cópia local está
+          # actual; faltava aqui.
+          for tentativa in 1 2 3; do
+            if git push; then
+              echo "publicado no repositório à tentativa $tentativa"
+              break
+            fi
+            if [ "$tentativa" = 3 ]; then
+              echo "::error::três tentativas de push rejeitadas — alguém está a commitar sem parar"
+              exit 1
+            fi
+            echo "push rejeitado; a trazer o que chegou entretanto e a tentar outra vez"
+            git pull --rebase --autostash origin main
+          done
 
       # Sem este passo o ciclo não fecha: a Action comitava dados novos e o site
       # continuava a servir os antigos até alguém publicar à mão.
