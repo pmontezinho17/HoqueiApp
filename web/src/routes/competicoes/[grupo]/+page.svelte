@@ -95,15 +95,11 @@
 		<button class:activo={!completa} onclick={() => (completa = false)}>Simples</button>
 		<button class:activo={completa} onclick={() => (completa = true)}>Completa</button>
 	</div>
-	<!-- Um rótulo e não um por série: nas três séries dos Escolares eram três avisos iguais
-	     empilhados no mesmo ecrã. Quando **todas** as provas visíveis são calculadas, o aviso
-	     vale para o ecrã inteiro e sobe para o topo; num caso misto — que hoje não existe nos
-	     dados, mas pode passar a existir — volta a ser um por prova, que é o que não mente. -->
-	{@const todasCalculadas = visiveis.length > 0 && visiveis.every((p) => tabelasDe(p.dados).calculada)}
-	{#if todasCalculadas}<RotuloCalculada />{/if}
+	<!-- Uma nota no fundo, e não uma por série: nas três séries dos Escolares eram três avisos
+	     iguais empilhados. Vale para o ecrã, e por isso vive com as outras notas, lá em baixo. -->
+	{@const algumaCalculada = visiveis.some((p) => tabelasDe(p.dados).calculada)}
 	{#each visiveis as p (p.competicao.id)}
 		{@const t = tabelasDe(p.dados)}
-		{#if t.calculada && !todasCalculadas}<RotuloCalculada />{/if}
 		{#each t.grupos as grupo, i (grupo.nome ?? i)}
 			<section>
 				<h2>{p.competicao.serie ? `Série ${p.competicao.serie}` : (grupo.nome ?? 'Classificação')}</h2>
@@ -115,6 +111,7 @@
 		{/each}
 	{/each}
 	<p class="nota">Vitória 3 pontos, empate 1. As séries não se enfrentam, por isso não há tabela única.</p>
+	{#if algumaCalculada}<RotuloCalculada />{/if}
 {:else if aba === 'calendario'}
 	{#each visiveis as p (p.competicao.id)}
 		{@const cal = jogosDaProva(p.dados.jogos)}

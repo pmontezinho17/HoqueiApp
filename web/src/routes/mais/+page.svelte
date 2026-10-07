@@ -9,7 +9,11 @@
 	 * `/privacidade` já diz por extenso, com o compromisso e o endereço. Dois textos a dizer
 	 * o mesmo divergem no dia em que um deles mudar.
 	 *
-	 * Fica o que é só desta página: a fonte e os números.
+	 * Fica o que é só desta página: a fonte e os números — e, desde 07/10/2026, a explicação
+	 * das classificações que calculamos. Ela estava numa caixa de aviso por cima de cada
+	 * tabela e o dono apanhou-a no telemóvel: o amarelo afastava a atenção da tabela, que é o
+	 * que a pessoa foi ver. Debaixo das tabelas ficou uma nota de uma linha que aponta para
+	 * cá; o porquê por extenso é aqui.
 	 */
 	let { data } = $props();
 
@@ -39,6 +43,40 @@
 	<p class="nota">
 		Actualizado automaticamente de duas em duas horas aos fins de semana e de seis em
 		seis nos dias úteis, e só quando há jogos novos.
+	</p>
+</section>
+
+<section>
+	<h2>Classificações que calculamos</h2>
+	<p>
+		A associação <strong>não publica classificação</strong> nos Escolares nem nos Benjamins.
+		São 8 séries e 43 equipas, e quem acompanha um filho nesses escalões andava a fazer as
+		contas à mão — por isso calculamo-las nós, e dizemo-lo em cada uma delas.
+	</p>
+	<p>
+		<strong>Não são oficiais.</strong> Se alguma vez houver diferença entre o que aqui está e
+		o que a associação disser, o que vale é o dela.
+	</p>
+	<dl>
+		<dt>Como se contam os pontos</dt>
+		<dd>Vitória 3, empate 1, derrota 0.</dd>
+		<dt>Como se desempata</dt>
+		<dd>Diferença de golos e, depois, golos marcados.</dd>
+		<dt>Que jogos entram</dt>
+		<dd>
+			Só os da fase de grupos, e só depois de terminarem — um jogo a decorrer não conta
+			para a tabela enquanto não acabar.
+		</dd>
+	</dl>
+	<p class="nota">
+		Estas regras não foram assumidas: foram apuradas contra as 42 tabelas que a associação
+		publica nos outros escalões, e o mesmo cálculo reproduz todas elas, linha por linha.
+		Continuamos a verificar isso a cada actualização — se a associação mudar de regra,
+		ficamos a saber no dia seguinte em vez de publicar tabelas erradas em silêncio.
+	</p>
+	<p class="nota">
+		Não calculamos tabelas para as Supertaças nem para os torneios de pré-época: são
+		eliminatórias e jogos-treino, e ali uma classificação não quer dizer nada.
 	</p>
 </section>
 

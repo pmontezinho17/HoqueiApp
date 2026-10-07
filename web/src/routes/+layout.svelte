@@ -88,7 +88,13 @@
 <!-- `--topo` é a altura real deste cabeçalho, medida e não adivinhada: as páginas que
      precisam de colar algo abaixo dele (a barra compacta do jogo) leem-na daqui, e
      acompanham-no quando a navegação parte em duas linhas num ecrã estreito. -->
-<main id="conteudo" style="--topo: {alturaTopo}px">{@render children()}</main>
+<!-- `comBolha`: a bolha de opinião flutua no canto inferior direito e tapa o que esteja no
+     fim da página. Apareceu a 07/10/2026 com a nota de "classificação não oficial", cujo link
+     ficou por baixo dela e deixou de se poder tocar. Enquanto a bolha existir, o conteúdo
+     reserva-lhe a altura. -->
+<main id="conteudo" class:comBolha={RECOLHER_FEEDBACK} style="--topo: {alturaTopo}px">
+	{@render children()}
+</main>
 
 <!--
   A atribuição saiu do rodapé para a página do ⋮, que já a tinha por extenso em "Dados" e
@@ -300,6 +306,9 @@
 		max-width: 44rem; margin: 0 auto;
 		padding: var(--e-4) 0.9rem calc(52px + env(safe-area-inset-bottom) + var(--e-6));
 	}
+
+	/* a altura da bolha (48px) mais o ar à volta dela */
+	main.comBolha { padding-bottom: calc(52px + env(safe-area-inset-bottom) + var(--e-6) + 60px); }
 
 	.progresso {
 		position: fixed; inset: 0 0 auto 0; height: 3px; background: var(--acento);

@@ -292,7 +292,6 @@
 				<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
 					omitidos={f.individuais_omitidos ?? false} />
 			{:else if aba === 'tabela'}
-				{#if tabela.calculada}<RotuloCalculada />{/if}
 				{#each grupos as g (g.nome ?? '')}
 					{#if g.linhas.length}
 						{#if g.nome}<h2 class="serie">{g.nome}</h2>{/if}
@@ -301,6 +300,7 @@
 							destaque={(e) => e === f.casa || e === f.fora} />
 					{/if}
 				{/each}
+				{#if tabela.calculada}<RotuloCalculada />{/if}
 			{:else if aba === 'equipas'}
 				{#if porComecar}
 					<p class="aviso">

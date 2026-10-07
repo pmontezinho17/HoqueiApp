@@ -298,8 +298,6 @@
 			<p class="rotulo">{tabelas[0].rotulo}</p>
 		{/if}
 
-		{#if tabela?.calculada}<RotuloCalculada />{/if}
-
 		<div class="modos" role="group" aria-label="Colunas">
 			<button class:activo={!completa} onclick={() => (completa = false)}>Simples</button>
 			<button class:activo={completa} onclick={() => (completa = true)}>Completa</button>
@@ -308,6 +306,7 @@
 			linhas={tabela.linhas} emblemas={data.emblemas} categoria={data.categoria}
 			{completa} destaque={(e) => e === data.equipa} assistencias={tabela.assist} />
 		<a class="verProva" href={`/competicoes/${tabela.grupoId}`}>Ver a competição ›</a>
+		{#if tabela?.calculada}<RotuloCalculada />{/if}
 	{/if}
 {:else}
 	<!-- com filtro **e** com "todas": o plantel de uma prova é o que responde a "quem joga

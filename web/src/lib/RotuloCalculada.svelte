@@ -1,34 +1,32 @@
 <script lang="ts">
 	/**
-	 * O rótulo de uma tabela que é nossa.
+	 * A nota de que a tabela acima é nossa.
 	 *
-	 * Num componente só, e não repetido em três páginas: é um texto que afirma uma coisa
-	 * sobre o que publicamos, e três cópias divergiam na primeira vez que uma delas mudasse.
+	 * **Era uma caixa cor de aviso antes da tabela, e estava errado.** O Pedro apanhou-o a
+	 * 07/10/2026, no telemóvel: o amarelo puxava a atenção para o aviso e afastava-a da
+	 * tabela, que é o que a pessoa foi lá ver. Uma classificação calculada por nós é um
+	 * detalhe de procedência, não um perigo — e um detalhe de procedência lê-se depois do
+	 * conteúdo, em voz baixa.
 	 *
-	 * **Diz o que é, quem a fez e com que regras.** Sem isto, alguém podia citar uma tabela
-	 * de Benjamins calculada por nós como se fosse da associação — e a ausência dela no site
-	 * da APL é quase certamente deliberada, por ser escolha pedagógica não fazer ranking
-	 * competitivo nos escalões mais novos. Publicamos com o rótulo por decisão do dono a
-	 * 07/10/2026, com esse travão à frente.
+	 * Fica no fundo, no mesmo tom das outras notas da página, e o texto por extenso — quais
+	 * os escalões, porque é que a fonte não publica, com que regras calculamos — vive em
+	 * "Sobre a app e os dados". Repetir isso debaixo de cada tabela era empilhar um parágrafo
+	 * por série.
 	 */
 </script>
 
 <p class="calculada">
-	<strong>Classificação não oficial.</strong> A Associação de Patinagem de Lisboa não publica
-	tabela neste escalão — esta é calculada por nós a partir dos resultados: vitória 3 pontos,
-	empate 1, e o desempate pela diferença de golos.
+	Classificação <strong>não oficial</strong>, calculada por nós: a Associação de Patinagem de
+	Lisboa não publica tabela neste escalão. <a href="/mais">Como a calculamos</a>.
 </p>
 
 <style>
 	.calculada {
-		margin: 0 0 var(--e-4);
-		padding: var(--e-3);
-		border-radius: var(--raio);
-		border: 1px solid var(--aviso);
-		background: var(--aviso-fundo);
-		color: var(--aviso);
+		margin: var(--e-3) 0 0;
+		color: var(--suave);
 		font-size: var(--t-micro);
 		line-height: 1.45;
 	}
-	.calculada strong { color: inherit; }
+	.calculada strong { font-weight: 600; color: var(--texto-2); }
+	.calculada a { color: var(--suave); text-decoration: underline; }
 </style>
