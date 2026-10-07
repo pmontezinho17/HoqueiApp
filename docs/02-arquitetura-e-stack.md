@@ -161,6 +161,9 @@ Ficheiros estáticos, versionados por caminho para nunca quebrar clientes antigo
 /v1/{tenant}/{season}/competitions.json   → lista de competições + escalões
 /v1/{tenant}/{season}/teams.json          → equipas (id, nome, slug, associação)
 /v1/{tenant}/{season}/comp/{id}.json      → calendário + classificação da competição
+                                            (`classificacao` é a da fonte;
+                                             `classificacao_calculada` é a nossa, e só existe
+                                             onde a fonte não publica nenhuma)
 /v1/{tenant}/{season}/match/{id}.json     → ficha de jogo: cabeçalho, estatística por
                                             jogador, cronologia e boletim oficial
 /v1/{tenant}/{season}/scorers/{comp}.json → quadro de marcadores agregado
@@ -176,6 +179,12 @@ Regras:
 - Todos os ficheiros com `generated_at` (ISO 8601, UTC) e `source_url`.
 - IDs mantêm os IDs da fonte (`id_comp`, `id_equipo`, `id` do jogo) para permitir re-verificação manual.
 - Nunca remover campos de `/v1/`. Campos novos são sempre opcionais. Quebras vão para `/v2/`.
+- **Nem reutilizar um campo para dizer outra coisa.** É o mesmo problema visto do outro lado, e
+  custou uma decisão de desenho a 07/10/2026: as tabelas que calculamos para os Escolares e os
+  Benjamins (B9.14/B9.15) não entraram na `classificacao` vazia que já existia, porque um
+  telemóvel com um *build* antigo em cache mostrá-las-ia **sem o rótulo de "não oficial"** — o
+  rótulo é interface nova. Foram para uma chave nova, `classificacao_calculada`, que o código
+  antigo ignora. Acrescentar é seguro; mudar o significado do que já está em cache não é.
 - `meta.json` é o primeiro pedido do cliente: permite mostrar "dados de há X minutos" e detetar
   backend em falha.
 - **Servir tudo do mesmo domínio da PWA** — sem CORS, e o service worker trata dados e código da

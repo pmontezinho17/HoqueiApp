@@ -1,5 +1,7 @@
 <script lang="ts">
 	import AdicionarCalendario from '$lib/AdicionarCalendario.svelte';
+	import RotuloCalculada from '$lib/RotuloCalculada.svelte';
+	import { tabelasDe } from '$lib/classificacao';
 	import CalendarioMes from '$lib/CalendarioMes.svelte';
 	import Emblema from '$lib/Emblema.svelte';
 	import FormaRecente from '$lib/FormaRecente.svelte';
@@ -90,7 +92,8 @@
 				grupoId: c.grupo_id ?? String(c.id),
 				jogos: p.dados.jogos.filter((j) => j.casa === data.equipa || j.fora === data.equipa),
 				ids: new Set(p.dados.jogos.map((j) => j.id)),
-				classificacao: p.dados.classificacao,
+				classificacao: tabelasDe(p.dados).grupos,
+				calculada: tabelasDe(p.dados).calculada,
 				quadro: p.quadro
 			};
 		})
@@ -126,6 +129,7 @@
 					grupoId: p.grupoId,
 					// a série tanto vem no nome da competição (`- SERIE C`) como no grupo (`SERIE A`)
 					rotulo: `${p.rotulo}${p.rotulo.includes('Série') ? '' : serieDe(g.nome)}`,
+					calculada: p.calculada,
 					linhas: g.linhas,
 					assist: assistencias(p.quadro)
 				}))
@@ -293,6 +297,8 @@
 		{:else}
 			<p class="rotulo">{tabelas[0].rotulo}</p>
 		{/if}
+
+		{#if tabela?.calculada}<RotuloCalculada />{/if}
 
 		<div class="modos" role="group" aria-label="Colunas">
 			<button class:activo={!completa} onclick={() => (completa = false)}>Simples</button>

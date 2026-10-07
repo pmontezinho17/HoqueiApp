@@ -25,6 +25,7 @@ avisa no dia em que existir.
 
 from __future__ import annotations
 
+import re
 from collections.abc import Iterable
 from decimal import ROUND_HALF_EVEN, Decimal
 
@@ -148,3 +149,57 @@ def calcular(jogos: Iterable[Jogo]) -> list[GrupoClassificacao]:
         )
         for s in series
     ]
+
+
+#: As provas onde uma tabela calculada **quer dizer alguma coisa**.
+#:
+#: Inventariado a 07/10/2026, e não adivinhado: das 37 competições da época, **14** não têm
+#: tabela publicada pela fonte, e dividem-se em dois grupos muito diferentes.
+#:
+#:    8×  Encontros Distritais (5 Escolares + 3 Benjamins)  → fase de grupos, a tabela faz sentido
+#:    4×  Supertaça APL (sub-13 a sub-19)                   → eliminatória, uma tabela não diz nada
+#:    2×  Torneios Particulares (JOGO TREINO, ZECA PINTO)   → jogos-treino de pré-época
+#:
+#: Calcular a classificação de uma eliminatória produziria uma tabela onde o vencedor de uma
+#: meia-final aparece à frente do vencedor da final. Por isso a regra não é "sempre que falta",
+#: é "sempre que falta **e** a prova é disputada por pontos".
+#:
+#: `CAMP. REG.` está aqui por coerência e nunca chega a ser usado: a fonte publica a tabela de
+#: todos os campeonatos regionais. Se algum dia deixar de publicar uma, nós preenchemos.
+_POR_PONTOS = re.compile(r"^\s*(ENCONTROS DISTRITAIS|CAMP\.?\s*REG)", re.IGNORECASE)
+
+
+def vale_calcular(nome_da_prova: str, publicada: list | None) -> bool:
+    """Se devemos calcular a tabela desta prova.
+
+    **Nunca quando a fonte publica uma.** Não é só evitar trabalho: duas tabelas para a mesma
+    prova divergiriam no dia em que a nossa regra e a dela discordassem, e a app passava a
+    mostrar duas verdades. Onde a fonte publica, a dela é a que manda.
+    """
+    if publicada:
+        return False
+    return bool(_POR_PONTOS.match(nome_da_prova or ""))
+
+
+class _JogoDeJson:
+    """Um jogo lido do nosso próprio JSON, com a forma que o motor espera.
+
+    Serve a ronda ao vivo: ela já escreveu o resultado no ficheiro da competição — ver
+    `_actualizar_calendario` — e recalcular dali não custa um único pedido à fonte, que para
+    estas provas não tem tabela nenhuma para dar.
+    """
+
+    __slots__ = ("casa", "fora", "golos_casa", "golos_fora", "grupo", "ao_vivo")
+
+    def __init__(self, d: dict) -> None:
+        self.casa = d.get("casa")
+        self.fora = d.get("fora")
+        self.golos_casa = d.get("golos_casa")
+        self.golos_fora = d.get("golos_fora")
+        self.grupo = d.get("grupo")
+        self.ao_vivo = bool(d.get("ao_vivo"))
+
+
+def calcular_de_json(jogos: Iterable[dict]) -> list[GrupoClassificacao]:
+    """A mesma conta, a partir dos jogos como estão no nosso JSON."""
+    return calcular(_JogoDeJson(j) for j in jogos)

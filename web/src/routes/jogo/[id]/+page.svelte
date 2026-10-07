@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Cronologia from '$lib/Cronologia.svelte';
+	import RotuloCalculada from '$lib/RotuloCalculada.svelte';
+	import { tabelasDe } from '$lib/classificacao';
 	import Emblema from '$lib/Emblema.svelte';
 	import FichaEquipas from '$lib/FichaEquipas.svelte';
 	import TabelaClassificacao from '$lib/TabelaClassificacao.svelte';
@@ -40,8 +42,16 @@
 	const temInfo = $derived(
 		!!(f.data || f.hora || f.recinto || f.arbitros.length || f.boletim?.parciais?.length)
 	);
-	/** Há provas sem tabela publicada — todos os Escolares e Benjamins. Aí não há separador. */
-	const grupos = $derived(data.competicao?.classificacao ?? []);
+	/**
+	 * A tabela desta prova, da fonte ou nossa.
+	 *
+	 * Até 07/10/2026 os Escolares e os Benjamins não tinham separador nenhum aqui, porque a
+	 * fonte não publica tabela nesses escalões. Agora têm, com o rótulo de não oficial.
+	 * Continua a não haver separador nas eliminatórias e nos jogos-treino, onde uma
+	 * classificação não quer dizer nada — ver `vale_calcular` no raspador.
+	 */
+	const tabela = $derived(tabelasDe(data.competicao));
+	const grupos = $derived(tabela.grupos);
 	const temTabela = $derived(grupos.some((g) => g.linhas.length > 0));
 	const temSeparadores = $derived(temEventos || temTabela || temEquipas || temInfo);
 
@@ -282,6 +292,7 @@
 				<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
 					omitidos={f.individuais_omitidos ?? false} />
 			{:else if aba === 'tabela'}
+				{#if tabela.calculada}<RotuloCalculada />{/if}
 				{#each grupos as g (g.nome ?? '')}
 					{#if g.linhas.length}
 						{#if g.nome}<h2 class="serie">{g.nome}</h2>{/if}

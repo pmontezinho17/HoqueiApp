@@ -18,6 +18,7 @@ from .fonte import UA, Fonte
 from .modelos import em_curso, para_dicionario
 from .parsers.calendario import calendario
 from .parsers.classificacao import classificacao
+from .tabela import calcular, calcular_de_json, vale_calcular
 from .parsers.competicoes import competicoes, temporadas
 from .parsers.jogo import ficha
 from .privacidade import anonimizar_ficha, escalao_permite_individual
@@ -46,6 +47,23 @@ def _tudo(fonte: Fonte, id_temp: int, com_classificacao: bool = False):
                 fonte.seccao("clasificacion", id_comp=prova.id, id_temp=id_temp).html,
                 prova.id, id_temp)
         yield prova, calendario(html, prova.id, id_temp), tabela
+
+
+def _com_tabela_calculada(conteudo: dict, nome_da_prova: str, jogos) -> dict:
+    """Acrescenta `classificacao_calculada` quando a fonte não publica tabela (B9.14/B9.15).
+
+    **Chave nova, e não a `classificacao` existente.** Encher a que já existe era o caminho
+    óbvio e está errado: os telemóveis com um build antigo em cache mostrariam a nossa tabela
+    calculada **sem o rótulo de "não oficial"**, porque o rótulo é interface nova. Acrescentar
+    uma chave é seguro — quem tem código antigo ignora-a; reutilizar uma muda o significado
+    do que já está em cache. É a mesma regra do contrato `/v1` ao contrário.
+    """
+    conteudo["classificacao_calculada"] = (
+        [para_dicionario(g) for g in calcular(jogos)]
+        if vale_calcular(nome_da_prova, conteudo.get("classificacao"))
+        else []
+    )
+    return conteudo
 
 
 def comando_jogos(args) -> int:
@@ -83,8 +101,10 @@ def comando_despejar(args) -> int:
                     emblema_da_equipa[eq.nome] = caminho_publico(idl)
 
             provas.append({**para_dicionario(prova), **identificar(prova.categoria, prova.nome)})
-            conteudo = {"competicao": para_dicionario(prova), **para_dicionario(cal),
-                        "classificacao": para_dicionario(tabela)["grupos"] if tabela else []}
+            conteudo = _com_tabela_calculada(
+                {"competicao": para_dicionario(prova), **para_dicionario(cal),
+                 "classificacao": para_dicionario(tabela)["grupos"] if tabela else []},
+                prova.nome, cal.jogos)
             # aponta os emblemas para a nossa origem; resolve de caminho a inconsistência
             # entre os URLs absolutos do calendário e os relativos da classificação
             for eq in conteudo["equipas"]:
@@ -326,6 +346,15 @@ def comando_aovivo(args) -> int:
                 alvo = destino / "comp" / f"{comp}.json"
                 d = json.loads(alvo.read_text())
                 d["classificacao"] = para_dicionario(tabela)["grupos"]
+                # A tabela calculada tem de andar com os resultados, senão numa jornada de
+                # Benjamins os jogos mostram 3-1 e a tabela continua na jornada anterior — é
+                # a mesma incoerência que o comentário acima descreve, do outro lado. Não
+                # custa um pedido: o `_actualizar_calendario` já escreveu o resultado neste
+                # ficheiro, e a conta sai dos jogos que ele tem dentro.
+                if vale_calcular(d.get("competicao", {}).get("nome", ""), d["classificacao"]):
+                    d["classificacao_calculada"] = [
+                        para_dicionario(g) for g in calcular_de_json(d.get("jogos") or [])
+                    ]
                 alvo.write_text(json.dumps(d, ensure_ascii=False, indent=1))
 
     if mudou:
@@ -421,8 +450,10 @@ def comando_publicar(args) -> int:
                     emblema_da_equipa[eq.nome] = caminho_publico(idl)
 
             provas.append({**para_dicionario(prova), **identificar(prova.categoria, prova.nome)})
-            conteudo = {"competicao": para_dicionario(prova), **para_dicionario(cal),
-                        "classificacao": para_dicionario(tabela)["grupos"] if tabela else []}
+            conteudo = _com_tabela_calculada(
+                {"competicao": para_dicionario(prova), **para_dicionario(cal),
+                 "classificacao": para_dicionario(tabela)["grupos"] if tabela else []},
+                prova.nome, cal.jogos)
             # aponta os emblemas para a nossa origem; resolve de caminho a inconsistência
             # entre os URLs absolutos do calendário e os relativos da classificação
             for eq in conteudo["equipas"]:

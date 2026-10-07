@@ -315,5 +315,82 @@
    "ao_vivo": false
   }
  ],
- "classificacao": []
+ "classificacao": [],
+ "classificacao_calculada": [
+  {
+   "nome": null,
+   "linhas": [
+    {
+     "posicao": 1,
+     "equipa": "CACO A",
+     "logo": null,
+     "jogos": 2,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 20,
+     "golos_sofridos": 0,
+     "diferenca": 20,
+     "racio": null,
+     "pontos": 6
+    },
+    {
+     "posicao": 2,
+     "equipa": "UD VILAFRANQUENSE A",
+     "logo": null,
+     "jogos": 2,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 14,
+     "golos_sofridos": 2,
+     "diferenca": 12,
+     "racio": 7.0,
+     "pontos": 6
+    },
+    {
+     "posicao": 3,
+     "equipa": "AE FISICA D A",
+     "logo": null,
+     "jogos": 1,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 0,
+     "golos_sofridos": 5,
+     "diferenca": -5,
+     "racio": 0.0,
+     "pontos": 0
+    },
+    {
+     "posicao": 4,
+     "equipa": "CD PAÇO ARCOS A",
+     "logo": null,
+     "jogos": 1,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 0,
+     "golos_sofridos": 5,
+     "diferenca": -5,
+     "racio": 0.0,
+     "pontos": 0
+    },
+    {
+     "posicao": 5,
+     "equipa": "HC SINTRA",
+     "logo": null,
+     "jogos": 2,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 2,
+     "golos_sofridos": 24,
+     "diferenca": -22,
+     "racio": 0.08,
+     "pontos": 0
+    }
+   ]
+  }
+ ]
 }

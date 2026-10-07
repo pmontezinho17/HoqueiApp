@@ -834,5 +834,124 @@
    "ao_vivo": false
   }
  ],
- "classificacao": []
+ "classificacao": [],
+ "classificacao_calculada": [
+  {
+   "nome": null,
+   "linhas": [
+    {
+     "posicao": 1,
+     "equipa": "AD OEIRAS A",
+     "logo": null,
+     "jogos": 2,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 31,
+     "golos_sofridos": 3,
+     "diferenca": 28,
+     "racio": 10.33,
+     "pontos": 6
+    },
+    {
+     "posicao": 2,
+     "equipa": "CACO A",
+     "logo": null,
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 14,
+     "golos_sofridos": 10,
+     "diferenca": 4,
+     "racio": 1.4,
+     "pontos": 3
+    },
+    {
+     "posicao": 3,
+     "equipa": "CD PAÇO ARCOS A",
+     "logo": null,
+     "jogos": 1,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 5,
+     "golos_sofridos": 2,
+     "diferenca": 3,
+     "racio": 2.5,
+     "pontos": 3
+    },
+    {
+     "posicao": 4,
+     "equipa": "HC SINTRA",
+     "logo": null,
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 16,
+     "golos_sofridos": 18,
+     "diferenca": -2,
+     "racio": 0.89,
+     "pontos": 3
+    },
+    {
+     "posicao": 5,
+     "equipa": "SC TORRES",
+     "logo": null,
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 7,
+     "golos_sofridos": 10,
+     "diferenca": -3,
+     "racio": 0.7,
+     "pontos": 3
+    },
+    {
+     "posicao": 6,
+     "equipa": "FSE/AJ SALESIANA",
+     "logo": null,
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 8,
+     "golos_sofridos": 22,
+     "diferenca": -14,
+     "racio": 0.36,
+     "pontos": 3
+    },
+    {
+     "posicao": 7,
+     "equipa": "AE FISICA D A",
+     "logo": null,
+     "jogos": 1,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 7,
+     "golos_sofridos": 11,
+     "diferenca": -4,
+     "racio": 0.64,
+     "pontos": 0
+    },
+    {
+     "posicao": 8,
+     "equipa": "A STUART HCM",
+     "logo": null,
+     "jogos": 2,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 4,
+     "golos_sofridos": 16,
+     "diferenca": -12,
+     "racio": 0.25,
+     "pontos": 0
+    }
+   ]
+  }
+ ]
 }

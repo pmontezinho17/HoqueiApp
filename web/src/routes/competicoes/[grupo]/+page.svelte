@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Emblema from '$lib/Emblema.svelte';
+	import RotuloCalculada from '$lib/RotuloCalculada.svelte';
+	import { tabelasDe } from '$lib/classificacao';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import TabelaClassificacao from '$lib/TabelaClassificacao.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
@@ -93,8 +95,16 @@
 		<button class:activo={!completa} onclick={() => (completa = false)}>Simples</button>
 		<button class:activo={completa} onclick={() => (completa = true)}>Completa</button>
 	</div>
+	<!-- Um rótulo e não um por série: nas três séries dos Escolares eram três avisos iguais
+	     empilhados no mesmo ecrã. Quando **todas** as provas visíveis são calculadas, o aviso
+	     vale para o ecrã inteiro e sobe para o topo; num caso misto — que hoje não existe nos
+	     dados, mas pode passar a existir — volta a ser um por prova, que é o que não mente. -->
+	{@const todasCalculadas = visiveis.length > 0 && visiveis.every((p) => tabelasDe(p.dados).calculada)}
+	{#if todasCalculadas}<RotuloCalculada />{/if}
 	{#each visiveis as p (p.competicao.id)}
-		{#each p.dados.classificacao as grupo, i (grupo.nome ?? i)}
+		{@const t = tabelasDe(p.dados)}
+		{#if t.calculada && !todasCalculadas}<RotuloCalculada />{/if}
+		{#each t.grupos as grupo, i (grupo.nome ?? i)}
 			<section>
 				<h2>{p.competicao.serie ? `Série ${p.competicao.serie}` : (grupo.nome ?? 'Classificação')}</h2>
 				<TabelaClassificacao

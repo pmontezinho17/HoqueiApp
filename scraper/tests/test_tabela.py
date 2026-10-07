@@ -15,7 +15,7 @@ import random
 
 import pytest
 from hoquei.modelos import Jogo
-from hoquei.tabela import calcular
+from hoquei.tabela import calcular, calcular_de_json, vale_calcular
 
 PUBLICADO = pathlib.Path(__file__).resolve().parents[2] / "web" / "static" / "v1"
 
@@ -248,3 +248,70 @@ def test_empates_por_desempatar_sao_conhecidos(provas):
     assert len(suspeitos) <= 3, (
         "apareceram empates entre equipas com jogos que o nosso critério não resolve:\n  "
         + "\n  ".join(suspeitos))
+
+
+class TestQuandoValeCalcular:
+    """
+    A regra de **onde** publicamos tabela nossa (B9.14/B9.15).
+
+    O inventário está no comentário do `tabela.py`: das 14 provas sem tabela publicada, 8 são
+    Encontros Distritais e as outras 6 são eliminatórias e jogos-treino. Calcular a
+    classificação de uma Supertaça punha o vencedor de uma meia-final à frente do vencedor da
+    final, e era publicado com a mesma cara de verdade que o resto.
+    """
+
+    def test_encontros_distritais_sem_tabela_publicada_calculam_se(self):
+        assert vale_calcular("ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A", [])
+        assert vale_calcular("ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE D", None)
+
+    def test_eliminatorias_e_jogos_treino_nao(self):
+        assert not vale_calcular("SUPERTAÇA APL SUB-13", [])
+        assert not vale_calcular("TAÇA APL SENIORES MASCULINOS", [])
+        assert not vale_calcular("JOGO TREINO", [])
+        assert not vale_calcular("ZECA PINTO", [])
+
+    def test_onde_a_fonte_publica_manda_a_dela(self):
+        """Duas tabelas para a mesma prova divergiriam, e a app mostrava duas verdades."""
+        assert not vale_calcular(
+            "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
+            [{"nome": None, "linhas": [{"equipa": "A"}]}],
+        )
+
+    def test_um_nome_que_nao_conhecemos_fica_de_fora(self):
+        """Nunca a palpite: uma prova nova não ganha tabela nossa sem alguém decidir."""
+        assert not vale_calcular("TORNEIO DE NATAL", [])
+        assert not vale_calcular("", [])
+
+
+class TestCalcularDeJson:
+    """
+    A ronda ao vivo recalcula a partir do nosso próprio ficheiro, porque é lá que ela já
+    escreveu o resultado — e a fonte, nestas provas, não tem tabela para dar.
+    """
+
+    def jogos(self):
+        return [
+            {"casa": "A", "fora": "B", "golos_casa": 3, "golos_fora": 1, "grupo": None},
+            {"casa": "B", "fora": "C", "golos_casa": 2, "golos_fora": 2, "grupo": None},
+            {"casa": "A", "fora": "C", "golos_casa": None, "golos_fora": None, "grupo": None},
+        ]
+
+    def test_conta_o_que_esta_no_ficheiro(self):
+        linhas = {l.equipa: l for l in so(calcular_de_json(self.jogos()))}
+        # `C` à frente de `B` com os mesmos pontos: a diferença de golos desempata, e é 0
+        # contra -2. Escrevi primeiro `["A", "B", "C"]` e o teste apanhou-me a mim.
+        assert [l.equipa for l in so(calcular_de_json(self.jogos()))] == ["A", "C", "B"]
+        assert linhas["A"].pontos == 3
+        assert linhas["B"].pontos == 1
+        assert linhas["C"].pontos == 1
+        # a equipa com um jogo por disputar aparece na tabela, a zeros no que falta
+        assert linhas["C"].jogos == 1
+
+    def test_um_jogo_a_decorrer_nao_conta(self):
+        """O mesmo cuidado do motor, agora pelo caminho do JSON: um 0-0 ao 1º minuto não é empate."""
+        jogos = self.jogos()
+        jogos[2] = {"casa": "A", "fora": "C", "golos_casa": 0, "golos_fora": 0,
+                    "grupo": None, "ao_vivo": True}
+        linhas = {l.equipa: l for l in so(calcular_de_json(jogos))}
+        assert linhas["A"].jogos == 1
+        assert linhas["A"].pontos == 3

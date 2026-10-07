@@ -105,6 +105,10 @@ export interface FicheiroCompeticao {
 	equipas: Equipa[];
 	jogos: Jogo[];
 	classificacao: GrupoClassificacao[];
+	/** A tabela que **nós** calculamos, quando a fonte não publica nenhuma. Chave própria de
+	 *  propósito — ver `$lib/classificacao.ts`. Opcional porque os ficheiros publicados antes
+	 *  de 07/10/2026 não a têm, e um cliente novo pode ler um ficheiro antigo em cache. */
+	classificacao_calculada?: GrupoClassificacao[];
 }
 
 export interface IndiceCompeticoes { temporada: number; competicoes: Competicao[]; }

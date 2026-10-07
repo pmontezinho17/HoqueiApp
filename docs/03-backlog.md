@@ -677,8 +677,8 @@ Daí saem três cadências, e não duas:
 |---|---|---|---|---|
 | B9.12 | **Motor de classificação**: 3V+1E, ordem pontos → DG → GM → nome, só fase de grupos | must | M | ✅ `scraper/src/hoquei/tabela.py`. Regras apuradas dos dados, não assumidas |
 | B9.13 | **Teste de reprodução**: recalcular as 42 tabelas publicadas e exigir igualdade | must | S | ✅ `tests/test_tabela.py`, 17 testes. Compara 10 campos por linha, baralha a entrada antes de ordenar, e falha se a amostra encolher |
-| B9.14 | Publicar classificação calculada para ESCOLARES, BENJAMINS e TORNEIOS PARTICULARES | should | S | o motor já as produz: **93 linhas** em 14 provas sem tabela. **Não publicado** — depende da resposta da APL, ver travão acima |
-| B9.15 | Rótulo "calculada por nós, não oficial" nessas tabelas | must | XS | se o B9.14 avançar, este não é opcional |
+| B9.14 | Publicar classificação calculada para ESCOLARES e BENJAMINS | should | S | ✅ **feito a 07/10/2026.** 8 séries, 43 equipas, **43 linhas** de tabela. Decisão do dono, com o travão acima à frente e **sem** resposta da APL ao email de 01/10. Os **Torneios Particulares** e as Supertaças ficaram de fora, contra a formulação original deste item: são jogos-treino e eliminatórias, e ali uma tabela punha o vencedor de uma meia-final à frente do vencedor da final — ver `vale_calcular` |
+| B9.15 | Rótulo "calculada por nós, não oficial" nessas tabelas | must | XS | ✅ **feito a 07/10/2026**, num componente só (`RotuloCalculada.svelte`) usado nos três ecrãs que mostram tabelas: competição, equipa e ficha de jogo. Três cópias do texto divergiam na primeira vez que uma mudasse |
 | B9.16 | Ronda de **fecho do dia** às 00:30, que sela o dia e recalcula | must | S | o `cron` actual de 2h fica para frescura |
 | B9.17 | Ronda **ao vivo** sobre os jogos a decorrer, sem saber favoritos | could | M | ✅ **feito e validado em jogo real a 03/10** — `cli aovivo`. Parte da agenda publicada, escolhe só os jogos a decorrer e vai buscar esses: 12 jogos = 12 pedidos, ronda completa em ~15 s. Mede-se com o utilizador na bancada: ~20 s da mesa + ~15 s nossos, **menos de um minuto de ponta a ponta** |
 | B9.18 | **Normalizar grafias de clube** | should | S | a fonte tem `A STRUART HCM` vs `A STUART HCM` e `HC LOURINHA` vs `HC LOURINHÃ`. É literalmente a "limpeza" do pedido, e hoje parte emblemas e junções por nome |
@@ -1037,7 +1037,7 @@ honesta):
 | De quanto em quanto tempo actualiza? | `dados.yml` e o ciclo ao vivo: 30 s durante os jogos, duas horas aos fins de semana, seis nos dias úteis | sim, se a cadência mudar |
 | Isto é oficial? | não — `/mais`, secção "Este site não é oficial" | não |
 | Porque é que falta um jogo, ou um resultado está errado? | republicamos o que a fonte publica, tal como lá está; o caminho é escrever-nos | não |
-| Porque é que os Escolares e os Benjamins não têm classificação? | a fonte não a publica; o motor que a calcula está feito e validado (B9.14/B9.15) e espera resposta da APL | **sim** — muda no dia em que a resposta chegar |
+| Porque é que a classificação dos Escolares e Benjamins diz "não oficial"? | a fonte não a publica; calculamo-la nós desde 07/10/2026, com o rótulo (B9.14/B9.15) | não |
 | Como sigo as minhas equipas, e como as mudo depois? | `O Meu Clube` — o ecrã de escolha de emblemas | não |
 | Dá para instalar no telemóvel? | é uma PWA: "Adicionar ao ecrã principal" | não |
 | Funciona sem rede? | sim, com o que já foi lido — `/privacidade` descreve a cópia local | não |
@@ -1064,7 +1064,7 @@ O que falta, por ordem de valor e não de esforço:
 | | O quê | Porquê agora | Bloqueio |
 |---|---|---|---|
 | 1 | **L7.6 + L7.7** — pôr isto na mão de 5–10 pessoas e partilhar nos grupos dos clubes | Dois dias inteiros de polimento numa app que, fora o dono, ninguém usa. O próximo erro a sério vem de um telemóvel que não é o nosso | é contigo |
-| 2 | **B9.14/B9.15** — publicar as classificações calculadas dos Escolares, Benjamins e Torneios | o motor está feito e validado, 93 linhas prontas | resposta da APL (email de 01/10; telefone 213 931 710 se nada até ~22/10) |
+| 2 | ~~**B9.14/B9.15** — publicar as classificações calculadas~~ | ✅ **feito a 07/10/2026**, por decisão do dono, com o travão à frente e sem resposta da APL. 8 séries, 43 equipas, rótulo de "não oficial" em três ecrãs. Os Torneios Particulares e as Supertaças ficaram **de fora**: são jogos-treino e eliminatórias, e ali uma tabela não quer dizer nada | — |
 | 3 | **Movimento quando o resultado muda** | hoje um 2–1 passa a 3–1 e não se nota; é o que falta para o "ao vivo" parecer ao vivo | nenhum |
 | 4 | **Fase 9 — a base de dados** (B9.1, B9.3–B9.5, B9.7–B9.11) | memória: jogos antecipados, histórico, e o `events.json` que a Fase 5 assume | nenhum, ~3–4 dias |
 | 5 | **Fase 5 — notificações** (~20 itens) | o maior bloco que resta | depende do 4 |
