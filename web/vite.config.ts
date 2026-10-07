@@ -22,8 +22,11 @@ export default defineConfig({
 		SvelteKitPWA({
 			registerType: 'prompt',
 			manifest: {
-				name: 'Hóquei em Patins',
-				short_name: 'Hóquei',
+				// o nome vive em `src/lib/sitio.ts`; aqui não dá para o importar, porque isto
+				// corre na configuração do Vite e não na app — se mudar lá, muda aqui
+				name: 'OK4Sticks.DEV',
+				// doze caracteres é onde o ecrã principal corta, e o nome completo tem treze
+				short_name: 'OK4Sticks',
 				description: 'Resultados, calendários e classificações de hóquei em patins em Portugal',
 				lang: 'pt-PT',
 				// a app instalada abre em O Meu Clube: com favoritos mostra-os, sem eles
@@ -31,7 +34,9 @@ export default defineConfig({
 				start_url: '/clube',
 				display: 'standalone',
 				background_color: '#0f1115',
-				theme_color: '#0a7d54',
+				// amarelo torrado: é a cor do ícone, e é ela que o Android usa para tingir o
+				// arranque e o alternador de aplicações. O acento da interface continua verde
+				theme_color: '#c8860d',
 				icons: [
 					{ src: '/icones/icone-192.png', sizes: '192x192', type: 'image/png' },
 					{ src: '/icones/icone-512.png', sizes: '512x512', type: 'image/png' },

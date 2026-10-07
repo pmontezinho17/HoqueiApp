@@ -1,5 +1,6 @@
 <script lang="ts">
 	import AdicionarCalendario from '$lib/AdicionarCalendario.svelte';
+	import { APP_NOME } from '$lib/sitio';
 	import RotuloCalculada from '$lib/RotuloCalculada.svelte';
 	import { tabelasDe } from '$lib/classificacao';
 	import CalendarioMes from '$lib/CalendarioMes.svelte';
@@ -207,7 +208,7 @@
 	const destaque = (e: string) => e === data.equipa;
 </script>
 
-<svelte:head><title>{data.equipa} {data.categoria} — Hóquei em Patins</title></svelte:head>
+<svelte:head><title>{data.equipa} {data.categoria} — {APP_NOME}</title></svelte:head>
 
 <header class="topo">
 	<Emblema equipa={data.equipa} src={data.emblemas[data.equipa]} tamanho={40} />

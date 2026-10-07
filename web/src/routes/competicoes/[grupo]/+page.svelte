@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Emblema from '$lib/Emblema.svelte';
+	import { APP_NOME } from '$lib/sitio';
 	import RotuloCalculada from '$lib/RotuloCalculada.svelte';
 	import { tabelasDe } from '$lib/classificacao';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
@@ -65,7 +66,7 @@
 	});
 </script>
 
-<svelte:head><title>{data.grupoNome} — Hóquei em Patins</title></svelte:head>
+<svelte:head><title>{data.grupoNome} — {APP_NOME}</title></svelte:head>
 
 <header class="titulo">
 	<p class="escalao">{data.escalao}</p>

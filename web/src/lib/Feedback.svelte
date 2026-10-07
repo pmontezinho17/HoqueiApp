@@ -15,6 +15,7 @@
 	import Icone from './Icone.svelte';
 	import { page } from '$app/state';
 	import { CONTACTO } from './contacto';
+	import { APP_NOME } from './sitio';
 	import { critica } from './critica.svelte';
 
 	let texto = $state('');
@@ -27,7 +28,7 @@
 	);
 	const corpo = $derived(`${texto}\n\n—\n${contexto}`);
 	const link = $derived(
-		`mailto:${CONTACTO}?subject=${encodeURIComponent('Hóquei em patins — crítica')}` +
+		`mailto:${CONTACTO}?subject=${encodeURIComponent(`${APP_NOME} — crítica`)}` +
 			`&body=${encodeURIComponent(corpo)}`
 	);
 

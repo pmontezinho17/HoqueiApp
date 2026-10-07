@@ -15,6 +15,8 @@
 	 * que a pessoa foi ver. Debaixo das tabelas ficou uma nota de uma linha que aponta para
 	 * cá; o porquê por extenso é aqui.
 	 */
+	import { APP_NOME } from '$lib/sitio';
+
 	let { data } = $props();
 
 	const quando = $derived(
@@ -24,7 +26,7 @@
 	);
 </script>
 
-<svelte:head><title>Sobre — Hóquei em Patins</title></svelte:head>
+<svelte:head><title>Sobre — {APP_NOME}</title></svelte:head>
 
 <h1>Sobre a app e os dados</h1>
 

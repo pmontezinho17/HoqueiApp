@@ -57,7 +57,11 @@
 
 <header bind:clientHeight={alturaTopo}>
 	<div class="topo">
-		<a class="marca" href="/">Hóquei<span>em patins</span></a>
+		<!-- "OK4Sticks" a cheio e ".DEV" em voz baixa, como era com "Hóquei"/"em patins". O
+		     descritor do desporto saiu do cabeçalho porque o nome novo é mais largo e aqui
+		     cabem só a marca, a frescura dos dados e dois ícones — ele continua no manifesto e
+		     na página "Sobre a app e os dados". -->
+		<a class="marca" href="/">OK4Sticks<span>.DEV</span></a>
 		<div class="acoes">
 			<Desatualizado geradoEm={data.meta.generated_at} />
 			<a class="icone" href="/procurar" aria-label="Procurar equipa" data-guia="procurar">
@@ -268,7 +272,8 @@
 	}
 	.topo { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
 	.marca { font-weight: 700; font-size: 0.98rem; text-decoration: none; }
-	.marca span { font-weight: 400; color: var(--suave); margin-left: 0.3rem; font-size: 0.72rem; }
+	/* sem `margin-left`: ".DEV" cola-se ao nome, porque faz parte dele */
+	.marca span { font-weight: 400; color: var(--suave); font-size: 0.72rem; }
 	.acoes { display: flex; align-items: center; gap: 0.15rem; }
 	.icone { display: inline-flex; align-items: center; justify-content: center;
 		width: 44px; height: 44px; color: var(--suave); text-decoration: none;

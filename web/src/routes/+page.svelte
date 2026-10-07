@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Faixa from '$lib/Faixa.svelte';
+	import { APP_NOME } from '$lib/sitio';
 	import FitaDatas from '$lib/FitaDatas.svelte';
 	import PaginaDia from '$lib/PaginaDia.svelte';
 	import { page } from '$app/state';
@@ -137,7 +138,7 @@
 	});
 </script>
 
-<svelte:head><title>Jogos — Hóquei em Patins</title></svelte:head>
+<svelte:head><title>Jogos — {APP_NOME}</title></svelte:head>
 
 <h1 class="sr">Jogos</h1>
 

@@ -14,11 +14,11 @@
 	 * terceira chave — a do tema — no mesmo commit em que ela nasceu.
 	 */
 	import { CONTACTO } from '$lib/contacto';
-	import { SITIO_NOME } from '$lib/sitio';
+	import { SITIO_NOME, APP_NOME } from '$lib/sitio';
 	const ACTUALIZADA = '6 de outubro de 2026';
 </script>
 
-<svelte:head><title>Privacidade — Hóquei em Patins</title></svelte:head>
+<svelte:head><title>Privacidade — {APP_NOME}</title></svelte:head>
 
 <h1>Privacidade</h1>
 <p class="resumo">

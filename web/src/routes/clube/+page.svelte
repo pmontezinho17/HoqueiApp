@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Emblema from '$lib/Emblema.svelte';
+	import { APP_NOME } from '$lib/sitio';
 	import Folha from '$lib/Folha.svelte';
 	import { carregarCompeticao } from '$lib/dados';
 	import { favoritos } from '$lib/favoritos.svelte';
@@ -99,7 +100,7 @@
 	const adversario = (j: Jogo, equipa: string) => (j.casa === equipa ? j.fora : j.casa);
 </script>
 
-<svelte:head><title>O Meu Clube — Hóquei em Patins</title></svelte:head>
+<svelte:head><title>O Meu Clube — {APP_NOME}</title></svelte:head>
 
 {#if escolhendo}
 	<!--

@@ -7,7 +7,16 @@ import pathlib
 
 from PIL import Image, ImageDraw
 
-VERDE = (10, 125, 84)
+#: Amarelo torrado, escolhido pelo dono a 07/10/2026 — `#c8860d`.
+#:
+#: Medido antes de escolher: o stick branco sobre esta cor dá **3,06:1** de contraste, acima
+#: do mínimo de 3:1 que se exige a elementos gráficos. Os tons mais claros de mostarda
+#: (`#d4a017`, 2,38) ficavam abaixo e o desenho perdia-se no ecrã principal.
+#:
+#: **Só o ícone muda de cor.** O verde continua a ser o acento da interface, e isso foi
+#: decisão com número à frente: nenhum amarelo passa os 4,5:1 exigidos a texto nos dois temas
+#: com um valor só — o torrado dá 3,06 no claro.
+TORRADO = (200, 134, 13)
 BRANCO = (255, 255, 255)
 DESTINO = pathlib.Path(__file__).resolve().parent.parent / "web" / "static" / "icones"
 
@@ -16,7 +25,7 @@ def desenhar(lado: int, margem: float) -> Image.Image:
     """`margem` maior = conteúdo mais ao centro, para o recorte dos ícones maskable."""
     escala = 4
     n = lado * escala
-    img = Image.new("RGBA", (n, n), VERDE)
+    img = Image.new("RGBA", (n, n), TORRADO)
     d = ImageDraw.Draw(img)
     m = int(n * margem)
     util = n - 2 * m

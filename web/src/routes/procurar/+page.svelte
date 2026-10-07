@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Emblema from '$lib/Emblema.svelte';
+	import { APP_NOME } from '$lib/sitio';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import type { EquipaIndice } from '$lib/tipos';
 
@@ -19,7 +20,7 @@
 	});
 </script>
 
-<svelte:head><title>Procurar — Hóquei em Patins</title></svelte:head>
+<svelte:head><title>Procurar — {APP_NOME}</title></svelte:head>
 
 <h1 class="sr">Procurar equipa</h1>
 

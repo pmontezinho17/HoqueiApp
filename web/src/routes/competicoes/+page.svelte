@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Competicao } from '$lib/tipos';
+	import { APP_NOME } from '$lib/sitio';
 
 	let { data } = $props();
 
@@ -26,7 +27,7 @@
 	});
 </script>
 
-<svelte:head><title>Competições — Hóquei em Patins</title></svelte:head>
+<svelte:head><title>Competições — {APP_NOME}</title></svelte:head>
 
 <h1 class="sr">Competições</h1>
 

@@ -848,6 +848,36 @@ ou de decidir que a quer.
 
 ---
 
+## Nome e ícone (07/10/2026)
+
+A app passou a chamar-se **OK4Sticks.DEV**, por escolha do dono — alinhado com o endereço de
+suporte, `info.ok4sticks@gmail.com`. Antes era "Hóquei em Patins", que descrevia o desporto e
+não identificava nada.
+
+| onde | o que ficou |
+|---|---|
+| `web/src/lib/sitio.ts` | `APP_NOME` e `APP_NOME_CURTO`, e é daqui que os oito `<title>` o leem |
+| manifesto | `name: OK4Sticks.DEV`, `short_name: OK4Sticks` — o ecrã principal corta aos ~12 caracteres e o nome completo tem 13 |
+| `app.html` | `apple-mobile-web-app-title: OK4Sticks` |
+| cabeçalho | `OK4Sticks` a cheio e `.DEV` em voz baixa. Medido a 375×812: 107 px de marca e 73 px de folga até aos ícones, numa linha |
+| ícone | amarelo torrado `#c8860d`, gerado pelo `scripts/gerar_icones.py` |
+
+**O descritor "em patins" saiu do cabeçalho.** O nome novo é mais largo e naquele espaço cabem
+a marca, a frescura dos dados e dois ícones. Continua no manifesto e na página "Sobre a app e
+os dados" — e é lá que um estranho descobre do que se trata.
+
+**Só o ícone mudou de cor, e foi decisão com número à frente.** O `theme_color` do manifesto
+acompanhou-o, porque é a cor com que o Android tinge o arranque e o alternador de aplicações.
+Os dois `<meta name="theme-color">` do `app.html` **não** mudaram: aqueles são a cor do fundo
+da página e um amarelo ali punha uma barra torrada em cima de uma página cinzenta. O acento da
+interface continua verde — medido a 07/10/2026, nenhum amarelo passa os 4,5:1 exigidos a texto
+nos dois temas com um valor só: o torrado dá 3,06 no claro e a mostarda clara 2,38. Para o
+ícone serve, que aí o mínimo é 3:1 e o stick é branco sobre a cor.
+
+Fica em aberto, por escolha do dono: experimentar a interface inteira em torrado, com dois
+valores por tema — ocre `#8a5a00` no claro (5,93) e `#e0a92a` no escuro —, como já se faz com
+a estrela dos favoritos.
+
 ## Pedidos de 06/10/2026
 
 | ID | Item | Prio | Est. | Nota |
