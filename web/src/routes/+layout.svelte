@@ -17,10 +17,22 @@
 	import { favoritos } from '$lib/favoritos.svelte';
 	import MenuMais from '$lib/MenuMais.svelte';
 	import { tema } from '$lib/tema.svelte';
+	import { APP_NOME } from '$lib/sitio';
 
 	let { data, children } = $props();
 
 	let menuAberto = $state(false);
+
+	/**
+	 * A marca parte-se no primeiro ponto: `OK4Sticks` a cheio e `.DEV` em voz baixa.
+	 *
+	 * Calculado e não escrito à mão, porque o nome muda com o ambiente — a principal é
+	 * `OK4Sticks` e o site de testes é `OK4Sticks.DEV`, e o cabeçalho tem de dizer em qual
+	 * dos dois a pessoa está.
+	 */
+	const marca = APP_NOME.split('.');
+	const marcaBase = marca[0];
+	const marcaSufixo = marca.length > 1 ? `.${marca.slice(1).join('.')}` : '';
 
 	// Três destinos primários, sempre visíveis. O secundário vive nos ícones do cabeçalho —
 	// medido: esconder navegação primária num menu corta a descoberta a metade
@@ -57,11 +69,10 @@
 
 <header bind:clientHeight={alturaTopo}>
 	<div class="topo">
-		<!-- "OK4Sticks" a cheio e ".DEV" em voz baixa, como era com "Hóquei"/"em patins". O
-		     descritor do desporto saiu do cabeçalho porque o nome novo é mais largo e aqui
+		<!-- O descritor do desporto saiu do cabeçalho porque o nome novo é mais largo e aqui
 		     cabem só a marca, a frescura dos dados e dois ícones — ele continua no manifesto e
 		     na página "Sobre a app e os dados". -->
-		<a class="marca" href="/">OK4Sticks<span>.DEV</span></a>
+		<a class="marca" href="/">{marcaBase}{#if marcaSufixo}<span>{marcaSufixo}</span>{/if}</a>
 		<div class="acoes">
 			<Desatualizado geradoEm={data.meta.generated_at} />
 			<a class="icone" href="/procurar" aria-label="Procurar equipa" data-guia="procurar">

@@ -17,10 +17,15 @@ export const SITIO = 'https://hoquei.pages.dev';
  * espalhado pelos oito `<title>` das páginas porque já mudou uma vez e pode mudar outra — e
  * oito sítios a dizer o nome divergem no dia em que se muda sete deles.
  *
- * O `NOME_CURTO` é o que aparece debaixo do ícone no ecrã principal, onde o sistema corta
- * por volta dos doze caracteres: `OK4Sticks.DEV` tem treze e ficava truncado.
+ * O `APP_NOME_CURTO` é o que aparece debaixo do ícone no ecrã principal, onde o sistema corta
+ * por volta dos doze caracteres.
+ *
+ * **A principal chama-se `OK4Sticks`; o site de testes chama-se `OK4Sticks.DEV`.** A diferença
+ * vem de `VITE_APP_NOME`, que só o `testes.yml` define. Não é enfeite: com os dois instalados
+ * no mesmo telemóvel — e é isso que um site de testes serve —, dois ícones com o mesmo nome
+ * debaixo não se distinguem, e acaba-se a reportar um defeito do sítio errado.
  */
-export const APP_NOME = 'OK4Sticks.DEV';
+export const APP_NOME = import.meta.env.VITE_APP_NOME || 'OK4Sticks';
 export const APP_NOME_CURTO = 'OK4Sticks';
 
 /** Só o nome, para assuntos de email e textos onde um URL completo é ruído. */

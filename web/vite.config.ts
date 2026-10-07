@@ -23,8 +23,9 @@ export default defineConfig({
 			registerType: 'prompt',
 			manifest: {
 				// o nome vive em `src/lib/sitio.ts`; aqui não dá para o importar, porque isto
-				// corre na configuração do Vite e não na app — se mudar lá, muda aqui
-				name: 'OK4Sticks.DEV',
+				// corre na configuração do Vite e não na app. O que se partilha é a variável:
+				// só o `testes.yml` a define, e é o que separa o site de testes da principal
+				name: process.env.VITE_APP_NOME || 'OK4Sticks',
 				// doze caracteres é onde o ecrã principal corta, e o nome completo tem treze
 				short_name: 'OK4Sticks',
 				description: 'Resultados, calendários e classificações de hóquei em patins em Portugal',

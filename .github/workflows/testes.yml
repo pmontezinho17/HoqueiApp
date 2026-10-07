@@ -43,8 +43,13 @@ jobs:
         working-directory: web
         run: npm ci && npm run check && npx vitest run
 
+      # `VITE_APP_NOME` é o que separa este site da principal, e existe por uma razão
+      # prática: com os dois instalados no mesmo telemóvel, dois ícones com o mesmo nome
+      # debaixo não se distinguem — e acaba-se a reportar um defeito do sítio errado.
       - name: Construir a PWA
         working-directory: web
+        env:
+          VITE_APP_NOME: OK4Sticks.DEV
         run: npm run build
 
       # `workingDirectory: web` pela mesma razão do `dados.yml`: as Pages Functions são lidas
