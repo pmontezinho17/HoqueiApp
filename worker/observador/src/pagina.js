@@ -361,9 +361,14 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias }) {
     <p class="vazio" style="margin-top:8px">
       ${
 			graf.total
-				? `Pico de ${graf.maximo} pedidos numa hora. Contados no raspador, retentativas incluídas.`
-				: 'Nenhum pedido registado hoje — os baldes enchem-se a cada ronda nova que o observador vê.'
+				? `Pico de ${graf.maximo} pedidos numa hora.`
+				: 'Nada registado ainda hoje.'
 		}
+      Contados no raspador, <strong>retentativas incluídas</strong> — do lado do servidor da
+      federação uma retentativa é outro pedido. <strong>Só conta as rondas que publicaram:</strong>
+      uma ronda que não encontre dados novos tem o seu <code>meta.json</code> descartado pelo
+      publicador, e o custo dela não aparece aqui. Nos dias úteis são até quatro rondas de ~75
+      pedidos que ficam invisíveis — ver o backlog.
     </p>
   </section>
 

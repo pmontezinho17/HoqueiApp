@@ -848,6 +848,37 @@ ou de decidir que a quer.
 
 ---
 
+## Pedidos à APL por hora e por tipo — e o que o gráfico não vê (08/10/2026)
+
+O dono pediu um gráfico de 24 colunas com os pedidos do dia, cores por tipo de chamada. Está
+feito, e a parte difícil não foi o desenho.
+
+**Por tipo** conta-se no `_obter` do `fonte.py`, por onde passam todos: são quatro páginas —
+`competiciones`, `calendario`, `clasificacion` e a ficha (`partido.asp`). **Por hora** é mais
+subtil: o total do dia acumula-se dentro do próprio `meta.json`, porque cada ronda ao vivo é
+um processo novo e um contador em memória morria com ele; o observador lê esse total de minuto
+a minuto e atribui a diferença à hora em que a viu. Uma descida do total trata-se como
+recomeço — uma corrida nova parte do ficheiro commitado, que pode ser de horas antes.
+
+### O que o gráfico não vê, e porquê
+
+**As rondas que não publicam não aparecem.** Quando uma ronda não encontra dados novos, o
+passo "Comitar se houver novidade" faz `git checkout -- web/static/v1` e descarta tudo o que
+foi regenerado — incluindo o `meta.json` com a contagem. Nos dias úteis são até quatro rondas
+de ~75 pedidos cada que ficam invisíveis no gráfico.
+
+Está dito na própria página, por baixo do gráfico, e não escondido. As saídas, para quando
+valer a pena:
+
+| | custo |
+|---|---|
+| **B9.31** — uma linha por ronda em `data-samples/rondas/pedidos.jsonl`, sempre comitada, lida pelo observador do `raw.githubusercontent` como já lê o diário | S, mas mexe no publicador |
+| manter assim | 0, e o gráfico conta só o que publicou |
+
+**Não mexi no publicador hoje**, de propósito: é a peça que leva dados ao site, parti-a duas
+vezes esta semana, e amanhã é véspera de um fim de semana com 75 jogos. Uma contagem
+incompleta e honesta vale mais do que um publicador arriscado.
+
 ## Aparelhos distintos por dia, sem identificador (08/10/2026)
 
 O dono perguntou se dá para medir utilizadores distintos. **Pessoas, não** — isso exige um
