@@ -167,8 +167,14 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias }) {
 	}
 	const mal = s?.estado === 'vermelho';
 	const hoje = ent[dia] ?? {};
+	// **Só o que é um ecrã**, e não "tudo o que não seja aberturas".
+	//
+	// A entrada de um dia traz ecrãs misturados com outras contagens — `aparelhos`, `novos`,
+	// `aberturas` — e o filtro por exclusão deixava passar as novas: o dono viu "aparelhos 5"
+	// e "novos 3" listados como se fossem ecrãs da app, e o total do painel vinha inflacionado
+	// com eles. Um filtro por inclusão não tem esse problema quando se acrescentar a próxima.
 	const ecrasHoje = Object.entries(hoje)
-		.filter(([k]) => k !== 'aberturas')
+		.filter(([k]) => k in ECRAS)
 		.sort((a, b) => b[1] - a[1]);
 	const totalEcras = ecrasHoje.reduce((t, [, v]) => t + v, 0);
 
