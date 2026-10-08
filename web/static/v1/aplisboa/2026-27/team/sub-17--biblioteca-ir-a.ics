@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9657@hoquei.pages.dev
-DTSTAMP:20261008T000000Z
-DTSTART:20261008T190000Z
-DTEND:20261008T203000Z
-SUMMARY:🏑 Sub-17 🏑 Biblioteca IR B vs Biblioteca IR A
-LOCATION:Pavilhão Gimnodesportivo de Valado dos Frades
-DESCRIPTION:Biblioteca IR B vs Biblioteca IR A\nCAMP. REG. SUB-17 - 1ª FAS
- E · Série A · SUB-17\nPAV. VALADO DE FRADES\nhttps://hoquei.pages.dev/j
- ogo/9657\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9657
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9661@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T153000Z

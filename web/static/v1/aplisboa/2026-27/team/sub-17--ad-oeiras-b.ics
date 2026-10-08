@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9762@hoquei.pages.dev
-DTSTAMP:20261008T000000Z
-DTSTART:20261008T201500Z
-DTEND:20261008T214500Z
-SUMMARY:🏑 Sub-17 🏑 AD Oeiras B vs Sporting CP A
-LOCATION:Pavilhão do Sacavenense ( Hóquei Formação SCP)
-DESCRIPTION:AD Oeiras B vs Sporting CP A\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie E · SUB-17\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/9762
- \nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9762
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9759@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T163000Z

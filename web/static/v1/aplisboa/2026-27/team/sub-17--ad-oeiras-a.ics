@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9739@hoquei.pages.dev
-DTSTAMP:20261008T000000Z
-DTSTART:20261008T190000Z
-DTEND:20261008T203000Z
-SUMMARY:🏑 Sub-17 🏑 AD Oeiras A vs CD Mafra
-LOCATION:Pavilhão Clube Desportivo de Mafra
-DESCRIPTION:AD Oeiras A vs CD Mafra\nCAMP. REG. SUB-17 - 1ª FASE · Série
-  D · SUB-17\nPAV. MAFRA\nhttps://hoquei.pages.dev/jogo/9739\nDados da Ass
- ociação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9739
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9737@hoquei.pages.dev
 DTSTAMP:20261010T000000Z
 DTSTART:20261010T170000Z

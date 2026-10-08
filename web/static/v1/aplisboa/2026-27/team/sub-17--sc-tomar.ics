@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9656@hoquei.pages.dev
-DTSTAMP:20261008T000000Z
-DTSTART:20261008T193000Z
-DTEND:20261008T210000Z
-SUMMARY:🏑 Sub-17 🏑 SC Tomar vs UF Entroncamento
-LOCATION:Pavilhão Jacome Ratton
-DESCRIPTION:SC Tomar vs UF Entroncamento\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie A · SUB-17\nPAV.JACOME RATTON\nhttps://hoquei.pages.dev/jogo/9656\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9656
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9660@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T163000Z

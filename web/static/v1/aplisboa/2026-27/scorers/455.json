@@ -1,16 +1,42 @@
 {
  "competicao_id": 455,
- "jogos_considerados": 7,
+ "jogos_considerados": 8,
  "jogadores": [
   {
    "nome": "MARTIM PIRES",
    "equipa": "SPORTING CP A",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "9",
-   "golos": 4,
-   "assistencias": 2,
+   "golos": 9,
+   "assistencias": 3,
    "defesas": 0,
-   "pontos": 6,
+   "pontos": 12,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO GONÇALVES",
+   "equipa": "SPORTING CP A",
+   "jogos": 3,
+   "numero": "4",
+   "golos": 5,
+   "assistencias": 6,
+   "defesas": 0,
+   "pontos": 11,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME INFANTE",
+   "equipa": "SPORTING CP A",
+   "jogos": 3,
+   "numero": "6",
+   "golos": 5,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 5,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -29,14 +55,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO GONÇALVES",
+   "nome": "GUSTAVO CORREIA",
    "equipa": "SPORTING CP A",
-   "jogos": 2,
-   "numero": "4",
-   "golos": 3,
-   "assistencias": 3,
+   "jogos": 3,
+   "numero": "3",
+   "golos": 4,
+   "assistencias": 0,
    "defesas": 0,
-   "pontos": 6,
+   "pontos": 4,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -44,14 +70,14 @@
   {
    "nome": "MIGUEL ALMEIDA",
    "equipa": "SPORTING CP A",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "2",
    "golos": 3,
-   "assistencias": 2,
+   "assistencias": 3,
    "defesas": 0,
-   "pontos": 5,
+   "pontos": 6,
    "amarelos": 1,
-   "azuis": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -68,28 +94,15 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME INFANTE",
+   "nome": "DINIS TRIÃES",
    "equipa": "SPORTING CP A",
-   "jogos": 2,
-   "numero": "6",
-   "golos": 3,
-   "assistencias": 0,
+   "jogos": 3,
+   "numero": "7",
+   "golos": 2,
+   "assistencias": 5,
    "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUSTAVO CORREIA",
-   "equipa": "SPORTING CP A",
-   "jogos": 2,
-   "numero": "3",
-   "golos": 3,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
+   "pontos": 7,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -120,19 +133,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIEGO COSTA",
-   "equipa": "AD OEIRAS B",
-   "jogos": 2,
-   "numero": "7",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOÃO CORREIA",
    "equipa": "FSE/AJ SALESIANA A",
    "jogos": 2,
@@ -143,6 +143,19 @@
    "pontos": 2,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIEGO COSTA",
+   "equipa": "AD OEIRAS B",
+   "jogos": 3,
+   "numero": "7",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -165,32 +178,6 @@
    "numero": "5",
    "golos": 2,
    "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DINIS TRIÃES",
-   "equipa": "SPORTING CP A",
-   "jogos": 2,
-   "numero": "7",
-   "golos": 1,
-   "assistencias": 4,
-   "defesas": 0,
-   "pontos": 5,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TIAGO SEMEDO",
-   "equipa": "SPORTING CP A",
-   "jogos": 1,
-   "numero": "5",
-   "golos": 1,
-   "assistencias": 1,
    "defesas": 0,
    "pontos": 2,
    "amarelos": 0,
@@ -237,6 +224,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "TIAGO SEMEDO",
+   "equipa": "SPORTING CP A",
+   "jogos": 2,
+   "numero": "5",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "BERNARDO DIAS",
    "equipa": "AE FISICA D A",
    "jogos": 3,
@@ -250,49 +250,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANDRÉ LOPES",
-   "equipa": "AD OEIRAS B",
-   "jogos": 2,
-   "numero": "3",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MANUEL HENRIQUES",
-   "equipa": "AD OEIRAS B",
-   "jogos": 2,
-   "numero": "8",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "PEDRO CORREIA",
    "equipa": "FSE/AJ SALESIANA A",
    "jogos": 2,
    "numero": "4",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RODRIGO MARTINS",
-   "equipa": "AD OEIRAS B",
-   "jogos": 2,
-   "numero": "5",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -315,6 +276,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "ANDRÉ LOPES",
+   "equipa": "AD OEIRAS B",
+   "jogos": 3,
+   "numero": "3",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GUILHERME FIDALGO",
    "equipa": "HC SINTRA",
    "jogos": 3,
@@ -324,6 +298,19 @@
    "defesas": 0,
    "pontos": 1,
    "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MANUEL HENRIQUES",
+   "equipa": "AD OEIRAS B",
+   "jogos": 3,
+   "numero": "8",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -341,9 +328,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "RODRIGO MARTINS",
+   "equipa": "AD OEIRAS B",
+   "jogos": 3,
+   "numero": "5",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GABRIEL FERREIRA",
    "equipa": "AD OEIRAS B",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "6",
    "golos": 0,
    "assistencias": 3,
@@ -369,8 +369,8 @@
   {
    "nome": "GONÇALO CARVALHO",
    "equipa": "AD OEIRAS B",
-   "jogos": 1,
-   "numero": "8",
+   "jogos": 2,
+   "numero": "9",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -458,19 +458,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "RAFAEL ALMEIDA",
-   "equipa": "AD OEIRAS B",
-   "jogos": 1,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "SEBASTIÃO HENRIQUES",
    "equipa": "AE FISICA D A",
    "jogos": 1,
@@ -488,6 +475,19 @@
    "equipa": "SPORTING CP A",
    "jogos": 1,
    "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO ANDRADE",
+   "equipa": "SPORTING CP A",
+   "jogos": 1,
+   "numero": "8",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -536,36 +536,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME NETO",
-   "equipa": "AD OEIRAS B",
-   "jogos": 2,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOÃO DIAS",
    "equipa": "CACO B",
    "jogos": 2,
    "numero": "45",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "KEVIN TIMAS",
-   "equipa": "AD OEIRAS B",
-   "jogos": 2,
-   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -627,10 +601,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "RAFAEL BOLOGAN",
-   "equipa": "SPORTING CP A",
+   "nome": "RAFAEL ALMEIDA",
+   "equipa": "AD OEIRAS B",
    "jogos": 2,
-   "numero": "10",
+   "numero": "2",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -705,19 +679,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS PAULO",
-   "equipa": "SPORTING CP A",
-   "jogos": 2,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "VICENTE GOIAS",
    "equipa": "FSE/AJ SALESIANA A",
    "jogos": 2,
@@ -783,6 +744,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "GUILHERME NETO",
+   "equipa": "AD OEIRAS B",
+   "jogos": 3,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "KEVIN TIMAS",
+   "equipa": "AD OEIRAS B",
+   "jogos": 3,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "LUIS VINAGRE",
    "equipa": "HC SINTRA",
    "jogos": 3,
@@ -809,6 +796,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "RAFAEL BOLOGAN",
+   "equipa": "SPORTING CP A",
+   "jogos": 3,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "SANTIAGO SANTOS",
    "equipa": "AE FISICA D A",
    "jogos": 3,
@@ -816,6 +816,19 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS PAULO",
+   "equipa": "SPORTING CP A",
+   "jogos": 3,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
