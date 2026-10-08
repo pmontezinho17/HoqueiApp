@@ -34,6 +34,8 @@
  * escritas no pior caso — uma por minuto, quando a ronda ao vivo está a publicar sem parar.
  */
 
+import { pagina } from './pagina.js';
+
 const BASE = 'https://hoquei.pages.dev/v1/aplisboa/2026-27';
 const UA = 'hoqueiAPP-observador/1.0 (+https://github.com/pmontezinho17/HoqueiApp)';
 
@@ -404,117 +406,6 @@ async function entradas(env, dias) {
 	return saida;
 }
 
-const esc = (x) =>
-	String(x ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-
-function pagina({ dia, estado, rel, runs, diario, ent }) {
-	const s = estado?.saude;
-	const cor = !s ? '#767e8a' : s.estado === 'verde' ? '#0a7d54' : '#c2410c';
-	const linha = (k, v) => `<tr><th>${esc(k)}</th><td>${v}</td></tr>`;
-	const nada = '<span class="nada">—</span>';
-
-    const ultimasRondas = diario
-		.slice()
-		.reverse()
-		.map((r) => `<tr><th>${esc(r.ts?.slice(5, 16).replace('T', ' '))}</th><td>${
-			esc(r.contagens?.jogos)} jogos · ${esc(r.contagens?.fichas)} fichas · ${
-			esc(r.contagens?.linhas_classificacao)} linhas</td></tr>`)
-		.join('');
-
-	return `<!doctype html>
-<html lang="pt-PT"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Consola — OK4Sticks</title>
-<meta http-equiv="refresh" content="60">
-<style>
- :root { color-scheme: light dark; --f:#f5f6f8; --c:#fff; --t:#14171c; --s:#767e8a; --b:#e3e6ea; }
- @media (prefers-color-scheme: dark) {
-   :root { --f:#0f1115; --c:#181b21; --t:#e8eaed; --s:#868d98; --b:#272b33; }
- }
- * { box-sizing:border-box }
- body { margin:0; background:var(--f); color:var(--t); font:14px/1.5 system-ui,-apple-system,sans-serif;
-        padding:12px; max-width:44rem; margin:0 auto }
- h1 { font-size:1rem; margin:0 0 2px } h1 span { color:var(--s); font-weight:400; font-size:.75rem }
- h2 { font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--s);
-      margin:18px 0 6px; font-weight:600 }
- .saude { border-radius:12px; padding:14px; background:${cor}; color:#fff; margin:10px 0 }
- .saude b { font-size:1.4rem; display:block; letter-spacing:.02em }
- .saude p { margin:4px 0 0; font-size:.8rem; opacity:.95 }
- table { width:100%; border-collapse:collapse; background:var(--c); border-radius:10px; overflow:hidden }
- th,td { text-align:left; padding:7px 10px; font-weight:400; vertical-align:top }
- th { color:var(--s); white-space:nowrap; width:38% }
- tr+tr th, tr+tr td { border-top:1px solid var(--b) }
- td.n { font-variant-numeric:tabular-nums }
- .nada { color:var(--s) }
- .ok { color:#0a7d54 } .mal { color:#c2410c }
- footer { color:var(--s); font-size:.72rem; margin-top:20px; line-height:1.5 }
- code { font-size:.95em }
-</style></head><body>
-<h1>Consola <span>OK4Sticks · ${esc(dia)}</span></h1>
-
-<div class="saude">
-  <b>${s ? (s.estado === 'verde' ? 'tudo em ordem' : 'algo está mal') : 'sem leitura ainda'}</b>
-  <p>${s ? `${s.jogos_hoje} jogos hoje, ${s.a_decorrer} na janela · dados de há ${
-	  s.dados_com_minutos ?? '?'} min` : 'o cron corre nas horas de jogos'}</p>
-  ${s && s.sem_resultado?.length ? `<p>⚠ sem resultado há mais de 2 h: ${s.sem_resultado.join(', ')}</p>` : ''}
-  ${s && s.ao_vivo_preso?.length ? `<p>⚠ "ao vivo" preso: ${s.ao_vivo_preso.join(', ')}</p>` : ''}
-  ${s && s.publicacao_velha ? '<p>⚠ há jogos a decorrer e os dados não são novos</p>' : ''}
-</div>
-
-<h2>o que sai — pedidos à APL</h2>
-<table>
-${linha('última ronda', estado?.pedidos_fonte != null
-	? `<span class="n">${esc(estado.pedidos_fonte)}</span> pedidos, ${
-		estado.pedidos_falhados ? `<span class="mal">${esc(estado.pedidos_falhados)} falhados</span>` : '<span class="ok">0 falhados</span>'}`
-	: nada)}
-${ultimasRondas || linha('rondas', nada)}
-</table>
-
-<h2>o que entra — quem usa a app</h2>
-<table>
-${Object.keys(ent).length
-	? Object.entries(ent).map(([d, l]) =>
-		linha(d, Object.entries(l).map(([k, v]) => `${esc(k)} <span class="n">${esc(v)}</span>`).join(' · '))).join('')
-	: linha('sem dados', nada)}
-</table>
-
-<h2>publicação — cadência de hoje</h2>
-<table>
-${linha('publicações', `<span class="n">${esc(rel.publicacoes)}</span>`)}
-${linha('intervalo', rel.cadencia_s.mediana != null
-	? `mediana <span class="n">${esc(rel.cadencia_s.mediana)}s</span> · máx <span class="n">${esc(rel.cadencia_s.maximo)}s</span>`
-	: nada)}
-${linha('buracos > 3 min', rel.buracos_acima_de_3min.length
-	? `<span class="mal">${esc(rel.buracos_acima_de_3min.join(', '))}</span>` : '<span class="ok">nenhum</span>')}
-${linha('erros do CDN', rel.erros.length ? `<span class="mal">${rel.erros.length}</span>` : '<span class="ok">0</span>')}
-</table>
-
-<h2>golos de hoje, à hora a que apareceram</h2>
-<table>
-${rel.resultados.length
-	? rel.resultados.map((r) => linha(r.t, `#${esc(r.id)} ${esc(r.de)} → <b>${esc(r.para)}</b> ${esc(r.situacao ?? '')}`)).join('')
-	: linha('nenhum', nada)}
-</table>
-
-<h2>a cadeia — últimas corridas</h2>
-<table>
-${runs.map((r) => linha(
-	(r.quando ?? '').slice(5, 16).replace('T', ' '),
-	`${esc(r.nome)} <span class="${r.estado === 'success' ? 'ok' : r.estado === 'failure' ? 'mal' : ''}">${esc(r.estado)}</span> <span class="nada">${esc(r.evento ?? '')}</span>`
-)).join('')}
-</table>
-
-<footer>
-Lê só o que nós publicamos — nunca a APL. A cadência são os intervalos entre dados novos no
-nosso CDN; <strong>não</strong> mede o tempo desde que um golo foi marcado, que exige alguém
-no pavilhão com um cronómetro. As aberturas são estimadas por amostragem de 1 em 10.<br>
-Actualiza de minuto a minuto nas horas de jogos. Esta página recarrega sozinha a cada 60 s.
-<code>/api</code> dá o mesmo em JSON.
-</footer>
-</body></html>`;
-}
-
 export default {
 	async scheduled(_evento, env, ctx) {
 		ctx.waitUntil(observar(env));
@@ -545,15 +436,18 @@ export default {
 		} catch {
 			estado = null;
 		}
-		const ontem = new Date(Date.parse(`${dia}T12:00:00Z`) - 86400000)
-			.toISOString()
-			.slice(0, 10);
+		// sete dias: é o que mostra se o uso está a crescer ou foi só uma tarde. São 70
+		// leituras do KV por carregamento, contra as 100 000 do dia.
+		const base = Date.parse(`${dia}T12:00:00Z`);
+		const dias = Array.from({ length: 7 }, (_, i) =>
+			new Date(base - (6 - i) * 86400000).toISOString().slice(0, 10)
+		);
 		const [runs, diario, ent] = await Promise.all([
 			corridas(env),
 			rondas(env),
-			entradas(env, [dia, ontem])
+			entradas(env, dias)
 		]);
-		return new Response(pagina({ dia, estado, rel, runs, diario, ent }), {
+		return new Response(pagina({ dia, estado, rel, runs, diario, ent, dias }), {
 			headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
 		});
 	}
