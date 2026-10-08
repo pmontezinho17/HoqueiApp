@@ -848,6 +848,24 @@ ou de decidir que a quer.
 
 ---
 
+## A consola em baixo: 50 sub-pedidos por invocação (08/10/2026)
+
+O dono abriu a consola e levou um `Error 1102 — Worker exceeded resource limits`. A causa era
+minha e é instrutiva: a página pedia **11 chaves do KV para cada um dos 7 dias**, 77 leituras,
+e o plano gratuito dos Workers corta aos **50 sub-pedidos por invocação** — cada leitura do KV
+conta como um. Não era CPU nem memória: era o número de idas ao armazém.
+
+Passou a ler o mínimo: três chaves por dia para o gráfico de sete dias — aparelhos, novos,
+aberturas — e o detalhe por ecrã só do dia que se está a ver. São 30 leituras no pior caso,
+mais três para o resto da página, e vão em `Promise.all` porque em série a página demorava a
+aparecer.
+
+Verificado: dez carregamentos seguidos, dez 200, e o `/api` e o `/observar` também. A página
+continua com as 24 colunas, as 7 barras, as 4 cores da legenda e os ecrãs do dia.
+
+**A lição a guardar:** num Worker, o KV não é uma variável — é uma ida à rede, e há um tecto
+por invocação. Um laço de leituras aninhado passa de 50 sem ninguém reparar.
+
 ## Pedidos à APL por hora e por tipo — e o que o gráfico não vê (08/10/2026)
 
 O dono pediu um gráfico de 24 colunas com os pedidos do dia, cores por tipo de chamada. Está

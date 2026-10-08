@@ -436,26 +436,48 @@ async function rondas(env) {
 	}
 }
 
-/** As entradas: o que o contador do site escreveu. Só leitura. */
-async function entradas(env, dias) {
-	const CHAVES = ['aberturas', '/', '/clube', '/competicoes', '/equipa', '/jogo', '/mais',
-		'/privacidade', '/procurar', 'outro'];
+/**
+ * As entradas: o que o contador do site escreveu. Só leitura.
+ *
+ * **Lê o mínimo, e isto não é afinação: é o que mantém a página de pé.** A primeira versão
+ * pedia as 11 chaves de cada um dos 7 dias — 77 leituras — e a Cloudflare respondeu `Error
+ * 1102, Worker exceeded resource limits`: o plano gratuito corta aos **50 sub-pedidos** por
+ * invocação, e cada leitura do KV conta como um. A consola esteve em baixo até se perceber.
+ *
+ * Agora: três chaves por dia para o gráfico de sete dias — aparelhos, novos e aberturas — e o
+ * detalhe por ecrã só do dia que se está a ver. Dá 30 leituras no pior caso, mais três para o
+ * resto da página.
+ */
+async function entradas(env, dias, diaDetalhado) {
+	const ECRAS = ['/', '/clube', '/competicoes', '/equipa', '/jogo', '/mais', '/privacidade',
+		'/procurar', 'outro'];
+	const num = async (chave) => Number(await env.CONTAGENS.get(chave)) || 0;
+
+	// em paralelo: são 30 idas ao KV e em série a página demorava a aparecer
+	const porDia = await Promise.all(
+		dias.map(async (dia) => {
+			const [aparelhos, novos, aberturas] = await Promise.all([
+				num(`d:${dia}`),
+				num(`n:${dia}`),
+				num(`c:${dia}:aberturas`)
+			]);
+			return [dia, { aparelhos, novos, aberturas: aberturas * 10 }];
+		})
+	);
+
+	const detalhe = await Promise.all(
+		ECRAS.map(async (e) => [e, await num(`c:${diaDetalhado}:${e}`)])
+	);
+
 	const saida = {};
-	for (const dia of dias) {
+	for (const [dia, v] of porDia) {
 		const linha = {};
-		for (const c of CHAVES) {
-			const n = Number(await env.CONTAGENS.get(`c:${dia}:${c}`)) || 0;
-			if (n) linha[c] = c === 'aberturas' ? n * 10 : n;
+		if (v.aparelhos) {
+			linha.aparelhos = v.aparelhos;
+			linha.novos = v.novos;
 		}
-		// Aparelhos distintos: **exacto**, não amostrado. Cada aparelho avisa uma vez por dia,
-		// e é ele que decide — ver `web/src/lib/presenca.ts`. É o número que responde a
-		// "quantos abriram a app", que o contador de pedidos não sabe responder.
-		const aparelhos = Number(await env.CONTAGENS.get(`d:${dia}`)) || 0;
-		const novos = Number(await env.CONTAGENS.get(`n:${dia}`)) || 0;
-		if (aparelhos) {
-			linha.aparelhos = aparelhos;
-			linha.novos = novos;
-		}
+		if (v.aberturas) linha.aberturas = v.aberturas;
+		if (dia === diaDetalhado) for (const [e, n] of detalhe) if (n) linha[e] = n;
 		if (Object.keys(linha).length) saida[dia] = linha;
 	}
 	return saida;
@@ -500,7 +522,7 @@ export default {
 		const [runs, diario, ent] = await Promise.all([
 			corridas(env),
 			rondas(env),
-			entradas(env, dias)
+			entradas(env, dias, dia)
 		]);
 		return new Response(pagina({ dia, estado, rel, runs, diario, ent, dias }), {
 			headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
