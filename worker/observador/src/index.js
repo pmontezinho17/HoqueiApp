@@ -81,10 +81,15 @@ export function retrato(agenda, dia) {
  * Função pura, e separada do Worker de propósito: é o que o `teste.mjs` pode exercitar sem
  * rede nem KV.
  */
-export function diferencas(antes, depois, carimboAntes, carimboDepois) {
+export function diferencas(antes, depois, carimboAntes, carimboDepois, aDecorrer = null) {
 	const ev = [];
 	if (carimboDepois && carimboDepois !== carimboAntes) {
-		ev.push({ tipo: 'publicacao', generated_at: carimboDepois });
+		// `v` = jogos a decorrer no momento desta publicação. Serve para distinguir um
+		// intervalo entre publicações que é silêncio normal — o ciclo só publica quando algo
+		// muda, e dez minutos sem golos são dez minutos sem publicar — de um intervalo que é
+		// o ciclo parado com jogos em campo. Sem isto, o relatório contava 5 "buracos" numa
+		// noite em que correu tudo bem.
+		ev.push({ tipo: 'publicacao', generated_at: carimboDepois, v: aDecorrer });
 	}
 	for (const [id, d] of Object.entries(depois)) {
 		const a = antes?.[id];
@@ -136,7 +141,19 @@ export function saude(agenda, dia, hora, geradoEm, agoraMs = Date.now()) {
 		const inicio = minutos(j.hora);
 		if (inicio === null) continue;
 		const decorridos = agoraMin - inicio;
-		if (decorridos >= -15 && decorridos <= 180) aDecorrer++;
+		// **Um jogo acabado não está a decorrer.**
+		//
+		// A primeira versão contava como "na janela" qualquer jogo nas três horas seguintes
+		// ao apito inicial, tivesse acabado ou não. Resultado medido a 08/10/2026 às 22:35,
+		// dez minutos depois do último jogo terminar: a saúde ficou **vermelha** com
+		// "publicação parada com jogos a decorrer" — porque os jogos das 20:00 ainda caíam
+		// na janela de três horas e o ciclo, com razão, já não publicava nada.
+		//
+		// Isto teria aberto uma issue e mandado um email ao dono em **todas** as noites de
+		// jogos, no momento em que tudo tinha corrido bem. Um aviso que grita por nada é um
+		// aviso que se aprende a ignorar, e aí deixa de servir para o caso a sério.
+		const acabado = (j.gc ?? null) !== null && !j.ao_vivo;
+		if (decorridos >= -15 && decorridos <= 180 && !acabado) aDecorrer++;
 		if (decorridos > 120 && (j.gc ?? null) === null) semResultado.push(j.id);
 		if (decorridos > 180 && j.ao_vivo) presos.push(j.id);
 	}
@@ -288,8 +305,10 @@ async function observar(env) {
 	try {
 		const [meta, agenda] = await Promise.all([ler('meta.json'), ler('agenda.json')]);
 		const agora = retrato(agenda, dia);
-		eventos = diferencas(estado.retrato, agora, estado.generated_at, meta.generated_at);
 		agoraSaude = saude(agenda, dia, hora, meta.generated_at);
+		eventos = diferencas(
+			estado.retrato, agora, estado.generated_at, meta.generated_at, agoraSaude.a_decorrer
+		);
 		// só se registra a **transição**: um estado vermelho que durasse uma tarde enchia o
 		// registo com a mesma linha trezentas vezes
 		if (estado.saude?.estado !== agoraSaude.estado) {
@@ -364,12 +383,20 @@ async function relatorio(env, dia) {
 	};
 	const gaps = pubs.slice(1).map((p, i) => seg(p.t) - seg(pubs[i].t)).sort((a, b) => a - b);
 	const mediana = gaps.length ? gaps[Math.floor(gaps.length / 2)] : null;
+	// Só é buraco se havia jogos a decorrer do outro lado dele. `v` só existe desde
+	// 08/10/2026 à noite; uma publicação sem `v` não se acusa, por não se saber.
+	const buracos = pubs
+		.slice(1)
+		.map((p, i) => ({ s: seg(p.t) - seg(pubs[i].t), v: p.v }))
+		.filter((g) => g.s > 180 && (g.v ?? 0) > 0)
+		.map((g) => `${Math.round(g.s / 60)}min`);
 	return {
 		dia,
 		eventos: registo.length,
 		publicacoes: pubs.length,
 		cadencia_s: { mediana, minimo: gaps[0] ?? null, maximo: gaps[gaps.length - 1] ?? null },
-		buracos_acima_de_3min: gaps.filter((g) => g > 180).map((g) => `${Math.round(g / 60)}min`),
+		buracos_acima_de_3min: buracos,
+		intervalos_longos_sem_jogos: gaps.filter((g) => g > 180).length - buracos.length,
 		resultados: registo.filter((e) => e.tipo === 'resultado'),
 		ao_vivo: registo.filter((e) => e.tipo === 'ao_vivo'),
 		erros: registo.filter((e) => e.tipo === 'erro'),

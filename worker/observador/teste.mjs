@@ -89,3 +89,36 @@ assert.deepStrictEqual(
 );
 
 console.log('observador: baldes por hora, 6 asserções, todas passaram');
+
+// ─── um jogo acabado não está a decorrer ───────────────────────────────────────────────
+import { saude } from './src/index.js';
+
+const ag2 = (jogos) => ({ jogos });
+const jg = (hora, extra = {}) => ({ id: 1, data: '2026-10-08', hora, gc: null, gf: null, ...extra });
+
+// 22:35, jogo das 20:00 **acabado**: nada a decorrer, logo a publicação velha não é problema
+let sa = saude(ag2([jg('20:00', { gc: 3, gf: 1 })]), '2026-10-08', '22:35',
+	'2026-10-08T21:26:00Z', Date.parse('2026-10-08T21:35:00Z'));
+assert.strictEqual(sa.a_decorrer, 0, 'um jogo com resultado e sem marca já acabou');
+assert.strictEqual(sa.publicacao_velha, false);
+assert.strictEqual(sa.estado, 'verde', 'era isto que ficava vermelho todas as noites');
+
+// o mesmo jogo, ainda marcado como ao vivo: está a decorrer, e aí 9 minutos sem publicar é mau
+sa = saude(ag2([jg('20:00', { gc: 3, gf: 1, ao_vivo: true })]), '2026-10-08', '21:00',
+	'2026-10-08T19:51:00Z', Date.parse('2026-10-08T20:00:00Z'));
+assert.strictEqual(sa.a_decorrer, 1);
+assert.strictEqual(sa.publicacao_velha, true);
+assert.strictEqual(sa.estado, 'vermelho');
+
+// um jogo sem resultado dentro da janela continua a contar como a decorrer
+sa = saude(ag2([jg('20:00')]), '2026-10-08', '20:30', '2026-10-08T19:29:00Z',
+	Date.parse('2026-10-08T19:30:00Z'));
+assert.strictEqual(sa.a_decorrer, 1);
+
+// e duas horas depois sem resultado é o alarme que se quer mesmo
+sa = saude(ag2([jg('20:00')]), '2026-10-08', '22:10', '2026-10-08T21:09:00Z',
+	Date.parse('2026-10-08T21:10:00Z'));
+assert.deepStrictEqual(sa.sem_resultado, [1]);
+assert.strictEqual(sa.estado, 'vermelho');
+
+console.log('observador: saúde, 8 asserções, todas passaram');
