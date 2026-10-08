@@ -11,7 +11,7 @@ from __future__ import annotations
 import json
 
 import pytest
-from hoquei.rondas import contar, diario_de, quedas, registar, ultima
+from hoquei.rondas import acumular_pedidos, contar, diario_de, quedas, registar, ultima
 
 BASE = {"jogos": 307, "fichas": 180, "competicoes": 37, "equipas": 216}
 
@@ -147,3 +147,38 @@ class TestOndeViveODiario:
 
     def test_fora_de_um_repositorio_fica_ao_lado_dos_dados(self, tmp_path):
         assert diario_de(tmp_path, "fpp") == tmp_path / "rondas" / "fpp.jsonl"
+
+
+class TestAcumularPedidos:
+    """
+    O total de pedidos do dia vive no próprio `meta.json` (08/10/2026).
+
+    **No ficheiro e não na memória**, porque cada ronda ao vivo é um processo novo: o
+    `aovivo.sh` chama o comando de 30 em 30 segundos e um contador em memória morria com
+    cada um.
+    """
+
+    class _Fonte:
+        def __init__(self, por_tipo):
+            self.por_tipo = por_tipo
+
+    def test_soma_a_ronda_ao_total_do_dia(self):
+        meta = {"pedidos_dia": {"dia": "2026-10-08", "por_tipo": {"ficha": 10}, "total": 10}}
+        d = acumular_pedidos(meta, self._Fonte({"ficha": 3, "calendario": 1}), "2026-10-08")
+        assert d["por_tipo"] == {"ficha": 13, "calendario": 1}
+        assert d["total"] == 14
+
+    def test_um_dia_novo_recomeca(self):
+        meta = {"pedidos_dia": {"dia": "2026-10-07", "por_tipo": {"ficha": 400}, "total": 400}}
+        d = acumular_pedidos(meta, self._Fonte({"ficha": 2}), "2026-10-08")
+        assert d == {"dia": "2026-10-08", "por_tipo": {"ficha": 2}, "total": 2}
+
+    def test_sem_nada_antes(self):
+        d = acumular_pedidos({}, self._Fonte({"competiciones": 1}), "2026-10-08")
+        assert d["total"] == 1
+
+    def test_uma_ronda_sem_pedidos_nao_mexe_no_total(self):
+        """A ronda ao vivo que não encontra nada a decorrer não pede nada à fonte."""
+        meta = {"pedidos_dia": {"dia": "2026-10-08", "por_tipo": {"ficha": 7}, "total": 7}}
+        d = acumular_pedidos(meta, self._Fonte({}), "2026-10-08")
+        assert d["por_tipo"] == {"ficha": 7}

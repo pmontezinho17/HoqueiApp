@@ -55,3 +55,37 @@ assert.strictEqual(emLisboa(new Date('2026-10-08T22:30:00Z')).dia, '2026-10-08')
 assert.strictEqual(emLisboa(new Date('2026-10-08T23:30:00Z')).dia, '2026-10-09');
 
 console.log('observador: 11 asserções, todas passaram');
+
+// ─── os baldes por hora ────────────────────────────────────────────────────────────────
+import { porHora } from './src/index.js';
+
+// primeira leitura do dia: tudo o que o total diz cai na hora em que se viu
+let h = porHora(undefined, undefined, { ficha: 12, calendario: 3 }, '14:05', '2026-10-08', undefined);
+assert.deepStrictEqual(h, { 14: { ficha: 12, calendario: 3 } });
+
+// leitura seguinte, mais pedidos: só a diferença, e na hora nova
+h = porHora(h, { ficha: 12, calendario: 3 }, { ficha: 20, calendario: 3 }, '15:40', '2026-10-08', '2026-10-08');
+assert.deepStrictEqual(h, { 14: { ficha: 12, calendario: 3 }, 15: { ficha: 8 } });
+
+// a mesma hora outra vez: soma ao balde que já existe
+h = porHora(h, { ficha: 20, calendario: 3 }, { ficha: 22, calendario: 3 }, '15:55', '2026-10-08', '2026-10-08');
+assert.deepStrictEqual(h[15], { ficha: 10 });
+
+// nada mudou: nenhum balde mexe
+assert.deepStrictEqual(
+	porHora(h, { ficha: 22, calendario: 3 }, { ficha: 22, calendario: 3 }, '16:00', '2026-10-08', '2026-10-08'),
+	h
+);
+
+// uma corrida nova parte de um ficheiro mais antigo e o total **desce**: conta-se o novo
+// valor inteiro, e não uma diferença negativa
+h = porHora(h, { ficha: 22 }, { ficha: 5 }, '17:00', '2026-10-08', '2026-10-08');
+assert.deepStrictEqual(h[17], { ficha: 5 });
+
+// dia novo: os baldes recomeçam
+assert.deepStrictEqual(
+	porHora(h, { ficha: 22 }, { ficha: 4 }, '00:10', '2026-10-09', '2026-10-08'),
+	{ 0: { ficha: 4 } }
+);
+
+console.log('observador: baldes por hora, 6 asserções, todas passaram');

@@ -27,7 +27,8 @@ from .grupos import identificar
 from .ics import feed, nome_ficheiro
 from .recintos import conhecidas
 from .quadros import agregar
-from .rondas import TOLERANCIA, contar, diario_de, quedas, registar, ultima
+from .rondas import (TOLERANCIA, acumular_pedidos, contar, diario_de, quedas,
+                     registar, ultima)
 
 
 def _temporada_corrente(fonte: Fonte) -> int:
@@ -411,6 +412,8 @@ def comando_aovivo(args) -> int:
         # atrasados tenha ido buscar
         meta["pedidos_fonte"] = fonte.pedidos
         meta["pedidos_falhados"] = fonte.falhados
+        meta["pedidos_por_tipo"] = dict(sorted(fonte.por_tipo.items()))
+        meta["pedidos_dia"] = acumular_pedidos(meta, fonte, hoje)
         meta_f.write_text(json.dumps(meta, ensure_ascii=False, indent=1))
     # `a_decorrer` conta os que a fonte ainda **não** fechou. O ciclo em CI pára por este
     # número e não por "quantos mudaram": entre dois golos pode não mudar nada durante
@@ -643,6 +646,12 @@ def comando_publicar(args) -> int:
         {"equipas": [{"equipa": eq, "categoria": cat, "competicoes": sorted(ids)}
                      for (cat, eq), ids in sorted(equipas_por_escalao.items())]},
         ensure_ascii=False, indent=1))
+    meta_anterior = {}
+    if (destino / "meta.json").exists():
+        try:
+            meta_anterior = json.loads((destino / "meta.json").read_text())
+        except json.JSONDecodeError:
+            meta_anterior = {}
     (destino / "meta.json").write_text(json.dumps({
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "tenant": args.tenant,
@@ -659,6 +668,8 @@ def comando_publicar(args) -> int:
         # descem com o trabalho de cada ronda.
         "pedidos_fonte": fonte.pedidos,
         "pedidos_falhados": fonte.falhados,
+        "pedidos_por_tipo": dict(sorted(fonte.por_tipo.items())),
+        "pedidos_dia": acumular_pedidos(meta_anterior, fonte, _agora().date().isoformat()),
     }, ensure_ascii=False, indent=1))
 
     # B9.2 + B9.6 — a guarda contra uma perda silenciosa. Corre **depois** de escrever:

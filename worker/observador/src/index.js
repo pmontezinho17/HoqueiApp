@@ -240,6 +240,36 @@ async function avisar(env, antes, agora, dia) {
 	return null;
 }
 
+/**
+ * Os pedidos à fonte, distribuídos pelas horas do dia.
+ *
+ * O `meta.json` traz um total do dia que **só cresce**, acumulado no próprio ficheiro pelo
+ * raspador — ver `acumular_pedidos`. Aqui faz-se a diferença entre duas leituras e atribui-se
+ * à hora em que se viu. Assim não interessa quantas rondas passaram entre leituras: o que se
+ * perdeu numa leitura aparece na seguinte.
+ *
+ * **Uma descida significa recomeço, não pedidos negativos.** Uma corrida nova parte do
+ * ficheiro commitado, que pode ser de há horas e ter um total menor; aí conta-se o valor novo
+ * como sendo tudo o que há, em vez de uma diferença negativa.
+ */
+export function porHora(horasAntes, totalAntes, totalAgora, hora, dia, diaAntes) {
+	const horas = dia === diaAntes ? { ...(horasAntes ?? {}) } : {};
+	const h = String(Number(hora.slice(0, 2)));
+	const antes = (diaAntes === dia && totalAntes) || {};
+	const agora = totalAgora || {};
+	const balde = { ...(horas[h] ?? {}) };
+	let mexeu = false;
+	for (const [tipo, n] of Object.entries(agora)) {
+		const delta = n >= (antes[tipo] ?? 0) ? n - (antes[tipo] ?? 0) : n;
+		if (delta > 0) {
+			balde[tipo] = (balde[tipo] ?? 0) + delta;
+			mexeu = true;
+		}
+	}
+	if (mexeu) horas[h] = balde;
+	return horas;
+}
+
 async function observar(env) {
 	const { dia, hora } = emLisboa();
 	const chaveEstado = 'estado';
@@ -267,13 +297,29 @@ async function observar(env) {
 			const r = await avisar(env, estado.saude?.estado, agoraSaude, dia);
 			if (r) eventos.push({ tipo: 'aviso', resultado: r });
 		}
+		// os baldes por hora só avançam quando a ronda é nova: duas leituras da mesma ronda
+		// contariam os mesmos pedidos duas vezes
+		const rondaNova = meta.generated_at !== estado.generated_at;
+		const horas = rondaNova
+			? porHora(
+					estado.horas,
+					estado.pedidos_dia?.por_tipo,
+					meta.pedidos_dia?.por_tipo,
+					hora,
+					dia,
+					estado.pedidos_dia?.dia ?? estado.dia
+				)
+			: (estado.horas ?? {});
 		estado = {
 			retrato: agora,
 			generated_at: meta.generated_at,
 			dia,
 			saude: agoraSaude,
 			pedidos_fonte: meta.pedidos_fonte ?? null,
-			pedidos_falhados: meta.pedidos_falhados ?? null
+			pedidos_falhados: meta.pedidos_falhados ?? null,
+			pedidos_por_tipo: meta.pedidos_por_tipo ?? null,
+			pedidos_dia: meta.pedidos_dia ?? null,
+			horas
 		};
 	} catch (e) {
 		eventos = [{ tipo: 'erro', erro: String(e).slice(0, 200) }];

@@ -116,3 +116,28 @@ def registar(diario: pathlib.Path, contagens: dict[str, int], tenant: str) -> bo
     with diario.open("a", encoding="utf-8") as f:
         f.write(json.dumps(registo, ensure_ascii=False) + "\n")
     return True
+
+
+#: As quatro páginas que a fonte serve, e mais nada. Um tipo novo aqui significa que alguém
+#: acrescentou um pedido — e a regra do projecto manda contar o custo antes de o fazer.
+TIPOS_DE_PEDIDO = ("competiciones", "calendario", "clasificacion", "ficha")
+
+
+def acumular_pedidos(meta: dict, fonte, dia: str) -> dict:
+    """Soma os pedidos desta ronda ao total do dia, dentro do próprio `meta.json`.
+
+    **Acumula no ficheiro e não na memória** porque cada ronda é um processo novo: o
+    `aovivo.sh` chama o comando de 30 em 30 segundos, e um contador em memória morria com
+    cada um. O ficheiro sobrevive entre rondas do mesmo ciclo e vai para o CDN em cada
+    publicação, que é de onde a consola o lê.
+
+    Quando o dia muda, o total recomeça. E quando uma corrida nova parte do ficheiro
+    commitado — que pode ser de há horas — o total pode **descer**; quem lê trata uma descida
+    como recomeço, e está escrito no observador.
+    """
+    anterior = meta.get("pedidos_dia") or {}
+    base = anterior.get("por_tipo", {}) if anterior.get("dia") == dia else {}
+    por_tipo = dict(base)
+    for tipo, n in (fonte.por_tipo or {}).items():
+        por_tipo[tipo] = por_tipo.get(tipo, 0) + n
+    return {"dia": dia, "por_tipo": por_tipo, "total": sum(por_tipo.values())}

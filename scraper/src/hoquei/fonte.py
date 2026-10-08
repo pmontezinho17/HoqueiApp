@@ -49,6 +49,8 @@ class Fonte:
         self.tentativas = tentativas
         self.pedidos = 0
         self.falhados = 0
+        #: pedidos por tipo de página: `competiciones`, `calendario`, `clasificacion`, `ficha`
+        self.por_tipo: dict[str, int] = {}
         self._ultimo = 0.0
         self._cliente = httpx.Client(
             base_url=BASE.format(tenant=tenant),
@@ -69,11 +71,13 @@ class Fonte:
             time.sleep(falta)
         self._ultimo = time.monotonic()
 
-    def _obter(self, caminho: str, params: dict | None = None) -> Resposta:
+    def _obter(self, caminho: str, params: dict | None = None,
+               tipo: str = "outro") -> Resposta:
         erro: Exception | None = None
         for tentativa in range(self.tentativas):
             self._esperar()
             self.pedidos += 1
+            self.por_tipo[tipo] = self.por_tipo.get(tipo, 0) + 1
             try:
                 r = self._cliente.get(caminho, params=params)
                 r.raise_for_status()
@@ -90,12 +94,13 @@ class Fonte:
     def seccao(self, seccion: str, **params) -> Resposta:
         """Páginas `?seccion=...`. Atenção: uma secção desconhecida devolve 200 com a
         lista de competições (fallback silencioso), por isso o 200 não prova nada."""
-        return self._obter("", {"seccion": seccion, "id_modal": MODALIDADE_HOQUEI, **params})
+        return self._obter("", {"seccion": seccion, "id_modal": MODALIDADE_HOQUEI, **params},
+                           tipo=seccion)
 
     def jogo(self, id_jogo: int) -> Resposta:
         """Ficha de jogo. Usar sempre partido.asp — o partido2.asp é um alias que só
         existe nalguns tenants (404 na FPP)."""
-        return self._obter("partido.asp", {"id": id_jogo})
+        return self._obter("partido.asp", {"id": id_jogo}, tipo="ficha")
 
 
 def descodificar(caminho: str, bruto: bytes) -> str:

@@ -52,6 +52,62 @@ const diaCurto = (d) => {
 	return `${dias[x.getUTCDay()]} ${d.slice(8)}/${d.slice(5, 7)}`;
 };
 
+/**
+ * Os quatro tipos de pedido que a fonte serve, com a cor de cada um.
+ *
+ * Paleta categórica da referência do `dataviz`, validada com o `validate_palette.js` nos dois
+ * temas: as quatro passam a banda de luminosidade, o piso de croma, a separação para
+ * daltonismo (pior par ΔE 9,1 em protanopia) e o piso de visão normal (ΔE 22,9). No tema
+ * claro duas delas ficam abaixo de 3:1 contra a superfície — e é por isso que o gráfico leva
+ * **legenda com os valores e uma tabela de totais ao lado**, que é a compensação que o método
+ * exige e não uma opção.
+ *
+ * A ordem é fixa: um tipo que desapareça num dia não faz os outros mudarem de cor.
+ */
+const TIPOS = [
+	{ chave: 'competiciones', nome: 'lista de competições', claro: '#2a78d6', escuro: '#3987e5' },
+	{ chave: 'calendario', nome: 'calendário de uma prova', claro: '#eb6834', escuro: '#d95926' },
+	{ chave: 'clasificacion', nome: 'classificação de uma prova', claro: '#1baf7a', escuro: '#199e70' },
+	{ chave: 'ficha', nome: 'ficha de um jogo', claro: '#eda100', escuro: '#c98500' }
+];
+
+/**
+ * As 24 horas do dia, sempre as 24, em colunas.
+ *
+ * **Fixas e não só as que têm dados**, porque o dono pediu assim e tem razão: o que interessa
+ * ver num gráfico destes é a *forma* do dia — onde estão os picos e onde está o silêncio — e
+ * isso só se lê se as horas vazias ocuparem espaço.
+ *
+ * Empilhado, com 2 px de intervalo entre segmentos, que é o que os separa sem uma linha.
+ */
+function colunas(horas) {
+	const totalDe = (h) => TIPOS.reduce((t, x) => t + (horas[h]?.[x.chave] ?? 0), 0);
+	const maximo = Math.max(1, ...Array.from({ length: 24 }, (_, h) => totalDe(h)));
+	const agora = new Date().toLocaleString('sv-SE', { timeZone: 'Europe/Lisbon' }).slice(11, 13);
+
+	const barras = Array.from({ length: 24 }, (_, h) => {
+		const total = totalDe(h);
+		const segmentos = TIPOS.filter((t) => (horas[h]?.[t.chave] ?? 0) > 0)
+			.map((t) => {
+				const n = horas[h][t.chave];
+				return `<i class="s" style="height:${(100 * n) / total}%;background:var(--t-${t.chave})" title="${esc(t.nome)}: ${n}"></i>`;
+			})
+			.join('');
+		const titulo = total
+			? `${h}h: ${total} pedidos — ${TIPOS.filter((t) => horas[h]?.[t.chave])
+					.map((t) => `${t.nome} ${horas[h][t.chave]}`)
+					.join(', ')}`
+			: `${h}h: nenhum pedido`;
+		return `
+    <div class="col${Number(agora) === h ? ' agora' : ''}" title="${esc(titulo)}">
+      <span class="pilha" style="height:${total ? Math.max(3, (100 * total) / maximo) : 0}%">${segmentos}</span>
+      <span class="hh">${String(h).padStart(2, '0')}</span>
+    </div>`;
+	}).join('');
+
+	return { barras, maximo, total: Array.from({ length: 24 }, (_, h) => totalDe(h)).reduce((a, b) => a + b, 0) };
+}
+
 /** Um número grande com a sua etiqueta. Não é um gráfico, e não se desenha como um. */
 const painel = (etiqueta, valor, nota = '', classe = '') => `
 <div class="painel">
@@ -103,6 +159,12 @@ function barras(dias) {
 
 export function pagina({ dia, estado, rel, runs, diario, ent, dias }) {
 	const s = estado?.saude;
+	const horas = estado?.horas ?? {};
+	const graf = colunas(horas);
+	const totaisPorTipo = {};
+	for (const balde of Object.values(horas)) {
+		for (const [k, n] of Object.entries(balde)) totaisPorTipo[k] = (totaisPorTipo[k] ?? 0) + n;
+	}
 	const mal = s?.estado === 'vermelho';
 	const hoje = ent[dia] ?? {};
 	const ecrasHoje = Object.entries(hoje)
@@ -140,12 +202,18 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias }) {
    --fundo:#f5f6f8; --cartao:#fff; --texto:#14171c; --texto2:#4b525c; --suave:#767e8a;
    --borda:#e3e6ea; --borda2:#eef0f3;
    --bem:#0a7d54; --mal:#c2410c; --barra:#0a7d54;
+   --t-competiciones:#2a78d6; --t-calendario:#eb6834; --t-clasificacion:#1baf7a;
+   --t-ficha:#eda100;
  }
  @media (prefers-color-scheme: dark) {
    :root {
      --fundo:#0f1115; --cartao:#181b21; --texto:#e8eaed; --texto2:#b6bcc5; --suave:#868d98;
      --borda:#272b33; --borda2:#1f232a;
      --bem:#34d399; --mal:#fb923c; --barra:#34d399;
+     /* os mesmos quatro tons, re-escalados para a superfície escura e validados contra ela —
+        não é uma inversão automática */
+     --t-competiciones:#3987e5; --t-calendario:#d95926; --t-clasificacion:#199e70;
+     --t-ficha:#c98500;
    }
  }
  * { box-sizing:border-box }
@@ -194,6 +262,21 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias }) {
    color:var(--texto2) }
  .barra .valor em { color:var(--suave); font-style:normal }
  .barra:hover .dia { color:var(--texto) }
+
+ /* gráfico de colunas: 24 horas fixas, empilhadas por tipo */
+ .grafico { display:flex; align-items:flex-end; gap:3px; height:170px; margin:4px 0 0 }
+ .col { flex:1; display:flex; flex-direction:column; justify-content:flex-end; align-items:center;
+   height:100%; gap:4px; min-width:0 }
+ .col .pilha { width:100%; display:flex; flex-direction:column-reverse; gap:2px;
+   border-radius:4px 4px 0 0; overflow:hidden }
+ .col .pilha i.s { display:block; width:100%; min-height:2px }
+ .col .hh { font-size:.62rem; color:var(--suave); font-variant-numeric:tabular-nums }
+ .col.agora .hh { color:var(--texto); font-weight:700 }
+ .col:hover .pilha { outline:2px solid var(--borda); outline-offset:1px }
+ .legenda { display:flex; flex-wrap:wrap; gap:4px 16px; margin-top:12px; font-size:.78rem }
+ .legenda span { display:inline-flex; align-items:center; gap:6px; color:var(--texto2) }
+ .legenda i { width:10px; height:10px; border-radius:3px; flex:0 0 auto }
+ .legenda b { font-variant-numeric:tabular-nums; color:var(--texto) }
 
  table { width:100%; border-collapse:collapse }
  th,td { text-align:left; padding:6px 0; font-weight:400; vertical-align:top; font-size:.84rem }
@@ -263,6 +346,26 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias }) {
 		rel.buracos_acima_de_3min.length ? 'mal' : ''
 	)}
   </div>
+
+  <section class="l12">
+    <h2>pedidos à APL por hora, hoje — ${graf.total} no total</h2>
+    <div class="grafico">${graf.barras}</div>
+    <div class="legenda">
+      ${TIPOS.map(
+			(t) =>
+				`<span><i style="background:var(--t-${t.chave})"></i>${esc(t.nome)} <b>${
+					totaisPorTipo[t.chave] ?? 0
+				}</b></span>`
+		).join('')}
+    </div>
+    <p class="vazio" style="margin-top:8px">
+      ${
+			graf.total
+				? `Pico de ${graf.maximo} pedidos numa hora. Contados no raspador, retentativas incluídas.`
+				: 'Nenhum pedido registado hoje — os baldes enchem-se a cada ronda nova que o observador vê.'
+		}
+    </p>
+  </section>
 
   <section class="l8">
     <h2>quem usa a aplicação — aparelhos distintos por dia</h2>

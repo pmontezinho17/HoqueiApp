@@ -46,6 +46,7 @@ class _FonteFalsa:
         # duplo que não os tenha faz o comando rebentar em vez de o teste falhar com sentido
         self.pedidos = 0
         self.falhados = 0
+        self.por_tipo = {}
 
     def __enter__(self):
         return self
