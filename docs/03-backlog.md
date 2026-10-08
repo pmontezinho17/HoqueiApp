@@ -848,6 +848,63 @@ ou de decidir que a quer.
 
 ---
 
+## Pedidos de 08/10/2026 — à noite
+
+| ID | Item | Prio | Est. | Nota |
+|---|---|---|---|---|
+| P12.1 | Filtro "só o que está a decorrer" em Competições | **must** | S | Medido a 08/10: das **20 entradas do menu, 9 já acabaram** — quase metade é lixo para quem procura o escalão do filho. Ver abaixo |
+| P12.2 | Os crachás de escalão no menu Competições | should | S | Os 11 SVG já existem em `web/static/escaloes/`, feitos a 05/10 e nunca usados fora da ficha de jogo |
+| P12.3 | Transmissões dos clubes no YouTube, dentro da app | could | M | **Esbarra na política de privacidade.** Ver abaixo |
+
+### P12.1 — metade do menu é passado
+
+Medido a 08/10/2026: o menu tem 20 entradas e **9 não têm um único jogo por disputar**.
+
+```
+SUB-13   SUPERTAÇA APL SUB-13        SUB-17   SUPERTAÇA APL SUB-17
+SUB-13   TORNEIO ABERTURA APL        SUB-17   TORNEIO ABERTURA APL
+SUB-15   SUPERTAÇA APL SUB-15        SUB-19   SUPERTAÇA APL SUB-19
+SUB-15   TORNEIO ABERTURA APL        SUB-19   TORNEIO ABERTURA APL
+TORNEIOS PARTICULARES  ZECA PINTO
+```
+
+São as Supertaças e os torneios de abertura de setembro. Quem entra à procura do escalão do
+filho tem de os saltar todos.
+
+**A função já existe:** `competicoesVivas()` em `web/src/lib/clubes.ts` decide isto sem pedido
+nenhum — uma prova está viva enquanto tiver jogos por disputar.
+
+**E há uma lição de 06/10 a respeitar aqui.** No ecrã de escolha de equipas eu escondi os
+escalões sem prova a decorrer e o dono apanhou-me: o HC SINTRA só joga Taças já terminadas, e
+as duas equipas seniores desapareciam. **Esconder não é filtrar.** Aqui o mesmo risco existe
+ao contrário — quem queira ver a classificação final da Supertaça tem direito a chegar lá. O
+desenho certo é o que já fizemos no painel do clube: **por omissão mostra o que está a
+decorrer, com um interruptor para ver tudo**, e cada linha diz se a prova acabou.
+
+### P12.3 — transmissões dos clubes, e o travão que elas trazem
+
+Há clubes com câmaras a transmitir para o YouTube. A ideia é perguntar-lhes se aceitam que o
+jogo apareça na app — e é boa: é a diferença entre "o resultado vai em 3-1" e ver o jogo.
+
+**Mas um `iframe` do YouTube é código de terceiros a correr no telemóvel de quem usa.** A
+`/privacidade` promete hoje que não carregamos código de fora, e o `youtube-nocookie` reduz
+mas não elimina — continua a ser uma ligação à Google feita pelo nosso ecrã. Três caminhos,
+por ordem do que custam à promessa:
+
+1. **Link para fora.** Um botão "ver em direto no YouTube" que abre o browser. Custo à
+   promessa: zero — é o mesmo que já fazemos com a plataforma da associação. Perde-se o jogo
+   dentro da app.
+2. **Embeber só depois de um toque.** Nada da Google carrega até a pessoa carregar em "ver".
+   A página de privacidade passa a dizê-lo, e quem não carregar não é exposto a nada.
+3. **Embeber sempre.** Mais confortável, e torna falsa a frase que está escrita na página.
+
+A recomendação é a 2, que é o padrão do "facade" — uma imagem nossa com um botão, e o
+`iframe` só nasce ao toque.
+
+**O que isto precisa, além da decisão:** um campo por jogo no contrato `/v1` com o endereço da
+transmissão — acrescentar um campo é seguro —, e os clubes a dar os endereços. Essa parte é
+humana e é do dono.
+
 ## Combinado para 09/10, depois dos jogos: a consola passa para `/consola`
 
 **Porque:** o endereço da consola é `hoquei-observador.torneiopa.workers.dev`, e o `torneiopa`
