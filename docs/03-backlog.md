@@ -848,6 +848,33 @@ ou de decidir que a quer.
 
 ---
 
+## Observar uma janela de jogos, com números (08/10/2026)
+
+`scripts/observar.py`, feito para a janela de sub-17 de 08/10 — quatro jogos das 20:00 às
+21:15, uma noite em que quase ninguém está a olhar, que é a noite certa para medir.
+
+    uv run --with httpx python scripts/observar.py --ate 22:30
+    uv run --with httpx python scripts/observar.py --analisar <registo>.jsonl
+
+**Lê só o nosso CDN, de 20 em 20 segundos, e não toca na fonte.** Uma segunda coisa a raspar
+seria exactamente o que a Decisão 1 proíbe. A consequência honesta: **não** mede quanto tempo
+um golo demora a chegar desde que foi marcado — isso exige alguém no pavilhão com um
+cronómetro, como se fez a 03/10 (~20 s da mesa + ~15 s nossos).
+
+Mede o que apanha as falhas que já nos morderam:
+
+| | a falha que apanha |
+|---|---|
+| cadência de publicação | o ciclo ao vivo parado a meio de um jogo |
+| lista contra ficha do mesmo jogo | o bug de 05/10: lista a 0-0 e ficha a 1-0 |
+| marcas de "ao vivo" | a marca presa horas depois do apito |
+| cada mudança de resultado, com hora | se os golos aparecem, e de quanto em quanto tempo |
+| jogos com resultado e sem ficha | a ficha que não chega |
+
+Nota para quem o usar ao fim de semana: a noite de 08/10 é toda de sub-17, que **tem** tabela
+publicada pela fonte. O caminho da tabela calculada — Escolares e Benjamins — só é exercido a
+10 e 11/10.
+
 ## Auditoria antes do fim de semana de 10–11/10 (08/10/2026)
 
 O dono disse o que importa, e é a régua certa: *"se começam a ver que está a falhar, voltam
