@@ -86,6 +86,11 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
 - **Contar o custo antes de acrescentar pedidos.** Toda a ronda nova diz, em comentário,
   quantos pedidos faz no pico da época e porquê vale a pena. O ciclo ao vivo existe porque
   foi medido: 15 jogos à mesma hora, 15 pedidos por ronda de 30 s.
+- **Num dia sem jogos não se pede nada.** A agenda publicada responde a "há jogos hoje?" sem
+  custar um pedido, e a ronda das 00:30 — que corre sempre — é quem a estabelece. Esta regra
+  nasceu de uma pergunta do dono a 08/10/2026 e de a medir: as rondas de dias sem jogos eram
+  **28% de tudo** o que pediríamos à APL até dezembro. A excepção é a dúvida: se a agenda não
+  se ler, corre-se.
 - Um jogo sem resultado não se pergunta para sempre: há limites de tempo e de cadência, e
   eles estão lá de propósito.
 

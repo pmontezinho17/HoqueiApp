@@ -5,6 +5,10 @@ name: Actualizar dados
 # uma federação, não uma API. A 2h aos fins-de-semana e 6h nos dias úteis dá uma média de
 # um pedido a cada dois minutos, e os resultados aparecem no site em menos de duas horas.
 # As fichas de jogo são incrementais: só se busca a de um jogo novo ou com resultado novo.
+#
+# **E num dia sem jogos não se pede nada** — ver o passo "Há razão para pedir à fonte?".
+# Estes `cron` disparam todos os dias, mas a ronda sai sem tocar na APL quando a agenda diz
+# que hoje não há jogos. Medido a 08/10/2026: eram 28% de tudo o que pediríamos até dezembro.
 on:
   schedule:
     # **Fecho do dia, 00:30 WEST.** É a ronda canónica: às 00:30 o dia que acabou está
@@ -51,6 +55,37 @@ jobs:
         with:
           enable-cache: true
 
+      # ─────────────────────────────────────────────────────────────────────────────────────
+      # Num dia sem jogos, não se pede nada à fonte.
+      #
+      # O dono apanhou-me a 08/10/2026: *"só faz sentido termos pedidos ao site da APL quando
+      # eu tenho a certeza de que há jogos nesse dia"*. Medido: nos 9 dias anteriores correram
+      # 53 rondas e só 23 trouxeram dados novos. Até dezembro, 28 dias sem jogos valem ~10 900
+      # pedidos, dos quais ~8 800 evitáveis — 28% de tudo o que vamos pedir à fonte.
+      #
+      # A regra vive em `hoquei.vale_pedir`, com nove testes, e não aqui: lógica dentro de um
+      # YAML é lógica sem testes. Ela responde sem custar um pedido, lendo a agenda do nosso
+      # próprio CDN — e **em dúvida corre**, porque uma ronda a mais custa 75 pedidos e uma a
+      # menos custa uma tarde de resultados errados.
+      - name: Há razão para pedir à fonte?
+        id: vale
+        working-directory: scraper
+        run: |
+          uv run python -m hoquei.vale_pedir \
+            --cron "${{ github.event.schedule }}" \
+            ${{ inputs.publicar_sempre && '--forcar' || '' }} >> "$GITHUB_OUTPUT"
+
+      - name: Dia sem jogos — nada a pedir à fonte
+        if: steps.vale.outputs.correr != 'true'
+        run: |
+          {
+            echo "### Ronda saltada"
+            echo ""
+            echo "${{ steps.vale.outputs.porque }} — nenhum pedido feito à APL."
+            echo ""
+            echo "A ronda das 00:30 corre sempre, e é ela que estabelece o dia seguinte."
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Testes do parser
         working-directory: scraper
         run: uv run pytest -q
@@ -59,11 +94,13 @@ jobs:
       # seguintes não correm — nem comita, nem publica. O runner é descartável, por isso
       # os dados suspeitos morrem aqui. O diário fica em data-samples/rondas/.
       - name: Regenerar /v1
+        if: steps.vale.outputs.correr == 'true'
         working-directory: scraper
         run: uv run python -m hoquei.cli publicar --tenant aplisboa --destino ../web/static/v1/aplisboa/2026-27
 
       - name: Comitar se houver novidade
         id: commit
+        if: steps.vale.outputs.correr == 'true'
         run: |
           # O meta.json tem um carimbo temporal que muda em TODAS as corridas, por isso
           # não serve para decidir se houve novidade: sem o excluir, isto comitava e
@@ -116,14 +153,14 @@ jobs:
       # código ficava no repositório sem chegar ao site até os dados mudarem por conta
       # própria — num dia sem jogos, dias.
       - uses: actions/setup-node@v4
-        if: steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre
+        if: steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: web/package-lock.json
 
       - name: Construir a PWA
-        if: steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre
+        if: steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)
         working-directory: web
         run: npm ci && npm run build
 
@@ -135,7 +172,7 @@ jobs:
       # publicava sem ele — e durante uma janela de jogos quem publica mais é o ciclo ao vivo.
       # O resultado seria um contador que desaparece ao sábado à tarde e volta sozinho.
       - name: Publicar no Cloudflare Pages
-        if: steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre
+        if: steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
