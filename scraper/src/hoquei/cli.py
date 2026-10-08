@@ -407,6 +407,10 @@ def comando_aovivo(args) -> int:
         meta = json.loads(meta_f.read_text())
         meta["generated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
         meta["ao_vivo"] = True
+        # o custo desta ronda ao vivo: um pedido por jogo seguido, mais o que a recolha dos
+        # atrasados tenha ido buscar
+        meta["pedidos_fonte"] = fonte.pedidos
+        meta["pedidos_falhados"] = fonte.falhados
         meta_f.write_text(json.dumps(meta, ensure_ascii=False, indent=1))
     # `a_decorrer` conta os que a fonte ainda **não** fechou. O ciclo em CI pára por este
     # número e não por "quantos mudaram": entre dois golos pode não mudar nada durante
@@ -648,6 +652,13 @@ def comando_publicar(args) -> int:
         "fichas_publicadas": len(list((destino / "match").glob("*.json"))),
         "fonte": f"https://{args.tenant}.assyssoftware.es/intranet/web/",
         "feeds_ics": len(escritos),
+        # O custo desta ronda para a fonte, medido e não estimado. Vai no `meta.json` porque
+        # é o ficheiro que o observador já lê de minuto a minuto, logo a consola fica com o
+        # número de graça. **Fora das `contagens`** de propósito: aquelas só crescem ao longo
+        # da época e a guarda do B9.6 trata uma queda como suspeita — os pedidos sobem e
+        # descem com o trabalho de cada ronda.
+        "pedidos_fonte": fonte.pedidos,
+        "pedidos_falhados": fonte.falhados,
     }, ensure_ascii=False, indent=1))
 
     # B9.2 + B9.6 — a guarda contra uma perda silenciosa. Corre **depois** de escrever:

@@ -42,7 +42,10 @@ class _FonteFalsa:
     """Devolve sempre a mesma página; o `cli.ficha` está trocado por um duplo."""
 
     def __init__(self, *_, **__):
+        # os mesmos contadores da `Fonte` a sério: o comando publica-os no `meta.json`, e um
+        # duplo que não os tenha faz o comando rebentar em vez de o teste falhar com sentido
         self.pedidos = 0
+        self.falhados = 0
 
     def __enter__(self):
         return self

@@ -105,6 +105,139 @@ export function diferencas(antes, depois, carimboAntes, carimboDepois) {
 	return ev;
 }
 
+/**
+ * A saúde da cadeia **agora**, calculada da agenda que já se leu.
+ *
+ * É o número que diz se a app está neste instante a mentir a alguém, e é a única coisa aqui
+ * que vale a pena interromper o dono para lhe contar. As três regras saíram de falhas reais:
+ *
+ * * `sem_resultado` — o A STUART HCM–PAREDE FC A das 15h30, a 05/10, ficou sem resultado
+ *   até à noite. Duas horas depois do apito inicial um jogo tem de ter resultado;
+ * * `ao_vivo_preso` — o HC VASCO GAMA das 12h dizia "2ª Parte (3:41)" às 19h37;
+ * * `publicacao_velha` — com jogos a decorrer, o ciclo publica de 30 em 30 segundos. Cinco
+ *   minutos de silêncio é o ciclo parado, e foi isso que aconteceu nas tardes em que o
+ *   agendador da GitHub não criou corrida nenhuma.
+ */
+export function saude(agenda, dia, hora, geradoEm, agoraMs = Date.now()) {
+	const jogos = Array.isArray(agenda) ? agenda : agenda.jogos ?? [];
+	const minutos = (h) => {
+		const [a, b] = (h ?? '').split(':').map(Number);
+		return Number.isFinite(a) ? a * 60 + (b || 0) : null;
+	};
+	const agoraMin = minutos(hora);
+	const doDia = jogos.filter((j) => j.data === dia && j.hora);
+
+	const semResultado = [];
+	const presos = [];
+	let aDecorrer = 0;
+	for (const j of doDia) {
+		const inicio = minutos(j.hora);
+		if (inicio === null) continue;
+		const decorridos = agoraMin - inicio;
+		if (decorridos >= -15 && decorridos <= 180) aDecorrer++;
+		if (decorridos > 120 && (j.gc ?? null) === null) semResultado.push(j.id);
+		if (decorridos > 180 && j.ao_vivo) presos.push(j.id);
+	}
+
+	const idade = geradoEm ? Math.round((agoraMs - Date.parse(geradoEm)) / 60000) : null;
+	const publicacaoVelha = aDecorrer > 0 && idade !== null && idade > 5;
+
+	const vermelho = semResultado.length > 0 || presos.length > 0 || publicacaoVelha;
+	return {
+		estado: vermelho ? 'vermelho' : 'verde',
+		jogos_hoje: doDia.length,
+		a_decorrer: aDecorrer,
+		sem_resultado: semResultado,
+		ao_vivo_preso: presos,
+		dados_com_minutos: idade,
+		publicacao_velha: publicacaoVelha
+	};
+}
+
+/**
+ * Avisar quando a saúde fica vermelha — e só quando **muda**.
+ *
+ * Uma consola só vale se alguém estiver a olhar, e às 16:00 de sábado ninguém está. Isto é
+ * o que protege o fim de semana: três noites seguidas a ronda das 00:30 falhou e o que
+ * avisou o dono foi um email, não um painel.
+ *
+ * **Abre uma issue no repositório**, e a GitHub manda-lhe o email. Não é preguiça: o envio
+ * de email da Cloudflare exige um domínio registado no serviço, e o domínio próprio está
+ * adiado por decisão dele (B9.27). Este caminho usa um canal que ele já lê — foi por ele
+ * que reparou nas falhas das Actions — e não precisa de domínio nenhum.
+ *
+ * Só avisa na **transição** para vermelho. Um vermelho que dure a tarde toda não abre
+ * trezentas issues, e o regresso a verde fecha a que estiver aberta.
+ */
+async function avisar(env, antes, agora, dia) {
+	if (!env.GITHUB_TOKEN) return 'sem token: aviso não enviado';
+	const passouAVermelho = antes !== 'vermelho' && agora.estado === 'vermelho';
+	const voltouAVerde = antes === 'vermelho' && agora.estado === 'verde';
+	if (!passouAVermelho && !voltouAVerde) return null;
+
+	const cabecalhos = {
+		'User-Agent': UA,
+		Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+		Accept: 'application/vnd.github+json',
+		'Content-Type': 'application/json'
+	};
+	const titulo = `Cadeia em vermelho — ${dia}`;
+	const api = `https://api.github.com/repos/${env.REPO}/issues`;
+
+	// procura-se a issue deste dia antes de abrir outra
+	let aberta = null;
+	try {
+		const r = await fetch(`${api}?state=open&labels=cadeia&per_page=5`, { headers: cabecalhos });
+		if (r.ok) aberta = (await r.json()).find((i) => i.title === titulo) ?? null;
+	} catch {
+		/* se a procura falhar, abre-se na mesma: um aviso a mais é melhor que nenhum */
+	}
+
+	if (passouAVermelho) {
+		const corpo = [
+			`A ${dia}, às ${emLisboa().hora}, a cadeia passou a vermelho.`,
+			'',
+			agora.sem_resultado?.length
+				? `- **${agora.sem_resultado.length} jogo(s) sem resultado** há mais de 2 h: ${agora.sem_resultado.join(', ')}`
+				: null,
+			agora.ao_vivo_preso?.length
+				? `- **"ao vivo" preso** em: ${agora.ao_vivo_preso.join(', ')}`
+				: null,
+			agora.publicacao_velha
+				? `- **os dados têm ${agora.dados_com_minutos} min** e há ${agora.a_decorrer} jogo(s) na janela`
+				: null,
+			'',
+			`Consola: ${env.CONSOLA ?? 'https://hoquei-observador.torneiopa.workers.dev/'}`,
+			'',
+			'_Aberto pelo `worker/observador`. Fecha-se sozinho quando voltar a verde._'
+		]
+			.filter((l) => l !== null)
+			.join('\n');
+		if (aberta) {
+			await fetch(`${api}/${aberta.number}/comments`, {
+				method: 'POST', headers: cabecalhos, body: JSON.stringify({ body: corpo })
+			});
+			return `comentada a issue #${aberta.number}`;
+		}
+		const r = await fetch(api, {
+			method: 'POST',
+			headers: cabecalhos,
+			body: JSON.stringify({ title: titulo, body: corpo, labels: ['cadeia'] })
+		});
+		return r.ok ? `issue aberta` : `a issue falhou: HTTP ${r.status}`;
+	}
+
+	if (voltouAVerde && aberta) {
+		await fetch(`${api}/${aberta.number}`, {
+			method: 'PATCH',
+			headers: cabecalhos,
+			body: JSON.stringify({ state: 'closed' })
+		});
+		return `issue #${aberta.number} fechada`;
+	}
+	return null;
+}
+
 async function observar(env) {
 	const { dia, hora } = emLisboa();
 	const chaveEstado = 'estado';
@@ -116,18 +249,45 @@ async function observar(env) {
 	} catch {
 		estado = {};
 	}
+	const anterior = estado;
 
 	let eventos;
+	let agoraSaude = null;
 	try {
 		const [meta, agenda] = await Promise.all([ler('meta.json'), ler('agenda.json')]);
 		const agora = retrato(agenda, dia);
 		eventos = diferencas(estado.retrato, agora, estado.generated_at, meta.generated_at);
-		estado = { retrato: agora, generated_at: meta.generated_at, dia };
+		agoraSaude = saude(agenda, dia, hora, meta.generated_at);
+		// só se registra a **transição**: um estado vermelho que durasse uma tarde enchia o
+		// registo com a mesma linha trezentas vezes
+		if (estado.saude?.estado !== agoraSaude.estado) {
+			eventos.push({ tipo: 'saude', ...agoraSaude });
+			const r = await avisar(env, estado.saude?.estado, agoraSaude, dia);
+			if (r) eventos.push({ tipo: 'aviso', resultado: r });
+		}
+		estado = {
+			retrato: agora,
+			generated_at: meta.generated_at,
+			dia,
+			saude: agoraSaude,
+			pedidos_fonte: meta.pedidos_fonte ?? null,
+			pedidos_falhados: meta.pedidos_falhados ?? null
+		};
 	} catch (e) {
 		eventos = [{ tipo: 'erro', erro: String(e).slice(0, 200) }];
 	}
 
-	if (!eventos.length) return { hora, eventos: 0 };
+	// o estado grava-se sempre que a leitura correu: é dele que a consola tira "agora". Mas
+	// só se escreve se mudou algo que interesse, para não gastar as 1 000 escritas do dia.
+	if (!eventos.length) {
+		const mudou = JSON.stringify(estado.saude) !== JSON.stringify(anterior?.saude)
+			|| estado.generated_at !== anterior?.generated_at;
+		if (mudou && estado.retrato) {
+			await env.OBSERVACAO.put(chaveEstado, JSON.stringify(estado),
+				{ expirationTtl: 60 * 60 * 24 * 90 });
+		}
+		return { hora, eventos: 0, saude: agoraSaude?.estado ?? null };
+	}
 
 	// 90 dias: chega para a época andar e limpa-se sozinho
 	const ttl = { expirationTtl: 60 * 60 * 24 * 90 };
@@ -143,7 +303,7 @@ async function observar(env) {
 
 	await env.OBSERVACAO.put(chaveDia, JSON.stringify(registo), ttl);
 	if (estado.retrato) await env.OBSERVACAO.put(chaveEstado, JSON.stringify(estado), ttl);
-	return { hora, eventos: eventos.length };
+	return { hora, eventos: eventos.length, saude: agoraSaude?.estado ?? null };
 }
 
 /** O relatório de um dia, com a cadência já calculada. */
@@ -171,6 +331,190 @@ async function relatorio(env, dia) {
 	};
 }
 
+/**
+ * Buscar, com cache na **Cache API** e não no KV.
+ *
+ * A cache dos Workers é grátis e não gasta escritas; pôr isto no KV eram ~720 escritas por
+ * dia só para guardar uma resposta da GitHub, contra as 1 000 que o plano dá.
+ */
+async function comCache(url, segundos, opcoes = {}) {
+	const chave = new Request(url, { headers: opcoes.headers });
+	const cache = caches.default;
+	const guardado = await cache.match(chave);
+	if (guardado) return guardado.json();
+	const r = await fetch(url, { headers: { 'User-Agent': UA, ...(opcoes.headers ?? {}) } });
+	if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
+	const corpo = await r.text();
+	await cache.put(
+		chave,
+		new Response(corpo, { headers: { 'Cache-Control': `max-age=${segundos}` } })
+	);
+	return JSON.parse(corpo);
+}
+
+/** As últimas corridas das Actions. O repositório é público, logo não precisa de token. */
+async function corridas(env) {
+	try {
+		const d = await comCache(
+			`https://api.github.com/repos/${env.REPO}/actions/runs?per_page=12`,
+			120
+		);
+		return (d.workflow_runs ?? []).map((r) => ({
+			nome: r.name,
+			evento: r.event,
+			estado: r.conclusion ?? r.status,
+			quando: r.created_at
+		}));
+	} catch (e) {
+		return [{ nome: 'não foi possível ler as corridas', estado: String(e).slice(0, 80) }];
+	}
+}
+
+/** O diário de rondas, lido do repositório público. Diz o volume que cada ronda produziu. */
+async function rondas(env) {
+	try {
+		const r = await fetch(
+			`https://raw.githubusercontent.com/${env.REPO}/main/data-samples/rondas/aplisboa.jsonl`,
+			{ headers: { 'User-Agent': UA }, cf: { cacheTtl: 300 } }
+		);
+		if (!r.ok) return [];
+		return (await r.text())
+			.trim()
+			.split('\n')
+			.slice(-6)
+			.map((l) => JSON.parse(l));
+	} catch {
+		return [];
+	}
+}
+
+/** As entradas: o que o contador do site escreveu. Só leitura. */
+async function entradas(env, dias) {
+	const CHAVES = ['aberturas', '/', '/clube', '/competicoes', '/equipa', '/jogo', '/mais',
+		'/privacidade', '/procurar', 'outro'];
+	const saida = {};
+	for (const dia of dias) {
+		const linha = {};
+		for (const c of CHAVES) {
+			const n = Number(await env.CONTAGENS.get(`c:${dia}:${c}`)) || 0;
+			if (n) linha[c] = c === 'aberturas' ? n * 10 : n;
+		}
+		if (Object.keys(linha).length) saida[dia] = linha;
+	}
+	return saida;
+}
+
+const esc = (x) =>
+	String(x ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+
+function pagina({ dia, estado, rel, runs, diario, ent }) {
+	const s = estado?.saude;
+	const cor = !s ? '#767e8a' : s.estado === 'verde' ? '#0a7d54' : '#c2410c';
+	const linha = (k, v) => `<tr><th>${esc(k)}</th><td>${v}</td></tr>`;
+	const nada = '<span class="nada">—</span>';
+
+    const ultimasRondas = diario
+		.slice()
+		.reverse()
+		.map((r) => `<tr><th>${esc(r.ts?.slice(5, 16).replace('T', ' '))}</th><td>${
+			esc(r.contagens?.jogos)} jogos · ${esc(r.contagens?.fichas)} fichas · ${
+			esc(r.contagens?.linhas_classificacao)} linhas</td></tr>`)
+		.join('');
+
+	return `<!doctype html>
+<html lang="pt-PT"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Consola — OK4Sticks</title>
+<meta http-equiv="refresh" content="60">
+<style>
+ :root { color-scheme: light dark; --f:#f5f6f8; --c:#fff; --t:#14171c; --s:#767e8a; --b:#e3e6ea; }
+ @media (prefers-color-scheme: dark) {
+   :root { --f:#0f1115; --c:#181b21; --t:#e8eaed; --s:#868d98; --b:#272b33; }
+ }
+ * { box-sizing:border-box }
+ body { margin:0; background:var(--f); color:var(--t); font:14px/1.5 system-ui,-apple-system,sans-serif;
+        padding:12px; max-width:44rem; margin:0 auto }
+ h1 { font-size:1rem; margin:0 0 2px } h1 span { color:var(--s); font-weight:400; font-size:.75rem }
+ h2 { font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--s);
+      margin:18px 0 6px; font-weight:600 }
+ .saude { border-radius:12px; padding:14px; background:${cor}; color:#fff; margin:10px 0 }
+ .saude b { font-size:1.4rem; display:block; letter-spacing:.02em }
+ .saude p { margin:4px 0 0; font-size:.8rem; opacity:.95 }
+ table { width:100%; border-collapse:collapse; background:var(--c); border-radius:10px; overflow:hidden }
+ th,td { text-align:left; padding:7px 10px; font-weight:400; vertical-align:top }
+ th { color:var(--s); white-space:nowrap; width:38% }
+ tr+tr th, tr+tr td { border-top:1px solid var(--b) }
+ td.n { font-variant-numeric:tabular-nums }
+ .nada { color:var(--s) }
+ .ok { color:#0a7d54 } .mal { color:#c2410c }
+ footer { color:var(--s); font-size:.72rem; margin-top:20px; line-height:1.5 }
+ code { font-size:.95em }
+</style></head><body>
+<h1>Consola <span>OK4Sticks · ${esc(dia)}</span></h1>
+
+<div class="saude">
+  <b>${s ? (s.estado === 'verde' ? 'tudo em ordem' : 'algo está mal') : 'sem leitura ainda'}</b>
+  <p>${s ? `${s.jogos_hoje} jogos hoje, ${s.a_decorrer} na janela · dados de há ${
+	  s.dados_com_minutos ?? '?'} min` : 'o cron corre nas horas de jogos'}</p>
+  ${s && s.sem_resultado?.length ? `<p>⚠ sem resultado há mais de 2 h: ${s.sem_resultado.join(', ')}</p>` : ''}
+  ${s && s.ao_vivo_preso?.length ? `<p>⚠ "ao vivo" preso: ${s.ao_vivo_preso.join(', ')}</p>` : ''}
+  ${s && s.publicacao_velha ? '<p>⚠ há jogos a decorrer e os dados não são novos</p>' : ''}
+</div>
+
+<h2>o que sai — pedidos à APL</h2>
+<table>
+${linha('última ronda', estado?.pedidos_fonte != null
+	? `<span class="n">${esc(estado.pedidos_fonte)}</span> pedidos, ${
+		estado.pedidos_falhados ? `<span class="mal">${esc(estado.pedidos_falhados)} falhados</span>` : '<span class="ok">0 falhados</span>'}`
+	: nada)}
+${ultimasRondas || linha('rondas', nada)}
+</table>
+
+<h2>o que entra — quem usa a app</h2>
+<table>
+${Object.keys(ent).length
+	? Object.entries(ent).map(([d, l]) =>
+		linha(d, Object.entries(l).map(([k, v]) => `${esc(k)} <span class="n">${esc(v)}</span>`).join(' · '))).join('')
+	: linha('sem dados', nada)}
+</table>
+
+<h2>publicação — cadência de hoje</h2>
+<table>
+${linha('publicações', `<span class="n">${esc(rel.publicacoes)}</span>`)}
+${linha('intervalo', rel.cadencia_s.mediana != null
+	? `mediana <span class="n">${esc(rel.cadencia_s.mediana)}s</span> · máx <span class="n">${esc(rel.cadencia_s.maximo)}s</span>`
+	: nada)}
+${linha('buracos > 3 min', rel.buracos_acima_de_3min.length
+	? `<span class="mal">${esc(rel.buracos_acima_de_3min.join(', '))}</span>` : '<span class="ok">nenhum</span>')}
+${linha('erros do CDN', rel.erros.length ? `<span class="mal">${rel.erros.length}</span>` : '<span class="ok">0</span>')}
+</table>
+
+<h2>golos de hoje, à hora a que apareceram</h2>
+<table>
+${rel.resultados.length
+	? rel.resultados.map((r) => linha(r.t, `#${esc(r.id)} ${esc(r.de)} → <b>${esc(r.para)}</b> ${esc(r.situacao ?? '')}`)).join('')
+	: linha('nenhum', nada)}
+</table>
+
+<h2>a cadeia — últimas corridas</h2>
+<table>
+${runs.map((r) => linha(
+	(r.quando ?? '').slice(5, 16).replace('T', ' '),
+	`${esc(r.nome)} <span class="${r.estado === 'success' ? 'ok' : r.estado === 'failure' ? 'mal' : ''}">${esc(r.estado)}</span> <span class="nada">${esc(r.evento ?? '')}</span>`
+)).join('')}
+</table>
+
+<footer>
+Lê só o que nós publicamos — nunca a APL. A cadência são os intervalos entre dados novos no
+nosso CDN; <strong>não</strong> mede o tempo desde que um golo foi marcado, que exige alguém
+no pavilhão com um cronómetro. As aberturas são estimadas por amostragem de 1 em 10.<br>
+Actualiza de minuto a minuto nas horas de jogos. Esta página recarrega sozinha a cada 60 s.
+<code>/api</code> dá o mesmo em JSON.
+</footer>
+</body></html>`;
+}
+
 export default {
 	async scheduled(_evento, env, ctx) {
 		ctx.waitUntil(observar(env));
@@ -189,8 +533,28 @@ export default {
 			return Response.json(await observar(env));
 		}
 		const dia = url.searchParams.get('dia') ?? emLisboa().dia;
-		return Response.json(await relatorio(env, dia), {
-			headers: { 'Cache-Control': 'no-store' }
+		const rel = await relatorio(env, dia);
+
+		if (url.pathname === '/api') {
+			return Response.json(rel, { headers: { 'Cache-Control': 'no-store' } });
+		}
+
+		let estado = null;
+		try {
+			estado = JSON.parse((await env.OBSERVACAO.get('estado')) ?? 'null');
+		} catch {
+			estado = null;
+		}
+		const ontem = new Date(Date.parse(`${dia}T12:00:00Z`) - 86400000)
+			.toISOString()
+			.slice(0, 10);
+		const [runs, diario, ent] = await Promise.all([
+			corridas(env),
+			rondas(env),
+			entradas(env, [dia, ontem])
+		]);
+		return new Response(pagina({ dia, estado, rel, runs, diario, ent }), {
+			headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
 		});
 	}
 };

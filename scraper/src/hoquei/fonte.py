@@ -33,10 +33,22 @@ class Fonte:
     não uma API pensada para tráfego automatizado.
     """
 
+    #: Pedidos feitos à fonte, **incluindo retentativas**, e quantos falharam de vez.
+    #:
+    #: Existe porque a regra do projecto manda contar o custo antes de acrescentar pedidos, e
+    #: até 08/10/2026 esse custo era estimado em comentários ("~75 por corrida") e nunca
+    #: medido. Uma retentativa conta como pedido: do lado do servidor da federação é
+    #: exactamente isso que ela é.
+    #:
+    #: Vive no objecto e não num global porque cada comando abre a sua `Fonte` e o que
+    #: interessa é o custo daquela ronda.
+
     def __init__(self, tenant: str, intervalo: float = 1.0, tentativas: int = 3):
         self.tenant = tenant
         self.intervalo = intervalo
         self.tentativas = tentativas
+        self.pedidos = 0
+        self.falhados = 0
         self._ultimo = 0.0
         self._cliente = httpx.Client(
             base_url=BASE.format(tenant=tenant),
@@ -61,6 +73,7 @@ class Fonte:
         erro: Exception | None = None
         for tentativa in range(self.tentativas):
             self._esperar()
+            self.pedidos += 1
             try:
                 r = self._cliente.get(caminho, params=params)
                 r.raise_for_status()
@@ -69,6 +82,7 @@ class Fonte:
                 time.sleep(2**tentativa)
                 continue
             return Resposta(url=str(r.url), html=descodificar(caminho, r.content), bruto=r.content)
+        self.falhados += 1
         raise RuntimeError(f"falhou {self.tentativas}x: {caminho} {params}") from erro
 
     # --- endpoints -------------------------------------------------------
