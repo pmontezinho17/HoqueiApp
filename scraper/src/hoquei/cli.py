@@ -171,6 +171,28 @@ def _proxima_hora(agenda: list[dict], hoje: str, agora: datetime) -> str | None:
     return min(horas) if horas else None
 
 
+LISBOA = ZoneInfo("Europe/Lisbon")
+
+
+def _agora() -> datetime:
+    """A hora de Lisboa, numa função para os testes a poderem fixar.
+
+    Existe por causa de uma falha real e repetida: as corridas agendadas das 23:38 e 00:06
+    UTC falharam duas noites seguidas — 06/10 e 07/10/2026 — e o dono recebeu um email de
+    cada vez. Não era o agendador da GitHub, era um teste nosso.
+
+    O teste constrói "um jogo de há quatro horas" com a **data de hoje** e a hora de
+    `agora - 4h`. Depois da meia-noite em Lisboa isso dá um jogo marcado para hoje às
+    20:38 — vinte horas no futuro, não quatro no passado. O `em_atraso` ignorava-o, e com
+    razão; era a expectativa do teste que estava errada.
+
+    Com o relógio aqui, um teste fixa o instante e a regra deixa de depender da hora a que
+    a Action calha correr. É a terceira vez que esta família de erros — data local contra
+    data UTC, e agora a passagem da meia-noite — custa tempo neste projecto.
+    """
+    return datetime.now(LISBOA)
+
+
 def comando_aovivo(args) -> int:
     """Actualiza só os jogos que estão a decorrer (B9.17).
 
@@ -186,7 +208,7 @@ def comando_aovivo(args) -> int:
     agenda_f = destino / "agenda.json"
     agenda = json.loads(agenda_f.read_text())["jogos"]
 
-    agora = datetime.now(ZoneInfo("Europe/Lisbon"))
+    agora = _agora()
     hoje = agora.date().isoformat()
     def a_decorrer(j: dict) -> bool:
         """Começou, ainda não acabou.

@@ -848,6 +848,67 @@ ou de decidir que a quer.
 
 ---
 
+## Os emails de falha das 00:39 — e não era o agendador (08/10/2026)
+
+O dono recebeu emails de falha três noites seguidas, sempre minutos depois da ronda das
+00:30, e levantou outra vez — com razão para perguntar — se não devíamos sair da GitHub
+Actions. **Medido antes de responder, e a resposta é outra: o agendador disparou tudo. O que
+falhou foi um teste nosso.**
+
+```
+Mon 05/10   5 agendadas   5 arrancaram   4 passaram   falhou a das 23:30
+Tue 06/10   5 agendadas   5 arrancaram   3 passaram   falharam a das 00:00 e a das 23:30
+Wed 07/10   5 agendadas   5 arrancaram   3 passaram   falharam a das 00:00 e a das 23:30
+```
+
+As que falham são **exactamente** as que correm entre as 23:00 e as 01:00 UTC. O
+`test_aovivo` constrói "um jogo de há quatro horas" com a **data de hoje** e a hora de
+`agora - 4h`: depois da meia-noite em Lisboa isso dá um jogo marcado para hoje às 20:38, que
+está vinte horas no futuro e não quatro no passado. O `em_atraso` ignorava-o — com razão — e
+era a expectativa do teste que estava errada.
+
+**A consequência não era cosmética.** O passo dos testes corre **antes** de regenerar o
+`/v1`, logo a ronda que sela o dia não fez nada em três noites seguidas: os resultados dos
+jogos da noite só apareciam na ronda das 06:00, seis horas depois.
+
+Corrigido com o relógio injectável — `cli._agora()` — e com a hora fixa nos testes. Mais um
+teste que fixa 00:38 em Lisboa e guarda as duas metades da verdade: um jogo de **ontem** sem
+resultado não é perseguido por este ciclo (quem fecha o dia é a ronda das 00:30 do
+`dados.yml`), e um jogo de **hoje** que já começou continua a ser apanhado. É a terceira vez
+que a família "data local contra data UTC" custa tempo aqui, e a primeira em que o relógio
+deixa de ser lido directamente.
+
+### Duas correcções ao que eu próprio disse
+
+1. **O agendador da GitHub falhou a sério, mas foi no fim de semana de 3–4/10**: desse fim de
+   semana perdeu 14 das 18 rondas. Foi isso que motivou o `worker/relogio` (commit de
+   04/10). Desde que ele existe, **15 de 15** rondas agendadas arrancaram. A impressão de
+   "falha sempre" vinha dos emails, e os emails eram do nosso teste.
+2. **As noites de 30/09 a 03/10 aparecem sem ronda nocturna, e não é falha de ninguém**: o
+   `cron` das 23:30 só nasceu a 04/10, no commit 406ef65. Contá-las como perdidas, que foi o
+   que a minha primeira medição fez, inflacionava a taxa de falha.
+
+### Então vale a pena sair da GitHub Actions?
+
+O que a Cloudflare dá e nós já usamos é **o disparo**: o `worker/relogio` tem `crons` da
+Cloudflare e dispara o `aovivo.yml` e, como cão de guarda, o `dados.yml`. Dos últimos 56
+arranques do `dados.yml`, 21 vieram por `workflow_dispatch` — isto é, do relógio ou de mim.
+
+O que a Cloudflare **não** dá hoje é correr o raspador: é Python com `httpx` e `selectolax`,
+e os Workers são JavaScript ou Python sobre Pyodide. As saídas reais são três, e estão em
+B9.29:
+
+| | o que muda | custo |
+|---|---|---|
+| ficar assim | nada; o relógio já cobre o agendador | 0 |
+| Cloudflare Containers | tudo num fornecedor | exige o plano pago dos Workers |
+| Cloud Run Jobs + Cloud Scheduler | corre o contentor como está, com SLA | dentro do nível gratuito — medido: ~43 000 vCPU-s/mês contra 240 000 |
+
+**Recomendação: ficar assim por agora**, porque a falha medida depois do relógio é zero e o
+que doía era o nosso teste. Se o objectivo passar a ser tirar a GitHub do caminho crítico, a
+saída que não exige plano pago e que corre o Python como ele está é o Cloud Run — e isso é o
+B9.29, já escrito.
+
 ## Nome e ícone (07/10/2026)
 
 A app passou a chamar-se **OK4Sticks.DEV**, por escolha do dono — alinhado com o endereço de

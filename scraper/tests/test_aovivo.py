@@ -22,6 +22,21 @@ from hoquei.modelos import FichaJogo
 ID = 9999
 COMP = 450
 
+#: O instante em que estes testes vivem — uma quinta-feira às 19:30 em Lisboa.
+#:
+#: **Fixo, e não `datetime.now()`.** As corridas agendadas das 23:38 e 00:06 UTC falharam
+#: duas noites seguidas, 06/10 e 07/10/2026, e nenhuma delas por culpa do código: o `_jogo`
+#: abaixo datava o jogo de **hoje** e dava-lhe a hora de `agora - N horas`, o que depois da
+#: meia-noite punha o jogo vinte horas no futuro em vez de quatro no passado. Com a hora
+#: fixa, o que o teste constrói e o que o código lê concordam a qualquer hora do dia.
+AGORA = datetime(2026, 10, 8, 19, 30, tzinfo=ZoneInfo("Europe/Lisbon"))
+
+
+@pytest.fixture(autouse=True)
+def _relogio_parado(monkeypatch):
+    """Todos os testes deste ficheiro correm no mesmo instante."""
+    monkeypatch.setattr(cli, "_agora", lambda: AGORA)
+
 
 class _FonteFalsa:
     """Devolve sempre a mesma página; o `cli.ficha` está trocado por um duplo."""
@@ -45,8 +60,8 @@ class _FonteFalsa:
 
 
 def _agenda(tmp_path: pathlib.Path) -> pathlib.Path:
-    """Um jogo de hoje que começou há dez minutos, para cair na janela da ronda."""
-    agora = datetime.now(ZoneInfo("Europe/Lisbon"))
+    """Um jogo que começou há dez minutos, para cair na janela da ronda."""
+    agora = AGORA
     inicio = (agora - timedelta(minutes=10)).strftime("%H:%M")
     (tmp_path / "match").mkdir(parents=True, exist_ok=True)
     (tmp_path / "meta.json").write_text(json.dumps({"generated_at": "2026-10-04T00:00:00+00:00"}))
@@ -70,7 +85,7 @@ def _ficha(estado: str | None, periodo: str | None, relogio: str | None,
            situacao: str | None, gc: int, gf: int) -> FichaJogo:
     return FichaJogo(
         id=ID, competicao="P", casa="A", fora="B", golos_casa=gc, golos_fora=gf,
-        estado=estado, data=date.today(), hora=time(11, 0), recinto=None,
+        estado=estado, data=AGORA.date(), hora=time(11, 0), recinto=None,
         situacao=situacao, periodo=periodo, relogio=relogio,
     )
 
@@ -186,19 +201,12 @@ def test_a_janela_nao_se_parte_a_meia_noite(tmp_path, monkeypatch):
     momento em que ainda estava a ser jogado. Só se via entre as 23:35 e a meia-noite, que
     é precisamente quando ninguém está a olhar.
     """
-    import json
-    from datetime import datetime, timedelta
-    from zoneinfo import ZoneInfo
-
-    LX = ZoneInfo("Europe/Lisbon")
-    quase_meia_noite = datetime(2026, 10, 9, 23, 41, tzinfo=LX)
-
-    class Relogio(datetime):
-        @classmethod
-        def now(cls, tz=None):
-            return quase_meia_noite
-
-    monkeypatch.setattr(cli, "datetime", Relogio)
+    # 23:41 do dia 9, que é o instante em que o defeito aparecia. Fixa-se pelo `_agora`,
+    # como todos os outros: a subclasse de `datetime` que estava aqui deixou de ter efeito
+    # quando o relógio passou a ser injectável, e um teste que já não testa nada é pior do
+    # que não haver teste.
+    quase_meia_noite = datetime(2026, 10, 9, 23, 41, tzinfo=ZoneInfo("Europe/Lisbon"))
+    monkeypatch.setattr(cli, "_agora", lambda: quase_meia_noite)
     (tmp_path / "match").mkdir(parents=True, exist_ok=True)
     (tmp_path / "meta.json").write_text(json.dumps({"generated_at": "2026-10-09T00:00:00+00:00"}))
     (tmp_path / "agenda.json").write_text(json.dumps({"jogos": [{
@@ -227,11 +235,12 @@ def _agenda_com(tmp_path: pathlib.Path, *jogos: dict) -> None:
 
 
 def _jogo(horas_atras: float, **extra) -> dict:
-    agora = datetime.now(ZoneInfo("Europe/Lisbon"))
+    """Um jogo que começou há `horas_atras`, com a data e a hora a concordarem entre si."""
+    quando = AGORA - timedelta(hours=horas_atras)
     return {
         "id": extra.pop("id", ID),
-        "data": agora.date().isoformat(),
-        "hora": (agora - timedelta(hours=horas_atras)).strftime("%H:%M"),
+        "data": quando.date().isoformat(),
+        "hora": quando.strftime("%H:%M"),
         "casa": "A", "fora": "B", "gc": None, "gf": None,
         "recinto": None, "comp": COMP, "prova": "P", "cat": "SUB-13",
         **extra,
@@ -308,3 +317,44 @@ def test_um_jogo_dentro_da_janela_nao_e_pedido_duas_vezes(tmp_path, monkeypatch)
                         lambda _h, _i: _ficha(None, "1ª Parte", "3:10", "1ª Parte (3:10)", 1, 0))
     assert cli.comando_aovivo(_args(tmp_path)) == 0
     assert [f.pedidos for f in fontes] == [1]
+
+
+def test_a_recolha_nao_se_confunde_depois_da_meia_noite(tmp_path, monkeypatch):
+    """A hora exacta a que a CI falhou duas noites seguidas: 00:38 em Lisboa.
+
+    Este teste existe por causa de um erro **no teste** e não no código. O `_jogo` datava o
+    jogo de hoje e dava-lhe a hora de `agora - N horas`; depois da meia-noite isso construía
+    um jogo marcado para hoje às 20:38, vinte horas no futuro, e o `em_atraso` ignorava-o com
+    razão. As corridas agendadas das 23:38 e 00:06 UTC falharam a 06/10 e a 07/10/2026, e o
+    dono recebeu um email de cada vez a dizer que a Action tinha falhado.
+
+    O que se guarda aqui são as duas metades da verdade:
+
+    1. um jogo de **ontem** às 20:38, sem resultado, **não** é perseguido por este ciclo —
+       quem fecha o dia é a ronda das 00:30 do `dados.yml`, que raspa tudo de novo;
+    2. um jogo de **hoje** que já começou continua a ser apanhado, mesmo às 00:38.
+    """
+    meia_noite_passada = datetime(2026, 10, 8, 0, 38, tzinfo=ZoneInfo("Europe/Lisbon"))
+    monkeypatch.setattr(cli, "_agora", lambda: meia_noite_passada)
+
+    # 1. ontem às 20:38, sem resultado: fica para a ronda que fecha o dia
+    _agenda_com(tmp_path, {
+        "id": ID, "data": "2026-10-07", "hora": "20:38",
+        "casa": "A", "fora": "B", "gc": None, "gf": None,
+        "recinto": None, "comp": COMP, "prova": "P", "cat": "SUB-13",
+    })
+    monkeypatch.setattr(cli, "Fonte", _FonteFalsa)
+    monkeypatch.setattr(cli, "ficha", lambda _h, _i: pytest.fail("não devia pedir jogos de ontem"))
+    assert cli.comando_aovivo(_args(tmp_path)) == 0
+
+    # 2. hoje às 00:10, meia hora antes: esse é da ronda de agora
+    _agenda_com(tmp_path, {
+        "id": ID, "data": "2026-10-08", "hora": "00:10",
+        "casa": "A", "fora": "B", "gc": None, "gf": None,
+        "recinto": None, "comp": COMP, "prova": "P", "cat": "SUB-13",
+    })
+    monkeypatch.setattr(cli, "ficha",
+                        lambda _h, _i: _ficha("Jogo Terminado", None, None, "Jogo Terminado", 4, 1))
+    assert cli.comando_aovivo(_args(tmp_path)) == 0
+    j = json.loads((tmp_path / "agenda.json").read_text())["jogos"][0]
+    assert (j["gc"], j["gf"]) == (4, 1)
