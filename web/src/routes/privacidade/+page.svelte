@@ -44,6 +44,16 @@
 			suficiente para valer a pena mostrá-lo outra vez, o número sobe e ele reaparece uma
 			única vez.
 		</dd>
+		<dt>Uma data, para não te contarmos duas vezes</dt>
+		<dd>
+			Numa chave chamada <code>hoquei:contado:v1</code>, com a data de hoje, e outra com um
+			sim/não em <code>hoquei:conhecido:v1</code>. Servem para o teu aparelho avisar o
+			contador <strong>uma vez por dia</strong> em vez de a cada abertura. Não há ali
+			nenhum número que te identifique, e é por isso que nós conseguimos saber que
+			"hoje abriram isto catorze aparelhos" e <strong>não</strong> conseguimos saber que
+			"este aparelho abriu nove dias seguidos" — para isso seria preciso um
+			identificador, e não existe nenhum.
+		</dd>
 		<dt>O tema, se o escolheres à mão</dt>
 		<dd>
 			Numa chave chamada <code>hoquei:tema:v1</code>, com a palavra
@@ -103,6 +113,14 @@
 		<dd>
 			Contado por amostragem — um em cada dez pedidos — e o número que vemos é uma
 			estimativa.
+		</dd>
+	</dl>
+	<dl>
+		<dt>Quantos aparelhos distintos abriram a aplicação, por dia</dt>
+		<dd>
+			E destes, quantos a abriam pela primeira vez. É o teu próprio aparelho que decide
+			se já foi contado hoje, guardando uma data — ver acima. São <strong>aparelhos</strong>
+			e não pessoas: o telemóvel e o computador da mesma pessoa contam dois.
 		</dd>
 	</dl>
 	<p>

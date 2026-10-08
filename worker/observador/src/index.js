@@ -401,6 +401,15 @@ async function entradas(env, dias) {
 			const n = Number(await env.CONTAGENS.get(`c:${dia}:${c}`)) || 0;
 			if (n) linha[c] = c === 'aberturas' ? n * 10 : n;
 		}
+		// Aparelhos distintos: **exacto**, não amostrado. Cada aparelho avisa uma vez por dia,
+		// e é ele que decide — ver `web/src/lib/presenca.ts`. É o número que responde a
+		// "quantos abriram a app", que o contador de pedidos não sabe responder.
+		const aparelhos = Number(await env.CONTAGENS.get(`d:${dia}`)) || 0;
+		const novos = Number(await env.CONTAGENS.get(`n:${dia}`)) || 0;
+		if (aparelhos) {
+			linha.aparelhos = aparelhos;
+			linha.novos = novos;
+		}
 		if (Object.keys(linha).length) saida[dia] = linha;
 	}
 	return saida;

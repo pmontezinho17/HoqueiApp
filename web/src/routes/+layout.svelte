@@ -18,6 +18,7 @@
 	import MenuMais from '$lib/MenuMais.svelte';
 	import { tema } from '$lib/tema.svelte';
 	import { APP_NOME } from '$lib/sitio';
+	import { marcarPresenca } from '$lib/presenca';
 
 	let { data, children } = $props();
 
@@ -59,6 +60,12 @@
 
 	// a preferência de tema também só existe no browser, e aplica-se ao `<html>`
 	$effect(() => tema.carregar());
+
+	// Uma vez por dia e por aparelho, sem identificador nenhum — ver `lib/presenca.ts`.
+	// É o que responde a "quantos aparelhos distintos abriram a app", que o contador de
+	// pedidos não sabe responder: uma app aberta numa bancada pede dados de 30 em 30
+	// segundos e parecem sessenta pessoas.
+	$effect(() => marcarPresenca());
 </script>
 
 {#if navigating.to}<div class="progresso" role="status" aria-label="A carregar"></div>{/if}

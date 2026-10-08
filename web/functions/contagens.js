@@ -55,6 +55,12 @@ export async function onRequestGet({ request, env }) {
 
 	for (const dia of ultimosDias(pedidos)) {
 		const linha = {};
+		// aparelhos distintos: exacto, não amostrado — ver `functions/contar.js`
+		const aparelhos = Number(await env.CONTAGENS.get(`d:${dia}`)) || 0;
+		if (aparelhos) {
+			linha.aparelhos = aparelhos;
+			linha.novos = Number(await env.CONTAGENS.get(`n:${dia}`)) || 0;
+		}
 		for (const chave of CHAVES) {
 			const n = Number(await env.CONTAGENS.get(`c:${dia}:${chave}`)) || 0;
 			if (!n) continue;
@@ -69,6 +75,11 @@ export async function onRequestGet({ request, env }) {
 		JSON.stringify(
 			{
 				leia_se: {
+					aparelhos:
+						'quantos aparelhos distintos abriram a app nesse dia, e quantos o faziam ' +
+						'pela primeira vez. Contagem exacta: cada aparelho avisa uma vez por dia, ' +
+						'e é ele que decide, guardando uma data. Não há identificador, logo não se ' +
+						'sabe se o aparelho de hoje é o mesmo de ontem.',
 					aberturas:
 						`estimativa: pedidos de meta.json contados 1 em ${AMOSTRA} e multiplicados. ` +
 						'É o sinal de app aberta, porque atravessa o service worker.',

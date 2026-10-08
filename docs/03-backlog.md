@@ -848,6 +848,42 @@ ou de decidir que a quer.
 
 ---
 
+## Aparelhos distintos por dia, sem identificador (08/10/2026)
+
+O dono perguntou se dá para medir utilizadores distintos. **Pessoas, não** — isso exige um
+identificador e não existe nenhum, de propósito. E os números que tínhamos não respondem nem
+por aproximação: uma app aberta pede o `meta.json` de 5 em 5 minutos, e de 30 em 30 segundos
+durante um jogo, por isso as ~120 aberturas de 08/10 tanto podiam ser **duas pessoas numa
+bancada** como **sessenta a espreitar dez segundos**. Trinta vezes de diferença.
+
+**O que dá, e foi o que se construiu: aparelhos distintos por dia.** É o próprio aparelho que
+decide se já foi contado hoje, guardando uma data — `2026-10-08` — e só na primeira abertura
+do dia avisa o `/contar`. O servidor recebe um toque e **não tem como o ligar ao de ontem**:
+não vai número nenhum, não há cookie, e o que fica guardado é uma data, que não identifica
+ninguém. Um segundo sinalizador, um bit, diz se o aparelho já conhecia a app — daí o "quantos
+são novos hoje".
+
+| | |
+|---|---|
+| chaves no KV | `d:<dia>` aparelhos, `n:<dia>` dos quais novos |
+| escritas | uma ou duas **por aparelho e por dia** — quem abre a app vinte vezes escreve uma |
+| onde se vê | consola, `/contagens?chave=…` e `/api` |
+
+O que **não** é, e está escrito na `/privacidade` e na consola: são aparelhos e não pessoas —
+telemóvel e PC da mesma pessoa contam dois —, quem limpar os dados do site conta outra vez, e
+não há coortes nem "quantos voltaram na semana seguinte", porque isso é precisamente o que se
+evitou poder fazer.
+
+Caminhos recusados, por ordem do que custavam à promessa: um id por aparelho (dá pessoas e
+coortes, e torna falsa a frase "sem rastreio"), hash do IP com sal diário (é o que o Plausible
+faz, mas o IP é dado pessoal e passaríamos a tratá-lo), e a Web Analytics da Cloudflare
+(script de terceiros no telemóvel de quem usa).
+
+Verificado com `wrangler pages dev` e um KV local: nove chamadas, três delas com `novo=1`,
+deram `aparelhos: 9, novos: 3`. E um teste apanhou-me uma garantia que eu tinha escrito e não
+cumprido — "nada disto pode partir a app" — num `fetch` que atira antes de devolver promessa:
+o `.catch` não existia para apanhar nada.
+
 ## Observar uma janela de jogos, com números (08/10/2026)
 
 **Isto corre na nuvem, em `worker/observador/`.** Começou como `scripts/observar.py`, no

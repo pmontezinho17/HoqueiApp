@@ -71,20 +71,23 @@ const painel = (etiqueta, valor, nota = '', classe = '') => `
  * estávamos a contar". Esses aparecem sem barra e com um travessão.
  */
 function barras(dias) {
-	const maximo = Math.max(1, ...dias.map((d) => d.aberturas));
+	const maximo = Math.max(1, ...dias.map((d) => d.aparelhos));
 	return dias
 		.map((d) => {
-			const titulo = d.semDados
-				? `${diaCurto(d.dia)}: o contador ainda não existia`
-				: `${diaCurto(d.dia)}: ~${d.aberturas} aberturas, ${d.ecras} ecrãs`;
+			const semContador = d.semDados || (!d.aparelhos && !d.aberturas);
+			const titulo = semContador
+				? `${diaCurto(d.dia)}: o contador de aparelhos ainda não existia`
+				: `${diaCurto(d.dia)}: ${d.aparelhos} aparelhos (${d.novos} novos), ~${d.aberturas} aberturas`;
 			return `
   <div class="barra" title="${esc(titulo)}">
     <span class="dia">${esc(diaCurto(d.dia))}</span>
     <span class="trilho">${
-		d.semDados ? '' : `<i style="width:${Math.max(2, (100 * d.aberturas) / maximo)}%"></i>`
+		d.aparelhos ? `<i style="width:${Math.max(2, (100 * d.aparelhos) / maximo)}%"></i>` : ''
 	}</span>
     <span class="valor">${
-		d.semDados ? '<em title="sem contador">—</em>' : d.aberturas ? `~${d.aberturas}` : '<em>0</em>'
+		d.aparelhos
+			? `${d.aparelhos}${d.novos ? ` <em title="novos">+${d.novos}</em>` : ''}`
+			: '<em title="sem contador de aparelhos">—</em>'
 	}</span>
   </div>`;
 		})
@@ -103,13 +106,15 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias }) {
 	const serie = dias.map((d) => ({
 		dia: d,
 		semDados: !ent[d],
+		aparelhos: ent[d]?.aparelhos ?? 0,
+		novos: ent[d]?.novos ?? 0,
 		aberturas: ent[d]?.aberturas ?? 0,
 		ecras: Object.entries(ent[d] ?? {})
 			.filter(([k]) => k !== 'aberturas')
 			.reduce((t, [, v]) => t + v, 0)
 	}));
-	const comDados = serie.filter((d) => !d.semDados);
-	const semana = comDados.reduce((t, d) => t + d.aberturas, 0);
+	const comDados = serie.filter((d) => d.aparelhos > 0);
+	const semana = comDados.reduce((t, d) => t + d.aparelhos, 0);
 
 	const tabela = (linhas, vazio = 'nada ainda') =>
 		linhas.length
@@ -159,8 +164,9 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias }) {
  .estado .porque { color:var(--texto2); font-size:.85rem }
  .estado .porque span { color:var(--mal); font-weight:600 }
 
- .paineis { display:grid; grid-template-columns:repeat(4,1fr); gap:16px }
- @media (max-width:1000px) { .paineis { grid-template-columns:repeat(2,1fr) } }
+ .paineis { display:grid; grid-template-columns:repeat(5,1fr); gap:16px }
+ @media (max-width:1200px) { .paineis { grid-template-columns:repeat(3,1fr) } }
+ @media (max-width:760px) { .paineis { grid-template-columns:repeat(2,1fr) } }
  .painel { background:var(--cartao); border:1px solid var(--borda); border-radius:12px;
    padding:14px 16px; display:flex; flex-direction:column; gap:2px }
  .painel .etiqueta { font-size:.68rem; letter-spacing:.06em; text-transform:uppercase;
@@ -226,6 +232,11 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias }) {
   </section>
 
   <div class="l12 paineis">
+    ${painel(
+		'aparelhos hoje',
+		hoje.aparelhos ?? '—',
+		hoje.aparelhos ? `${hoje.novos ?? 0} pela primeira vez` : 'contagem exacta, uma por dia'
+	)}
     ${painel('aberturas hoje', hoje.aberturas ? `~${hoje.aberturas}` : '0', 'estimadas, 1 em 10')}
     ${painel('ecrãs abertos hoje', totalEcras, `${ecrasHoje.length} ecrãs diferentes`)}
     ${painel(
@@ -247,14 +258,16 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias }) {
   </div>
 
   <section class="l8">
-    <h2>quem usa a aplicação — aberturas por dia</h2>
+    <h2>quem usa a aplicação — aparelhos distintos por dia</h2>
     ${barras(serie)}
     <p class="vazio" style="margin-top:10px">
-      ~${semana} aberturas em ${comDados.length} ${comDados.length === 1 ? 'dia' : 'dias'} com
-      contador. Contadas no servidor, por amostragem de 1 em 10, sem cookie e sem nada que
-      ligue duas visitas à mesma pessoa.${
+      ${semana} ${semana === 1 ? 'aparelho' : 'aparelhos'} em ${comDados.length}
+      ${comDados.length === 1 ? 'dia' : 'dias'}; o <em>+n</em> são os que abriram a app pela
+      primeira vez. É o próprio aparelho que decide se já foi contado hoje, guardando uma
+      data — não há identificador nenhum, logo não dá para saber se o aparelho de hoje é o
+      mesmo de ontem. São aparelhos e não pessoas: telemóvel e PC da mesma pessoa contam dois.${
 			serie.length > comDados.length
-				? ` Os dias com travessão são anteriores ao contador, que nasceu a 07/10 — não são dias com zero.`
+				? ' Os dias com travessão são anteriores a este contador.'
 				: ''
 		}
     </p>
