@@ -848,6 +848,36 @@ ou de decidir que a quer.
 
 ---
 
+## Combinado para 09/10, depois dos jogos: a consola passa para `/consola`
+
+**Porque:** o endereço da consola é `hoquei-observador.torneiopa.workers.dev`, e o `torneiopa`
+é o subdomínio de uma aplicação anterior do dono, para controlar um torneio. Ele quis separar
+as coisas do OK4Sticks — e a Cloudflare dá **um** subdomínio `workers.dev` **por conta**, não
+um por projecto, logo não há como ter dois. As saídas reais eram uma segunda conta — que
+partia o KV, porque o KV é por conta, e obrigaria a mover o Pages e a perder os favoritos de
+todos — ou um domínio próprio, que está adiado.
+
+**O que fica combinado, e resolve o incómodo sem partir nada:** a consola passa a ser servida
+pelo próprio site, em `hoquei.pages.dev/consola`. O Worker fica só com o `cron`, sem endereço
+público (`workers_dev = false`), e os dois armazéns continuam na mesma conta.
+
+Passos, por ordem:
+
+1. **(do dono, no painel)** ligar o *namespace* `observacao`
+   (`5eb323f23c64470590caf547f7bd1d72`) ao projecto Pages `hoquei`, com o nome
+   **`OBSERVACAO`**, em *Production* — como fez com o `hoquei-contagens`.
+2. mover o `worker/observador/src/pagina.js` para dentro do `web/` — por exemplo
+   `web/src/lib/consola.js` — porque uma Pages Function só empacota o que está dentro da
+   pasta do projecto. **Não o deixar em `web/functions/`:** ali todos os `.js` viram rotas.
+3. `web/functions/consola.js` passa a servir a página, lendo os dois KV;
+4. o observador perde a rota HTML e fica com o `cron` e o `/api`;
+5. `workers_dev = false` no `wrangler.toml` do observador, e o mesmo no relógio;
+6. corrigir o `env.CONSOLA` do aviso — a issue que ele abre aponta para o endereço antigo;
+7. actualizar os endereços neste documento e no `README` do observador.
+
+**Estimativa:** ~2 h. **Combinado para 09/10 depois dos jogos**, e não a 08/10, porque mexe
+nas Functions do site e a primeira janela de jogos começava daí a quarenta minutos.
+
 ## A consola em baixo: 50 sub-pedidos por invocação (08/10/2026)
 
 O dono abriu a consola e levou um `Error 1102 — Worker exceeded resource limits`. A causa era
