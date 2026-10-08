@@ -368,8 +368,23 @@ async function observar(env) {
 	// um tecto, para um dia estranho não encher uma chave até ela não caber
 	if (registo.length > 4000) registo = registo.slice(-4000);
 
-	await env.OBSERVACAO.put(chaveDia, JSON.stringify(registo), ttl);
-	if (estado.retrato) await env.OBSERVACAO.put(chaveEstado, JSON.stringify(estado), ttl);
+	// **As escritas vão dentro de um `try`, e isso não é zelo.**
+	//
+	// A 08/10/2026 a Cloudflare mandou um aviso de 50% do limite diário de operações do KV —
+	// 1 000 escritas por dia no plano gratuito — e sábado, com 36 jogos das 10:00 às 21:00,
+	// este Worker sozinho precisaria de ~1 560. Quando o limite estoura, o `put` atira. Sem
+	// isto, a excepção subia pelo `waitUntil` e fazia falhar a invocação do cron inteira.
+	//
+	// O que se perde é a medição. A app não depende disto: serve ficheiros estáticos do CDN,
+	// e os outros dois sítios que escrevem — o contador do site e o `/contar` — já apanhavam
+	// o erro cada um por si.
+	try {
+		await env.OBSERVACAO.put(chaveDia, JSON.stringify(registo), ttl);
+		if (estado.retrato) await env.OBSERVACAO.put(chaveEstado, JSON.stringify(estado), ttl);
+	} catch (e) {
+		return { hora, eventos: eventos.length, saude: agoraSaude?.estado ?? null,
+			erro_a_gravar: String(e).slice(0, 120) };
+	}
 	return { hora, eventos: eventos.length, saude: agoraSaude?.estado ?? null };
 }
 
