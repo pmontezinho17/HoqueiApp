@@ -447,3 +447,48 @@ def test_a_tabela_da_fonte_falhar_nao_salta_a_competicao(tmp_path, monkeypatch):
     assert d["classificacao"] == publicada, "perdeu a tabela publicada por o pedido ter falhado"
     # o resultado do jogo chegou ao ficheiro da competição, que é o que alimenta a tabela
     assert [(j["golos_casa"], j["golos_fora"]) for j in d["jogos"]] == [(1, 0)]
+
+
+class TestContextoDaFicha:
+    """
+    O escalão, a série e a jornada numa ficha criada **por esta ronda** (08/10/2026).
+
+    O dono abriu a ficha de um jogo a decorrer e não encontrou o separador da classificação
+    nem o escalão. A causa não era a app: a ficha de um jogo só nasce quando a mesa lança a
+    convocatória, à hora do jogo, logo é a ronda ao vivo que a cria — e ela não tinha nada
+    para preservar. Sem `competicao_id` a app não sabe que competição carregar.
+    """
+
+    def _entrada(self, **extra):
+        return {"id": ID, "comp": COMP, "cat": "SUB-17", "grupo_id": "sub-17--camp-reg",
+                "grupo_nome": "CAMP. REG. SUB-17 - 1ª FASE", "serie": "E", **extra}
+
+    def test_uma_ficha_nova_recebe_o_contexto_da_agenda(self, tmp_path):
+        c = cli._contexto_da_ficha(self._entrada(), {}, tmp_path)
+        assert c["competicao_id"] == COMP
+        assert c["categoria"] == "SUB-17"
+        assert c["serie"] == "E"
+        assert c["grupo_nome"].startswith("CAMP. REG.")
+
+    def test_o_que_a_ronda_completa_escreveu_manda(self, tmp_path):
+        """Ela viu a prova inteira; a agenda é um resumo."""
+        antigo = {"competicao_id": 999, "categoria": "SUB-19", "serie": "A",
+                  "grupo_id": "x", "grupo_nome": "y", "jornada": "3ª JORNADA"}
+        c = cli._contexto_da_ficha(self._entrada(), antigo, tmp_path)
+        assert c["competicao_id"] == 999
+        assert c["categoria"] == "SUB-19"
+        assert c["jornada"] == "3ª JORNADA"
+
+    def test_a_jornada_vem_do_ficheiro_da_competicao(self, tmp_path):
+        (tmp_path / "comp").mkdir()
+        (tmp_path / "comp" / f"{COMP}.json").write_text(json.dumps(
+            {"jogos": [{"id": ID, "jornada": "5ª JORNADA"}, {"id": 1, "jornada": "1ª"}]}))
+        c = cli._contexto_da_ficha(self._entrada(), {}, tmp_path)
+        assert c["jornada"] == "5ª JORNADA"
+
+    def test_sem_ficheiro_da_competicao_nao_estoura(self, tmp_path):
+        assert cli._contexto_da_ficha(self._entrada(), {}, tmp_path)["jornada"] is None
+
+    def test_uma_agenda_sem_contexto_da_null_e_nao_rebenta(self, tmp_path):
+        c = cli._contexto_da_ficha({"id": ID}, {}, tmp_path)
+        assert c["competicao_id"] is None and c["categoria"] is None

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Cronologia from '$lib/Cronologia.svelte';
+	import CrachaEscalao from '$lib/CrachaEscalao.svelte';
 	import RotuloCalculada from '$lib/RotuloCalculada.svelte';
 	import { tabelasDe } from '$lib/classificacao';
 	import Emblema from '$lib/Emblema.svelte';
@@ -73,6 +74,22 @@
 	// num jogo a decorrer é a cronologia que se quer, não a ficha
 	$effect(() => {
 		if (aDecorrer) tab = 'eventos';
+	});
+
+	/**
+	 * O separador escolhido tem de **existir** neste jogo.
+	 *
+	 * Apanhado pelo dono a 08/10/2026, num jogo ainda por começar: a barra mostrava
+	 * "Equipas" e "Informações" e o corpo estava **em branco**, porque o separador escolhido
+	 * era `eventos` — que não existe antes do apito inicial — e não havia nada para desenhar.
+	 * Quem chegava ali tinha de adivinhar que precisava de carregar num dos dois.
+	 */
+	$effect(() => {
+		if (!abas.length || abas.includes(tab as Tab)) return;
+		// Num jogo por começar, o que se quer ver é a **convocatória** — foi isso que o dono
+		// foi procurar. Sem esta preferência caía na classificação, que é a primeira da barra.
+		const preferida = porComecar && abas.includes('equipas') ? 'equipas' : abas[0];
+		tab = preferida;
 	});
 
 	/**
@@ -210,6 +227,19 @@
 	     voltar a quinta-feira, e não ao dia em que calha estar -->
 	<a class="voltar" href={f.data ? `/?dia=${f.data}` : '/'} aria-label="Voltar aos jogos">←</a>
 
+	<!--
+	  O escalão **acima** do resultado, e na parte que não se fecha.
+	  Estava no fim do herói, dentro da área que colapsa ao rolar, e o dono não o encontrava
+	  num jogo a decorrer: *"o escalão está muito escondido"*. É a primeira coisa que alguém
+	  precisa de saber para situar o jogo — e é também o que o crachá diz num relance.
+	-->
+	{#if f.categoria}
+		<a class="escalaoTopo" href={f.grupo_id ? `/competicoes/${f.grupo_id}` : '/competicoes'}>
+			<CrachaEscalao categoria={f.categoria} tamanho={16} />
+			<span>{f.categoria}</span>
+		</a>
+	{/if}
+
 	<!-- sempre visível: é isto que sobra quando tudo o resto se fecha -->
 	<div class="placar">
 		<span class="emb"><Emblema equipa={f.casa} src={data.emblemas[f.casa]} tamanho={44} /></span>
@@ -242,8 +272,8 @@
 
 			<!-- W7.3: o caminho de volta à competição, dentro do herói -->
 			<a class="prova" href={f.grupo_id ? `/competicoes/${f.grupo_id}` : '/competicoes'}>
+				<!-- o escalão saiu daqui para cima do resultado; aqui fica a prova -->
 				<span class="texto">
-					<span class="escalao">{f.categoria ?? ''}</span>
 					<span class="nome">{nomeProva(provaCurta)}</span>
 				</span>
 				<span class="jornada">
@@ -359,6 +389,15 @@
 	}
 
 	/* o espaço entre os emblemas fecha-se com o colapso, para o resultado ficar compacto */
+	/* uma linha só, compacta, que sobrevive ao colapso do cabeçalho */
+	.escalaoTopo {
+		display: inline-flex; align-items: center; gap: var(--e-2);
+		margin-bottom: calc(var(--e-2) - var(--k) * 2px);
+		font-size: var(--t-micro); letter-spacing: 0.06em; font-weight: 600;
+		color: var(--heroi-suave); text-decoration: none;
+	}
+	.escalaoTopo:hover span, .escalaoTopo:focus-visible span { color: var(--heroi-texto); }
+
 	.placar {
 		display: flex; align-items: center; justify-content: center;
 		gap: calc(var(--e-4) + (1 - var(--k)) * 2.2rem);
@@ -432,9 +471,6 @@
 		text-decoration: none; color: var(--heroi-texto); text-align: left;
 	}
 	.prova .texto { display: flex; flex-direction: column; min-width: 0; }
-	.prova .escalao {
-		font-size: var(--t-micro); letter-spacing: 0.05em; color: var(--heroi-suave);
-	}
 	.prova .nome {
 		font-size: var(--t-pequeno);
 		overflow: hidden; text-overflow: ellipsis; white-space: nowrap;

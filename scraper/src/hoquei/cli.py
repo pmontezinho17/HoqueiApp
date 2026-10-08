@@ -318,12 +318,9 @@ def comando_aovivo(args) -> int:
             if fx.golos_casa is None:
                 continue
             alvo = destino / "match" / f"{j['id']}.json"
-            # preserva o contexto que a ficha da fonte não sabe (escalão, jornada, série)
             antigo = json.loads(alvo.read_text()) if alvo.exists() else {}
             dados = para_dicionario(fx)
-            for chave in ("competicao_id", "categoria", "jornada", "grupo_id", "grupo_nome", "serie"):
-                if chave in antigo:
-                    dados[chave] = antigo[chave]
+            dados.update(_contexto_da_ficha(j, antigo, destino))
             novo = json.dumps(dados, ensure_ascii=False, indent=1)
             if alvo.exists() and alvo.read_text() == novo:
                 continue
@@ -448,6 +445,48 @@ def _marcar_em_curso(entrada: dict | None, ficha: dict) -> None:
     else:
         for chave in ("ao_vivo", "periodo", "relogio", "situacao"):
             entrada.pop(chave, None)
+
+
+def _contexto_da_ficha(entrada: dict, antigo: dict, destino: pathlib.Path) -> dict:
+    """O escalão, a série e a jornada — que a página da fonte não traz.
+
+    **Preserva o que já lá estava e, quando não há nada, tira-o da agenda.** A segunda metade
+    é a correcção de 08/10/2026, e nasceu de o dono abrir a ficha de um jogo a decorrer e não
+    encontrar nem o separador da classificação nem o escalão.
+
+    A causa: a ficha de um jogo só nasce quando a mesa lança a convocatória, à hora do jogo —
+    ou seja, **é esta ronda que a cria**. Antes, o `antigo` estava vazio, não havia nada a
+    preservar, e a ficha ficava sem `competicao_id`. Sem ele a app não sabe que competição
+    carregar e o separador da tabela não aparece. Corrige-se na ronda completa seguinte, mas
+    essa é a das 00:30 — horas depois de as pessoas terem olhado.
+
+    A agenda sabe tudo isto sem custar um pedido. A `jornada` é a excepção: só vive no
+    ficheiro da competição, e lê-se dali, que é disco local.
+    """
+    contexto = {
+        "competicao_id": entrada.get("comp"),
+        "categoria": entrada.get("cat"),
+        "grupo_id": entrada.get("grupo_id"),
+        "grupo_nome": entrada.get("grupo_nome"),
+        "serie": entrada.get("serie"),
+    }
+    # o que já lá estava manda: veio da ronda completa, que viu a prova inteira
+    for chave, valor in contexto.items():
+        if antigo.get(chave) is not None:
+            contexto[chave] = antigo[chave]
+
+    jornada = antigo.get("jornada")
+    if jornada is None and entrada.get("comp"):
+        comp = destino / "comp" / f"{entrada['comp']}.json"
+        try:
+            for jogo in json.loads(comp.read_text()).get("jogos") or []:
+                if jogo.get("id") == entrada.get("id"):
+                    jornada = jogo.get("jornada")
+                    break
+        except (OSError, json.JSONDecodeError):
+            jornada = None
+    contexto["jornada"] = jornada
+    return contexto
 
 
 def _actualizar_calendario(destino: pathlib.Path, jogo: dict, gc: int, gf: int,
