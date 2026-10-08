@@ -74,9 +74,16 @@ function barras(dias) {
 	const maximo = Math.max(1, ...dias.map((d) => d.aparelhos));
 	return dias
 		.map((d) => {
-			const semContador = d.semDados || (!d.aparelhos && !d.aberturas);
+			// **Zero aparelhos num dia com aberturas é impossível**, logo significa que o
+			// contador de aparelhos ainda não existia nesse dia — ele nasceu a 08/10/2026,
+			// um dia depois do contador de pedidos. Desenhar isso como zero dizia "ninguém
+			// usou a app" num dia em que houve 150 aberturas. É o mesmo erro que já se
+			// corrigiu uma vez, do outro lado.
+			const semContador = !d.aparelhos;
 			const titulo = semContador
-				? `${diaCurto(d.dia)}: o contador de aparelhos ainda não existia`
+				? `${diaCurto(d.dia)}: o contador de aparelhos ainda não existia${
+						d.aberturas ? ` — houve ~${d.aberturas} aberturas` : ''
+					}`
 				: `${diaCurto(d.dia)}: ${d.aparelhos} aparelhos (${d.novos} novos), ~${d.aberturas} aberturas`;
 			return `
   <div class="barra" title="${esc(titulo)}">
