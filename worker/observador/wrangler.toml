@@ -1,0 +1,25 @@
+name = "hoquei-observador"
+main = "src/index.js"
+compatibility_date = "2026-10-08"
+
+# De minuto a minuto, e só nas horas em que há jogos.
+#
+# Os `cron` da Cloudflare são em UTC e Portugal está em UTC+1 no horário de verão: as janelas
+# abaixo são 18:00–23:59 nos dias úteis e 09:00–23:59 ao fim de semana, hora de Lisboa. São
+# ~1 400 invocações no pior dia, contra as 100 000 do plano gratuito.
+#
+# Porque de minuto a minuto e não de dez em dez como o relógio: o que se está a medir é a
+# cadência de um ciclo que publica de 30 em 30 segundos. Com dez minutos de intervalo, um
+# buraco de nove minutos passava invisível.
+[triggers]
+# `SAT,SUN` e não `6,0` nem `0,6`: a Cloudflare recusa as duas formas numéricas com
+# `invalid cron string`, e também recusa `*/1` no campo dos minutos. Experimentado uma a uma
+# ao publicar, a 08/10/2026 — os nomes dos dias passam.
+crons = [
+  "* 17-22 * * 1-5",
+  "* 8-22 * * SAT,SUN"
+]
+
+[[kv_namespaces]]
+binding = "OBSERVACAO"
+id = "5eb323f23c64470590caf547f7bd1d72"

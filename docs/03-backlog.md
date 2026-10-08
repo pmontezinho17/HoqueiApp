@@ -850,6 +850,32 @@ ou de decidir que a quer.
 
 ## Observar uma janela de jogos, com números (08/10/2026)
 
+**Isto corre na nuvem, em `worker/observador/`.** Começou como `scripts/observar.py`, no
+portátil, e o dono cortou-o pela raiz: *"não quero isto a correr localmente, quero fazer um
+teste a sério"*. E tinha razão — se o Mac adormece, a medição morre e nós nem ficamos a saber.
+
+    https://hoquei-observador.torneiopa.workers.dev/              → o relatório de hoje
+    https://hoquei-observador.torneiopa.workers.dev/?dia=2026-10-11
+    https://hoquei-observador.torneiopa.workers.dev/observar      → força uma leitura agora
+
+**Worker à parte do `relogio`, e de propósito.** O relógio é a peça que mantém a app viva ao
+fim de semana; um defeito no observador não pode parar aquele.
+
+De minuto a minuto, e só nas horas de jogos: `* 17-22 * * 1-5` e `* 8-22 * * SAT,SUN`. De
+minuto e não de dez em dez como o relógio porque o que se mede é a cadência de um ciclo que
+publica de 30 em 30 segundos — com dez minutos de intervalo, um buraco de nove passava
+invisível.
+
+Duas coisas aprendidas ao publicar:
+
+* a Cloudflare recusa `* 8-22 * * 6,0` **e** `0,6` com `invalid cron string`, e recusa `*/1`
+  no campo dos minutos. `SAT,SUN` passa;
+* o KV gratuito dá 1 000 escritas/dia, partilhadas com o contador de utilização, por isso só
+  se escreve quando **algo mudou**. Verificado: primeira leitura 5 eventos, segunda leitura
+  5 segundos depois **0 eventos e 0 escritas**.
+
+O `scripts/observar.py` fica, para quem quiser medir à mão de um portátil:
+
 `scripts/observar.py`, feito para a janela de sub-17 de 08/10 — quatro jogos das 20:00 às
 21:15, uma noite em que quase ninguém está a olhar, que é a noite certa para medir.
 
