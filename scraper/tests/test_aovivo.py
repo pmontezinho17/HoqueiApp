@@ -358,3 +358,88 @@ def test_a_recolha_nao_se_confunde_depois_da_meia_noite(tmp_path, monkeypatch):
     assert cli.comando_aovivo(_args(tmp_path)) == 0
     j = json.loads((tmp_path / "agenda.json").read_text())["jogos"][0]
     assert (j["gc"], j["gf"]) == (4, 1)
+
+
+# ─── a tabela calculada durante uma jornada ─────────────────────────────────────────────
+#
+# A 10/10 são 36 jogos num sábado, cinco escalões, e dois deles — Escolares e Benjamins — não
+# têm tabela publicada pela fonte: a que a app mostra é a nossa. Estes testes guardam o que
+# acontece a essa tabela enquanto os jogos fecham, que é o caminho novo desta semana.
+
+
+class _FonteContadora(_FonteFalsa):
+    """Conta os pedidos à página de classificação, e falha-os como a fonte falharia."""
+
+    def __init__(self, *a, **k):
+        super().__init__(*a, **k)
+        type(self).tabelas_pedidas = 0
+
+    def seccao(self, *_, **__):
+        type(self).tabelas_pedidas += 1
+        raise RuntimeError("a fonte não respondeu")
+
+
+def _comp(tmp_path: pathlib.Path, nome: str, publicada: list, jogos: list) -> pathlib.Path:
+    (tmp_path / "comp").mkdir(parents=True, exist_ok=True)
+    alvo = tmp_path / "comp" / f"{COMP}.json"
+    alvo.write_text(json.dumps({
+        "competicao": {"id": COMP, "nome": nome, "categoria": "BENJAMINS"},
+        "equipas": [], "jogos": jogos, "classificacao": publicada,
+    }))
+    return alvo
+
+
+def test_a_tabela_calculada_acompanha_o_jogo_que_fecha(tmp_path, monkeypatch):
+    """Sem isto, os jogos mostram 3-1 e a tabela fica na jornada anterior.
+
+    E **não se pede a tabela à fonte**: nestes escalões ela não publica nenhuma, logo o
+    pedido era um pedido inútil ao servidor da federação por cada jogo que fecha.
+    """
+    jogo = _jogo(0.2)
+    _agenda_com(tmp_path, jogo)
+    alvo = _comp(
+        tmp_path,
+        "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
+        [],
+        [{"id": ID, "casa": "A", "fora": "B", "golos_casa": None, "golos_fora": None,
+          "grupo": None, "data": jogo["data"], "hora": jogo["hora"]},
+         {"id": 1, "casa": "A", "fora": "C", "golos_casa": 2, "golos_fora": 2,
+          "grupo": None, "data": "2026-10-01", "hora": "10:00"}],
+    )
+    monkeypatch.setattr(cli, "Fonte", _FonteContadora)
+    monkeypatch.setattr(cli, "ficha",
+                        lambda _h, _i: _ficha("Jogo Terminado", None, None, "Jogo Terminado", 7, 1))
+    assert cli.comando_aovivo(_args(tmp_path)) == 0
+
+    d = json.loads(alvo.read_text())
+    linhas = {l["equipa"]: l for l in d["classificacao_calculada"][0]["linhas"]}
+    assert linhas["A"]["pontos"] == 4, "a vitória de agora não entrou na tabela"
+    assert linhas["A"]["golos_marcados"] == 9
+    assert linhas["B"]["jogos"] == 1
+    assert _FonteContadora.tabelas_pedidas == 0, "pediu à fonte uma tabela que ela não tem"
+
+
+def test_a_tabela_da_fonte_falhar_nao_salta_a_competicao(tmp_path, monkeypatch):
+    """O `continue` que estava aqui deixava a tabela calculada presa na jornada anterior.
+
+    E a tabela publicada que já tínhamos **não** se perde quando o pedido falha: ficar sem
+    tabela é pior do que ficar com a da ronda anterior.
+    """
+    jogo = _jogo(0.2)
+    _agenda_com(tmp_path, jogo)
+    publicada = [{"nome": None, "linhas": [{"equipa": "A", "pontos": 3}]}]
+    alvo = _comp(
+        tmp_path, "CAMP. REG. SUB-13 - 1ª FASE - SERIE A", publicada,
+        [{"id": ID, "casa": "A", "fora": "B", "golos_casa": None, "golos_fora": None,
+          "grupo": None, "data": jogo["data"], "hora": jogo["hora"]}],
+    )
+    monkeypatch.setattr(cli, "Fonte", _FonteContadora)
+    monkeypatch.setattr(cli, "ficha",
+                        lambda _h, _i: _ficha("Jogo Terminado", None, None, "Jogo Terminado", 1, 0))
+    assert cli.comando_aovivo(_args(tmp_path)) == 0
+
+    d = json.loads(alvo.read_text())
+    assert _FonteContadora.tabelas_pedidas == 1, "aqui a tabela é da fonte e tem de ser pedida"
+    assert d["classificacao"] == publicada, "perdeu a tabela publicada por o pedido ter falhado"
+    # o resultado do jogo chegou ao ficheiro da competição, que é o que alimenta a tabela
+    assert [(j["golos_casa"], j["golos_fora"]) for j in d["jogos"]] == [(1, 0)]

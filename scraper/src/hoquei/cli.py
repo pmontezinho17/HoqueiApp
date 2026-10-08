@@ -358,22 +358,44 @@ def comando_aovivo(args) -> int:
             # um pedido inteiro a confirmar o que já sabíamos
             id_temp = args.id_temp or _temporada_corrente(fonte)
             for comp in sorted(provas_tocadas):
-                try:
-                    tabela = classificacao(
-                        fonte.seccao("clasificacion", id_comp=comp, id_temp=id_temp).html,
-                        comp, id_temp)
-                except Exception as e:              # uma tabela em falta não estraga o resto
-                    print(f"  classificação {comp}: {e}", file=sys.stderr)
-                    continue
                 alvo = destino / "comp" / f"{comp}.json"
-                d = json.loads(alvo.read_text())
-                d["classificacao"] = para_dicionario(tabela)["grupos"]
-                # A tabela calculada tem de andar com os resultados, senão numa jornada de
-                # Benjamins os jogos mostram 3-1 e a tabela continua na jornada anterior — é
-                # a mesma incoerência que o comentário acima descreve, do outro lado. Não
-                # custa um pedido: o `_actualizar_calendario` já escreveu o resultado neste
-                # ficheiro, e a conta sai dos jogos que ele tem dentro.
-                if vale_calcular(d.get("competicao", {}).get("nome", ""), d["classificacao"]):
+                try:
+                    d = json.loads(alvo.read_text())
+                except (OSError, json.JSONDecodeError) as e:
+                    print(f"  competição {comp}: {e}", file=sys.stderr)
+                    continue
+
+                # **Onde a fonte não publica tabela, não se lhe pede uma.**
+                #
+                # Nos Escolares e nos Benjamins a tabela é a nossa — ver `vale_calcular` — e
+                # pedir a página de classificação a cada jogo que fecha era um pedido inútil
+                # ao servidor da federação por jogo. No sábado de 10/10 são 36 jogos em cinco
+                # escalões; a conta soma.
+                #
+                # Saber que a fonte não publica vem do nosso último retrato dela. Se ela
+                # começar a publicar a meio da época, é a ronda completa do `dados.yml` que
+                # o nota — ela vai buscar as 37 tabelas de duas em duas horas ao fim de
+                # semana — e a partir daí esta condição passa a ser falsa sozinha.
+                nossa = vale_calcular(d.get("competicao", {}).get("nome", ""),
+                                      d.get("classificacao"))
+                if not nossa:
+                    try:
+                        tabela = classificacao(
+                            fonte.seccao("clasificacion", id_comp=comp, id_temp=id_temp).html,
+                            comp, id_temp)
+                        d["classificacao"] = para_dicionario(tabela)["grupos"]
+                    except Exception as e:
+                        # A tabela da fonte falhou. **Não se salta a competição por isso**: a
+                        # nossa não depende dela, e para os escalões sem tabela publicada era
+                        # a única que havia. O `continue` que estava aqui deixava a tabela
+                        # calculada presa na jornada anterior enquanto os jogos já mostravam
+                        # o resultado novo.
+                        print(f"  classificação {comp}: {e}", file=sys.stderr)
+
+                # A tabela calculada tem de andar com os resultados. Não custa um pedido: o
+                # `_actualizar_calendario` já escreveu o resultado neste ficheiro, e a conta
+                # sai dos jogos que ele tem dentro.
+                if vale_calcular(d.get("competicao", {}).get("nome", ""), d.get("classificacao")):
                     d["classificacao_calculada"] = [
                         para_dicionario(g) for g in calcular_de_json(d.get("jogos") or [])
                     ]

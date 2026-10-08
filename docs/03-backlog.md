@@ -848,6 +848,46 @@ ou de decidir que a quer.
 
 ---
 
+## Auditoria antes do fim de semana de 10–11/10 (08/10/2026)
+
+O dono disse o que importa, e é a régua certa: *"se começam a ver que está a falhar, voltam
+para o site da APL — está horrível, mas não falha"*. O layout pode esperar; os golos, as
+classificações e os jogos passados não.
+
+**O fim de semana que vem é o maior até agora:** 36 jogos no sábado das 10:00 às 21:00, em
+cinco escalões, e 39 no domingo das 10:00 às 20:00, em sete.
+
+**Medido nos dados que estão no ar, a 08/10/2026:**
+
+| o que se mediu | resultado |
+|---|---|
+| jogos já disputados sem resultado | **0** de 799 |
+| marcas de "ao vivo" presas | **0** |
+| agenda contra ficheiro da competição (o bug de 05/10) | **0** desacordos em 799 jogos |
+| linhas de classificação nossas contra as da fonte | **176 de 176 iguais**, em 23 provas |
+
+**E encontrei um defeito que ia morder exactamente neste fim de semana.** Na ronda ao vivo, se
+o pedido da tabela à fonte falhasse, um `continue` saltava a competição inteira — e nos
+Escolares e Benjamins a tabela calculada é a **única** que existe. Os jogos mostrariam 7-1 e a
+tabela ficaria na jornada anterior, que é precisamente o género de falha que manda uma pessoa
+de volta ao site da associação.
+
+Duas correcções, com teste cada uma:
+
+1. **A tabela da fonte falhar já não salta a competição.** A nossa não depende dela, e a
+   tabela publicada que já tínhamos também não se perde — ficar sem tabela é pior do que
+   ficar com a da ronda anterior.
+2. **Onde a fonte não publica tabela, não se lhe pede uma.** Era um pedido inútil ao servidor
+   da federação por cada jogo que fecha. Medido para este fim de semana: **9 pedidos poupados
+   no sábado (25% dos jogos) e 12 no domingo (30%)**. Se a fonte começar a publicar a meio da
+   época, é a ronda completa do `dados.yml` que o nota e a condição passa a ser falsa sozinha.
+
+**A cobertura ao vivo do fim de semana, verificada no agendamento:** o `aovivo.yml` tenta de
+30 em 30 minutos das 08:00 às 22:30 WEST, cada ciclo dura até 5 h e a `concurrency` transforma
+os disparos seguintes em revezamento; o `worker/relogio` dispara de 10 em 10 minutos das 07:00
+às 23:50 WEST; e o `dados.yml` faz a ronda completa de 2 em 2 horas ao fim de semana, que é a
+rede que apanha o que o ciclo ao vivo deixe passar.
+
 ## Os emails de falha das 00:39 — e não era o agendador (08/10/2026)
 
 O dono recebeu emails de falha três noites seguidas, sempre minutos depois da ronda das
