@@ -268,9 +268,9 @@ function colunasEntradas(horas) {
  * @param {string[]} dias
  * @param {Record<string, Record<string, number>>} porDia
  * @param {string} actual
- * @param {string} [chave]
+ * @param {(dia: string) => string} ligar o construtor de endereços da própria consola
  */
-function colunasPorDia(dias, porDia, actual, chave) {
+function colunasPorDia(dias, porDia, actual, ligar) {
 	const totalDe = (/** @type {string} */ d) =>
 		TIPOS.reduce((t, x) => t + (porDia[d]?.[x.chave] ?? 0), 0);
 	const alto = tecto(Math.max(...dias.map(totalDe), 0));
@@ -285,9 +285,8 @@ function colunasPorDia(dias, porDia, actual, chave) {
 						`<i class="s" style="height:${(100 * porDia[d][t.chave]) / total}%;background:var(--t-${t.chave})" title="${esc(t.nome)}: ${porDia[d][t.chave]}"></i>`
 				)
 				.join('');
-			const ligacao = `?dia=${d}${chave ? `&chave=${encodeURIComponent(chave)}` : ''}`;
 			return `
-    <a class="col${d === actual ? ' agora' : ''}" href="${ligacao}"
+    <a class="col${d === actual ? ' agora' : ''}" href="${ligar(d)}"
        title="${esc(semDados ? `${d}: anterior a este contador` : `${d}: ${total} pedidos — ver as horas deste dia`)}">
       <span class="pilha" style="height:${total ? Math.max(1.5, (100 * total) / alto) : 0}%">${segmentos}</span>
       <span class="hh">${semDados ? '—' : total}</span>
@@ -445,7 +444,11 @@ export function pagina({
 	};
 	const s = estado?.saude;
 	const graf = colunas(horas);
-	const diario7 = colunasPorDia(dias, porDia, dia, chave);
+	// **O construtor de endereços é um só.** Este gráfico montava os seus links à mão, com o
+	// dia e a chave, e esquecia-se da vista: clicar num dia na vista de sistema atirava para a
+	// de utilizadores. O dono apanhou-o. Um segundo sítio a construir endereços é um sítio que
+	// fica atrás do primeiro na próxima coisa que se acrescentar ao endereço.
+	const diario7 = colunasPorDia(dias, porDia, dia, (d) => ligacao({ dia: d }));
 	// o título diz "hoje" só quando é hoje: a consola abre-se noutros dias pelos links
 	const ehHoje = ehHojeBase(dia);
 	// **Os rótulos têm de dizer a verdade quando se vê outro dia.** "aparelhos hoje: 14" com
