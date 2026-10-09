@@ -122,8 +122,9 @@ function porta(errada) {
 		// 200 e não 401: não há autenticação HTTP aqui, e um 401 fazia o browser abrir a sua
 		// própria caixa de utilizador e palavra-passe por cima desta.
 		status: 200,
-		headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
-	});
+			headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
+		}
+	);
 }
 
 import { pagina } from '../src/lib/consola.js';
@@ -180,7 +181,16 @@ export async function onRequestGet({ request, env }) {
 	//
 	// A chave vai também para a página, porque os links dos dias anteriores têm de a levar: um
 	// link sem ela dava 404 a quem já estava dentro.
-	return new Response(pagina({ ...dados, chave: url.searchParams.get('chave') ?? undefined }), {
-		headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
-	});
+	// A vista vem do endereço e não de estado no cliente, para o `meta refresh` a preservar
+	const pedida = url.searchParams.get('vista');
+	return new Response(
+		pagina({
+			...dados,
+			chave: url.searchParams.get('chave') ?? undefined,
+			vista: pedida === 'sistema' ? 'sistema' : 'utilizadores'
+		}),
+		{
+			headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
+		}
+	);
 }

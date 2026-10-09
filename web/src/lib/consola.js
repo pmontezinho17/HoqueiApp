@@ -55,14 +55,17 @@
  *                       sem_resultado?: string[], ao_vivo_preso?: string[] },
  *             pedidos_fonte?: number, pedidos_falhados?: number } | null,
  *   rel: { cadencia_s: { mediana: number|null, minimo: number|null, maximo: number|null },
- *          buracos_acima_de_3min: string[], resultados: Evento[], erros: Evento[] },
+ *          buracos_acima_de_3min: string[], resultados: Evento[], erros: Evento[],
+ *          publicacoes: number, eventos: number },
  *   runs: { nome: string, evento?: string, estado: string, quando?: string }[],
  *   diario: { ts?: string, contagens?: Record<string, number> }[],
  *   ent: Record<string, Entrada>,
  *   horas: Record<string, Record<string, number>>,
  *   porDia: Record<string, Record<string, number>>,
  *   sempre: { entradas: number, novos: number, dias: number } | null,
- *   chave?: string
+ *   entradasHora: Record<string, Record<string, { novos: number, volta: number }>>,
+ *   chave?: string,
+ *   vista?: string
  * }} Consola
  */
 
@@ -195,6 +198,64 @@ function colunas(horas) {
 }
 
 /**
+ * As entradas na app por hora, com quem é novo separado de quem volta.
+ *
+ * Pedido pelo dono a 09/10/2026: *"um gráfico de quando as pessoas entravam na aplicação por
+ * hora... em cada barra podia estar a distinção entre o que é novo e o que não é"*.
+ *
+ * **Isto é a única medida exacta de gente que a consola tem.** As "aberturas" são uma
+ * estimativa amostrada e contam actividade, não pessoas: uma app aberta duas horas pede o
+ * `meta.json` 240 vezes. Aqui cada aparelho conta uma vez por dia, na hora em que entrou.
+ *
+ * **Um dia sem linhas não é um dia de zero entradas.** A tabela nasceu a 09/10/2026 às 19:15;
+ * antes disso guardava-se o total do dia e não a hora. Quem desenha diz "não estávamos a
+ * contar" em vez de desenhar vinte e quatro zeros.
+ *
+ * @param {Record<string, { novos: number, volta: number }>} horas
+ */
+function colunasEntradas(horas) {
+	const totalDe = (/** @type {number} */ h) => (horas[h]?.novos ?? 0) + (horas[h]?.volta ?? 0);
+	const alto = tecto(Math.max(...Array.from({ length: 24 }, (_, h) => totalDe(h)), 0));
+	const agora = Number(
+		new Date().toLocaleString('sv-SE', { timeZone: 'Europe/Lisbon' }).slice(11, 13)
+	);
+
+	const barras = Array.from({ length: 24 }, (_, h) => {
+		const n = horas[h]?.novos ?? 0;
+		const v = horas[h]?.volta ?? 0;
+		const total = n + v;
+		// quem volta em baixo e os novos em cima: o crescimento é o que se quer ver destacado,
+		// e o topo de uma coluna empilhada é onde o olho vai
+		const segmentos =
+			(v ? `<i class="s" style="height:${(100 * v) / total}%;background:var(--e-volta)" title="já cá tinham vindo: ${v}"></i>` : '') +
+			(n ? `<i class="s" style="height:${(100 * n) / total}%;background:var(--e-novos)" title="primeira vez: ${n}"></i>` : '');
+		const titulo = total
+			? `${h}h: ${total} ${total === 1 ? 'entrada' : 'entradas'}${n ? ` — ${n} pela primeira vez` : ''}`
+			: `${h}h: ninguém entrou`;
+		return `
+    <div class="col${agora === h ? ' agora' : ''}" title="${esc(titulo)}">
+      <span class="pilha" style="height:${total ? Math.max(1.5, (100 * total) / alto) : 0}%">${segmentos}</span>
+      <span class="hh">${String(h).padStart(2, '0')}</span>
+    </div>`;
+	}).join('');
+
+	const marcas = [1, 0.5, 0]
+		.map(
+			(f) =>
+				`<span class="marca" style="bottom:calc(${f * 100}% - .5em)">${Math.round(alto * f)}</span>`
+		)
+		.join('');
+	return {
+		barras,
+		marcas,
+		linhas: `<i style="bottom:100%"></i><i style="bottom:50%"></i>`,
+		novos: Array.from({ length: 24 }, (_, h) => horas[h]?.novos ?? 0).reduce((x, y) => x + y, 0),
+		volta: Array.from({ length: 24 }, (_, h) => horas[h]?.volta ?? 0).reduce((x, y) => x + y, 0),
+		vazio: Object.keys(horas).length === 0
+	};
+}
+
+/**
  * Os pedidos à fonte por dia, nos mesmos sete dias do resto da consola.
  *
  * O dono pediu para ver os dias anteriores no mesmo sítio. Estão aqui ao lado, e **cada dia é
@@ -281,14 +342,19 @@ const painel = (etiqueta, valor, nota = '', classe = '') => `
 </div>`;
 
 /**
- * As barras do uso: uma série, uma cor, extremo arredondado, rótulo directo em cada barra.
+ * As barras do uso: sete dias, e em cada um quem é novo separado de quem volta.
  *
- * Rótulo em **todas** e não em algumas porque são sete valores e a barra é a própria tabela —
- * não há outro sítio onde ler o número.
+ * Era uma série só e uma cor. Passou a empilhada a 09/10/2026 — os dados já lá estavam, na
+ * coluna `novos` da tabela `aparelho`, e eram mostrados como um `+12` em letra pequena ao
+ * lado do número. Separados, a barra responde à pergunta que o `+12` só sugeria: **isto está
+ * a crescer ou são sempre os mesmos?**
  *
- * **Um dia sem contador não é um dia com zero.** O contador nasceu a 07/10/2026, e desenhar
- * os dias anteriores como barras vazias dizia "ninguém usou a app" quando a verdade é "não
- * estávamos a contar". Esses aparecem sem barra e com um travessão.
+ * Rótulo em **todas** as barras e não em algumas, porque são sete valores e a barra é a
+ * própria tabela — não há outro sítio onde ler o número.
+ *
+ * **Um dia sem contador não é um dia com zero.** O contador de aparelhos nasceu a 08/10/2026
+ * e desenhar os dias anteriores como barras vazias dizia "ninguém usou a app" num dia em que
+ * houve 150 aberturas. Esses aparecem sem barra e com um travessão.
  */
 /** @param {{ dia: string, semDados: boolean, aparelhos: number, novos: number,
  *             aberturas: number, ecras: number }[]} dias */
@@ -296,32 +362,54 @@ function barras(dias) {
 	const maximo = Math.max(1, ...dias.map((d) => d.aparelhos));
 	return dias
 		.map((d) => {
-			// **Zero aparelhos num dia com aberturas é impossível**, logo significa que o
-			// contador de aparelhos ainda não existia nesse dia — ele nasceu a 08/10/2026,
-			// um dia depois do contador de pedidos. Desenhar isso como zero dizia "ninguém
-			// usou a app" num dia em que houve 150 aberturas. É o mesmo erro que já se
-			// corrigiu uma vez, do outro lado.
 			const semContador = !d.aparelhos;
+			const volta = Math.max(0, d.aparelhos - d.novos);
 			const titulo = semContador
 				? `${diaCurto(d.dia)}: o contador de aparelhos ainda não existia${
 						d.aberturas ? ` — houve ~${d.aberturas} aberturas` : ''
 					}`
-				: `${diaCurto(d.dia)}: ${d.aparelhos} aparelhos (${d.novos} novos), ~${d.aberturas} aberturas`;
+				: `${diaCurto(d.dia)}: ${d.aparelhos} aparelhos — ${d.novos} pela primeira vez, ${volta} já cá tinham vindo`;
+			const largura = (/** @type {number} */ n) => (100 * n) / maximo;
 			return `
   <div class="barra" title="${esc(titulo)}">
     <span class="dia">${esc(diaCurto(d.dia))}</span>
     <span class="trilho">${
-		d.aparelhos ? `<i style="width:${Math.max(2, (100 * d.aparelhos) / maximo)}%"></i>` : ''
+		semContador
+			? ''
+			: `<i style="width:${largura(volta)}%;background:var(--e-volta)"></i>` +
+				`<i style="width:${largura(d.novos)}%;background:var(--e-novos)"></i>`
 	}</span>
     <span class="valor">${
-		d.aparelhos
-			? `${d.aparelhos}${d.novos ? ` <em title="novos">+${d.novos}</em>` : ''}`
-			: '<em title="sem contador de aparelhos">—</em>'
+		semContador
+			? '<em title="sem contador de aparelhos">—</em>'
+			: `${d.aparelhos}${d.novos ? ` <em title="pela primeira vez">+${d.novos}</em>` : ''}`
 	}</span>
   </div>`;
 		})
 		.join('');
 }
+
+/**
+ * Um carimbo ISO em hora de Lisboa, curto: `09/10 00:41`.
+ *
+ * **As tabelas mostravam UTC e o resto da consola mostrava Lisboa.** O dono apanhou-o: viu
+ * `10-08 23:41` no diário de rondas e não reconheceu a ronda das 00:30, que é exactamente
+ * essa — `2026-10-08T23:41:03+00:00` é 00:41 do dia 9 em Lisboa. Uma hora errada numa consola
+ * não é um detalhe de formatação: faz duvidar do que lá está.
+ *
+ * @param {string | undefined} iso
+ */
+const emLisboaCurto = (iso) => {
+	if (!iso) return '';
+	const t = Date.parse(iso);
+	if (!Number.isFinite(t)) return '';
+	const d = new Date(t).toLocaleString('sv-SE', { timeZone: 'Europe/Lisbon' });
+	return `${d.slice(8, 10)}/${d.slice(5, 7)} ${d.slice(11, 16)}`;
+};
+
+/** Hoje, em Lisboa, que é o dia que manda em toda a consola. @param {string} d */
+const ehHojeBase = (d) =>
+	d === new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Lisbon' });
 
 /** @param {Consola} dados */
 export function pagina({
@@ -335,14 +423,31 @@ export function pagina({
 	horas = {},
 	porDia = {},
 	sempre = null,
-	chave
+	entradasHora = {},
+	chave,
+	vista = 'utilizadores'
 }) {
+	// **Duas vistas, pedidas pelo dono a 09/10/2026**: *"podíamos ter esta visão separada por
+	// visão de utilizadores e visão de sistema (chamadas/rondas)"*. São duas perguntas
+	// diferentes — "quem usa isto?" e "a máquina está de pé?" — e misturá-las num ecrã só
+	// obrigava a saltar por cima de metade para ler a outra metade.
+	const sistema = vista === 'sistema';
+	const entradas24 = colunasEntradas(entradasHora[dia] ?? {});
+	/** Um endereço desta consola com uma coisa trocada. A chave viaja sempre. */
+	const ligacao = (/** @type {Record<string,string>} */ troca) => {
+		const p = new URLSearchParams();
+		if (chave) p.set('chave', chave);
+		if (!ehHojeBase(dia) || troca.dia) p.set('dia', troca.dia ?? dia);
+		if (troca.dia) p.set('dia', troca.dia);
+		const v = troca.vista ?? vista;
+		if (v !== 'utilizadores') p.set('vista', v);
+		return `?${p.toString()}`;
+	};
 	const s = estado?.saude;
 	const graf = colunas(horas);
 	const diario7 = colunasPorDia(dias, porDia, dia, chave);
 	// o título diz "hoje" só quando é hoje: a consola abre-se noutros dias pelos links
-	const ehHoje =
-		dia === new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Lisbon' });
+	const ehHoje = ehHojeBase(dia);
 	// **Os rótulos têm de dizer a verdade quando se vê outro dia.** "aparelhos hoje: 14" com
 	// os 14 a serem de ontem é uma mentira pequena que faz tirar a conclusão errada depressa.
 	const quando = ehHoje ? 'hoje' : 'nesse dia';
@@ -394,16 +499,22 @@ export function pagina({
 <title>Consola — OK4Sticks</title>
 <meta http-equiv="refresh" content="60">
 <style>
+ /* Os tokens claros são a base; o escuro redefine-os. **Três sítios e não um**, de
+    propósito: o media serve quem nunca escolheu, e o atributo serve quem escolheu — nos dois
+    sentidos, porque escolher "claro" num sistema escuro tem de funcionar tanto como o
+    contrário. É o mesmo desenho do tema da app, em lib/tema.svelte.ts. */
  :root {
-   color-scheme: light dark;
+   color-scheme: light;
    --fundo:#f5f6f8; --cartao:#fff; --texto:#14171c; --texto2:#4b525c; --suave:#767e8a;
    --borda:#e3e6ea; --borda2:#eef0f3;
    --bem:#0a7d54; --mal:#c2410c; --barra:#0a7d54;
    --t-competiciones:#2a78d6; --t-calendario:#eb6834; --t-clasificacion:#1baf7a;
    --t-ficha:#eda100;
+   /* quem volta em tom calmo, quem é novo em destaque: o crescimento é o que se quer ver */
+   --e-volta:#9fb3c8; --e-novos:#0a7d54;
  }
  @media (prefers-color-scheme: dark) {
-   :root {
+   :root:not([data-tema="claro"]) { color-scheme: dark;
      --fundo:#0f1115; --cartao:#181b21; --texto:#e8eaed; --texto2:#b6bcc5; --suave:#868d98;
      --borda:#272b33; --borda2:#1f232a;
      --bem:#34d399; --mal:#fb923c; --barra:#34d399;
@@ -411,12 +522,35 @@ export function pagina({
         não é uma inversão automática */
      --t-competiciones:#3987e5; --t-calendario:#d95926; --t-clasificacion:#199e70;
      --t-ficha:#c98500;
+     --e-volta:#53657a; --e-novos:#34d399;
    }
+ }
+ :root[data-tema="escuro"] { color-scheme: dark;
+   --fundo:#0f1115; --cartao:#181b21; --texto:#e8eaed; --texto2:#b6bcc5; --suave:#868d98;
+   --borda:#272b33; --borda2:#1f232a;
+   --bem:#34d399; --mal:#fb923c; --barra:#34d399;
+   --t-competiciones:#3987e5; --t-calendario:#d95926; --t-clasificacion:#199e70;
+   --t-ficha:#c98500;
+   --e-volta:#53657a; --e-novos:#34d399;
  }
  * { box-sizing:border-box }
  body { margin:0; background:var(--fundo); color:var(--texto);
    font:14px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; padding:24px 28px 56px }
- header { display:flex; align-items:baseline; gap:12px; margin-bottom:18px }
+ header { display:flex; align-items:baseline; gap:12px; margin-bottom:12px; flex-wrap:wrap }
+
+ /* A barra de filtros. Links e não JavaScript: o meta refresh recarrega o endereço actual,
+    logo a escolha sobrevive à actualização de 60 em 60 s sem estado nenhum. */
+ .filtros { display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+   max-width:1760px; margin:0 auto 16px }
+ .grupo { display:flex; background:var(--cartao); border:1px solid var(--borda);
+   border-radius:9px; padding:2px; gap:2px }
+ .grupo a, .grupo button { padding:5px 11px; font:inherit; font-size:.76rem; color:var(--texto2);
+   text-decoration:none; border:0; background:none; border-radius:7px; cursor:pointer;
+   white-space:nowrap }
+ .grupo a:hover, .grupo button:hover { color:var(--texto); background:var(--borda2) }
+ .grupo a[aria-current], .grupo button[aria-pressed="true"] { background:var(--borda2);
+   color:var(--texto); font-weight:600 }
+ .filtros .espaco { flex:1 }
  h1 { font-size:1.1rem; margin:0; letter-spacing:-.01em }
  header .meta { color:var(--suave); font-size:.8rem }
  /* **Enche a janela, e centra-se quando ela é grande.** Estava travada em 1280 px e num
@@ -465,9 +599,9 @@ export function pagina({
  .barra { display:grid; grid-template-columns:5.5rem 1fr 3.2rem; align-items:center; gap:10px;
    padding:3px 0 }
  .barra .dia { font-size:.78rem; color:var(--texto2) }
- .barra .trilho { background:var(--borda2); border-radius:4px; height:14px; overflow:hidden }
- .barra .trilho i { display:block; height:100%; background:var(--barra);
-   border-radius:0 4px 4px 0 }
+ .barra .trilho { background:var(--borda2); border-radius:4px; height:14px; overflow:hidden;
+   display:flex }
+ .barra .trilho i { display:block; height:100%; min-width:0 }
  .barra .valor { font-size:.8rem; font-variant-numeric:tabular-nums; text-align:right;
    color:var(--texto2) }
  .barra .valor em { color:var(--suave); font-style:normal }
@@ -513,6 +647,20 @@ export function pagina({
  .legenda span { display:inline-flex; align-items:center; gap:6px; color:var(--texto2) }
  .legenda i { width:10px; height:10px; border-radius:3px; flex:0 0 auto }
  .legenda b { font-variant-numeric:tabular-nums; color:var(--texto) }
+ /* o total do dia na própria legenda, em vez de uma frase por baixo — pedido do dono */
+ .legenda .total { color:var(--texto); font-weight:600; padding-right:4px;
+   border-right:1px solid var(--borda); margin-right:4px }
+ .legenda .total b { font-size:1rem }
+
+ /* **Scroll em vez de crescer sem fim.** O dono gosta do tamanho actual das tabelas de
+    registos e quer que elas o mantenham: uma lista de corridas de um sábado com 36 jogos
+    seria dezenas de linhas a empurrar tudo o que está por baixo. */
+ .rolar { max-height:17rem; overflow-y:auto; margin:-2px -4px 0; padding:2px 4px 0 }
+ .rolar::-webkit-scrollbar { width:8px }
+ .rolar::-webkit-scrollbar-thumb { background:var(--borda); border-radius:4px }
+
+ /* os textos de rodapé de cada bloco: uma linha ou duas, não um parágrafo */
+ section > p.vazio { margin:8px 0 0; font-size:.74rem; line-height:1.5; max-width:62ch }
 
  table { width:100%; border-collapse:collapse }
  th,td { text-align:left; padding:6px 0; font-weight:400; vertical-align:top; font-size:.84rem }
@@ -521,7 +669,6 @@ export function pagina({
  td.n, .n { font-variant-numeric:tabular-nums }
  .bem { color:var(--bem) } .pior { color:var(--mal) }
  .vazio { color:var(--suave); font-size:.84rem; margin:0 }
- footer { color:var(--suave); font-size:.76rem; max-width:70ch; margin-top:24px; line-height:1.6 }
  code { background:var(--borda2); padding:1px 5px; border-radius:4px; font-size:.9em }
 </style></head><body>
 
@@ -529,11 +676,32 @@ export function pagina({
   <h1>Consola OK4Sticks</h1>
   <span class="meta">${
 		ehHoje
-			? `${esc(dia)} · actualiza-se a cada 60 s · <code>/api</code> dá JSON`
-			: `a ver <b>${esc(dia)}</b> · o farol e os «pedidos agora» são deste momento, o resto é
-			   desse dia · <a href="?${chave ? `chave=${encodeURIComponent(chave)}` : ''}">voltar a hoje</a>`
+			? 'actualiza-se a cada 60 s'
+			: `a ver <b>${esc(dia)}</b> — o farol e os «pedidos agora» são deste momento`
 	}</span>
 </header>
+
+<nav class="filtros">
+  <div class="grupo">
+    <a href="${ligacao({ vista: 'utilizadores' })}" ${!sistema ? 'aria-current="page"' : ''}>utilizadores</a>
+    <a href="${ligacao({ vista: 'sistema' })}" ${sistema ? 'aria-current="page"' : ''}>sistema</a>
+  </div>
+  <div class="grupo">
+    ${dias
+		.map(
+			(d) =>
+				`<a href="${ligacao({ dia: d })}" ${d === dia ? 'aria-current="page"' : ''}
+				   title="${esc(d)}">${esc(ehHojeBase(d) ? 'hoje' : diaCurto(d))}</a>`
+		)
+		.join('')}
+  </div>
+  <span class="espaco"></span>
+  <div class="grupo" id="tema">
+    <button type="button" data-tema="sistema">sistema</button>
+    <button type="button" data-tema="claro">claro</button>
+    <button type="button" data-tema="escuro">escuro</button>
+  </div>
+</nav>
 
 <div class="grelha">
 
@@ -564,39 +732,62 @@ export function pagina({
 
   <div class="l12 paineis">
     ${
-		hoje.aparelhos
-			? painelDuplo(`aparelhos ${quando}`, hoje.aparelhos, hoje.novos ?? 0, 'pela primeira vez')
-			: painel(`aparelhos ${quando}`, '—', 'contagem exacta, uma por dia')
+		sistema
+			? [
+					painel(
+						'pedidos à APL, agora',
+						estado?.pedidos_fonte ?? '—',
+						estado?.pedidos_falhados
+							? `<span class="pior">${estado.pedidos_falhados} falhados</span>`
+							: 'na última ronda',
+						estado?.pedidos_falhados ? 'mal' : ''
+					),
+					painel(
+						'cadência',
+						rel.cadencia_s.mediana != null ? `${rel.cadencia_s.mediana}s` : '—',
+						rel.buracos_acima_de_3min.length
+							? `<span class="pior">${rel.buracos_acima_de_3min.length} buraco(s) > 3 min</span>`
+							: 'entre publicações, mediana',
+						rel.buracos_acima_de_3min.length ? 'mal' : ''
+					),
+					painel('publicações', rel.publicacoes, `${rel.eventos} eventos observados`),
+					painel('pedidos à APL', graf.total, `no dia ${esc(dia)}`)
+				].join('\n')
+			: [
+					hoje.aparelhos
+						? painelDuplo(
+								`entradas ${quando}`,
+								hoje.aparelhos,
+								hoje.novos ?? 0,
+								'pela primeira vez'
+							)
+						: painel(`entradas ${quando}`, '—', 'um aparelho conta uma vez por dia'),
+					painel(
+						'entradas desde sempre',
+						sempre?.entradas ?? '—',
+						sempre
+							? `${sempre.novos} primeiras vezes, em ${sempre.dias} ${sempre.dias === 1 ? 'dia' : 'dias'}`
+							: 'ainda sem histórico'
+					),
+					painel(
+						`actividade ${quando}`,
+						hoje.aberturas ? `~${hoje.aberturas}` : '0',
+						'pedidos de dados, não pessoas'
+					),
+					painel(
+						`ecrãs abertos ${quando}`,
+						totalEcras,
+						`${ecrasHoje.length} ${ecrasHoje.length === 1 ? 'ecrã diferente' : 'ecrãs diferentes'}`
+					)
+				].join('\n')
 	}
-    ${painel(
-		'entradas desde sempre',
-		sempre?.entradas ?? '—',
-		sempre
-			? `${sempre.novos} primeiras vezes, em ${sempre.dias} ${sempre.dias === 1 ? 'dia' : 'dias'}`
-			: 'ainda sem histórico'
-	)}
-    ${painel(`aberturas ${quando}`, hoje.aberturas ? `~${hoje.aberturas}` : '0', 'estimadas, 1 em 10')}
-    ${painel(`ecrãs abertos ${quando}`, totalEcras, `${ecrasHoje.length} ecrãs diferentes`)}
-    ${painel(
-		'pedidos à APL, agora',
-		estado?.pedidos_fonte ?? '—',
-		estado?.pedidos_falhados
-			? `<span class="pior">${estado.pedidos_falhados} falhados</span>`
-			: 'na última ronda',
-		estado?.pedidos_falhados ? 'mal' : ''
-	)}
-    ${painel(
-		'cadência',
-		rel.cadencia_s.mediana != null ? `${rel.cadencia_s.mediana}s` : '—',
-		rel.buracos_acima_de_3min.length
-			? `<span class="pior">${rel.buracos_acima_de_3min.length} buraco(s) > 3 min</span>`
-			: 'mediana entre publicações',
-		rel.buracos_acima_de_3min.length ? 'mal' : ''
-	)}
   </div>
 
+  ${
+		sistema
+			? `
   <section class="l8">
-    <h2>pedidos à APL por hora — ${esc(ehHoje ? 'hoje' : dia)}, ${graf.total} no total</h2>
+    <h2>pedidos à APL por hora — ${esc(ehHoje ? 'hoje' : dia)}</h2>
     <div class="comEixo">
       <div class="eixo">${graf.marcas}</div>
       <div class="area">
@@ -605,6 +796,7 @@ export function pagina({
       </div>
     </div>
     <div class="legenda">
+      <span class="total"><b>${graf.total}</b> no total</span>
       ${TIPOS.map(
 			(t) =>
 				`<span><i style="background:var(--t-${t.chave})"></i>${esc(t.nome)} <b>${
@@ -612,13 +804,9 @@ export function pagina({
 				}</b></span>`
 		).join('')}
     </div>
-    <p class="vazio" style="margin-top:8px">
-      ${graf.total ? `Pico de ${graf.maximo} pedidos numa hora.` : 'Nada registado neste dia.'}
-      Contados no raspador, <strong>retentativas incluídas</strong> — do lado do servidor da
-      federação uma retentativa é outro pedido. <strong>Só conta as rondas que publicaram:</strong>
-      uma ronda que não encontre dados novos tem o seu <code>meta.json</code> descartado pelo
-      publicador, e o custo dela não aparece aqui. Nos dias úteis são até quatro rondas de ~75
-      pedidos que ficam invisíveis — ver o backlog.
+    <p class="vazio">
+      ${graf.total ? `Pico de ${graf.maximo} numa hora.` : 'Nada registado neste dia.'}
+      Retentativas incluídas. <strong>Só conta as rondas que publicaram</strong> — ver o backlog.
     </p>
   </section>
 
@@ -631,38 +819,7 @@ export function pagina({
         <div class="grafico dias">${diario7.barras}</div>
       </div>
     </div>
-    <p class="vazio" style="margin-top:8px">
-      Os mesmos pedidos, somados por dia. <strong>Cada dia é um link</strong> e troca o gráfico
-      das horas ao lado. Um travessão não é um dia de zero pedidos: é um dia anterior a este
-      contador, que nasceu a 08/10/2026.
-    </p>
-  </section>
-
-  <section class="l8">
-    <h2>quem usa a aplicação — aparelhos distintos por dia</h2>
-    ${barras(serie)}
-    <p class="vazio" style="margin-top:10px">
-      ${semana} ${semana === 1 ? 'aparelho' : 'aparelhos'} em ${comDados.length}
-      ${comDados.length === 1 ? 'dia' : 'dias'}; o <em>+n</em> são os que abriram a app pela
-      primeira vez. É o próprio aparelho que decide se já foi contado hoje, guardando uma
-      data — não há identificador nenhum, logo não dá para saber se o aparelho de hoje é o
-      mesmo de ontem. São aparelhos e não pessoas: telemóvel e PC da mesma pessoa contam dois.${
-			serie.length > comDados.length
-				? ' Os dias com travessão são anteriores a este contador.'
-				: ''
-		}
-    </p>
-  </section>
-
-  <section class="l4">
-    <h2>que ecrãs abriram ${quando}</h2>
-    ${tabela(
-		ecrasHoje.map(
-			([k, v]) =>
-				`<tr><td>${esc(ECRAS[k] ?? k)}</td><th class="n" style="text-align:right">${esc(v)}</th></tr>`
-		),
-		`ninguém abriu nada ${quando}`
-	)}
+    <p class="vazio">Cada dia é um link. Travessão = anterior a este contador.</p>
   </section>
 
   <section class="l6">
@@ -678,39 +835,116 @@ export function pagina({
 
   <section class="l6">
     <h2>a cadeia — últimas corridas</h2>
+    <div class="rolar">
     ${tabela(
 		runs.map(
 			(r) =>
-				`<tr><th>${esc((r.quando ?? '').slice(5, 16).replace('T', ' '))}</th><td>${esc(r.nome)}
+				`<tr><th>${esc(emLisboaCurto(r.quando))}</th><td>${esc(r.nome)}
          <span class="${r.estado === 'success' ? 'bem' : r.estado === 'failure' ? 'pior' : 'vazio'}">${esc(r.estado)}</span>
          <span class="vazio">${esc(r.evento ?? '')}</span></td></tr>`
 		),
 		'sem corridas'
 	)}
+    </div>
   </section>
 
   <section class="l12">
     <h2>o que cada ronda produziu</h2>
+    <div class="rolar">
     ${tabela(
 		diario
 			.slice()
 			.reverse()
 			.map(
 				(r) =>
-					`<tr><th>${esc((r.ts ?? '').slice(5, 16).replace('T', ' '))}</th><td class="n">${esc(r.contagens?.jogos)} jogos · ${esc(r.contagens?.jogos_disputados)} disputados · ${esc(r.contagens?.fichas)} fichas · ${esc(r.contagens?.linhas_classificacao)} linhas de tabela · ${esc(r.contagens?.feeds_ics)} feeds</td></tr>`
+					`<tr><th>${esc(emLisboaCurto(r.ts))}</th><td class="n">${esc(r.contagens?.jogos)} jogos · ${esc(r.contagens?.jogos_disputados)} disputados · ${esc(r.contagens?.fichas)} fichas · ${esc(r.contagens?.linhas_classificacao)} linhas de tabela · ${esc(r.contagens?.feeds_ics)} feeds</td></tr>`
 			),
 		'sem rondas registadas'
 	)}
+    </div>
+  </section>`
+			: `
+  <section class="l8">
+    <h2>entradas por hora — ${esc(ehHoje ? 'hoje' : dia)}</h2>
+    ${
+		entradas24.vazio
+			? `<p class="vazio">Não há horas registadas neste dia. Este contador nasceu a
+			   09/10/2026 às 19:15 — antes disso guardava-se o total do dia e não a hora.</p>`
+			: `<div class="comEixo">
+      <div class="eixo">${entradas24.marcas}</div>
+      <div class="area">
+        <div class="guias">${entradas24.linhas}</div>
+        <div class="grafico">${entradas24.barras}</div>
+      </div>
+    </div>
+    <div class="legenda">
+      <span class="total"><b>${entradas24.novos + entradas24.volta}</b> entradas</span>
+      <span><i style="background:var(--e-novos)"></i>pela primeira vez <b>${entradas24.novos}</b></span>
+      <span><i style="background:var(--e-volta)"></i>já cá tinham vindo <b>${entradas24.volta}</b></span>
+    </div>
+    <p class="vazio">Cada aparelho conta uma vez por dia, na hora em que entrou. É a única
+      medida exacta de gente que esta consola tem.</p>`
+	}
   </section>
+
+  <section class="l4">
+    <h2>que ecrãs abriram ${quando}</h2>
+    <div class="rolar">
+    ${tabela(
+		ecrasHoje.map(
+			([k, v]) =>
+				`<tr><td>${esc(ECRAS[k] ?? k)}</td><th class="n" style="text-align:right">${esc(v)}</th></tr>`
+		),
+		`ninguém abriu nada ${quando}`
+	)}
+    </div>
+    <p class="vazio">Navegações que chegaram ao servidor: primeiras visitas, links partilhados
+      e recarregamentos. Dentro da app a navegação não toca na rede.</p>
+  </section>
+
+  <section class="l12">
+    <h2>quem usa a aplicação — aparelhos distintos por dia</h2>
+    ${barras(serie)}
+    <div class="legenda">
+      <span><i style="background:var(--e-novos)"></i>pela primeira vez</span>
+      <span><i style="background:var(--e-volta)"></i>já cá tinham vindo</span>
+    </div>
+    <p class="vazio">
+      ${semana} ${semana === 1 ? 'aparelho' : 'aparelhos'} em ${comDados.length}
+      ${comDados.length === 1 ? 'dia' : 'dias'}. São aparelhos e não pessoas — telemóvel e PC
+      da mesma pessoa contam dois — e não há identificador nenhum, logo não dá para saber se o
+      aparelho de hoje é o mesmo de ontem.${
+			serie.length > comDados.length ? ' Travessão = anterior a este contador.' : ''
+		}
+    </p>
+  </section>`
+	}
 </div>
 
-<footer>
-  Lê só o que nós publicamos — nunca a fonte. A <strong>cadência</strong> são os intervalos
-  entre dados novos no nosso CDN e <strong>não</strong> mede o tempo desde que um golo foi
-  marcado: isso exige alguém no pavilhão com um cronómetro. As <strong>aberturas</strong> são
-  pedidos de <code>meta.json</code> contados 1 em 10 e multiplicados, porque é o único sinal
-  que atravessa o service worker — os <strong>ecrãs</strong> são navegações que chegaram ao
-  servidor, logo contam sobretudo primeiras visitas, links partilhados e recarregamentos.
-</footer>
+<script>
+ // O tema, guardado neste browser. Sem isto, a consola seguia só o sistema — e quem quer o
+ // escuro num PC claro não tinha como.
+ (function () {
+   var C = 'ok4sticks:consola:tema';
+   function pintar(v) {
+     if (v === 'sistema') document.documentElement.removeAttribute('data-tema');
+     else document.documentElement.setAttribute('data-tema', v);
+     var bs = document.querySelectorAll('#tema button');
+     for (var i = 0; i < bs.length; i++) {
+       bs[i].setAttribute('aria-pressed', String(bs[i].dataset.tema === v));
+     }
+   }
+   var guardado = 'sistema';
+   try { guardado = localStorage.getItem(C) || 'sistema'; } catch (e) {}
+   pintar(guardado);
+   document.getElementById('tema').addEventListener('click', function (e) {
+     var v = e.target && e.target.dataset && e.target.dataset.tema;
+     if (!v) return;
+     // 'sistema' nao se guarda: a ausencia da chave e a omissao, como na app
+     try { v === 'sistema' ? localStorage.removeItem(C) : localStorage.setItem(C, v); } catch (err) {}
+     pintar(v);
+   });
+ })();
+</script>
 </body></html>`;
 }

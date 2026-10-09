@@ -704,6 +704,33 @@ async function pedidosPorDia(env, dias) {
 }
 
 /**
+ * As entradas por hora, separando quem é novo de quem volta.
+ *
+ * Pedido pelo dono a 09/10/2026. É a mesma escrita da tabela `aparelho`, com a hora — ver
+ * `dados/esquema.sql`. A soma das horas de um dia é, por construção, o total desse dia.
+ *
+ * **Só há dados a partir de 09/10/2026 às 19:15**, que é quando a tabela nasceu. Um dia
+ * anterior devolve vazio, e quem desenha tem de dizer "não estávamos a contar" em vez de
+ * desenhar zeros.
+ */
+async function entradasPorHora(env, dias) {
+	if (!env.DADOS) return {};
+	try {
+		const { results } = await env.DADOS.prepare(
+			`SELECT dia, hora, novos, volta FROM entrada_hora
+			 WHERE dia IN (${dias.map(() => '?').join(',')})`
+		)
+			.bind(...dias)
+			.all();
+		const saida = {};
+		for (const r of results ?? []) (saida[r.dia] ??= {})[r.hora] = { novos: r.novos, volta: r.volta };
+		return saida;
+	} catch {
+		return {};
+	}
+}
+
+/**
  * As entradas: o que o contador do site escreveu. Só leitura.
  *
  * **Duas consultas, e isto não é afinação: é o que mantém a página de pé.** No KV a primeira
@@ -779,7 +806,11 @@ export default {
 		// Function do site ir ela própria à base de dados e à GitHub — e aí passavam a existir
 		// dois sítios a saber como se lêem as medições, mais um segredo da GitHub no projecto
 		// de Pages. Assim há um dono só.
-		const base = Date.parse(`${dia}T12:00:00Z`);
+		// **A janela de sete dias acaba sempre em hoje, e não no dia que se está a ver.**
+		// Era relativa ao dia escolhido, e o dono apanhou a consequência: ao clicar num dia
+		// passado, esse dia ia para a extremidade direita e deixava de haver maneira de voltar
+		// ao mais recente — o gráfico empurrava-se a si próprio para trás a cada clique.
+		const base = Date.parse(`${emLisboa().dia}T12:00:00Z`);
 		const dias = Array.from({ length: 7 }, (_, i) =>
 			new Date(base - (6 - i) * 86400000).toISOString().slice(0, 10)
 		);
@@ -792,18 +823,19 @@ export default {
 			estado = null;
 		}
 
-		const [rel, runs, diario, ent, horas, porDia, sempre] = await Promise.all([
+		const [rel, runs, diario, ent, horas, porDia, sempre, entradasHora] = await Promise.all([
 			relatorio(env, dia),
 			corridas(env),
 			rondas(env),
 			entradas(env, dias, dia),
 			horasDoDia(env, dia),
 			pedidosPorDia(env, dias),
-			desdeSempre(env)
+			desdeSempre(env),
+			entradasPorHora(env, dias)
 		]);
 
 		return Response.json(
-			{ dia, dias, estado, rel, runs, diario, ent, horas, porDia, sempre },
+			{ dia, dias, estado, rel, runs, diario, ent, horas, porDia, sempre, entradasHora },
 			{
 				headers: {
 					'Cache-Control': 'no-store',

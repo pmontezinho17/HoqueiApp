@@ -60,13 +60,15 @@
 			<code>claro</code> ou <code>escuro</code>. Enquanto seguires o tema do sistema
 			<strong>não fica nada escrito</strong>: a chave só nasce se discordares dele.
 		</dd>
-		<dt>A chave da consola — só se fores tu a abri-la</dt>
+		<dt>A consola de manutenção — só se fores tu a abri-la</dt>
 		<dd>
-			Numa chave chamada <code>ok4sticks:consola:chave</code>. Existe <strong>apenas</strong>
+			Em duas chaves, <code>ok4sticks:consola:chave</code> e
+			<code>ok4sticks:consola:tema</code>. Existem <strong>apenas</strong>
 			em quem abra a consola de manutenção em <code>/consola</code> e lá cole a chave de
 			acesso — uma página que não faz parte da aplicação e a que ninguém chega a usá-la
-			normalmente. Se nunca abriste essa página, esta chave não existe no teu aparelho.
-			Guarda a chave para não ter de a escrever outra vez, e nada mais.
+			normalmente. Se nunca abriste essa página, estas chaves não existem no teu aparelho.
+			Guardam a chave de acesso, para não ter de ser escrita outra vez, e o tema escolhido
+			nessa página. Nada mais.
 		</dd>
 		<dt>Uma cópia dos jogos, para funcionar sem rede</dt>
 		<dd>
