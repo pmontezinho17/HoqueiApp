@@ -1070,6 +1070,68 @@ cd worker/observador && npx wrangler secret put GITHUB_TOKEN
 
 Enquanto não existir, a consola di-lo em vez de dizer só "não foi possível".
 
+## Todos os 76 jogos do fim de semana davam erro antes de começar (09/10/2026)
+
+Encontrado a verificar a publicação, horas antes do fim de semana que o dono não quer que
+falhe. **Era o defeito mais grave que este projecto teve até hoje**, e não era visível em
+sítio nenhum onde se costuma olhar.
+
+### O que acontecia
+
+A fonte só publica a ficha de um jogo **quando ele começa**. Medido:
+
+```
+2026-10-09:  1 jogo,  0 com ficha
+2026-10-10: 36 jogos, 0 com ficha
+2026-10-11: 39 jogos, 0 com ficha
+```
+
+Tocar em qualquer um deles dava, no telemóvel, **"Não foi possível carregar os jogos —
+verifica a ligação à internet e tenta de novo"**. Numa manhã de sábado com 36 jogos, isso é a
+app a dizer a quem a abre que o problema é dele.
+
+### Porque é que nada o apanhou
+
+A cadeia tem quatro passos e cada um deles parecia correcto:
+
+1. o `adapter-static` serve o `index.html` como *fallback* para qualquer caminho sem rota, e
+   **com estado 200**;
+2. o `json()` via `r.ok` verdadeiro e tentava interpretar HTML como JSON;
+3. o `+page.ts` apanhava o erro de sintaxe e atirava um 404;
+4. a página de erro dizia sempre "verifica a ligação à internet".
+
+Não é erro de compilação. Não falha teste nenhum. E **no `curl` funciona** — `curl -o /dev/null
+-w %{http_code}` devolvia 200 e eu dei isso por bom. Só se vê a abrir a página no browser e a
+olhar para ela, que é a regra que este projecto tem escrita e que eu não cumpri ao publicar.
+
+### A correcção
+
+**A app já sabia tudo o que precisava.** A agenda traz as equipas, a hora, o recinto, a prova,
+o escalão e o `comp` — logo a classificação também. Não faltava informação: faltava usá-la.
+
+* `lib/fichaDaAgenda.ts` monta uma ficha a partir da entrada da agenda, com seis testes. Não
+  inventa período nem relógio: um jogo marcado fica "Por começar" e um jogo com resultado mas
+  sem ficha fica "Jogo Terminado" com o resultado da lista;
+* o `json()` deixa de aceitar o *fallback* como dados: um corpo que começa por `<` é a página
+  da app, não um ficheiro nosso. Lança `NaoPublicado`, que é uma coisa diferente de "sem rede";
+* o `+page.ts` só dá 404 quando o jogo **não existe na agenda**. Qualquer outra falha a buscar
+  a ficha cai na da agenda — inclusive estar sem rede com a agenda em cache, onde mais vale a
+  página com o que se sabe do que um erro;
+* a página diz numa linha porque é que não há onze nem cronologia. Nota e não aviso, sem
+  amarelo nem ícone de alerta: é a lição da caixa das classificações calculadas, que o dono
+  apanhou a 07/10 — o aviso afastava a atenção do que ele tinha ido ver;
+* o `+error.svelte` deixa de culpar a internet num 404. Um 404 diz que não encontrou e dá o
+  caminho de volta; os outros estados continuam com a dica da rede e o botão de tentar de novo.
+
+**O `tem_ficha` da agenda não serve para decidir isto** e foi verificado: está ausente mesmo
+em jogos que têm ficha (o 9657 tem ficha e `tem_ficha` vem `None`). A regra que ficou não
+depende de sinalizador nenhum — tenta-se buscar, e se não estiver publicada monta-se a da
+agenda.
+
+Verificado a 375×812 nos dois temas, com os três casos: o jogo de hoje às 22:00 (sem ficha,
+mostra escalão, equipas, "Por começar", a classificação da Série C e o recinto), um jogo de
+ontem com ficha (quatro separadores, sem nota) e um id inventado (404 com o caminho de volta).
+
 ## A consola passou para `hoquei.pages.dev/consola` — feito a 09/10/2026
 
 Estava combinado para "depois dos jogos" e o dono antecipou: *"temos tempo suficiente para

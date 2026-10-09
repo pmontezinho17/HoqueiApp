@@ -17,6 +17,16 @@
 
 	let { data } = $props();
 	const f = $derived(data.ficha);
+	/**
+	 * Verdadeiro quando não há `match/<id>.json` publicado e o que se está a ver foi montado
+	 * a partir da agenda — ver `lib/fichaDaAgenda.ts`.
+	 *
+	 * **Dizê-lo é metade da correcção.** Sem isto a página ficava correcta e muda: quem
+	 * entrasse num jogo de amanhã via as equipas e a hora e não entendia porque é que não
+	 * havia onze nem cronologia. O que falta não é um erro, é uma coisa que ainda não
+	 * aconteceu, e isso explica-se numa linha.
+	 */
+	const semFicha = $derived(!!data.semFicha);
 
 	// W3.6d: sem acontecimentos reais, a tab de eventos seria um ecrã vazio
 	const ESTRUTURA = new Set(['inicio_parte', 'fim_parte', 'fim_jogo', 'por_iniciar']);
@@ -313,6 +323,17 @@
 </div>
 </div>
 
+{#if semFicha}
+	<p class="semFicha">
+		{#if f.golos_casa !== null}
+			A ficha deste jogo não foi publicada pela fonte. O resultado vem da lista de jogos.
+		{:else}
+			O onze, os golos e o boletim aparecem aqui quando o jogo começar. Até lá, a fonte
+			ainda não publicou a ficha.
+		{/if}
+	</p>
+{/if}
+
 {#if temSeparadores}
 	<!-- A mesma faixa que troca de dia na lista de jogos: o separador segue o dedo em vez
 	     de saltar quando ele se levanta. -->
@@ -500,6 +521,17 @@
 		border-bottom-color: var(--acento);
 	}
 	.tabs button[aria-selected='true'] :global(svg) { color: var(--acento); }
+
+	/* Uma nota e não um aviso: nada está mal, há só uma coisa que ainda não aconteceu. Por
+	   isso sem amarelo e sem ícone de alerta — a lição da caixa das classificações
+	   calculadas, que o dono apanhou no telemóvel a 07/10: o aviso afastava a atenção da
+	   tabela, que era o que ele tinha ido ver. */
+	.semFicha {
+		margin: 0.6rem 0.2rem 0;
+		font-size: 0.76rem;
+		line-height: 1.5;
+		color: var(--suave);
+	}
 
 	.serie {
 		font-size: var(--t-micro); letter-spacing: 0.05em; text-transform: uppercase;

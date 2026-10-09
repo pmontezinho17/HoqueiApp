@@ -4,10 +4,32 @@ import type { Agenda, FicheiroCompeticao, FichaJogo, IndiceCompeticoes, IndiceEq
 // mesmo mecanismo com que trata o código.
 const BASE = '/v1/aplisboa/2026-27';
 
+/**
+ * Um erro que distingue "não está publicado" de "não há rede". Os dois precisam de respostas
+ * diferentes na interface, e misturá-los fez a app dizer a quem tinha rede perfeita que o
+ * problema era da internet dele — ver `fichaDaAgenda.ts`.
+ */
+export class NaoPublicado extends Error {
+	constructor(caminho: string) {
+		super(`${caminho} não está publicado`);
+		this.name = 'NaoPublicado';
+	}
+}
+
 async function json<T>(caminho: string, fetchFn: typeof fetch, opcoes?: RequestInit): Promise<T> {
 	const r = await fetchFn(caminho, opcoes);
+	if (r.status === 404) throw new NaoPublicado(caminho);
 	if (!r.ok) throw new Error(`${r.status} ao carregar ${caminho}`);
-	return (await r.json()) as T;
+	// **Um 200 não prova que o ficheiro existe.** O `adapter-static` serve o `index.html`
+	// como fallback para qualquer caminho sem rota, e esse fallback vem com estado 200. Sem
+	// esta verificação, o `r.json()` rebentava com um erro de sintaxe e a app concluía
+	// "falhou a rede" — quando o que se passava era "este ficheiro não existe".
+	//
+	// Medido a 09/10/2026 com `match/9864.json`: HTTP 200, 3 750 bytes, a começar em
+	// `<!doctype html>`.
+	const texto = await r.text();
+	if (texto.trimStart().startsWith('<')) throw new NaoPublicado(caminho);
+	return JSON.parse(texto) as T;
 }
 
 export const carregarIndice = (f: typeof fetch) =>
