@@ -23,10 +23,18 @@ cronómetro, como a 03/10/2026.
 
 ## A consola
 
-`GET /` é uma página HTML com cinco blocos: a saúde agora, os pedidos que saem para a APL, as
-entradas de quem usa a app, a cadência de publicação, os golos do dia com a hora a que
-apareceram, e as últimas corridas das Actions. Recarrega sozinha a cada 60 s. `GET /api` dá o
-mesmo em JSON.
+**A página saiu daqui a 09/10/2026.** Vive em `hoquei.pages.dev/consola`, servida pelo site,
+porque o endereço deste Worker carrega o `torneiopa` de uma aplicação anterior do dono e a
+Cloudflare dá um subdomínio `workers.dev` por conta, não um por projecto. O desenho está em
+`web/src/lib/consola.js` e quem o serve é `web/functions/consola.js`.
+
+O que ficou aqui são três rotas, e nenhuma é para um humano abrir todos os dias:
+
+| rota | o que faz |
+|---|---|
+| `GET /api` | a consola inteira em JSON: estado, relatório do dia, pedidos por hora e por dia, entradas, corridas e rondas. Aceita `?dia=AAAA-MM-DD` |
+| `GET /observar` | força uma leitura agora, sem esperar o cron |
+| `GET /verificar-aviso` | prova a cadeia de aviso de ponta a ponta — ver abaixo |
 
 Lê de três sítios e escreve num só:
 

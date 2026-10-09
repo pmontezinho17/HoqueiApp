@@ -1,6 +1,16 @@
 /**
  * A consola, desenhada para um ecrã de PC.
  *
+ * **Vive no `web/` e é servida pelo site**, em `hoquei.pages.dev/consola`, desde 09/10/2026.
+ * Esteve no Worker observador até aí, e o endereço dele é `…torneiopa.workers.dev` — o
+ * `torneiopa` é o subdomínio de uma aplicação anterior do dono, e a Cloudflare dá **um**
+ * subdomínio `workers.dev` por conta, não um por projecto. Em vez de uma segunda conta — que
+ * partia as ligações, porque elas são por conta — a página mudou de casa.
+ *
+ * Isto é só o desenho. Os dados chegam já prontos, do `/api` do observador, e esta função não
+ * sabe de onde vieram: não fala com a base de dados nem com a GitHub. É essa separação que
+ * faz com que a lógica de medição continue a ter um só dono.
+ *
  * A primeira versão era uma coluna de 44 rem — a largura da app — e num monitor lia-se como
  * um telemóvel esticado. O dono cortou-a: *"quero uma visão de como se fosse a entrar num PC
  * normal"*. E a pergunta dele a seguir foi a que importa: *"onde está a informação de quem
@@ -27,7 +37,37 @@
  * Quem não distingue as duas cores lê a frase.
  */
 
+/**
+ * A forma do que o `/api` do observador devolve.
+ *
+ * Escrita à mão e não gerada, porque é um **contrato entre dois sítios**: se o Worker mudar a
+ * forma e isto não mudar, o `npm run check` grita aqui em vez de a consola aparecer vazia às
+ * 22:00 de um sábado. É esse o trabalho que estes tipos fazem.
+ *
+ * @typedef {{ aparelhos?: number, novos?: number, aberturas?: number } & Record<string, number>} Entrada
+ * @typedef {{ t: string, tipo: string, id?: number, de?: string, para?: string,
+ *             situacao?: string, v?: number }} Evento
+ * @typedef {{
+ *   dia: string,
+ *   dias: string[],
+ *   estado: { saude?: { estado?: string, a_decorrer?: number, dados_com_minutos?: number,
+ *                       jogos_hoje?: number, publicacao_velha?: boolean,
+ *                       sem_resultado?: string[], ao_vivo_preso?: string[] },
+ *             pedidos_fonte?: number, pedidos_falhados?: number } | null,
+ *   rel: { cadencia_s: { mediana: number|null, minimo: number|null, maximo: number|null },
+ *          buracos_acima_de_3min: string[], resultados: Evento[], erros: Evento[] },
+ *   runs: { nome: string, evento?: string, estado: string, quando?: string }[],
+ *   diario: { ts?: string, contagens?: Record<string, number> }[],
+ *   ent: Record<string, Entrada>,
+ *   horas: Record<string, Record<string, number>>,
+ *   porDia: Record<string, Record<string, number>>,
+ *   sempre: { entradas: number, novos: number, dias: number } | null,
+ *   chave?: string
+ * }} Consola
+ */
+
 /** Os nomes dos ecrãs como uma pessoa lhes chama, e não como o endereço os escreve. */
+/** @type {Record<string, string>} */
 const ECRAS = {
 	'/': 'Jogos do dia',
 	'/clube': 'O Meu Clube',
@@ -40,12 +80,14 @@ const ECRAS = {
 	outro: 'Outros'
 };
 
+/** @param {unknown} x */
 const esc = (x) =>
 	String(x ?? '').replace(
 		/[&<>"]/g,
-		(c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]
+		(c) => /** @type {Record<string, string>} */ ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]
 	);
 
+/** @param {string} d */
 const diaCurto = (d) => {
 	const dias = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'];
 	const x = new Date(`${d}T12:00:00Z`);
@@ -80,9 +122,33 @@ const TIPOS = [
  *
  * Empilhado, com 2 px de intervalo entre segmentos, que é o que os separa sem uma linha.
  */
+/** @param {Record<string, Record<string, number>>} horas */
+/**
+ * Um tecto "redondo" acima do máximo, para o eixo ter números que se lêem.
+ *
+ * 80 pedidos numa hora dá um eixo até 100 e não até 80: um eixo que acaba exactamente no
+ * máximo põe o rótulo de cima encavalitado na barra mais alta, e obriga a ler `83` quando o
+ * que interessa é a ordem de grandeza.
+ */
+/** @param {number} maximo */
+function tecto(maximo) {
+	if (maximo <= 5) return 5;
+	const escala = 10 ** Math.floor(Math.log10(maximo));
+	for (const passo of [1, 2, 2.5, 5, 10]) {
+		if (maximo <= passo * escala) return passo * escala;
+	}
+	return 10 * escala;
+}
+
+/** @param {Record<string, Record<string, number>>} horas */
 function colunas(horas) {
-	const totalDe = (h) => TIPOS.reduce((t, x) => t + (horas[h]?.[x.chave] ?? 0), 0);
-	const maximo = Math.max(1, ...Array.from({ length: 24 }, (_, h) => totalDe(h)));
+	const totalDe = (/** @type {number} */ h) =>
+		TIPOS.reduce((t, x) => t + (horas[h]?.[x.chave] ?? 0), 0);
+	const maximo = Math.max(...Array.from({ length: 24 }, (_, h) => totalDe(h)), 0);
+	// **O eixo é a escala, e não o máximo.** Com as barras medidas contra o máximo, uma hora
+	// de 3 pedidos num dia de 3 enchia o gráfico — e lia-se como um pico. Contra um tecto
+	// redondo, a altura passa a querer dizer sempre a mesma coisa.
+	const alto = tecto(maximo);
 	const agora = new Date().toLocaleString('sv-SE', { timeZone: 'Europe/Lisbon' }).slice(11, 13);
 
 	const barras = Array.from({ length: 24 }, (_, h) => {
@@ -100,15 +166,112 @@ function colunas(horas) {
 			: `${h}h: nenhum pedido`;
 		return `
     <div class="col${Number(agora) === h ? ' agora' : ''}" title="${esc(titulo)}">
-      <span class="pilha" style="height:${total ? Math.max(3, (100 * total) / maximo) : 0}%">${segmentos}</span>
+      <span class="pilha" style="height:${total ? Math.max(1.5, (100 * total) / alto) : 0}%">${segmentos}</span>
       <span class="hh">${String(h).padStart(2, '0')}</span>
     </div>`;
 	}).join('');
 
-	return { barras, maximo, total: Array.from({ length: 24 }, (_, h) => totalDe(h)).reduce((a, b) => a + b, 0) };
+	// Quatro marcas e não mais: o eixo é para dar a ordem de grandeza, e cinco números numa
+	// altura de 170 px começam a colidir.
+	const marcas = [1, 0.75, 0.5, 0.25, 0]
+		.map(
+			(f) =>
+				`<span class="marca" style="bottom:calc(${f * 100}% - .5em)">${Math.round(alto * f)}</span>`
+		)
+		.join('');
+	const linhas = [1, 0.75, 0.5, 0.25]
+		.map((f) => `<i style="bottom:${f * 100}%"></i>`)
+		.join('');
+
+	return {
+		barras,
+		marcas,
+		linhas,
+		maximo,
+		alto,
+		total: Array.from({ length: 24 }, (_, h) => totalDe(h)).reduce((x, y) => x + y, 0)
+	};
 }
 
+/**
+ * Os pedidos à fonte por dia, nos mesmos sete dias do resto da consola.
+ *
+ * O dono pediu para ver os dias anteriores no mesmo sítio. Estão aqui ao lado, e **cada dia é
+ * um link** que troca o gráfico das 24 horas para esse dia — são os mesmos dados vistos de
+ * duas distâncias, e nenhuma das duas custa um pedido à fonte.
+ *
+ * **Um dia sem linhas não é um dia de zero pedidos.** Pode ser anterior a este contador, que
+ * nasceu a 08/10/2026. Esses levam travessão e nenhuma barra, como na série dos aparelhos.
+ *
+ * @param {string[]} dias
+ * @param {Record<string, Record<string, number>>} porDia
+ * @param {string} actual
+ * @param {string} [chave]
+ */
+function colunasPorDia(dias, porDia, actual, chave) {
+	const totalDe = (/** @type {string} */ d) =>
+		TIPOS.reduce((t, x) => t + (porDia[d]?.[x.chave] ?? 0), 0);
+	const alto = tecto(Math.max(...dias.map(totalDe), 0));
+
+	const barras = dias
+		.map((d) => {
+			const total = totalDe(d);
+			const semDados = !porDia[d];
+			const segmentos = TIPOS.filter((t) => (porDia[d]?.[t.chave] ?? 0) > 0)
+				.map(
+					(t) =>
+						`<i class="s" style="height:${(100 * porDia[d][t.chave]) / total}%;background:var(--t-${t.chave})" title="${esc(t.nome)}: ${porDia[d][t.chave]}"></i>`
+				)
+				.join('');
+			const ligacao = `?dia=${d}${chave ? `&chave=${encodeURIComponent(chave)}` : ''}`;
+			return `
+    <a class="col${d === actual ? ' agora' : ''}" href="${ligacao}"
+       title="${esc(semDados ? `${d}: anterior a este contador` : `${d}: ${total} pedidos — ver as horas deste dia`)}">
+      <span class="pilha" style="height:${total ? Math.max(1.5, (100 * total) / alto) : 0}%">${segmentos}</span>
+      <span class="hh">${semDados ? '—' : total}</span>
+      <span class="hh">${diaCurto(d)}</span>
+    </a>`;
+		})
+		.join('');
+
+	const marcas = [1, 0.5, 0]
+		.map(
+			(f) =>
+				`<span class="marca" style="bottom:calc(${f * 100}% - .5em)">${Math.round(alto * f)}</span>`
+		)
+		.join('');
+	return { barras, marcas, linhas: `<i style="bottom:100%"></i><i style="bottom:50%"></i>` };
+}
+
+
+/**
+ * Um painel com **dois** números: o grande à esquerda e um segundo, menor, à direita.
+ *
+ * Pedido pelo dono a 09/10/2026 para o "pela primeira vez", que estava como nota de pé em
+ * letra miúda. E ele tem razão no desenho: são duas medidas da mesma coisa, não uma medida e
+ * um rodapé. A hierarquia fica no tamanho — 1,9 rem contra 1,25 rem — e não na posição.
+ *
+ * @param {string} etiqueta
+ * @param {string|number} valor
+ * @param {string|number} valor2
+ * @param {string} nota2
+ */
+const painelDuplo = (etiqueta, valor, valor2, nota2) => `
+<div class="painel">
+  <span class="etiqueta">${esc(etiqueta)}</span>
+  <div class="duplo">
+    <strong>${esc(valor)}</strong>
+    <span class="segundo"><b>${esc(valor2)}</b><em>${esc(nota2)}</em></span>
+  </div>
+</div>`;
+
 /** Um número grande com a sua etiqueta. Não é um gráfico, e não se desenha como um. */
+/**
+ * @param {string} etiqueta
+ * @param {string|number} valor
+ * @param {string} [nota]
+ * @param {string} [classe]
+ */
 const painel = (etiqueta, valor, nota = '', classe = '') => `
 <div class="painel">
   <span class="etiqueta">${esc(etiqueta)}</span>
@@ -126,6 +289,8 @@ const painel = (etiqueta, valor, nota = '', classe = '') => `
  * os dias anteriores como barras vazias dizia "ninguém usou a app" quando a verdade é "não
  * estávamos a contar". Esses aparecem sem barra e com um travessão.
  */
+/** @param {{ dia: string, semDados: boolean, aparelhos: number, novos: number,
+ *             aberturas: number, ecras: number }[]} dias */
 function barras(dias) {
 	const maximo = Math.max(1, ...dias.map((d) => d.aparelhos));
 	return dias
@@ -157,9 +322,30 @@ function barras(dias) {
 		.join('');
 }
 
-export function pagina({ dia, estado, rel, runs, diario, ent, dias, horas = {} }) {
+/** @param {Consola} dados */
+export function pagina({
+	dia,
+	estado,
+	rel,
+	runs,
+	diario,
+	ent,
+	dias,
+	horas = {},
+	porDia = {},
+	sempre = null,
+	chave
+}) {
 	const s = estado?.saude;
 	const graf = colunas(horas);
+	const diario7 = colunasPorDia(dias, porDia, dia, chave);
+	// o título diz "hoje" só quando é hoje: a consola abre-se noutros dias pelos links
+	const ehHoje =
+		dia === new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Lisbon' });
+	// **Os rótulos têm de dizer a verdade quando se vê outro dia.** "aparelhos hoje: 14" com
+	// os 14 a serem de ontem é uma mentira pequena que faz tirar a conclusão errada depressa.
+	const quando = ehHoje ? 'hoje' : 'nesse dia';
+	/** @type {Record<string, number>} */
 	const totaisPorTipo = {};
 	for (const balde of Object.values(horas)) {
 		for (const [k, n] of Object.entries(balde)) totaisPorTipo[k] = (totaisPorTipo[k] ?? 0) + n;
@@ -191,6 +377,10 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias, horas = {} }
 	const comDados = serie.filter((d) => d.aparelhos > 0);
 	const semana = comDados.reduce((t, d) => t + d.aparelhos, 0);
 
+	/**
+	 * @param {string[]} linhas
+	 * @param {string} [vazio]
+	 */
 	const tabela = (linhas, vazio = 'nada ainda') =>
 		linhas.length
 			? `<table>${linhas.join('')}</table>`
@@ -228,7 +418,12 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias, horas = {} }
  header { display:flex; align-items:baseline; gap:12px; margin-bottom:18px }
  h1 { font-size:1.1rem; margin:0; letter-spacing:-.01em }
  header .meta { color:var(--suave); font-size:.8rem }
- .grelha { display:grid; gap:16px; grid-template-columns:repeat(12,1fr); max-width:1280px }
+ /* **Enche a janela, e centra-se quando ela é grande.** Estava travada em 1280 px e num
+    monitor de 1900 ficava tudo encostado à esquerda com meio ecrã vazio — o dono apanhou-o.
+    O tecto existe à mesma porque uma tabela de 2500 px de largura obriga a varrer a cabeça
+    de um lado ao outro para ler uma linha. */
+ .grelha { display:grid; gap:16px; grid-template-columns:repeat(12,1fr);
+   max-width:1760px; margin-inline:auto }
  section { background:var(--cartao); border:1px solid var(--borda); border-radius:12px;
    padding:16px 18px; min-width:0 }
  section > h2 { font-size:.7rem; letter-spacing:.07em; text-transform:uppercase;
@@ -245,8 +440,8 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias, horas = {} }
  .estado .porque { color:var(--texto2); font-size:.85rem }
  .estado .porque span { color:var(--mal); font-weight:600 }
 
- .paineis { display:grid; grid-template-columns:repeat(5,1fr); gap:16px }
- @media (max-width:1200px) { .paineis { grid-template-columns:repeat(3,1fr) } }
+ .paineis { display:grid; grid-template-columns:repeat(6,1fr); gap:16px }
+ @media (max-width:1400px) { .paineis { grid-template-columns:repeat(3,1fr) } }
  @media (max-width:760px) { .paineis { grid-template-columns:repeat(2,1fr) } }
  .painel { background:var(--cartao); border:1px solid var(--borda); border-radius:12px;
    padding:14px 16px; display:flex; flex-direction:column; gap:2px }
@@ -256,6 +451,14 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias, horas = {} }
    line-height:1.15 }
  .painel strong.mal { color:var(--mal) }
  .painel .nota { font-size:.74rem; color:var(--suave) }
+
+ /* dois números no mesmo painel: alinhados pela **base** e não pelo topo, que é o que os faz
+    ler como uma linha só apesar dos tamanhos diferentes */
+ .painel .duplo { display:flex; align-items:baseline; justify-content:space-between; gap:12px }
+ .painel .segundo { text-align:right; line-height:1.15 }
+ .painel .segundo b { font-size:1.25rem; font-variant-numeric:tabular-nums;
+   letter-spacing:-.01em; color:var(--texto2) }
+ .painel .segundo em { display:block; font-style:normal; font-size:.68rem; color:var(--suave) }
 
  /* uso: uma série, uma cor, extremo arredondado, rótulo directo */
  .barra { display:grid; grid-template-columns:5.5rem 1fr 3.2rem; align-items:center; gap:10px;
@@ -269,8 +472,20 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias, horas = {} }
  .barra .valor em { color:var(--suave); font-style:normal }
  .barra:hover .dia { color:var(--texto) }
 
- /* gráfico de colunas: 24 horas fixas, empilhadas por tipo */
- .grafico { display:flex; align-items:flex-end; gap:3px; height:170px; margin:4px 0 0 }
+ /* gráfico de colunas: 24 horas fixas, empilhadas por tipo, agora com eixo vertical.
+    O dono pediu-o: *"tenho sempre de passar o rato por cima para perceber qual o número"* —
+    e um gráfico que só se lê com o rato não se lê num telefone nem numa impressão. */
+ .comEixo { display:grid; grid-template-columns:2.6rem 1fr; gap:6px; margin:6px 0 0 }
+ .eixo { position:relative; height:170px }
+ .eixo .marca { position:absolute; right:0; font-size:.66rem; color:var(--suave);
+   font-variant-numeric:tabular-nums }
+ .area { position:relative }
+ /* as guias ficam **atrás** das barras e não por cima: uma linha a cortar uma coluna lê-se
+    como uma divisão da coluna, que é outra coisa */
+ .guias { position:absolute; inset:0 0 18px 0; pointer-events:none }
+ .guias i { position:absolute; left:0; right:0; height:1px; background:var(--borda2) }
+ .grafico { display:flex; align-items:flex-end; gap:3px; height:170px; margin:0;
+   position:relative }
  .col { flex:1; display:flex; flex-direction:column; justify-content:flex-end; align-items:center;
    height:100%; gap:4px; min-width:0 }
  .col .pilha { width:100%; display:flex; flex-direction:column-reverse; gap:2px;
@@ -279,6 +494,20 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias, horas = {} }
  .col .hh { font-size:.62rem; color:var(--suave); font-variant-numeric:tabular-nums }
  .col.agora .hh { color:var(--texto); font-weight:700 }
  .col:hover .pilha { outline:2px solid var(--borda); outline-offset:1px }
+
+ /* O gráfico dos dias: colunas mais largas, com o total escrito, e cada uma é um link.
+
+    **Nem o dia escolhido nem o hover pintam a coluna toda.** Era o que estava, e um fundo
+    cinzento de 170 px de altura atrás de uma barra de 20 lê-se como uma segunda barra — o
+    gráfico passava a ter duas alturas a dizer coisas diferentes. O realce vive no rótulo e no
+    contorno da barra, como no gráfico das horas ao lado. */
+ .grafico.dias { gap:8px }
+ .grafico.dias .col { text-decoration:none; color:inherit }
+ .grafico.dias .col:hover .pilha { outline:2px solid var(--borda); outline-offset:1px }
+ .grafico.dias .col .hh:first-of-type { font-weight:600; color:var(--texto2) }
+ .grafico.dias .col.agora .hh { color:var(--texto) }
+ .grafico.dias .col.agora .hh:last-child { font-weight:700;
+   box-shadow:inset 0 -2px 0 var(--texto2) }
  .legenda { display:flex; flex-wrap:wrap; gap:4px 16px; margin-top:12px; font-size:.78rem }
  .legenda span { display:inline-flex; align-items:center; gap:6px; color:var(--texto2) }
  .legenda i { width:10px; height:10px; border-radius:3px; flex:0 0 auto }
@@ -297,7 +526,12 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias, horas = {} }
 
 <header>
   <h1>Consola OK4Sticks</h1>
-  <span class="meta">${esc(dia)} · actualiza-se a cada 60 s · <code>/api</code> dá JSON</span>
+  <span class="meta">${
+		ehHoje
+			? `${esc(dia)} · actualiza-se a cada 60 s · <code>/api</code> dá JSON`
+			: `a ver <b>${esc(dia)}</b> · o farol e os «pedidos agora» são deste momento, o resto é
+			   desse dia · <a href="?${chave ? `chave=${encodeURIComponent(chave)}` : ''}">voltar a hoje</a>`
+	}</span>
 </header>
 
 <div class="grelha">
@@ -328,15 +562,22 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias, horas = {} }
   </section>
 
   <div class="l12 paineis">
+    ${
+		hoje.aparelhos
+			? painelDuplo(`aparelhos ${quando}`, hoje.aparelhos, hoje.novos ?? 0, 'pela primeira vez')
+			: painel(`aparelhos ${quando}`, '—', 'contagem exacta, uma por dia')
+	}
     ${painel(
-		'aparelhos hoje',
-		hoje.aparelhos ?? '—',
-		hoje.aparelhos ? `${hoje.novos ?? 0} pela primeira vez` : 'contagem exacta, uma por dia'
+		'entradas desde sempre',
+		sempre?.entradas ?? '—',
+		sempre
+			? `${sempre.novos} primeiras vezes, em ${sempre.dias} ${sempre.dias === 1 ? 'dia' : 'dias'}`
+			: 'ainda sem histórico'
 	)}
-    ${painel('aberturas hoje', hoje.aberturas ? `~${hoje.aberturas}` : '0', 'estimadas, 1 em 10')}
-    ${painel('ecrãs abertos hoje', totalEcras, `${ecrasHoje.length} ecrãs diferentes`)}
+    ${painel(`aberturas ${quando}`, hoje.aberturas ? `~${hoje.aberturas}` : '0', 'estimadas, 1 em 10')}
+    ${painel(`ecrãs abertos ${quando}`, totalEcras, `${ecrasHoje.length} ecrãs diferentes`)}
     ${painel(
-		'pedidos à APL',
+		'pedidos à APL, agora',
 		estado?.pedidos_fonte ?? '—',
 		estado?.pedidos_falhados
 			? `<span class="pior">${estado.pedidos_falhados} falhados</span>`
@@ -353,9 +594,15 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias, horas = {} }
 	)}
   </div>
 
-  <section class="l12">
-    <h2>pedidos à APL por hora, hoje — ${graf.total} no total</h2>
-    <div class="grafico">${graf.barras}</div>
+  <section class="l8">
+    <h2>pedidos à APL por hora — ${esc(ehHoje ? 'hoje' : dia)}, ${graf.total} no total</h2>
+    <div class="comEixo">
+      <div class="eixo">${graf.marcas}</div>
+      <div class="area">
+        <div class="guias">${graf.linhas}</div>
+        <div class="grafico">${graf.barras}</div>
+      </div>
+    </div>
     <div class="legenda">
       ${TIPOS.map(
 			(t) =>
@@ -365,16 +612,28 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias, horas = {} }
 		).join('')}
     </div>
     <p class="vazio" style="margin-top:8px">
-      ${
-			graf.total
-				? `Pico de ${graf.maximo} pedidos numa hora.`
-				: 'Nada registado ainda hoje.'
-		}
+      ${graf.total ? `Pico de ${graf.maximo} pedidos numa hora.` : 'Nada registado neste dia.'}
       Contados no raspador, <strong>retentativas incluídas</strong> — do lado do servidor da
       federação uma retentativa é outro pedido. <strong>Só conta as rondas que publicaram:</strong>
       uma ronda que não encontre dados novos tem o seu <code>meta.json</code> descartado pelo
       publicador, e o custo dela não aparece aqui. Nos dias úteis são até quatro rondas de ~75
       pedidos que ficam invisíveis — ver o backlog.
+    </p>
+  </section>
+
+  <section class="l4">
+    <h2>e nos dias anteriores</h2>
+    <div class="comEixo">
+      <div class="eixo">${diario7.marcas}</div>
+      <div class="area">
+        <div class="guias">${diario7.linhas}</div>
+        <div class="grafico dias">${diario7.barras}</div>
+      </div>
+    </div>
+    <p class="vazio" style="margin-top:8px">
+      Os mesmos pedidos, somados por dia. <strong>Cada dia é um link</strong> e troca o gráfico
+      das horas ao lado. Um travessão não é um dia de zero pedidos: é um dia anterior a este
+      contador, que nasceu a 08/10/2026.
     </p>
   </section>
 
@@ -395,24 +654,24 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias, horas = {} }
   </section>
 
   <section class="l4">
-    <h2>que ecrãs abriram hoje</h2>
+    <h2>que ecrãs abriram ${quando}</h2>
     ${tabela(
 		ecrasHoje.map(
 			([k, v]) =>
 				`<tr><td>${esc(ECRAS[k] ?? k)}</td><th class="n" style="text-align:right">${esc(v)}</th></tr>`
 		),
-		'ninguém abriu nada hoje'
+		`ninguém abriu nada ${quando}`
 	)}
   </section>
 
   <section class="l6">
-    <h2>golos de hoje, à hora a que apareceram</h2>
+    <h2>golos ${quando === 'hoje' ? 'de hoje' : `de ${dia}`}, à hora a que apareceram</h2>
     ${tabela(
 		rel.resultados.map(
 			(r) =>
 				`<tr><th>${esc(r.t)}</th><td>#${esc(r.id)} <span class="n">${esc(r.de)}</span> → <b class="n">${esc(r.para)}</b> <span class="vazio">${esc(r.situacao ?? '')}</span></td></tr>`
 		),
-		'nenhum golo observado hoje'
+		`nenhum golo observado ${quando}`
 	)}
   </section>
 

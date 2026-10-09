@@ -34,7 +34,6 @@
  * escritas no pior caso — uma por minuto, quando a ronda ao vivo está a publicar sem parar.
  */
 
-import { pagina } from './pagina.js';
 
 const BASE = 'https://hoquei.pages.dev/v1/aplisboa/2026-27';
 const UA = 'hoqueiAPP-observador/1.0 (+https://github.com/pmontezinho17/HoqueiApp)';
@@ -652,6 +651,59 @@ async function rondas(env) {
 }
 
 /**
+ * O total de aparelhos desde que há contador, e quantos deles eram novos.
+ *
+ * **Isto é a soma de aparelhos distintos *por dia*, e não aparelhos distintos desde sempre.**
+ * A diferença importa e não é afinação: quem abre a app em cinco dias conta cinco. Saber que
+ * é a mesma pessoa exigiria um identificador que **não existe de propósito** — ver
+ * `web/src/lib/presenca.ts`. O número de "quantas pessoas diferentes já usaram isto" não é
+ * calculável com este desenho, e a escolha de não o poder calcular foi deliberada.
+ *
+ * O `novos` é o mais próximo que há de uma resposta a essa pergunta: cada aparelho só conta
+ * como novo na primeiríssima vez que abre a app, porque guarda um sinalizador.
+ */
+async function desdeSempre(env) {
+	if (!env.DADOS) return null;
+	try {
+		const r = await env.DADOS.prepare(
+			'SELECT SUM(total) AS entradas, SUM(novos) AS novos, COUNT(*) AS dias FROM aparelho'
+		).first();
+		return r?.dias ? { entradas: r.entradas ?? 0, novos: r.novos ?? 0, dias: r.dias } : null;
+	} catch {
+		return null;
+	}
+}
+
+/**
+ * Os pedidos à fonte por dia, para se poder comparar dias no mesmo sítio.
+ *
+ * O gráfico das 24 horas responde a "como foi este dia"; faltava "e comparado com os
+ * outros?". São os mesmos dados agregados de outra maneira, logo não custa um pedido a mais
+ * a ninguém.
+ *
+ * **Um dia sem linhas não é um dia com zero pedidos.** Pode ser um dia anterior a este
+ * contador — ele nasceu a 08/10/2026 — e desenhar isso como zero dizia "não pedimos nada"
+ * quando a verdade é "não estávamos a contar". Devolve-se só o que existe, e quem desenha
+ * distingue.
+ */
+async function pedidosPorDia(env, dias) {
+	if (!env.DADOS) return {};
+	try {
+		const { results } = await env.DADOS.prepare(
+			`SELECT dia, tipo, SUM(n) AS n FROM pedido_fonte
+			 WHERE dia IN (${dias.map(() => '?').join(',')}) GROUP BY dia, tipo`
+		)
+			.bind(...dias)
+			.all();
+		const saida = {};
+		for (const r of results ?? []) (saida[r.dia] ??= {})[r.tipo] = r.n;
+		return saida;
+	} catch {
+		return {};
+	}
+}
+
+/**
  * As entradas: o que o contador do site escreveu. Só leitura.
  *
  * **Duas consultas, e isto não é afinação: é o que mantém a página de pé.** No KV a primeira
@@ -717,11 +769,20 @@ export default {
 			});
 		}
 		const dia = url.searchParams.get('dia') ?? emLisboa().dia;
-		const rel = await relatorio(env, dia);
 
-		if (url.pathname === '/api') {
-			return Response.json(rel, { headers: { 'Cache-Control': 'no-store' } });
-		}
+		// **Só `/api`, desde 09/10/2026: a página saiu daqui.** Vive agora no site, em
+		// `hoquei.pages.dev/consola`, porque o endereço deste Worker carrega o `torneiopa` de
+		// uma aplicação anterior do dono e a Cloudflare dá um subdomínio `workers.dev` por
+		// conta. O que fica aqui é tudo o que é medição; o que foi para lá é só desenho.
+		//
+		// Devolve a consola inteira numa resposta, e não só o relatório. A alternativa era a
+		// Function do site ir ela própria à base de dados e à GitHub — e aí passavam a existir
+		// dois sítios a saber como se lêem as medições, mais um segredo da GitHub no projecto
+		// de Pages. Assim há um dono só.
+		const base = Date.parse(`${dia}T12:00:00Z`);
+		const dias = Array.from({ length: 7 }, (_, i) =>
+			new Date(base - (6 - i) * 86400000).toISOString().slice(0, 10)
+		);
 
 		let estado = null;
 		try {
@@ -730,19 +791,26 @@ export default {
 		} catch {
 			estado = null;
 		}
-		// sete dias: é o que mostra se o uso está a crescer ou foi só uma tarde.
-		const base = Date.parse(`${dia}T12:00:00Z`);
-		const dias = Array.from({ length: 7 }, (_, i) =>
-			new Date(base - (6 - i) * 86400000).toISOString().slice(0, 10)
-		);
-		const [runs, diario, ent, horas] = await Promise.all([
+
+		const [rel, runs, diario, ent, horas, porDia, sempre] = await Promise.all([
+			relatorio(env, dia),
 			corridas(env),
 			rondas(env),
 			entradas(env, dias, dia),
-			horasDoDia(env, dia)
+			horasDoDia(env, dia),
+			pedidosPorDia(env, dias),
+			desdeSempre(env)
 		]);
-		return new Response(pagina({ dia, estado, rel, runs, diario, ent, dias, horas }), {
-			headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
-		});
+
+		return Response.json(
+			{ dia, dias, estado, rel, runs, diario, ent, horas, porDia, sempre },
+			{
+				headers: {
+					'Cache-Control': 'no-store',
+					// a consola é servida de outra origem — o site —, e é só leitura
+					'Access-Control-Allow-Origin': 'https://hoquei.pages.dev'
+				}
+			}
+		);
 	}
 };

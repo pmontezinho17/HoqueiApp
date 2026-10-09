@@ -1052,36 +1052,92 @@ cd worker/observador && npx wrangler secret put GITHUB_TOKEN
 
 Enquanto não existir, a consola di-lo em vez de dizer só "não foi possível".
 
-## Combinado para 09/10, depois dos jogos: a consola passa para `/consola`
+## A consola passou para `hoquei.pages.dev/consola` — feito a 09/10/2026
 
-**Porque:** o endereço da consola é `hoquei-observador.torneiopa.workers.dev`, e o `torneiopa`
-é o subdomínio de uma aplicação anterior do dono, para controlar um torneio. Ele quis separar
-as coisas do OK4Sticks — e a Cloudflare dá **um** subdomínio `workers.dev` **por conta**, não
-um por projecto, logo não há como ter dois. As saídas reais eram uma segunda conta — que
-partia o KV, porque o KV é por conta, e obrigaria a mover o Pages e a perder os favoritos de
-todos — ou um domínio próprio, que está adiado.
+Estava combinado para "depois dos jogos" e o dono antecipou: *"temos tempo suficiente para
+construir, testar e ainda testar no próprio jogo"*. Os sete passos ficaram feitos, com duas
+diferenças em relação ao plano.
 
-**O que fica combinado, e resolve o incómodo sem partir nada:** a consola passa a ser servida
-pelo próprio site, em `hoquei.pages.dev/consola`. O Worker fica só com o `cron`, sem endereço
-público (`workers_dev = false`), e os dois armazéns continuam na mesma conta.
+**O motivo, recordado:** o endereço da consola era `hoquei-observador.torneiopa.workers.dev`, e
+o `torneiopa` é o subdomínio de uma aplicação anterior do dono. A Cloudflare dá **um**
+subdomínio `workers.dev` por conta, não um por projecto. As saídas eram uma segunda conta — que
+partia as ligações, porque elas são por conta — ou um domínio próprio, adiado (B9.27).
 
-Passos, por ordem:
+### Como ficou dividido, e porquê
 
-1. **(do dono, no painel)** ligar a base de dados D1 `ok4sticks-dados`
-   (`5eb302a1-a975-40af-a254-7b26a23ef312`) ao projecto Pages `hoquei`, com o nome **`DADOS`**,
-   em *Production* — como fez com o `hoquei-contagens`. **Uma ligação em vez de duas**, desde
-   que as medições passaram todas para o D1 a 09/10/2026 (ver a secção abaixo).
-2. mover o `worker/observador/src/pagina.js` para dentro do `web/` — por exemplo
-   `web/src/lib/consola.js` — porque uma Pages Function só empacota o que está dentro da
-   pasta do projecto. **Não o deixar em `web/functions/`:** ali todos os `.js` viram rotas.
-3. `web/functions/consola.js` passa a servir a página, lendo o `DADOS`;
-4. o observador perde a rota HTML e fica com o `cron` e o `/api`;
-5. `workers_dev = false` no `wrangler.toml` do observador, e o mesmo no relógio;
-6. corrigir o `env.CONSOLA` do aviso — a issue que ele abre aponta para o endereço antigo;
-7. actualizar os endereços neste documento e no `README` do observador.
+| onde | o que |
+|---|---|
+| `worker/observador` | tudo o que é **medir**: o cron, as escritas, e um `/api` que devolve a consola inteira em JSON |
+| `web/src/lib/consola.js` | só o **desenho**. Recebe os dados prontos e não sabe de onde vieram |
+| `web/functions/consola.js` | serve a página: valida a chave, busca o `/api`, desenha |
 
-**Estimativa:** ~2 h. **Combinado para 09/10 depois dos jogos**, e não a 08/10, porque mexe
-nas Functions do site e a primeira janela de jogos começava daí a quarenta minutos.
+A Function **não** fala com a base de dados nem com a GitHub, e isso foi uma escolha. A
+alternativa era ela ler o D1 por si — o `DADOS` está ligado ao projecto de Pages — e aí
+passavam a existir dois sítios a saber como se lêem as medições, mais um segredo da GitHub
+guardado no projecto do site. Um salto a mais dentro da Cloudflare é mais barato do que duas
+verdades sobre os mesmos números.
+
+### Duas diferenças em relação ao plano
+
+**1. O `workers_dev = false` não foi feito.** O plano dizia para fechar o endereço do Worker.
+Fechá-lo mataria o `/observar` e o `/verificar-aviso`, que são a porta de manutenção e a única
+forma de provar a cadeia de aviso. O incómodo do dono era o endereço **que ele abre**, e esse
+passou a ser o do site. O do Worker fica, sem página para humanos.
+
+**2. A consola passou a ter chave.** No Worker era pública: o endereço não se adivinhava e o
+que ela mostra são resultados de jogos, que são públicos. Em `hoquei.pages.dev/consola`
+adivinha-se à primeira — e ali já se vê quantas pessoas usam a app, que é outra coisa. Fica
+atrás da mesma `CHAVE_CONTAGENS` que fecha o `/contagens`.
+
+O link que o aviso põe na issue é `/consola` **sem a chave**, de propósito: as issues deste
+repositório são públicas, e uma chave numa issue pública é uma chave queimada.
+
+## Cinco melhorias na consola, pedidas a 09/10/2026 com ela ainda em construção
+
+O dono abriu-a a meio e trouxe cinco coisas. Todas feitas no mesmo dia.
+
+**1. "Os gráficos e indicadores estão todos à esquerda e não adaptados à janela."** A grelha
+estava travada em 1280 px, e num monitor de 1900 ficava meio ecrã vazio. Agora vai até 1760 px
+e centra-se. O tecto existe à mesma: uma tabela de 2500 px obriga a varrer a cabeça de um lado
+ao outro para ler uma linha.
+
+**2. "Outro KPI com o total de entradas de utilizadores distintos desde sempre."** Feito, e com
+o nome mudado — porque o número que ele pediu **não é calculável com este desenho, de
+propósito**. O que há é `SUM(total)` da tabela `aparelho`: a soma de aparelhos distintos *por
+dia*. Quem abre a app em cinco dias conta cinco. Saber que é a mesma pessoa exigiria um
+identificador que não existe, e não existir foi uma decisão (ver `lib/presenca.ts` e a
+`/privacidade`). O painel chama-se **"entradas desde sempre"** e traz ao lado as "primeiras
+vezes", que é o mais próximo de uma resposta honesta à pergunta dele.
+
+**3. O "pela primeira vez" maior e à direita.** Era nota de pé em letra miúda, e ele tem razão
+no desenho: são duas medidas da mesma coisa, não uma medida e um rodapé. Painel novo com dois
+números, alinhados pela **base** — é isso que os faz ler como uma linha só apesar de um ter
+1,9 rem e o outro 1,25.
+
+**4. "O gráfico de barras não tem eixo vertical."** A frase dele que resolve a questão:
+*"tenho sempre de passar o rato por cima para perceber qual o número"*. Um gráfico que só se lê
+com o rato não se lê num telefone nem numa impressão. Tem agora eixo com quatro marcas e guias
+horizontais **atrás** das barras — à frente, uma linha a cortar uma coluna lê-se como uma
+divisão dela.
+
+E uma mudança que o eixo obrigou e que vale por si: as barras passaram a ser medidas contra um
+**tecto redondo** (80 → 100) e não contra o máximo do dia. Com a escala no máximo, uma hora de
+3 pedidos num dia de 3 enchia o gráfico e lia-se como um pico.
+
+**5. "Consigo ver no mesmo gráfico os dias anteriores?"** No mesmo não, e a razão é que um
+gráfico de 24 horas e um de 7 dias são duas perguntas. Ficaram **lado a lado**: "por hora" à
+esquerda, "e nos dias anteriores" à direita, e **cada dia é um link** que troca o gráfico das
+horas. São os mesmos dados vistos de duas distâncias, e nenhuma custa um pedido à fonte.
+
+### Um defeito que só apareceu por causa do ponto 5
+
+Com os links a funcionar, abri o dia 08/10 e os painéis diziam **"aparelhos hoje: 14"** — com
+os 14 a serem de ontem. Uma mentira pequena que faz tirar a conclusão errada depressa.
+
+Os rótulos passam a dizer "nesse dia", o cabeçalho diz o que está a ver e dá a volta, e os dois
+números que são genuinamente de agora — o farol e os pedidos da última ronda — passaram a
+dizê-lo: **"pedidos à APL, agora"**. Isto não se vê a ler o código: vê-se a abrir a página num
+dia que não é hoje.
 
 ## A consola em baixo: 50 sub-pedidos por invocação (08/10/2026)
 

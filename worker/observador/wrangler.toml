@@ -22,6 +22,10 @@ crons = [
 
 [vars]
 REPO = "pmontezinho17/HoqueiApp"
+# O endereço que o aviso põe na issue. **Sem a chave de propósito:** as issues deste
+# repositório são públicas, e uma chave numa issue pública é uma chave queimada. Quem abre o
+# link acrescenta-a — ou tem a consola nos favoritos, já com ela.
+CONSOLA = "https://hoquei.pages.dev/consola"
 
 # Logs e rastreios no painel da Cloudflare, que de outra forma não ficam guardados: sem
 # isto, um erro de madrugada só se vê se alguém estiver a olhar para o `wrangler tail`.
