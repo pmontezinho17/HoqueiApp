@@ -37,7 +37,12 @@ export async function onRequestGet({ request, env }) {
 	const pedidos = Math.min(Math.max(Number(url.searchParams.get('dias')) || 7, 1), 30);
 	const desde = diaDeLisboa(pedidos - 1);
 
-	const [visitas, aparelhos] = await env.DADOS.batch([
+	/** As duas formas de linha que as consultas devolvem. */
+	const bd = /** @type {{ batch: (d: unknown[]) => Promise<[
+	 *   { results: { dia: string, ecra: string, n: number }[] },
+	 *   { results: { dia: string, total: number, novos: number }[] }
+	 * ]> }} */ (/** @type {unknown} */ (env.DADOS));
+	const [visitas, aparelhos] = await bd.batch([
 		env.DADOS.prepare('SELECT dia, ecra, n FROM visita WHERE dia >= ? ORDER BY dia').bind(desde),
 		env.DADOS.prepare('SELECT dia, total, novos FROM aparelho WHERE dia >= ?').bind(desde)
 	]);

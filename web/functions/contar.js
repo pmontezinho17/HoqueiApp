@@ -31,14 +31,17 @@ export async function onRequestGet({ request, env, waitUntil }) {
 		status: 204,
 		headers: { 'Cache-Control': 'no-store' }
 	});
-	if (!env?.DADOS) return resposta;
+	// a ligação numa constante e não `env.DADOS` lá dentro: dentro da função assíncrona do
+	// `waitUntil` o compilador perde a garantia que a guarda acima deu
+	const bd = env?.DADOS;
+	if (!bd) return resposta;
 
 	const novo = new URL(request.url).searchParams.get('novo') === '1' ? 1 : 0;
 	const dia = diaDeLisboa();
 	waitUntil(
 		(async () => {
 			try {
-				await env.DADOS.prepare(
+				await bd.prepare(
 					`INSERT INTO aparelho (dia, total, novos) VALUES (?, 1, ?)
 					 ON CONFLICT (dia) DO UPDATE SET total = total + 1, novos = novos + ?`
 				)
