@@ -905,6 +905,40 @@ A recomendação é a 2, que é o padrão do "facade" — uma imagem nossa com u
 transmissão — acrescentar um campo é seguro —, e os clubes a dar os endereços. Essa parte é
 humana e é do dono.
 
+## O email do aviso não chega, e a razão é de desenho (09/10/2026)
+
+O token entrou, e o `GET /verificar-aviso` provou o que tinha de provar: **HTTP 201** a abrir
+a issue e **HTTP 200** a fechá-la. O token escreve nas issues.
+
+**O que eu disse a seguir estava errado:** disse ao dono que devia ter o email na caixa. Fui
+confirmar quem é o autor da issue:
+
+```
+GET /repos/pmontezinho17/HoqueiApp/issues/1  →  autor: pmontezinho17
+```
+
+O token é pessoal, logo a issue é aberta **pelo próprio dono**. E a GitHub não notifica
+ninguém das suas próprias acções. Ou seja: toda a cadeia funciona excepto a última perna, que
+é a única que ele vê. Um aviso que chega a um sítio onde ninguém olha não é um aviso.
+
+Isto não se apanha a ler o código — o código faz um `POST /issues` e recebe 201, que é
+sucesso. Apanha-se a perguntar quem é o autor.
+
+### As saídas, e qual recomendo
+
+| | como | custo |
+|---|---|---|
+| **1. a issue é aberta pelo robô das Actions** | o observador dispara um workflow — máquina que o relógio já usa — e o workflow abre a issue com o `GITHUB_TOKEN` embutido, cujo actor é o `github-actions[bot]`. Outro actor, logo há notificação | um workflow novo, ~20 s de atraso no aviso |
+| **2. email directo de um serviço de envio** | uma chave de API num segredo, e o Worker manda o email ele próprio | um terceiro no caminho, e o aviso deixa de passar por um canal que já é lido |
+| **3. Cloudflare Email Routing** | — | não serve: exige um domínio na conta, e o domínio próprio está adiado (B9.27) |
+
+**Recomendo a 1.** Reutiliza o que existe, não acrescenta terceiros, e o aviso continua a sair
+da GitHub, que o dono já lê. Os ~20 s de atraso são irrelevantes num aviso que diz "isto está
+assim há mais de duas horas".
+
+O aviso dentro da app — que o dono também pediu — é outro item e é maior: precisa de
+subscrições guardadas, o que é o B5.5.
+
 ## As medições saíram do KV para o D1 (09/10/2026)
 
 A Cloudflare mandou um aviso de **50% do limite diário de escritas** do KV. O dono perguntou
