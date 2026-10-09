@@ -658,7 +658,11 @@ export function pagina({
  /* **Scroll em vez de crescer sem fim.** O dono gosta do tamanho actual das tabelas de
     registos e quer que elas o mantenham: uma lista de corridas de um sábado com 36 jogos
     seria dezenas de linhas a empurrar tudo o que está por baixo. */
- .rolar { max-height:17rem; overflow-y:auto; margin:-2px -4px 0; padding:2px 4px 0 }
+ .rolar { max-height:17rem; overflow-y:auto; margin:-2px -4px 0; padding:2px 4px 0;
+   /* um esbatido no fundo a dizer que há mais por baixo: sem ele a lista parece acabar
+      exactamente onde a caixa acaba, que é o corte mais fácil de não se ver */
+   mask-image:linear-gradient(to bottom, #000 calc(100% - 18px), transparent);
+   -webkit-mask-image:linear-gradient(to bottom, #000 calc(100% - 18px), transparent) }
  .rolar::-webkit-scrollbar { width:8px }
  .rolar::-webkit-scrollbar-thumb { background:var(--borda); border-radius:4px }
 
@@ -826,7 +830,10 @@ export function pagina({
   </section>
 
   <section class="l6">
-    <h2>golos ${quando === 'hoje' ? 'de hoje' : `de ${dia}`}, à hora a que apareceram</h2>
+    <h2>golos ${quando === 'hoje' ? 'de hoje' : `de ${dia}`}, à hora a que apareceram${
+		rel.resultados.length ? ` — ${rel.resultados.length}` : ''
+	}</h2>
+    <div class="rolar">
     ${tabela(
 		rel.resultados.map(
 			(r) =>
@@ -834,6 +841,7 @@ export function pagina({
 		),
 		`nenhum golo observado ${quando}`
 	)}
+    </div>
   </section>
 
   <section class="l6">
