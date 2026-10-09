@@ -54,3 +54,51 @@ describe('o que o contador do servidor conta', () => {
 		expect(oQueContar(pedido('/clube', { 'Sec-Fetch-Mode': 'navigate' }, 'POST'))).toBe(null);
 	});
 });
+
+/**
+ * O instrumento não se mede a si mesmo.
+ *
+ * O Worker observador lê o `meta.json` de minuto a minuto durante as janelas de jogos e o
+ * `scripts/observar.py` lê-o de 20 em 20 segundos. Ambos atravessam esta Function, e até
+ * 09/10/2026 contavam como aberturas: das 150 estimadas desse dia, ~50 eram o nosso próprio
+ * observador. Um número que cresce quando se olha mais para ele não serve para nada.
+ */
+describe('os nossos próprios agentes não contam', () => {
+	const nosso = (ua: string) =>
+		oQueContar(
+			new Request('https://hoquei.pages.dev/v1/aplisboa/2026-27/meta.json', {
+				headers: { 'User-Agent': ua }
+			}),
+			() => 0 // o sorteio garante que, sem a regra do agente, isto contava
+		);
+
+	it('o observador, o script de observação e a sonda ficam de fora', () => {
+		expect(nosso('hoqueiAPP-observador/1.0 (+https://github.com/pmontezinho17/HoqueiApp)')).toBe(null);
+		expect(nosso('hoqueiAPP-research/0.1')).toBe(null);
+		expect(nosso('hoqueiAPP-ci')).toBe(null);
+		expect(nosso('hoqueiAPP/0.1')).toBe(null);
+	});
+
+	it('um telemóvel a sério continua a contar', () => {
+		expect(nosso('Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X)')).toBe('aberturas');
+		// e sem User-Agent nenhum também conta: não se presume que seja nosso
+		expect(nosso('')).toBe('aberturas');
+	});
+
+	it('o prefixo é o que manda, e não o nome inteiro', () => {
+		// um agente nosso que ainda não exista, com o mesmo prefixo, já fica de fora
+		expect(nosso('hoqueiAPP-qualquer-coisa-nova/9')).toBe(null);
+		// e um agente de fora que mencione o nome no fim não é nosso
+		expect(nosso('AlgumBot/1.0 (compatible; hoqueiAPP)')).toBe('aberturas');
+	});
+
+	it('as navegações de um agente nosso também não contam', () => {
+		expect(
+			oQueContar(
+				new Request('https://hoquei.pages.dev/clube', {
+					headers: { 'User-Agent': 'hoqueiAPP-observador/1.0', 'Sec-Fetch-Mode': 'navigate' }
+				})
+			)
+		).toBe(null);
+	});
+});

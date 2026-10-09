@@ -1070,6 +1070,37 @@ cd worker/observador && npx wrangler secret put GITHUB_TOKEN
 
 Enquanto não existir, a consola di-lo em vez de dizer só "não foi possível".
 
+## O contador estava a contar-se a si mesmo (09/10/2026)
+
+Encontrado ao preparar a vigia do jogo das 22:00, e é um erro de medição com a forma mais
+traiçoeira que há: **o instrumento a medir-se a si mesmo**.
+
+O Worker observador lê o `meta.json` **de minuto a minuto** durante as janelas de jogos, e o
+`scripts/observar.py` lê-o de 20 em 20 segundos quando corre. Ambos atravessam o
+`_middleware.js` e caíam na amostragem como se fossem telemóveis.
+
+Medido às 18:50, com o cron do observador a correr desde as 18:00 — ~50 invocações, uma
+leitura do `meta.json` cada: **das 150 aberturas estimadas do dia, cerca de 50 eram nossas.**
+Um terço. E o número crescia quanto mais olhássemos para ele, que é o contrário do que um
+contador serve para fazer.
+
+**A correcção:** o `oQueContar` ignora qualquer pedido cujo `User-Agent` comece por
+`hoqueiAPP`. O prefixo é comum a todos os nossos agentes — `hoqueiAPP/0.1` no raspador,
+`hoqueiAPP-ci` no `vale_pedir`, `hoqueiAPP-observador/1.0` no observador e no script,
+`hoqueiAPP-research/0.1` na sonda — e isso não é coincidência: o `User-Agent` identificável
+existe desde o início para a fonte saber quem a visita. Serve agora para o contador saber quem
+**não** contar. Cinco testes novos, incluindo os dois casos que fixam o desenho: um agente novo
+com o mesmo prefixo já fica de fora, e um agente de fora que mencione o nome no fim continua a
+contar.
+
+**O número de 09/10 fica inflacionado e não se corrige.** Subtrair uma estimativa de um
+contador amostrado é trocar um erro conhecido por um erro invisível. O que fica escrito é isto:
+nesse dia, ~150 aberturas incluem ~50 nossas; a partir de 10/10 o número é só de gente.
+
+**E isto põe uma questão para o B9.31**, que é o item sobre o que o gráfico não vê: há dois
+tipos de distorção a medir, e não um. Pedidos nossos a contar como utilização era um; rondas que
+não publicam e por isso não aparecem no gráfico é o outro. O segundo continua aberto.
+
 ## A ronda de fecho pede 80 e precisa de 37 — decidido a 09/10/2026, a construir depois do fim de semana
 
 O dono olhou para o gráfico da consola e perguntou a pergunta certa: *"à meia-noite fomos ao

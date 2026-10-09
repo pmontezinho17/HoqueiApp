@@ -73,6 +73,24 @@ export function ecraDe(caminho) {
 }
 
 /**
+ * Os nossos próprios agentes não são utilizadores.
+ *
+ * **Isto estava a inflacionar o número que o dono pediu.** O Worker observador lê o
+ * `meta.json` **de minuto a minuto** durante as janelas de jogos, e o `scripts/observar.py`
+ * lê-o de 20 em 20 segundos quando corre. Ambos passam pela mesma Function e caíam na
+ * amostragem como se fossem telemóveis. Medido a 09/10/2026 às 18:50: das 150 aberturas
+ * estimadas do dia, cerca de 50 eram o nosso próprio observador, que arrancou às 18:00.
+ *
+ * É um erro de medição com a forma mais traiçoeira que há — o instrumento a medir-se a si
+ * mesmo, e a dar um número que cresce quando olhamos mais para ele.
+ *
+ * O prefixo `hoqueiAPP` é comum a todos os nossos agentes, de propósito: o `User-Agent`
+ * identificável existe desde o início para a fonte saber quem a visita, e serve aqui para o
+ * contador saber quem **não** contar.
+ */
+const NOSSO = /^hoqueiAPP/i;
+
+/**
  * O que é que este pedido conta, se contar algo.
  *
  * `null` é o caso normal: um ficheiro de dados qualquer, um emblema, um pedido que não diz
@@ -84,6 +102,7 @@ export function ecraDe(caminho) {
  */
 export function oQueContar(pedido, sorteio = Math.random) {
 	if (pedido.method !== 'GET') return null;
+	if (NOSSO.test(pedido.headers.get('User-Agent') ?? '')) return null;
 	const caminho = new URL(pedido.url).pathname;
 
 	// o sinal de "alguém tem a app aberta": não depende do service worker, mas é frequente
