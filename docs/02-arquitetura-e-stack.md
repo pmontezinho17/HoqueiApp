@@ -251,6 +251,12 @@ tar -tzf /tmp/2026-10-08.tar.gz | head          # o que lá está
 tar -xzf /tmp/2026-10-08.tar.gz -C /tmp/esse-dia  # extrair para ver
 ```
 
+**Um aviso para quem for confirmar:** o `wrangler r2 bucket info` diz `object_count: 0` e
+`bucket_size: 0 B` durante um bom par de horas depois da primeira escrita — as métricas do R2
+são calculadas periodicamente e não em tempo real. Quem quiser ter a certeza faz um `object
+get`, que responde pelo objecto a sério. Verificado a 09/10/2026: `info` a zero e o `get` a
+devolver 469 577 bytes e 559 ficheiros.
+
 **Restaurar é a mão, de propósito.** Nada no sistema escreve por cima do `/v1` a partir de uma
 fotografia: pôr um dia antigo no CDN é uma decisão com consequências — telemóveis em cache,
 resultados a andar para trás — e não uma operação de rotina.
