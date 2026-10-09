@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9864@hoquei.pages.dev
-DTSTAMP:20261009T000000Z
-DTSTART:20261009T210000Z
-DTEND:20261009T223000Z
-SUMMARY:🏑 Sub-19 🏑 FSE/AJ Salesiana vs Caco
-LOCATION:Salesianos do Estoril
-DESCRIPTION:FSE/AJ Salesiana 0–0 Caco\nCAMP. REG. SUB-19 - 1ª FASE · S
- érie C · SUB-19\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/9864\nDad
- os da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9864
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9868@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T161500Z
