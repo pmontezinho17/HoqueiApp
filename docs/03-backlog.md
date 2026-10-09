@@ -905,7 +905,7 @@ A recomendação é a 2, que é o padrão do "facade" — uma imagem nossa com u
 transmissão — acrescentar um campo é seguro —, e os clubes a dar os endereços. Essa parte é
 humana e é do dono.
 
-## O email do aviso não chega, e a razão é de desenho (09/10/2026)
+## O email do aviso não chegava: três causas seguidas (09/10/2026)
 
 O token entrou, e o `GET /verificar-aviso` provou o que tinha de provar: **HTTP 201** a abrir
 a issue e **HTTP 200** a fechá-la. O token escreve nas issues.
@@ -932,9 +932,40 @@ sucesso. Apanha-se a perguntar quem é o autor.
 | **2. email directo de um serviço de envio** | uma chave de API num segredo, e o Worker manda o email ele próprio | um terceiro no caminho, e o aviso deixa de passar por um canal que já é lido |
 | **3. Cloudflare Email Routing** | — | não serve: exige um domínio na conta, e o domínio próprio está adiado (B9.27) |
 
-**Recomendo a 1.** Reutiliza o que existe, não acrescenta terceiros, e o aviso continua a sair
-da GitHub, que o dono já lê. Os ~20 s de atraso são irrelevantes num aviso que diz "isto está
-assim há mais de duas horas".
+**Feita a 1**, a pedido do dono, no mesmo dia. O `.github/workflows/aviso.yml` abre, comenta e
+fecha; o observador compõe o texto e despacha. A divisão é deliberada: o texto fica onde está o
+diagnóstico, a entrega fica onde há um actor que notifica.
+
+### E mesmo assim não chegou. A segunda causa.
+
+Com o `github-actions[bot]` por autor, o email continuou a não aparecer. Medido antes de
+afirmar seja o que for, desta vez:
+
+```
+GET /repos/pmontezinho17/HoqueiApp/subscription  →  404
+GET /repos/pmontezinho17/HoqueiApp               →  subscribers_count: 0
+```
+
+**O dono não segue o próprio repositório.** Sem subscrição não se gera notificação nenhuma —
+nem email nem sininho. A primeira correcção era necessária e não era suficiente: tirou o
+obstáculo de "são as tuas próprias acções" e deixou intacto o de "não segues isto".
+
+A saída **não** foi pedir-lhe que carregasse em *Watch*. Uma definição dessas ninguém a relê, e
+desaparece um dia sem avisar — que é precisamente o modo de falha que se está a fechar. A issue
+passou a ser-lhe **atribuída**, e uma atribuição notifica sempre, siga-se ou não o repositório.
+Fica no código, que é um sítio onde se vê.
+
+**Confirmado por ele a 09/10/2026:** o email da issue #4 chegou. A cadeia está fechada de ponta
+a ponta e é repetível com `curl .../verificar-aviso` — nomeadamente a cada rotação do token.
+
+### O que isto ensina, e é maior do que o aviso
+
+Foram **três** modos de falha seguidos, todos silenciosos, todos a devolverem sucesso: faltava
+o segredo; a issue nascia com o autor errado; o repositório não era seguido. Nenhum deles se
+apanha a ler o código — o `POST` devolve 201 e o despacho devolve 204 em todos os três.
+
+É por isso que o `/verificar-aviso` ficou como rota permanente e percorre o caminho real em vez
+de o imitar. **Um aviso que não se consegue experimentar não é um aviso, é uma intenção.**
 
 O aviso dentro da app — que o dono também pediu — é outro item e é maior: precisa de
 subscrições guardadas, o que é o B5.5.
