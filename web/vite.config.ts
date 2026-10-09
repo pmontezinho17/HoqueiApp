@@ -46,10 +46,23 @@ export default defineConfig({
 			},
 			workbox: {
 				globPatterns: ['**/*.{js,css,html,png,ico,svg}'],
-				// O `/contagens` é uma Pages Function e tem de chegar ao servidor. Sem isto, o
-				// service worker responde-lhe com o `index.html` — ele intercepta **todas** as
-				// navegações — e a leitura das contagens devolvia a aplicação em vez de JSON.
-				navigateFallbackDenylist: [/^\/contagens/],
+				// **Os caminhos que são Pages Functions têm de chegar ao servidor.** O service
+				// worker intercepta **todas** as navegações e responde-lhes com o `index.html`;
+				// como o SvelteKit não tem rota para nenhum destes, o que aparece é um ecrã
+				// vazio — a aplicação a carregar e a não encontrar nada para desenhar.
+				//
+				// O `/consola` entrou aqui a 09/10/2026 e custou ao dono abrir um ecrã branco: eu
+				// tinha posto o `/contagens` nesta lista quando ele nasceu, e esqueci-me de fazer
+				// o mesmo para a consola no dia em que ela passou a ser servida pelo site. **Quem
+				// acrescentar uma Function em `web/functions/` acrescenta-a aqui no mesmo
+				// commit** — e o teste ao lado recusa quem não o fizer.
+				//
+				// O `/contar` está aqui por **regra e não por necessidade**: é um `fetch` e não
+				// uma navegação, logo a regra de navegação nunca lhe toca. Mas uma lista com
+				// excepções é uma lista que se discute a cada entrada nova, e foi uma discussão
+				// dessas que deixou o `/consola` de fora. A regra sem excepções é mais barata:
+				// **toda a Function está nesta lista.**
+				navigateFallbackDenylist: [/^\/contagens/, /^\/consola/, /^\/contar/],
 				// 31 emblemas × 2,3 KB = 70 KB: vale a pena tê-los offline na app instalada
 				runtimeCaching: [
 					{
