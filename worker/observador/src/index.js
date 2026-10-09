@@ -436,6 +436,85 @@ async function observar(env) {
 
 
 /**
+ * Provar que o aviso funciona, sem esperar que algo corra mal.
+ *
+ * **Porque é que isto existe:** a cadeia de aviso — saúde a vermelho → issue na GitHub →
+ * email — esteve construída e testada desde 06/10/2026 e **nunca disparou uma única vez**,
+ * porque faltava o segredo. Ninguém soube até alguém ir ler o registo e encontrar lá
+ * `sem token: aviso não enviado`. Um aviso que não se consegue experimentar é um aviso em que
+ * não se pode confiar, e o dia em que se descobre que não funciona é sempre o pior dia.
+ *
+ * Abre uma issue e fecha-a logo. Fica marcada como teste, com etiqueta `teste` e não `cadeia`,
+ * para não se cruzar com a procura que o `avisar` faz. O que isto prova, e que uma leitura das
+ * Actions não prova: que o token tem **Issues: Read and write**, e que o email chega.
+ *
+ * Correr outra vez sempre que o token for rodado.
+ */
+async function verificarAviso(env) {
+	if (!env.GITHUB_TOKEN) return { ok: false, porque: 'sem GITHUB_TOKEN no Worker' };
+	const cabecalhos = {
+		'User-Agent': UA,
+		Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+		Accept: 'application/vnd.github+json',
+		'Content-Type': 'application/json'
+	};
+	const api = `https://api.github.com/repos/${env.REPO}/issues`;
+	const { dia, hora } = emLisboa();
+
+	const abriu = await fetch(api, {
+		method: 'POST',
+		headers: cabecalhos,
+		body: JSON.stringify({
+			title: `Teste do aviso — ${dia} ${hora}`,
+			body: [
+				'Isto é um teste do aviso e **não há nada de errado com a cadeia**.',
+				'',
+				'Foi aberta de propósito para provar três coisas que uma leitura não prova:',
+				'',
+				'1. o token do observador tem `Issues: Read and write`;',
+				'2. a GitHub manda o email quando uma issue é aberta;',
+				'3. o caminho que o aviso a sério percorre está inteiro.',
+				'',
+				'Fecha-se a si mesma uns segundos depois de nascer. `GET /verificar-aviso` no',
+				'observador repete o teste — é o que se faz a cada rotação do token.'
+			].join('\n'),
+			labels: ['teste']
+		})
+	});
+	if (!abriu.ok) {
+		const detalhe = (await abriu.text()).slice(0, 200);
+		return {
+			ok: false,
+			abrir: `HTTP ${abriu.status}`,
+			// 403 aqui, com as corridas a lerem-se bem, significa uma coisa só: o token lê as
+			// Actions e não escreve nas Issues
+			porque:
+				abriu.status === 403
+					? 'o token não tem `Issues: Read and write` — as Actions lêem-se, as issues não'
+					: detalhe
+		};
+	}
+
+	const { number, html_url: endereco } = await abriu.json();
+	const fechou = await fetch(`${api}/${number}`, {
+		method: 'PATCH',
+		headers: cabecalhos,
+		body: JSON.stringify({ state: 'closed' })
+	});
+
+	return {
+		ok: fechou.ok,
+		issue: number,
+		endereco,
+		abrir: `HTTP ${abriu.status}`,
+		fechar: `HTTP ${fechou.status}`,
+		leia_se: fechou.ok
+			? 'a cadeia está inteira: a issue foi aberta e fechada, e o email saiu na abertura'
+			: 'a issue abriu mas não fechou — o aviso a sério funciona, a limpeza não'
+	};
+}
+
+/**
  * O relatório de um dia: lê as observações desse dia e calcula a cadência.
  *
  * Em SQL, com `WHERE dia = ?`, em vez de desembrulhar um array JSON inteiro de uma chave do
@@ -664,6 +743,12 @@ export default {
 		const url = new URL(pedido.url);
 		if (url.pathname === '/observar') {
 			return Response.json(await observar(env));
+		}
+		// o teste do aviso, à mão: ver `verificarAviso`
+		if (url.pathname === '/verificar-aviso') {
+			return Response.json(await verificarAviso(env), {
+				headers: { 'Cache-Control': 'no-store' }
+			});
 		}
 		const dia = url.searchParams.get('dia') ?? emLisboa().dia;
 		const rel = await relatorio(env, dia);

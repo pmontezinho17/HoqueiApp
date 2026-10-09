@@ -47,12 +47,31 @@ próprio está adiado (B9.27); este caminho usa um canal que o dono já lê.
 
 Só avisa na transição, e fecha a issue quando voltar a verde.
 
-**Falta o segredo, e é um passo do dono:**
+**Falta o segredo, e é um passo do dono.** O token do relógio **não serve**: esse foi criado
+com `Actions: Read and write` e mais nada, e aqui são precisas duas permissões, uma delas que
+ele não tem. E o valor de um token não se recupera na GitHub depois de criado — mostra-se uma
+vez. Portanto é um token novo:
+
+1. **github.com → Settings → Developer settings → Personal access tokens → Fine-grained
+   tokens → Generate new token**.
+2. **Token name**: `hoquei-observador`.
+3. **Expiration**: sem prazo, pela mesma razão do relógio — um prazo faz o aviso emudecer
+   num sábado de jogos sem ninguém perceber porquê. Com prazo, lembrete no calendário.
+4. **Repository access** → *Only select repositories* → **HoqueiApp**.
+5. **Permissions** → *Repository permissions*, duas e mais nenhuma:
+   * **Issues: Read and write** — é por aqui que o aviso sai, porque é a issue que faz a
+     GitHub mandar o email;
+   * **Actions: Read-only** — é o painel "a cadeia" da consola. Sem token a GitHub responde
+     403 mesmo a um repositório público, porque o limite sem autenticação é por IP e os IPs
+     de saída da Cloudflare vêm com o balde gasto.
+6. Gera e **copia o token**. A GitHub só o mostra uma vez.
 
 ```bash
-cd worker/observador
-npx wrangler secret put GITHUB_TOKEN     # o mesmo token do relógio, com `issues: write`
+cd worker/observador && npx wrangler secret put GITHUB_TOKEN
 ```
+
+Cola quando ele pedir. Fica encriptado na Cloudflare e não passa pelo repositório nem pelos
+registos. Não o mandes a ninguém nem o metas num ficheiro.
 
 Sem o segredo, o Worker continua a medir e a consola continua a funcionar — só não avisa. O
 `/observar` devolve `sem token: aviso não enviado`, que é a forma de confirmar.
