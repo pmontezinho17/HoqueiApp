@@ -178,6 +178,11 @@
 		--borda: #e3e6ea; --borda-fraca: #eef0f3;
 		--acento: #0a7d54; --acento-fraco: #e8f4ef;
 		--aviso: #92400e; --aviso-fundo: #fef3c7; --vivo: #c2410c;
+		/* **Um vermelho próprio para "terminada", e não o `--vivo`.** O `--vivo` quer dizer
+		   "está a acontecer agora" e usá-lo para "já acabou" punha a mesma cor a dizer duas
+		   coisas opostas na mesma aplicação. Este é mais frio e mais escuro, e nunca aparece
+		   no mesmo ecrã que o outro. */
+		--terminado: #b3261e;
 		/* a estrela do favorito: amarela nos dois temas, mais funda no claro para não
 		   desaparecer contra o branco do cartão */
 		--estrela: #d99e00;
@@ -207,6 +212,7 @@
 			--borda: #272b33; --borda-fraca: #1f232a;
 			--acento: #34d399; --acento-fraco: #12271f;
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
+			--terminado: #f2b8b5;
 			--estrela: #fbbf24;
 			--heroi: #1b2027; --heroi-texto: #eef1f4; --heroi-suave: #949ca6;
 			--heroi-borda: #2a313a;
@@ -218,6 +224,7 @@
 			--borda: #272b33; --borda-fraca: #1f232a;
 			--acento: #34d399; --acento-fraco: #12271f;
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
+			--terminado: #f2b8b5;
 			--estrela: #fbbf24;
 			--heroi: #1b2027; --heroi-texto: #eef1f4; --heroi-suave: #949ca6;
 			--heroi-borda: #2a313a;

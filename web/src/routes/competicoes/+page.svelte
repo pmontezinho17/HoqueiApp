@@ -34,7 +34,7 @@
 	 */
 	import CrachaEscalao from '$lib/CrachaEscalao.svelte';
 	import { competicoesVivas } from '$lib/clubes';
-	import { agruparProvas, enderecoDoMenu, filtrarProvas } from '$lib/provas';
+	import { agruparProvas, enderecoDoMenu, filtrarProvas, semPrefixoComum } from '$lib/provas';
 	import { APP_NOME } from '$lib/sitio';
 	import { slug } from '$lib/slug';
 	import type { Competicao } from '$lib/tipos';
@@ -140,16 +140,15 @@
 		{#if aberto && i === fimDaLinhaAberta}
 			{@const dentro = lista.find(([e]) => slug(e) === aberto)}
 			{#if dentro && dentro[1].length > 1}
+				{@const curtos = semPrefixoComum(dentro[1].map((g) => g.nome))}
 				<li class="painel">
-					{#each dentro[1] as g (g.id)}
-						<a class="prova" href={`/competicoes/${g.id}`}>
-							<span class="nome">
-								{g.nome}
-								{#if !g.viva}<em class="acabou">terminada</em>{/if}
-							</span>
+					{#each dentro[1] as g, k (g.id)}
+						<a class="ficha" href={`/competicoes/${g.id}`}>
+							<span class="nome">{curtos[k]}</span>
 							{#if g.series.length}
 								<span class="series">{g.series.length} séries · {g.series.join(' ')}</span>
 							{/if}
+							{#if !g.viva}<em class="acabou">terminada</em>{/if}
 						</a>
 					{/each}
 				</li>
@@ -169,6 +168,10 @@
 		padding: 0;
 	}
 
+	/* **Altura fixa e igual para todos.** Era `min-height` e os cartões cresciam com o
+	   texto: "SENIORES MASCULINOS" ocupa duas linhas e "SUB-19" uma, e a grelha ficava com
+	   quadrados de alturas diferentes na mesma linha. O dono apanhou-o. A altura dá para duas
+	   linhas de nome mais a linha do "n provas", que é o pior caso que existe. */
 	.escalao {
 		display: flex;
 		flex-direction: column;
@@ -176,7 +179,7 @@
 		justify-content: center;
 		gap: 0.3rem;
 		width: 100%;
-		min-height: 6.6rem;
+		height: 8.9rem;
 		padding: 0.7rem 0.35rem;
 		font: inherit;
 		color: var(--texto);
@@ -203,13 +206,29 @@
 
 	/* O painel ocupa a linha toda da grelha e entra a seguir ao último cartão da linha do
 	   escalão aberto — ver o comentário na maquete. */
+	/* As provas lado a lado e não empilhadas, como ele pediu: são duas ou três escolhas
+	   curtas, e uma lista vertical de três linhas para três palavras lê-se pior do que três
+	   fichas na mesma linha. Quebram para a linha seguinte quando não couberem. */
 	.painel {
 		grid-column: 1 / -1;
-		padding: 0.1rem 0.7rem 0.4rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--e-2);
+		padding: 0.7rem;
 		background: var(--acento-fraco);
 		border: 1px solid var(--borda);
 		border-radius: 0.75rem;
 	}
+	.ficha {
+		flex: 1 1 8.5rem;
+		min-width: 0;
+		padding: 0.5rem 0.6rem;
+		text-decoration: none;
+		background: var(--fundo);
+		border: 1px solid var(--borda);
+		border-radius: 0.6rem;
+	}
+	.ficha:hover, .ficha:focus-visible { border-color: var(--acento); outline: none; }
 	/* o cartão aberto fica marcado: sem isto, com a grelha a empurrar-se, perde-se de vista
 	   qual deles abriu o painel */
 	.escalao.aberto {
@@ -217,18 +236,15 @@
 		background: var(--acento-fraco);
 	}
 
-	.prova { display: block; padding: 0.55rem 0.2rem; text-decoration: none;
-		border-bottom: 1px solid var(--borda); }
-	.prova:hover, .prova:focus-visible { background: var(--borda); outline: none; }
-	.painel .prova:last-child { border-bottom: 0; }
-	.nome { display: block; font-size: 0.85rem; }
-	.series { display: block; font-size: 0.68rem; color: var(--suave); margin-top: 0.1rem; }
+	.nome { display: block; font-size: 0.8rem; line-height: 1.3; }
+	.series { display: block; font-size: 0.66rem; color: var(--suave); margin-top: 0.1rem; }
 
-	/* "terminada" é **palavra e não só cor**: a mesma regra da consola, e a mesma razão */
-	.acabou { font-style: normal; font-size: 0.6rem; text-transform: uppercase;
-		letter-spacing: 0.04em; color: var(--suave); border: 1px solid var(--borda);
-		border-radius: 0.5rem; padding: 0.05rem 0.3rem; margin-left: 0.3rem;
-		vertical-align: 0.1em; }
+	/* "terminada" continua a ser **palavra e não só cor** — quem não distingue o vermelho lê
+	   a palavra — mas ganha o vermelho por cima, a pedido do dono. */
+	.acabou { display: inline-block; margin-top: 0.3rem;
+		font-style: normal; font-size: 0.58rem; text-transform: uppercase;
+		letter-spacing: 0.04em; color: var(--terminado);
+		border: 1px solid currentColor; border-radius: 0.5rem; padding: 0.05rem 0.3rem; }
 
 	.interruptor { display: block; width: 100%; margin: 0 0 0.8rem; padding: 0.5rem;
 		font: inherit; font-size: 0.72rem; color: var(--suave); text-align: center;

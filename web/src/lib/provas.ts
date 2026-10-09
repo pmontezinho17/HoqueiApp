@@ -161,3 +161,41 @@ export function enderecoDoMenu(estado: { escalao?: string | null; tudo?: boolean
 	const q = p.toString();
 	return q ? `/competicoes?${q}` : '/competicoes';
 }
+
+/**
+ * Tira dos nomes de um escalão a parte que é igual em todos.
+ *
+ * **O que se repete não distingue, e por isso não se lê.** O dono apanhou-o a 09/10/2026: nos
+ * Escolares lia-se duas vezes "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL …" e o que
+ * mudava — o I e o II — estava no fim de uma linha e meia de texto igual.
+ *
+ * ```
+ * ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I    →  1ª FASE NIVEL I
+ * ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II   →  1ª FASE NIVEL II
+ * ```
+ *
+ * **Corta-se só num separador ` - `, e não no prefixo comum em bruto.** Em bruto, o prefixo
+ * daqueles dois é `…NIVEL ` e o que sobrava era "I" e "II" — verdadeiro, inútil, e impossível
+ * de ler daqui a uns meses quando houver uma 2ª fase. No separador sobra `1ª FASE NIVEL I`,
+ * que é o que ele pediu e o que continua a distinguir quando a 2ª fase chegar.
+ *
+ * Um escalão cujos nomes não partilhem nada — a Supertaça, o Torneio de Abertura e o
+ * Campeonato dos sub-19 — fica como está. **Nunca devolve vazio:** se o corte comesse o nome
+ * todo, fica o nome todo, porque um rótulo em branco é pior do que um rótulo comprido.
+ */
+export function semPrefixoComum(nomes: string[]): string[] {
+	if (nomes.length < 2) return nomes;
+
+	let prefixo = nomes[0];
+	for (const n of nomes.slice(1)) {
+		let i = 0;
+		while (i < prefixo.length && i < n.length && prefixo[i] === n[i]) i++;
+		prefixo = prefixo.slice(0, i);
+	}
+
+	const corte = prefixo.lastIndexOf(' - ');
+	if (corte < 0) return nomes;
+	const quantos = corte + ' - '.length;
+	const curtos = nomes.map((n) => n.slice(quantos).trim());
+	return curtos.some((c) => c === '') ? nomes : curtos;
+}

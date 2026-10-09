@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { agruparProvas, enderecoDoMenu, filtrarProvas, provaActual } from './provas';
+import {
+	agruparProvas,
+	enderecoDoMenu,
+	filtrarProvas,
+	provaActual,
+	semPrefixoComum
+} from './provas';
 import type { Competicao, Jogo } from './tipos';
 
 /** Só interessam a data e o resultado; `disputado()` olha para os golos. */
@@ -187,5 +193,55 @@ describe('o endereço do menu de Competições', () => {
 	 */
 	it('fechar o escalão preserva o interruptor', () => {
 		expect(enderecoDoMenu({ escalao: null, tudo: true })).toBe('/competicoes?tudo=1');
+	});
+});
+
+describe('tirar o que se repete nos nomes das provas', () => {
+	it('os Escolares ficam com o que os distingue, e não com uma letra', () => {
+		expect(
+			semPrefixoComum([
+				'ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I',
+				'ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II'
+			])
+		).toEqual(['1ª FASE NIVEL I', '1ª FASE NIVEL II']);
+	});
+
+	/** O corte tem de continuar a servir quando a 2ª fase chegar. */
+	it('distingue as fases quando elas existirem', () => {
+		expect(
+			semPrefixoComum([
+				'ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I',
+				'ENCONTROS DISTRITAIS BENJAMINS - 2ª FASE NIVEL I'
+			])
+		).toEqual(['1ª FASE NIVEL I', '2ª FASE NIVEL I']);
+	});
+
+	it('nomes sem nada em comum ficam inteiros', () => {
+		const sub19 = [
+			'SUPERTAÇA APL SUB-19',
+			'TORNEIO ABERTURA APL SUB-19',
+			'CAMP. REG. SUB-19 - 1ª FASE'
+		];
+		expect(semPrefixoComum(sub19)).toEqual(sub19);
+	});
+
+	it('um nome só fica como está', () => {
+		expect(semPrefixoComum(['CAMP. REG. SUB-17 - 1ª FASE'])).toEqual([
+			'CAMP. REG. SUB-17 - 1ª FASE'
+		]);
+	});
+
+	/**
+	 * Um rótulo em branco é pior do que um rótulo comprido. O caso é um nome que acaba
+	 * exactamente no separador: cortar deixava-o sem nada e o outro com uma letra.
+	 */
+	it('nunca devolve vazio, e se um ficasse vazio ninguém é cortado', () => {
+		const limite = ['CAMP. REG. SUB-13 -', 'CAMP. REG. SUB-13 - B'];
+		expect(semPrefixoComum(limite)).toEqual(limite);
+	});
+
+	it('não corta quando o que é comum não acaba num separador', () => {
+		const sem = ['TAÇA ALFA', 'TAÇA BETA'];
+		expect(semPrefixoComum(sem)).toEqual(sem);
 	});
 });
