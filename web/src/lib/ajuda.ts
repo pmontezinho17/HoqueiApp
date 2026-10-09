@@ -109,7 +109,7 @@ export const PERGUNTAS: Pergunta[] = [
 		r: `Praticamente nada, e por desenho. Não há conta, não há login, não há cookies e
 		    não há código de terceiros. As equipas que segues ficam no teu aparelho e não
 		    saem dele.
-		    <br><br>Tudo o que é guardado — são cinco coisas, todas no teu telemóvel — está
-		    enumerado uma a uma na <a href="/privacidade">política de privacidade</a>.`
+		    <br><br>Tudo o que fica guardado está no teu telemóvel, e está enumerado um a um
+		    na <a href="/privacidade">política de privacidade</a>.`
 	}
 ];

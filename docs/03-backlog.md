@@ -1169,6 +1169,47 @@ que ela mostra são resultados de jogos, que são públicos. Em `hoquei.pages.de
 adivinha-se à primeira — e ali já se vê quantas pessoas usam a app, que é outra coisa. Fica
 atrás da mesma `CHAVE_CONTAGENS` que fecha o `/contagens`.
 
+### E a chave cola-se uma vez, não a cada visita
+
+A primeira versão exigia `?chave=…` sempre. O dono perguntou se tinha de a pôr no endereço
+todas as vezes, eu respondi que um favorito resolvia, e ele **perguntou outra vez**. Tinha
+razão e eu estava a defender o desenho em vez de o ouvir: um favorito resolve *reescrever*, não
+resolve **abrir a consola de cabeça**, que é o que se faz com o telemóvel na mão num pavilhão.
+
+Agora `/consola` sem chave devolve uma caixa; cola-se uma vez, fica no `localStorage` desse
+browser, e a partir daí o endereço simples basta. Verificado: escrever `/consola` sem nada abre
+a consola com os seis painéis.
+
+**O que isto custou, e foi dito antes de se fazer:** sem chave, isto respondia 404 e escondia
+que existia; agora quem adivinhar o caminho sabe que há aqui uma consola. Entrar continua a
+exigir a chave — a diferença é entre uma porta sem campainha e uma porta com fechadura, e a
+fechadura é a mesma.
+
+**Sem cookie**, de propósito: a `/privacidade` promete zero cookies e essa promessa não se
+gasta nisto. A chave nova ficou enumerada nessa página no mesmo commit, com a nota de que só
+existe em quem abra a consola.
+
+**Uma chave mudada no painel não deixa o browser preso.** A caixa apaga a guardada antes de
+voltar a pedir — testado a simular exactamente isso: diz "essa chave não serve", limpa, e
+pede. Sem ciclo.
+
+### E a página de privacidade deixou de poder derivar sozinha
+
+Era a segunda vez que ia acontecer. A primeira foi minha, a 06/10: a página dizia uma chave em
+`localStorage` e havia duas, porque o `guia-visto` nasceu sem passar por lá. Hoje ia ser a
+chave da consola.
+
+O `AGENTS.md` diz "código e documento no mesmo commit quando o documento afirma algo sobre o
+código", e dá **esta página** como exemplo. Passou a teste: varre o código da app e das
+Functions à procura de chaves `hoquei:` e `ok4sticks:` e exige que cada uma esteja escrita na
+página; e confirma que nada no código faz `document.cookie =`. Varre o código e não uma lista
+escrita no teste, pela razão de sempre — uma lista copiada para um teste tem o problema que o
+teste tenta resolver. Verificado a tirar a chave da página e a vê-lo falhar.
+
+Pelo mesmo motivo, o FAQ deixou de dizer **"são cinco coisas"**: um número escrito à mão sobre
+uma lista que cresce é a definição de resposta que apodrece, e eu já tinha posto um teste a
+recusar isso na resposta da cadência.
+
 O link que o aviso põe na issue é `/consola` **sem a chave**, de propósito: as issues deste
 repositório são públicas, e uma chave numa issue pública é uma chave queimada.
 
