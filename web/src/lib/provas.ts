@@ -143,3 +143,21 @@ export function filtrarProvas(
 		.map(([e, provas]): [string, Prova[]] => [e, provas.filter((p) => p.viva)])
 		.filter(([, provas]) => provas.length > 0);
 }
+
+/**
+ * O endereço do menu de Competições, com uma coisa trocada e o resto preservado.
+ *
+ * **Vive aqui e não dentro do componente porque é o que parte em silêncio.** Na consola, há
+ * uma hora, um gráfico montava os seus links à mão e esqueceu-se da vista nova: clicar num dia
+ * levava para o sítio errado, e nada acusou. Um construtor só, testado, não tem esse problema.
+ *
+ * O estado deste ecrã é **todo** o endereço: qual o escalão aberto e se as provas terminadas
+ * estão à vista. Nada em memória — assim recarregar, partilhar e voltar atrás mostram o mesmo.
+ */
+export function enderecoDoMenu(estado: { escalao?: string | null; tudo?: boolean }): string {
+	const p = new URLSearchParams();
+	if (estado.escalao) p.set('escalao', estado.escalao);
+	if (estado.tudo) p.set('tudo', '1');
+	const q = p.toString();
+	return q ? `/competicoes?${q}` : '/competicoes';
+}

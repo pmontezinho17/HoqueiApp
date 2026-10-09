@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { agruparProvas, filtrarProvas, provaActual } from './provas';
+import { agruparProvas, enderecoDoMenu, filtrarProvas, provaActual } from './provas';
 import type { Competicao, Jogo } from './tipos';
 
 /** Só interessam a data e o resultado; `disputado()` olha para os golos. */
@@ -164,5 +164,28 @@ describe('filtrar o que se mostra', () => {
 		const v = filtrarProvas(dados.escaloes, true);
 		expect(v.map(([e]) => e)).toEqual(['SUB-19', 'SUB-13']);
 		expect(v.flatMap(([, p]) => p)).toHaveLength(3);
+	});
+});
+
+describe('o endereço do menu de Competições', () => {
+	it('sem estado nenhum é o caminho simples', () => {
+		expect(enderecoDoMenu({})).toBe('/competicoes');
+		expect(enderecoDoMenu({ escalao: null, tudo: false })).toBe('/competicoes');
+	});
+
+	it('leva o escalão aberto e o interruptor', () => {
+		expect(enderecoDoMenu({ escalao: 'sub-19' })).toBe('/competicoes?escalao=sub-19');
+		expect(enderecoDoMenu({ tudo: true })).toBe('/competicoes?tudo=1');
+		expect(enderecoDoMenu({ escalao: 'escolares', tudo: true })).toBe(
+			'/competicoes?escalao=escolares&tudo=1'
+		);
+	});
+
+	/**
+	 * O defeito que isto existe para impedir: fechar o desdobramento não pode apagar o
+	 * interruptor, senão quem estava a ver as provas terminadas perde-as ao voltar atrás.
+	 */
+	it('fechar o escalão preserva o interruptor', () => {
+		expect(enderecoDoMenu({ escalao: null, tudo: true })).toBe('/competicoes?tudo=1');
 	});
 });
