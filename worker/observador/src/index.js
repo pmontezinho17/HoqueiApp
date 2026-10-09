@@ -174,19 +174,24 @@ export function saude(agenda, dia, hora, geradoEm, agoraMs = Date.now()) {
 }
 
 /**
- * Avisar quando a saúde fica vermelha — e só quando **muda**.
+ * Avisar quando a cadeia muda de cor — e avisar **de maneira que chegue**.
  *
- * Uma consola só vale se alguém estiver a olhar, e às 16:00 de sábado ninguém está. Isto é
- * o que protege o fim de semana: três noites seguidas a ronda das 00:30 falhou e o que
- * avisou o dono foi um email, não um painel.
+ * ## A perna que faltava
  *
- * **Abre uma issue no repositório**, e a GitHub manda-lhe o email. Não é preguiça: o envio
- * de email da Cloudflare exige um domínio registado no serviço, e o domínio próprio está
- * adiado por decisão dele (B9.27). Este caminho usa um canal que ele já lê — foi por ele
- * que reparou nas falhas das Actions — e não precisa de domínio nenhum.
+ * Isto abria a issue aqui, com `POST /issues`, e recebia 201. O que nunca fez foi chegar a
+ * alguém: o token é pessoal, logo a issue nascia com o dono por autor, e **a GitHub não
+ * notifica ninguém das suas próprias acções**. Confirmado a 09/10/2026 a perguntar quem era
+ * o autor da issue de teste: `pmontezinho17`, ele mesmo. Não se apanha a ler o código — o
+ * `POST` devolve 201, que é sucesso.
  *
- * Só avisa na **transição** para vermelho. Um vermelho que dure a tarde toda não abre
- * trezentas issues, e o regresso a verde fecha a que estiver aberta.
+ * Agora quem escreve a issue é o `aviso.yml`, com o `GITHUB_TOKEN` embutido das Actions, cujo
+ * actor é o `github-actions[bot]`. Outro actor, logo há notificação.
+ *
+ * O que este Worker faz é **compor o texto e despachar o workflow**. O texto fica aqui porque
+ * é aqui que está o diagnóstico; a entrega fica lá porque é lá que há um actor que notifica.
+ *
+ * Precisa de `Actions: Read and write` no token. Só `Actions: Read-only` dá 403 ao despachar,
+ * e o `/verificar-aviso` di-lo por palavras.
  */
 async function avisar(env, antes, agora, dia) {
 	if (!env.GITHUB_TOKEN) return 'sem token: aviso não enviado';
@@ -194,67 +199,62 @@ async function avisar(env, antes, agora, dia) {
 	const voltouAVerde = antes === 'vermelho' && agora.estado === 'verde';
 	if (!passouAVermelho && !voltouAVerde) return null;
 
-	const cabecalhos = {
-		'User-Agent': UA,
-		Authorization: `Bearer ${env.GITHUB_TOKEN}`,
-		Accept: 'application/vnd.github+json',
-		'Content-Type': 'application/json'
-	};
-	const titulo = `Cadeia em vermelho — ${dia}`;
-	const api = `https://api.github.com/repos/${env.REPO}/issues`;
+	const corpo = passouAVermelho
+		? [
+				`A ${dia}, às ${emLisboa().hora}, a cadeia passou a vermelho.`,
+				'',
+				agora.sem_resultado?.length
+					? `- **${agora.sem_resultado.length} jogo(s) sem resultado** há mais de 2 h: ${agora.sem_resultado.join(', ')}`
+					: null,
+				agora.ao_vivo_preso?.length
+					? `- **"ao vivo" preso** em: ${agora.ao_vivo_preso.join(', ')}`
+					: null,
+				agora.publicacao_velha
+					? `- **os dados têm ${agora.dados_com_minutos} min** e há ${agora.a_decorrer} jogo(s) na janela`
+					: null,
+				'',
+				`Consola: ${env.CONSOLA ?? 'https://hoquei-observador.torneiopa.workers.dev/'}`,
+				'',
+				'_Composto pelo `worker/observador` e aberto pelo `aviso.yml`. Fecha-se sozinha_',
+				'_quando voltar a verde._'
+			]
+				.filter((l) => l !== null)
+				.join('\n')
+		: '';
 
-	// procura-se a issue deste dia antes de abrir outra
-	let aberta = null;
+	const r = await despachar(env, {
+		estado: passouAVermelho ? 'vermelho' : 'verde',
+		dia,
+		corpo
+	});
+	// 204 é o "aceite" da GitHub: a corrida entra em fila e abre a issue daí a ~20 s
+	if (r.ok) return `aviso despachado (${passouAVermelho ? 'vermelho' : 'verde'})`;
+	return `o despacho do aviso falhou: HTTP ${r.status}`;
+}
+
+/** Despachar o `aviso.yml`. Devolve o estado, porque um aviso que não sai tem de ficar escrito. */
+async function despachar(env, inputs) {
+	const url = `https://api.github.com/repos/${env.REPO}/actions/workflows/aviso.yml/dispatches`;
 	try {
-		const r = await fetch(`${api}?state=open&labels=cadeia&per_page=5`, { headers: cabecalhos });
-		if (r.ok) aberta = (await r.json()).find((i) => i.title === titulo) ?? null;
-	} catch {
-		/* se a procura falhar, abre-se na mesma: um aviso a mais é melhor que nenhum */
-	}
-
-	if (passouAVermelho) {
-		const corpo = [
-			`A ${dia}, às ${emLisboa().hora}, a cadeia passou a vermelho.`,
-			'',
-			agora.sem_resultado?.length
-				? `- **${agora.sem_resultado.length} jogo(s) sem resultado** há mais de 2 h: ${agora.sem_resultado.join(', ')}`
-				: null,
-			agora.ao_vivo_preso?.length
-				? `- **"ao vivo" preso** em: ${agora.ao_vivo_preso.join(', ')}`
-				: null,
-			agora.publicacao_velha
-				? `- **os dados têm ${agora.dados_com_minutos} min** e há ${agora.a_decorrer} jogo(s) na janela`
-				: null,
-			'',
-			`Consola: ${env.CONSOLA ?? 'https://hoquei-observador.torneiopa.workers.dev/'}`,
-			'',
-			'_Aberto pelo `worker/observador`. Fecha-se sozinho quando voltar a verde._'
-		]
-			.filter((l) => l !== null)
-			.join('\n');
-		if (aberta) {
-			await fetch(`${api}/${aberta.number}/comments`, {
-				method: 'POST', headers: cabecalhos, body: JSON.stringify({ body: corpo })
-			});
-			return `comentada a issue #${aberta.number}`;
-		}
-		const r = await fetch(api, {
+		const r = await fetch(url, {
 			method: 'POST',
-			headers: cabecalhos,
-			body: JSON.stringify({ title: titulo, body: corpo, labels: ['cadeia'] })
+			headers: {
+				'User-Agent': UA,
+				Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+				Accept: 'application/vnd.github+json',
+				'X-GitHub-Api-Version': '2022-11-28',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ ref: env.REF ?? 'main', inputs })
 		});
-		return r.ok ? `issue aberta` : `a issue falhou: HTTP ${r.status}`;
+		return {
+			ok: r.status === 204,
+			status: r.status,
+			corpo: r.status === 204 ? '' : (await r.text()).slice(0, 200)
+		};
+	} catch (e) {
+		return { ok: false, status: 0, corpo: String(e).slice(0, 120) };
 	}
-
-	if (voltouAVerde && aberta) {
-		await fetch(`${api}/${aberta.number}`, {
-			method: 'PATCH',
-			headers: cabecalhos,
-			body: JSON.stringify({ state: 'closed' })
-		});
-		return `issue #${aberta.number} fechada`;
-	}
-	return null;
 }
 
 /**
@@ -438,79 +438,45 @@ async function observar(env) {
 /**
  * Provar que o aviso funciona, sem esperar que algo corra mal.
  *
- * **Porque é que isto existe:** a cadeia de aviso — saúde a vermelho → issue na GitHub →
- * email — esteve construída e testada desde 06/10/2026 e **nunca disparou uma única vez**,
- * porque faltava o segredo. Ninguém soube até alguém ir ler o registo e encontrar lá
- * `sem token: aviso não enviado`. Um aviso que não se consegue experimentar é um aviso em que
- * não se pode confiar, e o dia em que se descobre que não funciona é sempre o pior dia.
+ * **Porque é que isto existe:** a cadeia de aviso — saúde a vermelho → issue → email — esteve
+ * construída e testada desde 06/10/2026 e **nunca chegou a ninguém**. Primeiro porque faltava
+ * o segredo; depois, com o segredo lá, porque a issue nascia com o dono por autor e a GitHub
+ * não notifica ninguém das suas próprias acções. Dois modos de falha seguidos, ambos
+ * silenciosos, ambos a devolverem sucesso.
  *
- * Abre uma issue e fecha-a logo. Fica marcada como teste, com etiqueta `teste` e não `cadeia`,
- * para não se cruzar com a procura que o `avisar` faz. O que isto prova, e que uma leitura das
- * Actions não prova: que o token tem **Issues: Read and write**, e que o email chega.
+ * Um aviso que não se consegue experimentar é um aviso em que não se pode confiar, e o dia em
+ * que se descobre que não funciona é sempre o pior dia.
+ *
+ * Despacha o `aviso.yml` com `estado: teste`: ele abre uma issue com etiqueta `teste` — não
+ * `cadeia`, para não se cruzar com a procura do aviso a sério — e fecha-a logo. **Percorre o
+ * mesmo caminho que o aviso verdadeiro**, que é o que faz disto uma prova e não uma encenação.
  *
  * Correr outra vez sempre que o token for rodado.
  */
 async function verificarAviso(env) {
 	if (!env.GITHUB_TOKEN) return { ok: false, porque: 'sem GITHUB_TOKEN no Worker' };
-	const cabecalhos = {
-		'User-Agent': UA,
-		Authorization: `Bearer ${env.GITHUB_TOKEN}`,
-		Accept: 'application/vnd.github+json',
-		'Content-Type': 'application/json'
-	};
-	const api = `https://api.github.com/repos/${env.REPO}/issues`;
-	const { dia, hora } = emLisboa();
-
-	const abriu = await fetch(api, {
-		method: 'POST',
-		headers: cabecalhos,
-		body: JSON.stringify({
-			title: `Teste do aviso — ${dia} ${hora}`,
-			body: [
-				'Isto é um teste do aviso e **não há nada de errado com a cadeia**.',
-				'',
-				'Foi aberta de propósito para provar três coisas que uma leitura não prova:',
-				'',
-				'1. o token do observador tem `Issues: Read and write`;',
-				'2. a GitHub manda o email quando uma issue é aberta;',
-				'3. o caminho que o aviso a sério percorre está inteiro.',
-				'',
-				'Fecha-se a si mesma uns segundos depois de nascer. `GET /verificar-aviso` no',
-				'observador repete o teste — é o que se faz a cada rotação do token.'
-			].join('\n'),
-			labels: ['teste']
-		})
-	});
-	if (!abriu.ok) {
-		const detalhe = (await abriu.text()).slice(0, 200);
+	const { dia } = emLisboa();
+	const r = await despachar(env, { estado: 'teste', dia, corpo: '' });
+	if (r.ok) {
 		return {
-			ok: false,
-			abrir: `HTTP ${abriu.status}`,
-			// 403 aqui, com as corridas a lerem-se bem, significa uma coisa só: o token lê as
-			// Actions e não escreve nas Issues
-			porque:
-				abriu.status === 403
-					? 'o token não tem `Issues: Read and write` — as Actions lêem-se, as issues não'
-					: detalhe
+			ok: true,
+			despacho: 'HTTP 204',
+			corridas: `https://github.com/${env.REPO}/actions/workflows/aviso.yml`,
+			leia_se:
+				'despachado. A corrida abre a issue daí a ~20 s e o email sai na abertura — o ' +
+				'autor é o github-actions[bot], que é o que faz a notificação existir. Ver a ' +
+				'corrida no endereço acima.'
 		};
 	}
-
-	const { number, html_url: endereco } = await abriu.json();
-	const fechou = await fetch(`${api}/${number}`, {
-		method: 'PATCH',
-		headers: cabecalhos,
-		body: JSON.stringify({ state: 'closed' })
-	});
-
 	return {
-		ok: fechou.ok,
-		issue: number,
-		endereco,
-		abrir: `HTTP ${abriu.status}`,
-		fechar: `HTTP ${fechou.status}`,
-		leia_se: fechou.ok
-			? 'a cadeia está inteira: a issue foi aberta e fechada, e o email saiu na abertura'
-			: 'a issue abriu mas não fechou — o aviso a sério funciona, a limpeza não'
+		ok: false,
+		despacho: `HTTP ${r.status}`,
+		porque:
+			// 403 com as corridas a lerem-se bem significa uma coisa só, e é fácil de corrigir
+			// sem tocar no segredo: editar as permissões do token não muda o seu valor
+			r.status === 403
+				? 'o token tem `Actions: Read-only` e para despachar precisa de `Actions: Read and write`'
+				: r.corpo
 	};
 }
 

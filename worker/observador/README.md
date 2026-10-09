@@ -41,16 +41,34 @@ resposta de dois em dois minutos eram ~720 escritas/dia, e a Cache API é gráti
 
 ## O aviso
 
-Quando a saúde passa a vermelha, o Worker **abre uma issue** no repositório — e a GitHub manda
-o email. O envio de email da Cloudflare exigia um domínio registado no serviço, e o domínio
-próprio está adiado (B9.27); este caminho usa um canal que o dono já lê.
+Quando a saúde passa a vermelha sai uma issue no repositório, e a GitHub manda o email. O
+envio de email da Cloudflare exigia um domínio registado no serviço, e o domínio próprio está
+adiado (B9.27); este caminho usa um canal que o dono já lê.
 
 Só avisa na transição, e fecha a issue quando voltar a verde.
 
-**Falta o segredo, e é um passo do dono.** O token do relógio **não serve**: esse foi criado
-com `Actions: Read and write` e mais nada, e aqui são precisas duas permissões, uma delas que
-ele não tem. E o valor de um token não se recupera na GitHub depois de criado — mostra-se uma
-vez. Portanto é um token novo:
+**Quem escreve a issue é o `aviso.yml`, não este Worker.** O Worker compõe o texto — é aqui
+que está o diagnóstico — e despacha o workflow. A razão é a única que importa: enquanto a
+issue era aberta com o token pessoal, nascia com o dono por autor, e **a GitHub não notifica
+ninguém das suas próprias acções**. Funcionava tudo menos a perna que ele vê. Pelo `aviso.yml`
+o autor é o `github-actions[bot]`, que é outro actor, e a notificação existe. Custa ~20 s de
+atraso, irrelevantes num aviso que diz "isto está assim há mais de duas horas".
+
+Experimentar sem esperar que algo corra mal:
+
+```bash
+curl -s https://hoquei-observador.torneiopa.workers.dev/verificar-aviso
+```
+
+Abre uma issue com etiqueta `teste` e fecha-a logo, pelo mesmo caminho do aviso a sério.
+
+**O segredo é um passo do dono.** A 09/10/2026 foi criado um token `hoquei-observador` com
+`Issues: Read and write` e `Actions: Read-only` — e depois de o aviso passar pelo `aviso.yml`
+as permissões certas mudaram: basta `Actions: Read and write`. **Editar as permissões de um
+token não muda o seu valor**, logo isso faz-se na página do token, sem voltar a colá-lo aqui.
+
+Se for preciso um token de novo — o valor não se recupera na GitHub depois de criado, mostra-se
+uma vez —, é assim:
 
 1. **github.com → Settings → Developer settings → Personal access tokens → Fine-grained
    tokens → Generate new token**.
@@ -58,12 +76,13 @@ vez. Portanto é um token novo:
 3. **Expiration**: sem prazo, pela mesma razão do relógio — um prazo faz o aviso emudecer
    num sábado de jogos sem ninguém perceber porquê. Com prazo, lembrete no calendário.
 4. **Repository access** → *Only select repositories* → **HoqueiApp**.
-5. **Permissions** → *Repository permissions*, duas e mais nenhuma:
-   * **Issues: Read and write** — é por aqui que o aviso sai, porque é a issue que faz a
-     GitHub mandar o email;
-   * **Actions: Read-only** — é o painel "a cadeia" da consola. Sem token a GitHub responde
+5. **Permissions** → *Repository permissions* → **Actions: Read and write**, e mais nenhuma.
+   É uma permissão e serve as duas coisas que este Worker faz na GitHub:
+   * **ler** as corridas, para o painel "a cadeia" da consola. Sem token a GitHub responde
      403 mesmo a um repositório público, porque o limite sem autenticação é por IP e os IPs
-     de saída da Cloudflare vêm com o balde gasto.
+     de saída da Cloudflare vêm com o balde gasto;
+   * **escrever** para despachar o `aviso.yml`. Já não é preciso `Issues` aqui: quem escreve
+     a issue é o workflow, com o token embutido das Actions.
 6. Gera e **copia o token**. A GitHub só o mostra uma vez.
 
 ```bash

@@ -1,0 +1,117 @@
+name: Aviso da cadeia
+
+# Abrir e fechar a issue de aviso, **como robô e não como o dono**.
+#
+# ## Porque é que isto existe e não é o Worker a fazê-lo
+#
+# O observador sabe abrir a issue sozinho — fazia-o, com `POST /issues`, e recebia 201. O que
+# não fazia era chegar a alguém. O token é pessoal, logo a issue nascia com o dono por autor,
+# e **a GitHub não notifica ninguém das suas próprias acções**. Toda a cadeia funcionava
+# excepto a última perna, que é a única que ele vê. Medido a 09/10/2026 a perguntar quem era o
+# autor da issue #1: `pmontezinho17`.
+#
+# Aqui a issue é criada com o `GITHUB_TOKEN` embutido nas Actions, cujo actor é o
+# `github-actions[bot]`. Outro actor, logo há notificação e o email sai.
+#
+# Custa ~20 s de atraso entre a saúde passar a vermelho e o email. É irrelevante num aviso que
+# diz "isto está assim há mais de duas horas".
+
+on:
+  workflow_dispatch:
+    inputs:
+      estado:
+        description: vermelho abre ou comenta, verde fecha, teste prova a cadeia
+        type: choice
+        options: [vermelho, verde, teste]
+        required: true
+      dia:
+        description: data de Lisboa do aviso (AAAA-MM-DD)
+        type: string
+        required: true
+      corpo:
+        description: o texto do aviso, já composto pelo observador
+        type: string
+        required: false
+        default: ''
+
+# só o que é preciso: nem `contents: write` nem nada que mexa no código
+permissions:
+  issues: write
+
+# Dois avisos ao mesmo tempo abririam duas issues para o mesmo dia. Em fila, o segundo vê o
+# que o primeiro deixou — e `cancel-in-progress: false` porque cancelar um aviso é perdê-lo.
+concurrency:
+  group: aviso
+  cancel-in-progress: false
+
+jobs:
+  avisar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Abrir, comentar ou fechar
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ESTADO: ${{ inputs.estado }}
+          DIA: ${{ inputs.dia }}
+          CORPO: ${{ inputs.corpo }}
+        run: |
+          set -euo pipefail
+
+          if [ "$ESTADO" = "teste" ]; then
+            titulo="Teste do aviso — $DIA"
+            etiqueta=teste
+          else
+            titulo="Cadeia em vermelho — $DIA"
+            etiqueta=cadeia
+          fi
+
+          # a issue deste dia, se já existir: um aviso que volta não abre uma segunda
+          numero=$(gh issue list --state open --label "$etiqueta" --limit 20 \
+            --json number,title \
+            --jq "[.[] | select(.title == \"$titulo\")] | .[0].number // empty")
+
+          case "$ESTADO" in
+            vermelho)
+              if [ -n "$numero" ]; then
+                gh issue comment "$numero" --body "$CORPO"
+                echo "comentada a issue #$numero" >> "$GITHUB_STEP_SUMMARY"
+              else
+                # `--label` cria a etiqueta se ela não existir ainda
+                url=$(gh issue create --title "$titulo" --body "$CORPO" --label "$etiqueta")
+                echo "aberta: $url" >> "$GITHUB_STEP_SUMMARY"
+              fi
+              ;;
+            verde)
+              if [ -n "$numero" ]; then
+                gh issue close "$numero" \
+                  --comment "A cadeia voltou a verde. Fechada pelo \`aviso.yml\`."
+                echo "fechada a issue #$numero" >> "$GITHUB_STEP_SUMMARY"
+              else
+                # não é erro: a saúde pode ter voltado a verde sem nunca ter aberto nada
+                echo "nada aberto para $DIA — nada a fechar" >> "$GITHUB_STEP_SUMMARY"
+              fi
+              ;;
+            teste)
+              # Um heredoc e não um `--body` de várias linhas: dentro de um `run: |` as linhas
+              # de continuação guardam a indentação, e catorze espaços à frente de um parágrafo
+              # fazem o Markdown desenhá-lo como bloco de código.
+              cat > corpo-do-teste.md <<'MD'
+          Isto é um teste do aviso e **não há nada de errado com a cadeia**.
+
+          Foi aberta de propósito para provar as três coisas que uma leitura não prova:
+
+          1. o token do observador consegue despachar este workflow;
+          2. a issue nasce com o `github-actions[bot]` por autor, e não com o do dono — que é
+             a razão pela qual o email passou a chegar;
+          3. a GitHub manda mesmo o email.
+
+          Fecha-se a si mesma uns segundos depois de nascer. Repetir com `GET /verificar-aviso`
+          no observador, a cada rotação do token.
+          MD
+              url=$(gh issue create --title "$titulo" --body-file corpo-do-teste.md \
+                --label "$etiqueta")
+              gh issue close "${url##*/}" --comment "Teste terminado."
+              echo "teste: $url (aberta e fechada)" >> "$GITHUB_STEP_SUMMARY"
+              ;;
+          esac
