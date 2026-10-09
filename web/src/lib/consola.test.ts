@@ -111,16 +111,31 @@ describe('o pulso do observador', () => {
 		expect(html).toContain('lido há 2 min');
 	});
 
-	it('uma leitura velha deixa de ser "tudo em ordem"', () => {
+	/**
+	 * Estes dois só valem **dentro das horas de leitura**. De madrugada o observador está
+	 * calado por desenho, e um alarme que toca todas as noites é um alarme que se aprende a
+	 * ignorar — por isso o teste salta-se quando corre fora de horas, em vez de afirmar o
+	 * contrário do que o código faz.
+	 */
+	const emHorasDeLeitura =
+		Number(new Date().toLocaleString('sv-SE', { timeZone: 'Europe/Lisbon' }).slice(11, 13)) >= 7;
+
+	it.runIf(emHorasDeLeitura)('uma leitura velha deixa de ser "tudo em ordem"', () => {
 		const html = comPulso(840); // as catorze horas da noite de 09/10
 		expect(html).not.toContain('tudo em ordem');
 		expect(html).toContain('o observador está calado');
 		expect(html).toContain('última leitura há 840 min');
 	});
 
-	it('nunca ter lido também é estar calado, e não estar bem', () => {
+	it.runIf(emHorasDeLeitura)('nunca ter lido também é estar calado, e não estar bem', () => {
 		const html = comPulso(null);
 		expect(html).not.toContain('tudo em ordem');
 		expect(html).toContain('nunca leu');
+	});
+
+	it.runIf(!emHorasDeLeitura)('de madrugada o silêncio não é alarme', () => {
+		const html = comPulso(840);
+		expect(html).toContain('fora das horas de leitura');
+		expect(html).not.toContain('o observador está calado');
 	});
 });

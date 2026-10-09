@@ -426,8 +426,24 @@ function minutosDesdeOPulso(actualizado) {
 	return Number.isFinite(m) ? Math.max(0, Math.round(m)) : null;
 }
 
-/** Acima disto, o que a consola mostra já não é "agora". */
+/** Acima disto, o que a consola mostra já não é "agora". Dá folga para uma firada falhada
+ *  do relógio, que acorda o observador de dez em dez minutos. */
 const PULSO_VELHO = 15;
+
+/**
+ * As horas em que o observador **devia** estar a ler, em Lisboa.
+ *
+ * Fora delas o silêncio é o desenho e não uma avaria: o relógio que o acorda corre das 07:00
+ * às 23:59 — de dez em dez minutos, nas horas 6 a 22 em UTC. Sem esta distinção a consola
+ * ficava vermelha a noite toda, e um alarme que toca todas as noites é um alarme que se
+ * aprende a ignorar.
+ *
+ * @param {Date} [quando]
+ */
+function dentroDasHorasDeLeitura(quando = new Date()) {
+	const h = Number(quando.toLocaleString('sv-SE', { timeZone: 'Europe/Lisbon' }).slice(11, 13));
+	return h >= 7;
+}
 
 /** Hoje, em Lisboa, que é o dia que manda em toda a consola. @param {string} d */
 const ehHojeBase = (d) =>
@@ -451,7 +467,8 @@ export function pagina({
 	vista = 'utilizadores'
 }) {
 	const pulso = minutosDesdeOPulso(actualizado);
-	const cego = pulso === null || pulso > PULSO_VELHO;
+	const horasDeLeitura = dentroDasHorasDeLeitura();
+	const cego = horasDeLeitura && (pulso === null || pulso > PULSO_VELHO);
 	// **Duas vistas, pedidas pelo dono a 09/10/2026**: *"podíamos ter esta visão separada por
 	// visão de utilizadores e visão de sistema (chamadas/rondas)"*. São duas perguntas
 	// diferentes — "quem usa isto?" e "a máquina está de pé?" — e misturá-las num ecrã só
@@ -807,11 +824,13 @@ export function pagina({
 				: 'o cron corre nas horas de jogos — ou força com /observar'
 		}
         ${
-			pulso === null
-				? '<span>nunca leu</span>'
-				: cego
-					? `<span>última leitura há ${pulso} min — o que está acima é desse momento, não de agora</span>`
-					: `· lido há ${pulso} min`
+			cego
+				? pulso === null
+					? '<span>nunca leu</span>'
+					: `<span>última leitura há ${pulso} min — o que está acima é desse momento, não de agora</span>`
+				: pulso === null
+					? '· ainda sem leituras'
+					: `· lido há ${pulso} min${horasDeLeitura ? '' : ', e fora das horas de leitura'}`
 		}
       </span>
     </div>
