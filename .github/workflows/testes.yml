@@ -60,6 +60,19 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: web
+          # **A versão do wrangler, fixada, e isto quebrou uma publicação a 09/10/2026.**
+          #
+          # Por omissão o `wrangler-action@v3` instala `wrangler@3.90.0` dentro do projecto.
+          # Funcionou enquanto o `web/` não tinha wrangler nenhum; no dia em que passou a ter
+          # `@cloudflare/workers-types@^5` como dependência de desenvolvimento, o `npm i`
+          # rebentou com `ERESOLVE` — a 3.90 pede tipos `^4` por peer dependency.
+          #
+          # Fixar não é só calar o erro: os **dois publicadores** passam a usar a mesma versão.
+          # O `scripts/aovivo.sh` publica com o wrangler local, que é 4.x, e este passo
+          # publicava com 3.90 — a mesma espécie de divergência de que fala o comentário do
+          # `workingDirectory` acima, e com o mesmo sintoma possível: um sábado em que o que
+          # vai para o CDN depende de quem publicou.
+          wranglerVersion: '4.149.0'
           command: pages deploy build --project-name hoquei --branch testes
 
       - name: Onde ficou
