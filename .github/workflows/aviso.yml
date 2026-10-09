@@ -11,7 +11,22 @@ name: Aviso da cadeia
 # autor da issue #1: `pmontezinho17`.
 #
 # Aqui a issue é criada com o `GITHUB_TOKEN` embutido nas Actions, cujo actor é o
-# `github-actions[bot]`. Outro actor, logo há notificação e o email sai.
+# `github-actions[bot]`. Outro actor, logo pode haver notificação.
+#
+# ## E mesmo assim não chegava: a segunda razão
+#
+# Com o robô por autor, o email continuou a não aparecer. Medido:
+#
+#     GET /repos/pmontezinho17/HoqueiApp/subscription  →  404
+#     GET /repos/pmontezinho17/HoqueiApp               →  subscribers_count: 0
+#
+# **O dono não está a seguir o próprio repositório.** Sem subscrição não se gera notificação
+# nenhuma — nem email nem sininho —, por muito bem que a issue seja aberta.
+#
+# A saída não é pedir-lhe que carregue em *Watch*, porque isso é uma definição que ninguém
+# relê e que um dia desaparece sem aviso: é **atribuir-lhe a issue**. Uma atribuição notifica
+# sempre, independentemente de se seguir ou não o repositório, e fica no código — que é um
+# sítio onde se vê.
 #
 # Custa ~20 s de atraso entre a saúde passar a vermelho e o email. É irrelevante num aviso que
 # diz "isto está assim há mais de duas horas".
@@ -52,6 +67,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
+          # quem leva com o aviso. O dono do repositório, sem o nome escrito à mão.
+          DONO: ${{ github.repository_owner }}
           ESTADO: ${{ inputs.estado }}
           DIA: ${{ inputs.dia }}
           CORPO: ${{ inputs.corpo }}
@@ -78,7 +95,8 @@ jobs:
                 echo "comentada a issue #$numero" >> "$GITHUB_STEP_SUMMARY"
               else
                 # `--label` cria a etiqueta se ela não existir ainda
-                url=$(gh issue create --title "$titulo" --body "$CORPO" --label "$etiqueta")
+                url=$(gh issue create --title "$titulo" --body "$CORPO" \
+                  --label "$etiqueta" --assignee "$DONO")
                 echo "aberta: $url" >> "$GITHUB_STEP_SUMMARY"
               fi
               ;;
@@ -99,18 +117,20 @@ jobs:
               cat > corpo-do-teste.md <<'MD'
           Isto é um teste do aviso e **não há nada de errado com a cadeia**.
 
-          Foi aberta de propósito para provar as três coisas que uma leitura não prova:
+          Foi aberta de propósito para provar as quatro coisas que uma leitura não prova:
 
           1. o token do observador consegue despachar este workflow;
-          2. a issue nasce com o `github-actions[bot]` por autor, e não com o do dono — que é
-             a razão pela qual o email passou a chegar;
-          3. a GitHub manda mesmo o email.
+          2. a issue nasce com o `github-actions[bot]` por autor, e não com o do dono — a
+             GitHub não notifica ninguém das suas próprias acções;
+          3. a issue é **atribuída** ao dono, que é o que faz a notificação existir mesmo sem
+             ele estar a seguir o repositório — e não está: `subscribers_count: 0`;
+          4. a GitHub manda mesmo o email.
 
           Fecha-se a si mesma uns segundos depois de nascer. Repetir com `GET /verificar-aviso`
           no observador, a cada rotação do token.
           MD
               url=$(gh issue create --title "$titulo" --body-file corpo-do-teste.md \
-                --label "$etiqueta")
+                --label "$etiqueta" --assignee "$DONO")
               gh issue close "${url##*/}" --comment "Teste terminado."
               echo "teste: $url (aberta e fechada)" >> "$GITHUB_STEP_SUMMARY"
               ;;
