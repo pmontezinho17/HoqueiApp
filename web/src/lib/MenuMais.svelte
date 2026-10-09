@@ -7,7 +7,7 @@
 	 * nomes de atletas. Eram três coisas de natureza diferente — uma preferência, uma ficha
 	 * técnica e duas páginas legais — amontoadas num ecrã só.
 	 *
-	 * Agora o ⋮ abre isto, e cada coisa tem o seu sítio. Cinco linhas em três grupos: o que
+	 * Agora o ⋮ abre isto, e cada coisa tem o seu sítio. Seis linhas em três grupos: o que
 	 * se faz, o que se escolhe, e o que se lê.
 	 *
 	 * **A aparência escolhe-se aqui dentro, sem ecrã próprio**, por decisão do Pedro a
@@ -107,6 +107,10 @@
 
 		<div class="risca"></div>
 
+		<a class="linha" href="/ajuda" onclick={fechar}>
+			<span class="rotulo">Perguntas frequentes</span>
+			<span class="ajuda">O que se pergunta primeiro, respondido</span>
+		</a>
 		<a class="linha" href="/mais" onclick={fechar}>
 			<span class="rotulo">Sobre a app e os dados</span>
 			<span class="ajuda">A fonte, as contagens e a última actualização</span>

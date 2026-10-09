@@ -1587,7 +1587,36 @@ não corrigi: a chave do guia é `guia-visto` e as outras duas são `hoquei:…:
 reporia o guia a toda a gente que já o viu — e isso é uma decisão sobre o produto, não uma
 arrumação de nomes.
 
-### P11.11 — um FAQ antes de haver perguntas
+### P11.11 — um FAQ antes de haver perguntas · ✅ feito a 09/10/2026
+
+**Como ficou:** `/ajuda`, treze perguntas em acordeão, e a sexta linha no menu do ⋮ acima de
+"Sobre a app e os dados". As perguntas vivem em `web/src/lib/ajuda.ts` — **em dados e não
+dentro do componente, para poderem ser testadas.**
+
+O critério de aceitação dizia "as que dependem de coisas que vão mudar dizem onde vive a
+verdade — senão o FAQ apodrece sem ninguém notar". Isso passou de intenção a teste, e são
+cinco:
+
+* **cada caminho interno de cada resposta é uma rota que existe.** As rotas são lidas do disco
+  e não escritas no teste: uma lista copiada para um teste tem o mesmo problema que o teste
+  tenta resolver;
+* **a resposta da cadência não escreve números.** Diz *como* funciona — "durante um jogo, de
+  meio em meio minuto" é a única excepção, e é a frase que um humano precisa — e manda quem a
+  lê à hora a sério em `/mais`. O teste recusa um `\d+ segundos` ali;
+* o endereço de contacto vem do `contacto.ts` e não escrito à mão;
+* dez a quinze perguntas: o limite de cima é a regra do pedido, o de baixo é para não se
+  esvaziar sem se dar conta;
+* nenhuma repetida, e todas acabam em interrogação.
+
+A resposta nova que não estava na tabela de candidatas: **"num dia sem jogos não vamos buscar
+nada"**, que é a regra de 08/10. E a pergunta "o que é que a app sabe sobre mim" fecha a lista
+a apontar para a `/privacidade`, em vez de repetir em resumo o que ela diz por extenso — dois
+textos a dizer o mesmo divergem no dia em que um deles mudar.
+
+Verificado a 375×812 nos dois temas, com todas as respostas abertas e os quatro destinos de
+link confirmados: `/mais`, `/clube`, `/privacidade` e o `mailto:`.
+
+#### O pedido original
 
 O pedido veio com a ressalva certa: não há perguntas feitas, inventamos as primeiras. Vale a
 pena, e o risco é conhecido — um FAQ escrito do lado de dentro responde ao que **nós** achamos
