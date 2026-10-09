@@ -40,18 +40,20 @@ LISBOA = ZoneInfo("Europe/Lisbon")
 
 
 def decidir(jogos: list[dict] | None, hoje: dt.date, *,
-            forcar: bool = False, cron: str = "", so_fotografia: bool = False
+            forcar: bool = False, cron: str = "", nao_pedir: bool = False
             ) -> tuple[bool, str]:
     """`(correr, porque)` — função pura, para ter testes a sério."""
-    # Primeiro de todos, e antes do `forcar`: uma corrida que só vai tirar a fotografia do
-    # dia não tem nada a perguntar à fonte. Os dados já estão no repositório.
+    # **Primeiro de todos, e antes do `forcar`.** Há corridas que não têm nada a perguntar à
+    # fonte, porque o que elas querem já está no repositório: guardar a fotografia do dia, ou
+    # levar código novo ao site.
     #
-    # Isto nasceu de um erro meu a 09/10/2026: disparei o workflow à mão só para experimentar
-    # o R2 e gastei ~76 pedidos no servidor da associação sem precisar de um único. A regra
-    # deste projecto é contar o custo antes de acrescentar pedidos, e um pedido que não é
-    # preciso é o mais fácil de todos de contar.
-    if so_fotografia:
-        return False, "fotografia à mão — nada a pedir à fonte"
+    # Nasceu de um erro meu a 09/10/2026 — disparei o workflow à mão só para experimentar o
+    # R2 e gastei ~76 pedidos no servidor da associação sem precisar de um único. Horas
+    # depois ganhou uma segunda razão, maior: o servidor da associação ficou **em baixo** e
+    # uma correcção pronta não chegava ao site, porque publicar exigia raspar primeiro. Levar
+    # código ao site não pode depender de um servidor que não é nosso.
+    if nao_pedir:
+        return False, "nada a pedir à fonte nesta corrida"
     if forcar:
         return True, "pedido manual com publicar_sempre"
     if cron == CRON_DO_FECHO:
@@ -87,15 +89,15 @@ def main(argv=None) -> int:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--cron", default="", help="o cron que disparou, se foi agendada")
     p.add_argument("--forcar", action="store_true", help="publicar_sempre")
-    p.add_argument("--so-fotografia", action="store_true",
-                   help="a corrida só vai guardar a fotografia: não se pede nada à fonte")
+    p.add_argument("--nao-pedir", action="store_true",
+                   help="esta corrida não pede nada à fonte (fotografia, ou só publicar)")
     p.add_argument("--agenda", default=AGENDA, help="url ou ficheiro, para testar")
     p.add_argument("--hoje", default=None, help="data a fingir, para testar")
     a = p.parse_args(argv)
 
     hoje = (dt.date.fromisoformat(a.hoje) if a.hoje
             else dt.datetime.now(LISBOA).date())
-    if a.so_fotografia or a.forcar or a.cron == CRON_DO_FECHO:
+    if a.nao_pedir or a.forcar or a.cron == CRON_DO_FECHO:
         jogos = None                              # nem vale a pena ler
     elif a.agenda.startswith("http"):
         jogos = _ler_agenda(a.agenda)
@@ -103,7 +105,7 @@ def main(argv=None) -> int:
         jogos = json.loads(open(a.agenda, encoding="utf-8").read())["jogos"]
 
     correr, porque = decidir(jogos, hoje, forcar=a.forcar, cron=a.cron,
-                             so_fotografia=a.so_fotografia)
+                             nao_pedir=a.nao_pedir)
     print(f"correr={'true' if correr else 'false'}")
     print(f"porque={porque}")
     print(f"  → {porque}", file=sys.stderr)

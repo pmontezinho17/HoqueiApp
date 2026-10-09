@@ -56,23 +56,24 @@ class TestQuandoNaoCorre:
         assert not decidir([jogo(HOJE + dt.timedelta(days=1))], HOJE)[0]
 
 
-class TestSoFotografia:
-    """Uma corrida que só vai guardar a fotografia do dia não pergunta nada à fonte.
+class TestNaoPedir:
+    """Corridas que não têm nada a perguntar à fonte, porque o que querem já está no repo.
 
-    Nasceu de um erro medido a 09/10/2026: disparar o workflow à mão para experimentar o R2
-    custou ~76 pedidos ao servidor da associação, nenhum deles necessário — os dados já
-    estavam no repositório.
+    Duas razões, ambas de 09/10/2026. A primeira foi um erro meu: disparar o workflow à mão
+    para experimentar o R2 custou ~76 pedidos ao servidor da associação, nenhum necessário.
+    A segunda é maior e apareceu horas depois — o servidor da associação ficou em baixo e uma
+    correcção pronta não chegava ao site, porque publicar exigia raspar primeiro.
     """
 
     def test_nao_corre(self):
-        correr, porque = decidir([jogo(HOJE)], HOJE, so_fotografia=True)
+        correr, porque = decidir([jogo(HOJE)], HOJE, nao_pedir=True)
         assert not correr
-        assert porque == "fotografia à mão — nada a pedir à fonte"
+        assert porque == "nada a pedir à fonte nesta corrida"
 
     def test_ganha_ao_forcar(self):
         """`publicar_sempre` não obriga a pedir: publicar é levar código, não raspar."""
-        assert not decidir([jogo(HOJE)], HOJE, so_fotografia=True, forcar=True)[0]
+        assert not decidir([jogo(HOJE)], HOJE, nao_pedir=True, forcar=True)[0]
 
     def test_ganha_a_ronda_do_fecho(self):
-        """Mesmo na hora do fecho: se só se quer a fotografia, não se pede."""
-        assert not decidir(None, HOJE, so_fotografia=True, cron="30 23 * * *")[0]
+        """Mesmo na hora do fecho: se a corrida não é para pedir, não pede."""
+        assert not decidir(None, HOJE, nao_pedir=True, cron="30 23 * * *")[0]

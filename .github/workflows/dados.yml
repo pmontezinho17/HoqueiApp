@@ -35,6 +35,10 @@ on:
         description: Só a fotografia — não pede nada à fonte nem publica
         type: boolean
         default: false
+      so_publicar:
+        description: Só publicar o que está commitado — não pede nada à fonte
+        type: boolean
+        default: false
 
 concurrency:
   group: dados
@@ -82,7 +86,7 @@ jobs:
           uv run python -m hoquei.vale_pedir \
             --cron "${{ github.event.schedule }}" \
             ${{ inputs.publicar_sempre && '--forcar' || '' }} \
-            ${{ inputs.so_fotografia && '--so-fotografia' || '' }} >> "$GITHUB_OUTPUT"
+            ${{ (inputs.so_fotografia || inputs.so_publicar) && '--nao-pedir' || '' }} >> "$GITHUB_OUTPUT"
 
       - name: Nada a pedir à fonte
         if: steps.vale.outputs.correr != 'true'
@@ -156,20 +160,26 @@ jobs:
             git pull --rebase --autostash origin main
           done
 
+      # **`so_publicar` existe porque publicar não pode depender da fonte.** A 09/10/2026,
+      # com uma correcção pronta e urgente, o servidor da associação ficou em baixo e o
+      # `Regenerar /v1` falhava — levando com ele o build e a publicação. Código novo não
+      # chegava ao site por causa de um servidor que não é nosso. Com este disparo a corrida
+      # salta a fonte, constrói a PWA a partir dos dados commitados, e publica.
+      #
       # Sem este passo o ciclo não fecha: a Action comitava dados novos e o site
       # continuava a servir os antigos até alguém publicar à mão.
       # `mudou` **ou** um pedido manual. Sem a segunda metade, um commit que mexa só em
       # código ficava no repositório sem chegar ao site até os dados mudarem por conta
       # própria — num dia sem jogos, dias.
       - uses: actions/setup-node@v4
-        if: steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)
+        if: (steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || inputs.so_publicar
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: web/package-lock.json
 
       - name: Construir a PWA
-        if: steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)
+        if: (steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || inputs.so_publicar
         working-directory: web
         run: npm ci && npm run build
 
@@ -181,7 +191,7 @@ jobs:
       # publicava sem ele — e durante uma janela de jogos quem publica mais é o ciclo ao vivo.
       # O resultado seria um contador que desaparece ao sábado à tarde e volta sozinho.
       - name: Publicar no Cloudflare Pages
-        if: steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)
+        if: (steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || inputs.so_publicar
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
