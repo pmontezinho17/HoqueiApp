@@ -1070,6 +1070,69 @@ cd worker/observador && npx wrangler secret put GITHUB_TOKEN
 
 Enquanto não existir, a consola di-lo em vez de dizer só "não foi possível".
 
+## O observador esteve morto catorze horas e a consola disse "tudo em ordem" (09–10/10/2026)
+
+A pior falha que este projecto teve, e não é a do cron: é a de um sistema de vigilância que
+**dá confiança sem a merecer**.
+
+### O que aconteceu
+
+Durante o jogo das 22:00 de 09/10 — o ensaio geral para o fim de semana — o Worker observador
+não correu uma única vez. A última escrita dele foi às **09:58** desse dia, catorze horas
+antes, e foi um `/observar` que eu disparei à mão. Entretanto a consola mostrava **"tudo em
+ordem"**, porque o último estado conhecido era verde e ninguém perguntava de quando era.
+
+O que se perdeu: a cadência do jogo, os golos à hora a que apareceram, e o aviso. O que **não**
+se perdeu: nada do que as pessoas vêem. A app serve ficheiros estáticos e o ciclo ao vivo
+publicou a noite toda — isso mediu-se por fora, com o `scripts/observar.py`.
+
+### O cron é aceite e não é executado
+
+Medido nessa noite:
+
+* a expressão era `* 17-22 * * 1-5` e `* 8-22 * * SAT,SUN`, e o `wrangler` confirma os dois
+  `schedule` no fim de **cada** deploy;
+* **dez minutos de `wrangler tail`: zero invocações agendadas**, só os pedidos que eu próprio
+  fiz;
+* mudar para `*/2`, que é a forma que o relógio usa e que funciona, não mudou nada;
+* um disparo temporário na hora corrente — `*/2 23 * * *`, publicado e confirmado — também não
+  disparou em cinco minutos.
+
+O `*/1` é recusado à cara, com `invalid cron string`. O `*` é pior do que recusado: **é aceite
+e ignorado**, que é a falha que não dá sinal nenhum.
+
+**A causa não está encontrada.** O candidato mais forte é o limite de **5 cron triggers por
+conta** no plano gratuito — confirmado nos limites da Cloudflare — e esta conta tem outra
+aplicação do dono, o `torneiopa`, que pode ter os seus. Não se confirmou: o `wrangler` não
+lista os Workers da conta, e isso vê-se no painel.
+
+### O que ficou a funcionar
+
+**O relógio passou a ser também o relógio do observador.** O cron dele dispara — vê-se nas
+corridas da GitHub, de dez em dez minutos — e passa a pedir `/observar` a cada firada, num
+`waitUntil` separado e à frente do resto: se o `decidir` falhar, o observador tem de ser
+avisado à mesma, porque é precisamente aí que há alguma coisa para observar.
+
+O observador ficou **sem `cron` nenhum**, o que também liberta três lugares na conta.
+
+**A resolução passa de um minuto para dez.** Chega para dar pelo silêncio, que é o que o aviso
+precisa; não chega para medir a cadência de um ciclo que publica de 60 em 60 segundos. É o
+preço de um relógio emprestado, e fica em aberto.
+
+### A correcção que vale mais do que o cron: o pulso
+
+O observador passou a escrever **sempre** que corre, mesmo quando nada mudou. Antes saía sem
+escrever quando não havia novidade — uma poupança bem intencionada que tornou a morte dele
+indistinguível do sossego.
+
+E a consola passou a julgar esse pulso: acima de **15 minutos** sem leitura, o farol fica
+vermelho e o texto passa a **"o observador está calado — última leitura há N min"**. Três
+testes, incluindo o das catorze horas.
+
+**A regra que fica:** um medidor tem de publicar que está vivo, e quem o lê tem de recusar
+chamar saudável a um silêncio. "Tudo em ordem" com uma leitura de catorze horas é a frase mais
+perigosa que aquela página podia escrever.
+
 ## O contador estava a contar-se a si mesmo (09/10/2026)
 
 Encontrado ao preparar a vigia do jogo das 22:00, e é um erro de medição com a forma mais

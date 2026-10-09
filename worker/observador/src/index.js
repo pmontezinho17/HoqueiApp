@@ -342,11 +342,17 @@ async function observar(env) {
 		eventos = [{ tipo: 'erro', detalhe: String(e).slice(0, 200) }];
 	}
 
-	const mudouEstado =
-		JSON.stringify(estado.saude) !== JSON.stringify(anterior?.saude) ||
-		estado.generated_at !== anterior?.generated_at;
-	if (!eventos.length && !mudouEstado) return { hora, eventos: 0, saude: agoraSaude?.estado ?? null };
-
+	// **O pulso: escreve-se sempre, mesmo quando nada mudou.**
+	//
+	// Antes isto saía daqui sem escrever quando não havia novidade, e era uma poupança bem
+	// intencionada que escondeu a pior falha possível. A 09/10/2026 os `cron` deste Worker
+	// deixaram de disparar — aceites ao publicar, nunca executados — e a consola mostrou
+	// **"tudo em ordem" a noite toda** com o observador morto há catorze horas. Um sistema de
+	// vigilância que não sabe dizer se está vivo é pior do que não ter nenhum: dá confiança
+	// sem a merecer.
+	//
+	// Custa uma linha reescrita por leitura — ~700 por dia, contra as 100 000 do plano. É
+	// barato e é o que transforma uma avaria silenciosa numa avaria visível.
 	const escritas = [];
 	for (const e of eventos) {
 		escritas.push(
@@ -412,16 +418,19 @@ async function observar(env) {
 		);
 	}
 
-	if (estado.retrato) {
-		escritas.push(
-			bd
-				.prepare(
-					`INSERT INTO estado (id, actualizado, json) VALUES (1, ?, ?)
-					 ON CONFLICT (id) DO UPDATE SET actualizado = excluded.actualizado, json = excluded.json`
-				)
-				.bind(`${dia} ${hora}`, JSON.stringify(estado))
-		);
-	}
+	// O `actualizado` é o pulso e escreve-se sempre; o `json` só se substitui quando há um
+	// retrato novo, senão uma leitura falhada apagava o último estado bom.
+	escritas.push(
+		bd
+			.prepare(
+				estado.retrato
+					? `INSERT INTO estado (id, actualizado, json) VALUES (1, ?, ?)
+					   ON CONFLICT (id) DO UPDATE SET actualizado = excluded.actualizado, json = excluded.json`
+					: `INSERT INTO estado (id, actualizado, json) VALUES (1, ?, ?)
+					   ON CONFLICT (id) DO UPDATE SET actualizado = excluded.actualizado`
+			)
+			.bind(`${dia} ${hora}`, JSON.stringify(estado))
+	);
 
 	try {
 		await bd.batch(escritas);
@@ -816,9 +825,15 @@ export default {
 		);
 
 		let estado = null;
+		let actualizado = null;
 		try {
-			const linha = await env.DADOS?.prepare('SELECT json FROM estado WHERE id = 1').first();
+			const linha = await env.DADOS?.prepare(
+				'SELECT json, actualizado FROM estado WHERE id = 1'
+			).first();
 			estado = linha?.json ? JSON.parse(linha.json) : null;
+			// o pulso: de quando é a última leitura. Sem isto a consola não sabe dizer se o
+			// que mostra é de agora ou de ontem — ver `minutosDesdeOPulso` no desenho
+			actualizado = linha?.actualizado ?? null;
 		} catch {
 			estado = null;
 		}
@@ -835,7 +850,7 @@ export default {
 		]);
 
 		return Response.json(
-			{ dia, dias, estado, rel, runs, diario, ent, horas, porDia, sempre, entradasHora },
+			{ dia, dias, estado, actualizado, rel, runs, diario, ent, horas, porDia, sempre, entradasHora },
 			{
 				headers: {
 					'Cache-Control': 'no-store',

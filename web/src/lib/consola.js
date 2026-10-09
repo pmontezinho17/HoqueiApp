@@ -50,6 +50,7 @@
  * @typedef {{
  *   dia: string,
  *   dias: string[],
+ *   actualizado?: string | null,
  *   estado: { saude?: { estado?: string, a_decorrer?: number, dados_com_minutos?: number,
  *                       jogos_hoje?: number, publicacao_velha?: boolean,
  *                       sem_resultado?: string[], ao_vivo_preso?: string[] },
@@ -406,6 +407,28 @@ const emLisboaCurto = (iso) => {
 	return `${d.slice(8, 10)}/${d.slice(5, 7)} ${d.slice(11, 16)}`;
 };
 
+/**
+ * Há quantos minutos o observador escreveu pela última vez — o **pulso**.
+ *
+ * **Uma consola que não sabe dizer se está viva é pior do que nenhuma.** A 09/10/2026 os
+ * `cron` do Worker observador deixaram de disparar e esta página mostrou "tudo em ordem" a
+ * noite toda, com a última leitura de há catorze horas. O farol estava verde porque o último
+ * estado conhecido era verde — e ninguém perguntava de quando era.
+ *
+ * @param {string | null | undefined} actualizado `AAAA-MM-DD HH:MM:SS`, hora de Lisboa
+ */
+function minutosDesdeOPulso(actualizado) {
+	if (!actualizado) return null;
+	// o carimbo é hora de Lisboa sem fuso: compara-se com o relógio na mesma hora de Lisboa,
+	// que é o que evita uma conta errada de uma hora no verão
+	const agora = new Date().toLocaleString('sv-SE', { timeZone: 'Europe/Lisbon' });
+	const m = (Date.parse(agora.replace(' ', 'T')) - Date.parse(actualizado.replace(' ', 'T'))) / 60000;
+	return Number.isFinite(m) ? Math.max(0, Math.round(m)) : null;
+}
+
+/** Acima disto, o que a consola mostra já não é "agora". */
+const PULSO_VELHO = 15;
+
 /** Hoje, em Lisboa, que é o dia que manda em toda a consola. @param {string} d */
 const ehHojeBase = (d) =>
 	d === new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Lisbon' });
@@ -423,9 +446,12 @@ export function pagina({
 	porDia = {},
 	sempre = null,
 	entradasHora = {},
+	actualizado = null,
 	chave,
 	vista = 'utilizadores'
 }) {
+	const pulso = minutosDesdeOPulso(actualizado);
+	const cego = pulso === null || pulso > PULSO_VELHO;
 	// **Duas vistas, pedidas pelo dono a 09/10/2026**: *"podíamos ter esta visão separada por
 	// visão de utilizadores e visão de sistema (chamadas/rondas)"*. São duas perguntas
 	// diferentes — "quem usa isto?" e "a máquina está de pé?" — e misturá-las num ecrã só
@@ -459,7 +485,10 @@ export function pagina({
 	for (const balde of Object.values(horas)) {
 		for (const [k, n] of Object.entries(balde)) totaisPorTipo[k] = (totaisPorTipo[k] ?? 0) + n;
 	}
-	const mal = s?.estado === 'vermelho';
+	// **Um observador calado não é um sistema saudável — é um sistema que não se sabe.** O
+	// farol fica vermelho também nesse caso, porque "tudo em ordem" com uma leitura de há
+	// catorze horas é a frase mais perigosa que esta página pode escrever.
+	const mal = s?.estado === 'vermelho' || cego;
 	const hoje = ent[dia] ?? {};
 	// **Só o que é um ecrã**, e não "tudo o que não seja aberturas".
 	//
@@ -751,7 +780,15 @@ export function pagina({
   <section class="l12">
     <div class="estado">
       <span class="farol"></span>
-      <b>${s ? (mal ? 'algo está mal' : 'tudo em ordem') : 'sem leitura ainda'}</b>
+      <b>${
+		cego
+			? 'o observador está calado'
+			: s
+				? mal
+					? 'algo está mal'
+					: 'tudo em ordem'
+				: 'sem leitura ainda'
+	}</b>
       <span class="porque">
         ${
 			s
@@ -768,6 +805,13 @@ export function pagina({
 						.filter(Boolean)
 						.join(' · ')
 				: 'o cron corre nas horas de jogos — ou força com /observar'
+		}
+        ${
+			pulso === null
+				? '<span>nunca leu</span>'
+				: cego
+					? `<span>última leitura há ${pulso} min — o que está acima é desse momento, não de agora</span>`
+					: `· lido há ${pulso} min`
 		}
       </span>
     </div>

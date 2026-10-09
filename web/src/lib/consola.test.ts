@@ -17,9 +17,20 @@ import { pagina } from './consola';
  * Isto rende a página com dados mínimos e verifica que sai HTML inteiro. Não testa o
  * desenho; testa que há desenho.
  */
+/**
+ * **As datas são de hoje e não escritas à mão.** Estavam fixas em 2026-10-09 e o teste
+ * passou nesse dia e falhou no seguinte: a página desenha links diferentes para "hoje" e para
+ * um dia passado, e o fixture envelheceu de um dia para o outro. Um teste que depende da data
+ * em que foi escrito mede o calendário, não o código.
+ */
+const hoje = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Lisbon' });
+const seteDias = Array.from({ length: 7 }, (_, i) =>
+	new Date(Date.parse(`${hoje}T12:00:00Z`) - (6 - i) * 86400000).toISOString().slice(0, 10)
+);
+
 const minimo = {
-	dia: '2026-10-09',
-	dias: ['2026-10-03', '2026-10-04', '2026-10-05', '2026-10-06', '2026-10-07', '2026-10-08', '2026-10-09'],
+	dia: hoje,
+	dias: seteDias,
 	estado: null,
 	rel: {
 		cadencia_s: { mediana: null, minimo: null, maximo: null },
@@ -61,15 +72,55 @@ describe('a consola desenha-se', () => {
 		const html = pagina({ ...minimo, vista: 'sistema', chave: 'abc' });
 		const hrefs = [...html.matchAll(/href="(\?[^"]*)"/g)].map((m) => m[1]);
 		expect(hrefs.length).toBeGreaterThan(5);
-		for (const h of hrefs) {
-			expect(h).toContain('chave=abc');
-			// o único link que muda de vista é o da própria barra de vistas
-			if (!h.includes('vista=sistema')) expect(h).toMatch(/^\?chave=abc$/);
-		}
+
+		// a chave viaja em todos, sem excepção
+		for (const h of hrefs) expect(h).toContain('chave=abc');
+
+		// e a vista também, excepto no único link cuja função é trocá-la
+		const semVista = hrefs.filter((h) => !h.includes('vista=sistema'));
+		expect(semVista).toHaveLength(1);
 	});
 
 	it('sem dados nenhuns não rebenta, e di-lo em vez de desenhar zeros', () => {
 		const html = pagina({ ...minimo, vista: 'utilizadores' });
 		expect(html).toContain('Não há horas registadas neste dia');
+	});
+});
+
+/**
+ * O pulso: a consola tem de saber dizer que **não** sabe.
+ *
+ * A 09/10/2026 os `cron` do observador deixaram de disparar e esta página mostrou "tudo em
+ * ordem" a noite toda, com a última leitura de catorze horas antes. O farol estava verde
+ * porque o último estado conhecido era verde, e ninguém perguntava de quando era.
+ */
+describe('o pulso do observador', () => {
+	const comPulso = (minutosAtras: number | null) => {
+		const d = new Date(Date.now() - (minutosAtras ?? 0) * 60000);
+		const lisboa = d.toLocaleString('sv-SE', { timeZone: 'Europe/Lisbon' });
+		return pagina({
+			...minimo,
+			actualizado: minutosAtras === null ? null : lisboa,
+			estado: { saude: { estado: 'verde', jogos_hoje: 2, a_decorrer: 0 } }
+		});
+	};
+
+	it('uma leitura recente mostra o estado e a idade dela', () => {
+		const html = comPulso(2);
+		expect(html).toContain('tudo em ordem');
+		expect(html).toContain('lido há 2 min');
+	});
+
+	it('uma leitura velha deixa de ser "tudo em ordem"', () => {
+		const html = comPulso(840); // as catorze horas da noite de 09/10
+		expect(html).not.toContain('tudo em ordem');
+		expect(html).toContain('o observador está calado');
+		expect(html).toContain('última leitura há 840 min');
+	});
+
+	it('nunca ter lido também é estar calado, e não estar bem', () => {
+		const html = comPulso(null);
+		expect(html).not.toContain('tudo em ordem');
+		expect(html).toContain('nunca leu');
 	});
 });

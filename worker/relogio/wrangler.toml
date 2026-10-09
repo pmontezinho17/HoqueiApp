@@ -24,6 +24,8 @@ WORKFLOW = "aovivo.yml"
 WORKFLOW_DADOS = "dados.yml"
 REF = "main"
 AGENDA = "https://hoquei.pages.dev/v1/aplisboa/2026-27/agenda.json"
+# Quem o relógio acorda além do ciclo ao vivo — ver o comentário no `scheduled`.
+OBSERVADOR = "https://hoquei-observador.torneiopa.workers.dev"
 META = "https://hoquei.pages.dev/v1/aplisboa/2026-27/meta.json"
 
 # GITHUB_TOKEN **não** vive aqui. É um segredo, posto com `wrangler secret put` — ver o

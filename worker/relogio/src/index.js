@@ -184,6 +184,28 @@ async function socorrer(env, d) {
 
 export default {
 	async scheduled(evento, env, ctx) {
+		// **O relógio passa a ser também o relógio do observador.**
+		//
+		// Os `cron` do Worker observador deixaram de disparar a 09/10/2026 — aceites ao
+		// publicar, com o `wrangler` a confirmar os dois `schedule`, e nunca executados.
+		// Medido nessa noite: dez minutos de `wrangler tail` sem uma única invocação agendada,
+		// e a última escrita dele às 09:58 da manhã. A consola mostrou "tudo em ordem" a noite
+		// toda com o observador morto há catorze horas, que é a pior forma de falhar.
+		//
+		// Este `cron` dispara — é ele que lança o ciclo ao vivo, e isso vê-se nas corridas da
+		// GitHub. Enquanto a causa do outro não for encontrada, é daqui que o observador
+		// recebe o impulso.
+		//
+		// **Separado do resto e à frente dele**, de propósito: se o `decidir` falhar, o
+		// observador tem de ser avisado à mesma — é precisamente quando há alguma coisa para
+		// observar. E sem `await` no caminho crítico: um observador em baixo não pode atrasar
+		// o lançamento de uma ronda.
+		ctx.waitUntil(
+			fetch(`${env.OBSERVADOR}/observar`, { headers: { 'user-agent': 'hoquei-relogio' } })
+				.then((r) => console.log(`observador: HTTP ${r.status}`))
+				.catch((e) => console.log(`observador: ${String(e).slice(0, 80)}`))
+		);
+
 		ctx.waitUntil((async () => {
 			const d = await decidir(env, new Date(evento.scheduledTime));
 			if (d.erro) return console.log(`[${d.agora.hora}] ${d.erro}`);

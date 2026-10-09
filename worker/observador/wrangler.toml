@@ -2,23 +2,24 @@ name = "hoquei-observador"
 main = "src/index.js"
 compatibility_date = "2026-10-08"
 
-# De minuto a minuto, e só nas horas em que há jogos.
+# **Este Worker não tem `cron`, e isso é a correcção de uma avaria, não uma omissão.**
 #
-# Os `cron` da Cloudflare são em UTC e Portugal está em UTC+1 no horário de verão: as janelas
-# abaixo são 18:00–23:59 nos dias úteis e 09:00–23:59 ao fim de semana, hora de Lisboa. São
-# ~1 400 invocações no pior dia, contra as 100 000 do plano gratuito.
+# Tinha `* 17-22 * * 1-5` e `* 8-22 * * SAT,SUN`. A Cloudflare **aceitava-os ao publicar** — o
+# `wrangler` confirmava os dois `schedule` no fim de cada deploy — e **nunca os executou**.
+# Medido a 09/10/2026, na noite do jogo das 22:00: a última escrita do observador foi às 09:58
+# desse dia, e dez minutos de `wrangler tail` apanharam zero invocações agendadas, só os
+# pedidos que eu próprio fiz. Mudar para `*/2`, que é a forma que o relógio usa e que funciona,
+# não mudou nada. Um disparo temporário na hora corrente também não.
 #
-# Porque de minuto a minuto e não de dez em dez como o relógio: o que se está a medir é a
-# cadência de um ciclo que publica de 30 em 30 segundos. Com dez minutos de intervalo, um
-# buraco de nove minutos passava invisível.
-[triggers]
-# `SAT,SUN` e não `6,0` nem `0,6`: a Cloudflare recusa as duas formas numéricas com
-# `invalid cron string`, e também recusa `*/1` no campo dos minutos. Experimentado uma a uma
-# ao publicar, a 08/10/2026 — os nomes dos dias passam.
-crons = [
-  "* 17-22 * * 1-5",
-  "* 8-22 * * SAT,SUN"
-]
+# A causa não está encontrada. O candidato mais forte é o limite de **5 cron triggers por
+# conta** no plano gratuito — esta conta tem outra aplicação, o `torneiopa` —, mas não o
+# consegui confirmar pelo CLI, que não lista os Workers da conta.
+#
+# **Quem acorda este Worker agora é o relógio**, que dispara de dez em dez minutos e cujo cron
+# se vê a funcionar nas corridas da GitHub. Ver o `scheduled` em `worker/relogio/src/index.js`.
+# A resolução passa de um minuto para dez — o que chega para dar pelo silêncio, e não chega
+# para medir a cadência de um ciclo que publica de 60 em 60 segundos. É o preço de ter um
+# relógio emprestado, e está no backlog para ser resolvido.
 
 [vars]
 REPO = "pmontezinho17/HoqueiApp"
