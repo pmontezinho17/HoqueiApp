@@ -554,6 +554,42 @@ export function pagina({
  .grupo a[aria-current], .grupo button[aria-pressed="true"] { background:var(--borda2);
    color:var(--texto); font-weight:600 }
  .filtros .espaco { flex:1 }
+
+ /* ── O telemóvel ──────────────────────────────────────────────────────────────────────
+    A consola é para um ecrã de PC, por decisão do dono, e não vai ser redesenhada para o
+    telemóvel. Mas estar **cortada** nele não é uma escolha de desenho, é um defeito — e ele
+    apanhou três, numa fotografia de 19:39 a 09/10/2026. */
+ @media (max-width:760px) {
+   /* 1. Os dias não cabiam e ficavam cortados no "qua 07/10": não havia como chegar a hoje.
+         Rolam na horizontal, e o dia escolhido é trazido à vista pelo script lá em baixo. */
+   .grupo { overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none;
+     max-width:100%; scroll-padding-inline:8px }
+   .grupo::-webkit-scrollbar { display:none }
+   /* 2. O espaçador empurrava o grupo do tema para uma linha só dele, encostado à direita.
+         Num ecrã estreito não há espaço para empurrar nada. */
+   .filtros .espaco { display:none }
+   .filtros { gap:6px }
+ }
+
+ /* 3. As 24 horas não cabem em 375 px e a última ficava cortada a meio do "23". Mostram-se
+       de três em três — 00, 03, 06… — que é o suficiente para situar um pico, e as colunas
+       continuam lá todas. O gráfico dos dias tem sete colunas e não precisa disto. */
+ @media (max-width:860px) {
+   /* **O rótulo sai do fluxo**, e isto é o que resolve o transbordo. Escondê-lo com
+      visibility mantinha a largura dele — 24 rótulos de ~12 px fazem 288 px, mais o eixo,
+      mais os intervalos, e o gráfico ficava mais largo do que o cartão num ecrã de 393 px.
+      Medido: 423 px de conteúdo em 323 de caixa. Em posição absoluta, a largura do rótulo
+      deixa de mandar na largura da coluna. */
+   .grafico:not(.dias) .col { position:relative; padding-bottom:1.1em; gap:0 }
+   .grafico:not(.dias) .col .hh { position:absolute; bottom:0; left:50%;
+     transform:translateX(-50%); white-space:nowrap }
+   .grafico:not(.dias) .col:not(:nth-child(3n+1)) .hh { display:none }
+   .comEixo { grid-template-columns:2rem 1fr; gap:4px }
+   .eixo .marca { font-size:.6rem }
+   /* a legenda em coluna: três pares lado a lado num telemóvel ficam com duas palavras por
+      linha cada um, que é pior do que uma lista */
+   .legenda { gap:4px 12px }
+ }
  h1 { font-size:1.1rem; margin:0; letter-spacing:-.01em }
  header .meta { color:var(--suave); font-size:.8rem }
  /* **Enche a janela, e centra-se quando ela é grande.** Estava travada em 1280 px e num
@@ -935,6 +971,23 @@ export function pagina({
 <script>
  // O tema, guardado neste browser. Sem isto, a consola seguia só o sistema — e quem quer o
  // escuro num PC claro não tinha como.
+ // O que está escolhido tem de nascer à vista: num telemóvel estas barras rolam, e abrir a
+ // consola num dia passado deixava-o fora do ecrã, à direita do que se via.
+ //
+ // **Cada grupo trata do seu**, e não o primeiro da barra: a primeira versão trazia à vista
+ // o primeiro [aria-current] da barra toda, que é o da vista e nunca precisou de rolar.
+ (function () {
+   var grupos = document.querySelectorAll('.filtros .grupo');
+   for (var i = 0; i < grupos.length; i++) {
+     var actual = grupos[i].querySelector('[aria-current]');
+     // scrollLeft e não scrollIntoView: este leva a página inteira com ele e rouba o topo
+     if (actual) {
+       grupos[i].scrollLeft =
+         actual.offsetLeft - grupos[i].clientWidth / 2 + actual.offsetWidth / 2;
+     }
+   }
+ })();
+
  (function () {
    var C = 'ok4sticks:consola:tema';
    function pintar(v) {
