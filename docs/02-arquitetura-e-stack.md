@@ -218,3 +218,39 @@ Regras:
   backend em falha.
 - **Servir tudo do mesmo domínio da PWA** — sem CORS, e o service worker trata dados e código da
   mesma maneira.
+
+### O histórico do contrato: uma fotografia por dia (09/10/2026)
+
+A ronda das 00:30 — a canónica, a que sela o dia que acabou — guarda um `tar.gz` de todo o
+`/v1` no R2, em `ok4sticks-historico/fotografias/AAAA-MM-DD.tar.gz`. **A data é a do dia que a
+fotografia fecha**, não a do instante em que foi tirada: a ronda corre depois da meia-noite,
+logo sela o dia anterior.
+
+Medido a 09/10/2026: **506 KB** por fotografia, 7,3 MB e 552 ficheiros por dentro. Dá ~185 MB
+ao ano, contra os 10 GB do plano gratuito do R2 — e uma escrita por dia, contra o milhão de
+operações por mês.
+
+**Uma só por dia.** Uma segunda às 23:00 foi considerada e não acrescenta nada: o que ela
+apanhasse seria sempre um dia por fechar, e a das 00:30 apanha-o fechado umas horas depois.
+Uma fotografia tirada à mão a meio da tarde é provisória, e a ronda da manhã seguinte
+substitui-a pela definitiva, com a mesma chave.
+
+**Porquê, se o git já guarda todas as rondas.** Guarda — 24 commits de dados, ~278 KB de
+objectos novos cada um, medido no mesmo dia. Dois motivos à mesma. O primeiro é a forma: um
+comando devolve o dia inteiro, contra reconstruí-lo de uma árvore git. O segundo é o que vem a
+seguir: se um dia os commits de dados pesarem de mais — e crescem todos os dias —, a saída é
+deixar de os commitar, e isso só é possível se o histórico já viver noutro sítio.
+
+Ver e trazer de volta:
+
+```bash
+cd web
+npx wrangler r2 object get ok4sticks-historico/fotografias/2026-10-08.tar.gz \
+  --file=/tmp/2026-10-08.tar.gz --remote
+tar -tzf /tmp/2026-10-08.tar.gz | head          # o que lá está
+tar -xzf /tmp/2026-10-08.tar.gz -C /tmp/esse-dia  # extrair para ver
+```
+
+**Restaurar é a mão, de propósito.** Nada no sistema escreve por cima do `/v1` a partir de uma
+fotografia: pôr um dia antigo no CDN é uma decisão com consequências — telemóveis em cache,
+resultados a andar para trás — e não uma operação de rotina.

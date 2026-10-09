@@ -27,6 +27,10 @@ on:
         description: Publicar mesmo sem dados novos (para levar código novo ao site)
         type: boolean
         default: true
+      fotografia:
+        description: Guardar a fotografia do dia no R2 (a ronda das 00:30 fá-lo sozinha)
+        type: boolean
+        default: false
 
 concurrency:
   group: dados
@@ -192,3 +196,59 @@ jobs:
           # vai para o CDN depende de quem publicou.
           wranglerVersion: '4.149.0'
           command: pages deploy build --project-name hoquei --branch main
+
+      # ───────────────────────────────────────────────────────────────────────────────────
+      # A fotografia do dia.
+      #
+      # **Uma por dia, e só a da ronda das 00:30.** É essa a ronda canónica: às 00:30 o dia
+      # que acabou está fechado — todos os jogos jogados, todas as fichas disponíveis. Uma
+      # segunda fotografia às 23:00, que o dono chegou a considerar, não acrescentaria nada:
+      # o que ela apanhasse seria sempre um dia por fechar, e a das 00:30 apanha-o fechado
+      # umas horas depois.
+      #
+      # **Porquê guardar isto se o git já guarda todas as rondas.** Guarda, e isso foi medido
+      # a 09/10/2026: 24 commits de dados, ~278 KB de objectos novos cada um. Dois motivos
+      # para a fotografia existir à mesma. O primeiro é a forma: um `tar.gz` de 506 KB
+      # devolve o dia inteiro num comando, contra reconstruí-lo de uma árvore git. O segundo
+      # é o que vem a seguir: se um dia os commits de dados pesarem de mais — e crescem todos
+      # os dias —, a saída é deixar de os commitar, e isso só é possível se o histórico já
+      # viver noutro sítio.
+      #
+      # ~506 KB por dia dão ~185 MB ao ano, contra os 10 GB do plano gratuito do R2.
+      - name: Preparar a fotografia do dia
+        id: foto
+        if: github.event.schedule == '30 23 * * *' || inputs.fotografia
+        run: |
+          set -euo pipefail
+          # **O dia que a fotografia fecha, e não o dia em que foi tirada.** A ronda das 00:30
+          # de Lisboa corre já depois da meia-noite, logo o que ela sela é o dia anterior.
+          # Antes das 06:00 conta como a madrugada do dia que acabou; depois disso, é o
+          # próprio dia — uma fotografia tirada à mão a meio da tarde é provisória, e a ronda
+          # das 00:30 da manhã seguinte substitui-a pela definitiva com a mesma chave.
+          hora=$(TZ=Europe/Lisbon date +%H)
+          if [ "$hora" -lt 06 ]; then
+            dia=$(TZ=Europe/Lisbon date -d yesterday +%F)
+          else
+            dia=$(TZ=Europe/Lisbon date +%F)
+          fi
+          tar -czf "fotografia.tar.gz" -C web/static v1
+          echo "dia=$dia" >> "$GITHUB_OUTPUT"
+          echo "Fotografia de $dia — $(du -h fotografia.tar.gz | cut -f1)" >> "$GITHUB_STEP_SUMMARY"
+
+      # `continue-on-error`, e é a regra que manda aqui: **uma medição perdida não pode parar
+      # a publicação.** Este passo corre depois de os dados já estarem no CDN; se o R2 não
+      # estiver ligado, ou o token não tiver permissão, perde-se uma fotografia e mais nada.
+      - name: Guardar a fotografia no R2
+        if: steps.foto.outcome == 'success'
+        continue-on-error: true
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4.149.0'
+          command: >-
+            r2 object put
+            ok4sticks-historico/fotografias/${{ steps.foto.outputs.dia }}.tar.gz
+            --file=fotografia.tar.gz
+            --content-type=application/gzip
+            --remote
