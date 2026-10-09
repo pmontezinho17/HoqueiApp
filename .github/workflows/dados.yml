@@ -31,6 +31,10 @@ on:
         description: Guardar a fotografia do dia no R2 (a ronda das 00:30 fá-lo sozinha)
         type: boolean
         default: false
+      so_fotografia:
+        description: Só a fotografia — não pede nada à fonte nem publica
+        type: boolean
+        default: false
 
 concurrency:
   group: dados
@@ -77,9 +81,10 @@ jobs:
         run: |
           uv run python -m hoquei.vale_pedir \
             --cron "${{ github.event.schedule }}" \
-            ${{ inputs.publicar_sempre && '--forcar' || '' }} >> "$GITHUB_OUTPUT"
+            ${{ inputs.publicar_sempre && '--forcar' || '' }} \
+            ${{ inputs.so_fotografia && '--so-fotografia' || '' }} >> "$GITHUB_OUTPUT"
 
-      - name: Dia sem jogos — nada a pedir à fonte
+      - name: Nada a pedir à fonte
         if: steps.vale.outputs.correr != 'true'
         run: |
           {
@@ -217,7 +222,7 @@ jobs:
       # ~506 KB por dia dão ~185 MB ao ano, contra os 10 GB do plano gratuito do R2.
       - name: Preparar a fotografia do dia
         id: foto
-        if: github.event.schedule == '30 23 * * *' || inputs.fotografia
+        if: github.event.schedule == '30 23 * * *' || inputs.fotografia || inputs.so_fotografia
         run: |
           set -euo pipefail
           # **O dia que a fotografia fecha, e não o dia em que foi tirada.** A ronda das 00:30

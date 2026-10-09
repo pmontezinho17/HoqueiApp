@@ -54,3 +54,25 @@ class TestQuandoNaoCorre:
     def test_jogos_amanha_nao_sao_motivo_hoje(self):
         """A ronda das 00:30 de amanhã é que os vai buscar, e chega a tempo."""
         assert not decidir([jogo(HOJE + dt.timedelta(days=1))], HOJE)[0]
+
+
+class TestSoFotografia:
+    """Uma corrida que só vai guardar a fotografia do dia não pergunta nada à fonte.
+
+    Nasceu de um erro medido a 09/10/2026: disparar o workflow à mão para experimentar o R2
+    custou ~76 pedidos ao servidor da associação, nenhum deles necessário — os dados já
+    estavam no repositório.
+    """
+
+    def test_nao_corre(self):
+        correr, porque = decidir([jogo(HOJE)], HOJE, so_fotografia=True)
+        assert not correr
+        assert porque == "fotografia à mão — nada a pedir à fonte"
+
+    def test_ganha_ao_forcar(self):
+        """`publicar_sempre` não obriga a pedir: publicar é levar código, não raspar."""
+        assert not decidir([jogo(HOJE)], HOJE, so_fotografia=True, forcar=True)[0]
+
+    def test_ganha_a_ronda_do_fecho(self):
+        """Mesmo na hora do fecho: se só se quer a fotografia, não se pede."""
+        assert not decidir(None, HOJE, so_fotografia=True, cron="30 23 * * *")[0]
