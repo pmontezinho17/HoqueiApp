@@ -28,17 +28,16 @@ entradas de quem usa a app, a cadência de publicação, os golos do dia com a h
 apareceram, e as últimas corridas das Actions. Recarrega sozinha a cada 60 s. `GET /api` dá o
 mesmo em JSON.
 
-Lê de quatro sítios e não escreve em nenhum deles a não ser no seu próprio KV:
+Lê de três sítios e escreve num só:
 
 | de onde | o que |
 |---|---|
-| KV `observacao` | o que este Worker viu |
-| KV `hoquei-contagens` | as entradas, escritas pela Function do site — **só leitura** aqui |
-| API da GitHub | as corridas, sem token, porque o repositório é público |
+| D1 `ok4sticks-dados` | o que este Worker viu, e as entradas que a Function do site escreve. **O único sítio onde escreve.** Era KV até 09/10/2026 — ver `dados/esquema.sql` |
+| API da GitHub | as corridas. **Precisa de token:** sem ele a GitHub responde 403 a partir de um Worker, porque o limite sem autenticação é por IP e os IPs da Cloudflare são partilhados |
 | `raw.githubusercontent.com` | o diário de rondas |
 
-A cache das respostas da GitHub vive na **Cache API** e não no KV: guardar uma resposta de dois
-em dois minutos eram ~720 escritas/dia, contra as 1 000 que o plano dá.
+A cache das respostas da GitHub vive na **Cache API** e não na base de dados: guardar uma
+resposta de dois em dois minutos eram ~720 escritas/dia, e a Cache API é grátis.
 
 ## O aviso
 
@@ -57,3 +56,17 @@ npx wrangler secret put GITHUB_TOKEN     # o mesmo token do relógio, com `issue
 
 Sem o segredo, o Worker continua a medir e a consola continua a funcionar — só não avisa. O
 `/observar` devolve `sem token: aviso não enviado`, que é a forma de confirmar.
+
+**O mesmo segredo resolve uma segunda coisa**, percebida a 09/10/2026: o painel "a cadeia"
+dizia `HTTP 403`. É a GitHub a recusar o pedido sem autenticação — 60 por hora e por IP, e os
+IPs de saída da Cloudflare vêm com o balde gasto. Com token são 5 000 por hora na nossa conta.
+
+## Tipos
+
+```bash
+npx wrangler types     # gera o worker-configuration.d.ts a partir do wrangler.toml
+```
+
+O ficheiro não vai para o repositório — são ~16 000 linhas de tipos do runtime, úteis no editor
+e ruído aqui. O que manda é o `wrangler.toml`; os tipos são derivados dele, nunca escritos à
+mão, para não haver uma interface `Env` a divergir das ligações a sério.

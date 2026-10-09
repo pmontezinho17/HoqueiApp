@@ -152,6 +152,35 @@ Não é preciso reescrever para chegar às lojas:
 Só vale a pena decidir isto com utilizadores reais em cima. É exatamente o que a PWA permite: ter
 utilizadores antes de escolher.
 
+## Decisão 6 — As medições vivem em D1, e só as medições (nova a 09/10/2026)
+
+**A app continua a ler ficheiros estáticos. Isto não é a base de dados da app.** Nada do que
+está no D1 é servido a um telemóvel, e se o D1 desaparecer o site não muda uma vírgula: o que
+se perde é a consola. Essa separação é o que mantém a Decisão 1 de pé — cliente fino que só lê
+JSON do CDN.
+
+Quem escreve, e o quê:
+
+| escreve | onde | quando |
+|---|---|---|
+| observador (Worker, `cron`) | `observacao`, `pedido_fonte`, `estado` | de minuto a minuto, nas janelas de jogos |
+| `_middleware.js` (Pages Function) | `visita` | a cada navegação, e 1 em 10 `meta.json` |
+| `contar.js` (Pages Function) | `aparelho` | uma vez por aparelho e por dia |
+
+Uma base de dados, três escritores, nenhum deles no caminho crítico de servir a app: as
+Functions escrevem dentro de `waitUntil`, depois de a resposta já ter saído, e cada uma apanha
+os seus erros. Uma medição perdida não é motivo para nada.
+
+**Era KV e passou a D1** porque isto são tabelas e porque somar num chave-valor obriga a
+ler-somar-escrever, que não é atómico — o raciocínio, com os números medidos, está em
+`dados/esquema.sql` e em `docs/03-backlog.md`.
+
+**O que fica de fora de propósito:** nada que identifique uma pessoa. Sem IP, sem cookie, sem
+identificador, sem sessão. `aparelho` conta toques que o próprio aparelho decide mandar uma vez
+por dia — ver `web/src/lib/presenca.ts` — e por isso não é possível saber se o aparelho de hoje
+é o mesmo de ontem. É uma restrição de desenho e não uma configuração: a `/privacidade` promete
+isto por escrito.
+
 ## Contrato de dados (v1)
 
 Ficheiros estáticos, versionados por caminho para nunca quebrar clientes antigos:

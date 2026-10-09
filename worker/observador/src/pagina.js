@@ -157,9 +157,8 @@ function barras(dias) {
 		.join('');
 }
 
-export function pagina({ dia, estado, rel, runs, diario, ent, dias }) {
+export function pagina({ dia, estado, rel, runs, diario, ent, dias, horas = {} }) {
 	const s = estado?.saude;
-	const horas = estado?.horas ?? {};
 	const graf = colunas(horas);
 	const totaisPorTipo = {};
 	for (const balde of Object.values(horas)) {
@@ -184,8 +183,9 @@ export function pagina({ dia, estado, rel, runs, diario, ent, dias }) {
 		aparelhos: ent[d]?.aparelhos ?? 0,
 		novos: ent[d]?.novos ?? 0,
 		aberturas: ent[d]?.aberturas ?? 0,
+		// por inclusão, como em `ecrasHoje`: por exclusão somavam-se `aparelhos` e `novos`
 		ecras: Object.entries(ent[d] ?? {})
-			.filter(([k]) => k !== 'aberturas')
+			.filter(([k]) => k in ECRAS)
 			.reduce((t, [, v]) => t + v, 0)
 	}));
 	const comDados = serie.filter((d) => d.aparelhos > 0);

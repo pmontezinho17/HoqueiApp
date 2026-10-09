@@ -261,40 +261,46 @@ async function avisar(env, antes, agora, dia) {
  * Os pedidos à fonte, distribuídos pelas horas do dia.
  *
  * O `meta.json` traz um total do dia que **só cresce**, acumulado no próprio ficheiro pelo
- * raspador — ver `acumular_pedidos`. Aqui faz-se a diferença entre duas leituras e atribui-se
- * à hora em que se viu. Assim não interessa quantas rondas passaram entre leituras: o que se
- * perdeu numa leitura aparece na seguinte.
+ * raspador — ver `acumular_pedidos`. Aqui faz-se a diferença entre duas leituras, e quem a
+ * soma à hora certa é o `INSERT ... ON CONFLICT` do D1, que não tem corrida.
  *
  * **Uma descida significa recomeço, não pedidos negativos.** Uma corrida nova parte do
  * ficheiro commitado, que pode ser de há horas e ter um total menor; aí conta-se o valor novo
  * como sendo tudo o que há, em vez de uma diferença negativa.
+ *
+ * Devolve `{tipo: delta}` — só o que cresceu. Antes isto acumulava um objecto de baldes no
+ * estado, e era essa acumulação em memória que obrigava a reescrever o estado inteiro a cada
+ * minuto. Em SQL é uma linha por hora e por tipo.
  */
-export function porHora(horasAntes, totalAntes, totalAgora, hora, dia, diaAntes) {
-	const horas = dia === diaAntes ? { ...(horasAntes ?? {}) } : {};
-	const h = String(Number(hora.slice(0, 2)));
-	const antes = (diaAntes === dia && totalAntes) || {};
+export function deltas(totalAntes, totalAgora, mesmoDia) {
+	const antes = (mesmoDia && totalAntes) || {};
 	const agora = totalAgora || {};
-	const balde = { ...(horas[h] ?? {}) };
-	let mexeu = false;
+	const saida = {};
 	for (const [tipo, n] of Object.entries(agora)) {
 		const delta = n >= (antes[tipo] ?? 0) ? n - (antes[tipo] ?? 0) : n;
-		if (delta > 0) {
-			balde[tipo] = (balde[tipo] ?? 0) + delta;
-			mexeu = true;
-		}
+		if (delta > 0) saida[tipo] = delta;
 	}
-	if (mexeu) horas[h] = balde;
-	return horas;
+	return saida;
 }
 
+/**
+ * Uma leitura: lê o que publicamos, compara com o retrato anterior, e grava o que mudou.
+ *
+ * **Escreve em D1 e não no KV**, desde 09/10/2026. A razão está no `dados/esquema.sql`, com
+ * os números: o KV dá 1 000 escritas por dia e uma noite de quatro jogos gastava ~800.
+ *
+ * Tudo numa `batch`: as linhas de observação, a hora dos pedidos à fonte e o estado vão numa
+ * só ida à base de dados, e ou entram todas ou não entra nenhuma.
+ */
 async function observar(env) {
 	const { dia, hora } = emLisboa();
-	const chaveEstado = 'estado';
-	const chaveDia = `obs:${dia}`;
+	const bd = env.DADOS;
+	if (!bd) return { hora, erro: 'sem ligação à base de dados' };
 
 	let estado = {};
 	try {
-		estado = JSON.parse((await env.OBSERVACAO.get(chaveEstado)) ?? '{}');
+		const linha = await bd.prepare('SELECT json FROM estado WHERE id = 1').first();
+		if (linha?.json) estado = JSON.parse(linha.json);
 	} catch {
 		estado = {};
 	}
@@ -302,6 +308,7 @@ async function observar(env) {
 
 	let eventos;
 	let agoraSaude = null;
+	let pedidos = {};
 	try {
 		const [meta, agenda] = await Promise.all([ler('meta.json'), ler('agenda.json')]);
 		const agora = retrato(agenda, dia);
@@ -309,26 +316,20 @@ async function observar(env) {
 		eventos = diferencas(
 			estado.retrato, agora, estado.generated_at, meta.generated_at, agoraSaude.a_decorrer
 		);
-		// só se registra a **transição**: um estado vermelho que durasse uma tarde enchia o
-		// registo com a mesma linha trezentas vezes
 		if (estado.saude?.estado !== agoraSaude.estado) {
 			eventos.push({ tipo: 'saude', ...agoraSaude });
 			const r = await avisar(env, estado.saude?.estado, agoraSaude, dia);
 			if (r) eventos.push({ tipo: 'aviso', resultado: r });
 		}
-		// os baldes por hora só avançam quando a ronda é nova: duas leituras da mesma ronda
-		// contariam os mesmos pedidos duas vezes
-		const rondaNova = meta.generated_at !== estado.generated_at;
-		const horas = rondaNova
-			? porHora(
-					estado.horas,
-					estado.pedidos_dia?.por_tipo,
-					meta.pedidos_dia?.por_tipo,
-					hora,
-					dia,
-					estado.pedidos_dia?.dia ?? estado.dia
-				)
-			: (estado.horas ?? {});
+		// só se contam pedidos quando a ronda é nova: duas leituras da mesma ronda contariam
+		// os mesmos pedidos duas vezes
+		if (meta.generated_at !== estado.generated_at) {
+			pedidos = deltas(
+				estado.pedidos_dia?.por_tipo,
+				meta.pedidos_dia?.por_tipo,
+				(estado.pedidos_dia?.dia ?? estado.dia) === dia
+			);
+		}
 		estado = {
 			retrato: agora,
 			generated_at: meta.generated_at,
@@ -336,61 +337,126 @@ async function observar(env) {
 			saude: agoraSaude,
 			pedidos_fonte: meta.pedidos_fonte ?? null,
 			pedidos_falhados: meta.pedidos_falhados ?? null,
-			pedidos_por_tipo: meta.pedidos_por_tipo ?? null,
-			pedidos_dia: meta.pedidos_dia ?? null,
-			horas
+			pedidos_dia: meta.pedidos_dia ?? null
 		};
 	} catch (e) {
-		eventos = [{ tipo: 'erro', erro: String(e).slice(0, 200) }];
+		eventos = [{ tipo: 'erro', detalhe: String(e).slice(0, 200) }];
 	}
 
-	// o estado grava-se sempre que a leitura correu: é dele que a consola tira "agora". Mas
-	// só se escreve se mudou algo que interesse, para não gastar as 1 000 escritas do dia.
-	if (!eventos.length) {
-		const mudou = JSON.stringify(estado.saude) !== JSON.stringify(anterior?.saude)
-			|| estado.generated_at !== anterior?.generated_at;
-		if (mudou && estado.retrato) {
-			await env.OBSERVACAO.put(chaveEstado, JSON.stringify(estado),
-				{ expirationTtl: 60 * 60 * 24 * 90 });
-		}
-		return { hora, eventos: 0, saude: agoraSaude?.estado ?? null };
-	}
+	const mudouEstado =
+		JSON.stringify(estado.saude) !== JSON.stringify(anterior?.saude) ||
+		estado.generated_at !== anterior?.generated_at;
+	if (!eventos.length && !mudouEstado) return { hora, eventos: 0, saude: agoraSaude?.estado ?? null };
 
-	// 90 dias: chega para a época andar e limpa-se sozinho
-	const ttl = { expirationTtl: 60 * 60 * 24 * 90 };
-	let registo = [];
-	try {
-		registo = JSON.parse((await env.OBSERVACAO.get(chaveDia)) ?? '[]');
-	} catch {
-		registo = [];
+	const escritas = [];
+	for (const e of eventos) {
+		escritas.push(
+			bd
+				.prepare(
+					`INSERT INTO observacao (dia, hora, tipo, jogo, de, para, situacao, a_decorrer, detalhe)
+					 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+				)
+				.bind(
+					dia,
+					hora,
+					e.tipo,
+					e.id ?? null,
+					e.de ?? null,
+					e.para ?? null,
+					e.situacao ?? null,
+					e.v ?? e.a_decorrer ?? null,
+					// o que não tem coluna própria vai em JSON, para um evento novo não obrigar
+					// a uma migração
+					JSON.stringify(
+						Object.fromEntries(
+							Object.entries(e).filter(
+								([k]) => !['tipo', 'id', 'de', 'para', 'situacao', 'v'].includes(k)
+							)
+						)
+					)
+				)
+		);
 	}
-	for (const e of eventos) registo.push({ t: hora, ...e });
-	// um tecto, para um dia estranho não encher uma chave até ela não caber
-	if (registo.length > 4000) registo = registo.slice(-4000);
-
-	// **As escritas vão dentro de um `try`, e isso não é zelo.**
+	// **A hora da ronda, e não a hora em que reparámos nela.** Os pedidos foram feitos quando
+	// o raspador correu; bucketizá-los pela hora da observação punha tudo o que aconteceu antes
+	// da primeira leitura do dia no balde dessa leitura — numa sexta-feira isso era a ronda das
+	// 00:30 a aparecer às 17h. O `generated_at` diz quando a ronda publicou, e é esse o balde.
 	//
-	// A 08/10/2026 a Cloudflare mandou um aviso de 50% do limite diário de operações do KV —
-	// 1 000 escritas por dia no plano gratuito — e sábado, com 36 jogos das 10:00 às 21:00,
-	// este Worker sozinho precisaria de ~1 560. Quando o limite estoura, o `put` atira. Sem
-	// isto, a excepção subia pelo `waitUntil` e fazia falhar a invocação do cron inteira.
+	// Só quando a ronda é do próprio dia: uma ronda das 23:50 observada às 00:01 cairia no
+	// balde das 23h de um dia que acabou de começar.
+	const daRonda = estado.generated_at ? emLisboa(new Date(estado.generated_at)) : null;
+	const horaDaRonda =
+		daRonda?.dia === dia ? Number(daRonda.hora.slice(0, 2)) : Number(hora.slice(0, 2));
+	for (const [tipo, n] of Object.entries(pedidos)) {
+		escritas.push(
+			bd
+				.prepare(
+					`INSERT INTO pedido_fonte (dia, hora, tipo, n) VALUES (?, ?, ?, ?)
+					 ON CONFLICT (dia, hora, tipo) DO UPDATE SET n = n + excluded.n`
+				)
+				.bind(dia, horaDaRonda, tipo, n)
+		);
+	}
+	// **A limpeza, uma vez por dia e não a cada minuto.** O D1 não tem expiração como o KV
+	// tinha, por isso as linhas ficam para sempre se ninguém as apagar — e o KV limpava-se
+	// sozinho com um TTL de 120 dias. Isto corre só na primeira observação de um dia novo,
+	// que é quando `anterior.dia` ainda diz ontem: um `DELETE` por dia contra 1 400 se fosse
+	// a cada invocação.
 	//
-	// O que se perde é a medição. A app não depende disto: serve ficheiros estáticos do CDN,
-	// e os outros dois sítios que escrevem — o contador do site e o `/contar` — já apanhavam
-	// o erro cada um por si.
+	// 90 dias chega para olhar para trás numa época e não ameaça nada: um dia de jogos dá
+	// ~2 000 linhas de observação, logo 90 dias são ~180 000 linhas e uns 20 MB, contra os
+	// 5 GB do plano. Os contadores (`visita`, `aparelho`, `pedido_fonte`) **não** se apagam:
+	// são uma linha por dia e são precisamente o histórico que o dono quer ver crescer.
+	if (anterior?.dia && anterior.dia !== dia) {
+		escritas.push(
+			bd.prepare("DELETE FROM observacao WHERE dia < date(?, '-90 days')").bind(dia)
+		);
+	}
+
+	if (estado.retrato) {
+		escritas.push(
+			bd
+				.prepare(
+					`INSERT INTO estado (id, actualizado, json) VALUES (1, ?, ?)
+					 ON CONFLICT (id) DO UPDATE SET actualizado = excluded.actualizado, json = excluded.json`
+				)
+				.bind(`${dia} ${hora}`, JSON.stringify(estado))
+		);
+	}
+
 	try {
-		await env.OBSERVACAO.put(chaveDia, JSON.stringify(registo), ttl);
-		if (estado.retrato) await env.OBSERVACAO.put(chaveEstado, JSON.stringify(estado), ttl);
+		await bd.batch(escritas);
 	} catch (e) {
-		return { hora, eventos: eventos.length, saude: agoraSaude?.estado ?? null,
-			erro_a_gravar: String(e).slice(0, 120) };
+		// Uma medição perdida não é motivo para nada, e nunca pode derrubar a invocação do
+		// cron: o `waitUntil` propagaria a excepção.
+		return { hora, eventos: eventos.length, erro_a_gravar: String(e).slice(0, 120) };
 	}
 	return { hora, eventos: eventos.length, saude: agoraSaude?.estado ?? null };
 }
 
-/** O relatório de um dia, com a cadência já calculada. */
+
+/**
+ * O relatório de um dia: lê as observações desse dia e calcula a cadência.
+ *
+ * Em SQL, com `WHERE dia = ?`, em vez de desembrulhar um array JSON inteiro de uma chave do
+ * KV. As linhas vêm com os nomes das colunas; converte-se para a forma que a página já
+ * desenhava, que é mais curta (`t`, `id`, `v`) e não vale a pena mexer.
+ */
 async function relatorio(env, dia) {
-	const registo = JSON.parse((await env.OBSERVACAO.get(`obs:${dia}`)) ?? '[]');
+	if (!env.DADOS) return vazio(dia, 'sem ligação à base de dados');
+	let registo;
+	try {
+		const { results } = await env.DADOS.prepare(
+			`SELECT hora AS t, tipo, jogo AS id, de, para, situacao, a_decorrer AS v, detalhe
+			 FROM observacao WHERE dia = ? ORDER BY id`
+		)
+			.bind(dia)
+			.all();
+		registo = results ?? [];
+	} catch (e) {
+		return vazio(dia, String(e).slice(0, 160));
+	}
+
 	const pubs = registo.filter((e) => e.tipo === 'publicacao');
 	const seg = (h) => {
 		const [a, b, c] = h.split(':').map(Number);
@@ -421,6 +487,44 @@ async function relatorio(env, dia) {
 	};
 }
 
+/** Um relatório com a forma certa e nada dentro: a consola desenha-se à mesma, com o erro. */
+function vazio(dia, porque) {
+	return {
+		dia,
+		eventos: 0,
+		publicacoes: 0,
+		cadencia_s: { mediana: null, minimo: null, maximo: null },
+		buracos_acima_de_3min: [],
+		intervalos_longos_sem_jogos: 0,
+		resultados: [],
+		ao_vivo: [],
+		erros: [{ t: '', tipo: 'erro', detalhe: porque }],
+		leia_se: porque
+	};
+}
+
+/**
+ * Os pedidos à fonte de um dia, em baldes por hora: `{0: {ficha: 3}, 20: {…}}`.
+ *
+ * Uma consulta, 24 linhas no pior caso realista. Antes isto vinha de um objecto acumulado
+ * dentro do estado, que era preciso reescrever inteiro a cada minuto para lhe somar um.
+ */
+async function horasDoDia(env, dia) {
+	if (!env.DADOS) return {};
+	try {
+		const { results } = await env.DADOS.prepare(
+			'SELECT hora, tipo, n FROM pedido_fonte WHERE dia = ?'
+		)
+			.bind(dia)
+			.all();
+		const horas = {};
+		for (const r of results ?? []) (horas[r.hora] ??= {})[r.tipo] = r.n;
+		return horas;
+	} catch {
+		return {};
+	}
+}
+
 /**
  * Buscar, com cache na **Cache API** e não no KV.
  *
@@ -428,12 +532,16 @@ async function relatorio(env, dia) {
  * dia só para guardar uma resposta da GitHub, contra as 1 000 que o plano dá.
  */
 async function comCache(url, segundos, opcoes = {}) {
-	const chave = new Request(url, { headers: opcoes.headers });
+	// A chave é só o URL, sem os cabeçalhos: com o `Authorization` dentro dela, cada pedido
+	// com token era uma entrada diferente e a cache nunca acertava.
+	const chave = new Request(url);
 	const cache = caches.default;
 	const guardado = await cache.match(chave);
 	if (guardado) return guardado.json();
 	const r = await fetch(url, { headers: { 'User-Agent': UA, ...(opcoes.headers ?? {}) } });
-	if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
+	// o estado primeiro: a mensagem é cortada aos 80 caracteres ao chegar à consola, e
+	// com o URL à frente era o estado que desaparecia — exactamente o que se precisa de ler
+	if (!r.ok) throw new Error(`HTTP ${r.status} — ${url}`);
 	const corpo = await r.text();
 	await cache.put(
 		chave,
@@ -442,12 +550,25 @@ async function comCache(url, segundos, opcoes = {}) {
 	return JSON.parse(corpo);
 }
 
-/** As últimas corridas das Actions. O repositório é público, logo não precisa de token. */
+/**
+ * As últimas corridas das Actions.
+ *
+ * **Precisa de token, e isto foi medido a 09/10/2026.** O repositório é público, por isso
+ * parecia não precisar — e da minha máquina não precisa mesmo. A partir do Worker a GitHub
+ * responde **HTTP 403**: o limite sem autenticação é de 60 pedidos por hora e por IP, e os
+ * IPs de saída da Cloudflare são partilhados por muita gente, logo o balde já vem gasto. Com
+ * token são 5 000 por hora e a conta é nossa.
+ *
+ * Sem token isto não parte nada — diz que não conseguiu ler, e o resto da consola desenha-se.
+ */
 async function corridas(env) {
 	try {
 		const d = await comCache(
 			`https://api.github.com/repos/${env.REPO}/actions/runs?per_page=12`,
-			120
+			120,
+			env.GITHUB_TOKEN
+				? { headers: { Authorization: `Bearer ${env.GITHUB_TOKEN}` } }
+				: {}
 		);
 		return (d.workflow_runs ?? []).map((r) => ({
 			nome: r.name,
@@ -456,7 +577,14 @@ async function corridas(env) {
 			quando: r.created_at
 		}));
 	} catch (e) {
-		return [{ nome: 'não foi possível ler as corridas', estado: String(e).slice(0, 80) }];
+		return [
+			{
+				nome: env.GITHUB_TOKEN
+					? 'não foi possível ler as corridas'
+					: 'sem GITHUB_TOKEN: a GitHub responde 403 a partir do Worker',
+				estado: String(e).slice(0, 80)
+			}
+		];
 	}
 }
 
@@ -481,46 +609,41 @@ async function rondas(env) {
 /**
  * As entradas: o que o contador do site escreveu. Só leitura.
  *
- * **Lê o mínimo, e isto não é afinação: é o que mantém a página de pé.** A primeira versão
- * pedia as 11 chaves de cada um dos 7 dias — 77 leituras — e a Cloudflare respondeu `Error
- * 1102, Worker exceeded resource limits`: o plano gratuito corta aos **50 sub-pedidos** por
- * invocação, e cada leitura do KV conta como um. A consola esteve em baixo até se perceber.
- *
- * Agora: três chaves por dia para o gráfico de sete dias — aparelhos, novos e aberturas — e o
- * detalhe por ecrã só do dia que se está a ver. Dá 30 leituras no pior caso, mais três para o
- * resto da página.
+ * **Duas consultas, e isto não é afinação: é o que mantém a página de pé.** No KV a primeira
+ * versão pedia as 11 chaves de cada um dos 7 dias — 77 leituras — e a Cloudflare respondeu
+ * `Error 1102, Worker exceeded resource limits`: o plano gratuito corta aos **50 sub-pedidos**
+ * por invocação, e cada leitura do KV contava um. Depois baixou-se para 30, que cabia mas era
+ * frágil. Em SQL são duas idas, independentemente de quantos dias se peçam.
  */
 async function entradas(env, dias, diaDetalhado) {
-	const ECRAS = ['/', '/clube', '/competicoes', '/equipa', '/jogo', '/mais', '/privacidade',
-		'/procurar', 'outro'];
-	const num = async (chave) => Number(await env.CONTAGENS.get(chave)) || 0;
-
-	// em paralelo: são 30 idas ao KV e em série a página demorava a aparecer
-	const porDia = await Promise.all(
-		dias.map(async (dia) => {
-			const [aparelhos, novos, aberturas] = await Promise.all([
-				num(`d:${dia}`),
-				num(`n:${dia}`),
-				num(`c:${dia}:aberturas`)
-			]);
-			return [dia, { aparelhos, novos, aberturas: aberturas * 10 }];
-		})
-	);
-
-	const detalhe = await Promise.all(
-		ECRAS.map(async (e) => [e, await num(`c:${diaDetalhado}:${e}`)])
-	);
-
+	if (!env.DADOS) return {};
 	const saida = {};
-	for (const [dia, v] of porDia) {
-		const linha = {};
-		if (v.aparelhos) {
-			linha.aparelhos = v.aparelhos;
-			linha.novos = v.novos;
+	try {
+		const marcas = dias.map(() => '?').join(',');
+		const [visitas, aparelhos] = await env.DADOS.batch([
+			env.DADOS.prepare(
+				`SELECT dia, ecra, n FROM visita WHERE dia IN (${marcas})`
+			).bind(...dias),
+			env.DADOS.prepare(
+				`SELECT dia, total, novos FROM aparelho WHERE dia IN (${marcas})`
+			).bind(...dias)
+		]);
+
+		for (const r of aparelhos.results ?? []) {
+			if (!r.total) continue;
+			(saida[r.dia] ??= {}).aparelhos = r.total;
+			saida[r.dia].novos = r.novos;
 		}
-		if (v.aberturas) linha.aberturas = v.aberturas;
-		if (dia === diaDetalhado) for (const [e, n] of detalhe) if (n) linha[e] = n;
-		if (Object.keys(linha).length) saida[dia] = linha;
+		for (const r of visitas.results ?? []) {
+			if (!r.n) continue;
+			// `aberturas` é amostrado 1 em 10: guarda-se a amostra, mostra-se a estimativa.
+			if (r.ecra === 'aberturas') (saida[r.dia] ??= {}).aberturas = r.n * 10;
+			// o detalhe por ecrã só do dia que se está a ver: sete dias de ecrãs numa só
+			// tabela seria ruído, e é o dia aberto que se está a ler
+			else if (r.dia === diaDetalhado) (saida[r.dia] ??= {})[r.ecra] = r.n;
+		}
+	} catch {
+		return saida;
 	}
 	return saida;
 }
@@ -551,22 +674,23 @@ export default {
 
 		let estado = null;
 		try {
-			estado = JSON.parse((await env.OBSERVACAO.get('estado')) ?? 'null');
+			const linha = await env.DADOS?.prepare('SELECT json FROM estado WHERE id = 1').first();
+			estado = linha?.json ? JSON.parse(linha.json) : null;
 		} catch {
 			estado = null;
 		}
-		// sete dias: é o que mostra se o uso está a crescer ou foi só uma tarde. São 70
-		// leituras do KV por carregamento, contra as 100 000 do dia.
+		// sete dias: é o que mostra se o uso está a crescer ou foi só uma tarde.
 		const base = Date.parse(`${dia}T12:00:00Z`);
 		const dias = Array.from({ length: 7 }, (_, i) =>
 			new Date(base - (6 - i) * 86400000).toISOString().slice(0, 10)
 		);
-		const [runs, diario, ent] = await Promise.all([
+		const [runs, diario, ent, horas] = await Promise.all([
 			corridas(env),
 			rondas(env),
-			entradas(env, dias, dia)
+			entradas(env, dias, dia),
+			horasDoDia(env, dia)
 		]);
-		return new Response(pagina({ dia, estado, rel, runs, diario, ent, dias }), {
+		return new Response(pagina({ dia, estado, rel, runs, diario, ent, dias, horas }), {
 			headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
 		});
 	}

@@ -27,16 +27,26 @@
  * é pedido a cada abertura e a cada ronda de actualização. É esse o sinal de "há alguém com
  * a app aberta".
  *
- * ## O tecto que obriga a amostragem
+ ## Onde isto é guardado, e porque mudou
  *
- * O KV gratuito dá **1 000 escritas por dia**, e numa janela de jogos 20 telemóveis abertos
- * duas horas fazem ~4 800 pedidos de `meta.json` — uma escrita por pedido estourava o tecto
- * e a contagem parava a meio da tarde. Por isso o `meta.json` conta-se **1 em 10**, e o
- * número devolvido é uma estimativa (×10). As navegações, que são poucas, contam-se todas.
+ * **Em D1 desde 09/10/2026, antes era KV.** O KV gratuito dá 1 000 escritas por dia e a
+ * Cloudflare avisou aos 50%; o D1 dá 100 000 linhas escritas. Mas o que resolve o defeito
+ * não é o número: no KV isto era ler-somar-escrever, **que não é atómico** e perdia
+ * incrementos quando duas visitas caíam no mesmo instante — medido a 06/10, três pedidos
+ * deram dois. Aqui é um `ON CONFLICT ... DO UPDATE SET n = n + 1`, e o SQLite resolve a
+ * corrida sozinho. O raciocínio completo está em `dados/esquema.sql`.
+ *
+ * ## Porque é que continua amostrado
+ *
+ * A amostragem já não é um tecto, é uma escolha. Numa janela de jogos 20 telemóveis abertos
+ * duas horas fazem ~4 800 pedidos de `meta.json`, e num sábado cheio são dezenas de milhar —
+ * todos na **mesma linha** da tabela, que o SQLite serializa. Contar 1 em 10 custa um décimo
+ * disso e dá a mesma ordem de grandeza, que é a pergunta. O número mostrado é por isso uma
+ * estimativa (×10); as navegações, que são poucas, contam-se todas e são exactas.
  *
  * **A contagem nunca atrasa nem parte a página.** Vai toda dentro de `waitUntil` e de um
- * `try`, e sem a ligação ao KV este ficheiro é um `next()` e mais nada — é isso que permite
- * publicar antes de o KV existir.
+ * `try`, e sem a ligação à base de dados este ficheiro é um `next()` e mais nada — é isso
+ * que permite publicar antes de a ligação existir.
  */
 
 /** 1 em quantos pedidos de dados se contam. Ver "o tecto que obriga a amostragem". */
@@ -93,35 +103,30 @@ export function oQueContar(pedido, sorteio = Math.random) {
 /**
  * @param {{
  *   request: Request,
- *   env: {
- *     CONTAGENS?: {
- *       get(chave: string): Promise<string | null>,
- *       put(chave: string, valor: string, opcoes?: { expirationTtl?: number }): Promise<void>
- *     }
- *   },
+ *   env: { DADOS?: import("@cloudflare/workers-types").D1Database },
  *   next: () => Promise<Response>,
  *   waitUntil: (promessa: Promise<unknown>) => void
  * }} contexto
  */
 export async function onRequest(contexto) {
 	const { request, env, next, waitUntil } = contexto;
-	const armazem = env?.CONTAGENS;
-	const conta = armazem ? oQueContar(request) : null;
+	const bd = env?.DADOS;
+	const conta = bd ? oQueContar(request) : null;
 
-	if (armazem && conta) {
+	if (bd && conta) {
 		waitUntil(
 			(async () => {
 				try {
-					const chave = `c:${diaDeLisboa()}:${conta}`;
-					const antes = Number(await armazem.get(chave)) || 0;
-					// 120 dias: chega para ver uma época a andar e limpa-se sozinho, sem nenhuma
-					// tarefa de manutenção a existir só para isto.
-					await armazem.put(chave, String(antes + 1), { expirationTtl: 60 * 60 * 24 * 120 });
+					await bd
+						.prepare(
+							`INSERT INTO visita (dia, ecra, n) VALUES (?, ?, 1)
+							 ON CONFLICT (dia, ecra) DO UPDATE SET n = n + 1`
+						)
+						.bind(diaDeLisboa(), conta)
+						.run();
 				} catch {
 					// Uma contagem perdida não é motivo para nada: o que interessa é a ordem de
-					// grandeza. Duas visitas no mesmo instante também podem perder um incremento,
-					// porque isto é ler-somar-escrever e não é atómico — e é um preço justo por
-					// não precisar de plano pago.
+					// grandeza, e a página já foi servida há muito — isto corre depois dela.
 				}
 			})()
 		);

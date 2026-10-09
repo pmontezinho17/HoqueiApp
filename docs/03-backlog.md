@@ -905,6 +905,88 @@ A recomendação é a 2, que é o padrão do "facade" — uma imagem nossa com u
 transmissão — acrescentar um campo é seguro —, e os clubes a dar os endereços. Essa parte é
 humana e é do dono.
 
+## As medições saíram do KV para o D1 (09/10/2026)
+
+A Cloudflare mandou um aviso de **50% do limite diário de escritas** do KV. O dono perguntou
+se o D1 resolvia, e se o problema eram as leituras da ficha de jogo no site da APL.
+
+**Não eram, e as duas contas confundem-se com facilidade.** São números de coisas diferentes:
+
+| | 08/10/2026 | o que é |
+|---|---|---|
+| pedidos ao servidor da APL | 468 | feitos pelo raspador, numa máquina da GitHub |
+| escritas no KV da Cloudflare | ~950 | feitas pelo observador e pelos contadores do site |
+
+O aviso era sobre a segunda linha. O limite é **1 000 escritas por dia** no plano gratuito, e
+uma noite de quatro jogos gastou ~800 só no observador — que escrevia o registo do dia e o
+estado **a cada minuto**, cada escrita a reescrever o objecto inteiro. Sábado tem 36 jogos das
+10:00 às 21:00 e pedia ~1 560. Rebentava a meio da tarde.
+
+### Porque é que D1 e não um plano pago
+
+O D1 dá **100 000 linhas escritas por dia** — cem vezes a margem —, mas o número não é a razão
+principal. São duas outras:
+
+1. **Isto são tabelas.** Um registo de observações tem hora, jogo, antes e depois; um contador
+   por dia e por ecrã é uma linha com um número. Num chave-valor, somar um obrigava a
+   **ler-somar-escrever, que não é atómico**, e já nos custou uma contagem — medido a 06/10,
+   três pedidos deram dois. Em SQL é `ON CONFLICT (dia, ecra) DO UPDATE SET n = n + 1`, e o
+   SQLite resolve a corrida sozinho.
+2. **O KV tem um tecto que o plano pago não levanta:** uma escrita por segundo na mesma chave.
+   Num sábado com trinta pessoas a abrir a app ao mesmo tempo, perder contas era o desenho.
+
+### O que ficou
+
+`dados/esquema.sql`, com o raciocínio todo dentro, e cinco tabelas: `observacao` (append-only,
+uma linha por acontecimento), `visita` (dia + ecrã), `aparelho` (dia), `pedido_fonte` (dia +
+hora + tipo) e `estado` (um registo só, para a consola saber "agora" sem varrer nada).
+
+Do lado do código, três mudanças que valem mais do que a troca de armazém:
+
+* **o estado deixou de ser reescrito a cada minuto.** Os pedidos por hora eram um objecto de
+  baldes acumulado dentro do estado; agora são uma linha por hora e por tipo, somada com
+  `ON CONFLICT`. A função pura que restava — `deltas` — só calcula o que cresceu, e tem 5
+  asserções;
+* **a consola faz duas consultas onde fazia 30 leituras.** O `entradas` pedia 3 chaves × 7
+  dias + 9 ecrãs; agora é `WHERE dia IN (…)`, duas idas, independentemente de quantos dias se
+  peçam. Isto mata de raiz o `Error 1102` que apanhámos a 08/10 — ver a secção seguinte;
+* **os pedidos à fonte caem na hora da ronda e não na hora em que reparámos neles.** O balde
+  vinha da hora da observação, e por isso numa sexta-feira os 80 pedidos da ronda das 00:30
+  apareciam às 17h, que é quando o `cron` acorda nos dias úteis. Agora o balde vem do
+  `generated_at` do `meta.json`, que diz quando a ronda publicou.
+
+**Retenção:** o D1 não tem expiração e o KV tinha. Quem limpa é o observador, na primeira
+leitura de cada dia novo — `DELETE FROM observacao WHERE dia < date(?, '-90 days')`, um comando
+por dia em vez de um a cada uma das ~1 400 invocações. As outras tabelas não se apagam: são uma
+linha por dia e são o histórico que se quer ver crescer.
+
+**O que foi migrado à mão:** as 20 chaves de contagens dos dias 07, 08 e 09/10, os 415 eventos
+da noite de 08/10, os baldes de pedidos dessa noite e o último estado. Conferido depois:
+`/api?dia=2026-10-08` devolve os mesmos 415 eventos, 141 publicações, mediana de 60 s, zero
+buracos e 5 intervalos longos sem jogos — os mesmos números que o KV dava.
+
+### O `GITHUB_TOKEN` que falta custa mais do que se pensava
+
+Que o observador não tem o segredo já estava escrito no `README` dele, e a consequência
+conhecida era uma: **o aviso nunca disparou**. O registo de 08/10 tem, literalmente, `aviso
+não enviado` — `sem token`. A cadeia que o dono pediu (issue na GitHub → email) está
+construída e testada e nunca correu.
+
+**O que é novo é a segunda consequência, medida a 09/10:** o painel "a cadeia" da consola
+responde `HTTP 403`. O comentário do código dizia "o repositório é público, logo não precisa
+de token", e da minha máquina é verdade — a partir do Worker não é. A GitHub dá 60 pedidos por
+hora e **por IP** sem autenticação, e os IPs de saída da Cloudflare são partilhados por muita
+gente, logo o balde já vem gasto. Com token são 5 000 por hora e a conta é nossa.
+
+Ou seja: num sábado de 36 jogos, nem o aviso chega nem o painel das corridas se lê. Um só
+comando resolve os dois, e é do dono, que é quem tem o token:
+
+```
+cd worker/observador && npx wrangler secret put GITHUB_TOKEN
+```
+
+Enquanto não existir, a consola di-lo em vez de dizer só "não foi possível".
+
 ## Combinado para 09/10, depois dos jogos: a consola passa para `/consola`
 
 **Porque:** o endereço da consola é `hoquei-observador.torneiopa.workers.dev`, e o `torneiopa`
@@ -920,13 +1002,14 @@ público (`workers_dev = false`), e os dois armazéns continuam na mesma conta.
 
 Passos, por ordem:
 
-1. **(do dono, no painel)** ligar o *namespace* `observacao`
-   (`5eb323f23c64470590caf547f7bd1d72`) ao projecto Pages `hoquei`, com o nome
-   **`OBSERVACAO`**, em *Production* — como fez com o `hoquei-contagens`.
+1. **(do dono, no painel)** ligar a base de dados D1 `ok4sticks-dados`
+   (`5eb302a1-a975-40af-a254-7b26a23ef312`) ao projecto Pages `hoquei`, com o nome **`DADOS`**,
+   em *Production* — como fez com o `hoquei-contagens`. **Uma ligação em vez de duas**, desde
+   que as medições passaram todas para o D1 a 09/10/2026 (ver a secção abaixo).
 2. mover o `worker/observador/src/pagina.js` para dentro do `web/` — por exemplo
    `web/src/lib/consola.js` — porque uma Pages Function só empacota o que está dentro da
    pasta do projecto. **Não o deixar em `web/functions/`:** ali todos os `.js` viram rotas.
-3. `web/functions/consola.js` passa a servir a página, lendo os dois KV;
+3. `web/functions/consola.js` passa a servir a página, lendo o `DADOS`;
 4. o observador perde a rota HTML e fica com o `cron` e o `/api`;
 5. `workers_dev = false` no `wrangler.toml` do observador, e o mesmo no relógio;
 6. corrigir o `env.CONSOLA` do aviso — a issue que ele abre aponta para o endereço antigo;

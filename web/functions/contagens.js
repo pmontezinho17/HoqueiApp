@@ -4,71 +4,54 @@
  * **Fechado por omissão.** Sem a variável `CHAVE_CONTAGENS` configurada no projecto, ou com a
  * chave errada, isto responde 404 e não diz que existe. Não é segredo de estado — são
  * contagens agregadas —, mas um endereço que qualquer pessoa pode sondar convida a ser
- * sondado, e cada sondagem custa leituras do KV.
+ * sondado.
  *
- * Pede-se só os dias que interessam, em vez de listar tudo: cada dia são ~8 chaves, e listar
- * 120 dias para ver os últimos sete era gastar 960 leituras por consulta.
+ * **Duas consultas, não 8 por dia.** Em KV cada dia custava ~8 leituras e ver os últimos sete
+ * eram ~60 idas; com `WHERE dia >= ?` são duas, independentemente de quantos dias se peçam.
  */
 
-/** Os últimos `n` dias, em datas de Lisboa, do mais recente para o mais antigo. */
-function ultimosDias(n) {
-	const hoje = new Date();
-	const dias = [];
-	for (let i = 0; i < n; i++) {
-		const d = new Date(hoje.getTime() - i * 24 * 60 * 60 * 1000);
-		dias.push(d.toLocaleDateString('sv-SE', { timeZone: 'Europe/Lisbon' }));
-	}
-	return dias;
-}
-
-/** As mesmas chaves que o `_middleware.js` escreve. */
-const CHAVES = [
-	'aberturas',
-	'/',
-	'/clube',
-	'/competicoes',
-	'/equipa',
-	'/jogo',
-	'/mais',
-	'/privacidade',
-	'/procurar',
-	'outro'
-];
+/** O dia em Lisboa, há `n` dias. A data de Lisboa é a que define "hoje" em todo o projecto. */
+const diaDeLisboa = (hDeAtraso = 0) =>
+	new Date(Date.now() - hDeAtraso * 86400000).toLocaleDateString('sv-SE', {
+		timeZone: 'Europe/Lisbon'
+	});
 
 /** 1 em 10, como no `_middleware.js`. Repetido porque um ficheiro de Functions não importa
  *  do outro sem os compilar juntos, e dez linhas de `import` para um número não pagam. */
 const AMOSTRA = 10;
 
+/**
+ * @param {{ request: Request, env: { DADOS?: import("@cloudflare/workers-types").D1Database, CHAVE_CONTAGENS?: string } }} contexto
+ */
 export async function onRequestGet({ request, env }) {
 	const url = new URL(request.url);
 	if (!env?.CHAVE_CONTAGENS || url.searchParams.get('chave') !== env.CHAVE_CONTAGENS) {
 		return new Response('Não existe nada aqui.', { status: 404 });
 	}
-	if (!env.CONTAGENS) {
-		return new Response('O armazenamento das contagens não está ligado a este projecto.', {
+	if (!env.DADOS) {
+		return new Response('A base de dados das contagens não está ligada a este projecto.', {
 			status: 503
 		});
 	}
 
 	const pedidos = Math.min(Math.max(Number(url.searchParams.get('dias')) || 7, 1), 30);
-	const saida = {};
+	const desde = diaDeLisboa(pedidos - 1);
 
-	for (const dia of ultimosDias(pedidos)) {
-		const linha = {};
-		// aparelhos distintos: exacto, não amostrado — ver `functions/contar.js`
-		const aparelhos = Number(await env.CONTAGENS.get(`d:${dia}`)) || 0;
-		if (aparelhos) {
-			linha.aparelhos = aparelhos;
-			linha.novos = Number(await env.CONTAGENS.get(`n:${dia}`)) || 0;
-		}
-		for (const chave of CHAVES) {
-			const n = Number(await env.CONTAGENS.get(`c:${dia}:${chave}`)) || 0;
-			if (!n) continue;
-			// `aberturas` é amostrado 1 em 10: o que se guarda é a amostra, o que se mostra é
-			// a estimativa. Dizer "12" quando se contaram 12 de ~120 seria mentir por omissão.
-			linha[chave] = chave === 'aberturas' ? n * AMOSTRA : n;
-		}
-		if (Object.keys(linha).length) saida[dia] = linha;
+	const [visitas, aparelhos] = await env.DADOS.batch([
+		env.DADOS.prepare('SELECT dia, ecra, n FROM visita WHERE dia >= ? ORDER BY dia').bind(desde),
+		env.DADOS.prepare('SELECT dia, total, novos FROM aparelho WHERE dia >= ?').bind(desde)
+	]);
+
+	/** @type {Record<string, Record<string, number>>} */
+	const dias = {};
+	for (const r of aparelhos.results ?? []) {
+		(dias[r.dia] ??= {}).aparelhos = r.total;
+		dias[r.dia].novos = r.novos;
+	}
+	for (const r of visitas.results ?? []) {
+		// `aberturas` é amostrado 1 em 10: o que se guarda é a amostra, o que se mostra é a
+		// estimativa. Dizer "12" quando se contaram 12 de ~120 seria mentir por omissão.
+		(dias[r.dia] ??= {})[r.ecra] = r.ecra === 'aberturas' ? r.n * AMOSTRA : r.n;
 	}
 
 	return new Response(
@@ -88,7 +71,7 @@ export async function onRequestGet({ request, env }) {
 						'do cliente e não aparece aqui — isto conta sobretudo primeiras visitas, ' +
 						'links partilhados e recarregamentos.'
 				},
-				dias: saida
+				dias: Object.fromEntries(Object.entries(dias).sort((a, b) => b[0].localeCompare(a[0])))
 			},
 			null,
 			2

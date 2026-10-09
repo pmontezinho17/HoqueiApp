@@ -23,13 +23,21 @@ crons = [
 [vars]
 REPO = "pmontezinho17/HoqueiApp"
 
-[[kv_namespaces]]
-binding = "OBSERVACAO"
-id = "5eb323f23c64470590caf547f7bd1d72"
+# Logs e rastreios no painel da Cloudflare, que de outra forma não ficam guardados: sem
+# isto, um erro de madrugada só se vê se alguém estiver a olhar para o `wrangler tail`.
+# Amostragem a 100% porque isto corre ~1 400 vezes no pior dia, não um milhão.
+[observability]
+enabled = true
+head_sampling_rate = 1
 
-# O mesmo armazém que o contador do site escreve — ver `web/functions/_middleware.js`. Aqui
-# é só lido: a consola mostra as entradas ao lado das saídas, e quem escreve continua a ser
-# a Function do site.
-[[kv_namespaces]]
-binding = "CONTAGENS"
-id = "01701dc5d79d4f0eadaa5bcfa45c2090"
+# A base de dados das medições. **Era KV até 09/10/2026** e passou a D1 porque a Cloudflare
+# avisou aos 50% das 1 000 escritas/dia do plano gratuito — o raciocínio e os números estão
+# em `dados/esquema.sql`. O D1 dá 100 000 linhas escritas por dia e, mais importante, faz as
+# somas com `ON CONFLICT` em vez de ler-somar-escrever, que não era atómico.
+#
+# O mesmo `database_id` está ligado ao projecto de Pages: os contadores do site escrevem nas
+# tabelas `visita` e `aparelho`, e a consola lê-as aqui.
+[[d1_databases]]
+binding = "DADOS"
+database_name = "ok4sticks-dados"
+database_id = "5eb302a1-a975-40af-a254-7b26a23ef312"

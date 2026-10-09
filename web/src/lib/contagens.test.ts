@@ -36,7 +36,8 @@ describe('o que o contador do servidor conta', () => {
 
 	/**
 	 * O `meta.json` é o único sinal que atravessa o service worker — ver o comentário do
-	 * `_middleware.js`. Conta-se 1 em `AMOSTRA` porque o KV gratuito dá 1 000 escritas/dia.
+	 * `_middleware.js`. Conta-se 1 em `AMOSTRA` para não mandar dezenas de milhar de escritas
+	 * à mesma linha da tabela num sábado cheio — era um tecto do KV e hoje é uma escolha.
 	 */
 	it('o meta.json conta por amostragem, e nunca mais do que 1 em AMOSTRA', () => {
 		const p = pedido('/v1/aplisboa/2026-27/meta.json');

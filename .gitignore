@@ -39,3 +39,7 @@ venv/
 # O `svelte-kit sync` cria o `.svelte-kit/` onde quer que seja corrido, e um comando meu
 # corrido da raiz em vez de `web/` deixou-o lá — e foi comitado uma vez, a 06/10/2026.
 .svelte-kit/
+
+# Gerado pelo `npx wrangler types`: 16 000 linhas de tipos do runtime da Cloudflare, úteis no
+# editor e inúteis no repositório. Quem quiser, corre o comando — está no README do observador.
+worker/*/worker-configuration.d.ts

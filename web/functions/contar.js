@@ -5,27 +5,24 @@
  * no próprio aparelho; ver `src/lib/presenca.ts`. Aqui não se lê nem se guarda nada sobre
  * quem tocou: nem IP, nem cabeçalhos, nem identificador. Só se soma um.
  *
- * Duas chaves por dia:
+ Uma linha por dia na tabela `aparelho`, com os dois números:
  *
- *     d:2026-10-08   → aparelhos distintos
- *     n:2026-10-08   → destes, quantos abriam a app pela primeira vez
+ *     dia          total   novos
+ *     2026-10-08      14       9
  *
- * Escritas no KV: duas por aparelho novo e uma por aparelho conhecido, por dia. Com dezenas
- * de aparelhos é nada contra as 1 000 do plano gratuito — e ao contrário do contador de
- * ecrãs, este **não** cresce com o uso de cada um: quem abre a app vinte vezes num dia
- * escreve uma vez.
+ * **Em D1 desde 09/10/2026, antes eram duas chaves no KV.** Eram duas escritas por aparelho
+ * novo, cada uma a ler-somar-escrever, e esse padrão perdia contas quando dois aparelhos
+ * tocavam no mesmo instante — num sábado com trinta pessoas a abrir a app ao mesmo tempo,
+ * perder contas era o desenho. Aqui é uma linha e um `ON CONFLICT`, numa só ida.
+ *
+ * Ao contrário do contador de ecrãs, este **não** cresce com o uso de cada um: quem abre a
+ * app vinte vezes num dia escreve uma vez.
  */
 
 const diaDeLisboa = () => new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Lisbon' });
 
-/** @param {{ chave: string, env: { CONTAGENS?: { get(k: string): Promise<string | null>, put(k: string, v: string, o?: { expirationTtl?: number }): Promise<void> } } }} _ */
-async function somar(env, chave) {
-	const antes = Number(await env.CONTAGENS.get(chave)) || 0;
-	await env.CONTAGENS.put(chave, String(antes + 1), { expirationTtl: 60 * 60 * 24 * 400 });
-}
-
 /**
- * @param {{ request: Request, env: { CONTAGENS?: { get(k: string): Promise<string | null>, put(k: string, v: string, o?: { expirationTtl?: number }): Promise<void> } }, waitUntil: (p: Promise<unknown>) => void }} contexto
+ * @param {{ request: Request, env: { DADOS?: import("@cloudflare/workers-types").D1Database }, waitUntil: (p: Promise<unknown>) => void }} contexto
  */
 export async function onRequestGet({ request, env, waitUntil }) {
 	// 204 sempre, e sem corpo: isto não devolve informação nenhuma a quem chama, e assim um
@@ -34,15 +31,19 @@ export async function onRequestGet({ request, env, waitUntil }) {
 		status: 204,
 		headers: { 'Cache-Control': 'no-store' }
 	});
-	if (!env?.CONTAGENS) return resposta;
+	if (!env?.DADOS) return resposta;
 
-	const novo = new URL(request.url).searchParams.get('novo') === '1';
+	const novo = new URL(request.url).searchParams.get('novo') === '1' ? 1 : 0;
 	const dia = diaDeLisboa();
 	waitUntil(
 		(async () => {
 			try {
-				await somar(env, `d:${dia}`);
-				if (novo) await somar(env, `n:${dia}`);
+				await env.DADOS.prepare(
+					`INSERT INTO aparelho (dia, total, novos) VALUES (?, 1, ?)
+					 ON CONFLICT (dia) DO UPDATE SET total = total + 1, novos = novos + ?`
+				)
+					.bind(dia, novo, novo)
+					.run();
 			} catch {
 				// uma contagem perdida não é motivo para nada
 			}
