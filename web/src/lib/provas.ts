@@ -1,4 +1,4 @@
-import { disputado, type Jogo } from './tipos';
+import { disputado, type Competicao, type Jogo } from './tipos';
 
 /**
  * A prova onde a equipa está **agora** — o que se quer ver por defeito na classificação e
@@ -32,4 +32,114 @@ export function provaActual(
 		.map((p) => ({ id: p.id, k: chave(p.jogos) }))
 		.sort((a, b) => a.k[0] - b.k[0] || (a.k[0] === 2 ? b.k[1].localeCompare(a.k[1]) : a.k[1].localeCompare(b.k[1])));
 	return ordenadas[0]?.id ?? null;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────────────────
+// O menu de Competições: agrupar as séries e dizer o que já acabou (P12.1).
+//
+// Vive aqui ao lado do `provaActual` porque as duas respondem à mesma família de perguntas —
+// "qual destas provas interessa agora?" — uma do ponto de vista de uma equipa, outra do
+// ponto de vista do menu.
+//
+// ## O problema, medido
+//
+// A 08/10/2026 o menu tinha 20 entradas e **9 não tinham um único jogo por disputar** — as
+// Supertaças e os Torneios de Abertura de setembro. Quem entra à procura do escalão do filho
+// tinha de os saltar todos.
+//
+// ## Esconder não é filtrar, e isto já me custou uma correcção
+//
+// A 06/10/2026 escondi, no ecrã de escolha de equipas, os escalões sem prova a decorrer. O
+// dono apanhou-me: o HC SINTRA só joga Taças já terminadas, e as duas equipas seniores
+// **desapareceram** da app. A lição não é "não filtrar": é que **o que se tira tem de ser
+// contado e ter porta de entrada**.
+//
+// Por isso o `agruparProvas` nunca devolve menos do que recebeu — devolve tudo, marcado, e
+// diz quantas acabaram. Quem desenha decide, e tem o número para escrever no interruptor.
+
+export type Prova = {
+	/** o `grupo_id`, ou o id da competição quando ela não pertence a um grupo */
+	id: string;
+	nome: string;
+	categoria: string;
+	/** as séries desse grupo, ordenadas: "A B C" */
+	series: string[];
+	/** false quando nenhuma competição do grupo tem jogos por disputar */
+	viva: boolean;
+};
+
+/** A ordem por que os escalões aparecem. Do mais velho para o mais novo, como na app toda. */
+export const ORDEM_ESCALOES = [
+	'SENIORES MASCULINOS',
+	'SENIORES FEMININOS',
+	'SUB-23',
+	'SUB-19',
+	'SUB-17',
+	'SUB-15',
+	'SUB-13',
+	'ESCOLARES',
+	'BENJAMINS',
+	'BAMBIS'
+];
+
+/**
+ * Uma entrada por grupo e não por série: 37 competições viram 20 entradas.
+ *
+ * **Um grupo está vivo se qualquer uma das suas séries estiver viva.** Uma prova a três
+ * séries em que duas acabaram ainda está a decorrer, e marcá-la como terminada escondia a
+ * série que está a jogar.
+ */
+export function agruparProvas(
+	competicoes: Competicao[],
+	vivas: Set<number>
+): { escaloes: [string, Prova[]][]; terminadas: number; nadaVivo: boolean } {
+	const m = new Map<string, Prova>();
+	for (const c of competicoes) {
+		const id = c.grupo_id ?? String(c.id);
+		const g =
+			m.get(id) ??
+			m
+				.set(id, {
+					id,
+					nome: c.grupo_nome ?? c.nome,
+					categoria: c.categoria,
+					series: [],
+					viva: false
+				})
+				.get(id)!;
+		if (c.serie) g.series.push(c.serie);
+		g.viva = g.viva || vivas.has(c.id);
+	}
+
+	const lista = [...m.values()].map((g) => ({ ...g, series: g.series.sort() }));
+	const porEscalao = new Map<string, Prova[]>();
+	for (const g of lista) {
+		(porEscalao.get(g.categoria) ?? porEscalao.set(g.categoria, []).get(g.categoria)!).push(g);
+	}
+
+	const escaloes: [string, Prova[]][] = [...porEscalao].sort((a, b) => {
+		const ia = ORDEM_ESCALOES.indexOf(a[0]);
+		const ib = ORDEM_ESCALOES.indexOf(b[0]);
+		return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a[0].localeCompare(b[0]);
+	});
+
+	const terminadas = lista.filter((g) => !g.viva).length;
+	return { escaloes, terminadas, nadaVivo: lista.length > 0 && terminadas === lista.length };
+}
+
+/**
+ * O que mostrar, dado o interruptor.
+ *
+ * Separada da agregação porque é a decisão, e a decisão é onde já me enganei uma vez. Um
+ * escalão fica de fora só quando **todas** as suas provas estão terminadas e o filtro está
+ * ligado: assim nunca desaparece um escalão que tenha uma única série a jogar.
+ */
+export function filtrarProvas(
+	escaloes: [string, Prova[]][],
+	mostrarTudo: boolean
+): [string, Prova[]][] {
+	if (mostrarTudo) return escaloes;
+	return escaloes
+		.map(([e, provas]): [string, Prova[]] => [e, provas.filter((p) => p.viva)])
+		.filter(([, provas]) => provas.length > 0);
 }

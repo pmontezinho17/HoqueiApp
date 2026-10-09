@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { provaActual } from './provas';
-import type { Jogo } from './tipos';
+import { agruparProvas, filtrarProvas, provaActual } from './provas';
+import type { Competicao, Jogo } from './tipos';
 
 /** Só interessam a data e o resultado; `disputado()` olha para os golos. */
 const jogo = (data: string, gc: number | null = null): Jogo =>
@@ -54,5 +54,115 @@ describe('provaActual', () => {
 
 	it('sem provas, devolve nulo', () => {
 		expect(provaActual([], HOJE)).toBeNull();
+	});
+});
+
+// ─── o menu de Competições (P12.1) ──────────────────────────────────────────────────
+
+const c = (
+	id: number,
+	categoria: string,
+	nome: string,
+	grupo?: { id: string; nome: string; serie: string }
+): Competicao => ({
+	id,
+	nome,
+	categoria,
+	grupo_id: grupo?.id,
+	grupo_nome: grupo?.nome,
+	serie: grupo?.serie ?? null
+});
+
+describe('agrupar as provas do menu', () => {
+	it('junta as séries do mesmo grupo numa entrada só', () => {
+		const { escaloes } = agruparProvas(
+			[
+				c(1, 'SUB-13', 'CAMP SUB-13 A', { id: 'g1', nome: 'CAMPEONATO SUB-13', serie: 'A' }),
+				c(2, 'SUB-13', 'CAMP SUB-13 B', { id: 'g1', nome: 'CAMPEONATO SUB-13', serie: 'B' })
+			],
+			new Set([1, 2])
+		);
+		expect(escaloes).toHaveLength(1);
+		expect(escaloes[0][1]).toHaveLength(1);
+		expect(escaloes[0][1][0].nome).toBe('CAMPEONATO SUB-13');
+		expect(escaloes[0][1][0].series).toEqual(['A', 'B']);
+	});
+
+	/**
+	 * O caso que importa: uma prova a três séries em que duas acabaram **ainda está a
+	 * decorrer**. Marcá-la como terminada escondia a série que está a jogar.
+	 */
+	it('um grupo está vivo se qualquer série sua estiver viva', () => {
+		const { escaloes, terminadas } = agruparProvas(
+			[
+				c(1, 'SUB-15', 'A', { id: 'g', nome: 'CAMPEONATO', serie: 'A' }),
+				c(2, 'SUB-15', 'B', { id: 'g', nome: 'CAMPEONATO', serie: 'B' }),
+				c(3, 'SUB-15', 'C', { id: 'g', nome: 'CAMPEONATO', serie: 'C' })
+			],
+			new Set([2])
+		);
+		expect(escaloes[0][1][0].viva).toBe(true);
+		expect(terminadas).toBe(0);
+	});
+
+	it('conta as terminadas, e nunca as remove do que devolve', () => {
+		const { escaloes, terminadas } = agruparProvas(
+			[c(1, 'SUB-17', 'SUPERTAÇA'), c(2, 'SUB-17', 'CAMPEONATO')],
+			new Set([2])
+		);
+		// devolve as duas: quem desenha é que decide esconder, e com o número na mão
+		expect(escaloes[0][1]).toHaveLength(2);
+		expect(terminadas).toBe(1);
+	});
+
+	it('ordena os escalões do mais velho para o mais novo', () => {
+		const { escaloes } = agruparProvas(
+			[c(1, 'SUB-13', 'x'), c(2, 'SENIORES MASCULINOS', 'y'), c(3, 'SUB-17', 'z')],
+			new Set([1, 2, 3])
+		);
+		expect(escaloes.map(([e]) => e)).toEqual(['SENIORES MASCULINOS', 'SUB-17', 'SUB-13']);
+	});
+
+	it('um escalão que a fonte invente vai para o fim, e não desaparece', () => {
+		const { escaloes } = agruparProvas(
+			[c(1, 'SUB-13', 'x'), c(2, 'VETERANOS', 'y')],
+			new Set([1, 2])
+		);
+		expect(escaloes.map(([e]) => e)).toEqual(['SUB-13', 'VETERANOS']);
+	});
+
+	it('nadaVivo quando tudo acabou, e falso quando não há provas nenhumas', () => {
+		expect(agruparProvas([c(1, 'SUB-13', 'x')], new Set()).nadaVivo).toBe(true);
+		// uma agenda vazia não é "tudo terminado": é não haver nada para dizer
+		expect(agruparProvas([], new Set()).nadaVivo).toBe(false);
+	});
+});
+
+describe('filtrar o que se mostra', () => {
+	const dados = agruparProvas(
+		[
+			c(1, 'SUB-13', 'SUPERTAÇA'),
+			c(2, 'SUB-13', 'CAMPEONATO'),
+			c(3, 'SUB-19', 'TORNEIO ABERTURA')
+		],
+		new Set([2])
+	);
+
+	it('por omissão só o que está a decorrer', () => {
+		const v = filtrarProvas(dados.escaloes, false);
+		expect(v.map(([e, p]) => [e, p.map((x) => x.nome)])).toEqual([
+			['SUB-13', ['CAMPEONATO']]
+		]);
+	});
+
+	/**
+	 * O erro de 06/10/2026, em forma de teste: o SUB-19 só tem uma prova e ela acabou, logo o
+	 * escalão sai da lista filtrada. **Tem de voltar com o interruptor** — foi assim que as
+	 * equipas seniores do HC SINTRA desapareceram da app.
+	 */
+	it('com o interruptor, volta tudo — inclusive um escalão inteiro', () => {
+		const v = filtrarProvas(dados.escaloes, true);
+		expect(v.map(([e]) => e)).toEqual(['SUB-19', 'SUB-13']);
+		expect(v.flatMap(([, p]) => p)).toHaveLength(3);
 	});
 });

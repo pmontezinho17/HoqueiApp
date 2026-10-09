@@ -853,10 +853,28 @@ ou de decidir que a quer.
 | ID | Item | Prio | Est. | Nota |
 |---|---|---|---|---|
 | P12.1 | Filtro "só o que está a decorrer" em Competições | **must** | S | Medido a 08/10: das **20 entradas do menu, 9 já acabaram** — quase metade é lixo para quem procura o escalão do filho. Ver abaixo |
-| P12.2 | Os crachás de escalão no menu Competições | should | S | Os 11 SVG já existem em `web/static/escaloes/`, feitos a 05/10 e nunca usados fora da ficha de jogo |
+| P12.2 | Os crachás de escalão no menu Competições | should | S | ✅ **feito a 09/10/2026**, no mesmo commit do P12.1: os cabeçalhos de escalão levam o crachá a 14 px. Os 11 SVG estavam em `web/static/escaloes/` desde 05/10 sem uso fora da ficha de jogo |
 | P12.3 | Transmissões dos clubes no YouTube, dentro da app | could | M | **Esbarra na política de privacidade.** Ver abaixo |
 
-### P12.1 — metade do menu é passado
+### P12.1 — metade do menu é passado · ✅ feito a 09/10/2026
+
+**Como ficou:** por omissão só as provas a decorrer, com um interruptor que diz quantas estão
+escondidas — "mostrar também as 9 que já acabaram" — e cada linha terminada com a palavra
+`TERMINADA` ao lado. A lógica vive em `web/src/lib/provas.ts`, ao lado do `provaActual`, com
+oito testes; o componente só desenha.
+
+Três coisas que valeram a pena pensar:
+
+* **um grupo está vivo se qualquer série sua estiver viva.** Uma prova a três séries em que
+  duas acabaram ainda está a decorrer, e marcá-la como terminada escondia a série que joga;
+* **o filtro desliga-se sozinho se nada estiver a decorrer** — fim de época, ou uma agenda que
+  não se leu. Um menu filtrado ficaria vazio, e um ecrã vazio não é uma resposta;
+* **o `agruparProvas` nunca devolve menos do que recebeu.** Devolve tudo, marcado, e diz
+  quantas acabaram. É quem desenha que esconde, e com o número na mão para escrever no
+  interruptor. O teste que fixa isto tem o erro de 06/10 escrito por dentro.
+
+Verificado a 375×812 nos dois temas, com os dados reais: 11 entradas com o filtro, 20 sem ele,
+e as 9 terminadas são exactamente as que estavam medidas em baixo.
 
 Medido a 08/10/2026: o menu tem 20 entradas e **9 não têm um único jogo por disputar**.
 
