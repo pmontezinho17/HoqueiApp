@@ -1070,6 +1070,75 @@ cd worker/observador && npx wrangler secret put GITHUB_TOKEN
 
 Enquanto não existir, a consola di-lo em vez de dizer só "não foi possível".
 
+## A ronda de fecho pede 80 e precisa de 37 — decidido a 09/10/2026, a construir depois do fim de semana
+
+O dono olhou para o gráfico da consola e perguntou a pergunta certa: *"à meia-noite fomos ao
+site da APL quase 80 vezes?? eu imagino isto a ir UMA vez, mas diz-me se estou completamente
+errado"*.
+
+Não está errado na intuição — está a assumir que a fonte publica tudo num sítio, e ela não
+publica. Não há API: cada prova tem a sua página de calendário e a sua de classificação. Os 80
+são 80 páginas diferentes, e a conta bate exactamente:
+
+| o que | pedidos |
+|---|---|
+| lista de temporadas e lista de provas | 2 |
+| calendário, um por prova | 37 |
+| classificação, uma por prova | 37 |
+| ficha, uma por jogo com resultado novo | 4 |
+| | **80** |
+
+### Dois filtros, e o segundo é dele
+
+**O meu:** pedir a classificação só das provas onde se jogou desde a última ronda. Se ninguém
+jogou numa prova, a tabela dela não pode ter mudado. Medido a 09/10: jogaram-se 4 jogos em 3
+provas, logo **34 das 37 classificações eram de tabelas intactas**.
+
+**O dele, e é mais forte:** *"apenas ir ler de provas que ainda estão a decorrer, pois essas os
+números já não vão mudar e nós já os temos"*. Isto congela também os **calendários**, que eu
+tinha dado como irredutíveis — e não são, para uma prova acabada.
+
+Medido, com os dois:
+
+| | hoje | com os filtros |
+|---|---|---|
+| listas | 2 | 2 |
+| calendários | 37 | **28** (as 9 terminadas ficam de fora) |
+| classificações | 37 | **3** (só as vivas onde se jogou) |
+| fichas | 4 | 4 |
+| | **80** | **37** |
+
+**Menos 54%.** E as 9 terminadas são exactamente as mesmas 9 que o P12.1 esconde no menu de
+Competições — o número bate dos dois lados, que é a mesma verdade vista do raspador e da
+interface.
+
+### O risco, e a rede de segurança que o fecha
+
+Os dois filtros decidem com base nos **nossos** dados. Uma prova que nós achamos terminada e à
+qual a fonte acrescente um jogo depois — uma eliminatória com mais uma ronda, um adiado
+remarcado para fora da janela — deixa de ser olhada **para sempre**. O filtro que poupa pedidos
+é o mesmo que nos pode cegar, e um erro destes não dá sinal nenhum: a prova simplesmente para
+de actualizar e ninguém repara.
+
+**Por isso a varredura completa semanal não é um detalhe, é a condição.** Uma vez por semana
+pedem-se as 37, terminadas incluídas. Custa uma ronda de 80 em sete, e a média semanal da ronda
+de fecho passa de 560 para ~302.
+
+### Como construir, quando chegar a hora
+
+* a decisão numa função pura no raspador, com testes, ao lado do `vale_pedir` — **não** dentro
+  do `cli.py` a meio do ciclo, pela mesma razão de sempre;
+* "terminada" é *todos os jogos da prova têm resultado*, lido da nossa própria agenda, que não
+  custa um pedido. A função irmã no cliente já existe e chama-se `competicoesVivas`;
+* a varredura semanal escolhe-se por um dia fixo — o domingo da ronda de fecho, que é quando a
+  jornada acabou — e não por um contador de dias, que se perde quando uma corrida falha;
+* o `meta.json` tem de registar **quantas provas foram saltadas e porquê**, senão o gráfico da
+  consola passa a mostrar menos pedidos sem ninguém saber se foi poupança ou avaria. É o mesmo
+  defeito do B9.31 e não vale a pena criar outro igual.
+
+**Combinado para depois do fim de semana de 10–11/10**, a pedido meu: não se mexe no raspador a
+dezasseis horas de 36 jogos.
+
 ## Todos os 76 jogos do fim de semana davam erro antes de começar (09/10/2026)
 
 Encontrado a verificar a publicação, horas antes do fim de semana que o dono não quer que
