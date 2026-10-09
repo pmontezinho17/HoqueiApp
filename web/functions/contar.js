@@ -5,7 +5,7 @@
  * no próprio aparelho; ver `src/lib/presenca.ts`. Aqui não se lê nem se guarda nada sobre
  * quem tocou: nem IP, nem cabeçalhos, nem identificador. Só se soma um.
  *
- Uma linha por dia na tabela `aparelho`, com os dois números:
+ Uma linha por dia na tabela `aparelho`, e uma por hora na `entrada_hora`:
  *
  *     dia          total   novos
  *     2026-10-08      14       9
@@ -19,7 +19,12 @@
  * app vinte vezes num dia escreve uma vez.
  */
 
-const diaDeLisboa = () => new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Lisbon' });
+/** O dia **e a hora** de Lisboa, de uma só leitura do relógio: às 23:59:59.9 duas leituras
+ *  separadas podiam cair em dias diferentes e escrever a hora 0 no dia de ontem. */
+function agoraEmLisboa() {
+	const s = new Date().toLocaleString('sv-SE', { timeZone: 'Europe/Lisbon' });
+	return { dia: s.slice(0, 10), hora: Number(s.slice(11, 13)) };
+}
 
 /**
  * @param {{ request: Request, env: { DADOS?: import("@cloudflare/workers-types").D1Database }, waitUntil: (p: Promise<unknown>) => void }} contexto
@@ -37,16 +42,28 @@ export async function onRequestGet({ request, env, waitUntil }) {
 	if (!bd) return resposta;
 
 	const novo = new URL(request.url).searchParams.get('novo') === '1' ? 1 : 0;
-	const dia = diaDeLisboa();
+	const { dia, hora } = agoraEmLisboa();
 	waitUntil(
 		(async () => {
 			try {
-				await bd.prepare(
-					`INSERT INTO aparelho (dia, total, novos) VALUES (?, 1, ?)
-					 ON CONFLICT (dia) DO UPDATE SET total = total + 1, novos = novos + ?`
-				)
-					.bind(dia, novo, novo)
-					.run();
+				// As duas escritas numa `batch`: ou entram as duas ou não entra nenhuma. A soma
+				// das horas de um dia é, por construção, o total desse dia — e se alguma vez
+				// divergirem é porque uma escrita falhou, o que é informação e não ruído.
+				await bd.batch([
+					bd
+						.prepare(
+							`INSERT INTO aparelho (dia, total, novos) VALUES (?, 1, ?)
+							 ON CONFLICT (dia) DO UPDATE SET total = total + 1, novos = novos + ?`
+						)
+						.bind(dia, novo, novo),
+					bd
+						.prepare(
+							`INSERT INTO entrada_hora (dia, hora, novos, volta) VALUES (?, ?, ?, ?)
+							 ON CONFLICT (dia, hora) DO UPDATE
+							   SET novos = novos + excluded.novos, volta = volta + excluded.volta`
+						)
+						.bind(dia, hora, novo, novo ? 0 : 1)
+				]);
 			} catch {
 				// uma contagem perdida não é motivo para nada
 			}

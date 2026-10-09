@@ -93,3 +93,25 @@ CREATE TABLE IF NOT EXISTS estado (
 -- linhas e uns 20 MB contra os 5 GB do plano. As outras três tabelas são uma linha por dia
 -- (ou por dia e hora) e são precisamente o histórico que se quer ver crescer — apagá-las era
 -- perder a resposta a "o uso está a crescer?".
+
+-- ─────────────────────────────────────────────────────────────────────────────────────────
+-- Entradas por hora, separando quem é novo de quem já cá tinha vindo. Pedido pelo dono a
+-- 09/10/2026: *"um gráfico de quando as pessoas entravam na aplicação por hora... em cada
+-- barra podia estar a distinção entre o que é novo e o que não é"*.
+--
+-- **É a mesma escrita da tabela `aparelho`, com a hora.** Não é uma segunda contagem nem um
+-- segundo toque: o `/contar` escreve nas duas na mesma `batch`, e a soma das horas de um dia
+-- é, por construção, o total desse dia. Se alguma vez divergirem, é sinal de que uma das
+-- escritas falhou — e isso é informação, não ruído.
+--
+-- Porque é que não se acrescentou a hora à tabela `aparelho` em vez disto: porque a chave
+-- dela é o dia, e é essa chave que faz o `ON CONFLICT` somar o total diário sem corrida.
+-- Partir a chave para incluir a hora obrigava a somar 24 linhas para responder à pergunta
+-- mais frequente, que é "quantos aparelhos hoje".
+CREATE TABLE IF NOT EXISTS entrada_hora (
+  dia   TEXT NOT NULL,
+  hora  INTEGER NOT NULL,                 -- 0–23, hora de Lisboa
+  novos INTEGER NOT NULL DEFAULT 0,       -- primeira vez que este aparelho abre a app
+  volta INTEGER NOT NULL DEFAULT 0,       -- já cá tinha vindo noutro dia
+  PRIMARY KEY (dia, hora)
+);

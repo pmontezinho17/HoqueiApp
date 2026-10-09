@@ -102,3 +102,26 @@ describe('os nossos próprios agentes não contam', () => {
 		).toBe(null);
 	});
 });
+
+/**
+ * A consola não é a aplicação.
+ *
+ * Medido a 09/10/2026, no dia em que ela passou a ser servida pelo site: das 164 navegações
+ * do dia, **143 eram recargas da consola** — e o painel "ecrãs abertos hoje" dizia 164 como
+ * se fossem pessoas. É a irmã da regra do `User-Agent`: um contador que conta quem o vai ler
+ * não mede nada.
+ */
+describe('os caminhos que não são a aplicação', () => {
+	it('a consola e os endereços de contagem não contam', () => {
+		expect(ecraDe('/consola')).toBe(null);
+		expect(ecraDe('/contagens')).toBe(null);
+		expect(ecraDe('/contar')).toBe(null);
+		expect(oQueContar(navegacao('/consola'))).toBe(null);
+	});
+
+	it('o /ajuda conta, e com nome próprio em vez de cair em "outros"', () => {
+		// nasceu a 09/10 e ficou de fora da lista nesse dia: ia tudo para "outros"
+		expect(ecraDe('/ajuda')).toBe('/ajuda');
+		expect(oQueContar(navegacao('/ajuda'))).toBe('/ajuda');
+	});
+});

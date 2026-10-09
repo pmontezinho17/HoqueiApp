@@ -77,6 +77,7 @@ const ECRAS = {
 	'/mais': 'Sobre a app',
 	'/privacidade': 'Privacidade',
 	'/procurar': 'Procurar',
+	'/ajuda': 'Perguntas frequentes',
 	outro: 'Outros'
 };
 

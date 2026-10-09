@@ -56,16 +56,35 @@ export const AMOSTRA = 10;
  *  ainda está no dia anterior, e as contagens de uma jornada nocturna caíam no dia errado. */
 const diaDeLisboa = () => new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Lisbon' });
 
-const ECRAS = ['/equipa', '/jogo', '/competicoes', '/clube', '/mais', '/privacidade', '/procurar'];
+const ECRAS = [
+	'/equipa', '/jogo', '/competicoes', '/clube', '/mais', '/privacidade', '/procurar', '/ajuda'
+];
 
 /**
- * O tipo de ecrã, com os segmentos variáveis descartados.
+ * Caminhos que **não são a aplicação** e por isso não entram na contagem de utilização.
+ *
+ * A `/consola` é a página de manutenção: só o dono lá vai, e ele vai lá muitas vezes. Medido
+ * a 09/10/2026, no dia em que ela nasceu: das 164 navegações do dia, **143 eram recargas da
+ * consola** — iam todas para o balde "outros" e o painel "ecrãs abertos hoje" dizia 164 como
+ * se fossem pessoas a usar a app.
+ *
+ * O `/contagens` e o `/contar` estão aqui por coerência: também não são ecrãs.
+ *
+ * Isto é a irmã da regra do `User-Agent`, e pela mesma razão — um contador que conta quem o
+ * vai ler não mede nada.
+ */
+const NAO_CONTAR = new Set(['/consola', '/contagens', '/contar']);
+
+/**
+ * O tipo de ecrã, com os segmentos variáveis descartados. `null` para o que não é a
+ * aplicação — ver `NAO_CONTAR`.
  * @param {string} caminho
- * @returns {string}
+ * @returns {string | null}
  */
 export function ecraDe(caminho) {
 	if (caminho === '/' || caminho === '/index.html') return '/';
 	const limpo = caminho.replace(/\.html$/, '').replace(/\/+$/, '');
+	if (NAO_CONTAR.has(limpo)) return null;
 	for (const base of ECRAS) {
 		if (limpo === base || limpo.startsWith(`${base}/`)) return base;
 	}
@@ -114,6 +133,7 @@ export function oQueContar(pedido, sorteio = Math.random) {
 	const navegacao =
 		pedido.headers.get('Sec-Fetch-Mode') === 'navigate' ||
 		(pedido.headers.get('Accept') ?? '').includes('text/html');
+	// `ecraDe` devolve `null` para o que não é a aplicação — ver `NAO_CONTAR`
 	if (navegacao && !caminho.startsWith('/v1/')) return ecraDe(caminho);
 
 	return null;

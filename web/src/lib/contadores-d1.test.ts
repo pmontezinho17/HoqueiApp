@@ -23,6 +23,8 @@ function d1Falso({ atira = false } = {}) {
 	const escritas: { sql: string; valores: unknown[] }[] = [];
 	const declaracao = (sql: string) => ({
 		bind: (...valores: unknown[]) => ({
+			sql,
+			valores,
 			run: async () => {
 				if (atira) throw new Error('D1_ERROR: sem ligação');
 				escritas.push({ sql, valores });
@@ -30,7 +32,13 @@ function d1Falso({ atira = false } = {}) {
 			}
 		})
 	});
-	return { escritas, prepare: declaracao };
+	// o `batch` guarda as declarações pela ordem em que lhe chegam, como o D1 as aplica
+	const batch = async (ds: { sql: string; valores: unknown[] }[]) => {
+		if (atira) throw new Error('D1_ERROR: sem ligação');
+		for (const d of ds) escritas.push({ sql: d.sql, valores: d.valores });
+		return ds.map(() => ({ success: true }));
+	};
+	return { escritas, prepare: declaracao, batch };
 }
 
 /**
@@ -109,6 +117,36 @@ describe('o contador de aparelhos escreve na tabela aparelho', () => {
 		await contar(pedido);
 		await acabar();
 		expect(bd.escritas[0].valores.slice(1)).toEqual([0, 0]);
+	});
+
+	/**
+	 * A hora entra na mesma `batch` que o dia. Se as duas escritas se separassem, a soma das
+	 * horas deixava de bater com o total do dia e nenhum dos dois números seria de confiar.
+	 */
+	it('a mesma entrada grava também a hora, na mesma ida à base de dados', async () => {
+		const bd = d1Falso();
+		const { pedido, acabar } = contexto('/contar?novo=1', { DADOS: bd });
+		await contar(pedido);
+		await acabar();
+
+		expect(bd.escritas).toHaveLength(2);
+		expect(bd.escritas[1].sql).toMatch(/INSERT INTO entrada_hora/);
+		const [dia, hora, novos, volta] = bd.escritas[1].valores as [string, number, number, number];
+		expect(dia).toBe(bd.escritas[0].valores[0]); // o mesmo dia nas duas linhas
+		expect(hora).toBeGreaterThanOrEqual(0);
+		expect(hora).toBeLessThanOrEqual(23);
+		// um aparelho é novo **ou** de volta, nunca os dois nem nenhum
+		expect(novos + volta).toBe(1);
+		expect(novos).toBe(1);
+	});
+
+	it('um aparelho conhecido conta na coluna de quem volta', async () => {
+		const bd = d1Falso();
+		const { pedido, acabar } = contexto('/contar?novo=0', { DADOS: bd });
+		await contar(pedido);
+		await acabar();
+		const [, , novos, volta] = bd.escritas[1].valores as [string, number, number, number];
+		expect([novos, volta]).toEqual([0, 1]);
 	});
 
 	it('responde 204 sem corpo mesmo sem base de dados ligada', async () => {
