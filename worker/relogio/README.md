@@ -187,3 +187,13 @@ A lógica de decisão — fusos, janelas, que jogos contam — corre em Node, se
 ```bash
 cd "$(git rev-parse --show-toplevel)/worker/relogio" && node teste.mjs
 ```
+
+## Tipos
+
+```bash
+npx wrangler types     # gera o worker-configuration.d.ts a partir do wrangler.toml
+```
+
+Não vai para o repositório — são ~16 000 linhas de tipos do runtime, úteis no editor e ruído
+aqui. O que manda é o `wrangler.toml`, e os tipos são derivados dele: uma interface `Env`
+escrita à mão divergiria das ligações a sério sem ninguém dar por isso.

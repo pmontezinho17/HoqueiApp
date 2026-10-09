@@ -8,6 +8,15 @@ compatibility_date = "2026-10-04"
 [triggers]
 crons = ["*/10 6-22 * * *"]
 
+# Logs e rastreios guardados no painel da Cloudflare. Sem isto, o que este Worker fez às 03:00
+# só se vê se alguém estiver com um `wrangler tail` aberto nesse instante — e este é
+# precisamente o Worker que corrige coisas quando ninguém está a olhar.
+#
+# Amostragem a 100%: são ~100 invocações por dia, não um milhão.
+[observability]
+enabled = true
+head_sampling_rate = 1
+
 [vars]
 REPO = "pmontezinho17/HoqueiApp"
 WORKFLOW = "aovivo.yml"
