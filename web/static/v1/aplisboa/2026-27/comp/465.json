@@ -184,8 +184,8 @@
    "hora": "11:30:00",
    "casa": "SC TORRES",
    "fora": "AD OEIRAS A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 17,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
   },
@@ -843,15 +843,15 @@
      "posicao": 1,
      "equipa": "AD OEIRAS A",
      "logo": null,
-     "jogos": 2,
-     "vitorias": 2,
+     "jogos": 3,
+     "vitorias": 3,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 31,
+     "golos_marcados": 48,
      "golos_sofridos": 3,
-     "diferenca": 28,
-     "racio": 10.33,
-     "pontos": 6
+     "diferenca": 45,
+     "racio": 16.0,
+     "pontos": 9
     },
     {
      "posicao": 2,
@@ -897,20 +897,6 @@
     },
     {
      "posicao": 5,
-     "equipa": "SC TORRES",
-     "logo": null,
-     "jogos": 2,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 7,
-     "golos_sofridos": 10,
-     "diferenca": -3,
-     "racio": 0.7,
-     "pontos": 3
-    },
-    {
-     "posicao": 6,
      "equipa": "FSE/AJ SALESIANA",
      "logo": null,
      "jogos": 2,
@@ -921,6 +907,20 @@
      "golos_sofridos": 22,
      "diferenca": -14,
      "racio": 0.36,
+     "pontos": 3
+    },
+    {
+     "posicao": 6,
+     "equipa": "SC TORRES",
+     "logo": null,
+     "jogos": 3,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 7,
+     "golos_sofridos": 27,
+     "diferenca": -20,
+     "racio": 0.26,
      "pontos": 3
     },
     {

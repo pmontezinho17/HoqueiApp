@@ -132,8 +132,8 @@
    "hora": "10:30:00",
    "casa": "FSE/AJ SALESIANA B",
    "fora": "SL BENFICA B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 8,
    "recinto": "PAV. SALESIANA",
    "ao_vivo": false
   },
@@ -480,6 +480,20 @@
     },
     {
      "posicao": 2,
+     "equipa": "SL BENFICA B",
+     "logo": "/intranet/logos/1.png",
+     "jogos": 3,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 13,
+     "golos_sofridos": 8,
+     "diferenca": 5,
+     "racio": 1.62,
+     "pontos": 6
+    },
+    {
+     "posicao": 3,
      "equipa": "S ALENQUER BENFICA",
      "logo": "/intranet/logos/5.png",
      "jogos": 2,
@@ -493,7 +507,7 @@
      "pontos": 3
     },
     {
-     "posicao": 3,
+     "posicao": 4,
      "equipa": "CD PAÇO ARCOS A",
      "logo": "/intranet/logos/7.png",
      "jogos": 2,
@@ -504,20 +518,6 @@
      "golos_sofridos": 7,
      "diferenca": 1,
      "racio": 1.14,
-     "pontos": 3
-    },
-    {
-     "posicao": 4,
-     "equipa": "SL BENFICA B",
-     "logo": "/intranet/logos/1.png",
-     "jogos": 2,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 5,
-     "golos_sofridos": 6,
-     "diferenca": -1,
-     "racio": 0.83,
      "pontos": 3
     },
     {
@@ -538,14 +538,14 @@
      "posicao": 6,
      "equipa": "FSE/AJ SALESIANA B",
      "logo": "/intranet/logos/9.png",
-     "jogos": 2,
+     "jogos": 3,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 2,
-     "golos_marcados": 2,
-     "golos_sofridos": 14,
-     "diferenca": -12,
-     "racio": 0.14,
+     "derrotas": 3,
+     "golos_marcados": 4,
+     "golos_sofridos": 22,
+     "diferenca": -18,
+     "racio": 0.18,
      "pontos": 0
     }
    ]

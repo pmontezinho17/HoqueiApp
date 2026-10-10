@@ -1,7 +1,33 @@
 {
  "competicao_id": 465,
- "jogos_considerados": 7,
+ "jogos_considerados": 8,
  "jogadores": [
+  {
+   "nome": "JOÃO PEREIRA",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "numero": "9",
+   "golos": 12,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 12,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANTÓNIO GOMES",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "numero": "6",
+   "golos": 11,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 13,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
   {
    "nome": "RODRIGO MESTRE",
    "equipa": "HC SINTRA",
@@ -16,27 +42,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANTÓNIO GOMES",
+   "nome": "MARTIM GOMES",
    "equipa": "AD OEIRAS A",
-   "jogos": 2,
-   "numero": "6",
+   "jogos": 3,
+   "numero": "7",
    "golos": 7,
-   "assistencias": 2,
+   "assistencias": 1,
    "defesas": 0,
-   "pontos": 9,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "JOÃO PEREIRA",
-   "equipa": "AD OEIRAS A",
-   "jogos": 2,
-   "numero": "9",
-   "golos": 7,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 7,
+   "pontos": 8,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -94,14 +107,27 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM GOMES",
+   "nome": "JOANA DUARTE",
    "equipa": "AD OEIRAS A",
-   "jogos": 2,
-   "numero": "7",
-   "golos": 4,
-   "assistencias": 1,
+   "jogos": 3,
+   "numero": "5",
+   "golos": 5,
+   "assistencias": 0,
    "defesas": 0,
    "pontos": 5,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LOURENÇO CARVALHO",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "numero": "2",
+   "golos": 4,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 6,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -120,10 +146,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOANA DUARTE",
-   "equipa": "AD OEIRAS A",
+   "nome": "SARA DIAS",
+   "equipa": "A STUART HCM",
    "jogos": 2,
-   "numero": "5",
+   "numero": "19",
    "golos": 4,
    "assistencias": 0,
    "defesas": 0,
@@ -133,10 +159,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "SARA DIAS",
-   "equipa": "A STUART HCM",
-   "jogos": 2,
-   "numero": "19",
+   "nome": "MATEUS TEIXEIRA",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "numero": "3",
    "golos": 4,
    "assistencias": 0,
    "defesas": 0,
@@ -172,19 +198,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MATEUS TEIXEIRA",
-   "equipa": "AD OEIRAS A",
-   "jogos": 2,
-   "numero": "3",
-   "golos": 3,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "VASCO SILVA",
    "equipa": "AD OEIRAS A",
    "jogos": 2,
@@ -193,19 +206,6 @@
    "assistencias": 0,
    "defesas": 0,
    "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LOURENÇO CARVALHO",
-   "equipa": "AD OEIRAS A",
-   "jogos": 2,
-   "numero": "2",
-   "golos": 2,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 4,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -250,9 +250,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "GASPAR LOPES",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "numero": "8",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RODRIGO PEDRO",
    "equipa": "SC TORRES",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "9",
    "golos": 1,
    "assistencias": 2,
@@ -302,19 +315,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "RAFAEL OCTICIO",
-   "equipa": "SC TORRES",
-   "jogos": 1,
-   "numero": "5",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ANTÓNIO LUÍS",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 2,
@@ -354,19 +354,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "GASPAR LOPES",
-   "equipa": "AD OEIRAS A",
-   "jogos": 2,
-   "numero": "8",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MARIANA GOARMON",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 2,
@@ -393,9 +380,22 @@
    "vermelhos": 0
   },
   {
-   "nome": "MIGUEL TAVARES",
+   "nome": "RAFAEL OCTICIO",
    "equipa": "SC TORRES",
    "jogos": 2,
+   "numero": "5",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MIGUEL TAVARES",
+   "equipa": "SC TORRES",
+   "jogos": 3,
    "numero": "2",
    "golos": 1,
    "assistencias": 0,
@@ -408,7 +408,7 @@
   {
    "nome": "VICENTE SERRANO",
    "equipa": "SC TORRES",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "4",
    "golos": 1,
    "assistencias": 0,
@@ -421,7 +421,7 @@
   {
    "nome": "ZE SANTOS",
    "equipa": "SC TORRES",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "8",
    "golos": 0,
    "assistencias": 2,
@@ -510,19 +510,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUSTAVO SANTOS",
-   "equipa": "SC TORRES",
-   "jogos": 1,
-   "numero": "6",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "LIAM HENRIQUES",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 1,
@@ -540,6 +527,19 @@
    "equipa": "CACO A",
    "jogos": 1,
    "numero": "23",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LOURENÇO SOVERAL",
+   "equipa": "AD OEIRAS A",
+   "jogos": 1,
+   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -770,19 +770,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO RAMOS",
-   "equipa": "AD OEIRAS A",
-   "jogos": 2,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GASPAR NOGUEIRA",
    "equipa": "HC SINTRA",
    "jogos": 2,
@@ -800,6 +787,19 @@
    "equipa": "CACO A",
    "jogos": 2,
    "numero": "59",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUSTAVO SANTOS",
+   "equipa": "SC TORRES",
+   "jogos": 2,
+   "numero": "6",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -837,19 +837,6 @@
   {
    "nome": "LEONARDO MARQUES",
    "equipa": "HC SINTRA",
-   "jogos": 2,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARTIM P. GOMES",
-   "equipa": "AD OEIRAS A",
    "jogos": 2,
    "numero": "10",
    "golos": 0,
@@ -952,32 +939,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "VALENTIM PINTO",
-   "equipa": "SC TORRES",
-   "jogos": 2,
-   "numero": "7",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "VASCO GOMES",
-   "equipa": "SC TORRES",
-   "jogos": 2,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "VICENTE BARROS",
    "equipa": "A STUART HCM",
    "jogos": 2,
@@ -1004,9 +965,61 @@
    "vermelhos": 0
   },
   {
+   "nome": "FRANCISCO RAMOS",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARTIM P. GOMES",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VALENTIM PINTO",
+   "equipa": "SC TORRES",
+   "jogos": 3,
+   "numero": "7",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VASCO GOMES",
+   "equipa": "SC TORRES",
+   "jogos": 3,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "VICENTE VILHENA",
    "equipa": "SC TORRES",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "3",
    "golos": 0,
    "assistencias": 0,

@@ -2249,6 +2249,68 @@ dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
 | `docs/09-regulamento-apl.md` | os artigos que o código cita, para não ser preciso abrir o PDF |
 
 Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
+## O endereço de testes partilhado por engano (10/10/2026)
+
+O dono partilhou `testes.hoquei.pages.dev` em vez de `hoquei.pages.dev` e ficou com pessoas a
+usar o site errado. A primeira reacção — a minha e a dele — foi tratar isto como um problema
+de endereço. Não é.
+
+**Um site de ramo serve os dados do último commit, e nunca os do ciclo ao vivo.** Medido nesse
+dia, às 13:40, com 36 jogos a decorrer e mais 39 no dia seguinte:
+
+| site | dados de | atraso |
+|---|---|---|
+| `hoquei.pages.dev` | 10/10 12:37, `ao_vivo: true` | — |
+| `versoes` e `regulamento` | 09/10 23:40 | 13 h |
+| `testes` | 09/10 10:49 | **26 h** |
+
+Quem seguiu aquele link não via **nenhum** dos 36 jogos do dia. Não era o endereço errado: era
+a app a mentir a quem tinha um filho em campo.
+
+### Porque é que a tranca é nossa e não o Cloudflare Access
+
+A pergunta do dono foi se dava para ligar ao IAM da Google e escolher os contactos. Dá: o
+Cloudflare Access faz isso, o plano gratuito do Zero Trust cobre 50 pessoas, o Google é um dos
+métodos de entrada, e o Pages tem um `Enable access policy` que protege só as publicações de
+pré-visualização. Confirmado na documentação, e continua a ser a escolha certa **se** um dia o
+que se quiser for identidade a sério em vez de uma chave partilhada.
+
+Para isto não serve, e por uma razão que não é técnica: o Access mostra a página de "acesso
+negado" **dele**. Quem aqui chega por engano é precisamente a pessoa que mais precisa de uma
+indicação, e essa página não lhe diz para onde ir. A nossa porta é a mesma coisa que o aviso:
+
+* em letras grandes, que os resultados ali estão parados, e um botão para o site a sério com
+  **o mesmo caminho** em que a pessoa estava — quem abriu um link para uma ficha quer aquela
+  ficha, não a página inicial;
+* a morada a guardar, escrita por extenso;
+* e, pequena e dobrada em baixo, a caixa da chave.
+
+### As duas decisões que não se adivinham a ler o código
+
+**Só as navegações são travadas.** Um pedido que não é navegação — o `sw.js`, o manifesto, um
+ficheiro de dados — passa. Parece um buraco e é a parte mais importante do desenho: quem
+**instalou** o site de um ramo no telemóvel tem a app servida pela cache do *service worker*,
+e os pedidos dessa pessoa nunca chegam à Cloudflare. A única forma de a alcançar é deixar o
+service worker actualizar-se, apanhar a versão que traz o `SaidaDoRamo`, desinstalar-se e
+mandá-la embora. Travar tudo selava essas pessoas no site errado para sempre, que é
+exactamente o que se está a tentar desfazer. E não há secretismo a perder: os dados são os
+mesmos que o site a sério publica a quem quiser.
+
+**A porta falha fechada.** Sem `CHAVE_TESTES` definida no ambiente `Preview` não entra
+ninguém, nem com cookie forjado. A alternativa — deixar passar quando falta configuração —
+transformava um esquecimento no painel numa porta aberta sem aviso nenhum.
+
+### O cookie, e a promessa da página de privacidade
+
+Este é o único cookie do projecto. Nunca é posto em produção — a guarda é o `ehSiteDeRamo`, e
+há um teste só para isso — e, mesmo num ramo, só aparece a quem escreveu a chave. A
+`/privacidade` continua verdadeira onde é lida: no site que as pessoas usam.
+
+### O teste que interessa
+
+O pior defeito possível aqui não é a porta falhar: é ela apanhar **produção** e fechar a app a
+toda a gente. Três testes cobrem esse caso, e foram verificados a sério — pondo o
+`ehSiteDeRamo` a devolver `true` para tudo, os três falham e os outros 23 passam.
 
 ---
 
