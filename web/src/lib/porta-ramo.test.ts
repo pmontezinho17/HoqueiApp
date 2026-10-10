@@ -24,6 +24,11 @@ function pedido(url: string, cabecalhos: Record<string, string> = {}) {
 
 const navegacao = { 'Sec-Fetch-Mode': 'navigate' };
 
+/** Um telemóvel a sério: o contador ignora quem não se identifica como browser. */
+const TELEMOVEL =
+	'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 ' +
+	'(KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1';
+
 describe('ehSiteDeRamo', () => {
 	it('o site a sério nunca é um site de ramo', () => {
 		expect(ehSiteDeRamo(PRODUCAO)).toBe(false);
@@ -235,7 +240,7 @@ describe('contar quem bate à porta', () => {
 		const { bd, escritas } = espiaD1();
 		const porCorrer: Promise<unknown>[] = [];
 		const r = onRequest({
-			request: pedido(url, navegacao),
+			request: pedido(url, { ...navegacao, 'User-Agent': TELEMOVEL }),
 			env: { DADOS: bd as never, CHAVE_TESTES: chave },
 			next: async () => new Response('a app'),
 			waitUntil: (p: Promise<unknown>) => porCorrer.push(p)
@@ -262,6 +267,7 @@ describe('contar quem bate à porta', () => {
 		await onRequest({
 			request: pedido('https://testes.hoquei.pages.dev/mais', {
 				...navegacao,
+				'User-Agent': TELEMOVEL,
 				Cookie: `${COOKIE}=${CHAVE}`
 			}),
 			env: { DADOS: bd as never, CHAVE_TESTES: CHAVE },
@@ -311,5 +317,47 @@ describe('ramoDe', () => {
 	it('um Host inventado não escreve uma chave de 2 KB na base de dados', () => {
 		expect(ramoDe(`${'x'.repeat(500)}.hoquei.pages.dev`)).toHaveLength(40);
 		expect(ramoDe('')).toBe('desconhecido');
+	});
+});
+
+describe('o contador conta pessoas, e não as minhas verificações', () => {
+	/**
+	 * A pergunta é "quantas pessoas ainda batem no endereço errado". Um `curl` meu a confirmar
+	 * que a porta está de pé não é uma pessoa, e já tinha acontecido: seis chamadas minhas a
+	 * verificar teriam entrado no total e o número diria "ainda há gente" quando era eu.
+	 */
+	function comAgente(ua: string | null) {
+		const escritas: string[] = [];
+		const bd = {
+			prepare: () => ({ bind: () => ({ run: async () => escritas.push('x') }) })
+		};
+		const porCorrer: Promise<unknown>[] = [];
+		const cabecalhos: Record<string, string> = { ...navegacao };
+		if (ua !== null) cabecalhos['User-Agent'] = ua;
+		const feito = onRequest({
+			request: pedido('https://testes.hoquei.pages.dev/', cabecalhos),
+			env: { DADOS: bd as never, CHAVE_TESTES: CHAVE },
+			next: async () => new Response('a app'),
+			waitUntil: (p: Promise<unknown>) => porCorrer.push(p)
+		});
+		return Promise.all([feito, ...porCorrer]).then(() => escritas.length);
+	}
+
+	it('um telemóvel conta', async () => {
+		expect(await comAgente(TELEMOVEL)).toBe(1);
+	});
+
+	it('as ferramentas com que eu verifico não contam', async () => {
+		for (const ua of ['curl/8.7.1', 'Wget/1.21', 'python-httpx/0.27', 'node-fetch/3'])
+			expect(await comAgente(ua), ua).toBe(0);
+	});
+
+	it('nem robôs nem browsers sem ecrã', async () => {
+		for (const ua of ['Googlebot/2.1', 'HeadlessChrome/120', 'uptime-monitor/1.0'])
+			expect(await comAgente(ua), ua).toBe(0);
+	});
+
+	it('sem User-Agent nenhum também não — não há telemóvel que não o mande', async () => {
+		expect(await comAgente(null)).toBe(0);
 	});
 });

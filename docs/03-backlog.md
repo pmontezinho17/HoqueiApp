@@ -2183,6 +2183,12 @@ de `entrou` (o dono a usar a chave). Separados porque não se podem somar: sem i
 dele a testar apareciam como pessoas perdidas. Quem já tem o cookie não conta — senão cada
 clique dele era uma pessoa nova.
 
+E não conta quem não é gente. Apanhei isto antes de publicar: as seis chamadas de `curl` que
+eu próprio fiz a confirmar que a porta estava de pé teriam entrado no total, e o número diria
+"ainda há gente a bater" quando era eu. O filtro é curto de propósito — não é segurança, é
+tirar do caminho o que de certeza não é um telemóvel — e quem não manda `User-Agent` nenhum
+também fica de fora, porque não há telefone que não o mande.
+
 **E isto mudou quem garante uma promessa antiga.** O `ramo.yml` promete que o tráfego de testes
 não entra nas contagens reais, e até agora isso era garantido por **não haver ligação à base
 de dados** no ambiente de Preview. Essa ligação passa a existir, para esta tabela. Quem garante
