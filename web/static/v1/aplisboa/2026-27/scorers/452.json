@@ -1,6 +1,6 @@
 {
  "competicao_id": 452,
- "jogos_considerados": 7,
+ "jogos_considerados": 8,
  "jogadores": [
   {
    "nome": "DIOGO CAVACO",
@@ -31,7 +31,7 @@
   {
    "nome": "RAFAEL PEREIRA",
    "equipa": "S ALENQUER BENFICA",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "44",
    "golos": 4,
    "assistencias": 2,
@@ -55,19 +55,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "RODRIGO FARIA",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 2,
-   "numero": "47",
-   "golos": 4,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ANDRÉ ROSADO",
    "equipa": "SL BENFICA B",
    "jogos": 3,
@@ -78,6 +65,19 @@
    "pontos": 4,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RODRIGO FARIA",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 3,
+   "numero": "47",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -135,7 +135,7 @@
   {
    "nome": "FÁBIO DUARTE",
    "equipa": "CRIAR-T GD",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "74",
    "golos": 2,
    "assistencias": 1,
@@ -143,19 +143,6 @@
    "pontos": 3,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LUCIANO MARTINS",
-   "equipa": "CRIAR-T GD",
-   "jogos": 2,
-   "numero": "6",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 2,
    "vermelhos": 0
   },
   {
@@ -185,19 +172,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS LEITÃO",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 2,
-   "numero": "77",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 1,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "TOMÁS ROSÁRIO",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 2,
@@ -224,6 +198,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "LUCIANO MARTINS",
+   "equipa": "CRIAR-T GD",
+   "jogos": 3,
+   "numero": "6",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 2,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS LEITÃO",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 3,
+   "numero": "77",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 1,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "RODRIGO PASSARINHO",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 2,
@@ -239,21 +239,8 @@
   {
    "nome": "DUARTE SANCHES",
    "equipa": "S ALENQUER BENFICA",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "1",
-   "golos": 1,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SANTIAGO SANTOS",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 2,
-   "numero": "49",
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
@@ -276,6 +263,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "SANTIAGO SANTOS",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 3,
+   "numero": "49",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "VASCO LOPES",
    "equipa": "SL BENFICA B",
    "jogos": 1,
@@ -285,19 +285,6 @@
    "defesas": 0,
    "pontos": 1,
    "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DUARTE ALVES",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 2,
-   "numero": "18",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -315,23 +302,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM DIAS",
-   "equipa": "CRIAR-T GD",
-   "jogos": 2,
-   "numero": "8",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ALEXANDRE LORY",
    "equipa": "SL BENFICA B",
    "jogos": 3,
    "numero": "6",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DUARTE ALVES",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 3,
+   "numero": "18",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -350,6 +337,19 @@
    "defesas": 0,
    "pontos": 1,
    "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARTIM DIAS",
+   "equipa": "CRIAR-T GD",
+   "jogos": 3,
+   "numero": "8",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -380,10 +380,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO LEAL",
-   "equipa": "CRIAR-T GD",
-   "jogos": 2,
-   "numero": "3",
+   "nome": "GUSTAVO GUERREIRO",
+   "equipa": "SL BENFICA B",
+   "jogos": 3,
+   "numero": "5",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -393,10 +393,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUSTAVO GUERREIRO",
-   "equipa": "SL BENFICA B",
+   "nome": "LOURENÇO LEAL",
+   "equipa": "CRIAR-T GD",
    "jogos": 3,
-   "numero": "5",
+   "numero": "3",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -427,32 +427,6 @@
    "assistencias": 1,
    "defesas": 0,
    "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DIEGO MATOS",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 1,
-   "numero": "79",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DIOGO PINTO",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 1,
-   "numero": "33",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -523,10 +497,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO SANTOS",
-   "equipa": "CRIAR-T GD",
+   "nome": "DANIEL MOREIRA",
+   "equipa": "SL BENFICA B",
    "jogos": 2,
-   "numero": "92",
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -536,10 +510,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "DANIEL MOREIRA",
-   "equipa": "SL BENFICA B",
+   "nome": "DIEGO MATOS",
+   "equipa": "S ALENQUER BENFICA",
    "jogos": 2,
-   "numero": "10",
+   "numero": "79",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO PINTO",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 2,
+   "numero": "33",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -566,19 +553,6 @@
    "equipa": "SL BENFICA B",
    "jogos": 2,
    "numero": "8",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GIL LOPES",
-   "equipa": "CRIAR-T GD",
-   "jogos": 2,
-   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -627,36 +601,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO SILVA",
-   "equipa": "CRIAR-T GD",
-   "jogos": 2,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "LEONARDO ABRANTES",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 2,
    "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RAFAEL CARAPINHA",
-   "equipa": "CRIAR-T GD",
-   "jogos": 2,
-   "numero": "7",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -679,10 +627,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "RUBEN DIAS",
-   "equipa": "CRIAR-T GD",
-   "jogos": 2,
-   "numero": "5",
+   "nome": "AFONSO GIL",
+   "equipa": "FSE/AJ SALESIANA B",
+   "jogos": 3,
+   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -692,23 +640,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS APOLINÁRIO",
+   "nome": "AFONSO SANTOS",
    "equipa": "CRIAR-T GD",
-   "jogos": 2,
-   "numero": "77",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "AFONSO GIL",
-   "equipa": "FSE/AJ SALESIANA B",
    "jogos": 3,
-   "numero": "3",
+   "numero": "92",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -731,6 +666,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "GIL LOPES",
+   "equipa": "CRIAR-T GD",
+   "jogos": 3,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GONÇALO REIS",
    "equipa": "FSE/AJ SALESIANA B",
    "jogos": 3,
@@ -738,6 +686,19 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 2,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO SILVA",
+   "equipa": "CRIAR-T GD",
+   "jogos": 3,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -792,6 +753,45 @@
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RAFAEL CARAPINHA",
+   "equipa": "CRIAR-T GD",
+   "jogos": 3,
+   "numero": "7",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RUBEN DIAS",
+   "equipa": "CRIAR-T GD",
+   "jogos": 3,
+   "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS APOLINÁRIO",
+   "equipa": "CRIAR-T GD",
+   "jogos": 3,
+   "numero": "77",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   }

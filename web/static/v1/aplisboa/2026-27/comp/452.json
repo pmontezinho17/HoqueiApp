@@ -160,8 +160,8 @@
    "hora": "15:00:00",
    "casa": "CRIAR-T GD",
    "fora": "S ALENQUER BENFICA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 0,
    "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
    "ao_vivo": false
   },
@@ -496,18 +496,32 @@
      "posicao": 3,
      "equipa": "S ALENQUER BENFICA",
      "logo": "/intranet/logos/5.png",
-     "jogos": 2,
+     "jogos": 3,
      "vitorias": 1,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 1,
      "golos_marcados": 15,
      "golos_sofridos": 9,
      "diferenca": 6,
      "racio": 1.67,
-     "pontos": 3
+     "pontos": 4
     },
     {
      "posicao": 4,
+     "equipa": "CRIAR-T GD",
+     "logo": "/intranet/logos/17.png",
+     "jogos": 3,
+     "vitorias": 1,
+     "empates": 1,
+     "derrotas": 1,
+     "golos_marcados": 5,
+     "golos_sofridos": 10,
+     "diferenca": -5,
+     "racio": 0.5,
+     "pontos": 4
+    },
+    {
+     "posicao": 5,
      "equipa": "CD PAÇO ARCOS A",
      "logo": "/intranet/logos/7.png",
      "jogos": 2,
@@ -518,20 +532,6 @@
      "golos_sofridos": 7,
      "diferenca": 1,
      "racio": 1.14,
-     "pontos": 3
-    },
-    {
-     "posicao": 5,
-     "equipa": "CRIAR-T GD",
-     "logo": "/intranet/logos/17.png",
-     "jogos": 2,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 5,
-     "golos_sofridos": 10,
-     "diferenca": -5,
-     "racio": 0.5,
      "pontos": 3
     },
     {
