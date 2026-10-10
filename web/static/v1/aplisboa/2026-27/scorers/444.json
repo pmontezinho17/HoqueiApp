@@ -1,11 +1,24 @@
 {
  "competicao_id": 444,
- "jogos_considerados": 5,
+ "jogos_considerados": 6,
  "jogadores": [
+  {
+   "nome": "DIEGO ALEXANDRE",
+   "equipa": "SL BENFICA",
+   "jogos": 2,
+   "numero": "3",
+   "golos": 7,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 8,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
   {
    "nome": "LOURENÇO HELIODORO",
    "equipa": "SL BENFICA",
-   "jogos": 1,
+   "jogos": 2,
    "numero": "6",
    "golos": 4,
    "assistencias": 1,
@@ -18,7 +31,7 @@
   {
    "nome": "ENZO XAVIER",
    "equipa": "UD VILAFRANQUENSE",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "5",
    "golos": 4,
    "assistencias": 1,
@@ -29,27 +42,27 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIEGO ALEXANDRE",
+   "nome": "HENRIQUE DANIEL",
    "equipa": "SL BENFICA",
-   "jogos": 1,
-   "numero": "3",
+   "jogos": 2,
+   "numero": "8",
    "golos": 3,
-   "assistencias": 1,
+   "assistencias": 3,
    "defesas": 0,
-   "pontos": 4,
+   "pontos": 6,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
   {
-   "nome": "HENRIQUE DANIEL",
+   "nome": "BERNARDO COSTA",
    "equipa": "SL BENFICA",
    "jogos": 1,
-   "numero": "8",
+   "numero": "4",
    "golos": 3,
-   "assistencias": 1,
+   "assistencias": 2,
    "defesas": 0,
-   "pontos": 4,
+   "pontos": 5,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -57,7 +70,7 @@
   {
    "nome": "MARTIM CORREIA",
    "equipa": "UD VILAFRANQUENSE",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "3",
    "golos": 3,
    "assistencias": 1,
@@ -83,7 +96,7 @@
   {
    "nome": "LOURENÇO MACHADO",
    "equipa": "UD VILAFRANQUENSE",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "14",
    "golos": 2,
    "assistencias": 1,
@@ -107,9 +120,35 @@
    "vermelhos": 0
   },
   {
+   "nome": "SIMÃO MORAIS",
+   "equipa": "SL BENFICA",
+   "jogos": 2,
+   "numero": "7",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VICENTE LOPES",
+   "equipa": "SL BENFICA",
+   "jogos": 2,
+   "numero": "2",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DUARTE FRANCO",
    "equipa": "UD VILAFRANQUENSE",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "50",
    "golos": 2,
    "assistencias": 0,
@@ -122,12 +161,12 @@
   {
    "nome": "VICENTE CARVALHO",
    "equipa": "SL BENFICA",
-   "jogos": 1,
-   "numero": "4",
+   "jogos": 2,
+   "numero": "5",
    "golos": 1,
-   "assistencias": 3,
+   "assistencias": 4,
    "defesas": 0,
-   "pontos": 4,
+   "pontos": 5,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -172,49 +211,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO SOUSA",
-   "equipa": "UD VILAFRANQUENSE",
-   "jogos": 1,
-   "numero": "9",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SIMÃO MORAIS",
-   "equipa": "SL BENFICA",
-   "jogos": 1,
-   "numero": "7",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "VICENTE LOPES",
-   "equipa": "SL BENFICA",
-   "jogos": 1,
-   "numero": "2",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "AFONSO BICA",
    "equipa": "S ALENQUER BENFICA",
    "jogos": 2,
    "numero": "71",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FRANCISCO SOUSA",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 2,
+   "numero": "9",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -233,7 +246,7 @@
    "defesas": 0,
    "pontos": 1,
    "amarelos": 0,
-   "azuis": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -263,19 +276,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "RICARDO HENRIQUES",
-   "equipa": "UD VILAFRANQUENSE",
-   "jogos": 2,
-   "numero": "23",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ANTONIO PEREIRA",
    "equipa": "CRIAR-T GD",
    "jogos": 3,
@@ -289,9 +289,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "RICARDO HENRIQUES",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 3,
+   "numero": "23",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MATEUS BERNARDO",
    "equipa": "SL BENFICA",
-   "jogos": 1,
+   "jogos": 2,
    "numero": "9",
    "golos": 0,
    "assistencias": 1,
@@ -312,19 +325,6 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "AFONSO LOUREIRO",
-   "equipa": "SL BENFICA",
-   "jogos": 1,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -358,19 +358,6 @@
    "equipa": "S ALENQUER BENFICA",
    "jogos": 1,
    "numero": "57",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LOURENÇO SANTOS",
-   "equipa": "SL BENFICA",
-   "jogos": 1,
-   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -432,6 +419,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "AFONSO LOUREIRO",
+   "equipa": "SL BENFICA",
+   "jogos": 2,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "AFONSO SILVA",
    "equipa": "S ALENQUER BENFICA",
    "jogos": 2,
@@ -484,19 +484,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DAVID RAMOS",
-   "equipa": "UD VILAFRANQUENSE",
-   "jogos": 2,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DUARTE MARTINS",
    "equipa": "HC LOURINHÃ",
    "jogos": 2,
@@ -510,10 +497,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE VEIGA",
-   "equipa": "UD VILAFRANQUENSE",
+   "nome": "JOSÉ VICENTE",
+   "equipa": "S ALENQUER BENFICA",
    "jogos": 2,
-   "numero": "39",
+   "numero": "16",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -523,10 +510,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOSÉ VICENTE",
-   "equipa": "S ALENQUER BENFICA",
+   "nome": "LOURENÇO SANTOS",
+   "equipa": "SL BENFICA",
    "jogos": 2,
-   "numero": "16",
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -562,36 +549,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "RAFAEL MARTINS",
-   "equipa": "UD VILAFRANQUENSE",
-   "jogos": 2,
-   "numero": "99",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "RAFAEL RODRIGUES",
    "equipa": "HC LOURINHÃ",
    "jogos": 2,
    "numero": "33",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RITA GONÇALVES",
-   "equipa": "UD VILAFRANQUENSE",
-   "jogos": 2,
-   "numero": "37",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -640,10 +601,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "DAVID RAMOS",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 3,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DIANA BALÃO",
    "equipa": "CRIAR-T GD",
    "jogos": 3,
    "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DUARTE VEIGA",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 3,
+   "numero": "39",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -696,6 +683,32 @@
    "equipa": "CRIAR-T GD",
    "jogos": 3,
    "numero": "9",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RAFAEL MARTINS",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 3,
+   "numero": "99",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RITA GONÇALVES",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 3,
+   "numero": "37",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

@@ -132,7 +132,7 @@
    "hora": "16:30:00",
    "casa": "SC TORRES",
    "fora": "HC SINTRA",
-   "golos_casa": 1,
+   "golos_casa": 3,
    "golos_fora": 1,
    "recinto": "PAV. HC SINTRA",
    "ao_vivo": false
@@ -522,31 +522,31 @@
     },
     {
      "posicao": 5,
+     "equipa": "SC TORRES",
+     "logo": "/intranet/logos/25.png",
+     "jogos": 3,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 4,
+     "golos_sofridos": 45,
+     "diferenca": -41,
+     "racio": 0.09,
+     "pontos": 3
+    },
+    {
+     "posicao": 6,
      "equipa": "HC SINTRA",
      "logo": "/intranet/logos/8.png",
      "jogos": 3,
      "vitorias": 0,
-     "empates": 1,
-     "derrotas": 2,
+     "empates": 0,
+     "derrotas": 3,
      "golos_marcados": 2,
-     "golos_sofridos": 28,
-     "diferenca": -26,
+     "golos_sofridos": 30,
+     "diferenca": -28,
      "racio": 0.07,
-     "pontos": 1
-    },
-    {
-     "posicao": 6,
-     "equipa": "SC TORRES",
-     "logo": "/intranet/logos/25.png",
-     "jogos": 3,
-     "vitorias": 0,
-     "empates": 1,
-     "derrotas": 2,
-     "golos_marcados": 2,
-     "golos_sofridos": 45,
-     "diferenca": -43,
-     "racio": 0.04,
-     "pontos": 1
+     "pontos": 0
     }
    ]
   }

@@ -462,8 +462,8 @@
    "hora": "16:15:00",
    "casa": "SL BENFICA",
    "fora": "GRF MURCHES",
-   "golos_casa": 3,
-   "golos_fora": 0,
+   "golos_casa": 6,
+   "golos_fora": 1,
    "recinto": "PAV. PAREDE",
    "ao_vivo": false
   },
@@ -476,8 +476,8 @@
    "hora": "18:15:00",
    "casa": "AD OEIRAS",
    "fora": "PAREDE FC",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 3,
+   "golos_fora": 2,
    "recinto": "PAV. PAREDE",
    "ao_vivo": false
   },

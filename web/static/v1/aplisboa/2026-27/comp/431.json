@@ -154,8 +154,8 @@
    "hora": "18:00:00",
    "casa": "APAC TOJAL",
    "fora": "FSE/AJ SALESIANA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 0,
    "recinto": "PAV. A.P.A.C.TOJAL",
    "ao_vivo": false
   },

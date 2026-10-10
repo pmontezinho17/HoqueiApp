@@ -133,7 +133,7 @@
    "casa": "A STUART HCM",
    "fora": "SL BENFICA A",
    "golos_casa": 0,
-   "golos_fora": 5,
+   "golos_fora": 10,
    "recinto": "PAV.PROF.JOÃO CAMPELO",
    "ao_vivo": false
   },
@@ -472,9 +472,9 @@
      "vitorias": 3,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 12,
+     "golos_marcados": 17,
      "golos_sofridos": 0,
-     "diferenca": 12,
+     "diferenca": 17,
      "racio": null,
      "pontos": 9
     },
@@ -529,9 +529,9 @@
      "empates": 0,
      "derrotas": 2,
      "golos_marcados": 5,
-     "golos_sofridos": 16,
-     "diferenca": -11,
-     "racio": 0.31,
+     "golos_sofridos": 21,
+     "diferenca": -16,
+     "racio": 0.24,
      "pontos": 3
     },
     {

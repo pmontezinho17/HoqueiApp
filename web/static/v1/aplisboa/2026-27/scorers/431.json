@@ -1,6 +1,6 @@
 {
  "competicao_id": 431,
- "jogos_considerados": 7,
+ "jogos_considerados": 8,
  "jogadores": [
   {
    "nome": "XAVIER LOURENÇO",
@@ -72,6 +72,19 @@
    "equipa": "GDS CASCAIS",
    "jogos": 1,
    "numero": "7",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANDRÉ COIMBRA",
+   "equipa": "APAC TOJAL",
+   "jogos": 2,
+   "numero": "57",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -185,19 +198,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANDRÉ COIMBRA",
-   "equipa": "APAC TOJAL",
-   "jogos": 1,
-   "numero": "57",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ANTÓNIO SILVA",
    "equipa": "PAREDE FC (SM)",
    "jogos": 1,
@@ -267,6 +267,19 @@
    "equipa": "GDS CASCAIS",
    "jogos": 1,
    "numero": "5",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO MENDES",
+   "equipa": "APAC TOJAL",
+   "jogos": 1,
+   "numero": "27",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -627,6 +640,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "ANDRE COSTA",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 1,
+   "numero": "4",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "ANTONIO PEREIRA",
    "equipa": "HC GRANDOLA",
    "jogos": 1,
@@ -657,6 +683,19 @@
    "equipa": "SPORTING CP",
    "jogos": 1,
    "numero": "68",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANTÓNIO NISA",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 1,
+   "numero": "6",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -705,10 +744,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "DIOGO DIAS",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 1,
+   "numero": "8",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DIOGO GONÇALVES",
    "equipa": "AE FISICA D",
    "jogos": 1,
    "numero": "9",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO GOUVEIA",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 1,
+   "numero": "89",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -744,23 +809,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO SAMPAIO",
-   "equipa": "APAC TOJAL",
+   "nome": "DIOGO SERRANO",
+   "equipa": "FSE/AJ SALESIANA",
    "jogos": 1,
-   "numero": "9",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DUARTE MORAIS",
-   "equipa": "APAC TOJAL",
-   "jogos": 1,
-   "numero": "72",
+   "numero": "22",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -783,23 +835,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "FILIPE LOURENÇO",
-   "equipa": "APAC TOJAL",
+   "nome": "FILIPE PEREIRA",
+   "equipa": "SPORTING CP",
    "jogos": 1,
-   "numero": "5",
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
-   "azuis": 1,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
-   "nome": "FILIPE PEREIRA",
-   "equipa": "SPORTING CP",
+   "nome": "FILIPE REIS",
+   "equipa": "FSE/AJ SALESIANA",
    "jogos": 1,
-   "numero": "10",
+   "numero": "2",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -900,6 +952,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOÃO MATOS",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 1,
+   "numero": "65",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOÃO SILVA",
    "equipa": "PAREDE FC (SM)",
    "jogos": 1,
@@ -936,6 +1001,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LOURENÇO SOARES",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 1,
+   "numero": "61",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -1056,19 +1134,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MIGUEL PEREIRA",
-   "equipa": "APAC TOJAL",
-   "jogos": 1,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "NIL DEL FRESNO",
    "equipa": "SPORTING CP",
    "jogos": 1,
@@ -1160,6 +1225,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "RODRIGO GODINHO",
+   "equipa": "APAC TOJAL",
+   "jogos": 1,
+   "numero": "64",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RODRIGO PATRÃO",
    "equipa": "GDS CASCAIS",
    "jogos": 1,
@@ -1173,23 +1251,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "RODRIGO TEIXEIRA",
-   "equipa": "APAC TOJAL",
+   "nome": "RODRIGO SIMÕES",
+   "equipa": "FSE/AJ SALESIANA",
    "jogos": 1,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RUI MENDES",
-   "equipa": "APAC TOJAL",
-   "jogos": 1,
-   "numero": "28",
+   "numero": "11",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1251,10 +1316,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "VASCO BAPTISTA",
-   "equipa": "APAC TOJAL",
+   "nome": "VASCO TEIXEIRA",
+   "equipa": "FSE/AJ SALESIANA",
    "jogos": 1,
-   "numero": "99",
+   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1303,6 +1368,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "DIOGO SAMPAIO",
+   "equipa": "APAC TOJAL",
+   "jogos": 2,
+   "numero": "9",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 2,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DUARTE MORAIS",
+   "equipa": "APAC TOJAL",
+   "jogos": 2,
+   "numero": "72",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "ELISABETE OLIVEIRA",
    "equipa": "BIBLIOTECA IR (SF)",
    "jogos": 2,
@@ -1313,6 +1404,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FILIPE LOURENÇO",
+   "equipa": "APAC TOJAL",
+   "jogos": 2,
+   "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -1381,6 +1485,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MIGUEL PEREIRA",
+   "equipa": "APAC TOJAL",
+   "jogos": 2,
+   "numero": "3",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "NUNO COITO",
    "equipa": "HC TURQUEL",
    "jogos": 2,
@@ -1407,10 +1524,49 @@
    "vermelhos": 0
   },
   {
+   "nome": "RODRIGO TEIXEIRA",
+   "equipa": "APAC TOJAL",
+   "jogos": 2,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RUI MENDES",
+   "equipa": "APAC TOJAL",
+   "jogos": 2,
+   "numero": "28",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "SALVADOR ANDRÉ",
    "equipa": "HC TURQUEL",
    "jogos": 2,
    "numero": "79",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VASCO BAPTISTA",
+   "equipa": "APAC TOJAL",
+   "jogos": 2,
+   "numero": "99",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

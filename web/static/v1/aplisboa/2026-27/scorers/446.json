@@ -1,6 +1,6 @@
 {
  "competicao_id": 446,
- "jogos_considerados": 9,
+ "jogos_considerados": 10,
  "jogadores": [
   {
    "nome": "TIAGO RIBEIRO",
@@ -94,6 +94,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "TOMÁS PITA",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 4,
+   "numero": "7",
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "VICENTE MATOS",
    "equipa": "PAREDE FC B",
    "jogos": 4,
@@ -124,19 +137,6 @@
    "equipa": "SPORTING CP B",
    "jogos": 3,
    "numero": "9",
-   "golos": 2,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TOMÁS PITA",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 3,
-   "numero": "7",
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
@@ -185,12 +185,12 @@
    "vermelhos": 0
   },
   {
-   "nome": "RODRIGO GARRANCHO",
+   "nome": "MARIA ROCHA",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 3,
-   "numero": "3",
-   "golos": 1,
-   "assistencias": 1,
+   "jogos": 4,
+   "numero": "6",
+   "golos": 2,
+   "assistencias": 0,
    "defesas": 0,
    "pontos": 2,
    "amarelos": 0,
@@ -208,6 +208,19 @@
    "pontos": 2,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RODRIGO GARRANCHO",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 4,
+   "numero": "3",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -237,19 +250,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "SANTIAGO FERREIRA",
-   "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "8",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIOGO SANTOS",
    "equipa": "PAREDE FC B",
    "jogos": 2,
@@ -263,13 +263,13 @@
    "vermelhos": 0
   },
   {
-   "nome": "SANTIAGO DIAS",
+   "nome": "SANTIAGO FERREIRA",
    "equipa": "AE FISICA D B",
    "jogos": 2,
-   "numero": "6",
+   "numero": "8",
    "golos": 1,
    "assistencias": 0,
-   "defesas": 1,
+   "defesas": 0,
    "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
@@ -302,19 +302,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "BALTASAR PELIZ",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 3,
-   "numero": "4",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DANIEL SIMÕES",
    "equipa": "CACO B",
    "jogos": 3,
@@ -328,10 +315,62 @@
    "vermelhos": 0
   },
   {
+   "nome": "DIOGO POTIER",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 3,
+   "numero": "8",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GIL DUARTE",
    "equipa": "CACO B",
    "jogos": 3,
    "numero": "7",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARIANA ARAUJO",
+   "equipa": "AE FISICA D B",
+   "jogos": 3,
+   "numero": "2",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SANTIAGO DIAS",
+   "equipa": "AE FISICA D B",
+   "jogos": 3,
+   "numero": "6",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "BALTASAR PELIZ",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 4,
+   "numero": "4",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -382,7 +421,7 @@
   {
    "nome": "DUARTE DINIZ",
    "equipa": "AE FISICA D B",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "3",
    "golos": 0,
    "assistencias": 1,
@@ -432,36 +471,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANTÓNIO CORREIA",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 1,
-   "numero": "6",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DAVID GUIMARÃES",
    "equipa": "AD OEIRAS B",
    "jogos": 1,
    "numero": "9",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DAVID PINTO",
-   "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -484,10 +497,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "HENRIQUE MARIANO",
-   "equipa": "CACO B",
+   "nome": "GONÇALO FONSECA",
+   "equipa": "AE FISICA D B",
    "jogos": 1,
-   "numero": "27",
+   "numero": "9",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -497,10 +510,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "IARA SILVA",
-   "equipa": "AE FISICA D B",
+   "nome": "HENRIQUE MARIANO",
+   "equipa": "CACO B",
    "jogos": 1,
-   "numero": "7",
+   "numero": "27",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -536,19 +549,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO VIEIRA",
-   "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MARIANA RODRIGUES",
    "equipa": "AE FISICA D B",
    "jogos": 1,
@@ -566,6 +566,19 @@
    "equipa": "SPORTING CP B",
    "jogos": 1,
    "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO NOGUEIRA",
+   "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -614,8 +627,8 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO FONSECA",
-   "equipa": "PAREDE FC B",
+   "nome": "ANTÓNIO CORREIA",
+   "equipa": "CD PAÇO ARCOS B",
    "jogos": 2,
    "numero": "5",
    "golos": 0,
@@ -627,10 +640,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO POTIER",
-   "equipa": "CD PAÇO ARCOS B",
+   "nome": "DAVID PINTO",
+   "equipa": "AE FISICA D B",
    "jogos": 2,
-   "numero": "8",
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO FONSECA",
+   "equipa": "PAREDE FC B",
+   "jogos": 2,
+   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -653,8 +679,34 @@
    "vermelhos": 0
   },
   {
+   "nome": "IARA SILVA",
+   "equipa": "AE FISICA D B",
+   "jogos": 2,
+   "numero": "7",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOAO MONTEIRO",
    "equipa": "AD OEIRAS B",
+   "jogos": 2,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO VIEIRA",
+   "equipa": "AE FISICA D B",
    "jogos": 2,
    "numero": "10",
    "golos": 0,
@@ -679,32 +731,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARIANA ARAUJO",
-   "equipa": "AE FISICA D B",
-   "jogos": 2,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MIGUEL MARQUES",
-   "equipa": "AE FISICA D B",
-   "jogos": 2,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ANTÓNIO CABRAL",
    "equipa": "CACO B",
    "jogos": 3,
@@ -718,49 +744,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DAVID LEU",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 3,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DINIS MADEIRA",
    "equipa": "SPORTING CP B",
    "jogos": 3,
    "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "FELIPE RODRIGUES",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 3,
-   "numero": "11",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "FILIPE SANTOS",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 3,
-   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -835,19 +822,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARIA ROCHA",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 3,
-   "numero": "6",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MATILDE SOARES",
    "equipa": "CACO B",
    "jogos": 3,
@@ -861,10 +835,62 @@
    "vermelhos": 0
   },
   {
+   "nome": "MIGUEL MARQUES",
+   "equipa": "AE FISICA D B",
+   "jogos": 3,
+   "numero": "4",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TIAGO ALMEIDA",
    "equipa": "SPORTING CP B",
    "jogos": 3,
    "numero": "8",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DAVID LEU",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 4,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FELIPE RODRIGUES",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 4,
+   "numero": "11",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FILIPE SANTOS",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 4,
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

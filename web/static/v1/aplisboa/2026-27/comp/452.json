@@ -146,8 +146,8 @@
    "hora": "16:00:00",
    "casa": "CD PAÇO ARCOS A",
    "fora": "CACO A",
-   "golos_casa": 1,
-   "golos_fora": 3,
+   "golos_casa": 2,
+   "golos_fora": 4,
    "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
   },
@@ -472,10 +472,10 @@
      "vitorias": 3,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 18,
-     "golos_sofridos": 5,
+     "golos_marcados": 19,
+     "golos_sofridos": 6,
      "diferenca": 13,
-     "racio": 3.6,
+     "racio": 3.17,
      "pontos": 9
     },
     {
@@ -514,10 +514,10 @@
      "vitorias": 1,
      "empates": 0,
      "derrotas": 2,
-     "golos_marcados": 9,
-     "golos_sofridos": 10,
+     "golos_marcados": 10,
+     "golos_sofridos": 11,
      "diferenca": -1,
-     "racio": 0.9,
+     "racio": 0.91,
      "pontos": 3
     },
     {

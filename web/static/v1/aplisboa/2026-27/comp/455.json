@@ -132,8 +132,8 @@
    "hora": "17:30:00",
    "casa": "FSE/AJ SALESIANA A",
    "fora": "AD OEIRAS B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 2,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
   },
@@ -494,6 +494,20 @@
     },
     {
      "posicao": 3,
+     "equipa": "AD OEIRAS B",
+     "logo": "/intranet/logos/6.png",
+     "jogos": 4,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 10,
+     "golos_sofridos": 12,
+     "diferenca": -2,
+     "racio": 0.83,
+     "pontos": 6
+    },
+    {
+     "posicao": 4,
      "equipa": "CACO B",
      "logo": "/intranet/logos/26.png",
      "jogos": 3,
@@ -507,31 +521,17 @@
      "pontos": 4
     },
     {
-     "posicao": 4,
-     "equipa": "AD OEIRAS B",
-     "logo": "/intranet/logos/6.png",
-     "jogos": 3,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 2,
-     "golos_marcados": 8,
-     "golos_sofridos": 12,
-     "diferenca": -4,
-     "racio": 0.67,
-     "pontos": 3
-    },
-    {
      "posicao": 5,
      "equipa": "FSE/AJ SALESIANA A",
      "logo": "/intranet/logos/9.png",
-     "jogos": 2,
+     "jogos": 3,
      "vitorias": 0,
      "empates": 1,
-     "derrotas": 1,
+     "derrotas": 2,
      "golos_marcados": 3,
-     "golos_sofridos": 16,
-     "diferenca": -13,
-     "racio": 0.19,
+     "golos_sofridos": 18,
+     "diferenca": -15,
+     "racio": 0.17,
      "pontos": 1
     },
     {

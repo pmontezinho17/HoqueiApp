@@ -1,11 +1,11 @@
 {
  "competicao_id": 451,
- "jogos_considerados": 6,
+ "jogos_considerados": 7,
  "jogadores": [
   {
    "nome": "TOMÁS SILVA",
    "equipa": "UF ENTRONCAMENTO",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "09",
    "golos": 8,
    "assistencias": 1,
@@ -31,7 +31,7 @@
   {
    "nome": "LOURENÇO FARIA",
    "equipa": "UF ENTRONCAMENTO",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "03",
    "golos": 5,
    "assistencias": 0,
@@ -42,12 +42,64 @@
    "vermelhos": 0
   },
   {
+   "nome": "MANUEL CLEMENTE",
+   "equipa": "HC TURQUEL",
+   "jogos": 2,
+   "numero": "4",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANTÓNIO PEDRO",
+   "equipa": "HC TURQUEL",
+   "jogos": 2,
+   "numero": "9",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DINIS VICENTE",
+   "equipa": "HC TURQUEL",
+   "jogos": 2,
+   "numero": "5",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "FRANCISCO NUNES",
    "equipa": "SC TOMAR",
    "jogos": 2,
    "numero": "78",
    "golos": 3,
    "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARTIM REBELO",
+   "equipa": "HC TURQUEL",
+   "jogos": 2,
+   "numero": "3",
+   "golos": 2,
+   "assistencias": 1,
    "defesas": 0,
    "pontos": 3,
    "amarelos": 0,
@@ -148,25 +200,12 @@
   {
    "nome": "MIGUEL ALBINO",
    "equipa": "UF ENTRONCAMENTO",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "02",
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
    "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ANTÓNIO PEDRO",
-   "equipa": "HC TURQUEL",
-   "jogos": 1,
-   "numero": "9",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -185,36 +224,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MANUEL CLEMENTE",
-   "equipa": "HC TURQUEL",
-   "jogos": 1,
-   "numero": "4",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "MANUEL SANTOS",
    "equipa": "SC TOMAR",
    "jogos": 1,
    "numero": "5",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARTIM REBELO",
-   "equipa": "HC TURQUEL",
-   "jogos": 1,
-   "numero": "3",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -237,16 +250,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE FARIA",
-   "equipa": "UF ENTRONCAMENTO",
+   "nome": "JOÃO FRANQUINHO",
+   "equipa": "HC TURQUEL",
    "jogos": 2,
-   "numero": "4",
+   "numero": "7",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 1,
    "amarelos": 0,
-   "azuis": 1,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -273,6 +286,19 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DUARTE FARIA",
+   "equipa": "UF ENTRONCAMENTO",
+   "jogos": 3,
+   "numero": "04",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -356,7 +382,7 @@
   {
    "nome": "TOMÁS GARCIA",
    "equipa": "UF ENTRONCAMENTO",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "17",
    "golos": 0,
    "assistencias": 2,
@@ -367,15 +393,15 @@
    "vermelhos": 0
   },
   {
-   "nome": "DINIS VICENTE",
+   "nome": "MANUEL LUIS",
    "equipa": "HC TURQUEL",
    "jogos": 1,
-   "numero": "5",
+   "numero": "2",
    "golos": 0,
-   "assistencias": 0,
+   "assistencias": 1,
    "defesas": 0,
-   "pontos": 0,
-   "amarelos": 1,
+   "pontos": 1,
+   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -395,19 +421,6 @@
   {
    "nome": "FRANCISCA MORAIS",
    "equipa": "BIBLIOTECA IR B",
-   "jogos": 1,
-   "numero": "6",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "FRANCISCO FIALHO",
-   "equipa": "HC TURQUEL",
    "jogos": 1,
    "numero": "6",
    "golos": 0,
@@ -471,10 +484,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO FRANQUINHO",
+   "nome": "JOÃO SILVA",
    "equipa": "HC TURQUEL",
    "jogos": 1,
-   "numero": "7",
+   "numero": "8",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -523,32 +536,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "RODRIGO FRANCISCO",
-   "equipa": "HC TURQUEL",
-   "jogos": 1,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TOMÁS COELHO",
-   "equipa": "HC TURQUEL",
-   "jogos": 1,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "TOMÁS MARQUES",
    "equipa": "SC TOMAR",
    "jogos": 1,
@@ -562,10 +549,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME NAVALHO",
-   "equipa": "UF ENTRONCAMENTO",
+   "nome": "FRANCISCO FIALHO",
+   "equipa": "HC TURQUEL",
    "jogos": 2,
-   "numero": "08",
+   "numero": "6",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -575,10 +562,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARIA MESQUITA",
-   "equipa": "UF ENTRONCAMENTO",
+   "nome": "RODRIGO FRANCISCO",
+   "equipa": "HC TURQUEL",
    "jogos": 2,
-   "numero": "06",
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS COELHO",
+   "equipa": "HC TURQUEL",
+   "jogos": 2,
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -627,19 +627,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIEGO INÁCIO",
-   "equipa": "UF ENTRONCAMENTO",
-   "jogos": 3,
-   "numero": "01",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 2,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIOGO MASSA",
    "equipa": "BIBLIOTECA IR A",
    "jogos": 3,
@@ -653,10 +640,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "EDUARDO NOBRE",
-   "equipa": "UF ENTRONCAMENTO",
+   "nome": "GUILHERME MIGUEL SOUSA",
+   "equipa": "BIBLIOTECA IR A",
    "jogos": 3,
-   "numero": "07",
+   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -666,10 +653,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME MIGUEL SOUSA",
-   "equipa": "BIBLIOTECA IR A",
+   "nome": "GUILHERME NAVALHO",
+   "equipa": "UF ENTRONCAMENTO",
    "jogos": 3,
-   "numero": "3",
+   "numero": "08",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -718,10 +705,49 @@
    "vermelhos": 0
   },
   {
+   "nome": "MARIA MESQUITA",
+   "equipa": "UF ENTRONCAMENTO",
+   "jogos": 3,
+   "numero": "06",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RODRIGO RIBEIRO",
    "equipa": "BIBLIOTECA IR B",
    "jogos": 3,
    "numero": "9",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIEGO INÁCIO",
+   "equipa": "UF ENTRONCAMENTO",
+   "jogos": 4,
+   "numero": "01",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 2,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "EDUARDO NOBRE",
+   "equipa": "UF ENTRONCAMENTO",
+   "jogos": 4,
+   "numero": "07",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

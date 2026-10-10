@@ -1,7 +1,20 @@
 {
  "competicao_id": 432,
- "jogos_considerados": 25,
+ "jogos_considerados": 26,
  "jogadores": [
+  {
+   "nome": "VITOR OLIVEIRA",
+   "equipa": "SL BENFICA",
+   "jogos": 4,
+   "numero": "4",
+   "golos": 7,
+   "assistencias": 4,
+   "defesas": 0,
+   "pontos": 11,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
   {
    "nome": "MARTIM COSTA",
    "equipa": "SL BENFICA",
@@ -55,27 +68,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "VITOR OLIVEIRA",
-   "equipa": "SL BENFICA",
+   "nome": "BERNARDO RAMALHO",
+   "equipa": "PAREDE FC",
    "jogos": 4,
-   "numero": "4",
+   "numero": "88",
    "golos": 5,
    "assistencias": 3,
    "defesas": 0,
    "pontos": 8,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "BERNARDO RAMALHO",
-   "equipa": "PAREDE FC",
-   "jogos": 3,
-   "numero": "88",
-   "golos": 5,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 7,
    "amarelos": 0,
    "azuis": 1,
    "vermelhos": 0
@@ -103,6 +103,19 @@
    "defesas": 0,
    "pontos": 6,
    "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO CORREIA",
+   "equipa": "GRF MURCHES",
+   "jogos": 4,
+   "numero": "79",
+   "golos": 5,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -146,6 +159,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "BRUNO FRADE",
+   "equipa": "AD OEIRAS",
+   "jogos": 3,
+   "numero": "74",
+   "golos": 4,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 6,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "NIL DEL FRESNO",
    "equipa": "SPORTING CP",
    "jogos": 3,
@@ -172,19 +198,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO RODRIGUES",
-   "equipa": "PAREDE FC",
-   "jogos": 3,
-   "numero": "77",
-   "golos": 4,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 5,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MANUEL SANTOS",
    "equipa": "HC LOURINHA",
    "jogos": 3,
@@ -195,6 +208,32 @@
    "pontos": 5,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO RODRIGUES",
+   "equipa": "PAREDE FC",
+   "jogos": 4,
+   "numero": "77",
+   "golos": 4,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO DUARTE",
+   "equipa": "PAREDE FC",
+   "jogos": 4,
+   "numero": "4",
+   "golos": 4,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -220,19 +259,6 @@
    "defesas": 0,
    "pontos": 4,
    "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DIOGO CORREIA",
-   "equipa": "GRF MURCHES",
-   "jogos": 4,
-   "numero": "79",
-   "golos": 4,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -341,22 +367,9 @@
    "vermelhos": 0
   },
   {
-   "nome": "BRUNO FRADE",
-   "equipa": "AD OEIRAS",
-   "jogos": 2,
-   "numero": "74",
-   "golos": 2,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOÃO SILVA",
    "equipa": "PAREDE FC",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "87",
    "golos": 2,
    "assistencias": 2,
@@ -471,19 +484,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO DUARTE",
-   "equipa": "PAREDE FC",
-   "jogos": 3,
-   "numero": "4",
-   "golos": 2,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOSE ARADA",
    "equipa": "AD OEIRAS",
    "jogos": 1,
@@ -497,19 +497,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME CAETANO",
-   "equipa": "AD OEIRAS",
-   "jogos": 2,
-   "numero": "17",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 1,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "MARTIM RAMOS",
    "equipa": "GDS CASCAIS",
    "jogos": 2,
@@ -520,6 +507,19 @@
    "pontos": 2,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANTÓNIO ESTRELA",
+   "equipa": "AD OEIRAS",
+   "jogos": 3,
+   "numero": "8",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -559,6 +559,19 @@
    "pontos": 2,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME CAETANO",
+   "equipa": "AD OEIRAS",
+   "jogos": 3,
+   "numero": "17",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 1,
+   "azuis": 2,
    "vermelhos": 0
   },
   {
@@ -718,19 +731,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME MONTEIRO",
-   "equipa": "AD OEIRAS",
-   "jogos": 2,
-   "numero": "9",
-   "golos": 1,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "HENRIQUE PEREIRA",
    "equipa": "SC TORRES",
    "jogos": 2,
@@ -748,6 +748,19 @@
    "equipa": "APAC TOJAL",
    "jogos": 3,
    "numero": "5",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME MONTEIRO",
+   "equipa": "AD OEIRAS",
+   "jogos": 3,
+   "numero": "9",
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
@@ -826,19 +839,6 @@
    "equipa": "AD OEIRAS",
    "jogos": 2,
    "numero": "3",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ANTÓNIO ESTRELA",
-   "equipa": "AD OEIRAS",
-   "jogos": 2,
-   "numero": "8",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -1095,6 +1095,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DIOGO ATAÍDE",
+   "equipa": "SL BENFICA",
+   "jogos": 4,
+   "numero": "24",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DIOGO FONSECA",
    "equipa": "SL BENFICA",
    "jogos": 4,
@@ -1199,6 +1212,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MIGUEL CATARINO",
+   "equipa": "AD OEIRAS",
+   "jogos": 1,
+   "numero": "54",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "PEDRO LOURENÇO",
    "equipa": "SC TORRES",
    "jogos": 1,
@@ -1225,10 +1251,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DAVID FONSECA",
-   "equipa": "AD OEIRAS",
+   "nome": "LUIS BERNARDO",
+   "equipa": "GRF MURCHES",
    "jogos": 2,
-   "numero": "75",
+   "numero": "5",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -1251,10 +1277,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO GONÇALVES",
-   "equipa": "AE FISICA D",
+   "nome": "DAVID FONSECA",
+   "equipa": "AD OEIRAS",
    "jogos": 3,
-   "numero": "74",
+   "numero": "75",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -1264,10 +1290,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOSÉ TIAGO",
-   "equipa": "PAREDE FC",
+   "nome": "DIOGO GONÇALVES",
+   "equipa": "AE FISICA D",
    "jogos": 3,
-   "numero": "3",
+   "numero": "74",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -1303,32 +1329,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MANUEL CORREIA",
-   "equipa": "PAREDE FC",
-   "jogos": 3,
-   "numero": "84",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 1,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARTIM SILVA",
-   "equipa": "PAREDE FC",
-   "jogos": 3,
-   "numero": "79",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "RUBEN ALMEIDA",
    "equipa": "GDS CASCAIS",
    "jogos": 3,
@@ -1355,10 +1355,62 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOSÉ TIAGO",
+   "equipa": "PAREDE FC",
+   "jogos": 4,
+   "numero": "3",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MANUEL CORREIA",
+   "equipa": "PAREDE FC",
+   "jogos": 4,
+   "numero": "84",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 1,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARTIM SILVA",
+   "equipa": "PAREDE FC",
+   "jogos": 4,
+   "numero": "79",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "AFONSO FONTINHA",
    "equipa": "GRF MURCHES",
    "jogos": 1,
    "numero": "7",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "AFONSO SOARES",
+   "equipa": "PAREDE FC",
+   "jogos": 1,
+   "numero": "9",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1424,19 +1476,6 @@
    "equipa": "AD OEIRAS",
    "jogos": 1,
    "numero": "23",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DIOGO FERNANDES",
-   "equipa": "AD OEIRAS",
-   "jogos": 1,
-   "numero": "47",
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
@@ -1823,19 +1862,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO DAVID",
-   "equipa": "AD OEIRAS",
-   "jogos": 2,
-   "numero": "79",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIOGO DIAS",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 2,
@@ -1843,6 +1869,19 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO FERNANDES",
+   "equipa": "AD OEIRAS",
+   "jogos": 2,
+   "numero": "47",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -1927,32 +1966,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "LUIS BERNARDO",
-   "equipa": "GRF MURCHES",
-   "jogos": 2,
-   "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MANUEL COIMBRA",
-   "equipa": "AD OEIRAS",
-   "jogos": 2,
-   "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "PEDRO ABREU",
    "equipa": "A STUART HCM",
    "jogos": 2,
@@ -2009,19 +2022,6 @@
    "equipa": "HC LOURINHA",
    "jogos": 2,
    "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TELMO EMÍDIO",
-   "equipa": "AD OEIRAS",
-   "jogos": 2,
-   "numero": "71",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -2135,19 +2135,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANTÓNIO SILVA",
-   "equipa": "PAREDE FC",
-   "jogos": 3,
-   "numero": "27",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "BERNARDO ANTUNES",
    "equipa": "SC TORRES",
    "jogos": 3,
@@ -2184,6 +2171,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO DAVID",
+   "equipa": "AD OEIRAS",
+   "jogos": 3,
+   "numero": "79",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -2369,6 +2369,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MANUEL COIMBRA",
+   "equipa": "AD OEIRAS",
+   "jogos": 3,
+   "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MARCELO ARAÚJO",
    "equipa": "AE FISICA D",
    "jogos": 3,
@@ -2447,19 +2460,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "NUNO EMÍDIO",
-   "equipa": "PAREDE FC",
-   "jogos": 3,
-   "numero": "47",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "RAFAEL JESUS",
    "equipa": "SC TORRES",
    "jogos": 3,
@@ -2525,6 +2525,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "TELMO EMÍDIO",
+   "equipa": "AD OEIRAS",
+   "jogos": 3,
+   "numero": "71",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TOMÁS VENTURA",
    "equipa": "S ALENQUER B",
    "jogos": 3,
@@ -2577,15 +2590,15 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO ATAÍDE",
-   "equipa": "SL BENFICA",
+   "nome": "ANTÓNIO SILVA",
+   "equipa": "PAREDE FC",
    "jogos": 4,
-   "numero": "24",
+   "numero": "27",
    "golos": 0,
    "assistencias": 0,
-   "defesas": 0,
+   "defesas": 1,
    "pontos": 0,
-   "amarelos": 1,
+   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -2597,6 +2610,19 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 2,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "NUNO EMÍDIO",
+   "equipa": "PAREDE FC",
+   "jogos": 4,
+   "numero": "47",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,

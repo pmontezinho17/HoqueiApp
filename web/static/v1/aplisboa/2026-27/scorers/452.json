@@ -55,6 +55,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "PAULO FERNANDES",
+   "equipa": "CACO A",
+   "jogos": 3,
+   "numero": "77",
+   "golos": 4,
+   "assistencias": 5,
+   "defesas": 0,
+   "pontos": 9,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOÃO HENRIQUES",
    "equipa": "CACO A",
    "jogos": 3,
@@ -89,20 +102,7 @@
    "assistencias": 5,
    "defesas": 0,
    "pontos": 8,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "PAULO FERNANDES",
-   "equipa": "CACO A",
-   "jogos": 3,
-   "numero": "77",
-   "golos": 3,
-   "assistencias": 5,
-   "defesas": 0,
-   "pontos": 8,
-   "amarelos": 0,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -117,6 +117,19 @@
    "pontos": 3,
    "amarelos": 1,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS ROSÁRIO",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 3,
+   "numero": "53",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -211,19 +224,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS ROSÁRIO",
-   "equipa": "CD PAÇO ARCOS A",
-   "jogos": 3,
-   "numero": "53",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "RODRIGO PASSARINHO",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 3,
@@ -242,9 +242,9 @@
    "jogos": 3,
    "numero": "70",
    "golos": 1,
-   "assistencias": 2,
+   "assistencias": 3,
    "defesas": 0,
-   "pontos": 3,
+   "pontos": 4,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
