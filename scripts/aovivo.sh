@@ -160,6 +160,24 @@ while [ "$(date +%s)" -lt "$fim" ]; do
     fi
   fi
 
+  # ── Acordar o observador ────────────────────────────────────────────────────────────
+  #
+  # **O ciclo ao vivo é o relógio mais fiável que este projecto tem durante um jogo**, e por
+  # isso passa a acordar também o observador. Os `cron` do Worker observador deixaram de
+  # disparar a 09/10/2026 — aceites ao publicar, nunca executados — e o do relógio, que o
+  # substituiu nessa noite, também não acordou na manhã seguinte.
+  #
+  # **A dependência é ao contrário do que parece.** O observador existe para dar pelo
+  # silêncio deste ciclo, e aqui é este ciclo que o alimenta: se ele morrer, o observador
+  # emudece com ele. É por isso que o pulso na consola importa — um observador calado passou
+  # a ser vermelho, e é precisamente esse o sinal de que o ciclo parou.
+  #
+  # Sem bloquear nada: em segundo plano, com um tempo de espera curto, e o erro vai para o
+  # lixo. Uma medição perdida não pode atrasar a publicação de um golo.
+  if [ -n "${OBSERVADOR:-}" ]; then
+    curl -fsS -m 5 -o /dev/null "$OBSERVADOR/observar" 2>/dev/null &
+  fi
+
   sleep "$INTERVALO"
 done
 echo "fim da janela — se ainda houver jogos hoje, é a corrida em espera que continua"

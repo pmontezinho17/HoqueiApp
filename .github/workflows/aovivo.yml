@@ -73,3 +73,5 @@ jobs:
           INTERVALO: ${{ inputs.intervalo || '30' }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Quem este ciclo acorda a cada ronda, além de publicar — ver o fim do `aovivo.sh`.
+          OBSERVADOR: https://hoquei-observador.torneiopa.workers.dev
