@@ -67,6 +67,12 @@
 			<code>claro</code> ou <code>escuro</code>. Enquanto seguires o tema do sistema
 			<strong>não fica nada escrito</strong>: a chave só nasce se discordares dele.
 		</dd>
+		<dt>A cor da aplicação, se escolheres uma</dt>
+		<dd>
+			Numa chave chamada <code>hoquei:cor:v1</code>, com o nome da cor —
+			<code>azul</code>, <code>vermelho</code> e assim. Enquanto ficares no verde
+			<strong>não fica nada escrito</strong>: a chave só nasce se escolheres outra.
+		</dd>
 		<dt>A consola de manutenção — só se fores tu a abri-la</dt>
 		<dd>
 			Em duas chaves, <code>ok4sticks:consola:chave</code> e

@@ -20,7 +20,35 @@
 	stroke-linecap="round"
 	stroke-linejoin="round"
 >
-	{#if nome === 'directo'}
+	{#if nome === 'guia'}
+		<!-- um mapa dobrado: o guia é o passeio pelos ecrãs -->
+		<path d="M2.5 5.5 7.5 3.5v11l-5 2Z" /><path d="M7.5 3.5 12.5 5.5v11l-5-2Z" />
+		<path d="M12.5 5.5 17.5 3.5v11l-5 2Z" />
+	{:else if nome === 'opiniao'}
+		<!-- um balão de fala -->
+		<path d="M17 11.5a2.5 2.5 0 0 1-2.5 2.5H8l-4 3v-3H5.5A2.5 2.5 0 0 1 3 11.5v-5A2.5 2.5 0 0 1 5.5 4h9A2.5 2.5 0 0 1 17 6.5Z" />
+	{:else if nome === 'aparencia'}
+		<!-- meio sol, meia lua: a escolha entre claro e escuro -->
+		<circle cx="10" cy="10" r="6" /><path d="M10 4v12a6 6 0 0 0 0-12Z" fill="currentColor" stroke="none" />
+	{:else if nome === 'cores'}
+		<!-- a paleta -->
+		<path d="M10 3a7 7 0 1 0 0 14c1 0 1.5-.6 1.5-1.3 0-.8-.8-1.2-.8-2 0-.6.5-1.2 1.3-1.2H14a3 3 0 0 0 3-3C17 5.9 13.9 3 10 3Z" />
+		<circle cx="7" cy="8" r="1" fill="currentColor" stroke="none" />
+		<circle cx="10.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+		<circle cx="13.5" cy="8.5" r="1" fill="currentColor" stroke="none" />
+	{:else if nome === 'partilhar'}
+		<!-- caixa com uma seta a sair por cima: o "partilhar" que o iOS e o Android usam -->
+		<path d="M10 3v9" /><path d="M7 6l3-3 3 3" />
+		<path d="M5.5 10H4.5v6.5h11V10h-1" />
+	{:else if nome === 'ajuda'}
+		<!-- ponto de interrogação num círculo -->
+		<circle cx="10" cy="10" r="7" />
+		<path d="M8.2 8a1.8 1.8 0 1 1 2.3 1.8c-.4.2-.5.5-.5.9v.4" /><path d="M10 14h.01" />
+	{:else if nome === 'privacidade'}
+		<!-- um cadeado -->
+		<rect x="4.5" y="9" width="11" height="7.5" rx="1.5" />
+		<path d="M7.5 9V7a2.5 2.5 0 0 1 5 0v2" />
+	{:else if nome === 'directo'}
 		<!-- uma câmara de vídeo: o corpo e o bico. É o símbolo de "isto está a ser filmado",
 		     e não o triângulo de "carrega para ver" — o que a marca anuncia é que existe
 		     transmissão, e isso é verdade antes de alguém carregar em nada. -->

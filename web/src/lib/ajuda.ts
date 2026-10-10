@@ -44,11 +44,14 @@ export const PERGUNTAS: Pergunta[] = [
 		    forma como lemos a página, e isso conseguimos corrigir.`
 	},
 	{
-		p: 'Porque é que a classificação dos Escolares e dos Benjamins diz "não oficial"?',
-		r: `Porque nesses escalões a fonte não publica classificação nenhuma, e nós
-		    calculamo-la a partir dos resultados. A conta é simples e está explicada em
-		    <a href="/mais">Sobre a app e os dados</a> — mas, como não é a conta oficial de
-		    ninguém, não lhe podíamos dar o mesmo peso. Daí o rótulo.`
+		p: 'Porque é que a classificação dos Escolares e dos Benjamins é tão estranha?',
+		r: `Porque nesses escalões a classificação não é por vitórias: é o <strong>Mérito da
+		    Formação</strong>, que o regulamento da associação define. Conta levar a equipa
+		    completa e pôr toda a gente a jogar — uma equipa que perca todos os jogos pode
+		    estar à frente.
+		    <br><br>As regras estão na própria tabela, e por extenso em
+		    <a href="/mais">Sobre a app e os dados</a>. Também não é oficial: a conta que
+		    vale é feita em papel e validada pelo Comité Técnico.`
 	},
 	{
 		p: 'Nos Escolares e Benjamins há uma tabela de "Mérito". O que é?',

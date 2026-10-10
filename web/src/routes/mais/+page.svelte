@@ -51,9 +51,12 @@
 <section>
 	<h2>Classificações que calculamos</h2>
 	<p>
-		A associação <strong>não publica classificação</strong> nos Escolares nem nos Benjamins.
-		São 8 séries e 43 equipas, e quem acompanha um filho nesses escalões andava a fazer as
-		contas à mão — por isso calculamo-las nós, e dizemo-lo em cada uma delas.
+		A associação <strong>não publica classificação</strong> em algumas provas, e onde faz
+		sentido calculamo-la nós, dizendo-o em cada uma delas.
+		<br><br>Nos Escolares e nos Benjamins <strong>não calculamos tabela de vitórias
+		nenhuma</strong>, e isso é de propósito: a associação não publica ali classificação
+		porque esses escalões não se escalonam por vitórias. O que os escalona é o Mérito da
+		Formação, aqui mais abaixo.
 	</p>
 	<p>
 		<strong>Não são oficiais.</strong> Se alguma vez houver diferença entre o que aqui está e
@@ -97,8 +100,8 @@
 <section>
 	<h2>Mérito da Formação</h2>
 	<p>
-		Nos Encontros Distritais de Escolares e de Benjamins há uma segunda tabela, que
-		<strong>não é a classificação</strong>: o escalonamento de Mérito da Formação, do Artigo
+		Nos Encontros Distritais de Escolares e de Benjamins a classificação <strong>é</strong>
+		o Mérito da Formação, e não uma tabela de vitórias: é o escalonamento do Artigo
 		92.º do regulamento da associação. Ela premeia o contrário do que uma tabela costuma
 		premiar — levar a equipa completa e pôr toda a gente a jogar.
 	</p>

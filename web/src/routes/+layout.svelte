@@ -20,6 +20,7 @@
 	import MenuMais from '$lib/MenuMais.svelte';
 	import CaixaNovidades from '$lib/CaixaNovidades.svelte';
 	import { tema } from '$lib/tema.svelte';
+	import { cor } from '$lib/cor.svelte';
 	import { APP_NOME } from '$lib/sitio';
 	import { marcarPresenca } from '$lib/presenca';
 
@@ -73,6 +74,8 @@
 	// os favoritos vivem no localStorage e só existem no browser; sem isto a app abria
 	// sempre como se não se seguisse ninguém (perdido na reestruturação dos separadores)
 	$effect(() => favoritos.carregar());
+	// a cor escolhida vive no aparelho e só existe no browser, como o tema
+	$effect(() => cor.carregar());
 
 	// a preferência de tema também só existe no browser, e aplica-se ao `<html>`
 	$effect(() => tema.carregar());
@@ -202,7 +205,12 @@
 		--fundo: #f5f6f8; --cartao: #fff;
 		--texto: #14171c; --texto-2: #4b525c; --suave: #767e8a;
 		--borda: #e3e6ea; --borda-fraca: #eef0f3;
-		--acento: #0a7d54; --acento-fraco: #e8f4ef;
+		/* **O acento é escolhível, e os outros tokens não.** O `--c-claro` é escrito no
+		   `<html>` pelo `cor.svelte.ts` quando alguém escolhe uma cor; sem escolha, o
+		   fallback é o verde de sempre e nada muda. Os dois temas têm variáveis próprias
+		   porque o claro precisa de uma cor escura para ler sobre branco e o escuro precisa
+		   do contrário — ver o cabeçalho do `cor.svelte.ts`. */
+		--acento: var(--c-claro, #0a7d54); --acento-fraco: var(--cf-claro, #e8f4ef);
 		--aviso: #92400e; --aviso-fundo: #fef3c7; --vivo: #c2410c;
 		/* **Um vermelho próprio para "terminada", e não o `--vivo`.** O `--vivo` quer dizer
 		   "está a acontecer agora" e usá-lo para "já acabou" punha a mesma cor a dizer duas
@@ -244,7 +252,7 @@
 			--fundo: #0f1115; --cartao: #181b21;
 			--texto: #e8eaed; --texto-2: #b6bcc5; --suave: #868d98;
 			--borda: #272b33; --borda-fraca: #1f232a;
-			--acento: #34d399; --acento-fraco: #12271f;
+			--acento: var(--c-escuro, #34d399); --acento-fraco: var(--cf-escuro, #12271f);
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
 			--terminado: #f2b8b5;
 			--directo: #f87171;
@@ -257,7 +265,7 @@
 			--fundo: #0f1115; --cartao: #181b21;
 			--texto: #e8eaed; --texto-2: #b6bcc5; --suave: #868d98;
 			--borda: #272b33; --borda-fraca: #1f232a;
-			--acento: #34d399; --acento-fraco: #12271f;
+			--acento: var(--c-escuro, #34d399); --acento-fraco: var(--cf-escuro, #12271f);
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
 			--terminado: #f2b8b5;
 			--directo: #f87171;

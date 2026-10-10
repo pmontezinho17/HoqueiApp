@@ -23,7 +23,10 @@
 	import { guia } from './guia.svelte';
 	import { critica } from './critica.svelte';
 	import { tema, TEMAS } from './tema.svelte';
+	import { cor, CORES } from './cor.svelte';
 	import { RECOLHER_FEEDBACK } from './feedback';
+	import Icone from './Icone.svelte';
+	import { partilhar, PODE_PARTILHAR_NATIVO } from './partilha';
 
 	let {
 		aberto = $bindable(false),
@@ -32,6 +35,21 @@
 	}: { aberto?: boolean; topo: number } = $props();
 
 	let painel = $state<HTMLDivElement | null>(null);
+
+	/**
+	 * A partilha: folha nativa no telemóvel, cópia do endereço onde não há.
+	 *
+	 * O menu **não fecha** quando se copia — senão a confirmação desaparecia com ele e
+	 * ninguém sabia se tinha resultado. Fecha quando a folha nativa abre, porque aí a
+	 * confirmação é o próprio sistema.
+	 */
+	let copiado = $state(false);
+	async function aoPartilhar() {
+		const r = await partilhar();
+		if (r === 'partilhado') return fechar();
+		copiado = r === 'copiado';
+		if (copiado) setTimeout(() => (copiado = false), 2500);
+	}
 
 	/**
 	 * Ao abrir, o foco entra no painel.
@@ -81,21 +99,35 @@
 		style="--queda: {topo}px"
 	>
 		<button class="linha" onclick={verGuia}>
-			<span class="rotulo">Ver o guia outra vez</span>
-			<span class="ajuda">Os ecrãs e os gestos, passo a passo</span>
+			<Icone nome="guia" tamanho={18} />
+			<span class="texto">
+				<span class="rotulo">Ver o guia outra vez</span>
+				<span class="ajuda">Os ecrãs e os gestos, passo a passo</span>
+			</span>
 		</button>
 
 		{#if RECOLHER_FEEDBACK}
 			<button class="linha" onclick={darOpiniao}>
-				<span class="rotulo">Dar uma opinião</span>
-				<span class="ajuda">O que está mal, o que falta</span>
+				<Icone nome="opiniao" tamanho={18} />
+				<span class="texto">
+					<span class="rotulo">Dar uma opinião</span>
+					<span class="ajuda">O que está mal, o que falta</span>
+				</span>
 			</button>
 		{/if}
+
+		<button class="linha" onclick={aoPartilhar}>
+			<Icone nome="partilhar" tamanho={18} />
+			<span class="texto">
+				<span class="rotulo">Partilhar a aplicação</span>
+				<span class="ajuda">{copiado ? 'Endereço copiado' : 'Mandar o OK4Sticks a alguém'}</span>
+			</span>
+		</button>
 
 		<div class="risca"></div>
 
 		<div class="aparencia">
-			<span class="rotulo">Aparência</span>
+			<span class="rotulo"><Icone nome="aparencia" tamanho={18} />Aparência</span>
 			<div class="escolhas" role="group" aria-label="Aparência">
 				{#each TEMAS as t (t.valor)}
 					<button
@@ -107,19 +139,48 @@
 			</div>
 		</div>
 
+		<div class="cores">
+			<span class="rotulo"><Icone nome="cores" tamanho={18} />Cor</span>
+			<div class="pastilhas" role="group" aria-label="Cor da aplicação">
+				{#each CORES as c (c.valor)}
+					<!-- A pastilha é a própria cor, e não um nome: escolher "Grená" de uma lista
+					     de palavras obriga a imaginar; aqui vê-se. O nome fica no `aria-label`
+					     para quem lê por voz, que é quem não vê a cor nenhuma. -->
+					<button
+						class="pastilha"
+						class:activa={cor.escolha === c.valor}
+						aria-pressed={cor.escolha === c.valor}
+						aria-label={c.rotulo}
+						title={c.rotulo}
+						style="--amostra: {c.claro}; --amostra-escura: {c.escuro}"
+						onclick={() => cor.escolher(c.valor)}
+					></button>
+				{/each}
+			</div>
+		</div>
+
 		<div class="risca"></div>
 
 		<a class="linha" href="/ajuda" onclick={fechar}>
-			<span class="rotulo">Perguntas frequentes</span>
-			<span class="ajuda">O que se pergunta primeiro, respondido</span>
+			<Icone nome="ajuda" tamanho={18} />
+			<span class="texto">
+				<span class="rotulo">Perguntas frequentes</span>
+				<span class="ajuda">O que se pergunta primeiro, respondido</span>
+			</span>
 		</a>
 		<a class="linha" href="/mais" onclick={fechar}>
-			<span class="rotulo">Sobre a app e os dados</span>
-			<span class="ajuda">A fonte, as contagens e a última actualização</span>
+			<Icone nome="informacoes" tamanho={18} />
+			<span class="texto">
+				<span class="rotulo">Sobre a app e os dados</span>
+				<span class="ajuda">A fonte, as contagens e a última actualização</span>
+			</span>
 		</a>
 		<a class="linha" href="/privacidade" onclick={fechar}>
-			<span class="rotulo">Política de privacidade</span>
-			<span class="ajuda">O que fica no teu telemóvel, e como pedir a remoção de um nome</span>
+			<Icone nome="privacidade" tamanho={18} />
+			<span class="texto">
+				<span class="rotulo">Política de privacidade</span>
+				<span class="ajuda">O que fica no teu telemóvel, e como pedir a remoção de um nome</span>
+			</span>
 		</a>
 
 		<!--
@@ -161,11 +222,13 @@
 	}
 	.painel:focus { outline: none; }
 
+	/* ícone à esquerda e o texto ao lado: o dono pediu-os a 10/10/2026 para "perceber logo
+	   que tipo de informação é". Oito linhas de texto puro liam-se como uma lista de leis. */
 	.linha {
 		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 1px;
+		flex-direction: row;
+		align-items: center;
+		gap: var(--e-3);
 		width: 100%;
 		min-height: 48px;
 		padding: var(--e-2) var(--e-3);
@@ -178,6 +241,43 @@
 		text-decoration: none;
 		cursor: pointer;
 	}
+	.linha .texto { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
+	/* o `Icone` pinta-se de `--suave` por dentro; aqui queremos o mesmo tom do texto de ajuda,
+	   que é o que o faz ler-se como etiqueta e não como botão */
+	.linha :global(svg) { flex: 0 0 auto; }
+	.aparencia .rotulo, .cores .rotulo { display: flex; align-items: center; gap: var(--e-3); }
+
+	.cores { padding: var(--e-2) var(--e-3); display: flex; flex-direction: column;
+		gap: var(--e-2); }
+	.pastilhas { display: flex; gap: var(--e-2); flex-wrap: wrap; }
+	/* 44 px de área de toque numa pastilha de 26: o alvo é o botão, a cor é o miolo. Sem
+	   isto a escolha falhava-se com o polegar, que é como isto vai ser usado. */
+	.pastilha {
+		width: 44px; height: 44px; padding: 0; border: 0; background: none;
+		display: grid; place-items: center; cursor: pointer; border-radius: 50%;
+	}
+	.pastilha::before {
+		content: ''; width: 26px; height: 26px; border-radius: 50%;
+		background: var(--amostra);
+		box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.12);
+	}
+	/* No escuro a pastilha mostra a cor **do escuro**, que é a que a app vai usar. Mostrar a
+	   do claro era pedir à pessoa que escolhesse por uma amostra que não é a que ela vai ver.
+	   As duas condições cobrem o tema pelo sistema e o escolhido à mão, como o resto do CSS
+	   de temas deste projecto. */
+	@media (prefers-color-scheme: dark) {
+		:global(html:not([data-tema='claro'])) .pastilha::before {
+			background: var(--amostra-escura);
+			box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.14);
+		}
+	}
+	:global(html[data-tema='escuro']) .pastilha::before {
+		background: var(--amostra-escura);
+		box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.14);
+	}
+	/* o anel de escolhida é a cor do texto e não a da pastilha: sobre a própria cor
+	   desaparecia, e é esse o único sítio onde ele tem de se ver */
+	.pastilha.activa { box-shadow: inset 0 0 0 2px var(--texto); }
 	.linha:active { background: var(--acento-fraco); }
 
 	.versao {
