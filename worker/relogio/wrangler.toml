@@ -24,9 +24,22 @@ WORKFLOW = "aovivo.yml"
 WORKFLOW_DADOS = "dados.yml"
 REF = "main"
 AGENDA = "https://hoquei.pages.dev/v1/aplisboa/2026-27/agenda.json"
-# Quem o relógio acorda além do ciclo ao vivo — ver o comentário no `scheduled`.
-OBSERVADOR = "https://hoquei-observador.torneiopa.workers.dev"
+# (O observador deixou de ser um endereço aqui — passou a ligação de serviço, em baixo.)
 META = "https://hoquei.pages.dev/v1/aplisboa/2026-27/meta.json"
 
 # GITHUB_TOKEN **não** vive aqui. É um segredo, posto com `wrangler secret put` — ver o
 # README ao lado.
+
+# ── O observador, por ligação de serviço e não por endereço ───────────────────────────────
+#
+# **Um Worker não chama outro pelo endereço `workers.dev`.** Tentou-se a 10/10/2026 e a
+# resposta foi **HTTP 404**, enquanto o mesmo endereço respondia 200 a um `curl` de fora e o
+# próprio `/observar` do relógio respondia 200 — ou seja, não era um ciclo nem um endereço
+# errado: é a Cloudflare a não encaminhar pedidos entre Workers por essa via.
+#
+# Uma ligação de serviço é o caminho suportado, e é mais barata: o pedido não sai para a
+# internet, não gasta um sub-pedido de saída, e não depende de o subdomínio público existir —
+# o que importa, porque está em aberto desligá-lo (B9.27).
+[[services]]
+binding = "OBSERVADOR"
+service = "hoquei-observador"

@@ -200,8 +200,13 @@ export default {
 		// observador tem de ser avisado à mesma — é precisamente quando há alguma coisa para
 		// observar. E sem `await` no caminho crítico: um observador em baixo não pode atrasar
 		// o lançamento de uma ronda.
+		// Pela ligação de serviço e não pelo endereço público: a Cloudflare responde 404 a um
+		// Worker que chame outro por `workers.dev` — medido a 10/10/2026. Ver o `wrangler.toml`.
+		// O nome do anfitrião no URL é irrelevante numa ligação de serviço; só o caminho conta.
 		ctx.waitUntil(
-			fetch(`${env.OBSERVADOR}/observar`, { headers: { 'user-agent': 'hoquei-relogio' } })
+			env.OBSERVADOR.fetch('https://observador/observar', {
+				headers: { 'user-agent': 'hoquei-relogio' }
+			})
 				.then((r) => console.log(`observador: HTTP ${r.status}`))
 				.catch((e) => console.log(`observador: ${String(e).slice(0, 80)}`))
 		);

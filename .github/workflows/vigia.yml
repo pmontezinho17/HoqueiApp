@@ -1,0 +1,128 @@
+name: Vigia do observador
+
+# **Quem vigia o vigia.**
+#
+# O observador existe para dar pelo silêncio do ciclo ao vivo. Mas ele próprio pode morrer — e
+# morreu, a 09/10/2026, catorze horas, com a consola a mostrar "tudo em ordem" o tempo todo.
+# Um sistema que só se vigia a si mesmo não se vigia.
+#
+# Esta corrida vive **fora** da Cloudflare de propósito: os `cron` dos Workers foram
+# precisamente o que falhou, e o agendador da GitHub é o que se vê a disparar neste
+# repositório há dias. Se os dois caírem ao mesmo tempo, aí sim não há nada a fazer — mas
+# deixam de ser a mesma falha.
+#
+# **Primeiro tenta corrigir, só depois avisa.** Acordar o observador custa um pedido ao nosso
+# próprio Worker e resolve a maior parte dos casos sem incomodar ninguém. O aviso é para o que
+# sobrevive a isso.
+
+on:
+  schedule:
+    # De quinze em quinze minutos, nas horas em que há jogos. Os `cron` da GitHub têm
+    # granularidade de cinco minutos e atrasam-se sob carga — o que aqui não faz mal, porque
+    # o limiar de silêncio é de 20 minutos e dá folga para uma firada perdida.
+    - cron: '*/15 7-22 * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+concurrency:
+  group: vigia
+  cancel-in-progress: false
+
+env:
+  OBSERVADOR: https://hoquei-observador.torneiopa.workers.dev
+  # Acima disto o silêncio é avaria. O relógio acorda o observador de dez em dez minutos, e o
+  # ciclo ao vivo de trinta em trinta segundos: vinte minutos são duas firadas perdidas.
+  LIMITE_MIN: 20
+
+jobs:
+  vigiar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: O observador está vivo?
+        id: ver
+        run: |
+          set -uo pipefail
+
+          idade() {
+            # o `/api` é público e devolve `actualizado` em hora de Lisboa
+            local a
+            a=$(curl -fsS -m 20 "$OBSERVADOR/api" | jq -r '.actualizado // empty') || return 1
+            [ -n "$a" ] || return 1
+            python3 - "$a" <<'PY'
+          import sys, datetime as dt
+          from zoneinfo import ZoneInfo
+          lido = dt.datetime.fromisoformat(sys.argv[1]).replace(tzinfo=ZoneInfo("Europe/Lisbon"))
+          agora = dt.datetime.now(ZoneInfo("Europe/Lisbon"))
+          print(int((agora - lido).total_seconds() // 60))
+          PY
+          }
+
+          m=$(idade) || m=""
+          echo "idade inicial: ${m:-não se leu} min"
+
+          # **Corrigir antes de avisar.** Um toque no `/observar` repõe o pulso quando o que
+          # falhou foi o relógio — que foi o caso das duas vezes que isto aconteceu.
+          if [ -z "$m" ] || [ "$m" -gt "$LIMITE_MIN" ]; then
+            echo "a acordar o observador…"
+            curl -fsS -m 25 -o /dev/null "$OBSERVADOR/observar" || echo "o toque falhou"
+            sleep 8
+            m=$(idade) || m=""
+            echo "idade depois do toque: ${m:-não se leu} min"
+          fi
+
+          if [ -z "$m" ]; then
+            echo "estado=morto" >> "$GITHUB_OUTPUT"
+            echo "porque=o /api do observador não respondeu" >> "$GITHUB_OUTPUT"
+          elif [ "$m" -gt "$LIMITE_MIN" ]; then
+            echo "estado=morto" >> "$GITHUB_OUTPUT"
+            echo "porque=a última leitura tem $m min e um toque não a mexeu" >> "$GITHUB_OUTPUT"
+          else
+            echo "estado=vivo" >> "$GITHUB_OUTPUT"
+            echo "porque=última leitura há $m min" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Avisar, ou fechar o aviso
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          DONO: ${{ github.repository_owner }}
+          ESTADO: ${{ steps.ver.outputs.estado }}
+          PORQUE: ${{ steps.ver.outputs.porque }}
+        run: |
+          set -euo pipefail
+          titulo="O observador está calado"
+          numero=$(gh issue list --state open --label vigia --limit 10 \
+            --json number,title --jq "[.[] | select(.title == \"$titulo\")] | .[0].number // empty")
+
+          if [ "$ESTADO" = "morto" ]; then
+            corpo="$PORQUE
+
+          Isto **não afecta a aplicação**: ela serve ficheiros estáticos do CDN e continua a
+          mostrar os jogos. O que está em baixo é a medição — e, com ela, o aviso que te diria
+          se a aplicação parasse.
+
+          A vigia já tentou acordar o observador com um toque em \`/observar\` e não chegou.
+
+          Consola: https://hoquei.pages.dev/consola"
+            if [ -n "$numero" ]; then
+              # um comentário por firada encheria a issue; só se comenta de hora a hora
+              ultimo=$(gh issue view "$numero" --json comments \
+                --jq '[.comments[].createdAt] | last // ""')
+              if [ -z "$ultimo" ] || [ "$(( $(date +%s) - $(date -d "$ultimo" +%s) ))" -gt 3600 ]; then
+                gh issue comment "$numero" --body "$corpo"
+              fi
+              echo "issue #$numero já aberta" >> "$GITHUB_STEP_SUMMARY"
+            else
+              url=$(gh issue create --title "$titulo" --body "$corpo" \
+                --label vigia --assignee "$DONO")
+              echo "aberta: $url" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          else
+            if [ -n "$numero" ]; then
+              gh issue close "$numero" --comment "Voltou: $PORQUE"
+              echo "fechada a issue #$numero" >> "$GITHUB_STEP_SUMMARY"
+            fi
+            echo "$PORQUE" >> "$GITHUB_STEP_SUMMARY"
+          fi
