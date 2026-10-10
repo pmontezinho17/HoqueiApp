@@ -20,7 +20,13 @@
 	stroke-linecap="round"
 	stroke-linejoin="round"
 >
-	{#if nome === 'prova'}
+	{#if nome === 'directo'}
+		<!-- uma câmara de vídeo: o corpo e o bico. É o símbolo de "isto está a ser filmado",
+		     e não o triângulo de "carrega para ver" — o que a marca anuncia é que existe
+		     transmissão, e isso é verdade antes de alguém carregar em nada. -->
+		<rect x="2.5" y="6" width="11" height="8" rx="2" />
+		<path d="M13.5 9.5 17.5 7v6l-4-2.5Z" />
+	{:else if nome === 'prova'}
 		<!-- taça -->
 		<path d="M6.5 3h7v3.5a3.5 3.5 0 0 1-7 0Z" />
 		<path d="M6.5 4.2H4.3v1.1a2.4 2.4 0 0 0 2.2 2.4M13.5 4.2h2.2v1.1a2.4 2.4 0 0 1-2.2 2.4" />
