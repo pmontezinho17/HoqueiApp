@@ -12,8 +12,8 @@
  * 3. **Sem chave configurada não se entra.** A porta falha fechada.
  */
 import { describe, expect, it } from 'vitest';
-import { PRODUCAO, ehSiteDeRamo, paraProducao } from './ambiente.js';
-import { COOKIE, porta } from './portaTestes.js';
+import { PRODUCAO, ehSiteDeRamo, paraProducao, temChaveDoRamo } from './ambiente.js';
+import { COOKIE, MARCA, porta } from './portaTestes.js';
 import { oQueFazerNoRamo, onRequest, ramoDe } from '../../functions/_middleware.js';
 
 const CHAVE = 'chave-de-teste';
@@ -359,5 +359,54 @@ describe('o contador conta pessoas, e não as minhas verificações', () => {
 
 	it('sem User-Agent nenhum também não — não há telemóvel que não o mande', async () => {
 		expect(await comAgente(null)).toBe(0);
+	});
+});
+
+describe('a marca que impede o aviso de tapar quem tem a chave', () => {
+	/**
+	 * O defeito, a 10/10/2026: o dono definiu a `CHAVE_TESTES`, abriu o site de testes e viu o
+	 * `SaidaDoRamo` — servido pela cache do telemóvel dele, sem nunca chegar ao servidor e sem
+	 * caixa de chave nenhuma. Não havia maneira de entrar; só havia maneira de sair.
+	 *
+	 * A causa é que o cookie que autoriza é `HttpOnly` e a app não lhe pode tocar. Daí a
+	 * segunda, sem segredo lá dentro, que só serve para a app se calar.
+	 */
+	it('a porta devolve as duas: a que autoriza e a que a app lê', async () => {
+		const r = await onRequest({
+			request: pedido(`https://testes.hoquei.pages.dev/?chave=${CHAVE}`, navegacao),
+			env: { DADOS: undefined, CHAVE_TESTES: CHAVE },
+			next: async () => new Response('a app'),
+			waitUntil: () => {}
+		});
+		const postas = r.headers.getSetCookie();
+		expect(postas).toHaveLength(2);
+		const autoriza = postas.find((c) => c.startsWith(`${COOKIE}=`)) ?? '';
+		const marca = postas.find((c) => c.startsWith(`${MARCA}=`)) ?? '';
+		expect(autoriza).toContain('HttpOnly');
+		// esta tem de ser legível pelo JavaScript da página, senão não serve para nada
+		expect(marca).not.toContain('HttpOnly');
+		// e não pode levar o segredo: é vista por qualquer script da origem
+		expect(marca).not.toContain(CHAVE);
+		expect(marca).toContain(`${MARCA}=1`);
+	});
+
+	it('a app reconhece a marca', () => {
+		expect(temChaveDoRamo(`${MARCA}=1`)).toBe(true);
+		expect(temChaveDoRamo(`outro=x; ${MARCA}=1; mais=y`)).toBe(true);
+	});
+
+	it('e não se engana com o que não é ela', () => {
+		for (const c of ['', 'outro=1', `${MARCA}=0`, `${MARCA}x=1`, `nao_${MARCA}=1`])
+			expect(temChaveDoRamo(c), JSON.stringify(c)).toBe(false);
+		expect(temChaveDoRamo(null)).toBe(false);
+	});
+
+	it('forjar a marca tira o aviso do ecrã e NÃO abre a porta do servidor', () => {
+		// a porta olha para o outro cookie, que leva o segredo
+		const p = pedido('https://testes.hoquei.pages.dev/', {
+			...navegacao,
+			Cookie: `${MARCA}=1`
+		});
+		expect(oQueFazerNoRamo(p, CHAVE)).toBe('porta');
 	});
 });

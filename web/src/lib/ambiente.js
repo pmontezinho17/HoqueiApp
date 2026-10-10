@@ -46,3 +46,15 @@ export function ehSiteDeRamo(anfitriao) {
 export function paraProducao(url) {
 	return `https://${PRODUCAO}${url.pathname}${url.search}${url.hash}`;
 }
+
+/**
+ * Esta pessoa já passou a porta do site de ramo?
+ *
+ * Lê a marca que o `_middleware.js` escreve — ver `MARCA`, no `portaTestes.js`, para o
+ * porquê de haver duas. Puro, para poder ser testado: o `document.cookie` entra como texto.
+ *
+ * @param {string | null | undefined} cookies o `document.cookie`
+ */
+export function temChaveDoRamo(cookies) {
+	return (cookies ?? '').split(';').some((c) => c.trim() === 'ok4sticks_testes_ok=1');
+}

@@ -50,7 +50,7 @@
  */
 
 import { ehSiteDeRamo, paraProducao } from '../src/lib/ambiente.js';
-import { COOKIE, porta } from '../src/lib/portaTestes.js';
+import { COOKIE, MARCA, porta } from '../src/lib/portaTestes.js';
 
 /** 1 em quantos pedidos de dados se contam. Ver "o tecto que obriga a amostragem". */
 export const AMOSTRA = 10;
@@ -293,16 +293,22 @@ export async function onRequest(contexto) {
 				// no site que as pessoas usam. Aqui, só o aparece a quem escreveu a chave.
 				const url = new URL(request.url);
 				url.searchParams.delete('chave');
-				return new Response(null, {
-					status: 303,
-					headers: {
-						Location: url.pathname + url.search + url.hash,
-						'Set-Cookie':
-							`${COOKIE}=${env.CHAVE_TESTES}; Path=/; Max-Age=2592000; ` +
-							'Secure; HttpOnly; SameSite=Lax',
-						'Cache-Control': 'no-store'
-					}
+				const cabecalhos = new Headers({
+					Location: url.pathname + url.search + url.hash,
+					'Cache-Control': 'no-store'
 				});
+				cabecalhos.append(
+					'Set-Cookie',
+					`${COOKIE}=${env.CHAVE_TESTES}; Path=/; Max-Age=2592000; ` +
+						'Secure; HttpOnly; SameSite=Lax'
+				);
+				// A segunda não leva segredo e **não** é `HttpOnly` de propósito: é a app que a
+				// lê, para não tapar o ecrã a quem já passou aqui. Ver `MARCA`.
+				cabecalhos.append(
+					'Set-Cookie',
+					`${MARCA}=1; Path=/; Max-Age=2592000; Secure; SameSite=Lax`
+				);
+				return new Response(null, { status: 303, headers: cabecalhos });
 			}
 			case 'porta':
 				return respostaDaPorta(request, {});

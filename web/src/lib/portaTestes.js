@@ -18,8 +18,22 @@
  * monta a página inteira e lhe procura os pedaços.
  */
 
-/** O nome do cookie que diz "esta pessoa já deu a chave". */
+/** O nome do cookie que diz "esta pessoa já deu a chave". `HttpOnly`: leva o segredo. */
 export const COOKIE = 'ok4sticks_testes';
+
+/**
+ * A marca que a **app** lê para saber que não deve tapar o ecrã com o aviso de saída.
+ *
+ * Existe porque o cookie de cima é `HttpOnly` e o JavaScript da página não lhe pode tocar —
+ * e sem isto o dono passava a porta do servidor e dava de caras com o `SaidaDoRamo` por
+ * cima da app, sem maneira nenhuma de entrar. Foi exactamente o que lhe aconteceu a
+ * 10/10/2026, e o defeito era meu: desenhei o aviso para quem se enganou no endereço
+ * **sair**, e esqueci-me de que ele também apanha quem tem a chave.
+ *
+ * Não leva segredo nenhum: é um `1`. Quem a forjar à mão tira o aviso do ecrã e continua
+ * sem passar a porta do servidor, porque essa olha para o outro cookie.
+ */
+export const MARCA = 'ok4sticks_testes_ok';
 
 /**
  * @param {{ destino: string, errada?: boolean, semChave?: boolean }} opcoes
