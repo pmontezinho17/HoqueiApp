@@ -25,35 +25,32 @@ describe('naLista — a procura, sem olhar a onde estamos', () => {
 	});
 });
 
-describe('directoDe — a trava que mantém isto fora de produção', () => {
+describe('directoDe — cada entrada vale no seu dia', () => {
 	/**
-	 * O dono pediu a experiência **só no site de testes**. A alternativa a esta trava era
-	 * confiar em que alguém se lembrasse, no dia em que o ramo de testes fosse para
-	 * produção, de que havia uma transmissão de outra gente lá dentro. Esse dia chega sem
-	 * ninguém se lembrar.
+	 * Esta trava substituiu a de "só em ramo" quando o dono decidiu que a capacidade podia ir
+	 * a produção, com a lista a valer vazia. A lista não ficou literalmente vazia porque ele
+	 * estava a ver o jogo nesse momento; em vez de a esvaziar à mão depois, e de confiar em
+	 * que alguém se lembrasse, as entradas expiram sozinhas.
+	 *
+	 * E não é só arrumação: a sala do XbotGo é reutilizada de jogo para jogo pelo mesmo
+	 * utilizador. O endereço de ontem continua a responder, **a mostrar o jogo de hoje de
+	 * outra gente** — e nós anunciávamo-lo como sendo o jogo de ontem.
 	 */
-	const comAnfitriao = (h: string | undefined) => {
-		const antes = (globalThis as { location?: unknown }).location;
-		if (h === undefined) delete (globalThis as { location?: unknown }).location;
-		else (globalThis as { location?: unknown }).location = { hostname: h };
-		try {
-			return directoDe(9539);
-		} finally {
-			if (antes === undefined) delete (globalThis as { location?: unknown }).location;
-			else (globalThis as { location?: unknown }).location = antes;
-		}
-	};
-
-	it('num site de ramo aparece', () => {
-		expect(comAnfitriao('testes.hoquei.pages.dev')?.fonte).toBe('XbotGo');
+	it('no dia do jogo aparece', () => {
+		expect(directoDe(9539, '2026-10-10')?.fonte).toBe('XbotGo');
 	});
 
-	it('EM PRODUÇÃO NÃO APARECE', () => {
-		expect(comAnfitriao('hoquei.pages.dev')).toBeUndefined();
+	it('no dia seguinte desaparece sozinho', () => {
+		expect(directoDe(9539, '2026-10-11')).toBeUndefined();
 	});
 
-	it('e na pré-construção das páginas também não — é lá que nasce o HTML publicado', () => {
-		expect(comAnfitriao(undefined)).toBeUndefined();
+	it('e no dia anterior também não aparece', () => {
+		expect(directoDe(9539, '2026-10-09')).toBeUndefined();
+	});
+
+	it('um jogo que não está na lista continua a não ter', () => {
+		expect(directoDe(9540, '2026-10-10')).toBeUndefined();
+		expect(directoDe(null, '2026-10-10')).toBeUndefined();
 	});
 });
 
@@ -71,5 +68,12 @@ describe('a lista está bem escrita', () => {
 
 	it('as chaves são ids de jogo, e não nomes de equipa', () => {
 		for (const id of Object.keys(DIRECTOS)) expect(id).toMatch(/^\d+$/);
+	});
+
+	it('todas têm o dia do jogo, em AAAA-MM-DD', () => {
+		// sem `data` a entrada nunca apareceria, e o defeito era silencioso: um separador que
+		// não existe não dá erro nenhum, e descobria-se com o jogo a decorrer
+		for (const [id, d] of Object.entries(DIRECTOS))
+			expect(d.data, id).toMatch(/^\d{4}-\d{2}-\d{2}$/);
 	});
 });

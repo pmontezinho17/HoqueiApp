@@ -122,10 +122,13 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
   quatro sítios para alguém se enganar a partilhar — que foi exactamente o que aconteceu
   nessa manhã — e quatro cópias de dados a envelhecer em ritmos diferentes.
 
-  **Uma experiência que não pode ir a produção fecha-se no código, não no calendário.** O
-  `directos.ts` é o exemplo: só devolve alguma coisa num site de ramo, e por isso o dia em
-  que o `testes` for fundido no `main` não a leva consigo. Confiar em que alguém se lembre
-  é confiar de mais.
+  **Uma experiência que não pode ir a produção fecha-se no código, não no calendário.**
+  Confiar em que alguém se lembre, no dia da publicação, de que havia uma experiência lá
+  dentro é confiar de mais. O `directos.ts` teve essa trava amarrada ao anfitrião durante
+  umas horas de 10/10/2026 e deixou de a ter quando o dono decidiu que a capacidade podia ir
+  a produção; o que ficou no lugar dela é a mesma ideia noutra forma — **cada transmissão só
+  conta no dia do jogo**, e por isso a lista vale vazia em qualquer outro dia sem ninguém a
+  esvaziar à mão.
 
   **E o site de testes lê os dados de produção, não uma cópia sua.** Desde 10/10/2026 — ver
   `base()` no `dados.ts`. Uma cópia commitada envelhece em horas e mente: nesse sábado o site

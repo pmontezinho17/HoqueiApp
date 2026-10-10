@@ -2249,6 +2249,38 @@ dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
 | `docs/09-regulamento-apl.md` | os artigos que o código cita, para não ser preciso abrir o PDF |
 
 Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
+## A transmissão passa a poder ir a produção, e expira sozinha (10/10/2026)
+
+Horas depois de pedir a transmissão só para testes, o dono mudou de posição: *"mesmo que isto
+avance para produção, não há qualquer problema, pois não vamos ter links de jogo. até acho que
+já pode avançar, e já fica preparado para estas situações"*.
+
+A frase tinha um pressuposto falso e vale a pena registar porquê: **a lista não estava vazia**,
+tinha lá o jogo daquela tarde. Tirar a trava sem mais levava a transmissão de um jogo de
+sub-13 para a app que todos abrem. Perguntei, e ele escolheu produção com a lista a valer
+vazia.
+
+Mas esvaziá-la ali não dava: ele estava a ver o jogo no site de testes naquele momento.
+
+### A correcção: cada entrada vale no seu dia
+
+Em vez de esvaziar à mão depois — e de confiar em que alguém se lembrasse — as entradas
+ganharam `data` e o `directoDe` só devolve a de hoje. O jogo de 10/10 desapareceu sozinho a
+11/10, e por isso a publicação de segunda leva a capacidade e não leva transmissão nenhuma.
+
+**E isto é o desenho certo mesmo sem essa conversa.** A sala do XbotGo é reutilizada de jogo
+para jogo pelo mesmo utilizador: o endereço de ontem continua a responder, **a mostrar o jogo
+de hoje de outra gente**, e nós anunciávamo-lo como sendo o de ontem. Um endereço de
+transmissão fora do seu dia não é informação velha, é informação errada.
+
+### O que fica por responder antes disto ser usado a sério
+
+Duas coisas, e nenhuma é código: quem mantém a lista ao longo de uma época, e o que acontece
+quando um endereço morre a meio de um sábado. A segunda tem metade da resposta no botão de
+abrir no sítio original, que está sempre visível e não escondido como recurso de último caso.
+
+---
+
 ## O número por cima de cada barra, e o custo das rondas completas (10/10/2026)
 
 Duas coisas do mesmo olhar do dono à consola.
