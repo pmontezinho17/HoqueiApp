@@ -160,8 +160,8 @@
    "hora": "20:15:00",
    "casa": "PAREDE FC",
    "fora": "APAC TOJAL",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 1,
    "recinto": "PAV. PAREDE",
    "ao_vivo": false
   },
@@ -480,6 +480,20 @@
     },
     {
      "posicao": 2,
+     "equipa": "APAC TOJAL",
+     "logo": "/intranet/logos/12.png",
+     "jogos": 3,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 11,
+     "golos_sofridos": 4,
+     "diferenca": 7,
+     "racio": 2.75,
+     "pontos": 6
+    },
+    {
+     "posicao": 3,
      "equipa": "CD PAÇO ARCOS B",
      "logo": "/intranet/logos/7.png",
      "jogos": 3,
@@ -491,20 +505,6 @@
      "diferenca": 0,
      "racio": 1.0,
      "pontos": 6
-    },
-    {
-     "posicao": 3,
-     "equipa": "APAC TOJAL",
-     "logo": "/intranet/logos/12.png",
-     "jogos": 2,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 10,
-     "golos_sofridos": 4,
-     "diferenca": 6,
-     "racio": 2.5,
-     "pontos": 3
     },
     {
      "posicao": 4,
@@ -538,14 +538,14 @@
      "posicao": 6,
      "equipa": "PAREDE FC",
      "logo": "/intranet/logos/3.png",
-     "jogos": 2,
+     "jogos": 3,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 2,
+     "derrotas": 3,
      "golos_marcados": 2,
-     "golos_sofridos": 6,
-     "diferenca": -4,
-     "racio": 0.33,
+     "golos_sofridos": 7,
+     "diferenca": -5,
+     "racio": 0.29,
      "pontos": 0
     }
    ]

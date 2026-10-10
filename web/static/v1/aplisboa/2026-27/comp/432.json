@@ -448,8 +448,8 @@
    "hora": "19:00:00",
    "casa": "CD PAÇO ARCOS",
    "fora": "HC SINTRA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 3,
+   "golos_fora": 4,
    "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
   },
@@ -476,8 +476,8 @@
    "hora": "18:15:00",
    "casa": "AD OEIRAS",
    "fora": "PAREDE FC",
-   "golos_casa": 3,
-   "golos_fora": 2,
+   "golos_casa": 5,
+   "golos_fora": 4,
    "recinto": "PAV. PAREDE",
    "ao_vivo": false
   },
