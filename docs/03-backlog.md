@@ -1070,6 +1070,58 @@ cd worker/observador && npx wrangler secret put GITHUB_TOKEN
 
 Enquanto não existir, a consola di-lo em vez de dizer só "não foi possível".
 
+## O aviso de actualização aparecia por nada: o build não era determinista (10/10/2026)
+
+O dono: *"cada vez que é feito um deploy em produção, aparece sempre a tal notificação a dizer
+que há uma atualização. Até eu mesmo sinto-me saturado"*. E uma hipótese dele: que fosse por a
+consola viver no mesmo endereço da app.
+
+**A hipótese estava errada e o problema era maior.** Medido:
+
+```
+duas construções do MESMO código, sem uma linha de diferença
+  → 17 revisões diferentes no manifesto do service worker
+```
+
+Uma revisão diferente é exactamente o que faz aparecer o aviso. Logo **cada publicação
+avisava toda a gente, qualquer que fosse a alteração** — incluindo as que só tocavam no
+raspador ou num workflow.
+
+**A causa:** o SvelteKit injecta uma `version` no pacote do cliente e, por omissão, essa versão
+é `Date.now()`. Com ela fixa, duas construções do mesmo código são **iguais byte a byte** —
+verificado.
+
+**E a hipótese dele, medida com a interferência removida:** uma alteração só na consola muda
+**zero** entradas do manifesto. A consola nunca entrou no pacote do cliente — ela é compilada
+para dentro da Pages Function e mais nada. Não é preciso mudá-la de endereço.
+
+### O que se construiu em cima disso
+
+* **`web/src/lib/versao.ts`** — a versão em maior.menor, a lista do que mudou, e a regra
+  escrita: maior quando muda a forma de usar a app, menor para correcções, **e nada quando a
+  publicação não toca no que o utilizador vê**. É essa última que impede o aviso de voltar a
+  aparecer por nada;
+* a versão **visível no menu do ⋮**, em letra pequena e sem rótulo — quem a procura sabe o que
+  é, quem não a procura não precisa de saber que existe;
+* a **nota do "o que mudou"**, uma vez por versão. Nunca a quem abre a app pela primeira vez:
+  uma lista de alterações a quem nunca a usou é uma interrupção sem conteúdo, e é a forma mais
+  rápida de ensinar alguém a fechar caixas sem ler. Em baixo e não ao centro, porque é uma nota
+  e não um pedido de decisão. Seis testes, e a versão guarda-se **ao mostrar** e não ao fechar,
+  senão quem fechasse a app a meio voltava a ver a mesma lista.
+
+### Os ramos como ambiente de testes — já existia
+
+A pergunta era se era preciso configurar CI/CD. Não é: o Cloudflare Pages dá um
+*preview deployment* por ramo, e o `testes.yml` já o usava — só estava amarrado a um ramo
+chamado `testes`.
+
+Passou a `ramo.yml` e publica **qualquer ramo menos o `main`**, cada um em
+`https://<ramo>.hoquei.pages.dev`. Um ramo novo ganha endereço sem ninguém configurar nada;
+verificado com o `versoes`.
+
+A regra entrou no `AGENTS.md` com o erro que a motivou escrito por extenso: **o `main` é
+produção**, e enquanto algo não aprovado lá estiver, qualquer publicação o leva.
+
 ## Quem vigia o vigia, e a terceira falha da cadeia de aviso (10/10/2026)
 
 O dono fez a pergunta que fecha isto: *"há alguma forma de colocar uma acção nesta consola
