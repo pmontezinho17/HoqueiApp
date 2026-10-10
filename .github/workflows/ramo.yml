@@ -1,10 +1,22 @@
-name: Site de testes
+name: Site de um ramo
 
-# Um segundo site, para experimentar no telemóvel sem tocar no que as pessoas usam (P11.7).
+# Um site por ramo, para experimentar no telemóvel sem tocar no que as pessoas usam.
 #
 # O Cloudflare Pages dá um *preview deployment* por ramo sem custo: publicar com
-# `--branch testes` no mesmo projecto dá o endereço `https://testes.hoquei.pages.dev`, com o
-# `main` a continuar intocado em `hoquei.pages.dev`.
+# `--branch <nome>` no mesmo projecto dá o endereço `https://<nome>.hoquei.pages.dev`, com o
+# `main` a continuar intocado em `hoquei.pages.dev`. **Não é preciso CI/CD novo nem um segundo
+# projecto** — a pergunta do dono a 10/10/2026 era essa, e a resposta é que isto já existia e
+# só estava amarrado a um ramo chamado `testes`.
+#
+# ## A regra que isto serve, e que nasceu de um erro meu
+#
+# **O `main` é produção.** A 09/10/2026 comitei para `main` um redesenho que o dono queria ver
+# em testes primeiro, e as sete publicações que fiz depois — todas para outras coisas —
+# levaram-no ao ar sem ele o ter aprovado. Eu tinha-lhe escrito esse risco por palavras minhas
+# e segui a publicar na mesma.
+#
+# Trabalho não aprovado vive **num ramo**, e o ramo tem o seu próprio endereço. O `main` só
+# recebe o que já foi visto.
 #
 # **Isto não raspa nada.** Publica os dados que já estão commitados, e é de propósito: a regra
 # do projecto é uma raspagem central, nunca uma por ambiente — o servidor da associação não
@@ -18,11 +30,14 @@ name: Site de testes
 
 on:
   push:
-    branches: [testes]
+    # Qualquer ramo **excepto** o `main`, que tem o seu próprio caminho pelo `dados.yml`.
+    # Um ramo novo ganha um endereço sem ninguém configurar nada.
+    branches-ignore: [main]
   workflow_dispatch:
 
 concurrency:
-  group: testes
+  # um grupo por ramo: dois ramos a publicar ao mesmo tempo não se cancelam um ao outro
+  group: ramo-${{ github.ref_name }}
   cancel-in-progress: true
 
 jobs:
@@ -73,7 +88,18 @@ jobs:
           # `workingDirectory` acima, e com o mesmo sintoma possível: um sábado em que o que
           # vai para o CDN depende de quem publicou.
           wranglerVersion: '4.149.0'
-          command: pages deploy build --project-name hoquei --branch testes
+          # O nome do ramo tal e qual: a Cloudflare faz dele o subdomínio. Um ramo com `/`
+          # no nome — `wip/x` — vira `wip-x` nas mãos dela, e o endereço sai no resumo.
+          command: pages deploy build --project-name hoquei --branch ${{ github.ref_name }}
 
       - name: Onde ficou
-        run: echo "### Site de testes → https://testes.hoquei.pages.dev" >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          # o subdomínio não aceita `/` nem `_`; a Cloudflare troca-os por `-`
+          sub=$(echo "${{ github.ref_name }}" | tr '/_' '-' | tr '[:upper:]' '[:lower:]')
+          {
+            echo "### Este ramo está em"
+            echo ""
+            echo "https://$sub.hoquei.pages.dev"
+            echo ""
+            echo "O \`main\` continua em https://hoquei.pages.dev e não foi tocado."
+          } >> "$GITHUB_STEP_SUMMARY"

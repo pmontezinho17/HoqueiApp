@@ -111,7 +111,19 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
 
 - **Nunca publicar sem o dono pedir.** E saber o que publicar significa: o `git push` só
   corre testes. Quem leva código novo ao site é o `dados.yml`, com o disparo
-  `publicar_sempre`. Um push não publica.
+  `publicar_sempre` ou `so_publicar`. Um push não publica.
+- **O `main` é produção. Trabalho não aprovado vive num ramo.** Qualquer ramo que não seja o
+  `main` publica-se sozinho em `https://<ramo>.hoquei.pages.dev`, pelo `ramo.yml`, e é aí que
+  o dono vê antes de decidir.
+
+  Isto não é arrumação: a 09/10/2026 comitei para `main` um redesenho que ele queria ver em
+  testes primeiro, e as **sete** publicações seguintes — todas para outras coisas — levaram-no
+  ao ar sem aprovação. Eu tinha-lhe escrito esse risco por palavras minhas e segui a publicar
+  na mesma. Enquanto algo não aprovado estiver em `main`, **qualquer** publicação o leva.
+- **Subir a versão em `web/src/lib/versao.ts` quando a alteração se nota a usar a app**, e
+  escrever uma linha em `NOVIDADES` para quem a vai ver. Uma publicação que só mexe na
+  consola, no raspador ou num workflow **não sobe a versão** — e é isso que impede o aviso de
+  actualização de aparecer a toda a gente por nada.
 - **Durante uma janela de jogos há dois publicadores.** Nunca fazer `wrangler pages deploy`
   a partir de uma cópia local: a árvore local é a do último commit e o CDN tem o que o ciclo
   ao vivo escreveu entretanto. Já apagou resultados reais duas vezes.

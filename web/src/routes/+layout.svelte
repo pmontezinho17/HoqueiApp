@@ -16,6 +16,7 @@
 	import Icone from '$lib/Icone.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import MenuMais from '$lib/MenuMais.svelte';
+	import CaixaNovidades from '$lib/CaixaNovidades.svelte';
 	import { tema } from '$lib/tema.svelte';
 	import { APP_NOME } from '$lib/sitio';
 	import { marcarPresenca } from '$lib/presenca';
@@ -144,6 +145,9 @@
 <AutoRefrescar agenda={data.agenda} />
 <AvisoVersao />
 <Holofote />
+
+<!-- a nota do que mudou, depois de uma actualização — ver lib/novidades.svelte.ts -->
+<CaixaNovidades />
 {#if RECOLHER_FEEDBACK}<Feedback />{/if}
 
 <style>

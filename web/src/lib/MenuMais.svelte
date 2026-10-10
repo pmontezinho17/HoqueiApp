@@ -18,6 +18,8 @@
 	 * que a lupa continua a ser um ícone à vista.
 	 */
 	import { goto } from '$app/navigation';
+	import { APP_NOME } from './sitio';
+	import { VERSAO } from './versao';
 	import { guia } from './guia.svelte';
 	import { critica } from './critica.svelte';
 	import { tema, TEMAS } from './tema.svelte';
@@ -119,6 +121,13 @@
 			<span class="rotulo">Política de privacidade</span>
 			<span class="ajuda">O que fica no teu telemóvel, e como pedir a remoção de um nome</span>
 		</a>
+
+		<!--
+			A versão, pedida pelo dono a 10/10/2026, e aqui por ser o sítio onde ele a procurou.
+			Em letra pequena e sem rótulo: quem a procura sabe o que é um número de versão, e
+			quem não a procura não precisa de saber que ela existe.
+		-->
+		<p class="versao">{APP_NOME} {VERSAO}</p>
 	</div>
 {/if}
 
@@ -170,6 +179,15 @@
 		cursor: pointer;
 	}
 	.linha:active { background: var(--acento-fraco); }
+
+	.versao {
+		margin: var(--e-2) 0 0;
+		padding: var(--e-2) var(--e-4) 0;
+		font-size: 0.62rem;
+		color: var(--suave);
+		border-top: 1px solid var(--borda-fraca);
+		text-align: right;
+	}
 	.rotulo { font-size: var(--t-base); color: var(--texto); }
 	.ajuda { font-size: var(--t-micro); color: var(--suave); line-height: 1.3; }
 

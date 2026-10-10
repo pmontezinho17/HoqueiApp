@@ -54,6 +54,13 @@
 			"este aparelho abriu nove dias seguidos" — para isso seria preciso um
 			identificador, e não existe nenhum.
 		</dd>
+		<dt>A última versão que viste</dt>
+		<dd>
+			Numa chave chamada <code>hoquei:versao-vista:v1</code>, com um número como
+			<code>1.0</code>. Serve para a nota do <strong>"o que mudou"</strong> aparecer uma
+			vez depois de uma actualização e não a cada vez que abres a app. É um número de
+			versão, igual para todos — não te identifica nem diz quando é que abriste.
+		</dd>
 		<dt>O tema, se o escolheres à mão</dt>
 		<dd>
 			Numa chave chamada <code>hoquei:tema:v1</code>, com a palavra
