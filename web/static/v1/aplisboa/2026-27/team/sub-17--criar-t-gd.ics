@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9681@hoquei.pages.dev
-DTSTAMP:20261010T000000Z
-DTSTART:20261010T140000Z
-DTEND:20261010T153000Z
-SUMMARY:🏑 Sub-17 🏑 Criar-T GD vs S Alenquer Benfica
-LOCATION:Pavilhão de Hóquei do CRIAR-T
-DESCRIPTION:Criar-T GD 2–6 S Alenquer Benfica\nCAMP. REG. SUB-17 - 1ª FA
- SE · Série B · SUB-17\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://h
- oquei.pages.dev/jogo/9681\nDados da Associação de Patinagem de Lisboa. S
- ite não oficial.
-URL:https://hoquei.pages.dev/jogo/9681
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9684@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T153000Z

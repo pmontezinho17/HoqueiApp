@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9487@hoquei.pages.dev
-DTSTAMP:20261010T000000Z
-DTSTART:20261010T153000Z
-DTEND:20261010T170000Z
-SUMMARY:🏑 Sub-13 🏑 HC Lourinhã vs Criar-T GD
-LOCATION:Hoquei Clube da Lourinhã
-DESCRIPTION:HC Lourinhã 2–0 Criar-T GD\nCAMP. REG. SUB-13 - 1ª FASE · 
- Série B · SUB-13\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev/jog
- o/9487\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9487
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9492@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T100000Z

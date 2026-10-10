@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9787@hoquei.pages.dev
-DTSTAMP:20261010T000000Z
-DTSTART:20261010T163000Z
-DTEND:20261010T180000Z
-SUMMARY:🏑 Sub-17 🏑 FC Castrense vs HC Portimão
-LOCATION:Pavilhão Desportivo Municipal de Castro Verde
-DESCRIPTION:FC Castrense 2–12 HC Portimão\nCAMP. REG. SUB-17 - 1ª FASE 
- · Série F · SUB-17\nPAV. MUN. ANTONIO DOS ANJOS\nhttps://hoquei.pages.d
- ev/jogo/9787\nDados da Associação de Patinagem de Lisboa. Site não ofic
- ial.
-URL:https://hoquei.pages.dev/jogo/9787
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9790@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T140000Z

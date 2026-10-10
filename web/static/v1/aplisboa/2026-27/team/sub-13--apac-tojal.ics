@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9460@hoquei.pages.dev
-DTSTAMP:20261010T000000Z
-DTSTART:20261010T140000Z
-DTEND:20261010T153000Z
-SUMMARY:🏑 Sub-13 🏑 APAC Tojal vs Caco A
-LOCATION:APAC Tojal - Associação de Patinagem Atlético Clube do Tojal
-DESCRIPTION:APAC Tojal 1–10 Caco A\nCAMP. REG. SUB-13 - 1ª FASE · Séri
- e A · SUB-13\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9460\nDad
- os da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9460
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9464@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T164500Z

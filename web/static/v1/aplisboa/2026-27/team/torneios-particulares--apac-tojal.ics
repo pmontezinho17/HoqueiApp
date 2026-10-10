@@ -8,16 +8,4 @@ X-WR-CALDESC:Jogos de APAC Tojal (Torneios Particulares)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-10092@hoquei.pages.dev
-DTSTAMP:20261010T000000Z
-DTSTART:20261010T170000Z
-DTEND:20261010T183000Z
-SUMMARY:🏑 Torneios Particulares 🏑 APAC Tojal vs FSE/AJ Salesiana
-LOCATION:APAC Tojal - Associação de Patinagem Atlético Clube do Tojal
-DESCRIPTION:APAC Tojal 3–1 FSE/AJ Salesiana\nJOGO TREINO · TORNEIOS PART
- ICULARES\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/10092\nDados d
- a Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/10092
-END:VEVENT
 END:VCALENDAR

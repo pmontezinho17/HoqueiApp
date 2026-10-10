@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9761@hoquei.pages.dev
-DTSTAMP:20261010T000000Z
-DTSTART:20261010T143000Z
-DTEND:20261010T160000Z
-SUMMARY:🏑 Sub-17 🏑 Caco B vs Sporting CP A
-LOCATION:Clube Atlético de Campo de Ourique (CACO)
-DESCRIPTION:Caco B 0–16 Sporting CP A\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie E · SUB-17\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9761\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9761
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9764@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T133000Z

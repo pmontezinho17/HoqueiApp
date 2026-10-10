@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9737@hoquei.pages.dev
-DTSTAMP:20261010T000000Z
-DTSTART:20261010T180000Z
-DTEND:20261010T193000Z
-SUMMARY:🏑 Sub-17 🏑 HC Lourinhã vs AD Oeiras A
-LOCATION:Sports Association of Oeiras
-DESCRIPTION:HC Lourinhã 2–7 AD Oeiras A\nCAMP. REG. SUB-17 - 1ª FASE ·
-  Série D · SUB-17\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9737\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9737
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9740@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T153000Z

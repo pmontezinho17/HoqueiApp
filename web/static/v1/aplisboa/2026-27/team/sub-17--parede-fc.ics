@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9711@hoquei.pages.dev
-DTSTAMP:20261010T000000Z
-DTSTART:20261010T191500Z
-DTEND:20261010T204500Z
-SUMMARY:🏑 Sub-17 🏑 Parede FC vs APAC Tojal
-LOCATION:Pavilhão Parede F.C.
-DESCRIPTION:Parede FC 1–1 APAC Tojal\nCAMP. REG. SUB-17 - 1ª FASE · Sé
- rie C · SUB-17\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9711\nDados da
-  Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9711
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9714@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T144500Z

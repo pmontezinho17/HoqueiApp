@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-10064@hoquei.pages.dev
-DTSTAMP:20261010T000000Z
-DTSTART:20261010T100000Z
-DTEND:20261010T113000Z
-SUMMARY:🏑 Benjamins 🏑 Sporting CP vs Caco B
-LOCATION:Pavilhão do Sacavenense ( Hóquei Formação SCP)
-DESCRIPTION:Sporting CP 18–0 Caco B\nENCONTROS DISTRITAIS BENJAMINS - 1ª
-  FASE NIVEL II · Série C · BENJAMINS\nPAV.G.S.SACAVENENSE\nhttps://hoqu
- ei.pages.dev/jogo/10064\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
-URL:https://hoquei.pages.dev/jogo/10064
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-10067@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T151500Z

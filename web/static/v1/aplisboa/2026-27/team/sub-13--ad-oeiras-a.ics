@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9461@hoquei.pages.dev
-DTSTAMP:20261010T000000Z
-DTSTART:20261010T133000Z
-DTEND:20261010T150000Z
-SUMMARY:🏑 Sub-13 🏑 AD Oeiras A vs CD Paço Arcos A
-LOCATION:Sports Association of Oeiras
-DESCRIPTION:AD Oeiras A 3–2 CD Paço Arcos A\nCAMP. REG. SUB-13 - 1ª FAS
- E · Série A · SUB-13\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/94
- 61\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9461
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9464@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T164500Z

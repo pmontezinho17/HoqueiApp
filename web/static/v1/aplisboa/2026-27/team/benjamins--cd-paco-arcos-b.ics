@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-10043@hoquei.pages.dev
-DTSTAMP:20261010T000000Z
-DTSTART:20261010T110000Z
-DTEND:20261010T123000Z
-SUMMARY:🏑 Benjamins 🏑 CD Paço Arcos B vs S Alenquer Benfica
-LOCATION:Pavilhão do Clube Desportivo de Paço de Arcos (CDPA)
-DESCRIPTION:CD Paço Arcos B 0–20 S Alenquer Benfica\nENCONTROS DISTRITAI
- S BENJAMINS - 1ª FASE NIVEL II · Série B · BENJAMINS\nPAV. PAÇO DE AR
- COS\nhttps://hoquei.pages.dev/jogo/10043\nDados da Associação de Patinag
- em de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/10043
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-10041@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T113000Z

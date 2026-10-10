@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9459@hoquei.pages.dev
-DTSTAMP:20261010T000000Z
-DTSTART:20261010T153000Z
-DTEND:20261010T170000Z
-SUMMARY:🏑 Sub-13 🏑 SC Torres vs HC Sintra
-LOCATION:Hockey Club de Sintra
-DESCRIPTION:SC Torres 3–1 HC Sintra\nCAMP. REG. SUB-13 - 1ª FASE · Sér
- ie A · SUB-13\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9459\nDados 
- da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9459
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9462@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T140000Z

@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9658@hoquei.pages.dev
-DTSTAMP:20261010T000000Z
-DTSTART:20261010T163000Z
-DTEND:20261010T180000Z
-SUMMARY:🏑 Sub-17 🏑 HC Turquel vs UF Entroncamento
-LOCATION:Hockey club Turquel
-DESCRIPTION:HC Turquel 10–0 UF Entroncamento\nCAMP. REG. SUB-17 - 1ª FAS
- E · Série A · SUB-17\nPAV. HC TURQUEL\nhttps://hoquei.pages.dev/jogo/96
- 58\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9658
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9660@hoquei.pages.dev
 DTSTAMP:20261011T000000Z
 DTSTART:20261011T163000Z

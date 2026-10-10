@@ -8,16 +8,4 @@ X-WR-CALDESC:Jogos de SL Benfica (Seniores Masculinos)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-9315@hoquei.pages.dev
-DTSTAMP:20261010T000000Z
-DTSTART:20261010T151500Z
-DTEND:20261010T164500Z
-SUMMARY:🏑 Seniores Masculinos 🏑 SL Benfica vs GRF Murches
-LOCATION:Pavilhão Parede F.C.
-DESCRIPTION:SL Benfica 6–1 GRF Murches\nTAÇA JESUS CORREIA - SENIORES MA
- SCULINOS · SENIORES MASCULINOS\nPAV. PAREDE\nhttps://hoquei.pages.dev/jog
- o/9315\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9315
-END:VEVENT
 END:VCALENDAR
