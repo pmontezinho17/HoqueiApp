@@ -9,6 +9,8 @@
 	import Faixa from '$lib/Faixa.svelte';
 	import InfoJogo from './InfoJogo.svelte';
 	import Icone from '$lib/Icone.svelte';
+	import Directo from '$lib/Directo.svelte';
+	import { directoDe } from '$lib/directos';
 	import { nomeProprio, nomeProva } from '$lib/formato';
 	import { piscar } from '$lib/piscar';
 	import { caminhoEquipa } from '$lib/slug';
@@ -66,12 +68,20 @@
 	const temTabela = $derived(grupos.some((g) => g.linhas.length > 0));
 	const temSeparadores = $derived(temEventos || temTabela || temEquipas || temInfo);
 
-	type Tab = 'eventos' | 'tabela' | 'equipas' | 'info';
+	/**
+	 * A transmissão deste jogo, se houver — ver `directos.ts` para o porquê de ser uma lista
+	 * escrita à mão.
+	 */
+	const directo = $derived(directoDe(f.id));
+
+	type Tab = 'directo' | 'eventos' | 'tabela' | 'equipas' | 'info';
 	let tab = $state<string>('eventos');
 	/** os separadores que existem neste jogo, pela ordem em que aparecem na barra */
 	const abas = $derived(
 		(
 			[
+				// primeiro de todos: quem tem onde ver o jogo não quer começar pela cronologia
+				['directo', !!directo],
 				['eventos', temEventos],
 				['tabela', temTabela],
 				['equipas', temEquipas],
@@ -81,9 +91,10 @@
 			.filter(([, ha]) => ha)
 			.map(([id]) => id)
 	);
-	// num jogo a decorrer é a cronologia que se quer, não a ficha
+	// Num jogo a decorrer é a cronologia que se quer, não a ficha — **excepto quando há
+	// transmissão**: aí o que se quer é o jogo, e a cronologia está a uma passagem de dedo.
 	$effect(() => {
-		if (aDecorrer) tab = 'eventos';
+		if (aDecorrer) tab = directo ? 'directo' : 'eventos';
 	});
 
 	/**
@@ -300,6 +311,11 @@
 	     continua a existir para quem lê por voz. Dentro do cromado, para ficarem sempre
 	     agarrados ao herói e nunca passarem por baixo dele. -->
 	<div class="tabs" role="tablist">
+		{#if directo}
+			<button class="aoVivo" role="tab" aria-selected={tab === 'directo'}
+				aria-label="Ver em directo" onclick={() => (tab = 'directo')}
+			><Icone nome="directo" tamanho={22} /></button>
+		{/if}
 		{#if temEventos}
 			<button role="tab" aria-selected={tab === 'eventos'} aria-label="Eventos do jogo"
 				onclick={() => (tab = 'eventos')}><Icone nome="eventos" tamanho={22} /></button>
@@ -323,7 +339,9 @@
 </div>
 </div>
 
-{#if semFicha}
+<!-- No separador do directo esta nota não vem a propósito nenhum: quem está a ver o jogo não
+     está à espera do onze, e a frase aparecia por cima do vídeo. -->
+{#if semFicha && tab !== 'directo'}
 	<p class="semFicha">
 		{#if f.golos_casa !== null}
 			A ficha deste jogo não foi publicada pela fonte. O resultado vem da lista de jogos.
@@ -339,7 +357,15 @@
 	     de saltar quando ele se levanta. -->
 	<Faixa itens={abas} bind:escolhido={tab}>
 		{#snippet pagina(aba)}
-			{#if aba === 'eventos'}
+			{#if aba === 'directo'}
+				<!-- **Só se monta quando é o separador escolhido.** A `Faixa` desenha as
+				     páginas todas para o dedo poder arrastar entre elas, e sem este `tab ===`
+				     o `<iframe>` nascia em cada visita à ficha — puxando a transmissão de
+				     outra gente para quem nem a quis ver. -->
+				{#if directo && tab === 'directo'}
+					<Directo {directo} casa={f.casa} fora={f.fora} />
+				{/if}
+			{:else if aba === 'eventos'}
 				<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
 					omitidos={f.individuais_omitidos ?? false} />
 			{:else if aba === 'tabela'}
@@ -516,6 +542,9 @@
 		border-bottom: 2px solid transparent;
 		color: var(--suave);
 	}
+	/* o único separador com cor própria: é o que distingue "há jogo para ver" de "há dados
+	   para ler", e a cor do botão é a mesma da câmara na lista */
+	.tabs button.aoVivo { color: var(--acento); }
 	.tabs button[aria-selected='true'] {
 		color: var(--acento);
 		border-bottom-color: var(--acento);

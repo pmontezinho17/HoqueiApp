@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Emblema from './Emblema.svelte';
+	import Icone from './Icone.svelte';
+	import { directoDe } from './directos';
 	import { emCurso, escalaoCurto, faseCurta } from './formato';
 	import { piscar } from './piscar';
 	import type { JogoAgenda } from './tipos';
@@ -20,6 +22,14 @@
 
 	const jogado = $derived(jogo.gc !== null && jogo.gf !== null);
 	const live = $derived(emCurso(jogo));
+	/**
+	 * Há transmissão deste jogo?
+	 *
+	 * **Aparece mesmo antes de o jogo começar**, e isso é deliberado: quem vê a lista de
+	 * sábado de manhã quer saber a qual é que pode assistir à distância, e saber isso depois
+	 * do apito inicial já é tarde para decidir se vai ao pavilhão.
+	 */
+	const directo = $derived(directoDe(jogo.id));
 	const ganhouCasa = $derived(jogado && jogo.gc! > jogo.gf!);
 	const ganhouFora = $derived(jogado && jogo.gf! > jogo.gc!);
 	// Um jogo por disputar passa a ser clicável quando já há ficha: a fonte publica a
@@ -60,6 +70,14 @@
 			{#if comData && jogo.data}<span class="dia">{diaCurto(jogo.data)}</span>{/if}
 			<span class="hora">{jogo.hora ?? '—'}</span>
 		{/if}
+		{#if directo}
+			<!-- Numa janela com quinze jogos a decorrer, o ponto vermelho está em todos e não
+			     distingue nada. A câmara é a diferença: *este* é que se pode ver. -->
+			<span class="camara" title="com transmissão em directo ({directo.fonte})">
+				<Icone nome="directo" tamanho={13} />
+				<span class="so-voz">com transmissão em directo</span>
+			</span>
+		{/if}
 		{#if comEscalao}<span class="escalao">{escalaoCurto(jogo.cat)}</span>{/if}
 	</span>
 
@@ -83,6 +101,24 @@
 </svelte:element>
 
 <style>
+	.camara {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.2rem;
+		margin-top: 0.15rem;
+		color: var(--acento);
+	}
+	/* visível para quem lê por voz, fora do ecrã para quem vê — o ícone sozinho não diz nada
+	   a um leitor de ecrã, e um `title` não é lido em telemóvel */
+	.so-voz {
+		position: absolute;
+		width: 1px; height: 1px;
+		padding: 0; margin: -1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+
 	.linha {
 		display: grid;
 		/* sem coluna de resultado quando não há resultado: o nome fica com esse espaço */
