@@ -2115,6 +2115,71 @@ que não há parece um roteiro de promessas.
 
 ---
 
+## O número por cima de cada barra, e o custo das rondas completas (10/10/2026)
+
+Duas coisas do mesmo olhar do dono à consola.
+
+### "por cima de cada barra que tenhas valores, o número total"
+
+Pedido para **todos** os gráficos, e é o pedido certo: a legenda dá o total do dia, as alturas
+dão a proporção, e o número de uma hora em concreto só se adivinhava.
+
+Duas armadilhas, as duas apanhadas no browser e nenhuma delas pelo `svelte-check`:
+
+1. **Parti o `consola.js` outra vez com plicas inclinadas** num comentário de CSS — a sexta
+   vez que este ficheiro cai pelo mesmo buraco, e o comentário do próprio ficheiro avisa-o.
+   O `consola.test.ts` apanhou-o: com o defeito reposto à mão, o ficheiro não chega a ser
+   carregado e o `vitest` sai com código 1. É exactamente para isto que esse teste existe.
+2. **Os números caíam dentro do topo das barras**, em texto escuro sobre laranja. A causa é
+   de geometria: eu media a altura do rótulo contra a coluna inteira, que inclui a linha da
+   hora **por baixo** da barra, enquanto a barra se media contra a mesma coluna mas assentava
+   acima dessa linha. Duas percentagens com origens diferentes.
+
+A correcção da segunda é uma `.area` à volta da barra: o espaço do desenho, sem a linha da
+hora. As duas percentagens passam a ter a mesma origem. De brinde resolve um defeito antigo
+que nunca se via — uma barra a 100% era espremida pelo `flex`, porque a coluna não tinha
+espaço para ela e para o rótulo da hora.
+
+Num ecrã estreito os números **deitam-se**. Vinte e quatro colunas em 375 px dão ~13 px cada e
+um número de três dígitos precisa de 20; de pé não colidem nunca e custam ~14 px de altura.
+
+### E a pergunta: porquê 37+37 de duas em duas horas?
+
+Porque a ronda não tem como saber o que mudou sem perguntar — a plataforma da APL não responde
+a "o que mudou desde as 15:00?". O calendário traz jogos novos, adiamentos e resultados; a
+classificação traz a tabela publicada.
+
+Mas há desperdício, e tem número. Medido a 10/10/2026, um sábado com 36 jogos, 3 399 pedidos:
+
+| | |
+|---|---|
+| fichas de jogo | 2 982 — **88%** |
+| classificações | 191 |
+| calendários | 185 |
+| lista de competições | 41 |
+
+As cinco rondas completas (00:30, 11, 13, 15, 17) são **372 pedidos, 11% do dia**. O grosso é
+o ciclo ao vivo, e esse é por desenho.
+
+Dentro desses 372 há três coisas evitáveis:
+
+1. **Nove das 37 provas já acabaram** — todos os jogos disputados: as 4 Supertaças, os 4
+   Torneios de Abertura e o ZECA PINTO. São 18 pedidos por ronda a confirmar o que não pode
+   mudar: **90 hoje**. É a proposta do dono de 09/10, ainda por fazer.
+2. **Treze outras não tinham jogos hoje.** A classificação delas não pode ter mudado: mais
+   **65 hoje**. O calendário desse grupo tem de continuar a ler-se — um adiamento aparece lá
+   sem ninguém jogar.
+3. **41 pedidos só para reler o id da época**, que muda uma vez por ano. A ronda ao vivo
+   chama `_temporada_corrente` sempre que um jogo fecha, e o comentário ao lado dessa linha
+   diz, por escrito, que pedi-la por ronda "era um pedido inteiro a confirmar o que já
+   sabíamos". O `competitions.json` em disco já traz `"temporada": 5`.
+
+Total evitável hoje: **196 de 3 399, ~6%**. Vale a pena fazer — o ponto 3 é gratuito — mas não
+muda a forma do gráfico. Quem quiser mexer a sério no que pedimos à APL tem de olhar para as
+fichas.
+
+---
+
 ## O endereço de testes partilhado por engano (10/10/2026)
 
 O dono partilhou `testes.hoquei.pages.dev` em vez de `hoquei.pages.dev` e ficou com pessoas a

@@ -87,6 +87,52 @@ describe('a consola desenha-se', () => {
 	});
 });
 
+describe('o número por cima de cada barra', () => {
+	/**
+	 * Pedido pelo dono a 10/10/2026, e para **todos** os gráficos: *"por cima de cada barra
+	 * que tenhas valores, o número total de eventos/chamadas"*. Lia os totais pelo tamanho
+	 * relativo das barras e pela legenda, que dá o total do dia e não o da hora.
+	 */
+	const comHoras = {
+		...minimo,
+		horas: { 11: { calendario: 37, clasificacion: 38, ficha: 301, competiciones: 3 } },
+		entradasHora: { [hoje]: { 15: { novos: 2, volta: 7 } } },
+		porDia: { [hoje]: { calendario: 185, ficha: 2954 } }
+	};
+
+	it('os pedidos por hora escrevem o total da hora', () => {
+		const html = pagina({ ...comHoras, vista: 'sistema' });
+		expect(html).toContain('>379</b>');          // 37 + 38 + 301 + 3
+	});
+
+	it('as entradas por hora também', () => {
+		const html = pagina({ ...comHoras, vista: 'utilizadores' });
+		expect(html).toContain('>9</b>');            // 2 novos + 7 de volta
+	});
+
+	it('e os pedidos por dia, que o tinham por baixo da barra', () => {
+		const html = pagina({ ...comHoras, vista: 'sistema' });
+		expect(html).toContain('>3139</b>');         // 185 + 2954
+	});
+
+	it('uma hora sem nada não leva um zero escrito', () => {
+		/** Vinte e quatro zeros nas horas da madrugada competem com os números que interessam. */
+		const html = pagina({ ...comHoras, vista: 'sistema' });
+		expect(html).not.toContain('class="v" style="bottom:min(calc(0%');
+		expect(html).not.toMatch(/>0<\/b>/);
+	});
+
+	it('o número nunca sobe acima do cimo do gráfico', () => {
+		/**
+		 * Posicionado em absoluto, uma barra que chegue ao tecto punha o número por cima do
+		 * título do cartão. O `min()` é a rede, e é a razão de ele existir.
+		 */
+		const html = pagina({ ...comHoras, vista: 'sistema' });
+		for (const m of html.matchAll(/class="v" style="bottom:([^"]+)"/g))
+			expect(m[1], m[0]).toContain('100% - 1em');
+	});
+});
+
 /**
  * O pulso: a consola tem de saber dizer que **não** sabe.
  *
