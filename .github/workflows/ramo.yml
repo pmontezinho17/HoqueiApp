@@ -1,12 +1,18 @@
 name: Site de um ramo
 
-# Um site por ramo, para experimentar no telemóvel sem tocar no que as pessoas usam.
+# **Um** site de testes, e só um: `https://testes.hoquei.pages.dev`.
 #
-# O Cloudflare Pages dá um *preview deployment* por ramo sem custo: publicar com
-# `--branch <nome>` no mesmo projecto dá o endereço `https://<nome>.hoquei.pages.dev`, com o
-# `main` a continuar intocado em `hoquei.pages.dev`. **Não é preciso CI/CD novo nem um segundo
-# projecto** — a pergunta do dono a 10/10/2026 era essa, e a resposta é que isto já existia e
-# só estava amarrado a um ramo chamado `testes`.
+# O Cloudflare Pages dá um *preview deployment* por ramo sem custo, e durante umas horas de
+# 10/10/2026 aproveitei isso para dar um endereço a cada ramo que criei. O dono parou-me, e
+# com razão: *"se temos o site de testes, é SÓ neste que eu quero ter as novas
+# funcionalidades"*. Quatro sítios de testes é quatro sítios para alguém se enganar a
+# partilhar, quatro cópias de dados a envelhecer em ritmos diferentes, e nenhuma delas é a
+# que ele abre.
+#
+# **Por isso o gatilho é um ramo e não "todos menos o main".** Era `branches-ignore: [main]`,
+# e isso punha a regra na minha cabeça em vez de a pôr no ficheiro. Aqui, um ramo novo não
+# ganha endereço nenhum: trabalha-se nele à vontade, e quando se quer ver no telemóvel
+# funde-se no `testes`.
 #
 # ## A regra que isto serve, e que nasceu de um erro meu
 #
@@ -42,13 +48,12 @@ name: Site de um ramo
 
 on:
   push:
-    # Qualquer ramo **excepto** o `main`, que tem o seu próprio caminho pelo `dados.yml`.
-    # Um ramo novo ganha um endereço sem ninguém configurar nada.
-    branches-ignore: [main]
+    # Só o `testes`. O `main` tem o seu caminho pelo `dados.yml`; qualquer outro ramo não
+    # publica em lado nenhum, de propósito — ver o comentário acima.
+    branches: [testes]
   workflow_dispatch:
 
 concurrency:
-  # um grupo por ramo: dois ramos a publicar ao mesmo tempo não se cancelam um ao outro
   group: ramo-${{ github.ref_name }}
   cancel-in-progress: true
 

@@ -112,9 +112,20 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
 - **Nunca publicar sem o dono pedir.** E saber o que publicar significa: o `git push` só
   corre testes. Quem leva código novo ao site é o `dados.yml`, com o disparo
   `publicar_sempre` ou `so_publicar`. Um push não publica.
-- **O `main` é produção. Trabalho não aprovado vive num ramo.** Qualquer ramo que não seja o
-  `main` publica-se sozinho em `https://<ramo>.hoquei.pages.dev`, pelo `ramo.yml`, e é aí que
-  o dono vê antes de decidir.
+- **O `main` é produção. Trabalho não aprovado vive no `testes`.** Há **um** site de testes,
+  `https://testes.hoquei.pages.dev`, e é só nesse que as funcionalidades novas aparecem. Um
+  ramo novo não ganha endereço nenhum — o `ramo.yml` só dispara no `testes`, e isso está no
+  ficheiro e não na memória de quem trabalha.
+
+  A 10/10/2026 criei um sítio por funcionalidade e o dono parou-me: *"se temos o site de
+  testes, é SÓ neste que eu quero ter as novas funcionalidades"*. Quatro sítios de testes são
+  quatro sítios para alguém se enganar a partilhar — que foi exactamente o que aconteceu
+  nessa manhã — e quatro cópias de dados a envelhecer em ritmos diferentes.
+
+  **Uma experiência que não pode ir a produção fecha-se no código, não no calendário.** O
+  `directos.ts` é o exemplo: só devolve alguma coisa num site de ramo, e por isso o dia em
+  que o `testes` for fundido no `main` não a leva consigo. Confiar em que alguém se lembre
+  é confiar de mais.
 
   Isto não é arrumação: a 09/10/2026 comitei para `main` um redesenho que ele queria ver em
   testes primeiro, e as **sete** publicações seguintes — todas para outras coisas — levaram-no

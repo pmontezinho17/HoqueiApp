@@ -6,22 +6,54 @@
  * olhar para um rectângulo vazio. Estes testes impedem as três formas de ela ficar mal.
  */
 import { describe, expect, it } from 'vitest';
-import { DIRECTOS, directoDe } from './directos';
+import { DIRECTOS, directoDe, naLista } from './directos';
 
-describe('directoDe', () => {
+describe('naLista — a procura, sem olhar a onde estamos', () => {
 	it('encontra o jogo que tem transmissão', () => {
-		const d = directoDe(9539);
+		const d = naLista(9539);
 		expect(d?.fonte).toBe('XbotGo');
 		expect(d?.url).toContain('cloud.xbotgo.net');
 	});
 
 	it('um jogo sem transmissão não tem, e isso não é um erro', () => {
-		expect(directoDe(9540)).toBeUndefined();
+		expect(naLista(9540)).toBeUndefined();
 	});
 
 	it('a agenda tem jogos sem id, e quem chama não deve ter de se lembrar disso', () => {
-		expect(directoDe(null)).toBeUndefined();
-		expect(directoDe(undefined)).toBeUndefined();
+		expect(naLista(null)).toBeUndefined();
+		expect(naLista(undefined)).toBeUndefined();
+	});
+});
+
+describe('directoDe — a trava que mantém isto fora de produção', () => {
+	/**
+	 * O dono pediu a experiência **só no site de testes**. A alternativa a esta trava era
+	 * confiar em que alguém se lembrasse, no dia em que o ramo de testes fosse para
+	 * produção, de que havia uma transmissão de outra gente lá dentro. Esse dia chega sem
+	 * ninguém se lembrar.
+	 */
+	const comAnfitriao = (h: string | undefined) => {
+		const antes = (globalThis as { location?: unknown }).location;
+		if (h === undefined) delete (globalThis as { location?: unknown }).location;
+		else (globalThis as { location?: unknown }).location = { hostname: h };
+		try {
+			return directoDe(9539);
+		} finally {
+			if (antes === undefined) delete (globalThis as { location?: unknown }).location;
+			else (globalThis as { location?: unknown }).location = antes;
+		}
+	};
+
+	it('num site de ramo aparece', () => {
+		expect(comAnfitriao('testes.hoquei.pages.dev')?.fonte).toBe('XbotGo');
+	});
+
+	it('EM PRODUÇÃO NÃO APARECE', () => {
+		expect(comAnfitriao('hoquei.pages.dev')).toBeUndefined();
+	});
+
+	it('e na pré-construção das páginas também não — é lá que nasce o HTML publicado', () => {
+		expect(comAnfitriao(undefined)).toBeUndefined();
 	});
 });
 
