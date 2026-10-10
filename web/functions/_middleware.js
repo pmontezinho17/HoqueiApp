@@ -49,6 +49,9 @@
  * que permite publicar antes de a ligação existir.
  */
 
+import { ehSiteDeRamo, paraProducao } from '../src/lib/ambiente.js';
+import { COOKIE, porta } from '../src/lib/portaTestes.js';
+
 /** 1 em quantos pedidos de dados se contam. Ver "o tecto que obriga a amostragem". */
 export const AMOSTRA = 10;
 
@@ -139,16 +142,110 @@ export function oQueContar(pedido, sorteio = Math.random) {
 	return null;
 }
 
+// ─── A porta dos sites de ramo ──────────────────────────────────────────────────────────
+//
+// Um site de ramo serve os dados do último commit e nunca os do ciclo ao vivo. Enquanto
+// esteve aberto a toda a gente, isso foi só uma limitação conhecida; a 10/10/2026 deixou de
+// ser, quando o endereço do ramo `testes` foi partilhado em vez do de produção e ficaram
+// pessoas a ver resultados de 26 horas antes num dia com 36 jogos.
+//
+// A porta é nossa e não o Cloudflare Access de propósito — ver `portaTestes.js`.
+
+/**
+ * O que fazer com um pedido a um site de ramo: `null` deixa passar.
+ *
+ * **Só as navegações são travadas, e isso é deliberado.** Um pedido que não é navegação —
+ * o `sw.js`, o manifesto, um ficheiro de dados — passa, e passa por uma razão prática: quem
+ * instalou o site de ramo no telemóvel tem a app servida pela cache do *service worker* e
+ * nunca chega aqui. A única forma de o alcançar é deixá-lo actualizar-se, apanhar a versão
+ * que traz o `SaidaDoRamo` e sair sozinho. Travar tudo selava essas pessoas no site errado
+ * para sempre, que é exactamente o que se está a tentar desfazer.
+ *
+ * Não é secretismo nenhum: os dados são os mesmos que o site a sério publica a quem quiser.
+ * O que se tranca é **usar** a app do ramo.
+ *
+ * @param {Request} pedido
+ * @param {string | undefined} chaveBoa o segredo `CHAVE_TESTES` do ambiente, se existir
+ * @returns {'passa' | 'entra' | 'porta' | 'porta-errada' | 'porta-sem-chave'}
+ */
+export function oQueFazerNoRamo(pedido, chaveBoa) {
+	const url = new URL(pedido.url);
+	const dada = url.searchParams.get('chave');
+	if (dada !== null) {
+		if (!chaveBoa) return 'porta-sem-chave';
+		return dada === chaveBoa ? 'entra' : 'porta-errada';
+	}
+	const cookies = pedido.headers.get('Cookie') ?? '';
+	if (chaveBoa && cookies.split(';').some((c) => c.trim() === `${COOKIE}=${chaveBoa}`)) {
+		return 'passa';
+	}
+	const navegacao =
+		pedido.headers.get('Sec-Fetch-Mode') === 'navigate' ||
+		(pedido.headers.get('Accept') ?? '').includes('text/html');
+	if (!navegacao) return 'passa';
+	return chaveBoa ? 'porta' : 'porta-sem-chave';
+}
+
+/**
+ * @param {Request} pedido
+ * @param {{ errada?: boolean, semChave?: boolean }} opcoes
+ */
+function respostaDaPorta(pedido, opcoes) {
+	const url = new URL(pedido.url);
+	url.searchParams.delete('chave');
+	return new Response(porta({ destino: paraProducao(url), ...opcoes }), {
+		// 200 e não 401 ou 403: isto é sobretudo um aviso a quem se enganou no endereço, e um
+		// 403 põe o browser a desenhar a sua própria página de erro por cima deste texto.
+		status: 200,
+		headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
+	});
+}
+
 /**
  * @param {{
  *   request: Request,
- *   env: { DADOS?: import("@cloudflare/workers-types").D1Database },
+ *   env: { DADOS?: import("@cloudflare/workers-types").D1Database, CHAVE_TESTES?: string },
  *   next: () => Promise<Response>,
  *   waitUntil: (promessa: Promise<unknown>) => void
  * }} contexto
  */
 export async function onRequest(contexto) {
 	const { request, env, next, waitUntil } = contexto;
+
+	if (ehSiteDeRamo(new URL(request.url).hostname)) {
+		switch (oQueFazerNoRamo(request, env?.CHAVE_TESTES)) {
+			case 'entra': {
+				// A chave vai uma vez no endereço e volta como cookie, para não ficar na barra
+				// nem no histórico. `HttpOnly` porque nenhum script precisa de a ler.
+				//
+				// **Este é o único cookie do projecto, e nunca é posto em produção** — a guarda
+				// em volta é o `ehSiteDeRamo`. A `/privacidade` continua verdadeira onde é lida:
+				// no site que as pessoas usam. Aqui, só o aparece a quem escreveu a chave.
+				const url = new URL(request.url);
+				url.searchParams.delete('chave');
+				return new Response(null, {
+					status: 303,
+					headers: {
+						Location: url.pathname + url.search + url.hash,
+						'Set-Cookie':
+							`${COOKIE}=${env.CHAVE_TESTES}; Path=/; Max-Age=2592000; ` +
+							'Secure; HttpOnly; SameSite=Lax',
+						'Cache-Control': 'no-store'
+					}
+				});
+			}
+			case 'porta':
+				return respostaDaPorta(request, {});
+			case 'porta-errada':
+				return respostaDaPorta(request, { errada: true });
+			case 'porta-sem-chave':
+				return respostaDaPorta(request, { semChave: true });
+		}
+		// 'passa' — e o contador fica de fora na mesma, que é o que o `ramo.yml` promete:
+		// o tráfego de testes não entra nas contagens reais.
+		return next();
+	}
+
 	const bd = env?.DADOS;
 	const conta = bd ? oQueContar(request) : null;
 

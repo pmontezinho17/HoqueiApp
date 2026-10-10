@@ -1,6 +1,8 @@
 <script lang="ts">
 	import AutoRefrescar from '$lib/AutoRefrescar.svelte';
 	import AvisoVersao from '$lib/AvisoVersao.svelte';
+	import SaidaDoRamo from '$lib/SaidaDoRamo.svelte';
+	import { ehSiteDeRamo } from '$lib/ambiente.js';
 	import Holofote from '$lib/Holofote.svelte';
 	// temporário, para a fase de testes — ver web/src/lib/feedback.ts
 	import Feedback from '$lib/Feedback.svelte';
@@ -21,6 +23,19 @@
 	import { marcarPresenca } from '$lib/presenca';
 
 	let { data, children } = $props();
+
+	/**
+	 * Estamos num site de ramo? Só se sabe no browser — o `adapter-static` pré-constrói estas
+	 * páginas e, na altura em que o faz, não há anfitrião nenhum.
+	 *
+	 * Enquanto não se souber, assume-se que **não**: um `true` por omissão punha a folha de
+	 * aviso a piscar em produção a cada arranque, que é um defeito pior do que o que isto
+	 * resolve.
+	 */
+	let noRamo = $state(false);
+	$effect(() => {
+		noRamo = ehSiteDeRamo(location.hostname);
+	});
 
 	let menuAberto = $state(false);
 
@@ -142,7 +157,14 @@
 <MenuMais bind:aberto={menuAberto} topo={alturaTopo} />
 
 <AutoRefrescar agenda={data.agenda} />
-<AvisoVersao />
+<!-- Num site de ramo o service worker **não se regista**, e é o `AvisoVersao` que o faz.
+     Sem isto, cada ramo publicado continuava a poder ser instalado como app e a render mais
+     uma cópia parada no telemóvel de alguém. -->
+{#if noRamo}
+	<SaidaDoRamo />
+{:else}
+	<AvisoVersao />
+{/if}
 <Holofote />
 {#if RECOLHER_FEEDBACK}<Feedback />{/if}
 
