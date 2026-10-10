@@ -2331,6 +2331,33 @@ e sai antes do contador do `visita`. É uma linha, e é o género de linha que s
 reorganização sem ninguém notar — o que se notava, meses depois, eram os números reais
 inflados em silêncio. Daí o teste chamar-se `A PROMESSA`, em maiúsculas.
 
+### O defeito que isto teve, e que o dono apanhou na primeira tentativa
+
+Ele definiu a `CHAVE_TESTES`, abriu o site de testes, e viu o `SaidaDoRamo` — **o aviso que
+corre dentro da app, não a porta do servidor**. Mandou a imagem a perguntar o que faltava para
+entrar. A resposta certa era: nada que ele pudesse fazer. Não havia entrada.
+
+Duas causas, as duas minhas:
+
+1. **O aviso não tinha caixa de chave.** Desenhei-o a pensar só em quem se engana no endereço
+   e quer sair, e esqueci-me de que ele apanha na mesma quem tem a chave. Havia maneira de
+   sair, não havia maneira de entrar.
+2. **E mesmo com caixa, não chegaria.** O cookie que autoriza é `HttpOnly` — a app não lhe
+   pode tocar — por isso, depois de passar a porta, o aviso voltava a tapar o ecrã por não
+   saber que aquela pessoa já tinha entrado.
+
+A correcção são três coisas pequenas: uma segunda marca no cookie, sem segredo lá dentro, só
+para a app se calar; a caixa da chave no aviso; e o `desinstalar()` a devolver promessa, para
+quem carrega em Entrar **esperar** que o service worker se vá embora antes de navegar — senão
+a navegação com a chave era servida outra vez pela cache e nunca chegava à porta.
+
+E há aqui uma lição sobre o desenho: o `_middleware.js` deixa passar os pedidos que não são
+navegação para que um service worker instalado se possa actualizar e sair sozinho. Esse mesmo
+buraco deixa-o buscar o HTML da app e continuar a servi-lo nas navegações — medido: um `curl`
+sem `Sec-Fetch-Mode` ao `/` do site de testes devolve 21 referências a `_app/immutable`. O
+aviso dentro da app não é um extra; **é a única coisa que trava quem tem a app instalada**, e
+por isso tem de ser tão completo quanto a porta.
+
 ### Os dois testes que interessam, e a verificação deles
 
 Nenhum destes se verifica a ler o código; verificam-se injectando o defeito e vendo quem cai.
