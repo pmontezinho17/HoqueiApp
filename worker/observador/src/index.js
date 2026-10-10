@@ -323,10 +323,23 @@ async function observar(env) {
 		// só se contam pedidos quando a ronda é nova: duas leituras da mesma ronda contariam
 		// os mesmos pedidos duas vezes
 		if (meta.generated_at !== estado.generated_at) {
+			// **Compara-se o dia do próprio contador, e não o dia do observador.**
+			//
+			// Era `(estado.pedidos_dia?.dia ?? estado.dia) === dia`, com o `dia` do relógio do
+			// observador. À meia-noite de Lisboa isso mentia: o `meta.json` publicado ainda
+			// trazia o contador de ontem, o dia do observador já era hoje, os dois não
+			// coincidiam e o acumulado de ontem **inteiro** entrava como novo em hoje.
+			//
+			// Medido a 10/10/2026 às 06:50: a consola dava 310 pedidos no dia, quando o
+			// `meta.json` dizia 77. A diferença era exactamente os 233 de ontem — 111 + 37 em
+			// calendários, 111 + 37 em classificações, nos quatro tipos.
+			//
+			// O `pedidos_dia.dia` do raspador é a verdade sobre a que dia os pedidos
+			// pertencem. É com ele que se compara, e é nele que se grava.
 			pedidos = deltas(
 				estado.pedidos_dia?.por_tipo,
 				meta.pedidos_dia?.por_tipo,
-				(estado.pedidos_dia?.dia ?? estado.dia) === dia
+				!!meta.pedidos_dia?.dia && estado.pedidos_dia?.dia === meta.pedidos_dia.dia
 			);
 		}
 		estado = {
@@ -389,9 +402,14 @@ async function observar(env) {
 	//
 	// Só quando a ronda é do próprio dia: uma ronda das 23:50 observada às 00:01 cairia no
 	// balde das 23h de um dia que acabou de começar.
+	// **O dia e a hora da linha vêm da ronda, não do observador.** A ronda das 00:30 de
+	// Lisboa corre depois da meia-noite e os seus pedidos são de hoje; uma ronda das 23:50
+	// observada às 00:02 é de ontem, e tem de ir para ontem. Quem sabe isso é o raspador, no
+	// `pedidos_dia.dia`.
+	const diaDosPedidos = estado.pedidos_dia?.dia ?? dia;
 	const daRonda = estado.generated_at ? emLisboa(new Date(estado.generated_at)) : null;
 	const horaDaRonda =
-		daRonda?.dia === dia ? Number(daRonda.hora.slice(0, 2)) : Number(hora.slice(0, 2));
+		daRonda?.dia === diaDosPedidos ? Number(daRonda.hora.slice(0, 2)) : Number(hora.slice(0, 2));
 	for (const [tipo, n] of Object.entries(pedidos)) {
 		escritas.push(
 			bd
@@ -399,7 +417,7 @@ async function observar(env) {
 					`INSERT INTO pedido_fonte (dia, hora, tipo, n) VALUES (?, ?, ?, ?)
 					 ON CONFLICT (dia, hora, tipo) DO UPDATE SET n = n + excluded.n`
 				)
-				.bind(dia, horaDaRonda, tipo, n)
+				.bind(diaDosPedidos, horaDaRonda, tipo, n)
 		);
 	}
 	// **A limpeza, uma vez por dia e não a cada minuto.** O D1 não tem expiração como o KV

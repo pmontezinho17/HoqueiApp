@@ -84,7 +84,23 @@ assert.deepStrictEqual(deltas({ ficha: 22 }, { ficha: 5 }, true), { ficha: 5 });
 // dia novo: o total anterior era de ontem e não se subtrai
 assert.deepStrictEqual(deltas({ ficha: 22 }, { ficha: 4 }, false), { ficha: 4 });
 
-console.log('observador: deltas de pedidos, 5 asserções, todas passaram');
+// **A passagem da meia-noite**, que foi onde isto se partiu a 10/10/2026.
+//
+// O `meta.json` publicado traz o contador do dia a que os pedidos pertencem. Quando o dia do
+// observador já virou e o do contador ainda não, os dois não coincidem — e a pergunta certa
+// não é "é hoje?" mas "é o mesmo dia do contador de antes?".
+assert.deepStrictEqual(
+	deltas({ ficha: 20 }, { ficha: 22 }, true),
+	{ ficha: 2 },
+	'mesmo dia no contador: subtrai-se'
+);
+assert.deepStrictEqual(
+	deltas({ ficha: 233 }, { ficha: 77 }, false),
+	{ ficha: 77 },
+	'dia novo no contador: o total novo é todo novo'
+);
+
+console.log('observador: deltas de pedidos, 7 asserções, todas passaram');
 
 // ─── um jogo acabado não está a decorrer ───────────────────────────────────────────────
 import { saude } from './src/index.js';

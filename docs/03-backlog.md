@@ -1070,6 +1070,64 @@ cd worker/observador && npx wrangler secret put GITHUB_TOKEN
 
 Enquanto não existir, a consola di-lo em vez de dizer só "não foi possível".
 
+## À meia-noite, o contador somava o dia de ontem ao de hoje (10/10/2026)
+
+O dono abriu a consola às 06:50 e perguntou porque é que o gráfico dizia **310 pedidos hoje**,
+um número muito acima do que ele contava. Tinha razão em desconfiar: o `meta.json` publicado
+dizia **77**.
+
+### A aritmética fecha exactamente
+
+| | ontem (09/10) | hoje (10/10) | soma | a consola |
+|---|---|---|---|---|
+| calendário de uma prova | 111 | 37 | 148 | 148 |
+| classificação de uma prova | 111 | 37 | 148 | 148 |
+| lista de competições | 6 | 2 | 8 | 8 |
+| ficha de um jogo | 5 | 1 | 6 | 6 |
+| | **233** | **77** | **310** | **310** |
+
+Não era um factor de quatro nem um erro de arredondamento: era **o acumulado de ontem inteiro,
+contado outra vez como se fosse de hoje**.
+
+### A causa: a pergunta errada sobre o dia
+
+O `deltas()` decide se subtrai o total anterior ou se conta o novo por inteiro, e essa decisão
+vinha de `(estado.pedidos_dia?.dia ?? estado.dia) === dia`, com o `dia` do **relógio do
+observador**.
+
+À meia-noite de Lisboa isso mente. O `meta.json` publicado ainda traz o contador de ontem — a
+última ronda a publicar foi às 22:13 —, o relógio do observador já diz hoje, os dois não
+coincidem, e o código conclui "dia novo, logo este total é todo novo". Os 233 de ontem entraram
+como novos em hoje.
+
+**A pergunta certa não é "é hoje?" — é "é o mesmo dia do contador de antes?".** O
+`pedidos_dia.dia` do raspador é a verdade sobre a que dia os pedidos pertencem, e é com ele que
+se compara. É também nele que a linha se grava: uma ronda das 23:50 observada às 00:02 é de
+ontem e tem de ir para ontem.
+
+Duas asserções novas no observador, uma para cada lado da meia-noite.
+
+### Os números gravados foram corrigidos à mão
+
+Para os autênticos, que o `meta.json` de cada ronda conhece: **08/10 → 468, 09/10 → 233,
+10/10 → 77**. A distribuição por hora de 09/10 é aproximada — reconstruí-a das horas a que as
+rondas publicaram, e as rondas que não publicam não deixam rasto (é o B9.31).
+
+### E a resposta à outra pergunta dele, que é mais incómoda
+
+*"Como é que temos tantos pedidos para apenas um jogo?"* — porque **não foram do jogo**. Um
+jogo ao vivo custa uma ficha por ronda; as cinco fichas de ontem são o jogo todo. Os 228
+restantes são **rondas completas**: 37 calendários mais 37 classificações mais a lista, ~75 por
+ronda, três rondas.
+
+E a maior parte dessas rondas fui eu. Ontem disparei o `dados.yml` com `publicar_sempre` cinco
+vezes para levar código ao site, antes de existir o `so_publicar` — e cada uma dessas raspou a
+fonte inteira sem precisar. **O `so_publicar` nasceu dessa lição às 18:15Z**, e a partir daí as
+publicações passaram a custar zero pedidos.
+
+É a mesma regra do projecto outra vez, e a mesma de que falhei duas vezes no mesmo dia: contar
+o custo **antes** de acrescentar pedidos.
+
 ## O observador esteve morto catorze horas e a consola disse "tudo em ordem" (09–10/10/2026)
 
 A pior falha que este projecto teve, e não é a do cron: é a de um sistema de vigilância que
