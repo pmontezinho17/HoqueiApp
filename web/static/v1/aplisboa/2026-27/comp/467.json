@@ -90,7 +90,7 @@
    "hora": "11:00:00",
    "casa": "SPORTING CP",
    "fora": "CACO B",
-   "golos_casa": 4,
+   "golos_casa": 18,
    "golos_fora": 0,
    "recinto": "PAV.G.S.SACAVENENSE",
    "ao_vivo": false
@@ -467,6 +467,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "SPORTING CP",
+     "logo": null,
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 22,
+     "golos_sofridos": 6,
+     "diferenca": 16,
+     "racio": 3.67,
+     "pontos": 3
+    },
+    {
+     "posicao": 2,
      "equipa": "PAREDE FC",
      "logo": null,
      "jogos": 1,
@@ -480,7 +494,7 @@
      "pontos": 3
     },
     {
-     "posicao": 2,
+     "posicao": 3,
      "equipa": "APAC TOJAL",
      "logo": null,
      "jogos": 1,
@@ -491,20 +505,6 @@
      "golos_sofridos": 7,
      "diferenca": 14,
      "racio": 3.0,
-     "pontos": 3
-    },
-    {
-     "posicao": 3,
-     "equipa": "SPORTING CP",
-     "logo": null,
-     "jogos": 2,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 8,
-     "golos_sofridos": 6,
-     "diferenca": 2,
-     "racio": 1.33,
      "pontos": 3
     },
     {
@@ -544,9 +544,9 @@
      "empates": 0,
      "derrotas": 2,
      "golos_marcados": 1,
-     "golos_sofridos": 21,
-     "diferenca": -20,
-     "racio": 0.05,
+     "golos_sofridos": 35,
+     "diferenca": -34,
+     "racio": 0.03,
      "pontos": 0
     }
    ]

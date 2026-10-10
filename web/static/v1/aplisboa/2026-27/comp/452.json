@@ -132,8 +132,8 @@
    "hora": "10:30:00",
    "casa": "FSE/AJ SALESIANA B",
    "fora": "SL BENFICA B",
-   "golos_casa": 0,
-   "golos_fora": 3,
+   "golos_casa": 2,
+   "golos_fora": 8,
    "recinto": "PAV. SALESIANA",
    "ao_vivo": false
   },
@@ -486,10 +486,10 @@
      "vitorias": 2,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 8,
-     "golos_sofridos": 6,
-     "diferenca": 2,
-     "racio": 1.33,
+     "golos_marcados": 13,
+     "golos_sofridos": 8,
+     "diferenca": 5,
+     "racio": 1.62,
      "pontos": 6
     },
     {
@@ -542,10 +542,10 @@
      "vitorias": 0,
      "empates": 0,
      "derrotas": 3,
-     "golos_marcados": 2,
-     "golos_sofridos": 17,
-     "diferenca": -15,
-     "racio": 0.12,
+     "golos_marcados": 4,
+     "golos_sofridos": 22,
+     "diferenca": -18,
+     "racio": 0.18,
      "pontos": 0
     }
    ]

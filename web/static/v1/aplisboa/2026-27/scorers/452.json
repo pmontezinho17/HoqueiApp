@@ -7,10 +7,10 @@
    "equipa": "SL BENFICA B",
    "jogos": 3,
    "numero": "3",
-   "golos": 5,
-   "assistencias": 1,
+   "golos": 7,
+   "assistencias": 2,
    "defesas": 0,
-   "pontos": 6,
+   "pontos": 9,
    "amarelos": 0,
    "azuis": 2,
    "vermelhos": 0
@@ -68,6 +68,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "ANDRÉ ROSADO",
+   "equipa": "SL BENFICA B",
+   "jogos": 3,
+   "numero": "9",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "DAVI OLIVEIRA",
    "equipa": "CACO A",
    "jogos": 2,
@@ -78,19 +91,6 @@
    "pontos": 7,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ANDRÉ ROSADO",
-   "equipa": "SL BENFICA B",
-   "jogos": 3,
-   "numero": "9",
-   "golos": 3,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -211,6 +211,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "LOURENÇO OLIVEIRA",
+   "equipa": "FSE/AJ SALESIANA B",
+   "jogos": 3,
+   "numero": "5",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RODRIGO PASSARINHO",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 2,
@@ -246,6 +259,32 @@
    "defesas": 0,
    "pontos": 2,
    "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME AFONSO",
+   "equipa": "FSE/AJ SALESIANA B",
+   "jogos": 3,
+   "numero": "7",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VASCO LOPES",
+   "equipa": "SL BENFICA B",
+   "jogos": 1,
+   "numero": "8",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -289,6 +328,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "ALEXANDRE LORY",
+   "equipa": "SL BENFICA B",
+   "jogos": 3,
+   "numero": "6",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GONÇALO ÁGUEDA",
    "equipa": "FSE/AJ SALESIANA B",
    "jogos": 3,
@@ -302,12 +354,12 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO OLIVEIRA",
+   "nome": "DAVID SEQUEIRA",
    "equipa": "FSE/AJ SALESIANA B",
-   "jogos": 3,
-   "numero": "5",
-   "golos": 1,
-   "assistencias": 0,
+   "jogos": 1,
+   "numero": "9",
+   "golos": 0,
+   "assistencias": 1,
    "defesas": 0,
    "pontos": 1,
    "amarelos": 0,
@@ -341,16 +393,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME AFONSO",
-   "equipa": "FSE/AJ SALESIANA B",
+   "nome": "GUSTAVO GUERREIRO",
+   "equipa": "SL BENFICA B",
    "jogos": 3,
-   "numero": "7",
+   "numero": "5",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
    "pontos": 1,
    "amarelos": 0,
-   "azuis": 1,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -367,14 +419,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "DAVID SEQUEIRA",
-   "equipa": "FSE/AJ SALESIANA B",
-   "jogos": 1,
-   "numero": "9",
+   "nome": "VICENTE PERES",
+   "equipa": "SL BENFICA B",
+   "jogos": 3,
+   "numero": "4",
    "golos": 0,
-   "assistencias": 0,
+   "assistencias": 1,
    "defesas": 0,
-   "pontos": 0,
+   "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -441,19 +493,6 @@
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "VASCO LOPES",
-   "equipa": "SL BENFICA B",
-   "jogos": 1,
-   "numero": "8",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -679,19 +718,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ALEXANDRE LORY",
-   "equipa": "SL BENFICA B",
-   "jogos": 3,
-   "numero": "6",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "FILIPA GONÇALVES",
    "equipa": "SL BENFICA B",
    "jogos": 3,
@@ -711,20 +737,7 @@
    "numero": "1",
    "golos": 0,
    "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUSTAVO GUERREIRO",
-   "equipa": "SL BENFICA B",
-   "jogos": 3,
-   "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
+   "defesas": 2,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -774,19 +787,6 @@
    "equipa": "FSE/AJ SALESIANA B",
    "jogos": 3,
    "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "VICENTE PERES",
-   "equipa": "SL BENFICA B",
-   "jogos": 3,
-   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
