@@ -1,8 +1,39 @@
 import type { Agenda, FicheiroCompeticao, FicheiroMerito, FichaJogo, IndiceCompeticoes, IndiceEquipas, Meta, Quadro } from './tipos';
 
-// Mesma origem que a app — sem CORS, e o service worker trata destes pedidos com o
-// mesmo mecanismo com que trata o código.
-const BASE = '/v1/aplisboa/2026-27';
+import { PRODUCAO, ehSiteDeRamo } from './ambiente.js';
+
+const CAMINHO = '/v1/aplisboa/2026-27';
+
+/**
+ * De onde vêm os dados.
+ *
+ * **Em produção, da própria origem** — sem CORS, e o service worker trata destes pedidos com
+ * o mesmo mecanismo com que trata o código.
+ *
+ * **Num site de ramo, de produção.** Isto mudou a 10/10/2026 e foi a correcção de um
+ * problema que mordeu duas vezes no mesmo dia. Um site de ramo publica os dados que estavam
+ * commitados quando foi construído, e isso envelhece depressa: às 18:16 desse sábado o site
+ * de testes mostrava o CD PAÇO ARCOS B – AE FISICA D B como "por começar" enquanto o jogo ia
+ * 2-0 ao intervalo. O dono abriu-o para ver a transmissão e não viu jogo nenhum a decorrer.
+ *
+ * Ler de produção resolve isso **sem custar um único pedido à APL**: é o nosso próprio CDN,
+ * já publicado, e a regra do projecto é uma raspagem central e nunca uma por ambiente. O
+ * `hoquei.pages.dev` responde com `access-control-allow-origin: *` — verificado nesse dia.
+ *
+ * E tem uma segunda virtude, maior do que a primeira: o site de testes passa a diferir de
+ * produção **só no código**. Era isso que um ambiente de testes devia ser desde o início, e
+ * uma cópia de dados a envelhecer em paralelo nunca foi outra coisa senão uma fonte de
+ * enganos.
+ *
+ * O contador de produção sabe ignorar estes pedidos — ver `oQueContar` no `_middleware.js`,
+ * que de outra forma passava a contar o tráfego de testes nos números reais.
+ */
+function base(): string {
+	if (typeof location !== 'undefined' && ehSiteDeRamo(location.hostname)) {
+		return `https://${PRODUCAO}${CAMINHO}`;
+	}
+	return CAMINHO;
+}
 
 /**
  * Um erro que distingue "não está publicado" de "não há rede". Os dois precisam de respostas
@@ -33,14 +64,14 @@ async function json<T>(caminho: string, fetchFn: typeof fetch, opcoes?: RequestI
 }
 
 export const carregarIndice = (f: typeof fetch) =>
-	json<IndiceCompeticoes>(`${BASE}/competitions.json`, f);
+	json<IndiceCompeticoes>(`${base()}/competitions.json`, f);
 
 /** Moradas dos recintos: a fonte só publica o nome, que não geocodifica. */
 export const carregarRecintos = (f: typeof fetch) =>
-	json<{ recintos: Record<string, string> }>(`${BASE}/recintos.json`, f);
+	json<{ recintos: Record<string, string> }>(`${base()}/recintos.json`, f);
 
 export const carregarCompeticao = (id: number, f: typeof fetch) =>
-	json<FicheiroCompeticao>(`${BASE}/comp/${id}.json`, f);
+	json<FicheiroCompeticao>(`${base()}/comp/${id}.json`, f);
 
 /**
  * A ficha de um jogo. Com `aoVivo`, salta **todas** as caches.
@@ -54,21 +85,21 @@ export const carregarJogo = (id: number, f: typeof fetch, aoVivo = false) =>
 	// `no-cache` revalida sempre com o servidor, mas mantém o mesmo URL — ao contrário de
 	// um `?v=` por pedido, que encheria a cache do service worker com uma entrada nova de
 	// 30 em 30 segundos durante um jogo.
-	json<FichaJogo>(`${BASE}/match/${id}.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);
+	json<FichaJogo>(`${base()}/match/${id}.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);
 
 export const carregarQuadro = (comp: number, f: typeof fetch) =>
-	json<Quadro>(`${BASE}/scorers/${comp}.json`, f);
+	json<Quadro>(`${base()}/scorers/${comp}.json`, f);
 
 /**
  * A tabela de Mérito da Formação de uma prova. Só existe nos Encontros Distritais de
  * Escolares e Benjamins — em todas as outras dá `NaoPublicado`, e isso não é um erro.
  */
 export const carregarMerito = (comp: number, f: typeof fetch) =>
-	json<FicheiroMerito>(`${BASE}/merito/${comp}.json`, f);
+	json<FicheiroMerito>(`${base()}/merito/${comp}.json`, f);
 
 /** nome da equipa → caminho do emblema na nossa origem */
 export const carregarEmblemas = (f: typeof fetch) =>
-	json<Record<string, string>>(`${BASE}/emblemas.json`, f);
+	json<Record<string, string>>(`${base()}/emblemas.json`, f);
 
 /**
  * A agenda. Com `aoVivo`, salta **todas** as caches — pela mesma razão que a ficha.
@@ -84,12 +115,12 @@ export const carregarEmblemas = (f: typeof fetch) =>
  * mentira pior, porque parece fresca. A ficha ia à rede; a lista não.
  */
 export const carregarAgenda = (f: typeof fetch, aoVivo = false) =>
-	json<Agenda>(`${BASE}/agenda.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);
+	json<Agenda>(`${base()}/agenda.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);
 
 export const carregarEquipas = (f: typeof fetch) =>
-	json<IndiceEquipas>(`${BASE}/teams.json`, f);
+	json<IndiceEquipas>(`${base()}/teams.json`, f);
 
 /** A hora dos dados. É ela que escreve o "agora mesmo" no cabeçalho, por isso vir de uma
  *  cópia velha é a app a dizer que está fresca quando não está. */
 export const carregarMeta = (f: typeof fetch, aoVivo = false) =>
-	json<Meta>(`${BASE}/meta.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);
+	json<Meta>(`${base()}/meta.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);

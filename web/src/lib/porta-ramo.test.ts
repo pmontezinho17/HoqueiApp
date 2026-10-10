@@ -14,7 +14,13 @@
 import { describe, expect, it } from 'vitest';
 import { PRODUCAO, ehSiteDeRamo, paraProducao, temChaveDoRamo } from './ambiente.js';
 import { COOKIE, MARCA, porta } from './portaTestes.js';
-import { oQueFazerNoRamo, onRequest, ramoDe } from '../../functions/_middleware.js';
+import {
+	deUmSiteDeRamo,
+	onRequest,
+	oQueContar,
+	oQueFazerNoRamo,
+	ramoDe
+} from '../../functions/_middleware.js';
 
 const CHAVE = 'chave-de-teste';
 
@@ -408,5 +414,48 @@ describe('a marca que impede o aviso de tapar quem tem a chave', () => {
 			Cookie: `${MARCA}=1`
 		});
 		expect(oQueFazerNoRamo(p, CHAVE)).toBe('porta');
+	});
+});
+
+describe('o site de testes lê os dados de produção', () => {
+	/**
+	 * Mudou a 10/10/2026 e foi a correcção de um problema que mordeu duas vezes no mesmo
+	 * dia: às 18:16 o site de testes dizia que o CD PAÇO ARCOS B – AE FISICA D B ainda não
+	 * tinha começado enquanto o jogo ia 2-0 ao intervalo. Um site de ramo publicava os dados
+	 * que estavam commitados quando foi construído.
+	 *
+	 * A contrapartida é esta: o tráfego de testes passa a bater em produção, e o contador de
+	 * lá tem de o ignorar — senão a promessa do `ramo.yml` deixa de ser verdade por uma
+	 * porta que ninguém viu.
+	 */
+	const pedidoDe = (origem: string | null, caminho = '/v1/aplisboa/2026-27/meta.json') =>
+		new Request(`https://hoquei.pages.dev${caminho}`, {
+			headers: {
+				'User-Agent': TELEMOVEL,
+				...(origem ? { Origin: origem } : {})
+			}
+		});
+
+	it('um pedido do site de testes não conta', () => {
+		expect(deUmSiteDeRamo(pedidoDe('https://testes.hoquei.pages.dev'))).toBe(true);
+		expect(oQueContar(pedidoDe('https://testes.hoquei.pages.dev'), () => 0)).toBe(null);
+	});
+
+	it('o Referer serve de rede quando não há Origin', () => {
+		const p = new Request('https://hoquei.pages.dev/v1/aplisboa/2026-27/meta.json', {
+			headers: { 'User-Agent': TELEMOVEL, Referer: 'https://testes.hoquei.pages.dev/jogo/9539' }
+		});
+		expect(deUmSiteDeRamo(p)).toBe(true);
+	});
+
+	it('um telemóvel a usar a app a sério continua a contar', () => {
+		expect(deUmSiteDeRamo(pedidoDe(null))).toBe(false);
+		expect(oQueContar(pedidoDe(null), () => 0)).toBe('aberturas');
+		expect(deUmSiteDeRamo(pedidoDe('https://hoquei.pages.dev'))).toBe(false);
+	});
+
+	it('um cabeçalho que não é um endereço não rebenta nem engana', () => {
+		for (const lixo of ['null', 'nao-e-um-url', ''])
+			expect(deUmSiteDeRamo(pedidoDe(lixo)), lixo).toBe(false);
 	});
 });

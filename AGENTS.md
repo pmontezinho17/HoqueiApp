@@ -127,6 +127,14 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
   que o `testes` for fundido no `main` não a leva consigo. Confiar em que alguém se lembre
   é confiar de mais.
 
+  **E o site de testes lê os dados de produção, não uma cópia sua.** Desde 10/10/2026 — ver
+  `base()` no `dados.ts`. Uma cópia commitada envelhece em horas e mente: nesse sábado o site
+  de testes dizia que um jogo ainda não tinha começado enquanto ele ia 2-0 ao intervalo.
+  Custa zero pedidos à APL, porque é o nosso próprio CDN, e deixa o site de testes a diferir
+  de produção **só no código** — que é o que um ambiente de testes devia ser. O contador de
+  produção ignora esses pedidos pelo `Origin`, senão o tráfego de testes entrava nos números
+  reais.
+
   Isto não é arrumação: a 09/10/2026 comitei para `main` um redesenho que ele queria ver em
   testes primeiro, e as **sete** publicações seguintes — todas para outras coisas — levaram-no
   ao ar sem aprovação. Eu tinha-lhe escrito esse risco por palavras minhas e segui a publicar

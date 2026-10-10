@@ -113,6 +113,33 @@ export function ecraDe(caminho) {
 const NOSSO = /^hoqueiAPP/i;
 
 /**
+ * Este pedido vem de um site de ramo?
+ *
+ * Passou a ser preciso a 10/10/2026, quando os sites de ramo deixaram de servir a sua cópia
+ * de dados e passaram a ler os de produção — ver `base()` no `dados.ts`. Sem isto, abrir o
+ * site de testes somava `aberturas` e navegações aos números reais, e a promessa do
+ * `ramo.yml` deixava de ser verdade por uma porta que ninguém tinha visto.
+ *
+ * Lê-se no `Origin` — que o browser põe em qualquer pedido entre origens — e no `Referer`
+ * como rede. Um pedido vindo de um site de ramo chega aqui sempre com um dos dois: é, por
+ * definição, um pedido de outra origem.
+ *
+ * @param {Request} pedido
+ */
+export function deUmSiteDeRamo(pedido) {
+	for (const cabecalho of ['Origin', 'Referer']) {
+		const v = pedido.headers.get(cabecalho);
+		if (!v) continue;
+		try {
+			if (ehSiteDeRamo(new URL(v).hostname)) return true;
+		} catch {
+			/* um cabeçalho que não é um endereço não diz nada; segue para o seguinte */
+		}
+	}
+	return false;
+}
+
+/**
  * O que é que este pedido conta, se contar algo.
  *
  * `null` é o caso normal: um ficheiro de dados qualquer, um emblema, um pedido que não diz
@@ -125,6 +152,7 @@ const NOSSO = /^hoqueiAPP/i;
 export function oQueContar(pedido, sorteio = Math.random) {
 	if (pedido.method !== 'GET') return null;
 	if (NOSSO.test(pedido.headers.get('User-Agent') ?? '')) return null;
+	if (deUmSiteDeRamo(pedido)) return null;
 	const caminho = new URL(pedido.url).pathname;
 
 	// o sinal de "alguém tem a app aberta": não depende do service worker, mas é frequente
