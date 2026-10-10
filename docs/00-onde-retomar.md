@@ -19,7 +19,7 @@ séries agrupadas, e o ecrã de jogo refeito a partir de dois vídeos que o Pedr
 | `/` **Jogos** | fita de datas, equipas seguidas fixadas no topo, competições como secções colapsáveis com contador, séries como sub-cabeçalho |
 | `/clube` **O Meu Clube** | favoritos por clube+escalão, próximo jogo, último resultado, posições |
 | `/competicoes` | 20 grupos (eram 37 competições), por escalão |
-| `/competicoes/[grupo]` | Classificação · Calendário · Marcadores, com as séries empilhadas |
+| `/competicoes/[grupo]` | Classificação · Calendário · Marcadores, com as séries empilhadas — e **Mérito** nos oito Encontros Distritais, onde o Artigo 92.º se aplica (ver [09-regulamento-apl.md](09-regulamento-apl.md)) |
 | `/jogo/[id]` | cronologia, ficha, boletim |
 | `/procurar`, `/mais` | ícones do cabeçalho |
 

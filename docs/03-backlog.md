@@ -2115,6 +2115,143 @@ que não há parece um roteiro de promessas.
 
 ---
 
+## O regulamento da APL, lido de uma ponta à outra (10/10/2026)
+
+O dono recebeu de um amigo treinador o *Regulamento Geral de Hóquei em Patins da APL, V11
+2026*, e pediu que fosse lido na íntegra com atenção à página 93. Duas coisas saíram de lá
+que o código fazia de outra maneira — uma porque adivinhávamos, e outra porque eu tinha
+avaliado mal o que a fonte publica.
+
+### 1. O desempate das classificações estava errado, e nós sabíamos
+
+O `tabela.py` ordenava por `pontos → diferença de golos → golos marcados → nome`, e o próprio
+comentário do módulo dizia, por escrito, que o regulamento "quase de certeza manda ver o
+confronto directo primeiro" mas que não havia caso que distinguisse as duas regras. O
+Artigo 7.º responde:
+
+| 7.4.1 / 7.5.1 | pontos nos jogos realizados entre as equipas empatadas |
+| 7.4.2 / 7.5.2 | diferença de golos nesses mesmos jogos |
+| 7.4.3 / 7.5.3 | diferença de golos em toda a fase da prova |
+| 7.5.4 | quociente entre as que ainda estão empatadas |
+| 7.4.4 / 7.5.5 | quociente geral na fase |
+
+**Golos marcados não é critério nenhum.** Era nosso.
+
+Os pontos 4 (duas equipas) e 5 (três ou mais) parecem regras diferentes e dão a mesma chave
+de ordenação: num par, se o confronto directo empata em pontos *e* em diferença, então a
+diferença é zero dos dois lados, logo marcaram o mesmo e o quociente entre ambas é 1. O 7.5.4
+é vazio num par, e por isso há uma função e não duas.
+
+**A fonte não aplica o Artigo 7.º — medido.** Das 42 tabelas que a APL publica, duas ordenam
+ao contrário do regulamento, e as duas pelo mesmo motivo:
+
+* Torneio de Abertura sub-17, série C: AD OEIRAS B (12-6, racio 2.00) à frente de CD PAÇO
+  ARCOS B (10-4, racio 2.50). Empatam em pontos, o confronto directo foi 4-4 e a diferença é
+  +6 para ambas; pelo 7.4.4 decide o quociente, e o melhor é o do Paço de Arcos.
+* Campeonato regional sub-17, série F: HC PORTIMÃO (4-3, 1.33) à frente de HC VASCO GAMA
+  (3-2, 1.50).
+
+Nos dois casos a fonte põe primeiro quem marcou mais golos — e publica, na coluna ao lado, o
+rácio que a contradiz. Por isso o módulo tem duas ordens: a do regulamento, para as tabelas
+que **nós** publicamos (onde a APL não publica nenhuma, e a regra que vale é a escrita), e
+`_como_a_fonte`, que só o teste de reprodução usa, para continuar a provar que a nossa
+**contagem** bate certo com as 42 tabelas dela.
+
+### A armadilha: o confronto directo é um critério de fim de fase
+
+O Artigo 7.º 4 abre com "no caso de empate pontual entre duas equipas **no final de qualquer
+fase**". Ignorei essa frase na primeira implementação e os dados apanharam-me logo: com a
+época em duas jornadas, aplicar a mini-tabela a meio da fase **tirava o CD BOLIQUEIME do 1.º
+para o 3.º lugar da série F com 12-0 de diferença**, só porque ainda não tinha jogado com os
+outros três empatados, enquanto o HC VASCO GAMA subia a 1.º por ter ganho a um deles. Três
+das quatro divergências que a primeira versão produzia eram isto, e não o regulamento.
+
+A regra ficou: a mini-tabela só conta quando **todos os pares** do grupo empatado já jogaram
+entre si. Enquanto faltar um jogo, o critério não é determinável e a ordem cai para a
+diferença de golos na fase — que é também o que a fonte mostra. Com a condição, as
+divergências passaram de quatro para duas, e as duas que ficaram são a diferença real entre
+golos marcados e quociente.
+
+### 2. O Mérito da Formação é computável — eu disse que não era, e enganei-me
+
+O Artigo 92.º (páginas 92 e 93) pontua os clubes dos Encontros Distritais de Escolares e
+Benjamins por coisas que não são o resultado: +1 por cada atleta que participa, +3 a quem
+marca mais golos, +1 pela equipa completa (2 GR e 8 JC); e tira pontos por apresentar menos
+de 8 atletas, por levar um só guarda-redes, e por pôr um atleta a fazer três meias partes
+(-1, ou -3 numa equipa com mais de 8) ou as quatro (-4).
+
+**Eu disse ao dono que isto não era calculável**, porque a participação por período vivia na
+"Folha de Controlo de Jogo" em papel. Ele corrigiu-me, apontando a tab do boletim na própria
+ficha de jogo. Tinha razão, e a avaliação estava errada em dois sítios ao mesmo tempo:
+
+* a grelha `5I` do `#acta` marca com um `X` as meias partes em que cada atleta entrou;
+* esse `#acta` vem **dentro do HTML que já descarregamos** em cada ficha — o `partido.asp`
+  redirecciona para o `partido2.asp` e o cliente segue redireccionamentos. São 47 KB por
+  jogo que estávamos a deitar fora.
+
+**Custo de passar a usá-lo: zero pedidos novos.** A única despesa foi única e medida: 27
+pedidos, um por cada jogo já disputado nas oito provas, para preencher a chave `merito` nas
+fichas que já estavam em cache. Pedir o campo em todas as provas custaria 260 — o Artigo 92.º
+não se aplica aos outros escalões, e o `vale_merito` é quem evita isso.
+
+Das 27 fichas, 26 tinham boletim. A que falta (FSE/AJ SALESIANA B–CACO B) aparece contada no
+ficheiro da prova como `jogos_sem_boletim`, e a app di-lo por extenso em vez de calar.
+
+### Porque é que a grelha por criança nunca é publicada
+
+Ela diz que período é que o filho de alguém jogou. O `parsers/participacao.py` lê-a, o
+`merito.py` agrega-a ao nível da equipa, e **mais nada sai**. Três testes guardam a linha: dois
+no `test_privacidade.py` do raspador e um no `merito.test.ts` da app, que percorre os
+ficheiros publicados e falha se algum trouxer `periodos`, `numero` ou `licenca`.
+
+A amostra de testes obrigou a mudar o `anonimizar_ficha.py`: ele **removia** o `#acta` por ser
+o bloco com mais dados pessoais, e agora anonimiza-o em vez de o cortar. Cortar protegia os
+dados e apagava a estrutura; trocar os trinta nomes por pseudónimos protege os dados e guarda
+a estrutura, que é o que um parser precisa de ter debaixo dos pés. Ganhou também um
+`--de-ficheiro`, para regerar uma amostra **sem** ir outra vez ao servidor da associação.
+
+### As duas aproximações, ditas à vista
+
+1. **O 4.1.7 não é aplicado.** São -6 pontos e a perda das bonificações por um atleta fazer um
+   só período, "excepto em caso de lesão ou situação impeditiva comprovada pelo árbitro" — e
+   essa comprovação é texto escrito no boletim em papel. Detectamos o caso, marcamo-lo como
+   por confirmar, e **não descontamos**: penalizar uma equipa que levou um miúdo ao hospital
+   seria pior do que uma tabela incompleta. Nos 26 jogos lidos não houve nenhum caso.
+2. **Os cartões a não atletas (4.2) ficam de fora.** As colunas de disciplina do boletim são
+   dos atletas; as do banco não existem na grelha.
+
+E duas leituras literais que podem vir a ser discutidas: o 4.1.4 e o 4.1.5 **somam-se** numa
+equipa com mais de 8 atletas (três seguidas são também três, -1 e -2, -3 ao todo), e quem faz
+as quatro meias partes fica de fora do 4.1.3/4.1.5 por ter regra própria, mais pesada, no
+4.1.6.
+
+### O que as tabelas mostram, e a pergunta que fica para o dono
+
+A conta funciona e os números são coerentes — um jogo bem corrido dá 11 a quem perde e 14 a
+quem ganha, e a diferença entre as duas é exactamente os 3 pontos dos golos. Mas há equipas a
+aparecer com pontuação negativa: o SPORTING CP dos Benjamins fez -11 num jogo por ter levado
+6 atletas, quatro dos quais tiveram de fazer as quatro meias partes (-16). Não é um erro de
+cálculo: é o Artigo 92.º a funcionar exactamente como foi escrito, porque com 6 atletas e 5
+em pista é aritmeticamente impossível cumprir o rodízio.
+
+**Isto é uma tabela pública, não oficial, que pode expor clubes.** A decisão de a mostrar é do
+dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
+
+### Onde ficou
+
+| | |
+|---|---|
+| `scraper/src/hoquei/parsers/participacao.py` | lê a grelha `5I`; nada do que sai daqui é publicado |
+| `scraper/src/hoquei/merito.py` | o Artigo 92.º, com as regras citadas artigo a artigo |
+| `scraper/src/hoquei/tabela.py` | `_ordenar` (Artigo 7.º) e `_como_a_fonte` (só para o teste) |
+| `web/static/v1/.../merito/<id>.json` | ficheiro novo, um por prova — não uma chave no `comp/` |
+| `web/src/lib/TabelaMerito.svelte` | a tabela; o chapéu e a legenda são componentes à parte |
+| `docs/09-regulamento-apl.md` | os artigos que o código cita, para não ser preciso abrir o PDF |
+
+Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
+
+---
+
 ## Próximo incremento (revisto a 05/10/2026)
 
 A lista que estava aqui — publicar no Cloudflare, ecrã de equipa, quadro de marcadores,

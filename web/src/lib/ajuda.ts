@@ -51,6 +51,16 @@ export const PERGUNTAS: Pergunta[] = [
 		    ninguém, não lhe podíamos dar o mesmo peso. Daí o rótulo.`
 	},
 	{
+		p: 'Nos Escolares e Benjamins há uma tabela de "Mérito". O que é?',
+		r: `É outra coisa, e não a classificação. O regulamento da associação tem um
+		    escalonamento de Mérito da Formação que premeia levar a equipa completa e pôr
+		    toda a gente a jogar: cada atleta que entra vale 1 ponto e ganhar o jogo vale 3.
+		    Uma equipa que perca todos os jogos pode estar à frente.
+		    <br><br>O que dá e o que tira pontos está por extenso em
+		    <a href="/mais">Sobre a app e os dados</a>. Como a classificação, também não é
+		    oficial: a que conta é preenchida em papel e validada pelo Comité Técnico.`
+	},
+	{
 		p: 'Como escolho as minhas equipas, e como as mudo depois?',
 		r: `Em <a href="/clube">O Meu Clube</a>. Escolhes o clube pelo emblema e depois os
 		    escalões que queres seguir. Para mudar, voltas ao mesmo sítio — podes seguir

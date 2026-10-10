@@ -37,6 +37,23 @@ def ficha_escolares() -> str:
 
 
 @pytest.fixture(scope="session")
+def ficha_escolares_com_boletim() -> str:
+    """Escolares com o boletim oficial **anonimizado e não removido** — HC ALFA A 0-5 CD BETA A.
+
+    É a amostra que guarda a grelha `5I` — quem jogou que meia parte — e por isso é a rede do
+    `parsers/participacao.py` e do `merito.py`.
+
+    **Os clubes também são fictícios, e isso é deliberado.** Trinta nomes de pessoas estão
+    trocados por pseudónimos, mas os números de camisola ficaram, porque são estrutura que o
+    parser lê — e com o clube e a data verdadeiros ao lado, um número de camisola voltava a
+    identificar uma criança a quem tivesse o boletim original. Com as equipas trocadas, isto
+    deixa de ser um registo pseudonimizado de um jogo real e passa a ser só a forma da
+    página. Gerado pelo `scripts/anonimizar_ficha.py --equipa`.
+    """
+    return _ler_ficha("apl-ficha-escolares-boletim.html")
+
+
+@pytest.fixture(scope="session")
 def ficha_por_disputar() -> str:
     return _ler_ficha("apl-ficha-por-disputar.html")
 

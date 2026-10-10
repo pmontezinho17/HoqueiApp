@@ -894,5 +894,58 @@
  "jornada": "1ª JORNADA",
  "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-i",
  "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I",
- "serie": "A"
+ "serie": "A",
+ "merito": [
+  {
+   "equipa": "AD OEIRAS A",
+   "atletas": 10,
+   "guardas_redes": 2,
+   "participantes": 10,
+   "completa": true,
+   "bonificacao": 14,
+   "penalizacao": 0,
+   "total": 14,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "10 atletas participantes",
+     "pontos": 10
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "3.4",
+     "texto": "equipa completa (2 GR e 8 JC)",
+     "pontos": 1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "FSE/AJ SALESIANA",
+   "atletas": 9,
+   "guardas_redes": 2,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -2,
+   "total": 7,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "4.1.4",
+     "texto": "2 com 3 meias partes",
+     "pontos": -2
+    }
+   ],
+   "avisos": []
+  }
+ ]
 }

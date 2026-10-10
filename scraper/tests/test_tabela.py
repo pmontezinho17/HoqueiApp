@@ -99,18 +99,127 @@ class TestRegras:
 
 
 class TestOrdem:
-    def test_desempata_por_diferenca_de_golos(self):
-        linhas = so(calcular([jogo("A", "X", 5, 0), jogo("B", "Y", 1, 0)]))
+    """O desempate do **Artigo 7.º** do regulamento da APL, critério a critério.
+
+    A ordem antiga — `pontos → diferença → golos marcados` — era um palpite assumido no
+    comentário do módulo. O regulamento manda ver primeiro o confronto directo e, no fim,
+    o quociente; golos marcados não é critério nenhum.
+    """
+
+    def test_primeiro_os_pontos(self):
+        linhas = so(calcular([jogo("A", "B", 1, 0), jogo("B", "A", 0, 0)]))
+        assert [l.equipa for l in linhas] == ["A", "B"]
+
+    def test_depois_o_confronto_directo_em_pontos(self):
+        """7.4.1 — e passa à frente da diferença de golos na prova.
+
+        B tem muito melhor diferença (+8 contra +1) e fica atrás: perdeu com A.
+        """
+        linhas = so(calcular([
+            jogo("A", "B", 1, 0),      # confronto directo: 3 pontos para A
+            jogo("X", "A", 1, 0), jogo("B", "X", 9, 1),
+            jogo("A", "Y", 0, 0), jogo("B", "Y", 0, 0),
+        ]))
+        porEquipa = {l.equipa: l for l in linhas}
+        assert porEquipa["A"].pontos == porEquipa["B"].pontos
+        assert porEquipa["B"].diferenca > porEquipa["A"].diferenca
         assert [l.equipa for l in linhas][:2] == ["A", "B"]
 
-    def test_depois_por_golos_marcados(self):
-        # mesma diferença (+2), mas A marcou mais
-        linhas = so(calcular([jogo("A", "X", 5, 3), jogo("B", "Y", 2, 0)]))
+    def test_depois_o_confronto_directo_na_diferenca_de_golos(self):
+        """7.4.2 — duas voltas, uma vitória para cada: 1-0 e 0-3."""
+        linhas = so(calcular([jogo("A", "B", 1, 0), jogo("B", "A", 3, 0)]))
+        assert [l.equipa for l in linhas] == ["B", "A"]
+
+    def test_depois_a_diferenca_de_golos_na_fase(self):
+        """7.4.3 — empatados no confronto directo (1-1), decide a diferença na prova."""
+        linhas = so(calcular([
+            jogo("A", "B", 1, 1),
+            jogo("A", "X", 5, 0), jogo("B", "X", 1, 0),
+        ]))
         assert [l.equipa for l in linhas][:2] == ["A", "B"]
+
+    def test_por_fim_o_quociente_e_nao_os_golos_marcados(self):
+        """7.4.4 — o critério que muda a ordem face à regra antiga.
+
+        É o caso real da série C do Torneio de Abertura de sub-17: mesma diferença, e quem
+        marcou mais golos tem pior quociente. 12-6 dá 2.00; 10-4 dá 2.50.
+        """
+        linhas = so(calcular([
+            jogo("A", "B", 4, 4),
+            jogo("A", "X", 8, 2), jogo("B", "X", 6, 0),
+        ]))
+        porEquipa = {l.equipa: l for l in linhas}
+        assert porEquipa["A"].diferenca == porEquipa["B"].diferenca
+        assert porEquipa["A"].golos_marcados > porEquipa["B"].golos_marcados
+        assert [l.equipa for l in linhas][:2] == ["B", "A"], "o quociente manda, não os golos"
+
+    def test_com_tres_empatadas_conta_a_mini_tabela_entre_elas(self):
+        """7.5.1 — "pontos nos jogos realizados entre as três ou mais equipas".
+
+        A ganhou a B, B ganhou a C, C ganhou a A: na mini-tabela ficam os três com 3 pontos,
+        e decide a diferença de golos entre eles (7.5.2).
+        """
+        linhas = so(calcular([
+            jogo("A", "B", 1, 0), jogo("B", "C", 1, 0), jogo("C", "A", 5, 0),
+        ]))
+        assert [l.equipa for l in linhas] == ["C", "B", "A"]
+
+    def test_a_meio_da_fase_o_confronto_directo_nao_se_aplica(self):
+        """7.4 diz "no final de qualquer fase" — e a meio seria pior do que não o aplicar.
+
+        É o caso real da série F do campeonato de sub-17 à segunda jornada: quatro equipas
+        empatadas em pontos, e só duas delas já tinham jogado entre si. Com a mini-tabela a
+        contar, a equipa com 12-0 de diferença caía do 1.º para o 3.º por ainda não ter
+        jogado com as outras, e quem tinha ganho um confronto subia a 1.º com +1.
+
+        Aqui: A fez 12-0 e não jogou com B nem com C; B ganhou a C. Enquanto faltar esse
+        jogo, manda a diferença de golos na fase (7.4.3) e A fica à frente.
+        """
+        linhas = so(calcular([
+            jogo("A", "X", 12, 0),                 # A: 3 pts, +12
+            jogo("B", "C", 1, 0),                  # B: 3 pts, +1
+            jogo("C", "Z", 3, 0),                  # C: 3 pts, +2
+            jogo("A", "B"), jogo("A", "C"),        # por disputar
+        ]))
+        porEquipa = {l.equipa: l for l in linhas}
+        assert porEquipa["A"].pontos == porEquipa["B"].pontos == porEquipa["C"].pontos == 3
+        # pela mini-tabela viria B à frente de C, por lhe ter ganho; pela diferença na
+        # fase vem C à frente, e é essa que manda enquanto faltarem jogos entre os três
+        assert [l.equipa for l in linhas][:3] == ["A", "C", "B"]
+
+    def test_fechados_os_confrontos_a_mini_tabela_manda_mesmo_contra_a_diferenca(self):
+        """Com todos os pares jogados, o 7.5.2 passa à frente do 7.5.3.
+
+        Os três ganham um ao outro em ciclo, e cada um leva uma vitória e uma derrota de
+        fora que lhes dá a mesma pontuação e diferenças muito diferentes. Pela diferença na
+        fase a ordem seria A, B, C (+6, 0, -6); pelo confronto directo é C, B, A — e é o
+        confronto directo que o regulamento manda ver primeiro.
+        """
+        linhas = so(calcular([
+            jogo("A", "B", 1, 0), jogo("B", "C", 1, 0), jogo("C", "A", 3, 0),
+            jogo("A", "W", 9, 0), jogo("V", "A", 1, 0),
+            jogo("B", "W", 1, 0), jogo("V", "B", 1, 0),
+            jogo("C", "W", 1, 0), jogo("V", "C", 9, 0),
+        ]))
+        porEquipa = {l.equipa: l for l in linhas}
+        assert [porEquipa[e].pontos for e in "ABC"] == [6, 6, 6]
+        assert [porEquipa[e].diferenca for e in "ABC"] == [6, 0, -6]
+        assert [l.equipa for l in linhas if l.equipa in "ABC"] == ["C", "B", "A"]
 
     def test_por_fim_pelo_nome_e_nao_pela_ordem_de_entrada(self):
+        """O regulamento manda jogar um jogo de desempate (7.6); nós temos de ordenar."""
         linhas = so(calcular([jogo("Z", "M", 1, 1), jogo("M", "Z", 1, 1)]))
         assert [l.equipa for l in linhas] == ["M", "Z"]
+
+    def test_quem_nao_sofreu_golos_fica_a_frente_no_quociente(self):
+        """O quociente de quem não sofreu é infinito — a fonte escreve "-" nessa coluna."""
+        linhas = so(calcular([
+            jogo("A", "B", 2, 2),
+            jogo("A", "X", 2, 0), jogo("B", "X", 4, 2),
+        ]))
+        porEquipa = {l.equipa: l for l in linhas}
+        assert porEquipa["A"].diferenca == porEquipa["B"].diferenca
+        assert [l.equipa for l in linhas][:2] == ["A", "B"]
 
 
 class TestGrupos:
@@ -193,7 +302,8 @@ def test_reproduz_as_tabelas_publicadas(provas):
     """Linha a linha, campo a campo, contra tudo o que a fonte publica."""
     divergencias = []
     for d in provas:
-        for nossas, g in _emparelhar(calcular(_jogos_de(d)), d["classificacao"]):
+        for nossas, g in _emparelhar(
+                calcular(_jogos_de(d), como_a_fonte=True), d["classificacao"]):
             calculadas = {l.equipa: l for l in nossas}
             for l in g["linhas"]:
                 c = calculadas.get(l["equipa"])
@@ -223,10 +333,41 @@ def test_a_ordem_nao_depende_da_ordem_de_entrada(provas):
     for d in provas:
         jogos = _jogos_de(d)
         baralhador.shuffle(jogos)
-        for nossas, g in _emparelhar(calcular(jogos), d["classificacao"]):
+        for nossas, g in _emparelhar(
+                calcular(jogos, como_a_fonte=True), d["classificacao"]):
             esperada = [l["equipa"] for l in g["linhas"]]
             assert [l.equipa for l in nossas] == esperada, (
                 f"{d['competicao']['nome']} [{g['nome']}]: ordem diferente da fonte")
+
+
+def test_a_fonte_ordena_por_golos_marcados_e_o_regulamento_nao(provas):
+    """A medição que justifica haver duas ordens neste módulo — ver `_como_a_fonte`.
+
+    Conta em quantas tabelas publicadas as duas regras discordam. A 10/10/2026, com a época
+    em duas jornadas, eram **duas** — e as duas pelo mesmo motivo, o quociente do 4.4 contra
+    os golos marcados da fonte:
+
+    * Torneio de Abertura de sub-17, série C: 12-6 (racio 2.00) à frente de 10-4 (2.50);
+    * Campeonato regional de sub-17, série F: 4-3 (1.33) à frente de 3-2 (1.50).
+
+    Nos dois casos a fonte põe primeiro quem marcou mais golos, e nos dois casos publica, na
+    coluna ao lado, o rácio que a contradiz.
+
+    Se este número crescer, não é um bug: é a fonte a aplicar a sua regra mais vezes. Se
+    cair a zero, vale a pena perguntar se a fonte mudou — e aí talvez já não sejam precisas
+    duas ordens.
+    """
+    divergentes = []
+    for d in provas:
+        pela_fonte = _emparelhar(calcular(_jogos_de(d), como_a_fonte=True), d["classificacao"])
+        pelo_regulamento = _emparelhar(calcular(_jogos_de(d)), d["classificacao"])
+        for (f, g), (r, _) in zip(pela_fonte, pelo_regulamento):
+            if [l.equipa for l in f] != [l.equipa for l in r]:
+                divergentes.append(f"{d['competicao']['nome']} [{g['nome']}]")
+    assert divergentes == ["TORNEIO ABERTURA APL SUB-17 [SERIE C]",
+                           "CAMP. REG. SUB-17 - 1ª FASE - SERIE F [None]"], (
+        f"{len(divergentes)} tabelas onde as duas regras discordam:\n  "
+        + "\n  ".join(divergentes))
 
 
 def test_empates_por_desempatar_sao_conhecidos(provas):

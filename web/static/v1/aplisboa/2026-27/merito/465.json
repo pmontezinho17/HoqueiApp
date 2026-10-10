@@ -1,0 +1,96 @@
+{
+ "competicao_id": 465,
+ "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
+ "jogos_lidos": 7,
+ "jogos_sem_boletim": 0,
+ "linhas": [
+  {
+   "posicao": 1,
+   "equipa": "AD OEIRAS A",
+   "jogos": 2,
+   "participantes": 20,
+   "bonificacao": 28,
+   "penalizacao": 0,
+   "pontos": 28,
+   "media": 14.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 2,
+   "equipa": "CACO A",
+   "jogos": 2,
+   "participantes": 20,
+   "bonificacao": 25,
+   "penalizacao": 0,
+   "pontos": 25,
+   "media": 12.5,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 3,
+   "equipa": "HC SINTRA",
+   "jogos": 2,
+   "participantes": 18,
+   "bonificacao": 22,
+   "penalizacao": 0,
+   "pontos": 22,
+   "media": 11.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 4,
+   "equipa": "SC TORRES",
+   "jogos": 2,
+   "participantes": 18,
+   "bonificacao": 21,
+   "penalizacao": -2,
+   "pontos": 19,
+   "media": 9.5,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 5,
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "participantes": 18,
+   "bonificacao": 21,
+   "penalizacao": -7,
+   "pontos": 14,
+   "media": 7.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 6,
+   "equipa": "A STUART HCM",
+   "jogos": 2,
+   "participantes": 16,
+   "bonificacao": 16,
+   "penalizacao": -3,
+   "pontos": 13,
+   "media": 6.5,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 7,
+   "equipa": "AE FISICA D A",
+   "jogos": 1,
+   "participantes": 8,
+   "bonificacao": 8,
+   "penalizacao": 0,
+   "pontos": 8,
+   "media": 8.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 8,
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 1,
+   "participantes": 8,
+   "bonificacao": 11,
+   "penalizacao": -12,
+   "pontos": -1,
+   "media": -1.0,
+   "por_confirmar": 0
+  }
+ ]
+}

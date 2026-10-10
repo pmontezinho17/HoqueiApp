@@ -1,0 +1,30 @@
+{
+ "competicao_id": 466,
+ "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE B",
+ "jogos_lidos": 1,
+ "jogos_sem_boletim": 0,
+ "linhas": [
+  {
+   "posicao": 1,
+   "equipa": "CRIAR-T GD",
+   "jogos": 1,
+   "participantes": 6,
+   "bonificacao": 9,
+   "penalizacao": -8,
+   "pontos": 1,
+   "media": 1.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 2,
+   "equipa": "AD OEIRAS B",
+   "jogos": 1,
+   "participantes": 6,
+   "bonificacao": 6,
+   "penalizacao": -14,
+   "pontos": -8,
+   "media": -8.0,
+   "por_confirmar": 0
+  }
+ ]
+}

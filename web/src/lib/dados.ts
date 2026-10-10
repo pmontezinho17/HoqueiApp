@@ -1,4 +1,4 @@
-import type { Agenda, FicheiroCompeticao, FichaJogo, IndiceCompeticoes, IndiceEquipas, Meta, Quadro } from './tipos';
+import type { Agenda, FicheiroCompeticao, FicheiroMerito, FichaJogo, IndiceCompeticoes, IndiceEquipas, Meta, Quadro } from './tipos';
 
 // Mesma origem que a app — sem CORS, e o service worker trata destes pedidos com o
 // mesmo mecanismo com que trata o código.
@@ -58,6 +58,13 @@ export const carregarJogo = (id: number, f: typeof fetch, aoVivo = false) =>
 
 export const carregarQuadro = (comp: number, f: typeof fetch) =>
 	json<Quadro>(`${BASE}/scorers/${comp}.json`, f);
+
+/**
+ * A tabela de Mérito da Formação de uma prova. Só existe nos Encontros Distritais de
+ * Escolares e Benjamins — em todas as outras dá `NaoPublicado`, e isso não é um erro.
+ */
+export const carregarMerito = (comp: number, f: typeof fetch) =>
+	json<FicheiroMerito>(`${BASE}/merito/${comp}.json`, f);
 
 /** nome da equipa → caminho do emblema na nossa origem */
 export const carregarEmblemas = (f: typeof fetch) =>

@@ -15,8 +15,10 @@ from zoneinfo import ZoneInfo
 import httpx
 
 from .fonte import UA, Fonte
+from .merito import escalonar, merito_do_jogo, vale_merito
 from .modelos import em_curso, para_dicionario
 from .parsers.calendario import calendario
+from .parsers.participacao import participacao
 from .parsers.classificacao import classificacao
 from .tabela import calcular, calcular_de_json, vale_calcular
 from .parsers.competicoes import competicoes, temporadas
@@ -148,6 +150,25 @@ def _sem_chave(caminho: pathlib.Path, chave: str) -> bool:
         return chave not in json.loads(caminho.read_text())
     except (OSError, json.JSONDecodeError):
         return True
+
+
+def _merito_da_ficha(html: str, dados: dict) -> list[dict] | None:
+    """O Mérito da Formação das duas equipas, **do mesmo HTML que a ficha já leu**.
+
+    Zero pedidos novos à fonte: a grelha de participação vive no `#acta` da página que
+    acabámos de descarregar. `None` quando o boletim ainda não está lá — só aparece uns
+    minutos depois do apito — e aí fica `None` guardado, que é diferente de não haver chave:
+    sem a chave, o `_sem_chave` mandava-nos buscar a mesma página outra vez, para sempre.
+
+    O que sai daqui é agregado por equipa. A grelha por criança não é guardada nem publicada
+    — ver `parsers/participacao.py`.
+    """
+    lido = participacao(html)
+    if lido is None:
+        return None
+    return [para_dicionario(m) for m in merito_do_jogo(
+        dados.get("casa"), dados.get("fora"), lido,
+        dados.get("golos_casa"), dados.get("golos_fora"))]
 
 
 def _resultado_conhecido(caminho: pathlib.Path) -> tuple | None:
@@ -321,6 +342,14 @@ def comando_aovivo(args) -> int:
             antigo = json.loads(alvo.read_text()) if alvo.exists() else {}
             dados = para_dicionario(fx)
             dados.update(_contexto_da_ficha(j, antigo, destino))
+            # O Mérito da Formação não se calcula aqui, e isso é deliberado. O boletim só
+            # aparece uns minutos **depois** do apito final, por isso uma ronda ao vivo lê-o
+            # sempre vazio — e escrever `merito: null` agora era pior do que não escrever
+            # nada: a chave passava a existir, o `_sem_chave` da ronda completa deixava de
+            # pedir a página outra vez, e o jogo ficava sem mérito para sempre. Sem a chave,
+            # a ronda completa revisita uma vez, já com o jogo fechado, e acerta.
+            if "merito" in antigo:
+                dados["merito"] = antigo["merito"]
             novo = json.dumps(dados, ensure_ascii=False, indent=1)
             if alvo.exists() and alvo.read_text() == novo:
                 continue
@@ -518,7 +547,7 @@ def comando_publicar(args) -> int:
     uma federação.
     """
     destino = pathlib.Path(args.destino)
-    for pasta in ("comp", "match", "scorers"):
+    for pasta in ("comp", "match", "merito", "scorers"):
         (destino / pasta).mkdir(parents=True, exist_ok=True)
 
     with Fonte(args.tenant) as fonte:
@@ -598,7 +627,12 @@ def comando_publicar(args) -> int:
                 # Um campo novo que venha da **página** — e não do que já temos aqui — obriga
                 # a revisitar a ficha uma vez. A chave ausente é o sinal; depois de revisitada
                 # fica lá, mesmo que a null (a formação nunca tem boletim), e não se repete.
-                falta_campo_novo = _sem_chave(alvo, "boletim")
+                # Uma revisita por jogo, e só nas provas com Mérito — medido a 10/10/2026:
+                # 27 jogos disputados nos oito Encontros Distritais, logo 27 pedidos uma vez
+                # só. Pedir o campo em todas as provas custaria 260, para nada: o Artigo 92.º
+                # não se aplica aos outros escalões.
+                falta_campo_novo = _sem_chave(alvo, "boletim") or (
+                    vale_merito(prova.nome) and _sem_chave(alvo, "merito"))
                 if not falta_campo_novo and _resultado_conhecido(alvo) == (
                         jogo.golos_casa, jogo.golos_fora, "Jogo Terminado"):
                     saltadas += 1
@@ -613,7 +647,10 @@ def comando_publicar(args) -> int:
                         alvo.write_text(json.dumps(existente, ensure_ascii=False, indent=1))
                     fichas_da_prova.append(existente)
                     continue
-                dados = para_dicionario(ficha(fonte.jogo(jogo.id).html, jogo.id))
+                pagina = fonte.jogo(jogo.id).html
+                dados = para_dicionario(ficha(pagina, jogo.id))
+                if vale_merito(prova.nome):
+                    dados["merito"] = _merito_da_ficha(pagina, dados)
                 # contexto para as migalhas no detalhe de jogo (W7.3): a ficha da fonte
                 # não sabe em que jornada nem em que série o jogo está
                 dados["competicao_id"] = prova.id
@@ -630,6 +667,22 @@ def comando_publicar(args) -> int:
             quadro = agregar(fichas_da_prova, prova.id)
             (destino / "scorers" / f"{prova.id}.json").write_text(
                 json.dumps(para_dicionario(quadro), ensure_ascii=False, indent=1))
+
+            # Ficheiro próprio e não uma chave no `comp/`, por duas razões: o `comp/` já foi
+            # escrito acima, antes de haver fichas, e um caminho novo não mexe no contrato
+            # `/v1` que os telemóveis têm em cache. É a mesma escolha do `scorers/`.
+            if vale_merito(prova.nome):
+                com_merito = [f for f in fichas_da_prova if f.get("merito")]
+                (destino / "merito" / f"{prova.id}.json").write_text(json.dumps({
+                    "competicao_id": prova.id,
+                    "nome": prova.nome,
+                    "jogos_lidos": len(com_merito),
+                    # jogos disputados cujo boletim a fonte não publicou: a tabela está
+                    # incompleta nessa medida, e quem a lê tem direito a saber quanto
+                    "jogos_sem_boletim": len(fichas_da_prova) - len(com_merito),
+                    "linhas": [para_dicionario(l) for l in escalonar(
+                        m for f in com_merito for m in f["merito"])],
+                }, ensure_ascii=False, indent=1))
 
     (destino / "competitions.json").write_text(json.dumps(
         {"temporada": id_temp, "competicoes": provas}, ensure_ascii=False, indent=1))

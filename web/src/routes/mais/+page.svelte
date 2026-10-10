@@ -63,7 +63,13 @@
 		<dt>Como se contam os pontos</dt>
 		<dd>Vitória 3, empate 1, derrota 0.</dd>
 		<dt>Como se desempata</dt>
-		<dd>Diferença de golos e, depois, golos marcados.</dd>
+		<dd>
+			Pelo Artigo 7.º do regulamento da associação: primeiro os jogos entre as equipas
+			empatadas, depois a diferença de golos na prova e, por fim, o rácio entre marcados e
+			sofridos. Os jogos entre as empatadas só contam quando já se realizaram todos — a
+			meio da época ainda falta metade, e usá-los aí dizia mais sobre o calendário do que
+			sobre as equipas.
+		</dd>
 		<dt>Que jogos entram</dt>
 		<dd>
 			Só os da fase de grupos, e só depois de terminarem — um jogo a decorrer não conta
@@ -71,14 +77,56 @@
 		</dd>
 	</dl>
 	<p class="nota">
-		Estas regras não foram assumidas: foram apuradas contra as 42 tabelas que a associação
-		publica nos outros escalões, e o mesmo cálculo reproduz todas elas, linha por linha.
-		Continuamos a verificar isso a cada actualização — se a associação mudar de regra,
-		ficamos a saber no dia seguinte em vez de publicar tabelas erradas em silêncio.
+		A contagem dos pontos não foi assumida: foi apurada contra as 42 tabelas que a
+		associação publica nos outros escalões, e o mesmo cálculo reproduz todas elas, linha por
+		linha. Continuamos a verificar isso a cada actualização — se a associação mudar de
+		regra, ficamos a saber no dia seguinte em vez de publicar tabelas erradas em silêncio.
+	</p>
+	<p class="nota">
+		O desempate é o único ponto em que seguimos o regulamento e não a associação. Nas
+		tabelas que ela publica, duas equipas empatadas em tudo o resto ficam ordenadas por
+		golos marcados; o regulamento manda ver o rácio, que às vezes dá o contrário. Como
+		aqui só calculamos onde ela não publica nada, seguimos o que está escrito.
 	</p>
 	<p class="nota">
 		Não calculamos tabelas para as Supertaças nem para os torneios de pré-época: são
 		eliminatórias e jogos-treino, e ali uma classificação não quer dizer nada.
+	</p>
+</section>
+
+<section>
+	<h2>Mérito da Formação</h2>
+	<p>
+		Nos Encontros Distritais de Escolares e de Benjamins há uma segunda tabela, que
+		<strong>não é a classificação</strong>: o escalonamento de Mérito da Formação, do Artigo
+		92.º do regulamento da associação. Ela premeia o contrário do que uma tabela costuma
+		premiar — levar a equipa completa e pôr toda a gente a jogar.
+	</p>
+	<dl>
+		<dt>O que dá pontos</dt>
+		<dd>
+			1 ponto por cada atleta que entra em jogo, 3 à equipa que marca mais golos (1 a cada
+			uma no empate) e 1 pela equipa completa, com 2 guarda-redes e 8 jogadores de campo.
+		</dd>
+		<dt>O que tira pontos</dt>
+		<dd>
+			Apresentar menos de 8 atletas, levar um só guarda-redes, e pôr um atleta a jogar três
+			meias partes ou as quatro — o regulamento parte estes jogos em quatro meias partes e
+			obriga a que cada atleta faça uma inteira de cada parte.
+		</dd>
+		<dt>De onde vêm os números</dt>
+		<dd>
+			Do boletim oficial de cada jogo, que a associação publica e onde está marcado quem
+			entrou em cada meia parte. Nunca publicamos essa grelha: dela só sai o total da
+			equipa.
+		</dd>
+	</dl>
+	<p class="nota">
+		<strong>Também não é oficial.</strong> A pontuação que conta é preenchida pelos delegados
+		na Folha de Controlo de Jogo, em papel, e validada pelo Comité Técnico da associação.
+		Há ainda uma penalização que não conseguimos aplicar sozinhos: quando um atleta faz um
+		só período, o regulamento não penaliza se tiver havido lesão comprovada pelo árbitro, e
+		essa justificação só existe no papel. Nesses jogos assinalamos e não descontamos.
 	</p>
 </section>
 

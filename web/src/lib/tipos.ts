@@ -111,6 +111,38 @@ export interface FicheiroCompeticao {
 	classificacao_calculada?: GrupoClassificacao[];
 }
 
+/**
+ * Mérito da Formação (Artigo 92.º do regulamento da APL) — ficheiro próprio, `/v1/.../merito/<id>.json`.
+ *
+ * Caminho novo e não uma chave no `comp/`: os telemóveis têm o `comp/` em cache e um campo
+ * novo lá dentro só aparecia quando a cache caducasse. Um ficheiro à parte ou existe ou dá
+ * 404, e o 404 é uma resposta honesta — "esta prova não tem Mérito".
+ */
+export interface LinhaMerito {
+	posicao: number;
+	equipa: string;
+	jogos: number;
+	/** soma dos atletas que entraram em jogo, somada ao longo da prova */
+	participantes: number;
+	bonificacao: number;
+	/** negativa ou zero */
+	penalizacao: number;
+	pontos: number;
+	/** pontos por jogo: as equipas não jogam todas o mesmo número de jogos */
+	media: number;
+	/** jogos onde há uma penalização que depende de algo que o boletim não mostra */
+	por_confirmar: number;
+}
+
+export interface FicheiroMerito {
+	competicao_id: number;
+	nome: string;
+	jogos_lidos: number;
+	/** jogos disputados cujo boletim a fonte não publicou: a tabela está incompleta assim */
+	jogos_sem_boletim: number;
+	linhas: LinhaMerito[];
+}
+
 export interface IndiceCompeticoes { temporada: number; competicoes: Competicao[]; }
 
 /** Linha da agenda transversal: campos ao mínimo, porque são ~800 numa só resposta. */

@@ -5,6 +5,9 @@
 	import { tabelasDe } from '$lib/classificacao';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import TabelaClassificacao from '$lib/TabelaClassificacao.svelte';
+	import TabelaMerito from '$lib/TabelaMerito.svelte';
+	import ChapeuMerito from '$lib/ChapeuMerito.svelte';
+	import LegendaMerito from '$lib/LegendaMerito.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import { jornadaAtual, porQuando, nomeProprio } from '$lib/formato';
 	import { caminhoEquipa } from '$lib/slug';
@@ -12,8 +15,12 @@
 
 	let { data } = $props();
 
-	type Aba = 'classificacao' | 'calendario' | 'marcadores';
+	type Aba = 'classificacao' | 'calendario' | 'marcadores' | 'merito';
 	let aba = $state<Aba>('classificacao');
+
+	// A aba só aparece onde há Mérito — oito provas em trinta e sete. Pô-la sempre, vazia,
+	// fazia a pergunta "porque é que a minha não tem?" em 29 ecrãs.
+	const temMerito = $derived(data.provas.some((p) => p.merito?.linhas.length));
 
 	// modo de vista ao estilo dos modos da NHL: os mesmos dados reagrupados.
 	// `Escalão` empilha as séries — nunca as funde, porque não se enfrentam.
@@ -32,6 +39,13 @@
 	);
 
 	const destaque = (equipa: string) => minhasEquipas.has(equipa);
+	// somados entre as séries do ecrã, porque as notas aparecem uma só vez lá em baixo
+	const meritoPorConfirmar = $derived(
+		visiveis.reduce((s, p) => s + (p.merito?.linhas ?? []).reduce((x, l) => x + l.por_confirmar, 0), 0)
+	);
+	const meritoSemBoletim = $derived(
+		visiveis.reduce((s, p) => s + (p.merito?.jogos_sem_boletim ?? 0), 0)
+	);
 
 	/** Assistências por equipa, somadas das fichas desta prova. `null` quando não há fichas:
 	 *  sem isto uma equipa sem dados somava zero e lia-se como pior do que é. */
@@ -80,6 +94,9 @@
 	<button role="tab" aria-selected={aba === 'classificacao'} onclick={() => (aba = 'classificacao')}>Classificação</button>
 	<button role="tab" aria-selected={aba === 'calendario'} onclick={() => (aba = 'calendario')}>Calendário</button>
 	<button role="tab" aria-selected={aba === 'marcadores'} onclick={() => (aba = 'marcadores')}>Marcadores</button>
+	{#if temMerito}
+		<button role="tab" aria-selected={aba === 'merito'} onclick={() => (aba = 'merito')}>Mérito</button>
+	{/if}
 </div>
 
 {#if temSeries && minhaSerie}
@@ -113,6 +130,19 @@
 	{/each}
 	<p class="nota">Vitória 3 pontos, empate 1. As séries não se enfrentam, por isso não há tabela única.</p>
 	{#if algumaCalculada}<RotuloCalculada />{/if}
+{:else if aba === 'merito'}
+	<ChapeuMerito />
+	{#each visiveis as p (p.competicao.id)}
+		{#if p.merito?.linhas.length}
+			<section>
+				{#if p.competicao.serie}<h2>Série {p.competicao.serie}</h2>{/if}
+				<TabelaMerito
+					linhas={p.merito.linhas} emblemas={data.emblemas}
+					categoria={p.competicao.categoria} {destaque} />
+			</section>
+		{/if}
+	{/each}
+	<LegendaMerito porConfirmar={meritoPorConfirmar} semBoletim={meritoSemBoletim} />
 {:else if aba === 'calendario'}
 	{#each visiveis as p (p.competicao.id)}
 		{@const cal = jogosDaProva(p.dados.jogos)}
