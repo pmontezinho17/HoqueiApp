@@ -110,6 +110,15 @@ jobs:
           PORQUE: ${{ steps.ver.outputs.porque }}
         run: |
           set -euo pipefail
+
+          # **A etiqueta tem de existir antes de se usar.** O `gh issue create --label` não a
+          # cria — recusa com `could not add label` e a corrida inteira falha. Apanhado no
+          # primeiro ensaio desta vigia, a 10/10/2026, e o mesmo defeito estava escondido no
+          # `aviso.yml`: o ensaio de ontem usou a etiqueta `teste`, que já existia, e o aviso
+          # a sério usa `cadeia`, que não existia. O aviso teria falhado no primeiro vermelho.
+          gh label create vigia --color B60205 \
+            --description "o observador deixou de ler" --force >/dev/null 2>&1 || true
+
           titulo=$([ "${TESTE:-false}" = "true" ] && echo "Teste da vigia — $(date -u +%F\ %H:%M)" || echo "O observador está calado")
           numero=$(gh issue list --state open --label vigia --limit 10 \
             --json number,title --jq "[.[] | select(.title == \"$titulo\")] | .[0].number // empty")

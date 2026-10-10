@@ -75,6 +75,16 @@ jobs:
         run: |
           set -euo pipefail
 
+          # **A etiqueta tem de existir antes de se usar**, senão o `gh issue create --label`
+          # recusa com `could not add label` e o aviso falha por inteiro. O ensaio de ontem
+          # passou por acidente: usou a `teste`, que já existia de uma chamada anterior à API.
+          # A `cadeia`, que é a do aviso a sério, **não existia** — logo o primeiro vermelho a
+          # sério teria falhado em silêncio. Encontrado a 10/10/2026 ao ensaiar a vigia.
+          gh label create cadeia --color D93F0B \
+            --description "a cadeia de publicação está em vermelho" --force >/dev/null 2>&1 || true
+          gh label create teste --color BFDADC \
+            --description "ensaio de um aviso — não há nada de errado" --force >/dev/null 2>&1 || true
+
           if [ "$ESTADO" = "teste" ]; then
             titulo="Teste do aviso — $DIA"
             etiqueta=teste
