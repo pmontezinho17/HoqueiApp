@@ -22,6 +22,11 @@ on:
     # o limiar de silêncio é de 20 minutos e dá folga para uma firada perdida.
     - cron: '*/15 7-22 * * *'
   workflow_dispatch:
+    inputs:
+      teste:
+        description: Fingir que o observador está calado, para provar o aviso
+        type: boolean
+        default: false
 
 permissions:
   issues: write
@@ -42,6 +47,8 @@ jobs:
     steps:
       - name: O observador está vivo?
         id: ver
+        env:
+          TESTE: ${{ inputs.teste }}
         run: |
           set -uo pipefail
 
@@ -61,6 +68,16 @@ jobs:
 
           m=$(idade) || m=""
           echo "idade inicial: ${m:-não se leu} min"
+
+          # O modo de teste percorre o caminho a sério — toque, verificação, issue, atribuição
+          # e fecho — e só muda o título, para quem o receber saber que é um ensaio. Um aviso
+          # que não se consegue experimentar não é um aviso: aprendido a 09/10/2026, quando se
+          # descobriu que a cadeia de alerta nunca tinha disparado uma única vez.
+          if [ "${TESTE:-false}" = "true" ]; then
+            echo "estado=morto" >> "$GITHUB_OUTPUT"
+            echo "porque=ensaio pedido à mão — o observador está bem (última leitura há ${m:-?} min)" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
 
           # **Corrigir antes de avisar.** Um toque no `/observar` repõe o pulso quando o que
           # falhou foi o relógio — que foi o caso das duas vezes que isto aconteceu.
@@ -88,11 +105,12 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           DONO: ${{ github.repository_owner }}
+          TESTE: ${{ inputs.teste }}
           ESTADO: ${{ steps.ver.outputs.estado }}
           PORQUE: ${{ steps.ver.outputs.porque }}
         run: |
           set -euo pipefail
-          titulo="O observador está calado"
+          titulo=$([ "${TESTE:-false}" = "true" ] && echo "Teste da vigia — $(date -u +%F\ %H:%M)" || echo "O observador está calado")
           numero=$(gh issue list --state open --label vigia --limit 10 \
             --json number,title --jq "[.[] | select(.title == \"$titulo\")] | .[0].number // empty")
 
@@ -118,6 +136,8 @@ jobs:
               url=$(gh issue create --title "$titulo" --body "$corpo" \
                 --label vigia --assignee "$DONO")
               echo "aberta: $url" >> "$GITHUB_STEP_SUMMARY"
+              # um ensaio fecha-se a si mesmo: o que se queria provar é que ela nasce e chega
+              [ "${TESTE:-false}" = "true" ] && gh issue close "${url##*/}" --comment "Ensaio terminado."
             fi
           else
             if [ -n "$numero" ]; then
