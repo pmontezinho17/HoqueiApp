@@ -56,7 +56,8 @@
   sempre. O custo é a linha passar de ~44px para ~56px — exactamente a altura que medimos
   nas duas (ver docs/04-benchmarking.md).
 -->
-<svelte:element this={destino ? 'a' : 'div'} href={destino} class="linha" class:ligavel={destino}>
+<svelte:element this={destino ? 'a' : 'div'} href={destino} class="linha"
+	class:ligavel={destino} class:comDirecto={!!directo}>
 	<span class="quando">
 		{#if live}
 			<!-- O ponto a pulsar lê-se antes do texto; o texto é para quem não vê cor.
@@ -69,14 +70,6 @@
 		{:else}
 			{#if comData && jogo.data}<span class="dia">{diaCurto(jogo.data)}</span>{/if}
 			<span class="hora">{jogo.hora ?? '—'}</span>
-		{/if}
-		{#if directo}
-			<!-- Numa janela com quinze jogos a decorrer, o ponto vermelho está em todos e não
-			     distingue nada. A câmara é a diferença: *este* é que se pode ver. -->
-			<span class="camara" title="com transmissão em directo ({directo.fonte})">
-				<Icone nome="directo" tamanho={13} />
-				<span class="so-voz">com transmissão em directo</span>
-			</span>
 		{/if}
 		{#if comEscalao}<span class="escalao">{escalaoCurto(jogo.cat)}</span>{/if}
 	</span>
@@ -92,6 +85,19 @@
 		</span>
 	</span>
 
+	{#if directo}
+		<!-- **Entre as equipas e o resultado, e em vermelho.** Estava debaixo do escalão, na
+		     coluna da hora, e o dono apanhou-o a 10/10/2026: *"está muito escondido"*. Tinha
+		     razão por duas razões ao mesmo tempo — era pequeno e estava num canto onde já
+		     vivem três linhas de texto, e era da cor do `--vivo`, que numa janela com sete
+		     jogos a decorrer está em todos. Aqui está no caminho do olho, que vai do nome da
+		     equipa ao resultado, e a cor só quer dizer uma coisa. -->
+		<span class="camara" title="com transmissão em directo ({directo.fonte})">
+			<Icone nome="directo" tamanho={19} />
+			<span class="so-voz">com transmissão em directo</span>
+		</span>
+	{/if}
+
 	{#if jogado}
 		<span class="golos" aria-label={`${jogo.gc} a ${jogo.gf}`}>
 			<b class:vencedor={ganhouCasa} use:piscar={jogo.gc}>{jogo.gc}</b>
@@ -102,11 +108,18 @@
 
 <style>
 	.camara {
-		display: inline-flex;
+		display: flex;
 		align-items: center;
-		gap: 0.2rem;
-		margin-top: 0.15rem;
-		color: var(--acento);
+		justify-content: center;
+	}
+	/* **`:global(svg)` e não `color` no pai.** O `Icone.svelte` põe `color: var(--suave)` no
+	   próprio `<svg>`, e uma regra no elemento ganha sempre à herança — a câmara saía cinzenta
+	   com o pai pintado de vermelho. Levei uma volta inteira a perceber: o `getComputedStyle`
+	   da célula dizia `rgb(220,38,38)` e o ícone continuava cinzento no ecrã, porque a cor
+	   que eu media não era a que o desenho usava. O resto da base de código já contornava
+	   isto da mesma maneira, na barra de separadores da ficha de jogo. */
+	.camara :global(svg) {
+		color: var(--directo);
 	}
 	/* visível para quem lê por voz, fora do ecrã para quem vê — o ícone sozinho não diz nada
 	   a um leitor de ecrã, e um `title` não é lido em telemóvel */
@@ -117,6 +130,12 @@
 		overflow: hidden;
 		clip-path: inset(50%);
 		white-space: nowrap;
+	}
+
+	/* uma coluna a mais, e só nas linhas que têm câmara: posta em todas, o intervalo da
+	   grelha abria um buraco de 8 px em cada linha da lista por causa de uma célula vazia */
+	.linha.comDirecto {
+		grid-template-columns: 3.1rem 1fr auto auto;
 	}
 
 	.linha {

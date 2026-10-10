@@ -209,6 +209,14 @@
 		   coisas opostas na mesma aplicação. Este é mais frio e mais escuro, e nunca aparece
 		   no mesmo ecrã que o outro. */
 		--terminado: #b3261e;
+		/* **O vermelho da transmissão, e não o `--vivo` nem o `--terminado`.**
+		   O `--vivo` é laranja e quer dizer "está a acontecer"; numa janela com sete jogos a
+		   decorrer está em todos, e uma câmara dessa cor desaparecia no meio deles — foi
+		   exactamente a queixa do dono a 10/10/2026. O `--terminado` é vermelho mas já quer
+		   dizer "acabou". Isto quer dizer uma terceira coisa — "este dá para ver" — e por
+		   isso tem cor própria: o vermelho de gravação, que é a convenção que todos
+		   reconhecem sem legenda. */
+		--directo: #dc2626;
 		/* a estrela do favorito: amarela nos dois temas, mais funda no claro para não
 		   desaparecer contra o branco do cartão */
 		--estrela: #d99e00;
@@ -239,6 +247,7 @@
 			--acento: #34d399; --acento-fraco: #12271f;
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
 			--terminado: #f2b8b5;
+			--directo: #f87171;
 			--estrela: #fbbf24;
 			--heroi: #1b2027; --heroi-texto: #eef1f4; --heroi-suave: #949ca6;
 			--heroi-borda: #2a313a;
@@ -251,6 +260,7 @@
 			--acento: #34d399; --acento-fraco: #12271f;
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
 			--terminado: #f2b8b5;
+			--directo: #f87171;
 			--estrela: #fbbf24;
 			--heroi: #1b2027; --heroi-texto: #eef1f4; --heroi-suave: #949ca6;
 			--heroi-borda: #2a313a;

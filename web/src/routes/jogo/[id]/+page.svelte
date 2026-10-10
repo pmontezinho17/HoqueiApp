@@ -544,12 +544,15 @@
 	}
 	/* o único separador com cor própria: é o que distingue "há jogo para ver" de "há dados
 	   para ler", e a cor do botão é a mesma da câmara na lista */
-	.tabs button.aoVivo { color: var(--acento); }
 	.tabs button[aria-selected='true'] {
 		color: var(--acento);
 		border-bottom-color: var(--acento);
 	}
 	.tabs button[aria-selected='true'] :global(svg) { color: var(--acento); }
+	/* A câmara é vermelha esteja ou não escolhida — é a marca de "este dá para ver", e a
+	   selecção já se lê no sublinhado. A regra vem **depois** da do separador escolhido de
+	   propósito: têm a mesma especificidade, e é a ordem que decide. */
+	.tabs button.aoVivo :global(svg) { color: var(--directo); }
 
 	/* Uma nota e não um aviso: nada está mal, há só uma coisa que ainda não aconteceu. Por
 	   isso sem amarelo e sem ícone de alerta — a lição da caixa das classificações
