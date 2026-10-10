@@ -51,9 +51,11 @@ export const NOVIDADES: Novidade[] = [
 		versao: '1.0',
 		data: '2026-10-10',
 		pontos: [
-			'As Competições abrem agora numa grelha de escalões, e mostram por omissão só as provas a decorrer.',
+			'Nos Escolares e nos Benjamins há uma tabela nova, o Mérito da Formação: pontua levar a equipa completa e pôr toda a gente a jogar, e não quem ganha.',
+			'As classificações desempatam agora como o regulamento da associação manda — primeiro o confronto directo entre as equipas empatadas. Algumas tabelas mudam de ordem por causa disto.',
+			'As Competições abrem numa grelha de escalões, e mostram por omissão só as provas a decorrer.',
 			'Um jogo que ainda não começou já abre: mostra as equipas, a hora, o recinto e a classificação, em vez de um erro.',
-			'Perguntas frequentes, em Sobre a app → Perguntas frequentes.',
+			'Perguntas frequentes, no menu ⋮.',
 			'Podes escolher o tema claro ou escuro no menu ⋮, em vez de seguir sempre o telemóvel.',
 			'A partir daqui, esta caixa só aparece quando houver mesmo algo de novo para ti.'
 		]
