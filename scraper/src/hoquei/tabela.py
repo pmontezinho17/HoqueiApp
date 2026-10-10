@@ -4,6 +4,10 @@ Existe por uma razão concreta: **198 jogos da APL não têm tabela nenhuma**. O
 (5 provas), os Benjamins (3) e os Torneios Particulares (2) não publicam classificação, e
 quem acompanha um filho nesses escalões anda a fazer as contas à mão.
 
+**Os Escolares e os Benjamins deixaram de passar por aqui a 10/10/2026** — a tabela deles é a
+do Mérito da Formação, no `merito.py`. Ver `vale_calcular` para o porquê, que é de regulamento
+e não de arrumação.
+
 As regras aqui não foram assumidas — foram **medidas** contra as 42 tabelas que a fonte
 publica (ver `tests/test_tabela.py`, que volta a medi-las a cada execução):
 
@@ -282,9 +286,9 @@ def calcular(jogos: Iterable[Jogo], como_a_fonte: bool = False) -> list[GrupoCla
 #: As provas onde uma tabela calculada **quer dizer alguma coisa**.
 #:
 #: Inventariado a 07/10/2026, e não adivinhado: das 37 competições da época, **14** não têm
-#: tabela publicada pela fonte, e dividem-se em dois grupos muito diferentes.
+#: tabela publicada pela fonte, e dividem-se em três grupos muito diferentes.
 #:
-#:    8×  Encontros Distritais (5 Escolares + 3 Benjamins)  → fase de grupos, a tabela faz sentido
+#:    8×  Encontros Distritais (5 Escolares + 3 Benjamins)  → **não levam tabela de pontos**
 #:    4×  Supertaça APL (sub-13 a sub-19)                   → eliminatória, uma tabela não diz nada
 #:    2×  Torneios Particulares (JOGO TREINO, ZECA PINTO)   → jogos-treino de pré-época
 #:
@@ -292,9 +296,20 @@ def calcular(jogos: Iterable[Jogo], como_a_fonte: bool = False) -> list[GrupoCla
 #: meia-final aparece à frente do vencedor da final. Por isso a regra não é "sempre que falta",
 #: é "sempre que falta **e** a prova é disputada por pontos".
 #:
-#: `CAMP. REG.` está aqui por coerência e nunca chega a ser usado: a fonte publica a tabela de
+#: ## Os Encontros Distritais saíram daqui a 10/10/2026, e foi uma correcção
+#:
+#: Durante três dias calculámos-lhes uma tabela de 3/1/0 e publicámo-la com o rótulo de "não
+#: oficial". **Essa tabela não existe em lado nenhum.** A APL não publica classificação nesses
+#: escalões de propósito, e o Artigo 92.º do regulamento diz o que se escalona ali: o Mérito da
+#: Formação, que pontua levar a equipa completa e pôr toda a gente a jogar. Nós tínhamos
+#: inventado uma ordem por vitórias para uma prova que não é disputada por vitórias.
+#:
+#: O dono apanhou-o depois de ler o regulamento: *"a única tabela que vamos ter de
+#: classificação é a do Mérito"*. Ver `merito.py` — é lá que a tabela desses escalões vive.
+#:
+#: `CAMP. REG.` fica, por coerência, e nunca chega a ser usado: a fonte publica a tabela de
 #: todos os campeonatos regionais. Se algum dia deixar de publicar uma, nós preenchemos.
-_POR_PONTOS = re.compile(r"^\s*(ENCONTROS DISTRITAIS|CAMP\.?\s*REG)", re.IGNORECASE)
+_POR_PONTOS = re.compile(r"^\s*(CAMP\.?\s*REG)", re.IGNORECASE)
 
 
 def vale_calcular(nome_da_prova: str, publicada: list | None) -> bool:

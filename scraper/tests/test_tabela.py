@@ -401,9 +401,21 @@ class TestQuandoValeCalcular:
     final, e era publicado com a mesma cara de verdade que o resto.
     """
 
-    def test_encontros_distritais_sem_tabela_publicada_calculam_se(self):
-        assert vale_calcular("ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A", [])
-        assert vale_calcular("ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE D", None)
+    def test_os_encontros_distritais_nao_levam_tabela_de_pontos(self):
+        """Mudou a 10/10/2026, e é uma correcção e não uma remoção de funcionalidade.
+
+        Durante três dias calculámos-lhes uma tabela de 3/1/0 e publicámo-la com o rótulo de
+        "não oficial". Essa tabela não existe em lado nenhum: a APL não publica classificação
+        nestes escalões de propósito, e o Artigo 92.º diz o que se escalona ali — o Mérito da
+        Formação. Tínhamos inventado uma ordem por vitórias para uma prova que não é
+        disputada por vitórias.
+        """
+        assert not vale_calcular("ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A", [])
+        assert not vale_calcular("ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE D", None)
+
+    def test_um_campeonato_regional_sem_tabela_publicada_calcula_se(self):
+        """O último caso que sobra, e que nunca chega a acontecer: a fonte publica-as todas."""
+        assert vale_calcular("CAMP. REG. SUB-13 - 1ª FASE - SERIE A", [])
 
     def test_eliminatorias_e_jogos_treino_nao(self):
         assert not vale_calcular("SUPERTAÇA APL SUB-13", [])
@@ -414,7 +426,7 @@ class TestQuandoValeCalcular:
     def test_onde_a_fonte_publica_manda_a_dela(self):
         """Duas tabelas para a mesma prova divergiriam, e a app mostrava duas verdades."""
         assert not vale_calcular(
-            "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
+            "CAMP. REG. SUB-13 - 1ª FASE - SERIE A",
             [{"nome": None, "linhas": [{"equipa": "A"}]}],
         )
 

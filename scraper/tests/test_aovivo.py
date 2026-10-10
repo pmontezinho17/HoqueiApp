@@ -396,14 +396,18 @@ def _comp(tmp_path: pathlib.Path, nome: str, publicada: list, jogos: list) -> pa
 def test_a_tabela_calculada_acompanha_o_jogo_que_fecha(tmp_path, monkeypatch):
     """Sem isto, os jogos mostram 3-1 e a tabela fica na jornada anterior.
 
-    E **não se pede a tabela à fonte**: nestes escalões ela não publica nenhuma, logo o
-    pedido era um pedido inútil ao servidor da federação por cada jogo que fecha.
+    E **não se pede a tabela à fonte** quando é nossa: o pedido era um pedido inútil ao
+    servidor da federação por cada jogo que fecha.
+
+    A prova aqui é um campeonato regional e não um Encontro Distrital, e isso mudou a
+    10/10/2026: os Escolares e os Benjamins deixaram de ter tabela de pontos — a deles é a do
+    Mérito. Ver `vale_calcular`.
     """
     jogo = _jogo(0.2)
     _agenda_com(tmp_path, jogo)
     alvo = _comp(
         tmp_path,
-        "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
+        "CAMP. REG. SUB-13 - 1ª FASE - SERIE A",
         [],
         [{"id": ID, "casa": "A", "fora": "B", "golos_casa": None, "golos_fora": None,
           "grupo": None, "data": jogo["data"], "hora": jogo["hora"]},

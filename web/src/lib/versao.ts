@@ -51,12 +51,11 @@ export const NOVIDADES: Novidade[] = [
 		versao: '1.0',
 		data: '2026-10-10',
 		pontos: [
-			'Nos Escolares e nos Benjamins há uma tabela nova, o Mérito da Formação: pontua levar a equipa completa e pôr toda a gente a jogar, e não quem ganha.',
-			'As classificações desempatam agora como o regulamento da associação manda — primeiro o confronto directo entre as equipas empatadas. Algumas tabelas mudam de ordem por causa disto.',
+			'Nos Escolares e nos Benjamins a classificação passa a ser o Mérito da Formação, como o regulamento da associação manda: conta levar a equipa completa e pôr toda a gente a jogar, e não quem ganha. As regras estão na própria tabela.',
+			'As classificações desempatam agora como o regulamento manda — primeiro o confronto directo entre as equipas empatadas. Algumas tabelas mudam de ordem por causa disto.',
 			'As Competições abrem numa grelha de escalões, e mostram por omissão só as provas a decorrer.',
 			'Um jogo que ainda não começou já abre: mostra as equipas, a hora, o recinto e a classificação, em vez de um erro.',
-			'Perguntas frequentes, no menu ⋮.',
-			'Podes escolher o tema claro ou escuro no menu ⋮, em vez de seguir sempre o telemóvel.',
+			'No menu ⋮ há agora Perguntas frequentes, e podes escolher o tema claro ou escuro em vez de seguir sempre o telemóvel.',
 			'A partir daqui, esta caixa só aparece quando houver mesmo algo de novo para ti.'
 		]
 	}
