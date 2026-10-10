@@ -1,7 +1,20 @@
 {
  "competicao_id": 432,
- "jogos_considerados": 27,
+ "jogos_considerados": 28,
  "jogadores": [
+  {
+   "nome": "ALESSANDRO VERONA",
+   "equipa": "SPORTING CP",
+   "jogos": 4,
+   "numero": "14",
+   "golos": 7,
+   "assistencias": 5,
+   "defesas": 0,
+   "pontos": 12,
+   "amarelos": 1,
+   "azuis": 2,
+   "vermelhos": 0
+  },
   {
    "nome": "VITOR OLIVEIRA",
    "equipa": "SL BENFICA",
@@ -29,6 +42,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "NIL DEL FRESNO",
+   "equipa": "SPORTING CP",
+   "jogos": 4,
+   "numero": "2",
+   "golos": 6,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 8,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MARTIM COSTA",
    "equipa": "SL BENFICA",
    "jogos": 4,
@@ -37,19 +63,6 @@
    "assistencias": 1,
    "defesas": 0,
    "pontos": 7,
-   "amarelos": 1,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MÁRIO RODRIGUES",
-   "equipa": "S ALENQUER B",
-   "jogos": 3,
-   "numero": "7",
-   "golos": 6,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 6,
    "amarelos": 1,
    "azuis": 1,
    "vermelhos": 0
@@ -68,16 +81,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "ALESSANDRO VERONA",
-   "equipa": "SPORTING CP",
-   "jogos": 3,
-   "numero": "14",
-   "golos": 5,
-   "assistencias": 4,
+   "nome": "MÁRIO RODRIGUES",
+   "equipa": "S ALENQUER B",
+   "jogos": 4,
+   "numero": "77",
+   "golos": 6,
+   "assistencias": 0,
    "defesas": 0,
-   "pontos": 9,
-   "amarelos": 0,
-   "azuis": 1,
+   "pontos": 6,
+   "amarelos": 2,
+   "azuis": 2,
    "vermelhos": 0
   },
   {
@@ -185,19 +198,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "NIL DEL FRESNO",
-   "equipa": "SPORTING CP",
-   "jogos": 3,
-   "numero": "2",
-   "golos": 4,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 6,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ANDRÉ PIMENTA",
    "equipa": "CD PAÇO ARCOS",
    "jogos": 4,
@@ -207,6 +207,19 @@
    "defesas": 0,
    "pontos": 6,
    "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SEBASTIÃO VALADAS",
+   "equipa": "SPORTING CP",
+   "jogos": 2,
+   "numero": "87",
+   "golos": 4,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -263,6 +276,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOÃO PINA",
+   "equipa": "SPORTING CP",
+   "jogos": 4,
+   "numero": "8",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MATEUS MARQUES",
    "equipa": "CD PAÇO ARCOS",
    "jogos": 4,
@@ -291,7 +317,7 @@
   {
    "nome": "AFONSO SEVERINO",
    "equipa": "S ALENQUER B",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "4",
    "golos": 3,
    "assistencias": 2,
@@ -299,19 +325,6 @@
    "pontos": 5,
    "amarelos": 0,
    "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SEBASTIÃO VALADAS",
-   "equipa": "SPORTING CP",
-   "jogos": 1,
-   "numero": "87",
-   "golos": 3,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -421,7 +434,7 @@
   {
    "nome": "HENRIQUE COSTA",
    "equipa": "SPORTING CP",
-   "jogos": 1,
+   "jogos": 2,
    "numero": "99",
    "golos": 2,
    "assistencias": 1,
@@ -445,32 +458,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ELOI PASCUAL",
-   "equipa": "S ALENQUER B",
-   "jogos": 3,
-   "numero": "17",
-   "golos": 2,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "FRANCISCO CONTINS",
-   "equipa": "S ALENQUER B",
-   "jogos": 3,
-   "numero": "11",
-   "golos": 2,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "FRANCISCO FERREIRA",
    "equipa": "AE FISICA D",
    "jogos": 3,
@@ -481,19 +468,6 @@
    "pontos": 3,
    "amarelos": 0,
    "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONZALO SORIA",
-   "equipa": "S ALENQUER B",
-   "jogos": 3,
-   "numero": "8",
-   "golos": 2,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -519,6 +493,58 @@
    "defesas": 0,
    "pontos": 3,
    "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO BARATA",
+   "equipa": "SPORTING CP",
+   "jogos": 4,
+   "numero": "88",
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ELOI PASCUAL",
+   "equipa": "S ALENQUER B",
+   "jogos": 4,
+   "numero": "7",
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FRANCISCO CONTINS",
+   "equipa": "S ALENQUER B",
+   "jogos": 4,
+   "numero": "44",
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GONZALO SORIA",
+   "equipa": "S ALENQUER B",
+   "jogos": 4,
+   "numero": "8",
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -562,19 +588,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO BARATA",
-   "equipa": "SPORTING CP",
-   "jogos": 3,
-   "numero": "7",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GUILHERME GREGÓRIO",
    "equipa": "SC TORRES",
    "jogos": 3,
@@ -584,19 +597,6 @@
    "defesas": 0,
    "pontos": 2,
    "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "JOÃO PINA",
-   "equipa": "SPORTING CP",
-   "jogos": 3,
-   "numero": "8",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -707,8 +707,8 @@
   {
    "nome": "MATEO AVONDO",
    "equipa": "S ALENQUER B",
-   "jogos": 3,
-   "numero": "3",
+   "jogos": 4,
+   "numero": "86",
    "golos": 1,
    "assistencias": 4,
    "defesas": 0,
@@ -991,19 +991,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "FILIPE PEREIRA",
-   "equipa": "SPORTING CP",
-   "jogos": 3,
-   "numero": "10",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GIL DOMINGUES",
    "equipa": "A STUART HCM",
    "jogos": 3,
@@ -1147,6 +1134,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "FILIPE PEREIRA",
+   "equipa": "SPORTING CP",
+   "jogos": 4,
+   "numero": "10",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "FRANCISCO ROCHA",
    "equipa": "GRF MURCHES",
    "jogos": 4,
@@ -1175,7 +1175,7 @@
   {
    "nome": "RODRIGO COSTA",
    "equipa": "S ALENQUER B",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "6",
    "golos": 0,
    "assistencias": 4,
@@ -1316,19 +1316,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO LAMPREIA",
-   "equipa": "SPORTING CP",
-   "jogos": 3,
-   "numero": "33",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "RUBEN ALMEIDA",
    "equipa": "GDS CASCAIS",
    "jogos": 3,
@@ -1372,6 +1359,19 @@
    "equipa": "CD PAÇO ARCOS",
    "jogos": 4,
    "numero": "6",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO LAMPREIA",
+   "equipa": "SPORTING CP",
+   "jogos": 4,
+   "numero": "33",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -1771,19 +1771,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO PEREIRA",
-   "equipa": "S ALENQUER B",
-   "jogos": 2,
-   "numero": "9",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "AFONSO PIMENTEL",
    "equipa": "GDS CASCAIS",
    "jogos": 2,
@@ -2031,10 +2018,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO CAMPOSANA",
-   "equipa": "SPORTING CP",
+   "nome": "AFONSO LOURENÇO",
+   "equipa": "A STUART HCM",
    "jogos": 3,
-   "numero": "1",
+   "numero": "7",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -2044,10 +2031,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO LOURENÇO",
-   "equipa": "A STUART HCM",
+   "nome": "AFONSO PEREIRA",
+   "equipa": "S ALENQUER B",
    "jogos": 3,
-   "numero": "7",
+   "numero": "78",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -2074,19 +2061,6 @@
    "equipa": "GDS CASCAIS",
    "jogos": 3,
    "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ANTÓNIO MARANTE",
-   "equipa": "SPORTING CP",
-   "jogos": 3,
-   "numero": "68",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -2259,19 +2233,6 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "JOSÉ MACEDO",
-   "equipa": "S ALENQUER B",
-   "jogos": 3,
-   "numero": "61",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 2,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -2486,19 +2447,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS VENTURA",
-   "equipa": "S ALENQUER B",
-   "jogos": 3,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 2,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "VASCO TEIXEIRA",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 3,
@@ -2522,6 +2470,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 2,
+   "vermelhos": 0
+  },
+  {
+   "nome": "AFONSO CAMPOSANA",
+   "equipa": "SPORTING CP",
+   "jogos": 4,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -2561,6 +2522,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANTÓNIO MARANTE",
+   "equipa": "SPORTING CP",
+   "jogos": 4,
+   "numero": "68",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -2616,6 +2590,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOSÉ MACEDO",
+   "equipa": "S ALENQUER B",
+   "jogos": 4,
+   "numero": "90",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 2,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "NUNO EMÍDIO",
    "equipa": "PAREDE FC",
    "jogos": 4,
@@ -2623,6 +2610,19 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS VENTURA",
+   "equipa": "S ALENQUER B",
+   "jogos": 4,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 3,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,

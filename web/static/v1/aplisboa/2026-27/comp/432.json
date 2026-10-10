@@ -434,8 +434,8 @@
    "hora": "21:00:00",
    "casa": "SPORTING CP",
    "fora": "S ALENQUER B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 7,
+   "golos_fora": 0,
    "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
   },
