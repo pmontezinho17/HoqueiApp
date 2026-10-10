@@ -14,7 +14,7 @@
 import { describe, expect, it } from 'vitest';
 import { PRODUCAO, ehSiteDeRamo, paraProducao } from './ambiente.js';
 import { COOKIE, porta } from './portaTestes.js';
-import { oQueFazerNoRamo, onRequest } from '../../functions/_middleware.js';
+import { oQueFazerNoRamo, onRequest, ramoDe } from '../../functions/_middleware.js';
 
 const CHAVE = 'chave-de-teste';
 
@@ -207,5 +207,109 @@ describe('a ligação ao onRequest — o defeito que fecharia a app a toda a gen
 	it('o cookie nunca é posto em produção — a /privacidade promete zero cookies', async () => {
 		const r = await onRequest(contexto(`https://hoquei.pages.dev/?chave=${CHAVE}`));
 		expect(r.headers.get('Set-Cookie')).toBe(null);
+	});
+});
+
+describe('contar quem bate à porta', () => {
+	/**
+	 * Pedido pelo dono a 10/10/2026 — *"Sim quero saber"* — e a pergunta é uma decisão: se
+	 * daqui a uns dias ainda houver gente a bater, o link anda a circular e ele tem de avisar
+	 * as pessoas em vez de esperar que a porta resolva sozinha.
+	 */
+	function espiaD1() {
+		const escritas: { sql: string; valores: unknown[] }[] = [];
+		const bd = {
+			prepare: (sql: string) => ({
+				bind: (...valores: unknown[]) => ({
+					run: async () => {
+						escritas.push({ sql, valores });
+						return { success: true };
+					}
+				})
+			})
+		};
+		return { bd, escritas };
+	}
+
+	function correr(url: string, chave: string | undefined = CHAVE) {
+		const { bd, escritas } = espiaD1();
+		const porCorrer: Promise<unknown>[] = [];
+		const r = onRequest({
+			request: pedido(url, navegacao),
+			env: { DADOS: bd as never, CHAVE_TESTES: chave },
+			next: async () => new Response('a app'),
+			waitUntil: (p: Promise<unknown>) => porCorrer.push(p)
+		});
+		return { resposta: r, escritas, pronto: Promise.all([r, ...porCorrer]) };
+	}
+
+	it('um estranho a ver a porta conta como "aviso", com o nome do ramo', async () => {
+		const { escritas, pronto } = correr('https://testes.hoquei.pages.dev/');
+		await pronto;
+		expect(escritas).toHaveLength(1);
+		expect(escritas[0].sql).toContain('INSERT INTO porta');
+		expect(escritas[0].valores.slice(1)).toEqual(['testes', 'aviso']);
+	});
+
+	it('o dono a usar a chave conta como "entrou", para se poder descontar', async () => {
+		const { escritas, pronto } = correr(`https://versoes.hoquei.pages.dev/?chave=${CHAVE}`);
+		await pronto;
+		expect(escritas[0].valores.slice(1)).toEqual(['versoes', 'entrou']);
+	});
+
+	it('quem já tem o cookie não volta a contar — senão cada clique dele era uma pessoa', async () => {
+		const { bd, escritas } = espiaD1();
+		await onRequest({
+			request: pedido('https://testes.hoquei.pages.dev/mais', {
+				...navegacao,
+				Cookie: `${COOKIE}=${CHAVE}`
+			}),
+			env: { DADOS: bd as never, CHAVE_TESTES: CHAVE },
+			next: async () => new Response('a app'),
+			waitUntil: () => {}
+		});
+		expect(escritas).toHaveLength(0);
+	});
+
+	it('A PROMESSA: tráfego de ramo nunca escreve nas contagens reais', async () => {
+		/**
+		 * O `ramo.yml` promete que o tráfego de testes não entra nos números reais. Até hoje
+		 * isso era garantido por não haver ligação à base de dados no ambiente de Preview;
+		 * agora a ligação existe para a tabela `porta`, e quem garante a promessa é o `return`
+		 * antecipado do middleware. É o género de linha que se perde numa reorganização sem
+		 * ninguém notar — e o que se notava, meses depois, eram números reais inflados.
+		 */
+		for (const u of ['https://testes.hoquei.pages.dev/', 'https://testes.hoquei.pages.dev/clube']) {
+			const { escritas, pronto } = correr(u);
+			await pronto;
+			for (const e of escritas) {
+				expect(e.sql, u).not.toContain('visita');
+				expect(e.sql, u).not.toContain('aparelho');
+			}
+		}
+	});
+
+	it('sem ligação à base de dados a porta funciona e não rebenta', async () => {
+		const r = await onRequest({
+			request: pedido('https://testes.hoquei.pages.dev/', navegacao),
+			env: { DADOS: undefined, CHAVE_TESTES: CHAVE },
+			next: async () => new Response('a app'),
+			waitUntil: () => {
+				throw new Error('não devia haver nada para esperar');
+			}
+		});
+		expect(r.status).toBe(200);
+	});
+});
+
+describe('ramoDe', () => {
+	it('o primeiro pedaço do anfitrião', () => {
+		expect(ramoDe('testes.hoquei.pages.dev')).toBe('testes');
+		expect(ramoDe('99fd44ce.hoquei.pages.dev')).toBe('99fd44ce');
+	});
+
+	it('um Host inventado não escreve uma chave de 2 KB na base de dados', () => {
+		expect(ramoDe(`${'x'.repeat(500)}.hoquei.pages.dev`)).toHaveLength(40);
+		expect(ramoDe('')).toBe('desconhecido');
 	});
 });
