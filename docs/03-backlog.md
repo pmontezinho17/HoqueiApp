@@ -2306,11 +2306,32 @@ Este é o único cookie do projecto. Nunca é posto em produção — a guarda �
 há um teste só para isso — e, mesmo num ramo, só aparece a quem escreveu a chave. A
 `/privacidade` continua verdadeira onde é lida: no site que as pessoas usam.
 
-### O teste que interessa
+### Contar quem ainda bate (pedido no mesmo dia)
 
-O pior defeito possível aqui não é a porta falhar: é ela apanhar **produção** e fechar a app a
-toda a gente. Três testes cobrem esse caso, e foram verificados a sério — pondo o
-`ehSiteDeRamo` a devolver `true` para tudo, os três falham e os outros 23 passam.
+*"Sim quero saber"*. A pergunta é uma decisão e não curiosidade: se daqui a uns dias ainda
+houver gente a bater, o link anda a circular — num grupo, num favorito partilhado — e o dono
+tem de avisar as pessoas directamente em vez de esperar que a porta resolva sozinha.
+
+Tabela `porta(dia, ramo, evento, n)`, com `evento` a separar `aviso` (estranhos a ver a porta)
+de `entrou` (o dono a usar a chave). Separados porque não se podem somar: sem isso, as visitas
+dele a testar apareciam como pessoas perdidas. Quem já tem o cookie não conta — senão cada
+clique dele era uma pessoa nova.
+
+**E isto mudou quem garante uma promessa antiga.** O `ramo.yml` promete que o tráfego de testes
+não entra nas contagens reais, e até agora isso era garantido por **não haver ligação à base
+de dados** no ambiente de Preview. Essa ligação passa a existir, para esta tabela. Quem garante
+a promessa agora é o `return next()` antecipado do `_middleware.js`, que trata os sites de ramo
+e sai antes do contador do `visita`. É uma linha, e é o género de linha que se perde numa
+reorganização sem ninguém notar — o que se notava, meses depois, eram os números reais
+inflados em silêncio. Daí o teste chamar-se `A PROMESSA`, em maiúsculas.
+
+### Os dois testes que interessam, e a verificação deles
+
+Nenhum destes se verifica a ler o código; verificam-se injectando o defeito e vendo quem cai.
+
+1. **A porta a apanhar produção** fechava a app a toda a gente — é o pior que pode sair daqui.
+   Pondo o `ehSiteDeRamo` a devolver `true` para tudo: falham três testes, passam os outros 30.
+2. **A promessa das contagens.** Tirando o `return next()` antecipado: falha um, passam 32.
 
 ---
 
