@@ -1,11 +1,22 @@
 {
  "competicao_id": 467,
  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE C",
- "jogos_lidos": 3,
+ "jogos_lidos": 4,
  "jogos_sem_boletim": 0,
  "linhas": [
   {
    "posicao": 1,
+   "equipa": "CACO B",
+   "jogos": 2,
+   "participantes": 20,
+   "bonificacao": 22,
+   "penalizacao": 0,
+   "pontos": 22,
+   "media": 11.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 2,
    "equipa": "APAC TOJAL",
    "jogos": 1,
    "participantes": 10,
@@ -16,7 +27,7 @@
    "por_confirmar": 0
   },
   {
-   "posicao": 2,
+   "posicao": 3,
    "equipa": "PAREDE FC",
    "jogos": 1,
    "participantes": 10,
@@ -24,17 +35,6 @@
    "penalizacao": 0,
    "pontos": 14,
    "media": 14.0,
-   "por_confirmar": 0
-  },
-  {
-   "posicao": 3,
-   "equipa": "CACO B",
-   "jogos": 1,
-   "participantes": 10,
-   "bonificacao": 11,
-   "penalizacao": 0,
-   "pontos": 11,
-   "media": 11.0,
    "por_confirmar": 0
   },
   {
@@ -62,12 +62,12 @@
   {
    "posicao": 6,
    "equipa": "SPORTING CP",
-   "jogos": 1,
-   "participantes": 6,
-   "bonificacao": 6,
-   "penalizacao": -17,
-   "pontos": -11,
-   "media": -11.0,
+   "jogos": 2,
+   "participantes": 12,
+   "bonificacao": 15,
+   "penalizacao": -34,
+   "pontos": -19,
+   "media": -9.5,
    "por_confirmar": 0
   }
  ]

@@ -841,5 +841,63 @@
  "jornada": "2ª JORNADA",
  "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-ii",
  "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II",
- "serie": "C"
+ "serie": "C",
+ "merito": [
+  {
+   "equipa": "SPORTING CP",
+   "atletas": 6,
+   "guardas_redes": 2,
+   "participantes": 6,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -17,
+   "total": -8,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "6 atletas participantes",
+     "pontos": 6
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "4.1.1",
+     "texto": "apresentou 6 atletas",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.6",
+     "texto": "4 fizeram as quatro meias partes",
+     "pontos": -16
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "CACO B",
+   "atletas": 10,
+   "guardas_redes": 2,
+   "participantes": 10,
+   "completa": true,
+   "bonificacao": 11,
+   "penalizacao": 0,
+   "total": 11,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "10 atletas participantes",
+     "pontos": 10
+    },
+    {
+     "regra": "3.4",
+     "texto": "equipa completa (2 GR e 8 JC)",
+     "pontos": 1
+    }
+   ],
+   "avisos": []
+  }
+ ]
 }
