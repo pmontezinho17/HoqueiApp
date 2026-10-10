@@ -135,6 +135,35 @@ const TIPOS = [
  * máximo põe o rótulo de cima encavalitado na barra mais alta, e obriga a ler `83` quando o
  * que interessa é a ordem de grandeza.
  */
+/**
+ * O número escrito por cima de uma barra. Pedido pelo dono a 10/10/2026, para **todos** os
+ * gráficos: *"por cima de cada barra que tenhas valores, o número total de eventos/chamadas"*.
+ *
+ * **Posicionado em absoluto e não empilhado por cima.** Como filho normal da coluna, ele
+ * consumia altura, e uma barra que chegasse ao tecto empurrava o número para fora do
+ * gráfico, por cima do título. Em absoluto, a altura da barra continua a querer dizer
+ * exactamente o que o eixo diz.
+ *
+ * **E vive dentro da `.area`, não da `.col`.** Na primeira versão media a altura contra a
+ * coluna inteira — que inclui a linha da hora, por baixo da barra — e os números caíam
+ * dentro do topo das barras, em texto escuro sobre laranja. A `.area` é só o espaço do
+ * desenho, e é contra ela que a barra também se mede: as duas percentagens passam a ter a
+ * mesma origem, que é a única forma de o número assentar exactamente no cimo.
+ *
+ * O `min()` é a rede da barra que chega ao tecto: o número nunca sobe acima do cimo do
+ * gráfico, mesmo quando a coluna lá chega.
+ *
+ * Zero não se escreve. Uma fila de zeros nas horas da madrugada é ruído a competir com os
+ * números que interessam — e a ausência de barra já diz o mesmo.
+ *
+ * @param {number} total
+ * @param {number} altura a mesma percentagem que a barra usa
+ */
+function valorNoTopo(total, altura) {
+	if (!total) return '';
+	return `<b class="v" style="bottom:min(calc(${altura}% + 3px), calc(100% - 1em))">${total}</b>`;
+}
+
 /** @param {number} maximo */
 function tecto(maximo) {
 	if (maximo <= 5) return 5;
@@ -169,9 +198,10 @@ function colunas(horas) {
 					.map((t) => `${t.nome} ${horas[h][t.chave]}`)
 					.join(', ')}`
 			: `${h}h: nenhum pedido`;
+		const altura = total ? Math.max(1.5, (100 * total) / alto) : 0;
 		return `
     <div class="col${Number(agora) === h ? ' agora' : ''}" title="${esc(titulo)}">
-      <span class="pilha" style="height:${total ? Math.max(1.5, (100 * total) / alto) : 0}%">${segmentos}</span>
+      <span class="area">${valorNoTopo(total, altura)}<span class="pilha" style="height:${altura}%">${segmentos}</span></span>
       <span class="hh">${String(h).padStart(2, '0')}</span>
     </div>`;
 	}).join('');
@@ -233,9 +263,10 @@ function colunasEntradas(horas) {
 		const titulo = total
 			? `${h}h: ${total} ${total === 1 ? 'entrada' : 'entradas'}${n ? ` — ${n} pela primeira vez` : ''}`
 			: `${h}h: ninguém entrou`;
+		const altura = total ? Math.max(1.5, (100 * total) / alto) : 0;
 		return `
     <div class="col${agora === h ? ' agora' : ''}" title="${esc(titulo)}">
-      <span class="pilha" style="height:${total ? Math.max(1.5, (100 * total) / alto) : 0}%">${segmentos}</span>
+      <span class="area">${valorNoTopo(total, altura)}<span class="pilha" style="height:${altura}%">${segmentos}</span></span>
       <span class="hh">${String(h).padStart(2, '0')}</span>
     </div>`;
 	}).join('');
@@ -286,11 +317,14 @@ function colunasPorDia(dias, porDia, actual, ligar) {
 						`<i class="s" style="height:${(100 * porDia[d][t.chave]) / total}%;background:var(--t-${t.chave})" title="${esc(t.nome)}: ${porDia[d][t.chave]}"></i>`
 				)
 				.join('');
+			const altura = total ? Math.max(1.5, (100 * total) / alto) : 0;
+			// O total já era escrito aqui, mas **por baixo** da barra, ao lado do nome do dia.
+			// Passa para cima com os outros gráficos: dois sítios diferentes para a mesma coisa
+			// em dois gráficos lado a lado obrigava a reaprender cada um.
 			return `
     <a class="col${d === actual ? ' agora' : ''}" href="${ligar(d)}"
        title="${esc(semDados ? `${d}: anterior a este contador` : `${d}: ${total} pedidos — ver as horas deste dia`)}">
-      <span class="pilha" style="height:${total ? Math.max(1.5, (100 * total) / alto) : 0}%">${segmentos}</span>
-      <span class="hh">${semDados ? '—' : total}</span>
+      <span class="area">${semDados ? '<b class="v vazio">—</b>' : valorNoTopo(total, altura)}<span class="pilha" style="height:${altura}%">${segmentos}</span></span>
       <span class="hh">${diaCurto(d)}</span>
     </a>`;
 		})
@@ -640,6 +674,11 @@ export function pagina({
    .grafico:not(.dias) .col .hh { position:absolute; bottom:0; left:50%;
      transform:translateX(-50%); white-space:nowrap }
    .grafico:not(.dias) .col:not(:nth-child(3n+1)) .hh { display:none }
+   /* **Os números deitam-se.** Vinte e quatro colunas em 375 px dão ~13 px cada, e um número
+      de três dígitos precisa de 20 — ficavam uns por cima dos outros e nenhum se lia. De pé
+      não colidem nunca, custam ~14 px de altura ao gráfico, e lêem-se de baixo para cima. */
+   .grafico:not(.dias) .col .v { writing-mode:vertical-rl; transform:translateX(-50%) rotate(180deg);
+     transform-origin:center; font-size:.56rem }
    .comEixo { grid-template-columns:2rem 1fr; gap:4px }
    .eixo .marca { font-size:.6rem }
    /* a legenda em coluna: três pares lado a lado num telemóvel ficam com duas palavras por
@@ -718,6 +757,16 @@ export function pagina({
    position:relative }
  .col { flex:1; display:flex; flex-direction:column; justify-content:flex-end; align-items:center;
    height:100%; gap:4px; min-width:0 }
+ /* A área de desenho: tudo o que é medido em percentagem mede-se contra isto, e não contra
+    a coluna — que inclui a linha da hora por baixo. Era aí que os números caíam dentro das
+    barras em vez de assentarem no topo. */
+ .col .area { position:relative; flex:1 1 0; min-height:0; width:100%;
+   display:flex; align-items:flex-end }
+ /* o número por cima da barra. Em absoluto de propósito: ver a função que o monta */
+ .col .v { position:absolute; left:50%; transform:translateX(-50%); white-space:nowrap;
+   font-size:.6rem; font-weight:600; line-height:1; color:var(--texto2);
+   font-variant-numeric:tabular-nums; pointer-events:none; z-index:1 }
+ .col .v.vazio { color:var(--suave); font-weight:400 }
  .col .pilha { width:100%; display:flex; flex-direction:column-reverse; gap:2px;
    border-radius:4px 4px 0 0; overflow:hidden }
  .col .pilha i.s { display:block; width:100%; min-height:2px }
@@ -734,10 +783,9 @@ export function pagina({
  .grafico.dias { gap:8px }
  .grafico.dias .col { text-decoration:none; color:inherit }
  .grafico.dias .col:hover .pilha { outline:2px solid var(--borda); outline-offset:1px }
- .grafico.dias .col .hh:first-of-type { font-weight:600; color:var(--texto2) }
- .grafico.dias .col.agora .hh { color:var(--texto) }
- .grafico.dias .col.agora .hh:last-child { font-weight:700;
+ .grafico.dias .col.agora .hh { color:var(--texto); font-weight:700;
    box-shadow:inset 0 -2px 0 var(--texto2) }
+ .grafico.dias .col.agora .v { color:var(--texto) }
  .legenda { display:flex; flex-wrap:wrap; gap:4px 16px; margin-top:12px; font-size:.78rem }
  .legenda span { display:inline-flex; align-items:center; gap:6px; color:var(--texto2) }
  .legenda i { width:10px; height:10px; border-radius:3px; flex:0 0 auto }
