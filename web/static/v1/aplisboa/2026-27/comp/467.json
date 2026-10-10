@@ -90,8 +90,8 @@
    "hora": "11:00:00",
    "casa": "SPORTING CP",
    "fora": "CACO B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 4,
+   "golos_fora": 0,
    "recinto": "PAV.G.S.SACAVENENSE",
    "ao_vivo": false
   },
@@ -495,6 +495,20 @@
     },
     {
      "posicao": 3,
+     "equipa": "SPORTING CP",
+     "logo": null,
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 8,
+     "golos_sofridos": 6,
+     "diferenca": 2,
+     "racio": 1.33,
+     "pontos": 3
+    },
+    {
+     "posicao": 4,
      "equipa": "UD VILAFRANQUENSE",
      "logo": null,
      "jogos": 1,
@@ -506,20 +520,6 @@
      "diferenca": 2,
      "racio": 1.5,
      "pontos": 3
-    },
-    {
-     "posicao": 4,
-     "equipa": "SPORTING CP",
-     "logo": null,
-     "jogos": 1,
-     "vitorias": 0,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 4,
-     "golos_sofridos": 6,
-     "diferenca": -2,
-     "racio": 0.67,
-     "pontos": 0
     },
     {
      "posicao": 5,
@@ -539,14 +539,14 @@
      "posicao": 6,
      "equipa": "CACO B",
      "logo": null,
-     "jogos": 1,
+     "jogos": 2,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 1,
+     "derrotas": 2,
      "golos_marcados": 1,
-     "golos_sofridos": 17,
-     "diferenca": -16,
-     "racio": 0.06,
+     "golos_sofridos": 21,
+     "diferenca": -20,
+     "racio": 0.05,
      "pontos": 0
     }
    ]
