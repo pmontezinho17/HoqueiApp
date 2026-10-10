@@ -160,8 +160,8 @@
    "hora": "16:00:00",
    "casa": "AD OEIRAS B",
    "fora": "SPORTING CP B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 3,
+   "golos_fora": 2,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
   },
@@ -466,6 +466,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "AD OEIRAS B",
+     "logo": "/intranet/logos/6.png",
+     "jogos": 3,
+     "vitorias": 3,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 27,
+     "golos_sofridos": 4,
+     "diferenca": 23,
+     "racio": 6.75,
+     "pontos": 9
+    },
+    {
+     "posicao": 2,
      "equipa": "PAREDE FC B",
      "logo": "/intranet/logos/3.png",
      "jogos": 4,
@@ -479,31 +493,17 @@
      "pontos": 9
     },
     {
-     "posicao": 2,
-     "equipa": "AD OEIRAS B",
-     "logo": "/intranet/logos/6.png",
-     "jogos": 2,
-     "vitorias": 2,
-     "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 24,
-     "golos_sofridos": 2,
-     "diferenca": 22,
-     "racio": 12.0,
-     "pontos": 6
-    },
-    {
      "posicao": 3,
      "equipa": "SPORTING CP B",
      "logo": "/intranet/logos/2.png",
-     "jogos": 2,
+     "jogos": 3,
      "vitorias": 2,
      "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 15,
-     "golos_sofridos": 1,
-     "diferenca": 14,
-     "racio": 15.0,
+     "derrotas": 1,
+     "golos_marcados": 17,
+     "golos_sofridos": 4,
+     "diferenca": 13,
+     "racio": 4.25,
      "pontos": 6
     },
     {
