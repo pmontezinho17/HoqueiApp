@@ -33,8 +33,21 @@
    "equipa": "HC SINTRA",
    "jogos": 3,
    "numero": "8",
-   "golos": 8,
+   "golos": 11,
    "assistencias": 0,
+   "defesas": 0,
+   "pontos": 11,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VASCO SANCHES",
+   "equipa": "AE FISICA D A",
+   "jogos": 2,
+   "numero": "2",
+   "golos": 7,
+   "assistencias": 1,
    "defesas": 0,
    "pontos": 8,
    "amarelos": 0,
@@ -61,19 +74,6 @@
    "numero": "39",
    "golos": 7,
    "assistencias": 0,
-   "defesas": 0,
-   "pontos": 7,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "VASCO SANCHES",
-   "equipa": "AE FISICA D A",
-   "jogos": 2,
-   "numero": "2",
-   "golos": 6,
-   "assistencias": 1,
    "defesas": 0,
    "pontos": 7,
    "amarelos": 0,
@@ -146,6 +146,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MANUEL MARTINHO",
+   "equipa": "AE FISICA D A",
+   "jogos": 1,
+   "numero": "5",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "SARA DIAS",
    "equipa": "A STUART HCM",
    "jogos": 2,
@@ -185,10 +198,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MATEUS TEIXEIRA",
-   "equipa": "AD OEIRAS A",
+   "nome": "MATEUS GOMES",
+   "equipa": "FSE/AJ SALESIANA",
    "jogos": 3,
-   "numero": "3",
+   "numero": "6",
    "golos": 4,
    "assistencias": 0,
    "defesas": 0,
@@ -198,14 +211,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "MANUEL MARTINHO",
-   "equipa": "AE FISICA D A",
-   "jogos": 1,
-   "numero": "5",
-   "golos": 3,
+   "nome": "MATEUS TEIXEIRA",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "numero": "3",
+   "golos": 4,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 3,
+   "pontos": 4,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -237,9 +250,35 @@
    "vermelhos": 0
   },
   {
+   "nome": "VICENTE BARROS",
+   "equipa": "A STUART HCM",
+   "jogos": 3,
+   "numero": "80",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "LEIGH XAVIER",
    "equipa": "SC TORRES",
    "jogos": 1,
+   "numero": "5",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DINIS ALVES",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
    "numero": "5",
    "golos": 2,
    "assistencias": 0,
@@ -302,6 +341,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DINIS COSTA",
+   "equipa": "A STUART HCM",
+   "jogos": 1,
+   "numero": "21",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "FRANCISCO FORMIGA",
    "equipa": "A STUART HCM",
    "jogos": 3,
@@ -341,10 +393,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DINIS ALVES",
+   "nome": "ANTÓNIO GONÇALVES",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 2,
-   "numero": "5",
+   "numero": "3",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -406,6 +458,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DUARTE MARQUES",
+   "equipa": "HC SINTRA",
+   "jogos": 3,
+   "numero": "3",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MARIANA GOARMON",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 3,
@@ -458,19 +523,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "VICENTE BARROS",
-   "equipa": "A STUART HCM",
-   "jogos": 3,
-   "numero": "80",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "VICENTE SERRANO",
    "equipa": "SC TORRES",
    "jogos": 3,
@@ -514,19 +566,6 @@
    "equipa": "HC SINTRA",
    "jogos": 1,
    "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DINIS COSTA",
-   "equipa": "A STUART HCM",
-   "jogos": 1,
-   "numero": "21",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -618,19 +657,6 @@
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 2,
    "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ANTÓNIO GONÇALVES",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 2,
-   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -887,19 +913,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE MARQUES",
-   "equipa": "HC SINTRA",
-   "jogos": 3,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "EMANUEL VAZ",
    "equipa": "A STUART HCM",
    "jogos": 3,
@@ -969,19 +982,6 @@
    "equipa": "AD OEIRAS A",
    "jogos": 3,
    "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MATEUS GOMES",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 3,
-   "numero": "6",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

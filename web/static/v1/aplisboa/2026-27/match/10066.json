@@ -3,9 +3,9 @@
  "competicao": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE C",
  "casa": "PAREDE FC",
  "fora": "APAC TOJAL",
- "golos_casa": 6,
- "golos_fora": 6,
- "estado": null,
+ "golos_casa": 9,
+ "golos_fora": 11,
+ "estado": "Jogo Terminado",
  "data": "2026-10-10",
  "hora": "14:30:00",
  "recinto": "PAV. PAREDE",
@@ -16,9 +16,9 @@
   0,
   4
  ],
- "situacao": "4ª Parte (6:33)",
- "periodo": "4ª Parte",
- "relogio": "6:33",
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "PAREDE FC",
@@ -26,7 +26,7 @@
     {
      "numero": "1",
      "nome": "BENEDICT KOHLER",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -54,7 +54,7 @@
     {
      "numero": "3",
      "nome": "BERNADO TEIXEIRA",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -68,7 +68,7 @@
     {
      "numero": "4",
      "nome": "INÊS MENDES",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -110,7 +110,7 @@
     {
      "numero": "7",
      "nome": "ANTONIO ROSA",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -124,8 +124,8 @@
     {
      "numero": "8",
      "nome": "INÊS QUEIRÓS",
-     "titular": false,
-     "golos": 4,
+     "titular": true,
+     "golos": 7,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -241,7 +241,7 @@
     {
      "numero": "7",
      "nome": "LOURENÇO COSTA",
-     "titular": false,
+     "titular": true,
      "golos": 1,
      "assistencias": 0,
      "defesas": 0,
@@ -255,7 +255,7 @@
     {
      "numero": "8",
      "nome": "LOURENÇO FRANCISCO",
-     "titular": false,
+     "titular": true,
      "golos": 2,
      "assistencias": 0,
      "defesas": 0,
@@ -269,7 +269,7 @@
     {
      "numero": "9",
      "nome": "DIOGO SANTOS",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -283,7 +283,7 @@
     {
      "numero": "10",
      "nome": "FRANCISCO MIRANDA",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -312,7 +312,7 @@
      "numero": "27",
      "nome": "LEONOR FERNANDES",
      "titular": false,
-     "golos": 1,
+     "golos": 5,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -326,7 +326,7 @@
      "numero": "28",
      "nome": "ISABELLA ALVES",
      "titular": false,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -339,7 +339,7 @@
     {
      "numero": "67",
      "nome": "MARIANA CAMPOS",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -740,9 +740,187 @@
    "golos_casa": 6,
    "golos_fora": 6,
    "texto": "Golo para PAREDE FC | INÊS QUEIRÓS"
+  },
+  {
+   "ordem": 23,
+   "tipo": "golo",
+   "relogio": "5:32",
+   "parte": 4,
+   "minuto": 26,
+   "equipa": "APAC TOJAL",
+   "jogador": "LEONOR FERNANDES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 6,
+   "golos_fora": 7,
+   "texto": "Golo para APAC TOJAL | LEONOR FERNANDES"
+  },
+  {
+   "ordem": 24,
+   "tipo": "golo",
+   "relogio": "5:22",
+   "parte": 4,
+   "minuto": 26,
+   "equipa": "APAC TOJAL",
+   "jogador": "LEONOR FERNANDES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 6,
+   "golos_fora": 8,
+   "texto": "Golo para APAC TOJAL | LEONOR FERNANDES"
+  },
+  {
+   "ordem": 25,
+   "tipo": "golo",
+   "relogio": "2:52",
+   "parte": 4,
+   "minuto": 29,
+   "equipa": "PAREDE FC",
+   "jogador": "INÊS QUEIRÓS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 7,
+   "golos_fora": 8,
+   "texto": "Golo para PAREDE FC | INÊS QUEIRÓS"
+  },
+  {
+   "ordem": 26,
+   "tipo": "golo",
+   "relogio": "2:33",
+   "parte": 4,
+   "minuto": 29,
+   "equipa": "PAREDE FC",
+   "jogador": "INÊS QUEIRÓS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 8,
+   "golos_fora": 8,
+   "texto": "Golo para PAREDE FC | INÊS QUEIRÓS"
+  },
+  {
+   "ordem": 27,
+   "tipo": "golo",
+   "relogio": "2:04",
+   "parte": 4,
+   "minuto": 29,
+   "equipa": "PAREDE FC",
+   "jogador": "INÊS QUEIRÓS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 9,
+   "golos_fora": 8,
+   "texto": "Golo para PAREDE FC | INÊS QUEIRÓS"
+  },
+  {
+   "ordem": 28,
+   "tipo": "golo",
+   "relogio": "1:30",
+   "parte": 4,
+   "minuto": 30,
+   "equipa": "APAC TOJAL",
+   "jogador": "ISABELLA ALVES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 9,
+   "golos_fora": 9,
+   "texto": "Golo para APAC TOJAL | ISABELLA ALVES"
+  },
+  {
+   "ordem": 29,
+   "tipo": "golo",
+   "relogio": "1:22",
+   "parte": 4,
+   "minuto": 30,
+   "equipa": "APAC TOJAL",
+   "jogador": "LEONOR FERNANDES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 9,
+   "golos_fora": 10,
+   "texto": "Golo para APAC TOJAL | LEONOR FERNANDES"
+  },
+  {
+   "ordem": 30,
+   "tipo": "golo",
+   "relogio": "0:31",
+   "parte": 4,
+   "minuto": 31,
+   "equipa": "APAC TOJAL",
+   "jogador": "LEONOR FERNANDES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 9,
+   "golos_fora": 11,
+   "texto": "Golo para APAC TOJAL | LEONOR FERNANDES"
+  },
+  {
+   "ordem": 31,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 4,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "BRUNO ESTEVES",
+   "Árbitro Auxiliar": "ANDREIA RIBEIRO",
+   "Cronometrista": "TANIA SANTOS SILVA",
+   "Diretor de campo": "DIOGO SOUSA",
+   "Gestor de segurança": "DAVID PINTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 4
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 6,
+    "fora": 7
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 9,
+    "fora": 11
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   4,
+   0
+  ],
+  "inicio": [
+   "14:30",
+   "14:57"
+  ],
+  "termo": [
+   "14:52",
+   "15:23"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
  "competicao_id": 467,
  "categoria": "BENJAMINS",
  "jornada": "2ª JORNADA",

@@ -133,7 +133,7 @@
    "casa": "CD MAFRA",
    "fora": "FSE/AJ SALESIANA",
    "golos_casa": 0,
-   "golos_fora": 6,
+   "golos_fora": 11,
    "recinto": "PAV. MAFRA",
    "ao_vivo": false
   },
@@ -160,7 +160,7 @@
    "hora": "15:00:00",
    "casa": "SPORTING CP A",
    "fora": "A STUART HCM",
-   "golos_casa": 2,
+   "golos_casa": 7,
    "golos_fora": 0,
    "recinto": "PAV.G.S.SACAVENENSE",
    "ao_vivo": false
@@ -472,9 +472,9 @@
      "vitorias": 3,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 19,
+     "golos_marcados": 24,
      "golos_sofridos": 0,
-     "diferenca": 19,
+     "diferenca": 24,
      "racio": null,
      "pontos": 9
     },
@@ -494,6 +494,20 @@
     },
     {
      "posicao": 3,
+     "equipa": "FSE/AJ SALESIANA",
+     "logo": "/intranet/logos/9.png",
+     "jogos": 3,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 14,
+     "golos_sofridos": 10,
+     "diferenca": 4,
+     "racio": 1.4,
+     "pontos": 3
+    },
+    {
+     "posicao": 4,
      "equipa": "AE FISICA D A",
      "logo": "/intranet/logos/11.png",
      "jogos": 2,
@@ -507,20 +521,6 @@
      "pontos": 3
     },
     {
-     "posicao": 4,
-     "equipa": "FSE/AJ SALESIANA",
-     "logo": "/intranet/logos/9.png",
-     "jogos": 3,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 2,
-     "golos_marcados": 9,
-     "golos_sofridos": 10,
-     "diferenca": -1,
-     "racio": 0.9,
-     "pontos": 3
-    },
-    {
      "posicao": 5,
      "equipa": "A STUART HCM",
      "logo": "/intranet/logos/10.png",
@@ -529,9 +529,9 @@
      "empates": 0,
      "derrotas": 3,
      "golos_marcados": 10,
-     "golos_sofridos": 19,
-     "diferenca": -9,
-     "racio": 0.53,
+     "golos_sofridos": 24,
+     "diferenca": -14,
+     "racio": 0.42,
      "pontos": 3
     },
     {
@@ -543,8 +543,8 @@
      "empates": 0,
      "derrotas": 3,
      "golos_marcados": 1,
-     "golos_sofridos": 30,
-     "diferenca": -29,
+     "golos_sofridos": 35,
+     "diferenca": -34,
      "racio": 0.03,
      "pontos": 0
     }

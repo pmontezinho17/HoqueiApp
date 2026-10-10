@@ -99,8 +99,8 @@
    "hora": "16:30:00",
    "casa": "HC LOURINHÃ",
    "fora": "CRIAR-T GD",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 0,
    "recinto": "PAV. GIMNO. DA LOURINHÃ",
    "ao_vivo": false
   },
@@ -349,6 +349,20 @@
     },
     {
      "posicao": 3,
+     "equipa": "HC LOURINHÃ",
+     "logo": "/intranet/logos/21.png",
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 3,
+     "golos_sofridos": 4,
+     "diferenca": -1,
+     "racio": 0.75,
+     "pontos": 3
+    },
+    {
+     "posicao": 4,
      "equipa": "S ALENQUER BENFICA",
      "logo": "/intranet/logos/5.png",
      "jogos": 2,
@@ -362,31 +376,17 @@
      "pontos": 3
     },
     {
-     "posicao": 4,
-     "equipa": "HC LOURINHÃ",
-     "logo": "/intranet/logos/21.png",
-     "jogos": 1,
-     "vitorias": 0,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 1,
-     "golos_sofridos": 4,
-     "diferenca": -3,
-     "racio": 0.25,
-     "pontos": 0
-    },
-    {
      "posicao": 5,
      "equipa": "CRIAR-T GD",
      "logo": "/intranet/logos/17.png",
-     "jogos": 2,
+     "jogos": 3,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 2,
+     "derrotas": 3,
      "golos_marcados": 1,
-     "golos_sofridos": 17,
-     "diferenca": -16,
-     "racio": 0.06,
+     "golos_sofridos": 19,
+     "diferenca": -18,
+     "racio": 0.05,
      "pontos": 0
     }
    ]

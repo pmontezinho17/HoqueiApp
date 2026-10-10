@@ -462,8 +462,8 @@
    "hora": "16:15:00",
    "casa": "SL BENFICA",
    "fora": "GRF MURCHES",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 3,
+   "golos_fora": 0,
    "recinto": "PAV. PAREDE",
    "ao_vivo": false
   },
