@@ -187,6 +187,52 @@ export function oQueFazerNoRamo(pedido, chaveBoa) {
 }
 
 /**
+ * O nome do ramo, para a tabela. `testes.hoquei.pages.dev` → `testes`.
+ *
+ * Cortado aos 40 caracteres porque isto entra numa chave primária e vem de um anfitrião, que
+ * é entrada de fora: um `Host` inventado não deve poder escrever uma chave de 2 KB.
+ *
+ * @param {string} anfitriao
+ */
+export function ramoDe(anfitriao) {
+	return (anfitriao ?? '').toLowerCase().split('.')[0].slice(0, 40) || 'desconhecido';
+}
+
+/**
+ * Conta quem bateu à porta de um site de ramo (`porta` no `esquema.sql`).
+ *
+ * `aviso` são estranhos a ver a porta; `entrou` é o dono a usar a chave. Separados porque não
+ * se podem somar: sem isso, as visitas do próprio a testar apareciam como pessoas perdidas.
+ *
+ * Em `waitUntil` e dentro de um `try`: isto corre **depois** da página ter sido servida, e uma
+ * contagem perdida não vale um ecrã em branco a quem já se enganou no endereço uma vez.
+ *
+ * @param {{ env: { DADOS?: import("@cloudflare/workers-types").D1Database },
+ *           waitUntil: (p: Promise<unknown>) => void }} contexto
+ * @param {string} ramo
+ * @param {'aviso' | 'entrou'} evento
+ */
+function contarNaPorta({ env, waitUntil }, ramo, evento) {
+	const bd = env?.DADOS;
+	if (!bd) return;        // sem ligação no ambiente de Preview: a porta funciona sem contar
+	waitUntil(
+		(async () => {
+			try {
+				await bd
+					.prepare(
+						`INSERT INTO porta (dia, ramo, evento, n) VALUES (?, ?, ?, 1)
+						 ON CONFLICT (dia, ramo, evento) DO UPDATE SET n = n + 1`
+					)
+					.bind(diaDeLisboa(), ramo, evento)
+					.run();
+			} catch {
+				/* ver acima: a página já foi servida */
+			}
+		})()
+	);
+}
+
+/**
  * @param {Request} pedido
  * @param {{ errada?: boolean, semChave?: boolean }} opcoes
  */
@@ -213,7 +259,12 @@ export async function onRequest(contexto) {
 	const { request, env, next, waitUntil } = contexto;
 
 	if (ehSiteDeRamo(new URL(request.url).hostname)) {
-		switch (oQueFazerNoRamo(request, env?.CHAVE_TESTES)) {
+		const ramo = ramoDe(new URL(request.url).hostname);
+		const decisao = oQueFazerNoRamo(request, env?.CHAVE_TESTES);
+		if (decisao !== 'passa') {
+			contarNaPorta(contexto, ramo, decisao === 'entra' ? 'entrou' : 'aviso');
+		}
+		switch (decisao) {
 			case 'entra': {
 				// A chave vai uma vez no endereço e volta como cookie, para não ficar na barra
 				// nem no histórico. `HttpOnly` porque nenhum script precisa de a ler.
@@ -241,8 +292,11 @@ export async function onRequest(contexto) {
 			case 'porta-sem-chave':
 				return respostaDaPorta(request, { semChave: true });
 		}
-		// 'passa' — e o contador fica de fora na mesma, que é o que o `ramo.yml` promete:
-		// o tráfego de testes não entra nas contagens reais.
+		// 'passa' — e daqui sai-se **sem** passar pelo contador do `visita`, que é o que o
+		// `ramo.yml` promete: o tráfego de testes não entra nas contagens reais. Até
+		// 10/10/2026 essa promessa era garantida por não haver ligação à base de dados neste
+		// ambiente; agora a ligação existe, para a tabela `porta`, e quem a garante é esta
+		// linha. Há um teste só para ela.
 		return next();
 	}
 
