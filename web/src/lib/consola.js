@@ -600,6 +600,16 @@ export function pagina({
  .grupo a[aria-current], .grupo button[aria-pressed="true"] { background:var(--borda2);
    color:var(--texto); font-weight:600 }
  .filtros .espaco { flex:1 }
+ #acoes button { color:var(--texto) }
+ #acoes button[disabled] { opacity:.5; cursor:progress }
+ /* o resultado de uma acção aparece ao lado dela e não numa caixa de alerta do browser:
+    essa obriga a carregar em OK antes de se poder ver o que mudou na página */
+ /* linha própria, sempre: em linha com os grupos, o resultado empurrava o do tema para o
+    meio da barra e a barra mudava de forma a cada acção */
+ .resultado { flex:0 0 100%; font-size:.74rem; color:var(--texto2);
+   max-width:70ch; line-height:1.4; margin:-4px 0 0 }
+ .resultado:empty { display:none }
+ .resultado.mal { color:var(--mal) }
 
  /* ── O telemóvel ──────────────────────────────────────────────────────────────────────
     A consola é para um ecrã de PC, por decisão do dono, e não vai ser redesenhada para o
@@ -785,6 +795,11 @@ export function pagina({
 		.join('')}
   </div>
   <span class="espaco"></span>
+  <!-- As acções: o que o dono pode fazer sozinho sem pedir a ninguém. -->
+  <div class="grupo" id="acoes" data-chave="${esc(chave ?? '')}">
+    <button type="button" data-acao="observar" title="Pede ao observador uma leitura agora">ler agora</button>
+    <button type="button" data-acao="ensaio" title="Abre e fecha uma issue de teste, para provar que o email chega">ensaiar o aviso</button>
+  </div>
   <div class="grupo" id="tema">
     <button type="button" data-tema="sistema">sistema</button>
     <button type="button" data-tema="claro">claro</button>
@@ -1034,6 +1049,47 @@ export function pagina({
 <script>
  // O tema, guardado neste browser. Sem isto, a consola seguia só o sistema — e quem quer o
  // escuro num PC claro não tinha como.
+ // As acções. Cada uma é um pedido à própria consola, que faz a ponte para o observador —
+ // assim o endereço do Worker não precisa de aparecer no browser.
+ (function () {
+   var caixa = document.getElementById('acoes');
+   if (!caixa) return;
+   var saida = document.createElement('span');
+   saida.className = 'resultado';
+   caixa.parentNode.insertBefore(saida, caixa.nextSibling);
+
+   caixa.addEventListener('click', function (e) {
+     var b = e.target;
+     if (!b || !b.dataset || !b.dataset.acao) return;
+     var chave = caixa.dataset.chave || '';
+     var botoes = caixa.querySelectorAll('button');
+     for (var i = 0; i < botoes.length; i++) botoes[i].disabled = true;
+     saida.className = 'resultado';
+     saida.textContent = 'a pedir…';
+
+     fetch('?acao=' + b.dataset.acao + (chave ? '&chave=' + encodeURIComponent(chave) : ''), {
+       cache: 'no-store'
+     })
+       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+       .then(function (d) {
+         // o que se mostra é a frase do próprio observador, e não uma inventada aqui: se ele
+         // disser que falta uma permissão, é isso que se lê
+         saida.textContent = d.j.leia_se || d.j.porque || d.j.erro ||
+           ('leitura feita — ' + (d.j.eventos != null ? d.j.eventos + ' eventos' : 'sem novidade'));
+         if (!d.ok || d.j.ok === false) saida.className = 'resultado mal';
+         // uma leitura nova muda os números da página: recarrega-se para os mostrar
+         if (d.ok && b.dataset.acao === 'observar') setTimeout(function () { location.reload(); }, 1200);
+       })
+       .catch(function (err) {
+         saida.className = 'resultado mal';
+         saida.textContent = String(err).slice(0, 120);
+       })
+       .then(function () {
+         for (var i = 0; i < botoes.length; i++) botoes[i].disabled = false;
+       });
+   });
+ })();
+
  // O que está escolhido tem de nascer à vista: num telemóvel estas barras rolam, e abrir a
  // consola num dia passado deixava-o fora do ecrã, à direita do que se via.
  //

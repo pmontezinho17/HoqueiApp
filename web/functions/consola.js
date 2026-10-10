@@ -153,6 +153,39 @@ export async function onRequestGet({ request, env }) {
 		return porta(true);
 	}
 
+	// ── As acções ─────────────────────────────────────────────────────────────────────────
+	//
+	// **A consola deixa de ser só de leitura.** O dono pediu-o a 10/10/2026, e a razão dele é
+	// a certa: *"não quero estar sempre dependente de ti para tirar screenshots e enviar-te
+	// para depois analisares e corrigires"*. Duas coisas que ele pode fazer sozinho:
+	//
+	// * **forçar uma leitura** — resolve a avaria que já aconteceu duas vezes, um relógio que
+	//   não acorda o observador;
+	// * **ensaiar o aviso** — percorre a cadeia inteira até ao email, que é a única forma de
+	//   saber que ela está de pé. Aprendido à força: falhou em três pontos diferentes em dois
+	//   dias, e cada um deles só apareceu a percorrer o caminho até ao fim.
+	//
+	// Atrás da mesma chave que o resto, e com a Function a servir de ponte: assim o endereço
+	// do Worker continua fora do browser.
+	const acao = url.searchParams.get('acao');
+	if (acao === 'observar' || acao === 'ensaio') {
+		const caminho = acao === 'observar' ? '/observar' : '/verificar-aviso';
+		try {
+			const r = await fetch(`${env.OBSERVADOR ?? OBSERVADOR}${caminho}`, {
+				headers: { 'Cache-Control': 'no-cache' }
+			});
+			return new Response(await r.text(), {
+				status: r.ok ? 200 : 502,
+				headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' }
+			});
+		} catch (e) {
+			return new Response(JSON.stringify({ ok: false, erro: String(e).slice(0, 200) }), {
+				status: 502,
+				headers: { 'Content-Type': 'application/json; charset=utf-8' }
+			});
+		}
+	}
+
 	const dia = url.searchParams.get('dia');
 	const api = `${env.OBSERVADOR ?? OBSERVADOR}/api${dia ? `?dia=${encodeURIComponent(dia)}` : ''}`;
 
