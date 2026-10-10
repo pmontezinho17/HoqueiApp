@@ -1070,6 +1070,85 @@ cd worker/observador && npx wrangler secret put GITHUB_TOKEN
 
 Enquanto não existir, a consola di-lo em vez de dizer só "não foi possível".
 
+## Quem vigia o vigia, e a terceira falha da cadeia de aviso (10/10/2026)
+
+O dono fez a pergunta que fecha isto: *"há alguma forma de colocar uma acção nesta consola
+para tentar ultrapassar e corrigir este tipo de situações? Não quero estar sempre dependente de
+ti para tirar screenshots e enviar-te"*.
+
+Tem razão, e a resposta tem duas metades. A segunda são botões; a primeira é mais importante.
+
+### Porque é que o relógio não chegava: um Worker não chama outro por `workers.dev`
+
+O relógio **disparou** às 07:20 — vê-se no `wrangler tail`, com o `cron */10 6-22` e
+`outcome ok`. O que falhou foi o ping: **HTTP 404**.
+
+Medido para excluir as hipóteses fáceis: o mesmo endereço responde **200** a um `curl` de
+fora, a variável estava no Worker, e o próprio `/observar` do relógio responde 200 — logo não
+era um ciclo nem um endereço errado. É a Cloudflare a não encaminhar pedidos de um Worker para
+outro por essa via.
+
+Passou a **ligação de serviço**, que é o caminho suportado e o que a boa prática manda. Mais
+barato, além de funcionar: o pedido não sai para a internet e não depende de o subdomínio
+público existir — o que importa, porque está em aberto desligá-lo (B9.27). Verificado: o pulso
+mexeu de `07:21:20` para `07:30:43` sozinho.
+
+### A vigia: corrige primeiro, avisa depois
+
+`.github/workflows/vigia.yml`, de quinze em quinze minutos nas horas de jogos. Lê o
+`actualizado` do `/api`; se tiver mais de 20 minutos, **toca no `/observar` para corrigir** e
+só depois de isso não chegar é que abre a issue.
+
+**Vive fora da Cloudflare de propósito.** Os `cron` dos Workers foram precisamente o que
+falhou, e o agendador da GitHub é o que se vê a disparar neste repositório há dias. Se os dois
+caírem ao mesmo tempo não há nada a fazer — mas deixam de ser a mesma falha.
+
+O limiar de 20 minutos são duas firadas perdidas do relógio, e dá folga ao atraso de cinco
+minutos do agendador da GitHub.
+
+### A terceira falha da cadeia de aviso, e é a mais instrutiva
+
+Ao ensaiar a vigia: **`could not add label: 'vigia' not found`**. O `gh issue create --label`
+não cria a etiqueta — recusa, e a corrida falha por inteiro.
+
+E o mesmo defeito estava escondido no `aviso.yml` **desde ontem**. O ensaio que eu dei por
+provado usou a etiqueta `teste`, que já existia de uma chamada anterior à API; o aviso a sério
+usa `cadeia`, e essa **não existia no repositório**. O primeiro vermelho a sério teria falhado
+— e eu tinha escrito aqui, com números, que a cadeia estava fechada de ponta a ponta.
+
+São **três pontos diferentes em dois dias**, todos invisíveis até alguém percorrer o caminho
+até ao fim:
+
+| | o que faltava | como se descobriu |
+|---|---|---|
+| 1 | o `GITHUB_TOKEN` no Worker | a ler o registo e encontrar `sem token` |
+| 2 | o autor não podia ser o dono | a perguntar quem era o autor da issue |
+| 3 | a etiqueta `cadeia` não existia | a ensaiar **outra** coisa |
+
+**A lição não é a etiqueta.** É que um ensaio que não é idêntico ao caminho real não prova o
+caminho real — o meu usou outra etiqueta e por isso passou por cima do defeito. A vigia ganhou
+um modo de ensaio que percorre tudo e só muda o título, e os dois workflows criam agora as
+etiquetas de que precisam antes de as usarem.
+
+### E os botões
+
+Dois, na barra da consola, atrás da mesma chave:
+
+* **ler agora** — resolve a avaria que já aconteceu duas vezes. Depois de ler, a página
+  recarrega-se para mostrar os números novos;
+* **ensaiar o aviso** — percorre a cadeia inteira até ao email.
+
+A Function serve de ponte para o Worker, para o endereço dele não aparecer no browser. E o que
+se mostra é a frase do próprio observador e não uma inventada na página: se ele disser que
+falta uma permissão, é isso que se lê.
+
+### O que fica em aberto
+
+A causa dos `cron` do observador continua desconhecida. O candidato é o limite de **5 cron
+triggers por conta** no plano gratuito; o `wrangler` não lista os Workers da conta e isso
+vê-se no painel. Com a vigia e os três relógios — relógio, ciclo ao vivo e a própria vigia —
+deixou de ser urgente, mas continua a ser uma coisa que não se entende.
+
 ## À meia-noite, o contador somava o dia de ontem ao de hoje (10/10/2026)
 
 O dono abriu a consola às 06:50 e perguntou porque é que o gráfico dizia **310 pedidos hoje**,
