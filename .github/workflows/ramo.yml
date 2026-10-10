@@ -27,6 +27,18 @@ name: Site de um ramo
 # O contador de utilização fica **calado** aqui, e também é de propósito: a ligação ao KV
 # está no ambiente de *Production* do projecto, e o middleware foi escrito para ser um
 # `next()` quando não a encontra. Assim o tráfego de testes não entra nas contagens reais.
+#
+# ## Estes sites estão trancados desde 10/10/2026
+#
+# Aquele "algumas horas atrás" era uma limitação conhecida e passou a ser um problema no dia
+# em que o endereço do ramo `testes` foi partilhado por engano em vez do de produção. Com 36
+# jogos a decorrer, quem seguiu o link via dados de 26 horas antes e nem um resultado do dia.
+#
+# Agora qualquer navegação a um `*.hoquei.pages.dev` que não seja o site a sério apanha a
+# porta do `web/functions/_middleware.js`: uma página que diz onde é o site verdadeiro, com um
+# botão, e que só deixa passar quem escreva a `CHAVE_TESTES`. **Esse segredo define-se no
+# ambiente `Preview` do projecto, no painel da Cloudflare** — sem ele a porta não deixa entrar
+# ninguém, de propósito. O raciocínio todo está em `docs/03-backlog.md`.
 
 on:
   push:
