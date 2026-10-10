@@ -187,6 +187,19 @@ export function oQueFazerNoRamo(pedido, chaveBoa) {
 }
 
 /**
+ * O que **não** é uma pessoa a abrir o site.
+ *
+ * O número que o dono quer saber é "quantas pessoas ainda batem no endereço errado", e uma
+ * contagem que inclua as verificações feitas com `curl` responde outra pergunta. Já me
+ * aconteceu: as seis chamadas que fiz a confirmar que a porta estava de pé teriam entrado
+ * no total, e o número diria "ainda há gente" quando era eu.
+ *
+ * Deliberadamente curto. Não é segurança — ninguém está a tentar inflar isto — é só tirar do
+ * caminho o que de certeza não é um telemóvel.
+ */
+const NAO_E_GENTE = /curl|wget|bot\b|crawler|spider|headless|python-|node-fetch|monitor/i;
+
+/**
  * O nome do ramo, para a tabela. `testes.hoquei.pages.dev` → `testes`.
  *
  * Cortado aos 40 caracteres porque isto entra numa chave primária e vem de um anfitrião, que
@@ -212,9 +225,10 @@ export function ramoDe(anfitriao) {
  * @param {string} ramo
  * @param {'aviso' | 'entrou'} evento
  */
-function contarNaPorta({ env, waitUntil }, ramo, evento) {
+function contarNaPorta({ env, waitUntil }, ramo, evento, agente = '') {
 	const bd = env?.DADOS;
 	if (!bd) return;        // sem ligação no ambiente de Preview: a porta funciona sem contar
+	if (!agente || NAO_E_GENTE.test(agente)) return;
 	waitUntil(
 		(async () => {
 			try {
@@ -262,7 +276,12 @@ export async function onRequest(contexto) {
 		const ramo = ramoDe(new URL(request.url).hostname);
 		const decisao = oQueFazerNoRamo(request, env?.CHAVE_TESTES);
 		if (decisao !== 'passa') {
-			contarNaPorta(contexto, ramo, decisao === 'entra' ? 'entrou' : 'aviso');
+			contarNaPorta(
+				contexto,
+				ramo,
+				decisao === 'entra' ? 'entrou' : 'aviso',
+				request.headers.get('User-Agent') ?? ''
+			);
 		}
 		switch (decisao) {
 			case 'entra': {
