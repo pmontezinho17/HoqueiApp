@@ -47,7 +47,33 @@ export class NaoPublicado extends Error {
 	}
 }
 
-async function json<T>(caminho: string, fetchFn: typeof fetch, opcoes?: RequestInit): Promise<T> {
+/**
+ * Lê um ficheiro de dados, com o caminho **relativo à raiz do `/v1`** — `/merito/461.json`.
+ *
+ * Num site de ramo tenta primeiro em produção, que é o que o torna fresco, e **cai para a
+ * cópia local quando produção não tem o ficheiro**. Essa segunda tentativa não é defensiva:
+ * é o caso normal de um ambiente de testes. O site de testes leva código novo, e código novo
+ * traz ficheiros novos — os do Mérito da Formação existiam lá dias antes de existirem em
+ * produção.
+ *
+ * Sem ela, a 10/10/2026, o separador da classificação dos Escolares ficou **vazio**: o site
+ * de testes pedia o Mérito a produção, produção devolvia a página de fallback, e a tabela de
+ * vitórias que antes preenchia aquele espaço já tinha sido removida no mesmo dia. Duas
+ * mudanças minhas a cruzarem-se.
+ */
+async function json<T>(sufixo: string, fetchFn: typeof fetch, opcoes?: RequestInit): Promise<T> {
+	try {
+		return await pedir<T>(`${base()}${sufixo}`, fetchFn, opcoes);
+	} catch (e) {
+		const local = `${CAMINHO}${sufixo}`;
+		if (e instanceof NaoPublicado && base() !== CAMINHO) {
+			return pedir<T>(local, fetchFn, opcoes);
+		}
+		throw e;
+	}
+}
+
+async function pedir<T>(caminho: string, fetchFn: typeof fetch, opcoes?: RequestInit): Promise<T> {
 	const r = await fetchFn(caminho, opcoes);
 	if (r.status === 404) throw new NaoPublicado(caminho);
 	if (!r.ok) throw new Error(`${r.status} ao carregar ${caminho}`);
@@ -64,14 +90,14 @@ async function json<T>(caminho: string, fetchFn: typeof fetch, opcoes?: RequestI
 }
 
 export const carregarIndice = (f: typeof fetch) =>
-	json<IndiceCompeticoes>(`${base()}/competitions.json`, f);
+	json<IndiceCompeticoes>(`/competitions.json`, f);
 
 /** Moradas dos recintos: a fonte só publica o nome, que não geocodifica. */
 export const carregarRecintos = (f: typeof fetch) =>
-	json<{ recintos: Record<string, string> }>(`${base()}/recintos.json`, f);
+	json<{ recintos: Record<string, string> }>(`/recintos.json`, f);
 
 export const carregarCompeticao = (id: number, f: typeof fetch) =>
-	json<FicheiroCompeticao>(`${base()}/comp/${id}.json`, f);
+	json<FicheiroCompeticao>(`/comp/${id}.json`, f);
 
 /**
  * A ficha de um jogo. Com `aoVivo`, salta **todas** as caches.
@@ -85,21 +111,21 @@ export const carregarJogo = (id: number, f: typeof fetch, aoVivo = false) =>
 	// `no-cache` revalida sempre com o servidor, mas mantém o mesmo URL — ao contrário de
 	// um `?v=` por pedido, que encheria a cache do service worker com uma entrada nova de
 	// 30 em 30 segundos durante um jogo.
-	json<FichaJogo>(`${base()}/match/${id}.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);
+	json<FichaJogo>(`/match/${id}.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);
 
 export const carregarQuadro = (comp: number, f: typeof fetch) =>
-	json<Quadro>(`${base()}/scorers/${comp}.json`, f);
+	json<Quadro>(`/scorers/${comp}.json`, f);
 
 /**
  * A tabela de Mérito da Formação de uma prova. Só existe nos Encontros Distritais de
  * Escolares e Benjamins — em todas as outras dá `NaoPublicado`, e isso não é um erro.
  */
 export const carregarMerito = (comp: number, f: typeof fetch) =>
-	json<FicheiroMerito>(`${base()}/merito/${comp}.json`, f);
+	json<FicheiroMerito>(`/merito/${comp}.json`, f);
 
 /** nome da equipa → caminho do emblema na nossa origem */
 export const carregarEmblemas = (f: typeof fetch) =>
-	json<Record<string, string>>(`${base()}/emblemas.json`, f);
+	json<Record<string, string>>(`/emblemas.json`, f);
 
 /**
  * A agenda. Com `aoVivo`, salta **todas** as caches — pela mesma razão que a ficha.
@@ -115,12 +141,12 @@ export const carregarEmblemas = (f: typeof fetch) =>
  * mentira pior, porque parece fresca. A ficha ia à rede; a lista não.
  */
 export const carregarAgenda = (f: typeof fetch, aoVivo = false) =>
-	json<Agenda>(`${base()}/agenda.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);
+	json<Agenda>(`/agenda.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);
 
 export const carregarEquipas = (f: typeof fetch) =>
-	json<IndiceEquipas>(`${base()}/teams.json`, f);
+	json<IndiceEquipas>(`/teams.json`, f);
 
 /** A hora dos dados. É ela que escreve o "agora mesmo" no cabeçalho, por isso vir de uma
  *  cópia velha é a app a dizer que está fresca quando não está. */
 export const carregarMeta = (f: typeof fetch, aoVivo = false) =>
-	json<Meta>(`${base()}/meta.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);
+	json<Meta>(`/meta.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);

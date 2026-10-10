@@ -59,3 +59,70 @@ describe('partilhar a aplicação', () => {
 		expect(TEXTO.length).toBeGreaterThan(40);
 	});
 });
+
+describe('de onde vêm os dados', () => {
+	/**
+	 * O defeito de 10/10/2026, e porque é que merece teste próprio.
+	 *
+	 * O site de testes passou a ler os dados de produção, para ser fresco. Mas o site de
+	 * testes leva **código novo**, e código novo traz ficheiros novos: os do Mérito da
+	 * Formação existiram lá dias antes de existirem em produção. Sem a segunda tentativa, o
+	 * separador da classificação dos Escolares ficou vazio — produção devolvia a página de
+	 * fallback para um ficheiro que não tinha, e a tabela de vitórias que antes preenchia
+	 * aquele espaço tinha sido removida no mesmo dia.
+	 */
+	const semLocation = () => {
+		const antes = (globalThis as { location?: unknown }).location;
+		delete (globalThis as { location?: unknown }).location;
+		return () => {
+			if (antes === undefined) delete (globalThis as { location?: unknown }).location;
+			else (globalThis as { location?: unknown }).location = antes;
+		};
+	};
+
+	async function carregar(anfitriao: string, respostas: Record<string, string | null>) {
+		const repor = semLocation();
+		(globalThis as { location?: unknown }).location = { hostname: anfitriao };
+		const pedidos: string[] = [];
+		const f = (async (u: string) => {
+			pedidos.push(u);
+			const corpo = respostas[u];
+			// um ficheiro que não existe devolve a página de fallback com estado 200, que é
+			// exactamente o que produção faz — ver o `pedir`
+			return new Response(corpo ?? '<!doctype html><html></html>', { status: 200 });
+		}) as unknown as typeof fetch;
+		const { carregarMerito } = await import('./dados');
+		try {
+			return { dados: await carregarMerito(461, f), pedidos };
+		} catch (e) {
+			return { erro: e, pedidos };
+		} finally {
+			repor();
+		}
+	}
+
+	const CAMINHO = '/v1/aplisboa/2026-27/merito/461.json';
+	const EM_PRODUCAO = `https://hoquei.pages.dev${CAMINHO}`;
+	const CORPO = JSON.stringify({ competicao_id: 461, linhas: [] });
+
+	it('num site de ramo pede primeiro a produção', async () => {
+		const r = await carregar('testes.hoquei.pages.dev', { [EM_PRODUCAO]: CORPO });
+		expect(r.pedidos[0]).toBe(EM_PRODUCAO);
+		expect(r.dados?.competicao_id).toBe(461);
+	});
+
+	it('e cai para a cópia local quando produção não tem o ficheiro', async () => {
+		const r = await carregar('testes.hoquei.pages.dev', {
+			[EM_PRODUCAO]: null,
+			[CAMINHO]: CORPO
+		});
+		expect(r.pedidos).toEqual([EM_PRODUCAO, CAMINHO]);
+		expect(r.dados?.competicao_id).toBe(461);
+	});
+
+	it('em produção não há segunda tentativa — seria pedir o mesmo duas vezes', async () => {
+		const r = await carregar('hoquei.pages.dev', { [CAMINHO]: null });
+		expect(r.pedidos).toEqual([CAMINHO]);
+		expect(r.erro).toBeInstanceOf(Error);
+	});
+});
