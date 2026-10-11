@@ -1,6 +1,6 @@
 {
  "competicao_id": 466,
- "jogos_considerados": 3,
+ "jogos_considerados": 4,
  "jogadores": [
   {
    "nome": "RODRIGO SANTOS",
@@ -107,6 +107,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOSÉ D´ALMEIDA",
+   "equipa": "AE FISICA D B",
+   "jogos": 2,
+   "numero": "3",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "ÁUREA CRISTINA",
    "equipa": "CRIAR-T GD",
    "jogos": 2,
@@ -185,19 +198,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "BIANCA ALVES",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 1,
-   "numero": "05",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DAVID MARCELINO",
    "equipa": "AD OEIRAS B",
    "jogos": 1,
@@ -211,23 +211,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO TRINDADE",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 1,
-   "numero": "01",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GABRIEL CLIM",
+   "nome": "DUARTE FERNANDES",
    "equipa": "AE FISICA D B",
    "jogos": 1,
-   "numero": "1",
+   "numero": "08",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -237,10 +224,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "GONÇALO PEREIRA",
-   "equipa": "CD PAÇO ARCOS B",
+   "nome": "DUARTE RAMOS",
+   "equipa": "AE FISICA D B",
    "jogos": 1,
-   "numero": "06",
+   "numero": "07",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -289,32 +276,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOSÉ D´ALMEIDA",
-   "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "JOÃO PINHEIRO",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 1,
-   "numero": "09",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "LEONOR FREIRE",
    "equipa": "AD OEIRAS B",
    "jogos": 1,
@@ -328,23 +289,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "LEONOR MARQUES",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 1,
-   "numero": "04",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MANUEL D´ALMEIDA",
+   "nome": "MARIA RODRIGUES",
    "equipa": "AE FISICA D B",
    "jogos": 1,
-   "numero": "6",
+   "numero": "02",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -380,19 +328,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "PEDRO AMARO",
-   "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "9",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "SILVA XAVIER",
    "equipa": "AD OEIRAS B",
    "jogos": 1,
@@ -406,10 +341,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS RAMOS",
+   "nome": "BIANCA ALVES",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 1,
-   "numero": "08",
+   "jogos": 2,
+   "numero": "05",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -419,10 +354,88 @@
    "vermelhos": 0
   },
   {
-   "nome": "VICENTE CRUZ",
+   "nome": "FRANCISCO TRINDADE",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 2,
+   "numero": "01",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GABRIEL CLIM",
    "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "4",
+   "jogos": 2,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GONÇALO PEREIRA",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 2,
+   "numero": "06",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO PINHEIRO",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 2,
+   "numero": "09",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LEONOR MARQUES",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 2,
+   "numero": "04",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MANUEL D´ALMEIDA",
+   "equipa": "AE FISICA D B",
+   "jogos": 2,
+   "numero": "6",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PEDRO AMARO",
+   "equipa": "AE FISICA D B",
+   "jogos": 2,
+   "numero": "9",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -436,6 +449,32 @@
    "equipa": "CRIAR-T GD",
    "jogos": 2,
    "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS RAMOS",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 2,
+   "numero": "08",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VICENTE CRUZ",
+   "equipa": "AE FISICA D B",
+   "jogos": 2,
+   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
