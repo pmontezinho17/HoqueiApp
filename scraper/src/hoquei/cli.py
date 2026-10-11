@@ -150,6 +150,27 @@ def _sem_chave(caminho: pathlib.Path, chave: str) -> bool:
         return True
 
 
+def _temporada_em_disco(destino: pathlib.Path) -> int | None:
+    """O id da época lido do `competitions.json` que já publicámos. `None` se não der.
+
+    **Existe para não gastar um pedido à APL a confirmar o que muda uma vez por ano.** A
+    ronda ao vivo pedia a lista de competições sempre que um jogo fechava, só para saber o
+    id da época — e o comentário ao lado dessa linha já dizia, por escrito, que pedi-la por
+    ronda "era um pedido inteiro a confirmar o que já sabíamos". Medido a 10/10/2026, um
+    sábado com 36 jogos: **96 pedidos** gastos assim, de 5 447 no dia.
+
+    Devolve `None` em vez de adivinhar quando o ficheiro não existe ou não traz o campo — e
+    quem chama volta a perguntar à fonte. Uma época errada raspa a época errada, e isso é
+    muito pior do que um pedido a mais.
+    """
+    try:
+        d = json.loads((destino / "competitions.json").read_text())
+    except (OSError, json.JSONDecodeError):
+        return None
+    temporada = d.get("temporada")
+    return temporada if isinstance(temporada, int) else None
+
+
 def _resultado_conhecido(caminho: pathlib.Path) -> tuple | None:
     """Resultado já publicado para este jogo, ou None se ainda não existe ficheiro."""
     try:
@@ -352,9 +373,11 @@ def comando_aovivo(args) -> int:
         # os conta. Foi o teste de reprodução (B9.13) que apanhou isto, e tinha razão — é
         # incoerência a sério, e via-se na app.
         if provas_tocadas:
-            # a época não muda a meio de uma janela de quatro horas; pedi-la por ronda era
-            # um pedido inteiro a confirmar o que já sabíamos
-            id_temp = args.id_temp or _temporada_corrente(fonte)
+            # A época não muda a meio de uma janela de quatro horas — e agora o código faz o
+            # que este comentário já dizia. Lê-se do `competitions.json` em disco, que a
+            # ronda completa acabou de publicar, e só se pergunta à fonte quando ele não
+            # responde. Ver `_temporada_em_disco`: eram 96 pedidos num sábado.
+            id_temp = args.id_temp or _temporada_em_disco(destino) or _temporada_corrente(fonte)
             for comp in sorted(provas_tocadas):
                 alvo = destino / "comp" / f"{comp}.json"
                 try:

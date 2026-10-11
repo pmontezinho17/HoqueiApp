@@ -492,3 +492,60 @@ class TestContextoDaFicha:
     def test_uma_agenda_sem_contexto_da_null_e_nao_rebenta(self, tmp_path):
         c = cli._contexto_da_ficha({"id": ID}, {}, tmp_path)
         assert c["competicao_id"] is None and c["categoria"] is None
+
+
+# ─── o id da época não se vai perguntar à fonte ─────────────────────────────────
+
+def test_a_epoca_le_se_do_disco_e_nao_custa_um_pedido(tmp_path):
+    """96 pedidos num sábado só para confirmar um número que muda uma vez por ano.
+
+    Medido a 10/10/2026, com 36 jogos: a ronda ao vivo pedia a lista de competições sempre
+    que um jogo fechava. O comentário ao lado da linha já dizia que não devia.
+    """
+    (tmp_path / "competitions.json").write_text(
+        json.dumps({"temporada": 5, "competicoes": []}), encoding="utf-8")
+    assert cli._temporada_em_disco(tmp_path) == 5
+
+
+def test_sem_ficheiro_devolve_none_para_quem_chama_perguntar_a_fonte(tmp_path):
+    """**Nunca adivinhar.** Uma época errada raspa a época errada, e isso é muito pior do
+    que um pedido a mais — por isso o caminho de recurso continua a ser perguntar."""
+    assert cli._temporada_em_disco(tmp_path) is None
+
+
+def test_um_ficheiro_estragado_tambem_devolve_none(tmp_path):
+    (tmp_path / "competitions.json").write_text("{ isto não é json", encoding="utf-8")
+    assert cli._temporada_em_disco(tmp_path) is None
+
+
+def test_um_campo_que_nao_e_numero_nao_passa(tmp_path):
+    """A fonte já devolveu 200 com a página errada; um `temporada` em texto não entra."""
+    for valor in ('"5"', "null", "[]"):
+        (tmp_path / "competitions.json").write_text(
+            '{"temporada": %s}' % valor, encoding="utf-8")
+        assert cli._temporada_em_disco(tmp_path) is None, valor
+
+
+def test_a_ronda_ao_vivo_fecha_um_jogo_sem_pedir_a_lista_de_competicoes(tmp_path, monkeypatch):
+    """A prova do fim ao fim: um jogo que fecha e **zero** pedidos à lista de competições."""
+    jogo = _jogo(0.2)
+    _agenda_com(tmp_path, jogo)
+    (tmp_path / "competitions.json").write_text(
+        json.dumps({"temporada": 5, "competicoes": []}), encoding="utf-8")
+    _comp(
+        tmp_path,
+        "CAMP. REG. SUB-13 - 1ª FASE - SERIE A",
+        [],
+        [{"id": ID, "casa": "A", "fora": "B", "golos_casa": None, "golos_fora": None,
+          "grupo": None, "data": jogo["data"], "hora": jogo["hora"]}],
+    )
+    monkeypatch.setattr(cli, "Fonte", _FonteContadora)
+    monkeypatch.setattr(cli, "ficha",
+                        lambda _h, _i: _ficha("Jogo Terminado", None, None, "Jogo Terminado", 3, 1))
+    monkeypatch.setattr(cli, "_temporada_corrente",
+                        lambda _f: pytest.fail("foi pedir a época à fonte, com ela em disco"))
+
+    # **`id_temp=None` de propósito.** O `_args` põe lá 5 por omissão, e com ele a linha que
+    # este teste existe para cobrir nunca é executada — foi assim que escrevi um teste vazio
+    # à primeira. É também o que acontece a sério: o `aovivo.sh` não passa `--id-temp`.
+    assert cli.comando_aovivo(_args(tmp_path, id_temp=None)) == 0

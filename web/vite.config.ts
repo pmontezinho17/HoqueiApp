@@ -3,6 +3,9 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { defineConfig } from 'vite';
 import { SvelteKitPWA } from '@vite-pwa/sveltekit';
+// A versão vem de um só sítio. Ver `src/lib/versao.ts` para a razão — em resumo: sem isto o
+// SvelteKit usa o relógio e cada publicação avisa todos os utilizadores.
+import { VERSAO } from './src/lib/versao';
 
 export default defineConfig({
 	plugins: [
@@ -17,7 +20,16 @@ export default defineConfig({
 			// e sai com o adapter errado. Por isso este projeto não tem esse ficheiro.
 			// Estáticos puros: a PWA e os JSON saem do mesmo projeto Cloudflare Pages,
 			// logo não há CORS e o service worker trata dos dois da mesma maneira.
-			adapter: adapter({ fallback: 'index.html', precompress: false })
+			adapter: adapter({ fallback: 'index.html', precompress: false }),
+			/**
+			 * **A versão fixa, e não o relógio.** Por omissão o SvelteKit põe aqui
+			 * `Date.now()`, e isso entra no pacote do cliente: medido a 10/10/2026, duas
+			 * construções do mesmo código davam 17 revisões diferentes no service worker, e
+			 * cada revisão diferente faz aparecer o aviso de actualização a quem usa a app.
+			 *
+			 * Com a versão fixa, duas construções do mesmo código são iguais byte a byte.
+			 */
+			version: { name: VERSAO }
 		}),
 		SvelteKitPWA({
 			registerType: 'prompt',
