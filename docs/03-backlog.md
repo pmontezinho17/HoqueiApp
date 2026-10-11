@@ -2249,6 +2249,74 @@ dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
 | `docs/09-regulamento-apl.md` | os artigos que o código cita, para não ser preciso abrir o PDF |
 
 Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
+## 809 publicações num dia: os dados vivem dentro do deployment da app (11/10/2026)
+
+Pergunta do dono, depois de ver o número na consola: *"é normal estarmos sempre a fazer um
+deploy total quando queremos apenas mudar um número? não é possível fazer com que a página
+apenas atualize precisamente aquilo que precisa?"*.
+
+A intuição dele está certa e o problema que o levou lá não era esse. Fica registado para a
+decisão não ser retomada do zero daqui a três meses.
+
+### O que são os 809
+
+Publicações reais no CDN, uma por cada ronda ao vivo que escreveu alguma coisa — de 30 em
+30 segundos enquanto há jogos. O observador conta-as pelo `generated_at` do `meta.json` a
+mudar; a 10/10/2026, um sábado com 36 jogos, foram 809.
+
+**Mas não são 809 cópias do site.** A Cloudflare desduplica, e o registo de cada publicação
+di-lo: `Uploaded 0 files (685 already uploaded)`. O que atravessa a rede são os poucos JSON
+que mudaram; o resto é um objecto de *deployment* novo a apontar para ficheiros que já lá
+estavam.
+
+**E não batem em limite nenhum.** O tecto de 500 construções por mês do plano gratuito é para
+projectos ligados ao Git. Nós publicamos por *Direct Upload* a partir das Actions, que não
+conta para essa quota — verificado na documentação de limites do Pages a 11/10/2026.
+
+### O que já está certo, e não foi por acaso
+
+A prática recomendada é o casco da aplicação em cache e os dados fora dela. Está feito:
+
+* o `globPatterns` do service worker apanha `js`, `css`, `html` e imagens — **nenhum JSON**;
+* a agenda, o `meta.json` e as fichas vão à rede primeiro, com 3 s de espera e queda para a
+  cache, que é o compromisso certo para dados onde a frescura vale mais do que a velocidade.
+
+É por isso que a correcção da versão determinista resolve o incómodo: 809 publicações que só
+mexem em dados produzem um pacote **idêntico**, e um pacote idêntico não avisa ninguém. O
+problema nunca foi o número de publicações — era o aviso.
+
+### O que não é ideal, e é a intuição dele
+
+Os dados vivem **dentro** do mesmo deployment que a aplicação, e isso junta dois ciclos de
+vida diferentes: o código muda uma vez por semana, os resultados de 30 em 30 segundos.
+Publicar o site para mudar um número é, conceptualmente, a coisa errada.
+
+O padrão alternativo é tirá-los de lá — R2 (ou KV) com uma Function à frente. Escrever um
+resultado passa a ser escrever um objecto, e o site só se publica quando o código muda.
+
+### A decisão: **não mexer agora**
+
+Não porque o desenho esteja certo, mas porque o que se ganha não paga o que custa.
+
+| | |
+|---|---|
+| sintoma | resolvido pela versão determinista |
+| custo actual | zero: desduplicação, e fora da quota de construções |
+| custo de mudar | uma Function à frente dos dados, cabeçalhos de cache novos, o ciclo ao vivo reescrito, a cache do service worker reafinada — meio dia, no caminho crítico de um sábado |
+
+**O que faz reabrir isto**, e é a parte que interessa ao próximo que ler:
+
+1. querer resultados mais rápidos do que 30 segundos — aí o custo de um deployment por
+   escrita passa a doer;
+2. a Cloudflare pôr tecto aos *deployments* por Direct Upload, ou começar a cobrá-los;
+3. os dados crescerem ao ponto de 685 ficheiros se tornarem 20 000, que é o limite de
+   ficheiros por site no plano gratuito.
+
+Enquanto nenhuma dessas três for verdade, mudar isto é trocar uma coisa que funciona por uma
+mais elegante que também funciona.
+
+---
+
 ## A transmissão passa a poder ir a produção, e expira sozinha (10/10/2026)
 
 Horas depois de pedir a transmissão só para testes, o dono mudou de posição: *"mesmo que isto
