@@ -3,9 +3,9 @@
  "competicao": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE B",
  "casa": "AE FISICA D B",
  "fora": "CD PAÇO ARCOS B",
- "golos_casa": 2,
- "golos_fora": 0,
- "estado": null,
+ "golos_casa": 4,
+ "golos_fora": 1,
+ "estado": "Jogo Terminado",
  "data": "2026-10-11",
  "hora": "12:30:00",
  "recinto": "PAV. FÍSICA TORRES VEDRAS",
@@ -16,8 +16,8 @@
   0,
   0
  ],
- "situacao": "Intervalo 2º",
- "periodo": "Intervalo 2º",
+ "situacao": "Jogo Terminado",
+ "periodo": null,
  "relogio": null,
  "equipas": [
   {
@@ -55,7 +55,7 @@
      "numero": "03",
      "nome": "JOSÉ D´ALMEIDA",
      "titular": true,
-     "golos": 2,
+     "golos": 4,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -200,7 +200,7 @@
      "numero": "04",
      "nome": "LEONOR MARQUES",
      "titular": true,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -241,7 +241,7 @@
     {
      "numero": "08",
      "nome": "TOMÁS RAMOS",
-     "titular": true,
+     "titular": false,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -255,7 +255,7 @@
     {
      "numero": "10",
      "nome": "GONÇALO PEREIRA",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -265,6 +265,20 @@
      "cartoes_azuis": 0,
      "cartoes_vermelhos": 0,
      "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "NUNO TRINDADE",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "D"
     },
     {
      "numero": null,
@@ -279,20 +293,6 @@
      "cartoes_azuis": 0,
      "cartoes_vermelhos": 0,
      "papel": "T"
-    },
-    {
-     "numero": null,
-     "nome": "NUNO TRINDADE",
-     "titular": false,
-     "golos": null,
-     "assistencias": null,
-     "defesas": null,
-     "penalidades": null,
-     "livres_diretos": null,
-     "cartoes_amarelos": 0,
-     "cartoes_azuis": 0,
-     "cartoes_vermelhos": 0,
-     "papel": "T2"
     }
    ]
   }
@@ -387,9 +387,156 @@
    "golos_casa": null,
    "golos_fora": null,
    "texto": "Final da 2ª parte"
+  },
+  {
+   "ordem": 6,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 3ª parte"
+  },
+  {
+   "ordem": 7,
+   "tipo": "golo",
+   "relogio": "6:37",
+   "parte": 3,
+   "minuto": 17,
+   "equipa": "CD PAÇO ARCOS B",
+   "jogador": "LEONOR MARQUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 2,
+   "golos_fora": 1,
+   "texto": "Golo para CD PAÇO ARCOS B | LEONOR MARQUES"
+  },
+  {
+   "ordem": 8,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 3,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 3ª parte"
+  },
+  {
+   "ordem": 9,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 4ª parte"
+  },
+  {
+   "ordem": 10,
+   "tipo": "golo",
+   "relogio": "5:39",
+   "parte": 4,
+   "minuto": 26,
+   "equipa": "AE FISICA D B",
+   "jogador": "JOSÉ D´ALMEIDA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 3,
+   "golos_fora": 1,
+   "texto": "Golo para AE FISICA D B | JOSÉ D´ALMEIDA"
+  },
+  {
+   "ordem": 11,
+   "tipo": "golo",
+   "relogio": "2:21",
+   "parte": 4,
+   "minuto": 29,
+   "equipa": "AE FISICA D B",
+   "jogador": "JOSÉ D´ALMEIDA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 4,
+   "golos_fora": 1,
+   "texto": "Golo para AE FISICA D B | JOSÉ D´ALMEIDA"
+  },
+  {
+   "ordem": 12,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 4,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
+   "Cronometrista": "JUAN HERNANDEZ",
+   "Diretor de campo": "VASCO MARTINHO",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "12:50",
+   "13:16"
+  ],
+  "termo": [
+   "13:11",
+   "13:36"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
  "competicao_id": 466,
  "categoria": "BENJAMINS",
  "jornada": "1ª JORNADA",

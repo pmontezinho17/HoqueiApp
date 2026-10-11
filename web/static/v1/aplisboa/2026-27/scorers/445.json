@@ -1,6 +1,6 @@
 {
  "competicao_id": 445,
- "jogos_considerados": 9,
+ "jogos_considerados": 10,
  "jogadores": [
   {
    "nome": "ALEXANDRE ABRANTES",
@@ -42,6 +42,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "ISABELA PILÃO",
+   "equipa": "PAREDE FC A",
+   "jogos": 4,
+   "numero": "8",
+   "golos": 4,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 6,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "LOURENÇO FURTADO",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 3,
@@ -70,7 +83,7 @@
   {
    "nome": "VICENTE ROCHA",
    "equipa": "PAREDE FC A",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "3",
    "golos": 4,
    "assistencias": 1,
@@ -83,7 +96,7 @@
   {
    "nome": "ANA SEGADÃES",
    "equipa": "PAREDE FC A",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "4",
    "golos": 4,
    "assistencias": 0,
@@ -107,10 +120,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "ISABELA PILÃO",
+   "nome": "SALVADOR MONTEZINHO",
    "equipa": "PAREDE FC A",
-   "jogos": 3,
-   "numero": "8",
+   "jogos": 4,
+   "numero": "7",
    "golos": 3,
    "assistencias": 1,
    "defesas": 0,
@@ -133,19 +146,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO FILIPE",
-   "equipa": "PAREDE FC A",
-   "jogos": 3,
-   "numero": "9",
-   "golos": 3,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DINIS STABILE",
    "equipa": "A STUART HCM",
    "jogos": 4,
@@ -159,12 +159,12 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIEGO ALVES",
-   "equipa": "AE FISICA D A",
-   "jogos": 2,
-   "numero": "7",
-   "golos": 2,
-   "assistencias": 1,
+   "nome": "LOURENÇO FILIPE",
+   "equipa": "PAREDE FC A",
+   "jogos": 4,
+   "numero": "9",
+   "golos": 3,
+   "assistencias": 0,
    "defesas": 0,
    "pontos": 3,
    "amarelos": 0,
@@ -185,8 +185,8 @@
    "vermelhos": 0
   },
   {
-   "nome": "SALVADOR MONTEZINHO",
-   "equipa": "PAREDE FC A",
+   "nome": "DIEGO ALVES",
+   "equipa": "AE FISICA D A",
    "jogos": 3,
    "numero": "7",
    "golos": 2,
@@ -213,7 +213,7 @@
   {
    "nome": "JOÃO MAGGIOLLI",
    "equipa": "AE FISICA D A",
-   "jogos": 1,
+   "jogos": 2,
    "numero": "5",
    "golos": 2,
    "assistencias": 0,
@@ -226,21 +226,8 @@
   {
    "nome": "ANTÓNIO ALMEIDA",
    "equipa": "AE FISICA D A",
-   "jogos": 2,
-   "numero": "8",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "CARLOTA SEABRA",
-   "equipa": "PAREDE FC A",
    "jogos": 3,
-   "numero": "5",
+   "numero": "8",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -263,10 +250,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "MIGUEL GODINHO",
+   "equipa": "AE FISICA D A",
+   "jogos": 3,
+   "numero": "3",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "ANA RODRIGUES",
    "equipa": "A STUART HCM",
    "jogos": 4,
    "numero": "84",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "CARLOTA SEABRA",
+   "equipa": "PAREDE FC A",
+   "jogos": 4,
+   "numero": "5",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -445,10 +458,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO SERRANO OLIVEIRA",
-   "equipa": "A STUART HCM",
+   "nome": "LOURENÇO CORREIA",
+   "equipa": "PAREDE FC A",
    "jogos": 1,
-   "numero": "90",
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -458,10 +471,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "NANCY SOUSA",
-   "equipa": "AE FISICA D A",
+   "nome": "LOURENÇO SERRANO OLIVEIRA",
+   "equipa": "A STUART HCM",
    "jogos": 1,
-   "numero": "5",
+   "numero": "90",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -536,36 +549,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DINIS RAMOS",
-   "equipa": "AE FISICA D A",
-   "jogos": 2,
-   "numero": "6",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "EDUARDO SAMPAIO",
    "equipa": "A STUART HCM",
    "jogos": 2,
    "numero": "40",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO MORAIS",
-   "equipa": "AE FISICA D A",
-   "jogos": 2,
-   "numero": "9",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -588,19 +575,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "JAIME FONSECA",
-   "equipa": "AE FISICA D A",
-   "jogos": 2,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOÃO VENÂNCIO",
    "equipa": "A STUART HCM",
    "jogos": 2,
@@ -614,36 +588,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "MANUEL ALVES",
-   "equipa": "AE FISICA D A",
-   "jogos": 2,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MIGUEL GODINHO",
-   "equipa": "AE FISICA D A",
-   "jogos": 2,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MIGUEL PACHECO",
    "equipa": "CD MAFRA",
    "jogos": 2,
    "numero": "14",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "NANCY SOUSA",
+   "equipa": "AE FISICA D A",
+   "jogos": 2,
+   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -679,19 +640,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "XAVIER SILVA",
-   "equipa": "AE FISICA D A",
-   "jogos": 2,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "AFONSO DEODATO",
    "equipa": "CD MAFRA",
    "jogos": 3,
@@ -702,6 +650,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 2,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DINIS RAMOS",
+   "equipa": "AE FISICA D A",
+   "jogos": 3,
+   "numero": "6",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -731,6 +692,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "GONÇALO MORAIS",
+   "equipa": "AE FISICA D A",
+   "jogos": 3,
+   "numero": "9",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "HENRIQUE JANEIRO",
    "equipa": "CD MAFRA",
    "jogos": 3,
@@ -744,10 +718,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "JAIME FONSECA",
+   "equipa": "AE FISICA D A",
+   "jogos": 3,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "LUAN LUCENA",
    "equipa": "CD MAFRA",
    "jogos": 3,
    "numero": "20",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MANUEL ALVES",
+   "equipa": "AE FISICA D A",
+   "jogos": 3,
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -848,19 +848,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "SIMÃO LOPES",
-   "equipa": "PAREDE FC A",
-   "jogos": 3,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "SOFIA GALHOFO",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 3,
@@ -878,6 +865,19 @@
    "equipa": "CD MAFRA",
    "jogos": 3,
    "numero": "17",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "XAVIER SILVA",
+   "equipa": "AE FISICA D A",
+   "jogos": 3,
+   "numero": "2",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -911,7 +911,20 @@
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
+  },
+  {
+   "nome": "SIMÃO LOPES",
+   "equipa": "PAREDE FC A",
+   "jogos": 4,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   }
  ],
- "tem_defesas": false
+ "tem_defesas": true
 }

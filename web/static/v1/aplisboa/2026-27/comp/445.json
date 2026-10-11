@@ -146,8 +146,8 @@
    "hora": "14:30:00",
    "casa": "PAREDE FC A",
    "fora": "AE FISICA D A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 2,
    "recinto": "PAV. PAREDE",
    "ao_vivo": false
   },
@@ -466,6 +466,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "PAREDE FC A",
+     "logo": "/intranet/logos/3.png",
+     "jogos": 4,
+     "vitorias": 3,
+     "empates": 1,
+     "derrotas": 0,
+     "golos_marcados": 22,
+     "golos_sofridos": 4,
+     "diferenca": 18,
+     "racio": 5.5,
+     "pontos": 10
+    },
+    {
+     "posicao": 2,
      "equipa": "SPORTING CP A",
      "logo": "/intranet/logos/2.png",
      "jogos": 3,
@@ -479,21 +493,21 @@
      "pontos": 9
     },
     {
-     "posicao": 2,
-     "equipa": "PAREDE FC A",
-     "logo": "/intranet/logos/3.png",
+     "posicao": 3,
+     "equipa": "AE FISICA D A",
+     "logo": "/intranet/logos/11.png",
      "jogos": 3,
-     "vitorias": 3,
-     "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 20,
-     "golos_sofridos": 2,
-     "diferenca": 18,
-     "racio": 10.0,
-     "pontos": 9
+     "vitorias": 1,
+     "empates": 1,
+     "derrotas": 1,
+     "golos_marcados": 8,
+     "golos_sofridos": 6,
+     "diferenca": 2,
+     "racio": 1.33,
+     "pontos": 4
     },
     {
-     "posicao": 3,
+     "posicao": 4,
      "equipa": "FSE/AJ SALESIANA",
      "logo": "/intranet/logos/9.png",
      "jogos": 3,
@@ -504,20 +518,6 @@
      "golos_sofridos": 10,
      "diferenca": 4,
      "racio": 1.4,
-     "pontos": 3
-    },
-    {
-     "posicao": 4,
-     "equipa": "AE FISICA D A",
-     "logo": "/intranet/logos/11.png",
-     "jogos": 2,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 6,
-     "golos_sofridos": 4,
-     "diferenca": 2,
-     "racio": 1.5,
      "pontos": 3
     },
     {

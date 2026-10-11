@@ -174,8 +174,8 @@
    "hora": "15:00:00",
    "casa": "SL BENFICA A",
    "fora": "APAC TOJAL",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 0,
    "recinto": "PAV. A.P.A.C.TOJAL",
    "ao_vivo": false
   },
@@ -468,15 +468,15 @@
      "posicao": 1,
      "equipa": "SL BENFICA A",
      "logo": "/intranet/logos/1.png",
-     "jogos": 3,
+     "jogos": 4,
      "vitorias": 3,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 0,
      "golos_marcados": 17,
      "golos_sofridos": 0,
      "diferenca": 17,
      "racio": null,
-     "pontos": 9
+     "pontos": 10
     },
     {
      "posicao": 2,
@@ -496,15 +496,15 @@
      "posicao": 3,
      "equipa": "APAC TOJAL",
      "logo": "/intranet/logos/12.png",
-     "jogos": 3,
+     "jogos": 4,
      "vitorias": 1,
-     "empates": 1,
+     "empates": 2,
      "derrotas": 1,
      "golos_marcados": 11,
      "golos_sofridos": 5,
      "diferenca": 6,
      "racio": 2.2,
-     "pontos": 4
+     "pontos": 5
     },
     {
      "posicao": 4,

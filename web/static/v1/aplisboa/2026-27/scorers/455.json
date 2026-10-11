@@ -1,6 +1,6 @@
 {
  "competicao_id": 455,
- "jogos_considerados": 10,
+ "jogos_considerados": 11,
  "jogadores": [
   {
    "nome": "MARTIM PIRES",
@@ -55,6 +55,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "SANTIAGO CANDIDO",
+   "equipa": "AE FISICA D A",
+   "jogos": 4,
+   "numero": "6",
+   "golos": 5,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 6,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GUSTAVO CORREIA",
    "equipa": "SPORTING CP A",
    "jogos": 4,
@@ -64,19 +77,6 @@
    "defesas": 0,
    "pontos": 5,
    "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SANTIAGO CANDIDO",
-   "equipa": "AE FISICA D A",
-   "jogos": 3,
-   "numero": "6",
-   "golos": 4,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 5,
-   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -96,7 +96,7 @@
   {
    "nome": "TIAGO VIEIRA",
    "equipa": "AE FISICA D A",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "8",
    "golos": 3,
    "assistencias": 1,
@@ -107,12 +107,12 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS HENRIQUES",
-   "equipa": "AD OEIRAS B",
-   "jogos": 1,
-   "numero": "4",
-   "golos": 2,
-   "assistencias": 1,
+   "nome": "MANUEL PAÇO",
+   "equipa": "AE FISICA D A",
+   "jogos": 4,
+   "numero": "5",
+   "golos": 3,
+   "assistencias": 0,
    "defesas": 0,
    "pontos": 3,
    "amarelos": 0,
@@ -122,7 +122,20 @@
   {
    "nome": "DINIS NASCIMENTO",
    "equipa": "AE FISICA D A",
-   "jogos": 3,
+   "jogos": 4,
+   "numero": "4",
+   "golos": 2,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS HENRIQUES",
+   "equipa": "AD OEIRAS B",
+   "jogos": 1,
    "numero": "4",
    "golos": 2,
    "assistencias": 1,
@@ -172,36 +185,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO VIEIRA",
-   "equipa": "AE FISICA D A",
-   "jogos": 3,
-   "numero": "3",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MANUEL PAÇO",
-   "equipa": "AE FISICA D A",
-   "jogos": 3,
-   "numero": "5",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIEGO COSTA",
    "equipa": "AD OEIRAS B",
    "jogos": 4,
    "numero": "7",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO VIEIRA",
+   "equipa": "AE FISICA D A",
+   "jogos": 4,
+   "numero": "3",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -224,9 +224,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "ANDRÉ LOPES",
+   "equipa": "AD OEIRAS B",
+   "jogos": 4,
+   "numero": "3",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "BERNARDO DIAS",
    "equipa": "AE FISICA D A",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "2",
    "golos": 1,
    "assistencias": 1,
@@ -239,7 +252,7 @@
   {
    "nome": "GONÇALO PIRES",
    "equipa": "CACO B",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "2",
    "golos": 1,
    "assistencias": 1,
@@ -252,7 +265,7 @@
   {
    "nome": "JOÃO LOURENÇO",
    "equipa": "CACO B",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "8",
    "golos": 1,
    "assistencias": 1,
@@ -260,19 +273,6 @@
    "pontos": 2,
    "amarelos": 0,
    "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ANDRÉ LOPES",
-   "equipa": "AD OEIRAS B",
-   "jogos": 4,
-   "numero": "3",
-   "golos": 1,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -343,7 +343,7 @@
   {
    "nome": "TIAGO POETA",
    "equipa": "CACO B",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "6",
    "golos": 1,
    "assistencias": 0,
@@ -369,12 +369,12 @@
   {
    "nome": "MARTIM HORTA",
    "equipa": "AE FISICA D A",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "7",
    "golos": 0,
-   "assistencias": 2,
+   "assistencias": 3,
    "defesas": 0,
-   "pontos": 2,
+   "pontos": 3,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -432,32 +432,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOSÉ CAETANO",
-   "equipa": "CACO B",
-   "jogos": 1,
-   "numero": "96",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SEBASTIÃO HENRIQUES",
-   "equipa": "AE FISICA D A",
-   "jogos": 1,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "SEBASTIÃO VALADAS",
    "equipa": "SPORTING CP A",
    "jogos": 1,
@@ -497,10 +471,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOSÉ CAETANO",
+   "equipa": "CACO B",
+   "jogos": 2,
+   "numero": "87",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "LOURENÇO LEITE",
    "equipa": "CACO B",
    "jogos": 2,
    "numero": "61",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SEBASTIÃO HENRIQUES",
+   "equipa": "AE FISICA D A",
+   "jogos": 2,
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -588,32 +588,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "FREDERICO PEDRO",
-   "equipa": "CACO B",
-   "jogos": 3,
-   "numero": "23",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "JOÃO DIAS",
-   "equipa": "CACO B",
-   "jogos": 3,
-   "numero": "45",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "LUIS VINAGRE",
    "equipa": "HC SINTRA",
    "jogos": 3,
@@ -627,19 +601,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MANUEL SILVA",
-   "equipa": "CACO B",
-   "jogos": 3,
-   "numero": "7",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MANUEL VINAGRE",
    "equipa": "HC SINTRA",
    "jogos": 3,
@@ -650,19 +611,6 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARTIM NEVES",
-   "equipa": "CACO B",
-   "jogos": 3,
-   "numero": "22",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -705,19 +653,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "SALVADOR FERREIRA",
-   "equipa": "CACO B",
-   "jogos": 3,
-   "numero": "17",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "SALVADOR SANTOS",
    "equipa": "FSE/AJ SALESIANA A",
    "jogos": 3,
@@ -744,10 +679,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "SANTIAGO SANTOS",
-   "equipa": "AE FISICA D A",
+   "nome": "VICENTE GOIAS",
+   "equipa": "FSE/AJ SALESIANA A",
    "jogos": 3,
-   "numero": "1",
+   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -757,23 +692,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS LOBO",
+   "nome": "FREDERICO PEDRO",
    "equipa": "CACO B",
-   "jogos": 3,
-   "numero": "91",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "VICENTE GOIAS",
-   "equipa": "FSE/AJ SALESIANA A",
-   "jogos": 3,
-   "numero": "5",
+   "jogos": 4,
+   "numero": "23",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -796,6 +718,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOÃO DIAS",
+   "equipa": "CACO B",
+   "jogos": 4,
+   "numero": "45",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "KEVIN TIMAS",
    "equipa": "AD OEIRAS B",
    "jogos": 4,
@@ -809,10 +744,75 @@
    "vermelhos": 0
   },
   {
+   "nome": "MANUEL SILVA",
+   "equipa": "CACO B",
+   "jogos": 4,
+   "numero": "7",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARTIM NEVES",
+   "equipa": "CACO B",
+   "jogos": 4,
+   "numero": "22",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RAFAEL BOLOGAN",
    "equipa": "SPORTING CP A",
    "jogos": 4,
    "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SALVADOR FERREIRA",
+   "equipa": "CACO B",
+   "jogos": 4,
+   "numero": "17",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SANTIAGO SANTOS",
+   "equipa": "AE FISICA D A",
+   "jogos": 4,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS LOBO",
+   "equipa": "CACO B",
+   "jogos": 4,
+   "numero": "91",
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,

@@ -48,8 +48,8 @@
    "hora": "15:00:00",
    "casa": "BIBLIOTECA IR",
    "fora": "HC LOURINHÃ",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 0,
    "recinto": "PAV. VALADO DE FRADES",
    "ao_vivo": false
   },
@@ -482,29 +482,29 @@
      "posicao": 2,
      "equipa": "BIBLIOTECA IR",
      "logo": "/intranet/logos/22.png",
-     "jogos": 0,
+     "jogos": 1,
      "vitorias": 0,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 0,
      "golos_marcados": 0,
      "golos_sofridos": 0,
      "diferenca": 0,
      "racio": null,
-     "pontos": 0
+     "pontos": 1
     },
     {
      "posicao": 3,
      "equipa": "HC LOURINHÃ",
      "logo": "/intranet/logos/21.png",
-     "jogos": 0,
+     "jogos": 1,
      "vitorias": 0,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 0,
      "golos_marcados": 0,
      "golos_sofridos": 0,
      "diferenca": 0,
      "racio": null,
-     "pontos": 0
+     "pontos": 1
     },
     {
      "posicao": 4,

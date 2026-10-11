@@ -113,8 +113,8 @@
    "hora": "14:30:00",
    "casa": "CACO",
    "fora": "A STUART HCM B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 6,
+   "golos_fora": 0,
    "recinto": "PAV.C.A.C.OURIQUE",
    "ao_vivo": false
   },
@@ -349,6 +349,20 @@
     },
     {
      "posicao": 3,
+     "equipa": "CACO",
+     "logo": "/intranet/logos/26.png",
+     "jogos": 2,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 7,
+     "golos_sofridos": 3,
+     "diferenca": 4,
+     "racio": 2.33,
+     "pontos": 3
+    },
+    {
+     "posicao": 4,
      "equipa": "HC LOURINHÃ",
      "logo": "/intranet/logos/21.png",
      "jogos": 2,
@@ -362,31 +376,17 @@
      "pontos": 3
     },
     {
-     "posicao": 4,
-     "equipa": "CACO",
-     "logo": "/intranet/logos/26.png",
-     "jogos": 1,
-     "vitorias": 0,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 1,
-     "golos_sofridos": 3,
-     "diferenca": -2,
-     "racio": 0.33,
-     "pontos": 0
-    },
-    {
      "posicao": 5,
      "equipa": "A STUART HCM B",
      "logo": "/intranet/logos/10.png",
-     "jogos": 2,
+     "jogos": 3,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 2,
+     "derrotas": 3,
      "golos_marcados": 1,
-     "golos_sofridos": 22,
-     "diferenca": -21,
-     "racio": 0.05,
+     "golos_sofridos": 28,
+     "diferenca": -27,
+     "racio": 0.04,
      "pontos": 0
     }
    ]

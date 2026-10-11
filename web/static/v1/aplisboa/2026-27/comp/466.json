@@ -43,8 +43,8 @@
    "hora": "12:30:00",
    "casa": "AE FISICA D B",
    "fora": "CD PAÇO ARCOS B",
-   "golos_casa": 2,
-   "golos_fora": 0,
+   "golos_casa": 4,
+   "golos_fora": 1,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
   },
@@ -356,10 +356,10 @@
      "vitorias": 1,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 2,
-     "golos_sofridos": 26,
-     "diferenca": -24,
-     "racio": 0.08,
+     "golos_marcados": 4,
+     "golos_sofridos": 27,
+     "diferenca": -23,
+     "racio": 0.15,
      "pontos": 3
     },
     {
@@ -384,10 +384,10 @@
      "vitorias": 0,
      "empates": 0,
      "derrotas": 2,
-     "golos_marcados": 0,
-     "golos_sofridos": 22,
-     "diferenca": -22,
-     "racio": 0.0,
+     "golos_marcados": 1,
+     "golos_sofridos": 24,
+     "diferenca": -23,
+     "racio": 0.04,
      "pontos": 0
     }
    ]
