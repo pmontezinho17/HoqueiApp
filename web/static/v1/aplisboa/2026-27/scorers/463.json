@@ -1,6 +1,6 @@
 {
  "competicao_id": 463,
- "jogos_considerados": 4,
+ "jogos_considerados": 5,
  "jogadores": [
   {
    "nome": "ALBERTO NÓVOA",
@@ -120,6 +120,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "TIAGO SILVA",
+   "equipa": "SC TORRES",
+   "jogos": 3,
+   "numero": "7",
+   "golos": 2,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TOMÁS BRIGANTIN",
    "equipa": "SPORTING CP B",
    "jogos": 1,
@@ -133,14 +146,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO SILVA",
+   "nome": "EDUARDO BOTELHO",
    "equipa": "SC TORRES",
-   "jogos": 2,
-   "numero": "7",
+   "jogos": 3,
+   "numero": "2",
    "golos": 2,
-   "assistencias": 1,
+   "assistencias": 0,
    "defesas": 0,
-   "pontos": 3,
+   "pontos": 2,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -148,7 +161,7 @@
   {
    "nome": "KHEMY XAVIER",
    "equipa": "SC TORRES",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "6",
    "golos": 2,
    "assistencias": 0,
@@ -161,7 +174,7 @@
   {
    "nome": "VALENTIM SANTOS",
    "equipa": "SC TORRES",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "9",
    "golos": 1,
    "assistencias": 1,
@@ -198,36 +211,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOSÉ VIEIRA",
-   "equipa": "SC TORRES",
-   "jogos": 1,
-   "numero": "3",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "EDUARDO BOTELHO",
-   "equipa": "SC TORRES",
-   "jogos": 2,
-   "numero": "2",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "HENRIQUE SERRO",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 2,
    "numero": "8",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOSÉ VIEIRA",
+   "equipa": "SC TORRES",
+   "jogos": 2,
+   "numero": "3",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -276,32 +276,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DINIS MALCATA",
-   "equipa": "A STUART HCM B",
-   "jogos": 1,
-   "numero": "88",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DINIS XAVIER",
-   "equipa": "A STUART HCM B",
-   "jogos": 1,
-   "numero": "90",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DUARTE DAVID",
    "equipa": "SPORTING CP B",
    "jogos": 1,
@@ -315,62 +289,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO GUIMARÃES",
+   "nome": "EDUARDO SAMPAIO",
    "equipa": "A STUART HCM B",
    "jogos": 1,
-   "numero": "17",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO EVORA",
-   "equipa": "A STUART HCM B",
-   "jogos": 1,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO QUINTAS",
-   "equipa": "A STUART HCM B",
-   "jogos": 1,
-   "numero": "91",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUILHERME ALMEIDA",
-   "equipa": "A STUART HCM B",
-   "jogos": 1,
-   "numero": "30",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUILHERME MARQUES",
-   "equipa": "A STUART HCM B",
-   "jogos": 1,
-   "numero": "8",
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -432,10 +354,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "SARA DIAS",
-   "equipa": "A STUART HCM B",
+   "nome": "VICENTE SERRANO",
+   "equipa": "SC TORRES",
    "jogos": 1,
-   "numero": "19",
+   "numero": "8",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -458,6 +380,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "DINIS MALCATA",
+   "equipa": "A STUART HCM B",
+   "jogos": 2,
+   "numero": "88",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DINIS XAVIER",
+   "equipa": "A STUART HCM B",
+   "jogos": 2,
+   "numero": "7",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DOMINGOS SIMÕES",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 2,
@@ -471,10 +419,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "GONÇALO LOURENÇO",
-   "equipa": "SC TORRES",
+   "nome": "FRANCISCO GUIMARÃES",
+   "equipa": "A STUART HCM B",
    "jogos": 2,
-   "numero": "1",
+   "numero": "17",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -484,8 +432,8 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME CASTRO",
-   "equipa": "SC TORRES",
+   "nome": "GONÇALO EVORA",
+   "equipa": "A STUART HCM B",
    "jogos": 2,
    "numero": "4",
    "golos": 0,
@@ -497,10 +445,36 @@
    "vermelhos": 0
   },
   {
-   "nome": "LEIGH XAVIER",
-   "equipa": "SC TORRES",
+   "nome": "GONÇALO QUINTAS",
+   "equipa": "A STUART HCM B",
    "jogos": 2,
-   "numero": "5",
+   "numero": "60",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME ALMEIDA",
+   "equipa": "A STUART HCM B",
+   "jogos": 2,
+   "numero": "3",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME MARQUES",
+   "equipa": "A STUART HCM B",
+   "jogos": 2,
+   "numero": "20",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -601,10 +575,62 @@
    "vermelhos": 0
   },
   {
+   "nome": "SARA DIAS",
+   "equipa": "A STUART HCM B",
+   "jogos": 2,
+   "numero": "19",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TOMAS TRINDADE",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 2,
    "numero": "9",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GONÇALO LOURENÇO",
+   "equipa": "SC TORRES",
+   "jogos": 3,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME CASTRO",
+   "equipa": "SC TORRES",
+   "jogos": 3,
+   "numero": "4",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LEIGH XAVIER",
+   "equipa": "SC TORRES",
+   "jogos": 3,
+   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

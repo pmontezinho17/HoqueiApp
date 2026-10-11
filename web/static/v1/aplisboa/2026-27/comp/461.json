@@ -113,8 +113,8 @@
    "hora": "11:00:00",
    "casa": "HC SINTRA",
    "fora": "AE FISICA D A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 4,
    "recinto": "PAV. HC SINTRA",
    "ao_vivo": false
   },
@@ -352,15 +352,15 @@
      "posicao": 3,
      "equipa": "AE FISICA D A",
      "logo": null,
-     "jogos": 1,
-     "vitorias": 0,
+     "jogos": 2,
+     "vitorias": 1,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 0,
+     "golos_marcados": 4,
      "golos_sofridos": 5,
-     "diferenca": -5,
-     "racio": 0.0,
-     "pontos": 0
+     "diferenca": -1,
+     "racio": 0.8,
+     "pontos": 3
     },
     {
      "posicao": 4,
@@ -380,14 +380,14 @@
      "posicao": 5,
      "equipa": "HC SINTRA",
      "logo": null,
-     "jogos": 2,
+     "jogos": 3,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 2,
+     "derrotas": 3,
      "golos_marcados": 2,
-     "golos_sofridos": 24,
-     "diferenca": -22,
-     "racio": 0.08,
+     "golos_sofridos": 28,
+     "diferenca": -26,
+     "racio": 0.07,
      "pontos": 0
     }
    ]
