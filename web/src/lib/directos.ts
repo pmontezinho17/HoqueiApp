@@ -23,11 +23,18 @@
  * de jogo. até acho que já pode avançar, e já fica preparado para estas situações"*. Ele
  * escolheu produção com a lista a valer **vazia**.
  *
- * A lista não ficou literalmente vazia porque, no momento dessa decisão, ele estava a ver o
- * jogo no site de testes. Em vez de a esvaziar à mão depois — e de confiar em que alguém se
- * lembrasse — cada entrada passou a ter `data`, e **só conta no próprio dia**. O jogo de
- * 10/10 desaparece sozinho a 11/10, e por isso a publicação de segunda-feira leva a
- * capacidade e não leva transmissão nenhuma.
+ * A lista não ficou vazia nesse dia porque, no momento da decisão, ele estava a ver o jogo no
+ * site de testes. Em vez de a esvaziar à mão depois — e de confiar em que alguém se lembrasse
+ * — cada entrada passou a ter `data`, e **só conta no próprio dia**. A 12/10 ele mandou apagar
+ * a entrada já expirada, e **agora a lista está mesmo vazia**, que é o estado normal: a
+ * capacidade está em produção e não há transmissão nenhuma anunciada.
+ *
+ * Como a trava é a lista estar vazia e não um booleano, ela está no registo de interruptores
+ * — ver `bandeiras.ts` — para não ser uma coisa que só este cabeçalho sabe.
+ *
+ * **Os `naLista` e `directoDe` aceitam a lista por parâmetro**, e é por causa disto: com a
+ * lista real vazia, um teste de comportamento que dependesse dela não testava nada. Os testes
+ * de comportamento passam a sua própria lista; os de disciplina continuam a olhar para a real.
  *
  * Isto também é o desenho certo independentemente disso: um endereço de transmissão ao vivo
  * de um jogo da semana passada não é informação velha, é informação errada. E a sala do
@@ -51,12 +58,10 @@ export type Directo = {
 
 /** id do jogo na fonte → a transmissão. */
 export const DIRECTOS: Record<number, Directo> = {
-	// CD PAÇO ARCOS B – AE FISICA D B, sub-13 série D, 10/10/2026 às 17:30
-	9539: {
-		data: '2026-10-10',
-		url: 'https://cloud.xbotgo.net/live?userId=MjA5NjUxMzg0NzExMjQ2NjQzMg==&language=pt_PT&region=EU',
-		fonte: 'XbotGo'
-	}
+	// Vazia, e **vazia é o estado normal** — ver o registo em `bandeiras.ts`. A entrada do
+	// jogo de 10/10/2026 foi apagada a 12/10 a pedido do dono: já não podia aparecer a
+	// ninguém, porque cada entrada só conta no seu dia, mas era o endereço da câmara de um
+	// amigo dele num repositório público a não dar nada em troca.
 };
 
 /**
@@ -70,8 +75,11 @@ export const DIRECTOS: Record<number, Directo> = {
  *
  * @param id o id do jogo na fonte
  */
-export function naLista(id: number | null | undefined): Directo | undefined {
-	return id == null ? undefined : DIRECTOS[id];
+export function naLista(
+	id: number | null | undefined,
+	lista: Record<number, Directo> = DIRECTOS
+): Directo | undefined {
+	return id == null ? undefined : lista[id];
 }
 
 /**
@@ -88,8 +96,9 @@ export function naLista(id: number | null | undefined): Directo | undefined {
  */
 export function directoDe(
 	id: number | null | undefined,
-	hoje: string = diaDeLisboa()
+	hoje: string = diaDeLisboa(),
+	lista: Record<number, Directo> = DIRECTOS
 ): Directo | undefined {
-	const d = naLista(id);
+	const d = naLista(id, lista);
 	return d && d.data === hoje ? d : undefined;
 }

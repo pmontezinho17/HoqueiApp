@@ -2270,6 +2270,86 @@ dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
 
 Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
 
+## O registo de interruptores, e porque é que não foram mais ramos (12/10/2026)
+
+O dono tinha ficado com a ideia de que a regra dele de 10/10 — um só site de testes — o obrigava
+a um ramo só, e perguntou se não podia ter um ramo por funcionalidade. **Podia sempre**: a regra
+era sobre *sites publicados*, não sobre ramos, e o `ramo.yml` só limita quem ganha endereço.
+
+Eu tinha-lhe proposto, antes, um ramo e um pull request por funcionalidade. Fui ver as melhores
+práticas e **a proposta era um passo atrás.** A página da DORA sobre trunk-based development diz
+que os ramos "duram tipicamente não mais do que algumas horas", que se junta ao tronco "pelo
+menos uma vez por dia", que a meta é "três ou menos ramos activos", e lista como armadilha a
+revisão pesada que leva as pessoas a acumular alterações. Estamos na meta: dois ramos, zero
+*code freezes*, juntas diárias. A ressalva honesta é que os múltiplos que circulam — "24 horas",
+"2,3× mais provável" — são de artigos de fornecedores que citam a DORA sem ligação ao relatório;
+a direcção é sólida, os números não os verifiquei.
+
+**A excepção incómoda:** o `testes` acumulou cinco alterações ao longo de 12/10 e foram a
+produção em bloco, o que tirou ao dono a possibilidade de levar umas e guardar outras. Pela
+definição da própria DORA, isso é um ramo de vida longa com outro nome.
+
+### A resposta não são ramos, são interruptores — e já cá estavam dois
+
+Ramos controlam **quando o código se integra**; interruptores controlam **o que está ligado em
+execução**. Para o problema dele — "quero publicar isto e guardar aquilo" — é o segundo.
+
+E o dono inventou o padrão sozinho, a 10/10, sobre a transmissão em directo: *"mesmo que isto
+avance para produção, não há qualquer problema, pois não vamos ter links de jogo. até acho que
+já pode avançar, e já fica preparado para estas situações"*. O `AGENTS.md` já tinha a regra
+escrita — *"uma experiência que não pode ir a produção fecha-se no código, não no calendário"*.
+Faltava só não ser uma coisa que cada ficheiro sabia de si para si.
+
+**Isto também reconcilia a regra de 09/10 com o trunk-based.** "Trabalho não aprovado vive no
+`testes`" existe porque algo não aprovado em `main` foi ao ar na publicação seguinte. Com
+interruptor, trabalho não aprovado pode viver no `main` sem risco, porque está desligado — e o
+ramo deixa de ser preciso como sala de espera.
+
+### O que ficou no registo, e porquê três entradas e não duas
+
+| | data | porquê |
+|---|---|---|
+| `RECOLHER_FEEDBACK` | 30/11/2026 | dizia no cabeçalho que era temporário e **não tinha data**: saía quando alguém se lembrasse |
+| `DIRECTOS` | permanente | o interruptor é a lista estar vazia, e vazia é o estado normal |
+| `--anonimizar-formacao` | permanente | desligado por decisão de 30/09, e o `AGENTS.md` diz para não o remover — está aqui para não ser descoberto por acidente dentro de seis meses |
+
+Os permanentes **não levam data de propósito**: um aviso que ninguém pode resolver ensina-se a
+ignorar. O que não entra no registo é alcance — o convite do iPhone só no Safari, o Mérito só em
+duas provas: isso é a regra da funcionalidade e é para ficar.
+
+### O que faz isto valer a pena é o teste, não a lista
+
+Uma lista escrita à mão que ninguém verifica é pior do que não haver lista, porque dá a sensação
+de que alguém está a tomar conta do assunto. O `bandeiras.test.ts` falha quando um interruptor
+passa da data — e a mensagem diz logo o que há a apagar —, quando o ficheiro apontado não existe,
+e quando o nome registado já não aparece nesse ficheiro. Verifiquei os dois primeiros a pôr o
+defeito de propósito.
+
+### A entrada morta, e o teste que ela obrigou a reescrever
+
+A lista de transmissões ainda tinha o jogo de 10/10 a 12/10. Inofensiva — a trava da data
+impedia-a de aparecer — mas era o endereço da câmara de um amigo do dono num repositório público
+a não dar nada em troca. Apagada a pedido dele.
+
+E isso partia os testes: com a lista real vazia, os testes de comportamento do `naLista` e do
+`directoDe` passavam a comparar dois `undefined` e **passavam por não testarem nada**. É o mesmo
+erro do meu teste do id da época, a 11/10. A correcção: as duas funções aceitam a lista por
+parâmetro, os testes de comportamento passam uma inventada, os de disciplina continuam a olhar
+para a real — e há um teste novo que fixa a omissão, pondo uma entrada na lista real e tirando-a
+no fim, porque comparar `undefined` com `undefined` passaria igual com a omissão trocada.
+Verificado a trocá-la de propósito.
+
+**E não se verifica que a lista real está vazia.** Enchê-la é o propósito da funcionalidade, e
+um teste que falhasse por haver uma transmissão anunciada punha-se no caminho da coisa certa.
+
+### Sobre as novidades, de passagem
+
+As fontes separam **changelog** — o registo cumulativo, por categorias de quem programa — de
+**release notes** — a camada curada para quem usa, uma versão, resultado e não mecanismo. O
+nosso `NOVIDADES` é o segundo, e por isso os três grupos de hoje estão na forma certa. Changelog
+cumulativo não se cria: este backlog com secções datadas já é isso, e um `CHANGELOG.md` ao lado
+era uma segunda casa para a mesma verdade.
+
 ## A publicação da 1.1, e o aviso que reprovou uma ronda que correu bem (12/10/2026)
 
 O dono: *"avança com o deploy em produção"*. O `testes` entrou no `main` (cinco commits do dia),

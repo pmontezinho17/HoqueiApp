@@ -99,7 +99,7 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
 | | |
 |---|---|
 | `scraper/` | o raspador em Python (`uv`, `httpx`, `selectolax`), os *parsers* e 267 testes |
-| `web/` | a PWA (SvelteKit 2, runes, `adapter-static`, `@vite-pwa/sveltekit`) e 275 testes |
+| `web/` | a PWA (SvelteKit 2, runes, `adapter-static`, `@vite-pwa/sveltekit`) e 283 testes |
 | `web/static/v1/` | os JSON publicados — o contrato de dados |
 | `scripts/` | o ciclo ao vivo (`aovivo.sh`) e utilitários |
 | `worker/relogio/` | o Cloudflare Worker que serve de relógio e cão de guarda às Actions |
@@ -142,6 +142,13 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
   testes primeiro, e as **sete** publicações seguintes — todas para outras coisas — levaram-no
   ao ar sem aprovação. Eu tinha-lhe escrito esse risco por palavras minhas e segui a publicar
   na mesma. Enquanto algo não aprovado estiver em `main`, **qualquer** publicação o leva.
+- **Uma funcionalidade que não pode aparecer ainda vai a produção desligada, e o interruptor
+  está registado.** `web/src/lib/bandeiras.ts` tem a lista, cada entrada com o que esconde, o
+  que apagar quando sair, e uma **data** até à qual tem de estar resolvida — e um teste que
+  falha quando essa data passa. É o que permite publicar tudo e mostrar só o aprovado, sem um
+  ramo a servir de sala de espera. Quem acrescentar um interruptor acrescenta-o ali no mesmo
+  commit; quem vir o teste a falhar resolve o interruptor ou empurra a data **por escrito**,
+  e não apaga o teste.
 - **Subir a versão em `web/src/lib/versao.ts` quando a alteração se nota a usar a app**, e
   escrever uma linha em `NOVIDADES` para quem a vai ver. Uma publicação que só mexe na
   consola, no raspador ou num workflow **não sobe a versão** — e é isso que impede o aviso de
