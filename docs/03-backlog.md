@@ -2253,6 +2253,81 @@ dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
 
 Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
 
+## O tour que nunca se calava, e os favoritos que desapareciam (12/10/2026)
+
+O dono, antes da entrega de segunda: *"o meu cunhado tem um iPhone, e tem-me dito que cada vez
+que entra na aplicação, está sempre a ver a tour a acontecer e que fica sem as equipas como
+favorito"*.
+
+São **dois** defeitos com causas diferentes, e só um deles é nosso.
+
+### O tour: a marca só era escrita ao fechar
+
+`marcarVisto()` vivia só no `sair()`. Quem levasse o tour até ao fim, ou carregasse em "Saltar
+o guia", deixava a marca; quem **desistisse pelo caminho** não deixava nada — e fechar a app a
+meio do tour é desistir. Resultado: abertura seguinte, tour outra vez. E outra.
+
+Reproduzido no browser a 375px, com o defeito reposto de propósito para não ser uma suposição:
+
+| | antes | depois |
+|---|---|---|
+| limpar o armazenamento e abrir | o tour arranca | o tour arranca |
+| `hoquei:guia-visto:v2` enquanto ele decorre | **ausente** | `"1"` |
+| recarregar a meio e abrir outra vez | **o tour arranca outra vez** | não arranca |
+
+A marca passou a escrever-se **ao mostrar**, que é quando a frase "este tour já lhe foi
+mostrado" se torna verdadeira. Quem o quiser rever tem o botão em "Sobre a app". O
+armazenamento ficou injectável — o mesmo padrão do `presenca.ts` — para isto poder ter teste
+sem arrastar um jsdom; os dois testes novos falham com o defeito reposto, verificado.
+
+**Isto explica o "sempre" sem precisar de iPhone nenhum.** E explica porque é que o dono nunca
+o viu: ele leva o tour até ao fim.
+
+### Os favoritos: esses exigem perder o armazenamento
+
+O tour e os favoritos irem juntos parece uma causa só e não é. O `jaViu()` já devolvia "não
+mostrar" quando o `localStorage` **estoura** — janela privada, armazenamento bloqueado — e isso
+é de propósito: um tour que reaparece porque não consegue guardar que apareceu é pior do que
+tour nenhum. Logo, se o tour aparecia, o armazenamento estava a **funcionar**: escrevia-se e
+lia-se. O que falta à explicação dos favoritos é um armazenamento que funciona e está **vazio**
+a cada abertura.
+
+No iPhone há quatro causas conhecidas para isso, e nenhuma é código nosso:
+
+1. **O tecto de 7 dias do Safari.** Para um site que **não** está no ecrã principal, o Safari
+   apaga o `localStorage` depois de 7 dias sem visitas. Uma app de resultados abre-se no fim de
+   semana do jogo — que é exactamente o intervalo. É a hipótese principal.
+2. **Um browser dentro de outra app.** Um link tocado no WhatsApp abre numa vista com
+   armazenamento efémero: cada abertura é um aparelho novo. E o link desta app **andou a
+   circular em mensagens**.
+3. **Navegação privada**, onde o armazenamento morre com a sessão.
+4. **Dois sítios diferentes.** A app no ecrã principal e o Safari não partilham armazenamento
+   no iOS; e `testes.hoquei.pages.dev` é outra origem, com outros favoritos — o endereço que
+   foi partilhado por engano a 10/10.
+
+O que **não** é: o `desinstalar()` da porta dos ramos. Ele apaga o service worker e as caches,
+nunca o `localStorage`, e só corre num site de ramo.
+
+### Como se mede, sem acrescentar nada
+
+A tabela `aparelho` já responde: `novos` é o número de aparelhos que abriram a app sem a marca
+`hoquei:conhecido:v1`. Num uso saudável são poucos por dia e estabilizam; se `novos` for
+sempre uma fatia grande do `total`, há aparelhos a perder o armazenamento em escala e não é só
+um cunhado. A `porta` responde à causa 4: se ainda houver avisos, o endereço de testes
+continua a circular.
+
+### O que se pode fazer, e o que é decisão do dono
+
+Feito: a marca ao mostrar. Em aberto, por ordem de proveito:
+
+| | |
+|---|---|
+| **Convidar a instalar no ecrã principal**, uma vez e dispensável, só no Safari do iOS | é o único caminho que tira o tecto dos 7 dias, e está todo do nosso lado |
+| **Um link que guarda e devolve as equipas seguidas** | encaixa na partilha que o dono já pediu; um toque repõe o que o Safari apagou, sem conta e sem servidor |
+| Um cookie posto pelo servidor em vez do `localStorage` | sobrevive ao tecto dos 7 dias, **mas a página de privacidade promete zero cookies em produção** — é decisão do dono e muda a página no mesmo commit |
+| `navigator.storage.persist()` | **não serve**: o Safari não o implementa |
+| Conta e sincronização | contra a Decisão 3, local-first |
+
 ## B9.33 — os cartões ao banco: na ficha, e no Mérito (12/10/2026)
 
 O colega que emprestou o regulamento ao dono leu a página 93 e avisou-o de duas coisas: que há

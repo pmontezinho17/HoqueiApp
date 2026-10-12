@@ -67,6 +67,7 @@ export const NOVIDADES: Novidade[] = [
 			'As Competições abrem numa grelha de escalões, e mostram por omissão só as provas a decorrer.',
 			'Um jogo que ainda não começou já abre: mostra as equipas, a hora, o recinto e a classificação, em vez de um erro.',
 			'No menu ⋮ há agora Perguntas frequentes, e podes escolher o tema claro ou escuro em vez de seguir sempre o telemóvel.',
+			'O guia da primeira visita deixa de reaparecer a quem o fechou a meio: passa a contar como visto assim que aparece. Quem o quiser rever tem o botão em Sobre a app.',
 			'Na ficha de jogo os cartões ao treinador e ao delegado passam a aparecer, como já apareciam os dos jogadores — e nos Escolares e Benjamins também descontam no Mérito, como o regulamento manda.',
 			'A partir daqui, esta caixa só aparece quando houver mesmo algo de novo para ti.'
 		]

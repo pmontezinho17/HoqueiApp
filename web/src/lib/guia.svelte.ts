@@ -16,7 +16,6 @@
  * funcionar os passos que só às vezes existem — a secção dos jogos a decorrer só está lá
  * quando há um jogo a decorrer.
  */
-import { browser } from '$app/environment';
 import { favoritos } from './favoritos.svelte';
 import { caminhoEquipa } from './slug';
 
@@ -205,15 +204,25 @@ const CHAVE = 'hoquei:guia-visto:v2';
 const CHAVE_ANTIGA = 'guia-visto';
 let limpou = false;
 
+/**
+ * O armazenamento, injectável — o mesmo padrão do `presenca.ts`, e pela mesma razão: assim o
+ * teste corre em Node sem arrastar um jsdom para o projecto por causa de duas chamadas.
+ *
+ * `null` é "não há onde guardar", que é o caso do servidor durante o build.
+ */
+export type Armazem = Pick<Storage, 'getItem' | 'setItem' | 'removeItem'>;
+const oArmazem = (): Armazem | null =>
+	typeof localStorage === 'undefined' ? null : localStorage;
+
 /** Quem já viu o tour **nesta versão** não o volta a ver sozinho. */
-function jaViu(): boolean {
-	if (!browser) return true;
+function jaViu(armazem: Armazem | null): boolean {
+	if (!armazem) return true;
 	try {
 		if (!limpou) {
-			localStorage.removeItem(CHAVE_ANTIGA);
+			armazem.removeItem(CHAVE_ANTIGA);
 			limpou = true;
 		}
-		return localStorage.getItem(CHAVE) === '1';
+		return armazem.getItem(CHAVE) === '1';
 	} catch {
 		// Uma janela privada, ou armazenamento bloqueado. Aqui a escolha certa é **não**
 		// mostrar: um tour que aparece a cada visita porque não consegue guardar que já
@@ -222,9 +231,9 @@ function jaViu(): boolean {
 	}
 }
 
-function marcarVisto() {
+function marcarVisto(armazem: Armazem | null) {
 	try {
-		localStorage.setItem(CHAVE, '1');
+		armazem?.setItem(CHAVE, '1');
 	} catch {
 		/* sem armazenamento não há nada a guardar, e o tour desta visita já foi visto */
 	}
@@ -273,8 +282,18 @@ class Guia {
 	 * Clube", que sem favoritos já é um ecrã a explicar-se, e os passos deste tour vivem na
 	 * lista. Quem instalar vê o tour na primeira vez que abrir os jogos.
 	 */
-	talvezComecar() {
-		if (this.activo || jaViu()) return;
+	talvezComecar(armazem: Armazem | null = oArmazem()) {
+		if (this.activo || jaViu(armazem)) return;
+		// **A marca escreve-se ao mostrar, e não ao fechar.** Estava só no `sair()`, e por
+		// isso só contava um tour que a pessoa levasse até ao fim ou fechasse de propósito.
+		// Quem desistisse pelo caminho — mudar de ecrã, pôr o telemóvel de lado, fechar a app
+		// — deixava a marca por escrever, e via o tour outra vez na abertura seguinte. E
+		// outra. O cunhado do dono, num iPhone, a 12/10/2026: *"cada vez que entra na
+		// aplicação, está sempre a ver a tour a acontecer"*.
+		//
+		// A marca quer dizer "este tour já lhe foi mostrado", e isso é verdade no instante em
+		// que ele aparece. Quem o quiser rever tem o botão em "Sobre a app".
+		marcarVisto(armazem);
 		this.comecar();
 	}
 
@@ -295,7 +314,9 @@ class Guia {
 
 	sair() {
 		this.activo = false;
-		marcarVisto();
+		// redundante no arranque automático, que já marcou ao mostrar — mas não no arranque
+		// pelo botão em "Sobre a app", que é o caminho de quem ainda não tinha marca nenhuma
+		marcarVisto(oArmazem());
 	}
 }
 
