@@ -70,6 +70,25 @@ def ficha_escolares_com_boletim() -> str:
 
 
 @pytest.fixture(scope="session")
+def ficha_com_cartao_ao_banco() -> str:
+    """A única amostra com um cartão a um **não atleta** — HC ALFA 3-7 CD BETA, SUB-19.
+
+    Existe por uma razão só: o Artigo 92.º ponto 4.2 desconta -4 por um vermelho por
+    acumulação e -6 por um directo, e a ficha (`#jugadores`) não distingue os dois — diz
+    "1 vermelho" e mais nada. **O boletim distingue**, e esta amostra prova onde: o treinador
+    da equipa visitada tem o `X` na coluna `dir.`.
+
+    Varri as 317 fichas publicadas a 12/10/2026 à procura de cartões a não atletas: 42, em
+    sete escalões, e **zero nos Encontros Distritais** — ou seja, hoje o 4.2 não mexe em
+    nenhuma tabela de Mérito. A amostra é de SUB-19 porque é onde há um vermelho para ver, e
+    serve igual: a estrutura do banco no boletim é a mesma em todos os escalões.
+
+    Anonimizada com os clubes trocados, pela mesma razão que a de Escolares.
+    """
+    return _ler_ficha("apl-ficha-cartao-ao-banco.html")
+
+
+@pytest.fixture(scope="session")
 def ficha_por_disputar() -> str:
     return _ler_ficha("apl-ficha-por-disputar.html")
 

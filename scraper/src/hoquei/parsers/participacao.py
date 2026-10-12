@@ -25,6 +25,23 @@ parte. Daí o desenho: 10 atletas × 2 meias partes = 20 = 4 meias partes × 5 e
 isso que, nestes escalões, o cinco inicial de cada meia parte **é** o registo de participação:
 quem entra faz a meia parte toda (7.4.3), e quem substitui conta como se a tivesse feito
 inteira (7.6).
+
+### As linhas do banco, e porque é que elas também estão aqui
+
+A mesma tabela continua, depois dos atletas, com as linhas da equipa técnica — Delegado,
+Treinador, Massagista — e **elas trazem as colunas de disciplina**: um amarelo, três
+suspensões e as duas expulsões, `a.c.` (por acumulação) e `dir.` (directa). É o que o
+Artigo 92.º ponto 4.2 precisa, e com a distinção que a ficha não dá: em `#jugadores` um
+vermelho a um não atleta é só um `1` na terceira coluna, e o 4.2 desconta -4 ou -6 conforme
+tenha sido por acumulação ou directo.
+
+Medido a 12/10/2026 no jogo 9864, onde a ficha publicada diz que o treinador da FSE/AJ
+Salesiana levou um vermelho: o boletim tem o `X` na coluna `dir.` — logo -6 e não -4.
+
+**Isto corrige duas avaliações erradas minhas.** A primeira dizia que o 4.2 não era
+calculável porque "as colunas de disciplina do boletim são dos atletas"; a segunda, que era
+calculável mas só pela ficha, sem separar acumulação de directo. As duas estavam erradas
+pela mesma razão: ninguém tinha olhado para uma linha de banco do boletim.
 """
 
 from __future__ import annotations
@@ -99,6 +116,74 @@ def _atletas(tabela: Node) -> list[AtletaBoletim]:
     return saida
 
 
+#: índices das células de disciplina numa linha de banco, medidos a 12/10/2026 e fixos em
+#: `test_participacao.py`:
+#: licença(0) nome(1) papel(2) | amarelo(3) | suspensões(4-6) | a.c.(7) | dir.(8)
+_DISCIPLINA_BANCO = (3, (4, 5, 6), 7, 8)
+_CELULAS_BANCO = 9
+
+#: **O que distingue uma linha de banco de uma linha de atleta é o `colspan` do papel**, e
+#: não o número de células. Contar células parecia funcionar e não funciona: o boletim de
+#: Escolares dá dezenove células a um atleta, o de Seniores dá quinze, e qualquer janela que
+#: apanhe as nove de um banco apanha também as quinze de um atleta sénior — media a 12/10/2026
+#: e vi o capitão de uma equipa de seniores aparecer como membro do banco com três azuis.
+#:
+#: O papel tapa as colunas que um não atleta não tem (posição, cap., nº e as meias partes),
+#: por isso traz `colspan=7` nos Escolares e `colspan=3` nos Seniores. Num atleta, e no
+#: cabeçalho da tabela, essa célula vale uma coluna só.
+_COLSPAN_MINIMO_DO_PAPEL = 3
+
+
+@dataclass(frozen=True)
+class NaoAtletaBoletim:
+    """Uma linha de banco do boletim: quem era, e que cartões levou.
+
+    Ao contrário do `AtletaBoletim`, isto **não** é dado de uma criança — é a equipa técnica,
+    e a ficha de jogo já publica estes nomes e estes cartões. O que o `merito.py` devolve
+    continua a ser só o agregado da equipa.
+    """
+    nome: str
+    #: por extenso, como o boletim o escreve: "Delegado", "Treinador", "Enf./Fisiot./Mass."
+    papel: str
+    amarelo: bool
+    #: quantas das três colunas de suspensão estão marcadas — os cartões azuis
+    azuis: int
+    #: expulsão por acumulação (`a.c.`) e expulsão directa (`dir.`)
+    vermelho_acumulacao: bool
+    vermelho_directo: bool
+
+
+def _banco(tabela: Node) -> list[NaoAtletaBoletim]:
+    amarelo, suspensoes, acumulacao, directo = _DISCIPLINA_BANCO
+    saida: list[NaoAtletaBoletim] = []
+    for tr in tabela.css("tr"):
+        celulas = tr.css("td,th")
+        if len(celulas) < _CELULAS_BANCO:
+            continue
+        if _colunas(celulas[2]) < _COLSPAN_MINIMO_DO_PAPEL:
+            continue
+        c = _celulas(tr)
+        if not c[1] or not c[2]:
+            continue
+        saida.append(NaoAtletaBoletim(
+            nome=c[1],
+            papel=c[2],
+            # qualquer marca conta, pela mesma razão que nas meias partes: a marca é da
+            # mesa e um `x` minúsculo não pode apagar uma penalização
+            amarelo=bool(c[amarelo]),
+            azuis=sum(1 for i in suspensoes if c[i]),
+            vermelho_acumulacao=bool(c[acumulacao]),
+            vermelho_directo=bool(c[directo]),
+        ))
+    return saida
+
+
+def _colunas(celula: Node) -> int:
+    """Quantas colunas é que esta célula ocupa. Um `colspan` ilegível vale uma."""
+    bruto = celula.attributes.get("colspan") or "1"
+    return int(bruto) if bruto.isdigit() else 1
+
+
 def participacao(html: str) -> tuple[list[AtletaBoletim], list[AtletaBoletim]] | None:
     """(visitada, visitante), ou `None` quando o boletim não está lá.
 
@@ -116,3 +201,19 @@ def participacao(html: str) -> tuple[list[AtletaBoletim], list[AtletaBoletim]] |
     if not casa and not fora:
         return None
     return casa, fora
+
+
+def nao_atletas(html: str) -> tuple[list[NaoAtletaBoletim], list[NaoAtletaBoletim]] | None:
+    """(visitada, visitante) do banco, ou `None` quando o boletim não está lá.
+
+    Separado do `participacao` de propósito: o Mérito precisa dos dois, mas uma equipa pode
+    perfeitamente apresentar-se sem ninguém inscrito no banco, e `([], [])` nesse caso é a
+    resposta certa — não é um boletim em falta.
+    """
+    acta = HTMLParser(html).css_first("#acta")
+    if acta is None:
+        return None
+    tabelas = acta.css("table")
+    if len(tabelas) < 4:
+        return None
+    return _banco(tabelas[2]), _banco(tabelas[3])

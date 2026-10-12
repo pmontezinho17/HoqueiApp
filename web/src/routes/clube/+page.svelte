@@ -121,7 +121,7 @@
 			 * sem condição o guia aparecia de cada vez que alguém escolhia uma equipa nova.
 			 * Apanhado pelo dono em produção a 06/10/2026.
 			 *
-			 * O guia arranca sozinho uma vez, e depois disso só a pedido: pelo menu do ⋮ ou
+			 * O guia arranca sozinho uma vez, e depois disso só a pedido: pelo menu do ☰ ou
 			 * pelo `?guia=1`.
 			 */
 			guia.talvezComecar();

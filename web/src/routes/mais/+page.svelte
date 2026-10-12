@@ -3,8 +3,8 @@
 	 * A ficha técnica da app: de onde vêm os dados, quantos são, e de quando.
 	 *
 	 * **Era um ecrã com cinco blocos** — isto, o aviso de site não oficial, o guia, um resumo
-	 * de privacidade e os nomes de atletas — porque o ⋮ vinha directo para cá e tudo o que
-	 * não tinha casa acabava aqui. Desde 06/10/2026 o ⋮ abre um menu: o guia é uma linha lá,
+	 * de privacidade e os nomes de atletas — porque este botão vinha directo para cá e tudo o que
+	 * não tinha casa acabava aqui. Desde 06/10/2026 ele abre um menu: o guia é uma linha lá,
 	 * a privacidade é uma linha lá, e os nomes de atletas estavam a repetir em resumo o que a
 	 * `/privacidade` já diz por extenso, com o compromisso e o endereço. Dois textos a dizer
 	 * o mesmo divergem no dia em que um deles mudar.
@@ -115,7 +115,9 @@
 		<dd>
 			Apresentar menos de 8 atletas, levar um só guarda-redes, e pôr um atleta a jogar três
 			meias partes ou as quatro — o regulamento parte estes jogos em quatro meias partes e
-			obriga a que cada atleta faça uma inteira de cada parte.
+			obriga a que cada atleta faça uma inteira de cada parte. Contam também os cartões a
+			quem está no banco e não joga: 2 pontos por um azul, 4 por um vermelho vindo da
+			acumulação de azuis e 6 por um vermelho directo.
 		</dd>
 		<dt>De onde vêm os números</dt>
 		<dd>

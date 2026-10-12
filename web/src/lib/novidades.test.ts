@@ -1,11 +1,17 @@
 import { describe, expect, it } from 'vitest';
-import { porMostrar } from './novidades.svelte';
-import type { Novidade } from './versao';
+import { aReabrir, agrupar, porMostrar } from './novidades.svelte';
+import { GRUPOS, NOVIDADES, type Novidade, type Ponto } from './versao';
+
+const ponto = (titulo: string, tipo: Ponto['tipo'] = 'novo'): Ponto => ({
+	tipo,
+	titulo,
+	texto: 'o porquê'
+});
 
 const lista: Novidade[] = [
-	{ versao: '1.3', data: '2026-11-01', pontos: ['c'] },
-	{ versao: '1.2', data: '2026-10-20', pontos: ['b'] },
-	{ versao: '1.1', data: '2026-10-15', pontos: ['a'] }
+	{ versao: '1.3', data: '2026-11-01', pontos: [ponto('c')] },
+	{ versao: '1.2', data: '2026-10-20', pontos: [ponto('b')] },
+	{ versao: '1.1', data: '2026-10-15', pontos: [ponto('a')] }
 ];
 
 describe('quando é que a caixa do "o que mudou" aparece', () => {
@@ -40,5 +46,112 @@ describe('quando é que a caixa do "o que mudou" aparece', () => {
 	 */
 	it('uma versão sem entrada na lista não interrompe ninguém', () => {
 		expect(porMostrar('1.3', '1.4', lista)).toEqual([]);
+	});
+});
+
+describe('quando alguém pede para ver as novidades outra vez', () => {
+	/**
+	 * Pedido pelo dono a 12/10/2026, depois de fechar a caixa sem querer. É outra pergunta que
+	 * a do `porMostrar`, e por isso tem outra resposta: ali a resposta certa é quase sempre
+	 * "nada", aqui **nunca** pode ser nada — um botão que não faz nada é pior do que não haver
+	 * botão nenhum.
+	 */
+	it('mostra o que entrou nesta versão', () => {
+		expect(aReabrir('1.2', lista).map((n) => n.versao)).toEqual(['1.2']);
+	});
+
+	it('a marca do aparelho não entra nesta conta — ele pediu para ver', () => {
+		/** O contraste com o `porMostrar`, que a esta mesma versão responderia `[]`. */
+		expect(porMostrar('1.3', '1.3', lista)).toEqual([]);
+		expect(aReabrir('1.3', lista)).toHaveLength(1);
+	});
+
+	it('uma versão sem notas cai na última coisa que mudou, em vez de não abrir nada', () => {
+		/**
+		 * É o caso de uma publicação que só mexeu no raspador ou num workflow: sobe o número
+		 * e não escreve novidades, de propósito. A linha do menu tem de continuar a dizer
+		 * alguma coisa.
+		 */
+		expect(aReabrir('1.4', lista).map((n) => n.versao)).toEqual(['1.3']);
+	});
+
+	it('sem lista nenhuma devolve nada — e aí o menu esconde a linha', () => {
+		expect(aReabrir('1.0', [])).toEqual([]);
+	});
+});
+
+describe('os grupos da caixa', () => {
+	/**
+	 * A avaliação que levou a três grupos — e não a "layout", nem a uma divisão por zona da
+	 * app — está no cabeçalho do `Tipo`, em `versao.ts`. Aqui verifica-se o que o código faz
+	 * com eles.
+	 */
+	it('respeita a ordem declarada, e não a ordem em que os pontos vêm escritos', () => {
+		const grupos = agrupar([
+			ponto('x', 'corrigido'),
+			ponto('y', 'novo'),
+			ponto('z', 'regras')
+		]);
+		expect(grupos.map((g) => g.rotulo)).toEqual(GRUPOS.map((g) => g.rotulo));
+	});
+
+	it('um grupo sem pontos não aparece', () => {
+		/**
+		 * Um cabeçalho vazio é pior do que não haver cabeçalhos: faz a pessoa procurar o que
+		 * não existe. Uma versão que só traga correcções mostra "Corrigido" e mais nada.
+		 */
+		const grupos = agrupar([ponto('x', 'corrigido')]);
+		expect(grupos).toHaveLength(1);
+		expect(grupos[0].rotulo).toBe('Corrigido');
+	});
+
+	it('não perde nem duplica pontos', () => {
+		const pontos = [ponto('a', 'novo'), ponto('b', 'regras'), ponto('c', 'novo')];
+		const saida = agrupar(pontos).flatMap((g) => g.pontos);
+		expect(saida).toHaveLength(pontos.length);
+		expect(new Set(saida.map((p) => p.titulo))).toEqual(new Set(['a', 'b', 'c']));
+	});
+
+	it('sem pontos nenhuns não há grupos', () => {
+		expect(agrupar([])).toEqual([]);
+	});
+});
+
+describe('os pontos que vamos publicar', () => {
+	const todos = NOVIDADES.flatMap((n) => n.pontos);
+
+	it('há pontos para verificar, senão isto não diz nada', () => {
+		expect(todos.length).toBeGreaterThan(0);
+	});
+
+	it('cada um tem chavão e descrição, e os dois dizem algo', () => {
+		for (const p of todos) {
+			expect(p.titulo.trim(), JSON.stringify(p)).not.toBe('');
+			expect(p.texto.trim(), p.titulo).not.toBe('');
+		}
+	});
+
+	it('o chavão é curto', () => {
+		/**
+		 * **Isto é a regra que impede o pedido do dono de se desfazer com o tempo.** Ele pediu
+		 * um chavão em negrito seguido de uma pequena descrição; um título que dá três linhas
+		 * deixa de ser um chavão e volta a ser a frase corrida que isto veio substituir. 64
+		 * caracteres são cerca de duas linhas a 375px, que é o limite do que ainda se lê de
+		 * relance.
+		 */
+		for (const p of todos) expect(p.titulo.length, p.titulo).toBeLessThanOrEqual(64);
+	});
+
+	it('o chavão não acaba em ponto — é um título e não uma frase', () => {
+		for (const p of todos) expect(p.titulo.endsWith('.'), p.titulo).toBe(false);
+	});
+
+	it('cada um cai num grupo conhecido', () => {
+		const tipos = new Set(GRUPOS.map((g) => g.tipo));
+		for (const p of todos) expect(tipos.has(p.tipo), p.titulo).toBe(true);
+	});
+
+	it('todos aparecem na caixa — nenhum fica órfão por causa do agrupamento', () => {
+		expect(agrupar(todos).flatMap((g) => g.pontos)).toHaveLength(todos.length);
 	});
 });

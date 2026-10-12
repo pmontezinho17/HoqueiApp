@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { PASSOS, caminhoDe, primeiroComAlvo, type Passo } from './guia.svelte';
+import { PASSOS, caminhoDe, guia, primeiroComAlvo, type Armazem, type Passo } from './guia.svelte';
 
 /**
  * A promessa deste tour é que uma mudança de desenho lhe custa um passo, e não um holofote
@@ -77,5 +77,75 @@ describe('o ecrã de cada passo', () => {
 			const c = caminhoDe(p);
 			expect(c === null || c.startsWith('/')).toBe(true);
 		}
+	});
+});
+
+/** Um `localStorage` de brincar, que é tudo o que estas regras precisam de ver. */
+function armazemFalso(inicial: Record<string, string> = {}): Armazem & { dados: Map<string, string> } {
+	const dados = new Map(Object.entries(inicial));
+	return {
+		dados,
+		getItem: (k) => dados.get(k) ?? null,
+		setItem: (k, v) => void dados.set(k, v),
+		removeItem: (k) => void dados.delete(k)
+	};
+}
+
+describe('o tour só se mostra sozinho uma vez', () => {
+	/**
+	 * **O defeito que isto fecha**, relatado pelo cunhado do dono a 12/10/2026 num iPhone:
+	 * *"cada vez que entra na aplicação, está sempre a ver a tour a acontecer"*.
+	 *
+	 * A marca de "já vi" só era escrita no `sair()`. Quem desistisse pelo caminho — e fechar
+	 * a app a meio do tour é desistir — não deixava marca nenhuma, e via o tour outra vez na
+	 * abertura seguinte, indefinidamente. Não era preciso perder o armazenamento para isso.
+	 */
+	it('marca ao mostrar, e não ao fechar', () => {
+		const a = armazemFalso();
+		guia.activo = false;
+		guia.talvezComecar(a);
+		expect(guia.aDecorrer).toBe(true);
+		expect(a.getItem('hoquei:guia-visto:v2')).toBe('1');
+	});
+
+	it('não volta a arrancar mesmo que o tour nunca tenha sido fechado', () => {
+		const a = armazemFalso();
+		guia.activo = false;
+		guia.talvezComecar(a);
+		// a desistência: a app fecha-se, o `sair()` nunca corre
+		guia.activo = false;
+		guia.talvezComecar(a);
+		expect(guia.aDecorrer).toBe(false);
+	});
+
+	it('com a marca já lá, não arranca', () => {
+		guia.activo = false;
+		guia.talvezComecar(armazemFalso({ 'hoquei:guia-visto:v2': '1' }));
+		expect(guia.aDecorrer).toBe(false);
+	});
+
+	it('sem armazenamento não arranca — um tour que não se consegue calar é pior que nenhum', () => {
+		guia.activo = false;
+		guia.talvezComecar(null);
+		expect(guia.aDecorrer).toBe(false);
+	});
+
+	it('um armazenamento que estoura também não o faz arrancar', () => {
+		guia.activo = false;
+		guia.talvezComecar({
+			getItem: () => { throw new Error('bloqueado'); },
+			setItem: () => { throw new Error('bloqueado'); },
+			removeItem: () => { throw new Error('bloqueado'); }
+		});
+		expect(guia.aDecorrer).toBe(false);
+	});
+
+	it('um tour a decorrer não se reinicia', () => {
+		const a = armazemFalso();
+		guia.activo = false;
+		guia.talvezComecar(a);
+		guia.indice = 2;
+		guia.talvezComecar(a);
+		expect(guia.indice).toBe(2);
 	});
 });

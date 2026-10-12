@@ -24,6 +24,11 @@
 		<!-- um mapa dobrado: o guia é o passeio pelos ecrãs -->
 		<path d="M2.5 5.5 7.5 3.5v11l-5 2Z" /><path d="M7.5 3.5 12.5 5.5v11l-5-2Z" />
 		<path d="M12.5 5.5 17.5 3.5v11l-5 2Z" />
+	{:else if nome === 'novidades'}
+		<!-- um brilho: duas estrelas de quatro pontas, a grande e a pequena. É o sinal de "novo"
+		     que as pessoas já conhecem de outras apps, e não precisa de texto para se ler. -->
+		<path d="M8 2.8 9.4 6.6 13.2 8 9.4 9.4 8 13.2 6.6 9.4 2.8 8 6.6 6.6Z" />
+		<path d="M14.6 11.6 15.4 13.6 17.4 14.4 15.4 15.2 14.6 17.2 13.8 15.2 11.8 14.4 13.8 13.6Z" />
 	{:else if nome === 'opiniao'}
 		<!-- um balão de fala -->
 		<path d="M17 11.5a2.5 2.5 0 0 1-2.5 2.5H8l-4 3v-3H5.5A2.5 2.5 0 0 1 3 11.5v-5A2.5 2.5 0 0 1 5.5 4h9A2.5 2.5 0 0 1 17 6.5Z" />

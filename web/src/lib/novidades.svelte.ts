@@ -12,7 +12,7 @@
  * `versao.ts`: antes, cada publicação avisava todos — mesmo uma que só mexesse na consola.
  * Agora quem publica decide, ao subir o número, se aquilo vale a interrupção.
  */
-import { NOVIDADES, VERSAO, type Novidade } from './versao';
+import { GRUPOS, NOVIDADES, VERSAO, type Novidade, type Ponto } from './versao';
 
 const CHAVE = 'hoquei:versao-vista:v1';
 
@@ -31,18 +31,78 @@ export function porMostrar(vista: string | null, versao = VERSAO, lista = NOVIDA
 	return desde < 0 ? lista : lista.slice(0, desde);
 }
 
-/** O estado da caixa. Lê o armazenamento uma vez, no arranque, e nunca falha por causa dele. */
-export function novidades() {
-	let aMostrar = $state<Novidade[]>([]);
+/**
+ * O que a caixa mostra quando **alguém a pede** no menu. Função pura.
+ *
+ * É outra pergunta que a do `porMostrar`, e por isso é outra função. O `porMostrar` responde a
+ * "há aqui alguma coisa que valha interromper esta pessoa?", e a resposta certa é quase sempre
+ * não. Esta responde a "ele pediu para ver — mostra o quê?", e aí não se pode devolver nada:
+ * um botão que não faz nada é pior do que não haver botão.
+ *
+ * Mostra o que entrou **nesta versão**, que é o que o dono pediu a 12/10/2026 — *"para que as
+ * pessoas possam ver novamente o que há de novo nesta versão"*. Se a versão em curso não
+ * trouxer notas nenhumas — o caso de uma publicação que só mexe no raspador — cai na entrada
+ * mais recente da lista, que é a última coisa que mudou para quem usa a app.
+ */
+export function aReabrir(versao = VERSAO, lista = NOVIDADES): Novidade[] {
+	const desta = lista.filter((n) => n.versao === versao);
+	return desta.length ? desta : lista.slice(0, 1);
+}
 
-	function arrancar() {
+/** Um grupo já pronto a desenhar: o rótulo e os pontos que lhe pertencem. */
+export type Grupo = { rotulo: string; pontos: Ponto[] };
+
+/**
+ * Agrupa os pontos pelo `tipo`, na ordem do `GRUPOS`, e **deixa de fora os grupos vazios**.
+ *
+ * Função pura, e é aqui que vive a única regra de apresentação que vale a pena testar: um
+ * cabeçalho sem nada debaixo é pior do que não haver cabeçalhos, porque faz a pessoa procurar
+ * o que não existe. Uma versão que só traga correcções mostra "Corrigido" e mais nada.
+ *
+ * Recebe os pontos **já achatados de todas as versões a mostrar**. Quem salta da 1.1 para a
+ * 1.3 vê os três lotes misturados nos mesmos três grupos, e isso é de propósito: a pergunta é
+ * "o que mudou desde a última vez que aqui estive?", não "o que mudou em cada versão". A
+ * versão em si não aparece em sítio nenhum desta caixa.
+ */
+export function agrupar(pontos: Ponto[]): Grupo[] {
+	return GRUPOS.map(({ tipo, rotulo }) => ({
+		rotulo,
+		pontos: pontos.filter((p) => p.tipo === tipo)
+	})).filter((g) => g.pontos.length > 0);
+}
+
+/**
+ * O estado da caixa. Lê o armazenamento uma vez, no arranque, e nunca falha por causa dele.
+ *
+ * **Um só objecto para toda a app**, como o `tema`, a `cor` e o `guia` — e não uma fábrica,
+ * que era o que isto era até 12/10/2026. A fábrica dava uma instância por chamada, e por isso
+ * a caixa só podia ser aberta de dentro de si mesma: o menu não tinha como lhe falar. É essa
+ * a razão da mudança, e não arrumação.
+ */
+class Novidades {
+	private aMostrar = $state<Novidade[]>([]);
+
+	get lista() {
+		return this.aMostrar;
+	}
+
+	get aberta() {
+		return this.aMostrar.length > 0;
+	}
+
+	/** O que a caixa desenha: os grupos, já por ordem e sem os vazios. */
+	get grupos(): Grupo[] {
+		return agrupar(this.aMostrar.flatMap((n) => n.pontos));
+	}
+
+	arrancar() {
 		let vista: string | null = null;
 		try {
 			vista = localStorage.getItem(CHAVE);
 		} catch {
 			return; // janela privada ou armazenamento bloqueado: não se mostra nada
 		}
-		aMostrar = porMostrar(vista);
+		this.aMostrar = porMostrar(vista);
 		// **A versão guarda-se logo, mesmo antes de a caixa ser lida.** Se só se guardasse ao
 		// fechar, quem fechasse a aplicação a meio voltava a ver a mesma lista — e uma caixa
 		// que reaparece é pior do que uma caixa que se perdeu.
@@ -53,14 +113,25 @@ export function novidades() {
 		}
 	}
 
-	return {
-		get lista() {
-			return aMostrar;
-		},
-		get aberta() {
-			return aMostrar.length > 0;
-		},
-		arrancar,
-		fechar: () => (aMostrar = [])
-	};
+	/**
+	 * A pedido, do menu. Nasceu de um acidente do dono a 12/10/2026: *"sem querer carreguei em
+	 * alguma coisa que me fez tirar a janela com as novidades"*. A caixa fechava-se com um
+	 * toque e não havia segundo caminho para ela — e a lista de novidades é precisamente o que
+	 * se fecha sem ler e depois se quer ler.
+	 *
+	 * Não mexe no armazenamento: a marca da versão já lá está desde o arranque, e isto não é
+	 * um aviso novo, é a mesma folha outra vez.
+	 */
+	reabrir() {
+		this.aMostrar = aReabrir();
+	}
+
+	fechar() {
+		this.aMostrar = [];
+	}
 }
+
+export const novidades = new Novidades();
+
+/** Se há sequer alguma coisa para reabrir — o menu esconde a linha quando não há. */
+export const HA_NOVIDADES = NOVIDADES.length > 0;

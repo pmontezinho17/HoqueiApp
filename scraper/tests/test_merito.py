@@ -13,7 +13,12 @@ from __future__ import annotations
 
 import pytest
 from hoquei.merito import escalonar, merito_do_jogo, vale_merito
-from hoquei.parsers.participacao import AtletaBoletim, participacao
+from hoquei.parsers.participacao import (
+    AtletaBoletim,
+    NaoAtletaBoletim,
+    nao_atletas,
+    participacao,
+)
 
 
 def atleta(*periodos, posicao="JC", golos=0, numero="1") -> AtletaBoletim:
@@ -244,3 +249,104 @@ class TestOJogoReal:
     def test_um_jogo_dentro_da_regra_nao_tem_penalizacoes_nem_avisos(self, jogo):
         for m in jogo:
             assert m.penalizacao == 0 and m.avisos == []
+
+
+def no_banco(azuis=0, amarelo=False, acumulacao=False, directo=False, papel="Treinador"):
+    return NaoAtletaBoletim(nome="X", papel=papel, amarelo=amarelo, azuis=azuis,
+                            vermelho_acumulacao=acumulacao, vermelho_directo=directo)
+
+
+def com_banco(*pessoas, golos=1, golos_adversario=0):
+    """O mérito da equipa da casa com estas pessoas no banco, e nada de errado em pista."""
+    return merito_do_jogo("A", "B", (equipa_regular(), equipa_regular()),
+                          golos, golos_adversario, ([*pessoas], []))[0]
+
+
+def quatro_dois(m) -> list[tuple[str, int]]:
+    """As linhas do 4.2, que são várias e por isso não cabem no `parcelas`, que é um dict."""
+    return [(p.texto, p.pontos) for p in m.parcelas if p.regra == "4.2"]
+
+
+class TestNaoAtletas:
+    """Artigo 92.º ponto 4.2 — os cartões a quem está no banco e não joga.
+
+    Lido das linhas de equipa técnica do boletim, ver `parsers/participacao.py`. O ponto 4.2
+    é um sub-ponto do 4, que abre com "às equipas que participam nas provas designadas no
+    ponto 1" — logo só se aplica onde o Mérito se aplica, e não a todos os escalões.
+    """
+
+    def test_um_azul_desconta_dois(self):
+        m = com_banco(no_banco(azuis=1))
+        assert quatro_dois(m) == [("um cartão azul ao banco", -2)]
+
+    def test_os_azuis_somam(self):
+        m = com_banco(no_banco(azuis=2), no_banco(azuis=1, papel="Delegado"))
+        assert quatro_dois(m) == [("3 cartões azuis ao banco", -6)]
+
+    def test_um_vermelho_por_acumulacao_desconta_quatro(self):
+        m = com_banco(no_banco(acumulacao=True))
+        assert quatro_dois(m) == [("um vermelho por acumulação ao banco", -4)]
+
+    def test_um_vermelho_directo_desconta_seis(self):
+        m = com_banco(no_banco(directo=True))
+        assert quatro_dois(m) == [("um vermelho directo ao banco", -6)]
+
+    def test_o_amarelo_nao_desconta(self):
+        """O 4.2 fala de azul e de vermelho. Descontar o amarelo era inventar regulamento."""
+        assert quatro_dois(com_banco(no_banco(amarelo=True))) == []
+
+    def test_os_azuis_e_o_vermelho_que_deles_vem_somam_os_dois(self):
+        """Três azuis e a expulsão por acumulação são quatro marcas no boletim, e o
+        regulamento não diz que o vermelho absorve os azuis: -6 e -4, -10 ao todo."""
+        m = com_banco(no_banco(azuis=3, acumulacao=True))
+        assert quatro_dois(m) == [("3 cartões azuis ao banco", -6),
+                                  ("um vermelho por acumulação ao banco", -4)]
+        assert m.penalizacao == -10
+
+    def test_entra_na_penalizacao_e_no_total(self):
+        limpo = com_banco()
+        sujo = com_banco(no_banco(directo=True))
+        assert limpo.penalizacao == 0
+        assert sujo.penalizacao == -6
+        assert sujo.total == limpo.total - 6
+
+    def test_sem_banco_a_conta_sai_igual_a_antes(self):
+        """Quem chame o `merito_do_jogo` sem banco — e até 12/10/2026 era todo o código —
+        tem a mesma conta que tinha."""
+        sem = merito_do_jogo("A", "B", (equipa_regular(), equipa_regular()), 1, 0)[0]
+        vazio = com_banco()
+        assert (sem.total, sem.penalizacao) == (vazio.total, vazio.penalizacao)
+
+    def test_cada_equipa_leva_o_seu(self):
+        casa, fora = merito_do_jogo(
+            "A", "B", (equipa_regular(), equipa_regular()), 1, 0,
+            ([no_banco(directo=True)], [no_banco(azuis=1)]))
+        assert quatro_dois(casa) == [("um vermelho directo ao banco", -6)]
+        assert quatro_dois(fora) == [("um cartão azul ao banco", -2)]
+
+
+class TestOCartaoRealAoBanco:
+    """Contra a amostra: HC ALFA 3-7 CD BETA, com um vermelho directo ao treinador da casa.
+
+    O jogo é de SUB-19 e portanto não tem Mérito nenhum — o que esta amostra prova é a
+    leitura, não a aplicação. A 12/10/2026 não havia um único cartão a não atleta nos oito
+    Encontros Distritais, por isso o 4.2 ainda não mexeu em nenhuma tabela.
+
+    Os atletas vão vazios de propósito: o boletim de SUB-19 não tem a grelha `5I` (são duas
+    partes e não quatro meias partes), e por isso o `participacao` devolve `None` aqui. É o
+    banco que se lê igual em todos os escalões, e é isso que esta amostra guarda.
+    """
+
+    def test_o_boletim_diz_que_foi_directo_e_a_conta_desconta_seis(
+            self, ficha_com_cartao_ao_banco):
+        banco = nao_atletas(ficha_com_cartao_ao_banco)
+        assert banco is not None
+        casa, fora = merito_do_jogo("HC ALFA", "CD BETA", ([], []), 3, 7, banco)
+        assert quatro_dois(casa) == [("um vermelho directo ao banco", -6)]
+        assert quatro_dois(fora) == []
+
+    def test_a_grelha_de_participacao_nao_existe_num_boletim_de_sub_19(
+            self, ficha_com_cartao_ao_banco):
+        """Dito aqui para ninguém se enganar a reutilizar esta amostra para o resto do
+        Mérito: ela só serve para o 4.2."""
+        assert participacao(ficha_com_cartao_ao_banco) is None

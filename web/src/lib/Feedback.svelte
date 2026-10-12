@@ -36,7 +36,7 @@
 	 * O foco tem de ir para a caixa, senão quem usa teclado abre e fica sem saber onde está.
 	 *
 	 * Está num efeito e não no `abrir()` porque o painel passou a abrir de dois sítios — a
-	 * bolha e o menu do ⋮ — e o do menu não passa por aqui.
+	 * bolha e o menu do ☰ — e o do menu não passa por aqui.
 	 */
 	$effect(() => {
 		if (!critica.aberto) return;

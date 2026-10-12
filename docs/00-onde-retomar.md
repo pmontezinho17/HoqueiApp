@@ -8,7 +8,7 @@ séries agrupadas, e o ecrã de jogo refeito a partir de dois vídeos que o Pedr
 
 ```
 ┌──────────────────────────────────────┐
-│ Hóquei            [procurar]  [⋮]   │
+│ Hóquei            [procurar]  [☰]   │
 ├──────────────────────────────────────┤
 │  Jogos   │ O Meu Clube │ Competições │
 └──────────────────────────────────────┘

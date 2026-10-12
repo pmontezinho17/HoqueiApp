@@ -2210,15 +2210,18 @@ dados e apagava a estrutura; trocar os trinta nomes por pseudónimos protege os 
 a estrutura, que é o que um parser precisa de ter debaixo dos pés. Ganhou também um
 `--de-ficheiro`, para regerar uma amostra **sem** ir outra vez ao servidor da associação.
 
-### As duas aproximações, ditas à vista
+### A aproximação que fica, dita à vista
 
-1. **O 4.1.7 não é aplicado.** São -6 pontos e a perda das bonificações por um atleta fazer um
-   só período, "excepto em caso de lesão ou situação impeditiva comprovada pelo árbitro" — e
-   essa comprovação é texto escrito no boletim em papel. Detectamos o caso, marcamo-lo como
-   por confirmar, e **não descontamos**: penalizar uma equipa que levou um miúdo ao hospital
-   seria pior do que uma tabela incompleta. Nos 26 jogos lidos não houve nenhum caso.
-2. **Os cartões a não atletas (4.2) ficam de fora.** As colunas de disciplina do boletim são
-   dos atletas; as do banco não existem na grelha.
+**O 4.1.7 não é aplicado.** São -6 pontos e a perda das bonificações por um atleta fazer um
+só período, "excepto em caso de lesão ou situação impeditiva comprovada pelo árbitro" — e
+essa comprovação é texto escrito no boletim em papel. Detectamos o caso, marcamo-lo como
+por confirmar, e **não descontamos**: penalizar uma equipa que levou um miúdo ao hospital
+seria pior do que uma tabela incompleta. Nos 26 jogos lidos não houve nenhum caso.
+
+~~**Os cartões a não atletas (4.2) ficam de fora.** As colunas de disciplina do boletim são
+dos atletas; as do banco não existem na grelha.~~ **Errado, e corrigido a 12/10/2026** — ver
+a secção B9.33 mais abaixo. As linhas de banco do boletim têm as seis colunas de disciplina,
+com `a.c.` e `dir.` separadas, que é exactamente a diferença entre -4 e -6.
 
 E duas leituras literais que podem vir a ser discutidas: o 4.1.4 e o 4.1.5 **somam-se** numa
 equipa com mais de 8 atletas (três seguidas são também três, -1 e -2, -3 ao todo), e quem faz
@@ -2249,6 +2252,342 @@ dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
 | `docs/09-regulamento-apl.md` | os artigos que o código cita, para não ser preciso abrir o PDF |
 
 Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
+
+## As novidades por grupos, e um chavão por linha (12/10/2026)
+
+Dois pedidos do dono sobre a caixa que ele acabara de reabrir: *"gostava de organizar as
+novidades por contextos, por exemplo, funcionalidade nova ou corrigida, layout, regras...
+avalia qual deverá ser a forma mais lógica num ponto de vista de experiência de utilizador"* e
+*"temos muito texto e não temos logo um chavão ao início do bullet"*.
+
+### A avaliação dos grupos: três, e o `layout` não é um deles
+
+**Um grupo só se justifica se mudar a forma de ler o que vem a seguir.** Estes mudam:
+
+| | o que diz a quem lê |
+|---|---|
+| **Regras da associação** | *"um número que vês mudou, e não foi avaria nossa"* |
+| **Novo** | *"passas a poder fazer ou ver uma coisa que não havia"* |
+| **Corrigido** | *"uma coisa que te irritava deixou de acontecer"* |
+
+O grupo das regras é o que paga o custo dos cabeçalhos: é o único que **defende a
+credibilidade da app**. Uma equipa que desce um lugar na tabela faz alguém pensar que nos
+enganámos, e este grupo é onde ele descobre que não. Por isso vem primeiro, e não as
+novidades: é a dúvida mais cara de deixar sem resposta.
+
+**O `layout` ficou de fora, e é aqui que discordo do dono.** "Layout" é uma categoria sobre
+*nós* — descreve o que mexemos, não o que mudou para quem usa. Uma alteração de desenho que se
+nota é sempre uma das outras três: ou passou a dar-se para fazer algo, ou deixou de atrapalhar.
+E uma que não se nota não entra nesta lista, pela regra que já estava no `versao.ts`.
+
+**A outra hipótese séria era agrupar por zona da app** — Jogos, Competições, Ficha de jogo —, e
+tinha um argumento real: quem segue só SUB-17 saltava o bloco dos Escolares de uma vez. Perde-se
+por aritmética. Dez pontos espalhados por cinco ou seis zonas dão grupos de um ponto cada, e aí
+há mais cabeçalhos do que conteúdo. A zona foi para o **título** de cada ponto — "Na ficha de
+jogo", "No iPhone", "Nos Escolares e Benjamins" — onde se lê de relance sem custar uma linha.
+
+### O chavão, e a correcção que a primeira tentativa precisou
+
+Os nove pontos passaram a dez (o dos cartões ao banco era dois assuntos em um: a ficha, que é
+de todos os escalões, e o desconto no Mérito, que é só de dois) e cada um passou a ter `titulo`
+e `texto`.
+
+A primeira versão punha os dois **na mesma linha**, com o título em negrito. Não resultou, e
+viu-se logo a 375px: *"...é o Mérito da Formação É o que o regulamento manda nestes escalões"* —
+uma frase corrida sem fronteira visível, que é exactamente o que o pedido vinha resolver. O
+título passou a `display: block`. Com o chavão em linha própria o olho tem onde parar, e a lista
+percorre-se aos saltos em vez de se ler toda.
+
+### O que fica amarrado em teste
+
+O pedido dele desfaz-se com o tempo se não houver quem o defenda, por isso há testes que
+varrem os pontos **publicados** e não uma lista copiada:
+
+* cada ponto tem chavão e descrição, e os dois dizem algo;
+* o chavão tem no máximo 64 caracteres — cerca de duas linhas a 375px. Um título de três
+  linhas deixa de ser um título e volta a ser a frase que isto substituiu;
+* o chavão não acaba em ponto, porque é um título;
+* cada ponto cai num grupo conhecido, e nenhum fica órfão no agrupamento.
+
+E o `agrupar` **deixa de fora os grupos vazios**: um cabeçalho sem nada debaixo faz a pessoa
+procurar o que não existe. Uma versão que só traga correcções mostra "Corrigido" e mais nada.
+
+### Uma consequência de desenho
+
+A caixa deixou de mostrar as novidades **por versão**. Quem salta da 1.1 para a 1.3 vê os três
+lotes misturados nos mesmos três grupos, porque a pergunta é "o que mudou desde a última vez
+que aqui estive?" e não "o que mudou em cada versão". A versão já não aparecia em sítio nenhum
+desta caixa antes disto; agora também não há onde a pôr sem duplicar cabeçalhos.
+
+## O menu passa a ser o de três traços, e as novidades voltam a abrir-se (12/10/2026)
+
+Dois pedidos do dono no mesmo recado, depois de experimentar o site de testes: *"sem querer
+carreguei em alguma coisa que me fez tirar a janela com as novidades. portanto, acho que é
+interessante colocar outra opção no menu dos três pontos (que na verdade deveria ser o menu do
+hamburguer, que são três traços paralelos. muda isto também) para que as pessoas possam ver
+novamente o que há de novo nesta versão"*.
+
+### O ícone: ele tem razão pela convenção
+
+Três pontos querem dizer "mais acções **sobre isto**" e costumam viver ao lado da coisa a que
+se aplicam — uma linha de uma lista, um cartão. Três traços querem dizer "o menu da
+aplicação". O nosso tem aparência, cor, perguntas frequentes e privacidade: é o segundo, e
+estava com o ícone do primeiro desde que nasceu, a 06/10/2026.
+
+**As entradas antigas deste backlog continuam a dizer `⋮`, e ficam como estão** — o P11.9 e as
+que falam dele descrevem o que se fez naquele dia, e reescrever história para a fazer coincidir
+com o presente é pior do que uma nota. Os comentários do código, esses, descrevem o que *é*, e
+foram todos corrigidos no mesmo commit: doze sítios em sete ficheiros, mais o diagrama do
+`00-onde-retomar.md`. A referência em `04-benchmarking.md` fica também: aquela é a FotMob.
+
+### A caixa só podia ser aberta de dentro de si mesma
+
+O `novidades.svelte.ts` expunha uma **fábrica** e não um objecto: `novidades()` devolvia uma
+instância nova a cada chamada, por isso o menu não tinha como falar com a caixa que o
+`CaixaNovidades` tinha criado. Passou a ser um `export const` com estado dentro, como o `tema`,
+a `cor` e o `guia` — e isso é a razão da mudança, não arrumação.
+
+A reabertura é uma pergunta diferente da abertura automática, e por isso é outra função. O
+`porMostrar` responde a *"há aqui alguma coisa que valha interromper esta pessoa?"*, e a
+resposta certa é quase sempre não — a primeira visita não vê nada, quem já viu esta versão não
+a vê outra vez. O `aReabrir` responde a *"ele pediu para ver, mostra o quê?"*, e aí **nunca**
+pode devolver nada: um botão que não faz nada é pior do que não haver botão. Mostra as notas
+desta versão e, se a versão em curso não trouxer notas — o caso de uma publicação que só mexeu
+no raspador —, cai na entrada mais recente.
+
+### Dois defeitos que só apareceram no browser
+
+Nenhum dos dois era visível a ler o código, e os dois só passaram a doer **hoje**: até agora a
+caixa aparecia uma vez, a quem acabava de actualizar, e ninguém a abria de propósito.
+
+1. **Com nove pontos a caixa não cabia no ecrã.** Ancorada em baixo e sem tecto, crescia para
+   cima até sair do ecrã, e a 375×812 o último ponto ficava cortado sem forma de chegar lá.
+   Ganhou `max-height`, `overflow-y` e um cabeçalho colado ao topo, para o botão de fechar
+   continuar à mão numa lista que rola.
+2. **A bolha de opinião tapava o último ponto.** As duas vivem no `z-index: 20` e no mesmo
+   canto, e a bolha é desenhada depois, logo ganha. O `main` já reservava 60px para este
+   mesmo problema — a caixa passa a subir acima dela, o que não desperdiça espaço por dentro
+   como um `padding` faria.
+
+### Onde ficou
+
+| | |
+|---|---|
+| `web/src/routes/+layout.svelte` | o ícone de três traços |
+| `web/src/lib/novidades.svelte.ts` | `export const novidades`, `reabrir()` e o `aReabrir` puro |
+| `web/src/lib/MenuMais.svelte` | a linha "O que há de novo", com o número da versão na ajuda |
+| `web/src/lib/Icone.svelte` | o ícone `novidades` — duas estrelas de quatro pontas |
+| `web/src/lib/CaixaNovidades.svelte` | o tecto, o rolamento, o cabeçalho colado e a folga da bolha |
+
+## O convite para guardar a app no ecrã principal (12/10/2026)
+
+Decidido pelo dono depois do diagnóstico da secção anterior: *"quero que avances com o convite
+para instalar em testes, para eu verificar como fica. o outro do link não me faz muito
+sentido"*. Fica só o convite; o link que guardava as equipas não se faz.
+
+### Porque é que é só no iPhone
+
+Porque é só lá que há problema. No iOS o Safari apaga o armazenamento de um site depois de 7
+dias sem visitas, e a única excepção é um site que esteja no ecrã principal. No Android o
+Chrome não apaga nada por inactividade e já mostra o seu próprio convite de instalação — um
+aviso nosso ali seria ruído. E não há como contornar o tecto em código: o
+`navigator.storage.persist()`, que no Android e no desktop pede armazenamento durável, **não
+está implementado no Safari**.
+
+### São duas mensagens e não uma
+
+Dentro de um browser que vive noutra aplicação — um link tocado no WhatsApp — não há
+"Adicionar ao ecrã principal" nenhum para tocar, e o armazenamento é daquela sessão. Dizer
+"adiciona ao ecrã principal" a quem está ali é mandá-lo procurar um botão que não existe; a
+essa pessoa diz-se "abre no Safari". **E é o caso que mais provavelmente se aplica a quem
+recebeu o endereço numa mensagem**, que é como o endereço desta app andou a circular.
+
+O que os distingue é o `navigator.standalone`, que só existe no iOS e tem três valores que
+importam: `true` já está instalado, `false` está no Safari, `undefined` está numa vista dentro
+de outra aplicação.
+
+Duas armadilhas que ficaram em teste:
+
+* **o iPad não diz `iPad` desde o iPadOS 13** — diz `Macintosh`, igual a um portátil. O que os
+  separa é o ecrã táctil, e é por isso que o `maxTouchPoints` entra na conta;
+* **nesse iPad o `standalone` também não existe**, e aí não sabemos se é uma vista embutida ou
+  o Safari. Não se afirma: mostra-se o convite normal. Mandar abrir no Safari quem já está no
+  Safari desacredita a app em vez de a ajudar.
+
+### No fluxo e no topo, e não flutuante
+
+As outras notas desta app — o aviso de versão, a caixa do que mudou — flutuam no fundo, e isso
+resolve-se bem quando há uma. Com duas ao mesmo tempo ficavam uma por cima da outra, e para
+evitar isso teria de partilhar estado com a `CaixaNovidades`, que cria a sua própria instância.
+A faixa entra no fluxo da página: sem `z-index`, sem tapar nada, sem brigar com a bolha de
+opinião. Verificado a 375px nos dois temas, e ao rolar a faixa sai de vista com a fita de dias
+a colar-se ao cabeçalho como sempre.
+
+### A ironia que se registou em vez de se esconder
+
+A marca de "dispensei este aviso" fica no mesmo `localStorage` que o Safari apaga. A quem os
+dados forem limpos, a faixa volta — e **é o comportamento certo**: essa é exactamente a pessoa
+que ainda precisa de a ver.
+
+### Onde ficou
+
+| | |
+|---|---|
+| `web/src/lib/convite.ts` | a decisão, pura, e a razão toda no cabeçalho |
+| `web/src/lib/ConviteInstalar.svelte` | a faixa |
+| `web/src/routes/+layout.svelte` | montada no topo do `<main>` |
+| `web/src/routes/privacidade/+page.svelte` | a chave nova, `hoquei:convite-visto:v1` — e o teste da privacidade recusa quem a esquecer, verificado |
+| `web/src/lib/ajuda.ts` | *"Porque é que perdi as minhas equipas?"*, para quem dispensou a faixa e quer o motivo |
+
+## O tour que nunca se calava, e os favoritos que desapareciam (12/10/2026)
+
+O dono, antes da entrega de segunda: *"o meu cunhado tem um iPhone, e tem-me dito que cada vez
+que entra na aplicação, está sempre a ver a tour a acontecer e que fica sem as equipas como
+favorito"*.
+
+São **dois** defeitos com causas diferentes, e só um deles é nosso.
+
+### O tour: a marca só era escrita ao fechar
+
+`marcarVisto()` vivia só no `sair()`. Quem levasse o tour até ao fim, ou carregasse em "Saltar
+o guia", deixava a marca; quem **desistisse pelo caminho** não deixava nada — e fechar a app a
+meio do tour é desistir. Resultado: abertura seguinte, tour outra vez. E outra.
+
+Reproduzido no browser a 375px, com o defeito reposto de propósito para não ser uma suposição:
+
+| | antes | depois |
+|---|---|---|
+| limpar o armazenamento e abrir | o tour arranca | o tour arranca |
+| `hoquei:guia-visto:v2` enquanto ele decorre | **ausente** | `"1"` |
+| recarregar a meio e abrir outra vez | **o tour arranca outra vez** | não arranca |
+
+A marca passou a escrever-se **ao mostrar**, que é quando a frase "este tour já lhe foi
+mostrado" se torna verdadeira. Quem o quiser rever tem o botão em "Sobre a app". O
+armazenamento ficou injectável — o mesmo padrão do `presenca.ts` — para isto poder ter teste
+sem arrastar um jsdom; os dois testes novos falham com o defeito reposto, verificado.
+
+**Isto explica o "sempre" sem precisar de iPhone nenhum.** E explica porque é que o dono nunca
+o viu: ele leva o tour até ao fim.
+
+### Os favoritos: esses exigem perder o armazenamento
+
+O tour e os favoritos irem juntos parece uma causa só e não é. O `jaViu()` já devolvia "não
+mostrar" quando o `localStorage` **estoura** — janela privada, armazenamento bloqueado — e isso
+é de propósito: um tour que reaparece porque não consegue guardar que apareceu é pior do que
+tour nenhum. Logo, se o tour aparecia, o armazenamento estava a **funcionar**: escrevia-se e
+lia-se. O que falta à explicação dos favoritos é um armazenamento que funciona e está **vazio**
+a cada abertura.
+
+No iPhone há quatro causas conhecidas para isso, e nenhuma é código nosso:
+
+1. **O tecto de 7 dias do Safari.** Para um site que **não** está no ecrã principal, o Safari
+   apaga o `localStorage` depois de 7 dias sem visitas. Uma app de resultados abre-se no fim de
+   semana do jogo — que é exactamente o intervalo. É a hipótese principal.
+2. **Um browser dentro de outra app.** Um link tocado no WhatsApp abre numa vista com
+   armazenamento efémero: cada abertura é um aparelho novo. E o link desta app **andou a
+   circular em mensagens**.
+3. **Navegação privada**, onde o armazenamento morre com a sessão.
+4. **Dois sítios diferentes.** A app no ecrã principal e o Safari não partilham armazenamento
+   no iOS; e `testes.hoquei.pages.dev` é outra origem, com outros favoritos — o endereço que
+   foi partilhado por engano a 10/10.
+
+O que **não** é: o `desinstalar()` da porta dos ramos. Ele apaga o service worker e as caches,
+nunca o `localStorage`, e só corre num site de ramo.
+
+### Como se mede, sem acrescentar nada
+
+A tabela `aparelho` já responde: `novos` é o número de aparelhos que abriram a app sem a marca
+`hoquei:conhecido:v1`. Num uso saudável são poucos por dia e estabilizam; se `novos` for
+sempre uma fatia grande do `total`, há aparelhos a perder o armazenamento em escala e não é só
+um cunhado. A `porta` responde à causa 4: se ainda houver avisos, o endereço de testes
+continua a circular.
+
+### O que se pode fazer, e o que é decisão do dono
+
+Feito: a marca ao mostrar. Em aberto, por ordem de proveito:
+
+| | |
+|---|---|
+| ~~**Convidar a instalar no ecrã principal**~~ | **feito a 12/10/2026** — ver a secção seguinte |
+| ~~**Um link que guarda e devolve as equipas seguidas**~~ | **recusado pelo dono a 12/10/2026**: *"o outro do link não me faz muito sentido"* |
+| Um cookie posto pelo servidor em vez do `localStorage` | sobrevive ao tecto dos 7 dias, **mas a página de privacidade promete zero cookies em produção** — é decisão do dono e muda a página no mesmo commit |
+| `navigator.storage.persist()` | **não serve**: o Safari não o implementa |
+| Conta e sincronização | contra a Decisão 3, local-first |
+
+## B9.33 — os cartões ao banco: na ficha, e no Mérito (12/10/2026)
+
+O colega que emprestou o regulamento ao dono leu a página 93 e avisou-o de duas coisas: que há
+penalizações para **não atletas**, e que essa informação *"também deverá estar na ficha de
+jogo"*. O dono pediu para avaliar se elas valem só para Benjamins e Escolares ou para todos os
+escalões, e depois mandou avançar com as duas.
+
+### A avaliação: o 4.2 vale só onde o Mérito vale
+
+O ponto 4 do Artigo 92.º abre com *"às equipas que participam nas provas designadas no ponto
+1, será atribuída a seguinte penalização"*, e o 4.2 é um sub-ponto dele. Logo as penalizações
+de **Mérito** por cartões ao banco aplicam-se só aos Encontros Distritais de Escolares e
+Benjamins e às Taças APL desses escalões — que é o mesmo âmbito do resto do artigo.
+
+A **ficha**, essa, é outra conversa: mostrar quem levou um cartão não é aplicar uma
+penalização, é mostrar o que a fonte publica. Por isso a parte do colega — "também deverá
+estar na ficha de jogo" — ficou feita em **todos** os escalões.
+
+### O que estava lá e não se via
+
+Medido nas 317 fichas publicadas a 12/10/2026: **42 cartões a não atletas** (37 amarelos, 5
+vermelhos) em 1745 linhas de banco — 2,4% — e em sete escalões: SUB-17 (10), Seniores
+Masculinos (9), SUB-19 (6), SUB-13 (5), e dois cada em SUB-15, Torneios e Seniores Femininos.
+**Zero nos Encontros Distritais**, ou seja: o 4.2 entra em código mas hoje não muda uma única
+linha de nenhuma tabela de Mérito. Entra porque o dado existe e a regra é a regra, não porque
+alguma equipa esteja a ser mal pontuada agora.
+
+Nós já tínhamos estes 42 cartões nos ficheiros publicados. O que faltava era desenho: a
+`FichaEquipas.svelte` dava colunas de cartão aos jogadores e punha a equipa técnica numa
+linha de nomes separados por `·`, sem nada.
+
+### Duas avaliações minhas erradas, pela mesma razão
+
+1. O `merito.py` dizia, em comentário, que o 4.2 **não era calculável** porque "as colunas de
+   disciplina do boletim são dos atletas; as do banco não existem na grelha".
+2. Corrigi-me para "é calculável, mas só pela ficha" — e a ficha dá um `cartoes_vermelhos: 1`
+   sem dizer se o vermelho foi por acumulação (-4) ou directo (-6).
+
+As duas estavam erradas porque ninguém tinha aberto uma linha de banco do boletim. Elas têm as
+seis colunas de disciplina todas: amarelo, três suspensões, `a.c.` e `dir.`. Confirmado com
+**um** pedido à APL, ao jogo 9864, onde a ficha diz "1 vermelho" ao treinador da FSE/AJ
+Salesiana: o boletim tem o `X` na coluna `dir.`. Logo -6.
+
+Esse jogo ficou como amostra anonimizada — `apl-ficha-cartao-ao-banco.html` — porque é a única
+prova que temos de um vermelho a um não atleta.
+
+### A armadilha que a amostra de seniores apanhou
+
+A primeira versão do leitor distinguia uma linha de banco de uma linha de atleta **pelo número
+de células**. Parecia bastar e não bastava: o boletim de Escolares dá 19 células a um atleta e
+o de Seniores dá 15, e qualquer janela larga o bastante para as 9 de um banco apanha também as
+15 de um sénior. Medido no momento: o capitão de uma equipa de seniores aparecia como membro do
+banco com três azuis e duas expulsões, que eram os **cabeçalhos** das colunas.
+
+O que distingue mesmo é o `colspan` da célula do papel — ela tapa as colunas que um não atleta
+não tem. `colspan=7` nos Escolares, `colspan=3` nos Seniores, e 1 num atleta ou num cabeçalho.
+Há um teste com esse nome.
+
+### Onde ficou
+
+| | |
+|---|---|
+| `parsers/participacao.py` | `nao_atletas()` e `NaoAtletaBoletim`, do mesmo `#acta` — zero pedidos novos |
+| `merito.py` | `_disciplina_do_banco()` e o 4.2 no `_conta`; o cabeçalho corrigido |
+| `cli.py` | `_merito_da_ficha` passa o banco ao `merito_do_jogo` |
+| `web/src/lib/FichaEquipas.svelte` | as chapas de cartão na linha da equipa técnica, em todos os escalões |
+| `web/src/lib/RegrasMerito.svelte` e `/mais` | as três regras novas, ditas a quem lê |
+| `data-samples/paginas/apl-ficha-cartao-ao-banco.html` | a amostra do vermelho directo |
+
+Uma nota de desenho que custou uma segunda passagem no browser: a 375px a linha partia entre o
+nome e a chapa, e a chapa amarela do `T2` caía sozinha para a linha de baixo encostada ao `·`
+do técnico seguinte — a ler como se fosse dele. Cada técnico passou a ser `white-space: nowrap`,
+com os `·` de fora a dar as quebras.
+
 ## Sete rondas abortadas por um golo, e ninguém vigiava o pipeline (11–12/10/2026)
 
 O dono, na manhã de segunda: *"quero que avalies o que se passou durante a noite"*. O que se

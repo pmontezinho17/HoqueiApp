@@ -93,6 +93,11 @@ comprovada pelo árbitro e referido no Boletim de Jogo Oficial e Folha de Contro
 
 Cartão azul a um não atleta -2; vermelho por acumulação -4; vermelho directo -6.
 
+O 4.2 é um sub-ponto do 4, que abre com *"às equipas que participam nas provas designadas no
+ponto 1"* — logo vale no mesmo âmbito que o resto do artigo: Escolares e Benjamins, e não
+todos os escalões. A **ficha de jogo** mostra os cartões ao banco em todos os escalões, mas
+isso é mostrar o que a fonte publica e não aplicar uma penalização.
+
 ## O que o código faz com isto, e o que não faz
 
 | Artigo | Onde | Estado |
@@ -104,7 +109,14 @@ Cartão azul a um não atleta -2; vermelho por acumulação -4; vermelho directo
 | 92.º 3 e 4.1.1–4.1.6 | `merito.py` | aplicados |
 | 92.º 4.1.7 | `merito.py` | **detectado e não descontado** — a excepção de lesão não é legível |
 | 92.º 4.1.8 | — | não aplicável: um jogo sem comparência não tem boletim para ler |
-| 92.º 4.2 | — | **não aplicado**: a grelha do boletim não tem as colunas do banco |
+| 92.º 4.2 | `merito.py` `_disciplina_do_banco` | aplicado, com `a.c.` e `dir.` separados |
+
+O 4.2 esteve duas vezes mal avaliado aqui: primeiro como não calculável ("a grelha do boletim
+não tem as colunas do banco"), depois como calculável só pela ficha, que não separa o vermelho
+por acumulação do directo. As linhas de banco do **boletim** têm as seis colunas de disciplina
+— amarelo, três suspensões, `a.c.` e `dir.` — e é de lá que a conta sai, sem um pedido novo.
+Medido a 12/10/2026 no jogo 9864. O amarelo ao banco não desconta: o 4.2 fala de azul e de
+vermelho, e só.
 
 Duas leituras literais que o `merito.py` toma e que valem a pena saber:
 
