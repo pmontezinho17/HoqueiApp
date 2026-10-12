@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9803@hoquei.pages.dev
-DTSTAMP:20261011T000000Z
-DTSTART:20261011T140000Z
-DTEND:20261011T153000Z
-SUMMARY:🏑 Sub-19 🏑 Biblioteca IR vs HC Lourinhã
-LOCATION:Pavilhão Gimnodesportivo de Valado dos Frades
-DESCRIPTION:Biblioteca IR 0–0 HC Lourinhã\nCAMP. REG. SUB-19 - 1ª FASE 
- · Série A · SUB-19\nPAV. VALADO DE FRADES\nhttps://hoquei.pages.dev/jog
- o/9803\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9803
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9807@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T140000Z

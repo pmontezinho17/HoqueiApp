@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9865@hoquei.pages.dev
-DTSTAMP:20261011T000000Z
-DTSTART:20261011T190000Z
-DTEND:20261011T203000Z
-SUMMARY:🏑 Sub-19 🏑 CD Paço Arcos A vs Parede FC
-LOCATION:Pavilhão Parede F.C.
-DESCRIPTION:CD Paço Arcos A vs Parede FC\nCAMP. REG. SUB-19 - 1ª FASE · 
- Série C · SUB-19\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9865\nDados
-  da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9865
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9868@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T161500Z

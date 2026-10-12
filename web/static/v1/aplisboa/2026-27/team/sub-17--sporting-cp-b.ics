@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9740@hoquei.pages.dev
-DTSTAMP:20261011T000000Z
-DTSTART:20261011T153000Z
-DTEND:20261011T170000Z
-SUMMARY:🏑 Sub-17 🏑 Sporting CP B vs HC Lourinhã
-LOCATION:Pavilhão do Sacavenense ( Hóquei Formação SCP)
-DESCRIPTION:Sporting CP B vs HC Lourinhã\nCAMP. REG. SUB-17 - 1ª FASE · 
- Série D · SUB-17\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/974
- 0\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9740
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9741@hoquei.pages.dev
 DTSTAMP:20261016T000000Z
 DTSTART:20261016T200000Z

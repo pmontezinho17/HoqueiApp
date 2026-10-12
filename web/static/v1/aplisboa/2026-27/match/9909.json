@@ -623,6 +623,64 @@
   "capitao_casa": null,
   "capitao_fora": null
  },
+ "merito": [
+  {
+   "equipa": "CD PAÇO ARCOS A",
+   "atletas": 8,
+   "guardas_redes": 1,
+   "participantes": 8,
+   "completa": false,
+   "bonificacao": 8,
+   "penalizacao": -2,
+   "total": 6,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "8 atletas participantes",
+     "pontos": 8
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.3",
+     "texto": "1 com 3 meias partes seguidas",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "CACO A",
+   "atletas": 10,
+   "guardas_redes": 2,
+   "participantes": 10,
+   "completa": true,
+   "bonificacao": 14,
+   "penalizacao": 0,
+   "total": 14,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "10 atletas participantes",
+     "pontos": 10
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "3.4",
+     "texto": "equipa completa (2 GR e 8 JC)",
+     "pontos": 1
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 461,
  "categoria": "ESCOLARES",
  "jornada": "3ª JORNADA",

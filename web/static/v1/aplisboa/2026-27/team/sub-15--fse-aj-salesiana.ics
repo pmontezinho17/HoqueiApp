@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9638@hoquei.pages.dev
-DTSTAMP:20261011T000000Z
-DTSTART:20261011T150000Z
-DTEND:20261011T163000Z
-SUMMARY:🏑 Sub-15 🏑 FSE/AJ Salesiana vs AD Oeiras B
-LOCATION:Salesianos do Estoril
-DESCRIPTION:FSE/AJ Salesiana vs AD Oeiras B\nCAMP. REG. SUB-15 - 1ª FASE 
- · Série D · SUB-15\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/9638\
- nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9638
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9640@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T153000Z

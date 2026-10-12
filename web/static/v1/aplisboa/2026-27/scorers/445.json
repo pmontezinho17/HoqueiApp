@@ -16,6 +16,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "ISABELA PILÃO",
+   "equipa": "PAREDE FC A",
+   "jogos": 4,
+   "numero": "8",
+   "golos": 5,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 7,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GUSTAVO FAVINHA",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 3,
@@ -42,14 +55,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "ISABELA PILÃO",
+   "nome": "ANA SEGADÃES",
    "equipa": "PAREDE FC A",
    "jogos": 4,
-   "numero": "8",
-   "golos": 4,
-   "assistencias": 2,
+   "numero": "4",
+   "golos": 5,
+   "assistencias": 0,
    "defesas": 0,
-   "pontos": 6,
+   "pontos": 5,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -89,19 +102,6 @@
    "assistencias": 1,
    "defesas": 0,
    "pontos": 5,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ANA SEGADÃES",
-   "equipa": "PAREDE FC A",
-   "jogos": 4,
-   "numero": "4",
-   "golos": 4,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 4,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0

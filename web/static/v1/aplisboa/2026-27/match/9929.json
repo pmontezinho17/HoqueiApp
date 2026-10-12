@@ -211,7 +211,7 @@
    "nome": "CRIAR-T GD",
    "jogadores": [
     {
-     "numero": "01",
+     "numero": "1",
      "nome": "TOMÁS LOPES",
      "titular": true,
      "golos": 0,
@@ -225,7 +225,7 @@
      "papel": null
     },
     {
-     "numero": "02",
+     "numero": "2",
      "nome": "AFONSO NUNES",
      "titular": true,
      "golos": 0,
@@ -239,7 +239,7 @@
      "papel": null
     },
     {
-     "numero": "03",
+     "numero": "3",
      "nome": "ANTONIO PEREIRA",
      "titular": true,
      "golos": 2,
@@ -253,7 +253,7 @@
      "papel": null
     },
     {
-     "numero": "04",
+     "numero": "4",
      "nome": "MATEUS CABRERA",
      "titular": true,
      "golos": 0,
@@ -267,7 +267,7 @@
      "papel": null
     },
     {
-     "numero": "05",
+     "numero": "5",
      "nome": "ANDRÉ SANTOS",
      "titular": false,
      "golos": 0,
@@ -281,7 +281,7 @@
      "papel": null
     },
     {
-     "numero": "06",
+     "numero": "6",
      "nome": "PEDRO DUARTE",
      "titular": true,
      "golos": 0,
@@ -295,7 +295,7 @@
      "papel": null
     },
     {
-     "numero": "07",
+     "numero": "7",
      "nome": "VASCO FRAÚSTO",
      "titular": false,
      "golos": 0,
@@ -309,7 +309,7 @@
      "papel": null
     },
     {
-     "numero": "08",
+     "numero": "8",
      "nome": "AFONSO MARCELO",
      "titular": false,
      "golos": 0,
@@ -323,7 +323,7 @@
      "papel": null
     },
     {
-     "numero": "09",
+     "numero": "9",
      "nome": "SANTIAGO LOPES",
      "titular": false,
      "golos": 0,
@@ -893,6 +893,59 @@
   "capitao_casa": null,
   "capitao_fora": null
  },
+ "merito": [
+  {
+   "equipa": "PAREDE FC A",
+   "atletas": 10,
+   "guardas_redes": 2,
+   "participantes": 10,
+   "completa": true,
+   "bonificacao": 14,
+   "penalizacao": 0,
+   "total": 14,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "10 atletas participantes",
+     "pontos": 10
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "3.4",
+     "texto": "equipa completa (2 GR e 8 JC)",
+     "pontos": 1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "CRIAR-T GD",
+   "atletas": 9,
+   "guardas_redes": 1,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -1,
+   "total": 8,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 462,
  "categoria": "ESCOLARES",
  "jornada": "3ª JORNADA",

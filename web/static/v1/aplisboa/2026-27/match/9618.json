@@ -3,9 +3,9 @@
  "competicao": "CAMP. REG. SUB-15 - 1ª FASE - SERIE C",
  "casa": "CACO",
  "fora": "A STUART HCM B",
- "golos_casa": 6,
+ "golos_casa": 9,
  "golos_fora": 0,
- "estado": null,
+ "estado": "Jogo Terminado",
  "data": "2026-10-11",
  "hora": "14:30:00",
  "recinto": "PAV.C.A.C.OURIQUE",
@@ -13,12 +13,12 @@
   "JOAQUIM SEQUEIRA"
  ],
  "faltas": [
-  3,
-  1
+  6,
+  3
  ],
- "situacao": "2ª Parte (18:11)",
- "periodo": "2ª Parte",
- "relogio": "18:11",
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "CACO",
@@ -41,7 +41,7 @@
      "numero": "4",
      "nome": "DINIS MATOS",
      "titular": true,
-     "golos": 4,
+     "golos": 5,
      "assistencias": 1,
      "defesas": 0,
      "penalidades": "0/0",
@@ -83,7 +83,7 @@
      "numero": "13",
      "nome": "LEONARDO DUARTE",
      "titular": false,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -97,7 +97,7 @@
      "numero": "20",
      "nome": "MATILDE COSTA",
      "titular": true,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 2,
      "defesas": 0,
      "penalidades": "0/0",
@@ -112,7 +112,7 @@
      "nome": "GABRIEL GONÇALVES",
      "titular": false,
      "golos": 0,
-     "assistencias": 0,
+     "assistencias": 1,
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
@@ -592,9 +592,202 @@
    "golos_casa": 6,
    "golos_fora": 0,
    "texto": "Golo para CACO | DINIS MATOS | Assistência por MATILDE COSTA"
+  },
+  {
+   "ordem": 15,
+   "tipo": "golo",
+   "relogio": "17:16",
+   "parte": 2,
+   "minuto": 22,
+   "equipa": "CACO",
+   "jogador": "DINIS MATOS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 7,
+   "golos_fora": 0,
+   "texto": "Golo para CACO | DINIS MATOS"
+  },
+  {
+   "ordem": 16,
+   "tipo": "golo",
+   "relogio": "14:39",
+   "parte": 2,
+   "minuto": 25,
+   "equipa": "CACO",
+   "jogador": "MATILDE COSTA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 8,
+   "golos_fora": 0,
+   "texto": "Golo para CACO | MATILDE COSTA"
+  },
+  {
+   "ordem": 17,
+   "tipo": "golo",
+   "relogio": "10:29",
+   "parte": 2,
+   "minuto": 29,
+   "equipa": "CACO",
+   "jogador": "LEONARDO DUARTE",
+   "assistencia": "GABRIEL GONÇALVES",
+   "variante": null,
+   "numero": null,
+   "golos_casa": 9,
+   "golos_fora": 0,
+   "texto": "Golo para CACO | LEONARDO DUARTE | Assistência por GABRIEL GONÇALVES"
+  },
+  {
+   "ordem": 18,
+   "tipo": "falta_equipa",
+   "relogio": "9:32",
+   "parte": 2,
+   "minuto": 30,
+   "equipa": "A STUART HCM B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 2,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 2 para A STUART HCM B"
+  },
+  {
+   "ordem": 19,
+   "tipo": "falta_equipa",
+   "relogio": "9:05",
+   "parte": 2,
+   "minuto": 30,
+   "equipa": "CACO",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 4,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 4 para CACO"
+  },
+  {
+   "ordem": 20,
+   "tipo": "desconto_tempo",
+   "relogio": "7:23",
+   "parte": 2,
+   "minuto": 32,
+   "equipa": "A STUART HCM B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "DESCONTO DE TEMPO | A STUART HCM B"
+  },
+  {
+   "ordem": 21,
+   "tipo": "falta_equipa",
+   "relogio": "3:39",
+   "parte": 2,
+   "minuto": 36,
+   "equipa": "A STUART HCM B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 3,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 3 para A STUART HCM B"
+  },
+  {
+   "ordem": 22,
+   "tipo": "falta_equipa",
+   "relogio": "0:42",
+   "parte": 2,
+   "minuto": 39,
+   "equipa": "CACO",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 5,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 5 para CACO"
+  },
+  {
+   "ordem": 23,
+   "tipo": "falta_equipa",
+   "relogio": "0:42",
+   "parte": 2,
+   "minuto": 39,
+   "equipa": "CACO",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 6,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 6 para CACO"
+  },
+  {
+   "ordem": 24,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 2,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOAQUIM SEQUEIRA",
+   "Árbitro Auxiliar": "BRUNO AFONSO",
+   "Cronometrista": "CAIO PRADO",
+   "Diretor de campo": "MIGUEL MATOS",
+   "Gestor de segurança": "MARCO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 4,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 5,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 9,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   3,
+   3
+  ],
+  "faltas_fora": [
+   1,
+   2
+  ],
+  "inicio": [
+   "14:30",
+   "15:07"
+  ],
+  "termo": [
+   "14:57",
+   "15:37"
+  ],
+  "capitao_casa": "MATILDE COSTA",
+  "capitao_fora": "MARTIM JANEIRO"
+ },
  "competicao_id": 449,
  "categoria": "SUB-15",
  "jornada": "3ª JORNADA",

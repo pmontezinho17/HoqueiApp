@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9712@hoquei.pages.dev
-DTSTAMP:20261011T000000Z
-DTSTART:20261011T140000Z
-DTEND:20261011T153000Z
-SUMMARY:🏑 Sub-17 🏑 SL Benfica A vs APAC Tojal
-LOCATION:APAC Tojal - Associação de Patinagem Atlético Clube do Tojal
-DESCRIPTION:SL Benfica A 0–0 APAC Tojal\nCAMP. REG. SUB-17 - 1ª FASE · 
- Série C · SUB-17\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9712
- \nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9712
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9716@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T133000Z

@@ -99,8 +99,8 @@
    "hora": "14:45:00",
    "casa": "SPORTING CP B",
    "fora": "AD OEIRAS B",
-   "golos_casa": 4,
-   "golos_fora": 6,
+   "golos_casa": 5,
+   "golos_fora": 11,
    "recinto": "PAV.G.S.SACAVENENSE",
    "ao_vivo": false
   },
@@ -316,81 +316,5 @@
   }
  ],
  "classificacao": [],
- "classificacao_calculada": [
-  {
-   "nome": null,
-   "linhas": [
-    {
-     "posicao": 1,
-     "equipa": "AD OEIRAS B",
-     "logo": null,
-     "jogos": 3,
-     "vitorias": 3,
-     "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 29,
-     "golos_sofridos": 4,
-     "diferenca": 25,
-     "racio": 7.25,
-     "pontos": 9
-    },
-    {
-     "posicao": 2,
-     "equipa": "SC TORRES",
-     "logo": null,
-     "jogos": 3,
-     "vitorias": 2,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 14,
-     "golos_sofridos": 8,
-     "diferenca": 6,
-     "racio": 1.75,
-     "pontos": 6
-    },
-    {
-     "posicao": 3,
-     "equipa": "SPORTING CP B",
-     "logo": null,
-     "jogos": 2,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 19,
-     "golos_sofridos": 8,
-     "diferenca": 11,
-     "racio": 2.38,
-     "pontos": 3
-    },
-    {
-     "posicao": 4,
-     "equipa": "CD PAÇO ARCOS B",
-     "logo": null,
-     "jogos": 2,
-     "vitorias": 0,
-     "empates": 0,
-     "derrotas": 2,
-     "golos_marcados": 2,
-     "golos_sofridos": 23,
-     "diferenca": -21,
-     "racio": 0.09,
-     "pontos": 0
-    },
-    {
-     "posicao": 5,
-     "equipa": "A STUART HCM B",
-     "logo": null,
-     "jogos": 2,
-     "vitorias": 0,
-     "empates": 0,
-     "derrotas": 2,
-     "golos_marcados": 1,
-     "golos_sofridos": 22,
-     "diferenca": -21,
-     "racio": 0.05,
-     "pontos": 0
-    }
-   ]
-  }
- ]
+ "classificacao_calculada": []
 }

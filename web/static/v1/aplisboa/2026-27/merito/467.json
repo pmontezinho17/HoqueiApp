@@ -1,11 +1,33 @@
 {
  "competicao_id": 467,
  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE C",
- "jogos_lidos": 4,
+ "jogos_lidos": 6,
  "jogos_sem_boletim": 0,
  "linhas": [
   {
    "posicao": 1,
+   "equipa": "APAC TOJAL",
+   "jogos": 2,
+   "participantes": 20,
+   "bonificacao": 28,
+   "penalizacao": 0,
+   "pontos": 28,
+   "media": 14.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 2,
+   "equipa": "PAREDE FC",
+   "jogos": 2,
+   "participantes": 20,
+   "bonificacao": 25,
+   "penalizacao": 0,
+   "pontos": 25,
+   "media": 12.5,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 3,
    "equipa": "CACO B",
    "jogos": 2,
    "participantes": 20,
@@ -16,47 +38,25 @@
    "por_confirmar": 0
   },
   {
-   "posicao": 2,
-   "equipa": "APAC TOJAL",
-   "jogos": 1,
-   "participantes": 10,
-   "bonificacao": 14,
-   "penalizacao": 0,
-   "pontos": 14,
-   "media": 14.0,
-   "por_confirmar": 0
-  },
-  {
-   "posicao": 3,
-   "equipa": "PAREDE FC",
-   "jogos": 1,
-   "participantes": 10,
-   "bonificacao": 14,
-   "penalizacao": 0,
-   "pontos": 14,
-   "media": 14.0,
-   "por_confirmar": 0
-  },
-  {
    "posicao": 4,
    "equipa": "HC LOURINHÃ",
-   "jogos": 1,
-   "participantes": 8,
-   "bonificacao": 8,
-   "penalizacao": 0,
-   "pontos": 8,
-   "media": 8.0,
+   "jogos": 2,
+   "participantes": 16,
+   "bonificacao": 16,
+   "penalizacao": -1,
+   "pontos": 15,
+   "media": 7.5,
    "por_confirmar": 0
   },
   {
    "posicao": 5,
    "equipa": "UD VILAFRANQUENSE",
-   "jogos": 1,
-   "participantes": 6,
-   "bonificacao": 9,
-   "penalizacao": -8,
-   "pontos": 1,
-   "media": 1.0,
+   "jogos": 2,
+   "participantes": 12,
+   "bonificacao": 18,
+   "penalizacao": -18,
+   "pontos": 0,
+   "media": 0.0,
    "por_confirmar": 0
   },
   {

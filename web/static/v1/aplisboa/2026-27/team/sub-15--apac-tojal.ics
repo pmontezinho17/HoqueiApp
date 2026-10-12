@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9597@hoquei.pages.dev
-DTSTAMP:20261011T000000Z
-DTSTART:20261011T154500Z
-DTEND:20261011T171500Z
-SUMMARY:🏑 Sub-15 🏑 APAC Tojal vs SL Benfica B
-LOCATION:APAC Tojal - Associação de Patinagem Atlético Clube do Tojal
-DESCRIPTION:APAC Tojal vs SL Benfica B\nCAMP. REG. SUB-15 - 1ª FASE · Sé
- rie B · SUB-15\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/9597\nD
- ados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9597
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9600@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T140000Z

@@ -1,6 +1,6 @@
 {
  "competicao_id": 450,
- "jogos_considerados": 5,
+ "jogos_considerados": 6,
  "jogadores": [
   {
    "nome": "DINIS MOREIRA",
@@ -16,6 +16,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "TOMÁS RIBEIRO",
+   "equipa": "AD OEIRAS B",
+   "jogos": 3,
+   "numero": "4",
+   "golos": 4,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "RODRIGO MARTINHO",
    "equipa": "SL BENFICA A",
    "jogos": 3,
@@ -24,6 +37,19 @@
    "assistencias": 2,
    "defesas": 0,
    "pontos": 5,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PAULO BORDALO",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "6",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -68,19 +94,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS RIBEIRO",
-   "equipa": "AD OEIRAS B",
-   "jogos": 2,
-   "numero": "4",
-   "golos": 2,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "LUCAS HELENO",
    "equipa": "A STUART HCM A",
    "jogos": 2,
@@ -120,6 +133,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "DAVID SEQUEIRA",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "8",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GABRIEL CARDOSO",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "9",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MATEUS BERNARDO",
    "equipa": "SL BENFICA A",
    "jogos": 1,
@@ -133,22 +172,9 @@
    "vermelhos": 0
   },
   {
-   "nome": "PAULO BORDALO",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
-   "numero": "6",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "PEDRO CUNHA",
    "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
+   "jogos": 2,
    "numero": "5",
    "golos": 1,
    "assistencias": 0,
@@ -156,45 +182,6 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "XAVIER LOPES",
-   "equipa": "AD OEIRAS B",
-   "jogos": 1,
-   "numero": "6",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RODRIGO MORAIS",
-   "equipa": "AD OEIRAS B",
-   "jogos": 2,
-   "numero": "9",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SANTIAGO SILVA",
-   "equipa": "AD OEIRAS B",
-   "jogos": 2,
-   "numero": "7",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -211,10 +198,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS DUARTE",
+   "nome": "VICENTE SILVA",
    "equipa": "AD OEIRAS B",
    "jogos": 2,
-   "numero": "2",
+   "numero": "8",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -224,10 +211,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "VICENTE SILVA",
+   "nome": "XAVIER LOPES",
    "equipa": "AD OEIRAS B",
    "jogos": 2,
-   "numero": "8",
+   "numero": "6",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -250,16 +237,55 @@
    "vermelhos": 0
   },
   {
+   "nome": "RODRIGO MORAIS",
+   "equipa": "AD OEIRAS B",
+   "jogos": 3,
+   "numero": "9",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SANTIAGO SILVA",
+   "equipa": "AD OEIRAS B",
+   "jogos": 3,
+   "numero": "7",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS DUARTE",
+   "equipa": "AD OEIRAS B",
+   "jogos": 3,
+   "numero": "2",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "LOURENÇO OLIVEIRA",
    "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
+   "jogos": 2,
    "numero": "7",
    "golos": 0,
    "assistencias": 2,
    "defesas": 0,
    "pontos": 2,
    "amarelos": 0,
-   "azuis": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -289,10 +315,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO BOAVENTURA",
+   "nome": "AFONSO GUERREIRO",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 1,
-   "numero": "10",
+   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -315,19 +341,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DAVID SEQUEIRA",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
-   "numero": "8",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DINIS LOPES",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 1,
@@ -341,49 +354,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO PINHO",
-   "equipa": "AD OEIRAS B",
-   "jogos": 1,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DIOGO RODRIGUES",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
-   "numero": "11",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "FELIPE RODRIGUES",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 1,
    "numero": "11",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GABRIEL CARDOSO",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
-   "numero": "9",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -415,32 +389,6 @@
    "defesas": 0,
    "pontos": 0,
    "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "NUNO GONZALEZ",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SAMUEL SEQUEIRA",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -497,6 +445,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "AFONSO BOAVENTURA",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "BERNARDO COSTA",
    "equipa": "A STUART HCM A",
    "jogos": 2,
@@ -510,10 +471,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DINIS MATOS",
+   "nome": "DIOGO PINHO",
    "equipa": "AD OEIRAS B",
    "jogos": 2,
-   "numero": "10",
+   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -523,10 +484,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "FILIPE PASSARINHO",
-   "equipa": "AD OEIRAS B",
+   "nome": "DIOGO RODRIGUES",
+   "equipa": "FSE/AJ SALESIANA",
    "jogos": 2,
-   "numero": "5",
+   "numero": "11",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -588,10 +549,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "NUNO GONZALEZ",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RODRIGO MARTINS",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 2,
    "numero": "4",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SAMUEL SEQUEIRA",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "2",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -666,10 +653,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO VÁRZEA",
+   "nome": "DINIS MATOS",
    "equipa": "AD OEIRAS B",
-   "jogos": 2,
-   "numero": "1",
+   "jogos": 3,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FILIPE PASSARINHO",
+   "equipa": "AD OEIRAS B",
+   "jogos": 3,
+   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -696,6 +696,19 @@
    "equipa": "SL BENFICA A",
    "jogos": 3,
    "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO VÁRZEA",
+   "equipa": "AD OEIRAS B",
+   "jogos": 3,
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

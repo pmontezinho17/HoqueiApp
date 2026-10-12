@@ -1067,7 +1067,7 @@
    0
   ],
   "inicio": [
-   "14:59",
+   "15:00",
    "15:33"
   ],
   "termo": [
@@ -1077,6 +1077,69 @@
   "capitao_casa": null,
   "capitao_fora": null
  },
+ "merito": [
+  {
+   "equipa": "HC LOURINHÃ",
+   "atletas": 8,
+   "guardas_redes": 1,
+   "participantes": 8,
+   "completa": false,
+   "bonificacao": 8,
+   "penalizacao": -1,
+   "total": 7,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "8 atletas participantes",
+     "pontos": 8
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE",
+   "atletas": 6,
+   "guardas_redes": 1,
+   "participantes": 6,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -10,
+   "total": -1,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "6 atletas participantes",
+     "pontos": 6
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "4.1.1",
+     "texto": "apresentou 6 atletas",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.6",
+     "texto": "2 fizeram as quatro meias partes",
+     "pontos": -8
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 467,
  "categoria": "BENJAMINS",
  "jornada": "2ª JORNADA",

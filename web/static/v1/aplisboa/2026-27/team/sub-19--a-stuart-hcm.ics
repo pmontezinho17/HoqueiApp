@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9863@hoquei.pages.dev
-DTSTAMP:20261011T000000Z
-DTSTART:20261011T153000Z
-DTEND:20261011T170000Z
-SUMMARY:🏑 Sub-19 🏑 UF Entroncamento vs A Stuart HCM
-LOCATION:Pavilhão Albano Mateus
-DESCRIPTION:UF Entroncamento vs A Stuart HCM\nCAMP. REG. SUB-19 - 1ª FASE 
- · Série C · SUB-19\nPAV. A. MATEUS- ENTRONCAMENTO\nhttps://hoquei.pages
- .dev/jogo/9863\nDados da Associação de Patinagem de Lisboa. Site não of
- icial.
-URL:https://hoquei.pages.dev/jogo/9863
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9866@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T181500Z

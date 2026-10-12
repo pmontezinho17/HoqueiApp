@@ -160,8 +160,8 @@
    "hora": "15:00:00",
    "casa": "CRIAR-T GD",
    "fora": "UD VILAFRANQUENSE B",
-   "golos_casa": 2,
-   "golos_fora": 1,
+   "golos_casa": 10,
+   "golos_fora": 3,
    "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
    "ao_vivo": false
   },
@@ -514,10 +514,10 @@
      "vitorias": 1,
      "empates": 0,
      "derrotas": 2,
-     "golos_marcados": 5,
-     "golos_sofridos": 20,
-     "diferenca": -15,
-     "racio": 0.25,
+     "golos_marcados": 13,
+     "golos_sofridos": 22,
+     "diferenca": -9,
+     "racio": 0.59,
      "pontos": 3
     },
     {
@@ -528,10 +528,10 @@
      "vitorias": 0,
      "empates": 0,
      "derrotas": 3,
-     "golos_marcados": 4,
-     "golos_sofridos": 30,
-     "diferenca": -26,
-     "racio": 0.13,
+     "golos_marcados": 6,
+     "golos_sofridos": 38,
+     "diferenca": -32,
+     "racio": 0.16,
      "pontos": 0
     },
     {

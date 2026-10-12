@@ -156,8 +156,8 @@
    "hora": "16:00:00",
    "casa": "AE FISICA D A",
    "fora": "CD PAÇO ARCOS A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 8,
+   "golos_fora": 5,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
   },

@@ -762,6 +762,69 @@
   "capitao_casa": null,
   "capitao_fora": null
  },
+ "merito": [
+  {
+   "equipa": "A STUART HCM",
+   "atletas": 7,
+   "guardas_redes": 1,
+   "participantes": 7,
+   "completa": false,
+   "bonificacao": 8,
+   "penalizacao": -2,
+   "total": 6,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "7 atletas participantes",
+     "pontos": 7
+    },
+    {
+     "regra": "3.3",
+     "texto": "mesmo número de golos",
+     "pontos": 1
+    },
+    {
+     "regra": "4.1.1",
+     "texto": "apresentou 7 atletas",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "AE FISICA D A",
+   "atletas": 8,
+   "guardas_redes": 1,
+   "participantes": 8,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -1,
+   "total": 8,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "8 atletas participantes",
+     "pontos": 8
+    },
+    {
+     "regra": "3.3",
+     "texto": "mesmo número de golos",
+     "pontos": 1
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 465,
  "categoria": "BENJAMINS",
  "jornada": "3ª JORNADA",

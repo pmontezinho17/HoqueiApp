@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9683@hoquei.pages.dev
-DTSTAMP:20261011T000000Z
-DTSTART:20261011T144500Z
-DTEND:20261011T161500Z
-SUMMARY:🏑 Sub-17 🏑 Caco A vs FSE/AJ Salesiana B
-LOCATION:Clube Atlético de Campo de Ourique (CACO)
-DESCRIPTION:Caco A vs FSE/AJ Salesiana B\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie B · SUB-17\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9683\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9683
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9687@hoquei.pages.dev
 DTSTAMP:20261017T000000Z
 DTSTART:20261017T164500Z
