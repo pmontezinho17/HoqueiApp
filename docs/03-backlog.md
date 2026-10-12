@@ -1989,6 +1989,23 @@ olhos):
    inventada. É ela que abre o `/contagens?chave=…&dias=7`; sem ela, o endereço responde 404
    e não admite que existe.
 
+> **Rodada a 12/10/2026, e a razão é um descuido meu de registar.** A 09/10 o dono colou-me a
+> chave na conversa para eu poder confirmar uma leitura, e a partir daí ela passou a existir
+> escrita num histórico de sessão em disco. Ele rodou-a no painel e eu nunca vi o valor novo —
+> é a forma certa, e é também por isso que recusei a chave do site de testes quando ele a
+> ofereceu no dia seguinte.
+>
+> O que se verifica sem tocar na chave, e foi verificado depois da publicação: o `/consola`
+> sem chave devolve a caixa para colar e **não** o 503 de "não tem chave configurada", logo a
+> variável está lá; e com uma chave errada devolve "Essa chave não serve", apagando a guardada
+> no browser antes de voltar a pedir — que é precisamente o caminho de quem tinha a antiga.
+> Se o valor novo é o que ele pensa que é, isso é um clique dele e não se mede daqui.
+>
+> **O elo fraco fica.** Uma chave estática partilhada não expira, não se revoga a uma pessoa
+> só, e basta aparecer escrita num sítio errado. O Cloudflare Access à frente do `/consola`
+> tirava-a da equação — entrava-se com o email e não haveria segredo para rodar. Fica dito
+> para a segunda vez que esta rotação aborrecer alguém.
+
 Enquanto isso não existir, o middleware é um `next()` e mais nada — foi escrito assim de
 propósito, para poder ser publicado antes do KV e não partir o site se o KV desaparecer.
 
@@ -2954,6 +2971,24 @@ a promessa agora é o `return next()` antecipado do `_middleware.js`, que trata 
 e sai antes do contador do `visita`. É uma linha, e é o género de linha que se perde numa
 reorganização sem ninguém notar — o que se notava, meses depois, eram os números reais
 inflados em silêncio. Daí o teste chamar-se `A PROMESSA`, em maiúsculas.
+
+> **Decidido a 12/10/2026: a ligação no Preview não se faz, e a tabela `porta` fica vazia.**
+> O dono: *"em testes para já só estou eu, e é por aqui que vamos ficar"*. Sem outras pessoas
+> no site de testes não há nada para contar, e a porta **funciona sem contar** — o
+> `contarNaPorta` sai logo quando não há `env.DADOS`, e foi escrito assim de propósito.
+>
+> O que se perde é só a resposta por medição à pergunta de 10/10 — "o link errado ainda anda a
+> circular?". O aviso continua a aparecer a quem se enganar, e continua a mandá-lo para o
+> endereço certo; simplesmente não deixa rasto.
+>
+> E o que **não** se perde: o contador real de produção não depende disto. A outra leitura de
+> `env.DADOS` no `_middleware.js` vive depois do `return next()` dos sites de ramo, logo é
+> sempre no ambiente de Production, onde a ligação existe desde 09/10.
+>
+> Consequência que vale a pena deixar escrita: enquanto esta ligação não existir, **a promessa
+> do `ramo.yml` volta a ser garantida pelas duas coisas ao mesmo tempo** — pela ausência da
+> ligação *e* pela linha do middleware. Quem um dia ligar o Preview fica só com a segunda, e é
+> aí que o teste `A PROMESSA` passa a ser a única rede.
 
 ### O defeito que isto teve, e que o dono apanhou na primeira tentativa
 
