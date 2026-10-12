@@ -31,6 +31,7 @@ from .recintos import conhecidas
 from .quadros import agregar
 from .rondas import (TOLERANCIA, acumular_pedidos, contar, diario_de, quedas,
                      registar, ultima)
+from .provas_a_pedir import FILTRAR_TABELAS, pedir_tabela, resumir
 
 
 def _temporada_corrente(fonte: Fonte) -> int:
@@ -38,18 +39,30 @@ def _temporada_corrente(fonte: Fonte) -> int:
     return temporadas(fonte.seccao("competiciones").html)[0].id
 
 
-def _tudo(fonte: Fonte, id_temp: int, com_classificacao: bool = False):
-    """Percorre as competições da época e devolve (competicao, calendario, classificacao)."""
+def _tudo(fonte: Fonte, id_temp: int, com_classificacao: bool = False,
+          quer_tabela=None):
+    """Percorre as competições da época e devolve (competicao, calendario, classificacao).
+
+    `quer_tabela(prova, calendario)` decide, prova a prova, se vale a pena gastar o pedido da
+    classificação — ver `provas_a_pedir.py`. Sem ele pede-se sempre, que é o comportamento de
+    todos os outros comandos e o que esta ronda fazia até 12/10/2026.
+
+    **O calendário lê-se sempre**, e é de propósito: é dele que sai a agenda, as fichas, os
+    emblemas e a nossa tabela calculada. Quem decide precisa dele para saber se houve jogo hoje
+    ou se um resultado mudou, por isso a decisão vem **depois** de o ler e antes do segundo
+    pedido.
+    """
     provas = competicoes(fonte.seccao("competiciones", id_temp=id_temp).html)
     for i, prova in enumerate(provas, 1):
         print(f"  [{i}/{len(provas)}] {prova.categoria} · {prova.nome}", file=sys.stderr)
         html = fonte.seccao("calendario", id_comp=prova.id, id_temp=id_temp, grupo="").html
+        cal = calendario(html, prova.id, id_temp)
         tabela = None
-        if com_classificacao:
+        if com_classificacao and (quer_tabela is None or quer_tabela(prova, cal)):
             tabela = classificacao(
                 fonte.seccao("clasificacion", id_comp=prova.id, id_temp=id_temp).html,
                 prova.id, id_temp)
-        yield prova, calendario(html, prova.id, id_temp), tabela
+        yield prova, cal, tabela
 
 
 def _com_tabela_calculada(conteudo: dict, nome_da_prova: str, jogos) -> dict:
@@ -95,7 +108,8 @@ def comando_despejar(args) -> int:
     with Fonte(args.tenant) as fonte:
         id_temp = args.id_temp or _temporada_corrente(fonte)
         provas, total = [], 0
-        for prova, cal, tabela in _tudo(fonte, id_temp, com_classificacao=True):
+        for prova, cal, tabela in _tudo(fonte, id_temp, com_classificacao=True,
+                                        quer_tabela=_quer_tabela):
             # emblemas: guardamos o id da fonte e reescrevemos o campo para a nossa origem,
             # o que também resolve a inconsistência de URLs absolutos vs relativos
             for eq in cal.equipas:
@@ -104,9 +118,18 @@ def comando_despejar(args) -> int:
                     emblema_da_equipa[eq.nome] = caminho_publico(idl)
 
             provas.append({**para_dicionario(prova), **identificar(prova.categoria, prova.nome)})
+            # **Saltar a tabela não é publicar uma tabela vazia.** Reutiliza-se a da última
+            # publicação; um `[]` aqui fazia o `vale_calcular` concluir que a fonte não
+            # publica tabela nenhuma e punha a nossa calculada no lugar dela — uma tabela
+            # diferente por causa de uma poupança de pedidos, que é inaceitável.
+            if tabela is not None:
+                classif = para_dicionario(tabela)["grupos"]
+            else:
+                classif = ((_anterior(prova.id) or {}).get("classificacao") or []
+                           if prova.id in tabelas_saltadas else [])
             conteudo = _com_tabela_calculada(
                 {"competicao": para_dicionario(prova), **para_dicionario(cal),
-                 "classificacao": para_dicionario(tabela)["grupos"] if tabela else []},
+                 "classificacao": classif},
                 prova.nome, cal.jogos)
             # aponta os emblemas para a nossa origem; resolve de caminho a inconsistência
             # entre os URLs absolutos do calendário e os relativos da classificação
@@ -579,6 +602,36 @@ def comando_publicar(args) -> int:
     with Fonte(args.tenant) as fonte:
         id_temp = args.id_temp or _temporada_corrente(fonte)
         provas, total, buscadas, saltadas, restritas = [], 0, 0, 0, 0
+        #: id da prova → a razão por que não se pediu a tabela dela. Vai no `meta.json`:
+        #: sem isto o gráfico da consola mostrava menos pedidos sem ninguém saber se foi
+        #: poupança ou avaria, que é o defeito do B9.31 outra vez.
+        tabelas_saltadas: dict[int, str] = {}
+        #: o `comp/<id>.json` da última publicação, lido uma vez por prova. É o que se
+        #: reutiliza quando se salta a tabela, e é também o que diz se os resultados mudaram.
+        publicado_antes: dict[int, dict | None] = {}
+
+        def _anterior(id_prova: int) -> dict | None:
+            if id_prova not in publicado_antes:
+                try:
+                    publicado_antes[id_prova] = json.loads(
+                        (destino / "comp" / f"{id_prova}.json").read_text())
+                except (OSError, json.JSONDecodeError):
+                    publicado_antes[id_prova] = None
+            return publicado_antes[id_prova]
+
+        def _quer_tabela(prova, cal) -> bool:
+            """Com o interruptor desligado pede-se tudo, como sempre."""
+            if not FILTRAR_TABELAS:
+                return True
+            antes = _anterior(prova.id)
+            pedir, porque = pedir_tabela(
+                jogos_agora=[para_dicionario(j) for j in cal.jogos],
+                jogos_antes=antes.get("jogos") if antes is not None else None,
+                hoje=_agora().date())
+            if not pedir:
+                tabelas_saltadas[prova.id] = porque
+                print(f"      tabela saltada: {porque}", file=sys.stderr)
+            return pedir
         equipas_por_escalao: dict[tuple[str, str], set[int]] = {}
         agenda: list[dict] = []
         #: id do jogo → a sua entrada na agenda, para a ficha poder marcá-lo a decorrer
@@ -586,7 +639,8 @@ def comando_publicar(args) -> int:
         logos: dict[str, str] = {}
         emblema_da_equipa: dict[str, str] = {}
 
-        for prova, cal, tabela in _tudo(fonte, id_temp, com_classificacao=True):
+        for prova, cal, tabela in _tudo(fonte, id_temp, com_classificacao=True,
+                                        quer_tabela=_quer_tabela):
             # emblemas: guardamos o id da fonte e reescrevemos o campo para a nossa origem,
             # o que também resolve a inconsistência de URLs absolutos vs relativos
             for eq in cal.equipas:
@@ -595,9 +649,18 @@ def comando_publicar(args) -> int:
                     emblema_da_equipa[eq.nome] = caminho_publico(idl)
 
             provas.append({**para_dicionario(prova), **identificar(prova.categoria, prova.nome)})
+            # **Saltar a tabela não é publicar uma tabela vazia.** Reutiliza-se a da última
+            # publicação; um `[]` aqui fazia o `vale_calcular` concluir que a fonte não
+            # publica tabela nenhuma e punha a nossa calculada no lugar dela — uma tabela
+            # diferente por causa de uma poupança de pedidos, que é inaceitável.
+            if tabela is not None:
+                classif = para_dicionario(tabela)["grupos"]
+            else:
+                classif = ((_anterior(prova.id) or {}).get("classificacao") or []
+                           if prova.id in tabelas_saltadas else [])
             conteudo = _com_tabela_calculada(
                 {"competicao": para_dicionario(prova), **para_dicionario(cal),
-                 "classificacao": para_dicionario(tabela)["grupos"] if tabela else []},
+                 "classificacao": classif},
                 prova.nome, cal.jogos)
             # aponta os emblemas para a nossa origem; resolve de caminho a inconsistência
             # entre os URLs absolutos do calendário e os relativos da classificação
@@ -784,6 +847,11 @@ def comando_publicar(args) -> int:
         # número de graça. **Fora das `contagens`** de propósito: aquelas só crescem ao longo
         # da época e a guarda do B9.6 trata uma queda como suspeita — os pedidos sobem e
         # descem com o trabalho de cada ronda.
+        # Quantas tabelas se saltaram e porquê — ver `provas_a_pedir.py`. Com o interruptor
+        # desligado isto é sempre `{}`, e é assim que se distingue "não filtrámos" de
+        # "filtrámos e não havia nada para saltar".
+        "tabelas_saltadas": len(tabelas_saltadas),
+        "tabelas_saltadas_porque": resumir(list(tabelas_saltadas.values())),
         "pedidos_fonte": fonte.pedidos,
         "pedidos_falhados": fonte.falhados,
         "pedidos_por_tipo": dict(sorted(fonte.por_tipo.items())),
