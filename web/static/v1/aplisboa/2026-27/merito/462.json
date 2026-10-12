@@ -1,0 +1,63 @@
+{
+ "competicao_id": 462,
+ "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE C",
+ "jogos_lidos": 4,
+ "jogos_sem_boletim": 0,
+ "linhas": [
+  {
+   "posicao": 1,
+   "equipa": "HC LOURINHÃ",
+   "jogos": 2,
+   "participantes": 20,
+   "bonificacao": 23,
+   "penalizacao": 0,
+   "pontos": 23,
+   "media": 11.5,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 2,
+   "equipa": "CRIAR-T GD",
+   "jogos": 2,
+   "participantes": 18,
+   "bonificacao": 24,
+   "penalizacao": -2,
+   "pontos": 22,
+   "media": 11.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 3,
+   "equipa": "PAREDE FC A",
+   "jogos": 1,
+   "participantes": 10,
+   "bonificacao": 14,
+   "penalizacao": 0,
+   "pontos": 14,
+   "media": 14.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 4,
+   "equipa": "A STUART HCM A",
+   "jogos": 2,
+   "participantes": 15,
+   "bonificacao": 16,
+   "penalizacao": -3,
+   "pontos": 13,
+   "media": 6.5,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 5,
+   "equipa": "APAC TOJAL",
+   "jogos": 1,
+   "participantes": 9,
+   "bonificacao": 9,
+   "penalizacao": -1,
+   "pontos": 8,
+   "media": 8.0,
+   "por_confirmar": 0
+  }
+ ]
+}

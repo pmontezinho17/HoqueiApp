@@ -111,7 +111,41 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
 
 - **Nunca publicar sem o dono pedir.** E saber o que publicar significa: o `git push` só
   corre testes. Quem leva código novo ao site é o `dados.yml`, com o disparo
-  `publicar_sempre`. Um push não publica.
+  `publicar_sempre` ou `so_publicar`. Um push não publica.
+- **O `main` é produção. Trabalho não aprovado vive no `testes`.** Há **um** site de testes,
+  `https://testes.hoquei.pages.dev`, e é só nesse que as funcionalidades novas aparecem. Um
+  ramo novo não ganha endereço nenhum — o `ramo.yml` só dispara no `testes`, e isso está no
+  ficheiro e não na memória de quem trabalha.
+
+  A 10/10/2026 criei um sítio por funcionalidade e o dono parou-me: *"se temos o site de
+  testes, é SÓ neste que eu quero ter as novas funcionalidades"*. Quatro sítios de testes são
+  quatro sítios para alguém se enganar a partilhar — que foi exactamente o que aconteceu
+  nessa manhã — e quatro cópias de dados a envelhecer em ritmos diferentes.
+
+  **Uma experiência que não pode ir a produção fecha-se no código, não no calendário.**
+  Confiar em que alguém se lembre, no dia da publicação, de que havia uma experiência lá
+  dentro é confiar de mais. O `directos.ts` teve essa trava amarrada ao anfitrião durante
+  umas horas de 10/10/2026 e deixou de a ter quando o dono decidiu que a capacidade podia ir
+  a produção; o que ficou no lugar dela é a mesma ideia noutra forma — **cada transmissão só
+  conta no dia do jogo**, e por isso a lista vale vazia em qualquer outro dia sem ninguém a
+  esvaziar à mão.
+
+  **E o site de testes lê os dados de produção, não uma cópia sua.** Desde 10/10/2026 — ver
+  `base()` no `dados.ts`. Uma cópia commitada envelhece em horas e mente: nesse sábado o site
+  de testes dizia que um jogo ainda não tinha começado enquanto ele ia 2-0 ao intervalo.
+  Custa zero pedidos à APL, porque é o nosso próprio CDN, e deixa o site de testes a diferir
+  de produção **só no código** — que é o que um ambiente de testes devia ser. O contador de
+  produção ignora esses pedidos pelo `Origin`, senão o tráfego de testes entrava nos números
+  reais.
+
+  Isto não é arrumação: a 09/10/2026 comitei para `main` um redesenho que ele queria ver em
+  testes primeiro, e as **sete** publicações seguintes — todas para outras coisas — levaram-no
+  ao ar sem aprovação. Eu tinha-lhe escrito esse risco por palavras minhas e segui a publicar
+  na mesma. Enquanto algo não aprovado estiver em `main`, **qualquer** publicação o leva.
+- **Subir a versão em `web/src/lib/versao.ts` quando a alteração se nota a usar a app**, e
+  escrever uma linha em `NOVIDADES` para quem a vai ver. Uma publicação que só mexe na
+  consola, no raspador ou num workflow **não sobe a versão** — e é isso que impede o aviso de
+  actualização de aparecer a toda a gente por nada.
 - **Durante uma janela de jogos há dois publicadores.** Nunca fazer `wrangler pages deploy`
   a partir de uma cópia local: a árvore local é a do último commit e o CDN tem o que o ciclo
   ao vivo escreveu entretanto. Já apagou resultados reais duas vezes.

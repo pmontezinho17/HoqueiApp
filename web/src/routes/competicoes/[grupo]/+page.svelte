@@ -5,6 +5,10 @@
 	import { tabelasDe } from '$lib/classificacao';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import TabelaClassificacao from '$lib/TabelaClassificacao.svelte';
+	import TabelaMerito from '$lib/TabelaMerito.svelte';
+	import ChapeuMerito from '$lib/ChapeuMerito.svelte';
+	import LegendaMerito from '$lib/LegendaMerito.svelte';
+	import RegrasMerito from '$lib/RegrasMerito.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import { jornadaAtual, porQuando, nomeProprio } from '$lib/formato';
 	import { caminhoEquipa } from '$lib/slug';
@@ -14,6 +18,16 @@
 
 	type Aba = 'classificacao' | 'calendario' | 'marcadores';
 	let aba = $state<Aba>('classificacao');
+
+	/**
+	 * Nestes escalões o Mérito **é** a classificação, e não uma segunda tabela ao lado.
+	 *
+	 * Mudou a 10/10/2026, a pedido do dono depois de lermos o regulamento: *"a única tabela
+	 * que vamos ter de classificação é a do Mérito"*. Até aí havia duas — uma de 3/1/0 que
+	 * nós tínhamos inventado e que não existe em lado nenhum, e esta. A APL não publica
+	 * classificação nestes escalões de propósito; o Artigo 92.º diz o que se escalona ali.
+	 */
+	const temMerito = $derived(data.provas.some((p) => p.merito?.linhas.length));
 
 	// modo de vista ao estilo dos modos da NHL: os mesmos dados reagrupados.
 	// `Escalão` empilha as séries — nunca as funde, porque não se enfrentam.
@@ -32,6 +46,13 @@
 	);
 
 	const destaque = (equipa: string) => minhasEquipas.has(equipa);
+	// somados entre as séries do ecrã, porque as notas aparecem uma só vez lá em baixo
+	const meritoPorConfirmar = $derived(
+		visiveis.reduce((s, p) => s + (p.merito?.linhas ?? []).reduce((x, l) => x + l.por_confirmar, 0), 0)
+	);
+	const meritoSemBoletim = $derived(
+		visiveis.reduce((s, p) => s + (p.merito?.jogos_sem_boletim ?? 0), 0)
+	);
 
 	/** Assistências por equipa, somadas das fichas desta prova. `null` quando não há fichas:
 	 *  sem isto uma equipa sem dados somava zero e lia-se como pior do que é. */
@@ -91,7 +112,21 @@
 	</div>
 {/if}
 
-{#if aba === 'classificacao'}
+{#if aba === 'classificacao' && temMerito}
+	<ChapeuMerito />
+	{#each visiveis as p (p.competicao.id)}
+		{#if p.merito?.linhas.length}
+			<section>
+				{#if p.competicao.serie}<h2>Série {p.competicao.serie}</h2>{/if}
+				<TabelaMerito
+					linhas={p.merito.linhas} emblemas={data.emblemas}
+					categoria={p.competicao.categoria} {destaque} />
+			</section>
+		{/if}
+	{/each}
+	<RegrasMerito />
+	<LegendaMerito porConfirmar={meritoPorConfirmar} semBoletim={meritoSemBoletim} />
+{:else if aba === 'classificacao'}
 	<div class="modos" role="group" aria-label="Colunas">
 		<button class:activo={!completa} onclick={() => (completa = false)}>Simples</button>
 		<button class:activo={completa} onclick={() => (completa = true)}>Completa</button>

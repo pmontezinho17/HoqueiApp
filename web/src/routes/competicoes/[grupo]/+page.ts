@@ -1,4 +1,4 @@
-import { carregarCompeticao, carregarQuadro } from '$lib/dados';
+import { carregarCompeticao, carregarMerito, carregarQuadro } from '$lib/dados';
 import { error } from '@sveltejs/kit';
 import type { Competicao } from '$lib/tipos';
 import type { PageLoad } from './$types';
@@ -17,7 +17,10 @@ export const load: PageLoad = async ({ params, fetch, parent }) => {
 		series.map(async (c) => ({
 			competicao: c,
 			dados: await carregarCompeticao(c.id, fetch),
-			quadro: await carregarQuadro(c.id, fetch).catch(() => null)
+			quadro: await carregarQuadro(c.id, fetch).catch(() => null),
+			// 404 aqui é a resposta normal: só os Encontros Distritais de Escolares e
+			// Benjamins têm Mérito da Formação, e nas outras 29 provas o ficheiro não existe
+			merito: await carregarMerito(c.id, fetch).catch(() => null)
 		}))
 	);
 	return {

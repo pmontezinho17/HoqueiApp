@@ -1,0 +1,63 @@
+{
+ "competicao_id": 463,
+ "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE D",
+ "jogos_lidos": 4,
+ "jogos_sem_boletim": 0,
+ "linhas": [
+  {
+   "posicao": 1,
+   "equipa": "AD OEIRAS B",
+   "jogos": 2,
+   "participantes": 20,
+   "bonificacao": 28,
+   "penalizacao": 0,
+   "pontos": 28,
+   "media": 14.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 2,
+   "equipa": "SC TORRES",
+   "jogos": 2,
+   "participantes": 18,
+   "bonificacao": 21,
+   "penalizacao": -2,
+   "pontos": 19,
+   "media": 9.5,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 3,
+   "equipa": "SPORTING CP B",
+   "jogos": 1,
+   "participantes": 8,
+   "bonificacao": 11,
+   "penalizacao": 0,
+   "pontos": 11,
+   "media": 11.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 4,
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 2,
+   "participantes": 17,
+   "bonificacao": 17,
+   "penalizacao": -6,
+   "pontos": 11,
+   "media": 5.5,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 5,
+   "equipa": "A STUART HCM B",
+   "jogos": 1,
+   "participantes": 9,
+   "bonificacao": 9,
+   "penalizacao": -1,
+   "pontos": 8,
+   "media": 8.0,
+   "por_confirmar": 0
+  }
+ ]
+}

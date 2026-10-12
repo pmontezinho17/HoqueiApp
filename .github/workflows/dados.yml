@@ -46,6 +46,8 @@ concurrency:
 
 permissions:
   contents: write
+  # para o aviso do fim deste ficheiro poder abrir e fechar a issue da ronda
+  issues: write
 
 jobs:
   actualizar:
@@ -101,7 +103,26 @@ jobs:
 
       - name: Testes do parser
         working-directory: scraper
-        run: uv run pytest -q
+        # **Sem os marcados `fonte`.** Esses comparam o nosso cálculo com a tabela que a APL
+        # publica *naquele momento*, e falham por duas razões que não se parecem nada: o
+        # nosso parser partiu-se, ou a APL está incoerente consigo mesma.
+        #
+        # A 11/10/2026 foi a segunda — um golo de diferença num jogo do sub-15 série B — e
+        # abortou **sete rondas seguidas**, das 16:10 às 06:09 do dia seguinte. Dezesseis
+        # horas sem publicar resultados, agenda nem fichas, por causa de uma linha de uma
+        # tabela de uma competição. E com um efeito de segunda ordem pior: o ciclo ao vivo lê
+        # o último commit, e sem commits novos passou a repedir jogos que já tinha visto —
+        # **+4 400 pedidos ao servidor da associação nesse dia**.
+        #
+        # Um teste escrito para proteger a integridade dos dados foi o que nos pôs a martelar
+        # a fonte. Daí a separação.
+        run: uv run pytest -q -m "not fonte"
+
+      - name: Reprodução das tabelas da fonte (avisa, não bloqueia)
+        id: reproducao
+        working-directory: scraper
+        continue-on-error: true
+        run: uv run pytest -q -m fonte
 
       # B9.6: se as contagens caírem acima do limiar, este passo sai com 2 e os passos
       # seguintes não correm — nem comita, nem publica. O runner é descartável, por isso
@@ -267,3 +288,70 @@ jobs:
             --file=fotografia.tar.gz
             --content-type=application/gzip
             --remote
+
+      # ─── Avisos ─────────────────────────────────────────────────────────────────────────
+      #
+      # **Nada vigiava este workflow.** A 11/10/2026 ele falhou sete vezes seguidas e o
+      # primeiro sinal chegou sete horas depois, pela cadeia do observador — que vigia os
+      # dados publicados, não o pipeline, e por isso apontou para o sintoma ("ao vivo preso
+      # em 9598…") e nunca disse que a ronda estava a abortar.
+      #
+      # Uma issue por causa, reutilizada e fechada sozinha, como no `aviso.yml`.
+
+      - name: A fonte está incoerente
+        if: steps.reproducao.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DONO: ${{ github.repository_owner }}
+        run: |
+          titulo="A fonte discorda de si mesma — $(TZ=Europe/Lisbon date +%F)"
+          corpo=$(printf '%s\n' \
+            "A tabela que a APL publica não bate com os jogos do calendário dela." \
+            "" \
+            "**A ronda publicou mesmo assim**, e é de propósito: uma incoerência passageira" \
+            "da fonte não é razão para deixar todos sem resultados. O que pode estar errado" \
+            "são as nossas tabelas calculadas, e hoje elas estão vazias nas 37 provas." \
+            "" \
+            "Se isto não desaparecer na ronda seguinte, aí sim é o parser." \
+            "" \
+            "Corrida: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")
+          n=$(gh issue list --state open --label fonte --limit 20 --json number,title \
+                --jq "[.[] | select(.title == \"$titulo\")] | .[0].number // empty")
+          if [ -n "$n" ]; then
+            gh issue comment "$n" --body "$corpo"
+          else
+            gh issue create --title "$titulo" --body "$corpo" --label fonte --assignee "$DONO"
+          fi
+
+      - name: A ronda falhou
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DONO: ${{ github.repository_owner }}
+        run: |
+          titulo="A ronda de dados está a falhar"
+          corpo=$(printf '%s\n' \
+            "A ronda de $(TZ=Europe/Lisbon date '+%F às %H:%M') falhou e **não publicou nada**." \
+            "" \
+            "Enquanto isto durar, a agenda e os resultados ficam no último commit — e o ciclo" \
+            "ao vivo, que lê daí, repete pedidos à associação por jogos que já viu." \
+            "" \
+            "Corrida: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")
+          n=$(gh issue list --state open --label ronda --limit 20 --json number,title \
+                --jq "[.[] | select(.title == \"$titulo\")] | .[0].number // empty")
+          if [ -n "$n" ]; then
+            gh issue comment "$n" --body "$corpo"
+          else
+            gh issue create --title "$titulo" --body "$corpo" --label ronda --assignee "$DONO"
+          fi
+
+      - name: A ronda voltou ao normal
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh issue list --state open --label ronda --limit 20 --json number,title \
+                --jq "[.[] | select(.title == \"A ronda de dados está a falhar\")] | .[0].number // empty")
+          if [ -n "$n" ]; then
+            gh issue close "$n" --comment "A ronda voltou a correr. Fechada pelo \`dados.yml\`."
+          fi

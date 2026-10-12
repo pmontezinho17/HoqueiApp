@@ -42,9 +42,15 @@ export default defineConfig({
 				short_name: 'OK4Sticks',
 				description: 'Resultados, calendários e classificações de hóquei em patins em Portugal',
 				lang: 'pt-PT',
-				// a app instalada abre em O Meu Clube: com favoritos mostra-os, sem eles
-				// serve de onboarding em vez de um ecrã vazio
-				start_url: '/clube',
+				// **A app instalada abre nos Jogos**, por decisão do dono a 10/10/2026.
+				//
+				// Abria em O Meu Clube, com um raciocínio que parecia bom: com favoritos
+				// mostra-os, e sem eles serve de onboarding em vez de um ecrã vazio. O erro
+				// estava na premissa — os Jogos **nunca** são um ecrã vazio. São a lista do
+				// dia, que é o que a app faz, e num sábado tem trinta e seis linhas. Quem
+				// abre uma app de resultados quer resultados; escolher o clube é uma coisa
+				// que se faz uma vez.
+				start_url: '/',
 				display: 'standalone',
 				background_color: '#0f1115',
 				// amarelo torrado: é a cor do ícone, e é ela que o Android usa para tingir o

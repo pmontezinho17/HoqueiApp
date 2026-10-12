@@ -1,6 +1,8 @@
 <script lang="ts">
 	import AutoRefrescar from '$lib/AutoRefrescar.svelte';
 	import AvisoVersao from '$lib/AvisoVersao.svelte';
+	import SaidaDoRamo from '$lib/SaidaDoRamo.svelte';
+	import { ehSiteDeRamo } from '$lib/ambiente.js';
 	import Holofote from '$lib/Holofote.svelte';
 	// temporário, para a fase de testes — ver web/src/lib/feedback.ts
 	import Feedback from '$lib/Feedback.svelte';
@@ -16,11 +18,26 @@
 	import Icone from '$lib/Icone.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import MenuMais from '$lib/MenuMais.svelte';
+	import CaixaNovidades from '$lib/CaixaNovidades.svelte';
 	import { tema } from '$lib/tema.svelte';
+	import { cor } from '$lib/cor.svelte';
 	import { APP_NOME } from '$lib/sitio';
 	import { marcarPresenca } from '$lib/presenca';
 
 	let { data, children } = $props();
+
+	/**
+	 * Estamos num site de ramo? Só se sabe no browser — o `adapter-static` pré-constrói estas
+	 * páginas e, na altura em que o faz, não há anfitrião nenhum.
+	 *
+	 * Enquanto não se souber, assume-se que **não**: um `true` por omissão punha a folha de
+	 * aviso a piscar em produção a cada arranque, que é um defeito pior do que o que isto
+	 * resolve.
+	 */
+	let noRamo = $state(false);
+	$effect(() => {
+		noRamo = ehSiteDeRamo(location.hostname);
+	});
 
 	let menuAberto = $state(false);
 
@@ -57,6 +74,8 @@
 	// os favoritos vivem no localStorage e só existem no browser; sem isto a app abria
 	// sempre como se não se seguisse ninguém (perdido na reestruturação dos separadores)
 	$effect(() => favoritos.carregar());
+	// a cor escolhida vive no aparelho e só existe no browser, como o tema
+	$effect(() => cor.carregar());
 
 	// a preferência de tema também só existe no browser, e aplica-se ao `<html>`
 	$effect(() => tema.carregar());
@@ -142,8 +161,18 @@
 <MenuMais bind:aberto={menuAberto} topo={alturaTopo} />
 
 <AutoRefrescar agenda={data.agenda} />
-<AvisoVersao />
+<!-- Num site de ramo o service worker **não se regista**, e é o `AvisoVersao` que o faz.
+     Sem isto, cada ramo publicado continuava a poder ser instalado como app e a render mais
+     uma cópia parada no telemóvel de alguém. -->
+{#if noRamo}
+	<SaidaDoRamo />
+{:else}
+	<AvisoVersao />
+{/if}
 <Holofote />
+
+<!-- a nota do que mudou, depois de uma actualização — ver lib/novidades.svelte.ts -->
+<CaixaNovidades />
 {#if RECOLHER_FEEDBACK}<Feedback />{/if}
 
 <style>
@@ -176,13 +205,26 @@
 		--fundo: #f5f6f8; --cartao: #fff;
 		--texto: #14171c; --texto-2: #4b525c; --suave: #767e8a;
 		--borda: #e3e6ea; --borda-fraca: #eef0f3;
-		--acento: #0a7d54; --acento-fraco: #e8f4ef;
+		/* **O acento é escolhível, e os outros tokens não.** O `--c-claro` é escrito no
+		   `<html>` pelo `cor.svelte.ts` quando alguém escolhe uma cor; sem escolha, o
+		   fallback é o verde de sempre e nada muda. Os dois temas têm variáveis próprias
+		   porque o claro precisa de uma cor escura para ler sobre branco e o escuro precisa
+		   do contrário — ver o cabeçalho do `cor.svelte.ts`. */
+		--acento: var(--c-claro, #0a7d54); --acento-fraco: var(--cf-claro, #e8f4ef);
 		--aviso: #92400e; --aviso-fundo: #fef3c7; --vivo: #c2410c;
 		/* **Um vermelho próprio para "terminada", e não o `--vivo`.** O `--vivo` quer dizer
 		   "está a acontecer agora" e usá-lo para "já acabou" punha a mesma cor a dizer duas
 		   coisas opostas na mesma aplicação. Este é mais frio e mais escuro, e nunca aparece
 		   no mesmo ecrã que o outro. */
 		--terminado: #b3261e;
+		/* **O vermelho da transmissão, e não o `--vivo` nem o `--terminado`.**
+		   O `--vivo` é laranja e quer dizer "está a acontecer"; numa janela com sete jogos a
+		   decorrer está em todos, e uma câmara dessa cor desaparecia no meio deles — foi
+		   exactamente a queixa do dono a 10/10/2026. O `--terminado` é vermelho mas já quer
+		   dizer "acabou". Isto quer dizer uma terceira coisa — "este dá para ver" — e por
+		   isso tem cor própria: o vermelho de gravação, que é a convenção que todos
+		   reconhecem sem legenda. */
+		--directo: #dc2626;
 		/* a estrela do favorito: amarela nos dois temas, mais funda no claro para não
 		   desaparecer contra o branco do cartão */
 		--estrela: #d99e00;
@@ -210,9 +252,10 @@
 			--fundo: #0f1115; --cartao: #181b21;
 			--texto: #e8eaed; --texto-2: #b6bcc5; --suave: #868d98;
 			--borda: #272b33; --borda-fraca: #1f232a;
-			--acento: #34d399; --acento-fraco: #12271f;
+			--acento: var(--c-escuro, #34d399); --acento-fraco: var(--cf-escuro, #12271f);
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
 			--terminado: #f2b8b5;
+			--directo: #f87171;
 			--estrela: #fbbf24;
 			--heroi: #1b2027; --heroi-texto: #eef1f4; --heroi-suave: #949ca6;
 			--heroi-borda: #2a313a;
@@ -222,9 +265,10 @@
 			--fundo: #0f1115; --cartao: #181b21;
 			--texto: #e8eaed; --texto-2: #b6bcc5; --suave: #868d98;
 			--borda: #272b33; --borda-fraca: #1f232a;
-			--acento: #34d399; --acento-fraco: #12271f;
+			--acento: var(--c-escuro, #34d399); --acento-fraco: var(--cf-escuro, #12271f);
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
 			--terminado: #f2b8b5;
+			--directo: #f87171;
 			--estrela: #fbbf24;
 			--heroi: #1b2027; --heroi-texto: #eef1f4; --heroi-suave: #949ca6;
 			--heroi-borda: #2a313a;

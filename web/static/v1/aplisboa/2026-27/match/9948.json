@@ -824,5 +824,58 @@
  "jornada": "2ª JORNADA",
  "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-ii",
  "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II",
- "serie": "D"
+ "serie": "D",
+ "merito": [
+  {
+   "equipa": "CD PAÇO ARCOS B",
+   "atletas": 9,
+   "guardas_redes": 2,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -4,
+   "total": 5,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "4.1.4",
+     "texto": "2 com 3 meias partes",
+     "pontos": -2
+    },
+    {
+     "regra": "4.1.5",
+     "texto": "1 com 3 meias partes seguidas",
+     "pontos": -2
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "SPORTING CP B",
+   "atletas": 8,
+   "guardas_redes": 2,
+   "participantes": 8,
+   "completa": false,
+   "bonificacao": 11,
+   "penalizacao": 0,
+   "total": 11,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "8 atletas participantes",
+     "pontos": 8
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    }
+   ],
+   "avisos": []
+  }
+ ]
 }

@@ -1,0 +1,52 @@
+{
+ "competicao_id": 464,
+ "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE E",
+ "jogos_lidos": 3,
+ "jogos_sem_boletim": 1,
+ "linhas": [
+  {
+   "posicao": 1,
+   "equipa": "PAREDE FC B",
+   "jogos": 2,
+   "participantes": 20,
+   "bonificacao": 22,
+   "penalizacao": 0,
+   "pontos": 22,
+   "media": 11.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 2,
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogos": 2,
+   "participantes": 15,
+   "bonificacao": 21,
+   "penalizacao": -7,
+   "pontos": 14,
+   "media": 7.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 3,
+   "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "participantes": 10,
+   "bonificacao": 11,
+   "penalizacao": 0,
+   "pontos": 11,
+   "media": 11.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 4,
+   "equipa": "CACO B",
+   "jogos": 1,
+   "participantes": 8,
+   "bonificacao": 11,
+   "penalizacao": -1,
+   "pontos": 10,
+   "media": 10.0,
+   "por_confirmar": 0
+  }
+ ]
+}

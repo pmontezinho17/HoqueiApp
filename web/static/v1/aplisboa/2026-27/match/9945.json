@@ -909,5 +909,58 @@
  "jornada": "1ª JORNADA",
  "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-ii",
  "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II",
- "serie": "D"
+ "serie": "D",
+ "merito": [
+  {
+   "equipa": "A STUART HCM B",
+   "atletas": 9,
+   "guardas_redes": 1,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -1,
+   "total": 8,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "AD OEIRAS B",
+   "atletas": 10,
+   "guardas_redes": 2,
+   "participantes": 10,
+   "completa": true,
+   "bonificacao": 14,
+   "penalizacao": 0,
+   "total": 14,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "10 atletas participantes",
+     "pontos": 10
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "3.4",
+     "texto": "equipa completa (2 GR e 8 JC)",
+     "pontos": 1
+    }
+   ],
+   "avisos": []
+  }
+ ]
 }

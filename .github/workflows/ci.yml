@@ -14,8 +14,17 @@ jobs:
         with:
           enable-cache: true
       # os testes correm contra HTML gravado, sem rede: não tocam na fonte
-      - run: uv run pytest -q
+      # Os marcados `fonte` ficam de fora do que bloqueia: eles comparam o nosso cálculo com
+      # a tabela que a APL publica **naquele momento**, e por isso ficam vermelhos quando ela
+      # está incoerente consigo mesma — coisa que nenhum commit nosso resolve. Ver o
+      # `conftest.py` e o `dados.yml`.
+      - run: uv run pytest -q -m "not fonte"
         working-directory: scraper
+
+      - name: Reprodução das tabelas da fonte (informativo)
+        working-directory: scraper
+        continue-on-error: true
+        run: uv run pytest -q -m fonte
 
   web:
     runs-on: ubuntu-latest

@@ -1,0 +1,63 @@
+{
+ "competicao_id": 461,
+ "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE B",
+ "jogos_lidos": 4,
+ "jogos_sem_boletim": 0,
+ "linhas": [
+  {
+   "posicao": 1,
+   "equipa": "CACO A",
+   "jogos": 2,
+   "participantes": 20,
+   "bonificacao": 28,
+   "penalizacao": 0,
+   "pontos": 28,
+   "media": 14.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 2,
+   "equipa": "UD VILAFRANQUENSE A",
+   "jogos": 2,
+   "participantes": 19,
+   "bonificacao": 26,
+   "penalizacao": -1,
+   "pontos": 25,
+   "media": 12.5,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 3,
+   "equipa": "HC SINTRA",
+   "jogos": 2,
+   "participantes": 19,
+   "bonificacao": 20,
+   "penalizacao": -1,
+   "pontos": 19,
+   "media": 9.5,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 4,
+   "equipa": "AE FISICA D A",
+   "jogos": 1,
+   "participantes": 10,
+   "bonificacao": 11,
+   "penalizacao": 0,
+   "pontos": 11,
+   "media": 11.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 5,
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 1,
+   "participantes": 8,
+   "bonificacao": 8,
+   "penalizacao": -1,
+   "pontos": 7,
+   "media": 7.0,
+   "por_confirmar": 0
+  }
+ ]
+}

@@ -115,3 +115,31 @@ CREATE TABLE IF NOT EXISTS entrada_hora (
   volta INTEGER NOT NULL DEFAULT 0,       -- já cá tinha vindo noutro dia
   PRIMARY KEY (dia, hora)
 );
+
+-- ─────────────────────────────────────────────────────────────────────────────────────────
+-- Quem ainda bate à porta de um site de ramo. Pedido pelo dono a 10/10/2026, no dia em que
+-- partilhou `testes.hoquei.pages.dev` em vez do endereço a sério: *"Sim quero saber"*.
+--
+-- A pergunta que isto responde é uma decisão, não curiosidade: se daqui a uns dias ainda
+-- houver gente a bater, o link anda a circular — num grupo, num favorito partilhado — e o
+-- dono tem de avisar as pessoas directamente em vez de esperar que a porta resolva sozinha.
+--
+-- `evento` separa duas coisas que não se podem somar:
+--
+--   aviso   alguém viu a porta — é o número que interessa, e são estranhos;
+--   entrou  alguém escreveu a chave — é o dono, e serve para o descontar do outro.
+--
+-- **Isto é uma tabela à parte de propósito.** O `ramo.yml` promete que o tráfego de testes
+-- não entra nas contagens reais, e essa promessa era garantida por não haver ligação à base
+-- de dados no ambiente de Preview. Deixa de ser: a ligação passa a existir para isto. Quem a
+-- garante agora é o `_middleware.js`, que trata os sites de ramo e **sai antes** de chegar ao
+-- contador do `visita`. Há um teste só para isso, porque é o género de coisa que se perde
+-- numa reorganização e que ninguém nota — os números reais é que ficavam inflados em
+-- silêncio.
+CREATE TABLE IF NOT EXISTS porta (
+  dia    TEXT NOT NULL,
+  ramo   TEXT NOT NULL,                   -- 'testes', 'versoes', ou o id de uma publicação
+  evento TEXT NOT NULL,                   -- 'aviso' | 'entrou'
+  n      INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (dia, ramo, evento)
+);

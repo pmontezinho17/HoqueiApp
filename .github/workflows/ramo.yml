@@ -1,10 +1,28 @@
-name: Site de testes
+name: Site de um ramo
 
-# Um segundo site, para experimentar no telemóvel sem tocar no que as pessoas usam (P11.7).
+# **Um** site de testes, e só um: `https://testes.hoquei.pages.dev`.
 #
-# O Cloudflare Pages dá um *preview deployment* por ramo sem custo: publicar com
-# `--branch testes` no mesmo projecto dá o endereço `https://testes.hoquei.pages.dev`, com o
-# `main` a continuar intocado em `hoquei.pages.dev`.
+# O Cloudflare Pages dá um *preview deployment* por ramo sem custo, e durante umas horas de
+# 10/10/2026 aproveitei isso para dar um endereço a cada ramo que criei. O dono parou-me, e
+# com razão: *"se temos o site de testes, é SÓ neste que eu quero ter as novas
+# funcionalidades"*. Quatro sítios de testes é quatro sítios para alguém se enganar a
+# partilhar, quatro cópias de dados a envelhecer em ritmos diferentes, e nenhuma delas é a
+# que ele abre.
+#
+# **Por isso o gatilho é um ramo e não "todos menos o main".** Era `branches-ignore: [main]`,
+# e isso punha a regra na minha cabeça em vez de a pôr no ficheiro. Aqui, um ramo novo não
+# ganha endereço nenhum: trabalha-se nele à vontade, e quando se quer ver no telemóvel
+# funde-se no `testes`.
+#
+# ## A regra que isto serve, e que nasceu de um erro meu
+#
+# **O `main` é produção.** A 09/10/2026 comitei para `main` um redesenho que o dono queria ver
+# em testes primeiro, e as sete publicações que fiz depois — todas para outras coisas —
+# levaram-no ao ar sem ele o ter aprovado. Eu tinha-lhe escrito esse risco por palavras minhas
+# e segui a publicar na mesma.
+#
+# Trabalho não aprovado vive **num ramo**, e o ramo tem o seu próprio endereço. O `main` só
+# recebe o que já foi visto.
 #
 # **Isto não raspa nada.** Publica os dados que já estão commitados, e é de propósito: a regra
 # do projecto é uma raspagem central, nunca uma por ambiente — o servidor da associação não
@@ -15,14 +33,28 @@ name: Site de testes
 # O contador de utilização fica **calado** aqui, e também é de propósito: a ligação ao KV
 # está no ambiente de *Production* do projecto, e o middleware foi escrito para ser um
 # `next()` quando não a encontra. Assim o tráfego de testes não entra nas contagens reais.
+#
+# ## Estes sites estão trancados desde 10/10/2026
+#
+# Aquele "algumas horas atrás" era uma limitação conhecida e passou a ser um problema no dia
+# em que o endereço do ramo `testes` foi partilhado por engano em vez do de produção. Com 36
+# jogos a decorrer, quem seguiu o link via dados de 26 horas antes e nem um resultado do dia.
+#
+# Agora qualquer navegação a um `*.hoquei.pages.dev` que não seja o site a sério apanha a
+# porta do `web/functions/_middleware.js`: uma página que diz onde é o site verdadeiro, com um
+# botão, e que só deixa passar quem escreva a `CHAVE_TESTES`. **Esse segredo define-se no
+# ambiente `Preview` do projecto, no painel da Cloudflare** — sem ele a porta não deixa entrar
+# ninguém, de propósito. O raciocínio todo está em `docs/03-backlog.md`.
 
 on:
   push:
+    # Só o `testes`. O `main` tem o seu caminho pelo `dados.yml`; qualquer outro ramo não
+    # publica em lado nenhum, de propósito — ver o comentário acima.
     branches: [testes]
   workflow_dispatch:
 
 concurrency:
-  group: testes
+  group: ramo-${{ github.ref_name }}
   cancel-in-progress: true
 
 jobs:
@@ -73,7 +105,18 @@ jobs:
           # `workingDirectory` acima, e com o mesmo sintoma possível: um sábado em que o que
           # vai para o CDN depende de quem publicou.
           wranglerVersion: '4.149.0'
-          command: pages deploy build --project-name hoquei --branch testes
+          # O nome do ramo tal e qual: a Cloudflare faz dele o subdomínio. Um ramo com `/`
+          # no nome — `wip/x` — vira `wip-x` nas mãos dela, e o endereço sai no resumo.
+          command: pages deploy build --project-name hoquei --branch ${{ github.ref_name }}
 
       - name: Onde ficou
-        run: echo "### Site de testes → https://testes.hoquei.pages.dev" >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          # o subdomínio não aceita `/` nem `_`; a Cloudflare troca-os por `-`
+          sub=$(echo "${{ github.ref_name }}" | tr '/_' '-' | tr '[:upper:]' '[:lower:]')
+          {
+            echo "### Este ramo está em"
+            echo ""
+            echo "https://$sub.hoquei.pages.dev"
+            echo ""
+            echo "O \`main\` continua em https://hoquei.pages.dev e não foi tocado."
+          } >> "$GITHUB_STEP_SUMMARY"

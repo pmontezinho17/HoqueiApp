@@ -49,6 +49,9 @@
  * que permite publicar antes de a ligação existir.
  */
 
+import { ehSiteDeRamo, paraProducao } from '../src/lib/ambiente.js';
+import { COOKIE, MARCA, porta } from '../src/lib/portaTestes.js';
+
 /** 1 em quantos pedidos de dados se contam. Ver "o tecto que obriga a amostragem". */
 export const AMOSTRA = 10;
 
@@ -110,6 +113,33 @@ export function ecraDe(caminho) {
 const NOSSO = /^hoqueiAPP/i;
 
 /**
+ * Este pedido vem de um site de ramo?
+ *
+ * Passou a ser preciso a 10/10/2026, quando os sites de ramo deixaram de servir a sua cópia
+ * de dados e passaram a ler os de produção — ver `base()` no `dados.ts`. Sem isto, abrir o
+ * site de testes somava `aberturas` e navegações aos números reais, e a promessa do
+ * `ramo.yml` deixava de ser verdade por uma porta que ninguém tinha visto.
+ *
+ * Lê-se no `Origin` — que o browser põe em qualquer pedido entre origens — e no `Referer`
+ * como rede. Um pedido vindo de um site de ramo chega aqui sempre com um dos dois: é, por
+ * definição, um pedido de outra origem.
+ *
+ * @param {Request} pedido
+ */
+export function deUmSiteDeRamo(pedido) {
+	for (const cabecalho of ['Origin', 'Referer']) {
+		const v = pedido.headers.get(cabecalho);
+		if (!v) continue;
+		try {
+			if (ehSiteDeRamo(new URL(v).hostname)) return true;
+		} catch {
+			/* um cabeçalho que não é um endereço não diz nada; segue para o seguinte */
+		}
+	}
+	return false;
+}
+
+/**
  * O que é que este pedido conta, se contar algo.
  *
  * `null` é o caso normal: um ficheiro de dados qualquer, um emblema, um pedido que não diz
@@ -122,6 +152,7 @@ const NOSSO = /^hoqueiAPP/i;
 export function oQueContar(pedido, sorteio = Math.random) {
 	if (pedido.method !== 'GET') return null;
 	if (NOSSO.test(pedido.headers.get('User-Agent') ?? '')) return null;
+	if (deUmSiteDeRamo(pedido)) return null;
 	const caminho = new URL(pedido.url).pathname;
 
 	// o sinal de "alguém tem a app aberta": não depende do service worker, mas é frequente
@@ -139,16 +170,189 @@ export function oQueContar(pedido, sorteio = Math.random) {
 	return null;
 }
 
+// ─── A porta dos sites de ramo ──────────────────────────────────────────────────────────
+//
+// Um site de ramo serve os dados do último commit e nunca os do ciclo ao vivo. Enquanto
+// esteve aberto a toda a gente, isso foi só uma limitação conhecida; a 10/10/2026 deixou de
+// ser, quando o endereço do ramo `testes` foi partilhado em vez do de produção e ficaram
+// pessoas a ver resultados de 26 horas antes num dia com 36 jogos.
+//
+// A porta é nossa e não o Cloudflare Access de propósito — ver `portaTestes.js`.
+
+/**
+ * O que fazer com um pedido a um site de ramo: `null` deixa passar.
+ *
+ * **Só as navegações são travadas, e isso é deliberado.** Um pedido que não é navegação —
+ * o `sw.js`, o manifesto, um ficheiro de dados — passa, e passa por uma razão prática: quem
+ * instalou o site de ramo no telemóvel tem a app servida pela cache do *service worker* e
+ * nunca chega aqui. A única forma de o alcançar é deixá-lo actualizar-se, apanhar a versão
+ * que traz o `SaidaDoRamo` e sair sozinho. Travar tudo selava essas pessoas no site errado
+ * para sempre, que é exactamente o que se está a tentar desfazer.
+ *
+ * Não é secretismo nenhum: os dados são os mesmos que o site a sério publica a quem quiser.
+ * O que se tranca é **usar** a app do ramo.
+ *
+ * @param {Request} pedido
+ * @param {string | undefined} chaveBoa o segredo `CHAVE_TESTES` do ambiente, se existir
+ * @returns {'passa' | 'entra' | 'porta' | 'porta-errada' | 'porta-sem-chave'}
+ */
+export function oQueFazerNoRamo(pedido, chaveBoa) {
+	const url = new URL(pedido.url);
+	const dada = url.searchParams.get('chave');
+	if (dada !== null) {
+		if (!chaveBoa) return 'porta-sem-chave';
+		return dada === chaveBoa ? 'entra' : 'porta-errada';
+	}
+	const cookies = pedido.headers.get('Cookie') ?? '';
+	if (chaveBoa && cookies.split(';').some((c) => c.trim() === `${COOKIE}=${chaveBoa}`)) {
+		return 'passa';
+	}
+	const navegacao =
+		pedido.headers.get('Sec-Fetch-Mode') === 'navigate' ||
+		(pedido.headers.get('Accept') ?? '').includes('text/html');
+	if (!navegacao) return 'passa';
+	return chaveBoa ? 'porta' : 'porta-sem-chave';
+}
+
+/**
+ * O que **não** é uma pessoa a abrir o site.
+ *
+ * O número que o dono quer saber é "quantas pessoas ainda batem no endereço errado", e uma
+ * contagem que inclua as verificações feitas com `curl` responde outra pergunta. Já me
+ * aconteceu: as seis chamadas que fiz a confirmar que a porta estava de pé teriam entrado
+ * no total, e o número diria "ainda há gente" quando era eu.
+ *
+ * Deliberadamente curto. Não é segurança — ninguém está a tentar inflar isto — é só tirar do
+ * caminho o que de certeza não é um telemóvel.
+ */
+const NAO_E_GENTE = /curl|wget|bot\b|crawler|spider|headless|python-|node-fetch|monitor/i;
+
+/**
+ * O nome do ramo, para a tabela. `testes.hoquei.pages.dev` → `testes`.
+ *
+ * Cortado aos 40 caracteres porque isto entra numa chave primária e vem de um anfitrião, que
+ * é entrada de fora: um `Host` inventado não deve poder escrever uma chave de 2 KB.
+ *
+ * @param {string} anfitriao
+ */
+export function ramoDe(anfitriao) {
+	return (anfitriao ?? '').toLowerCase().split('.')[0].slice(0, 40) || 'desconhecido';
+}
+
+/**
+ * Conta quem bateu à porta de um site de ramo (`porta` no `esquema.sql`).
+ *
+ * `aviso` são estranhos a ver a porta; `entrou` é o dono a usar a chave. Separados porque não
+ * se podem somar: sem isso, as visitas do próprio a testar apareciam como pessoas perdidas.
+ *
+ * Em `waitUntil` e dentro de um `try`: isto corre **depois** da página ter sido servida, e uma
+ * contagem perdida não vale um ecrã em branco a quem já se enganou no endereço uma vez.
+ *
+ * @param {{ env: { DADOS?: import("@cloudflare/workers-types").D1Database },
+ *           waitUntil: (p: Promise<unknown>) => void }} contexto
+ * @param {string} ramo
+ * @param {'aviso' | 'entrou'} evento
+ */
+function contarNaPorta({ env, waitUntil }, ramo, evento, agente = '') {
+	const bd = env?.DADOS;
+	if (!bd) return;        // sem ligação no ambiente de Preview: a porta funciona sem contar
+	if (!agente || NAO_E_GENTE.test(agente)) return;
+	waitUntil(
+		(async () => {
+			try {
+				await bd
+					.prepare(
+						`INSERT INTO porta (dia, ramo, evento, n) VALUES (?, ?, ?, 1)
+						 ON CONFLICT (dia, ramo, evento) DO UPDATE SET n = n + 1`
+					)
+					.bind(diaDeLisboa(), ramo, evento)
+					.run();
+			} catch {
+				/* ver acima: a página já foi servida */
+			}
+		})()
+	);
+}
+
+/**
+ * @param {Request} pedido
+ * @param {{ errada?: boolean, semChave?: boolean }} opcoes
+ */
+function respostaDaPorta(pedido, opcoes) {
+	const url = new URL(pedido.url);
+	url.searchParams.delete('chave');
+	return new Response(porta({ destino: paraProducao(url), ...opcoes }), {
+		// 200 e não 401 ou 403: isto é sobretudo um aviso a quem se enganou no endereço, e um
+		// 403 põe o browser a desenhar a sua própria página de erro por cima deste texto.
+		status: 200,
+		headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
+	});
+}
+
 /**
  * @param {{
  *   request: Request,
- *   env: { DADOS?: import("@cloudflare/workers-types").D1Database },
+ *   env: { DADOS?: import("@cloudflare/workers-types").D1Database, CHAVE_TESTES?: string },
  *   next: () => Promise<Response>,
  *   waitUntil: (promessa: Promise<unknown>) => void
  * }} contexto
  */
 export async function onRequest(contexto) {
 	const { request, env, next, waitUntil } = contexto;
+
+	if (ehSiteDeRamo(new URL(request.url).hostname)) {
+		const ramo = ramoDe(new URL(request.url).hostname);
+		const decisao = oQueFazerNoRamo(request, env?.CHAVE_TESTES);
+		if (decisao !== 'passa') {
+			contarNaPorta(
+				contexto,
+				ramo,
+				decisao === 'entra' ? 'entrou' : 'aviso',
+				request.headers.get('User-Agent') ?? ''
+			);
+		}
+		switch (decisao) {
+			case 'entra': {
+				// A chave vai uma vez no endereço e volta como cookie, para não ficar na barra
+				// nem no histórico. `HttpOnly` porque nenhum script precisa de a ler.
+				//
+				// **Este é o único cookie do projecto, e nunca é posto em produção** — a guarda
+				// em volta é o `ehSiteDeRamo`. A `/privacidade` continua verdadeira onde é lida:
+				// no site que as pessoas usam. Aqui, só o aparece a quem escreveu a chave.
+				const url = new URL(request.url);
+				url.searchParams.delete('chave');
+				const cabecalhos = new Headers({
+					Location: url.pathname + url.search + url.hash,
+					'Cache-Control': 'no-store'
+				});
+				cabecalhos.append(
+					'Set-Cookie',
+					`${COOKIE}=${env.CHAVE_TESTES}; Path=/; Max-Age=2592000; ` +
+						'Secure; HttpOnly; SameSite=Lax'
+				);
+				// A segunda não leva segredo e **não** é `HttpOnly` de propósito: é a app que a
+				// lê, para não tapar o ecrã a quem já passou aqui. Ver `MARCA`.
+				cabecalhos.append(
+					'Set-Cookie',
+					`${MARCA}=1; Path=/; Max-Age=2592000; Secure; SameSite=Lax`
+				);
+				return new Response(null, { status: 303, headers: cabecalhos });
+			}
+			case 'porta':
+				return respostaDaPorta(request, {});
+			case 'porta-errada':
+				return respostaDaPorta(request, { errada: true });
+			case 'porta-sem-chave':
+				return respostaDaPorta(request, { semChave: true });
+		}
+		// 'passa' — e daqui sai-se **sem** passar pelo contador do `visita`, que é o que o
+		// `ramo.yml` promete: o tráfego de testes não entra nas contagens reais. Até
+		// 10/10/2026 essa promessa era garantida por não haver ligação à base de dados neste
+		// ambiente; agora a ligação existe, para a tabela `porta`, e quem a garante é esta
+		// linha. Há um teste só para ela.
+		return next();
+	}
+
 	const bd = env?.DADOS;
 	const conta = bd ? oQueContar(request) : null;
 

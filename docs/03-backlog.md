@@ -1070,6 +1070,58 @@ cd worker/observador && npx wrangler secret put GITHUB_TOKEN
 
 Enquanto não existir, a consola di-lo em vez de dizer só "não foi possível".
 
+## O aviso de actualização aparecia por nada: o build não era determinista (10/10/2026)
+
+O dono: *"cada vez que é feito um deploy em produção, aparece sempre a tal notificação a dizer
+que há uma atualização. Até eu mesmo sinto-me saturado"*. E uma hipótese dele: que fosse por a
+consola viver no mesmo endereço da app.
+
+**A hipótese estava errada e o problema era maior.** Medido:
+
+```
+duas construções do MESMO código, sem uma linha de diferença
+  → 17 revisões diferentes no manifesto do service worker
+```
+
+Uma revisão diferente é exactamente o que faz aparecer o aviso. Logo **cada publicação
+avisava toda a gente, qualquer que fosse a alteração** — incluindo as que só tocavam no
+raspador ou num workflow.
+
+**A causa:** o SvelteKit injecta uma `version` no pacote do cliente e, por omissão, essa versão
+é `Date.now()`. Com ela fixa, duas construções do mesmo código são **iguais byte a byte** —
+verificado.
+
+**E a hipótese dele, medida com a interferência removida:** uma alteração só na consola muda
+**zero** entradas do manifesto. A consola nunca entrou no pacote do cliente — ela é compilada
+para dentro da Pages Function e mais nada. Não é preciso mudá-la de endereço.
+
+### O que se construiu em cima disso
+
+* **`web/src/lib/versao.ts`** — a versão em maior.menor, a lista do que mudou, e a regra
+  escrita: maior quando muda a forma de usar a app, menor para correcções, **e nada quando a
+  publicação não toca no que o utilizador vê**. É essa última que impede o aviso de voltar a
+  aparecer por nada;
+* a versão **visível no menu do ⋮**, em letra pequena e sem rótulo — quem a procura sabe o que
+  é, quem não a procura não precisa de saber que existe;
+* a **nota do "o que mudou"**, uma vez por versão. Nunca a quem abre a app pela primeira vez:
+  uma lista de alterações a quem nunca a usou é uma interrupção sem conteúdo, e é a forma mais
+  rápida de ensinar alguém a fechar caixas sem ler. Em baixo e não ao centro, porque é uma nota
+  e não um pedido de decisão. Seis testes, e a versão guarda-se **ao mostrar** e não ao fechar,
+  senão quem fechasse a app a meio voltava a ver a mesma lista.
+
+### Os ramos como ambiente de testes — já existia
+
+A pergunta era se era preciso configurar CI/CD. Não é: o Cloudflare Pages dá um
+*preview deployment* por ramo, e o `testes.yml` já o usava — só estava amarrado a um ramo
+chamado `testes`.
+
+Passou a `ramo.yml` e publica **qualquer ramo menos o `main`**, cada um em
+`https://<ramo>.hoquei.pages.dev`. Um ramo novo ganha endereço sem ninguém configurar nada;
+verificado com o `versoes`.
+
+A regra entrou no `AGENTS.md` com o erro que a motivou escrito por extenso: **o `main` é
+produção**, e enquanto algo não aprovado lá estiver, qualquer publicação o leva.
+
 ## Quem vigia o vigia, e a terceira falha da cadeia de aviso (10/10/2026)
 
 O dono fez a pergunta que fecha isto: *"há alguma forma de colocar uma acção nesta consola
@@ -2060,6 +2112,500 @@ honesta):
 Ficam **de fora** por agora, e de propósito: qualquer pergunta sobre notificações por clube,
 histórico de épocas anteriores ou exportação de dados. Não existem, e um FAQ que explica o
 que não há parece um roteiro de promessas.
+
+---
+
+## O regulamento da APL, lido de uma ponta à outra (10/10/2026)
+
+O dono recebeu de um amigo treinador o *Regulamento Geral de Hóquei em Patins da APL, V11
+2026*, e pediu que fosse lido na íntegra com atenção à página 93. Duas coisas saíram de lá
+que o código fazia de outra maneira — uma porque adivinhávamos, e outra porque eu tinha
+avaliado mal o que a fonte publica.
+
+### 1. O desempate das classificações estava errado, e nós sabíamos
+
+O `tabela.py` ordenava por `pontos → diferença de golos → golos marcados → nome`, e o próprio
+comentário do módulo dizia, por escrito, que o regulamento "quase de certeza manda ver o
+confronto directo primeiro" mas que não havia caso que distinguisse as duas regras. O
+Artigo 7.º responde:
+
+| 7.4.1 / 7.5.1 | pontos nos jogos realizados entre as equipas empatadas |
+| 7.4.2 / 7.5.2 | diferença de golos nesses mesmos jogos |
+| 7.4.3 / 7.5.3 | diferença de golos em toda a fase da prova |
+| 7.5.4 | quociente entre as que ainda estão empatadas |
+| 7.4.4 / 7.5.5 | quociente geral na fase |
+
+**Golos marcados não é critério nenhum.** Era nosso.
+
+Os pontos 4 (duas equipas) e 5 (três ou mais) parecem regras diferentes e dão a mesma chave
+de ordenação: num par, se o confronto directo empata em pontos *e* em diferença, então a
+diferença é zero dos dois lados, logo marcaram o mesmo e o quociente entre ambas é 1. O 7.5.4
+é vazio num par, e por isso há uma função e não duas.
+
+**A fonte não aplica o Artigo 7.º — medido.** Das 42 tabelas que a APL publica, duas ordenam
+ao contrário do regulamento, e as duas pelo mesmo motivo:
+
+* Torneio de Abertura sub-17, série C: AD OEIRAS B (12-6, racio 2.00) à frente de CD PAÇO
+  ARCOS B (10-4, racio 2.50). Empatam em pontos, o confronto directo foi 4-4 e a diferença é
+  +6 para ambas; pelo 7.4.4 decide o quociente, e o melhor é o do Paço de Arcos.
+* Campeonato regional sub-17, série F: HC PORTIMÃO (4-3, 1.33) à frente de HC VASCO GAMA
+  (3-2, 1.50).
+
+Nos dois casos a fonte põe primeiro quem marcou mais golos — e publica, na coluna ao lado, o
+rácio que a contradiz. Por isso o módulo tem duas ordens: a do regulamento, para as tabelas
+que **nós** publicamos (onde a APL não publica nenhuma, e a regra que vale é a escrita), e
+`_como_a_fonte`, que só o teste de reprodução usa, para continuar a provar que a nossa
+**contagem** bate certo com as 42 tabelas dela.
+
+### A armadilha: o confronto directo é um critério de fim de fase
+
+O Artigo 7.º 4 abre com "no caso de empate pontual entre duas equipas **no final de qualquer
+fase**". Ignorei essa frase na primeira implementação e os dados apanharam-me logo: com a
+época em duas jornadas, aplicar a mini-tabela a meio da fase **tirava o CD BOLIQUEIME do 1.º
+para o 3.º lugar da série F com 12-0 de diferença**, só porque ainda não tinha jogado com os
+outros três empatados, enquanto o HC VASCO GAMA subia a 1.º por ter ganho a um deles. Três
+das quatro divergências que a primeira versão produzia eram isto, e não o regulamento.
+
+A regra ficou: a mini-tabela só conta quando **todos os pares** do grupo empatado já jogaram
+entre si. Enquanto faltar um jogo, o critério não é determinável e a ordem cai para a
+diferença de golos na fase — que é também o que a fonte mostra. Com a condição, as
+divergências passaram de quatro para duas, e as duas que ficaram são a diferença real entre
+golos marcados e quociente.
+
+### 2. O Mérito da Formação é computável — eu disse que não era, e enganei-me
+
+O Artigo 92.º (páginas 92 e 93) pontua os clubes dos Encontros Distritais de Escolares e
+Benjamins por coisas que não são o resultado: +1 por cada atleta que participa, +3 a quem
+marca mais golos, +1 pela equipa completa (2 GR e 8 JC); e tira pontos por apresentar menos
+de 8 atletas, por levar um só guarda-redes, e por pôr um atleta a fazer três meias partes
+(-1, ou -3 numa equipa com mais de 8) ou as quatro (-4).
+
+**Eu disse ao dono que isto não era calculável**, porque a participação por período vivia na
+"Folha de Controlo de Jogo" em papel. Ele corrigiu-me, apontando a tab do boletim na própria
+ficha de jogo. Tinha razão, e a avaliação estava errada em dois sítios ao mesmo tempo:
+
+* a grelha `5I` do `#acta` marca com um `X` as meias partes em que cada atleta entrou;
+* esse `#acta` vem **dentro do HTML que já descarregamos** em cada ficha — o `partido.asp`
+  redirecciona para o `partido2.asp` e o cliente segue redireccionamentos. São 47 KB por
+  jogo que estávamos a deitar fora.
+
+**Custo de passar a usá-lo: zero pedidos novos.** A única despesa foi única e medida: 27
+pedidos, um por cada jogo já disputado nas oito provas, para preencher a chave `merito` nas
+fichas que já estavam em cache. Pedir o campo em todas as provas custaria 260 — o Artigo 92.º
+não se aplica aos outros escalões, e o `vale_merito` é quem evita isso.
+
+Das 27 fichas, 26 tinham boletim. A que falta (FSE/AJ SALESIANA B–CACO B) aparece contada no
+ficheiro da prova como `jogos_sem_boletim`, e a app di-lo por extenso em vez de calar.
+
+### Porque é que a grelha por criança nunca é publicada
+
+Ela diz que período é que o filho de alguém jogou. O `parsers/participacao.py` lê-a, o
+`merito.py` agrega-a ao nível da equipa, e **mais nada sai**. Três testes guardam a linha: dois
+no `test_privacidade.py` do raspador e um no `merito.test.ts` da app, que percorre os
+ficheiros publicados e falha se algum trouxer `periodos`, `numero` ou `licenca`.
+
+A amostra de testes obrigou a mudar o `anonimizar_ficha.py`: ele **removia** o `#acta` por ser
+o bloco com mais dados pessoais, e agora anonimiza-o em vez de o cortar. Cortar protegia os
+dados e apagava a estrutura; trocar os trinta nomes por pseudónimos protege os dados e guarda
+a estrutura, que é o que um parser precisa de ter debaixo dos pés. Ganhou também um
+`--de-ficheiro`, para regerar uma amostra **sem** ir outra vez ao servidor da associação.
+
+### As duas aproximações, ditas à vista
+
+1. **O 4.1.7 não é aplicado.** São -6 pontos e a perda das bonificações por um atleta fazer um
+   só período, "excepto em caso de lesão ou situação impeditiva comprovada pelo árbitro" — e
+   essa comprovação é texto escrito no boletim em papel. Detectamos o caso, marcamo-lo como
+   por confirmar, e **não descontamos**: penalizar uma equipa que levou um miúdo ao hospital
+   seria pior do que uma tabela incompleta. Nos 26 jogos lidos não houve nenhum caso.
+2. **Os cartões a não atletas (4.2) ficam de fora.** As colunas de disciplina do boletim são
+   dos atletas; as do banco não existem na grelha.
+
+E duas leituras literais que podem vir a ser discutidas: o 4.1.4 e o 4.1.5 **somam-se** numa
+equipa com mais de 8 atletas (três seguidas são também três, -1 e -2, -3 ao todo), e quem faz
+as quatro meias partes fica de fora do 4.1.3/4.1.5 por ter regra própria, mais pesada, no
+4.1.6.
+
+### O que as tabelas mostram, e a pergunta que fica para o dono
+
+A conta funciona e os números são coerentes — um jogo bem corrido dá 11 a quem perde e 14 a
+quem ganha, e a diferença entre as duas é exactamente os 3 pontos dos golos. Mas há equipas a
+aparecer com pontuação negativa: o SPORTING CP dos Benjamins fez -11 num jogo por ter levado
+6 atletas, quatro dos quais tiveram de fazer as quatro meias partes (-16). Não é um erro de
+cálculo: é o Artigo 92.º a funcionar exactamente como foi escrito, porque com 6 atletas e 5
+em pista é aritmeticamente impossível cumprir o rodízio.
+
+**Isto é uma tabela pública, não oficial, que pode expor clubes.** A decisão de a mostrar é do
+dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
+
+### Onde ficou
+
+| | |
+|---|---|
+| `scraper/src/hoquei/parsers/participacao.py` | lê a grelha `5I`; nada do que sai daqui é publicado |
+| `scraper/src/hoquei/merito.py` | o Artigo 92.º, com as regras citadas artigo a artigo |
+| `scraper/src/hoquei/tabela.py` | `_ordenar` (Artigo 7.º) e `_como_a_fonte` (só para o teste) |
+| `web/static/v1/.../merito/<id>.json` | ficheiro novo, um por prova — não uma chave no `comp/` |
+| `web/src/lib/TabelaMerito.svelte` | a tabela; o chapéu e a legenda são componentes à parte |
+| `docs/09-regulamento-apl.md` | os artigos que o código cita, para não ser preciso abrir o PDF |
+
+Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
+## Sete rondas abortadas por um golo, e ninguém vigiava o pipeline (11–12/10/2026)
+
+O dono, na manhã de segunda: *"quero que avalies o que se passou durante a noite"*. O que se
+passou começou no domingo à tarde e explica, de passagem, o mistério que eu não tinha
+resolvido no dia anterior.
+
+### O que aconteceu
+
+A meio da tarde de domingo a APL passou a discordar de si mesma: a classificação do CAMP.
+REG. SUB-15 SÉRIE B não batia com os jogos do calendário dela, por **um golo** no jogo #9598
+(UD VILAFRANQUENSE A – SPORTING CP A).
+
+O `test_reproduz_as_tabelas_publicadas` apanhou-o, como foi escrito para apanhar. Mas esse
+teste corre **antes** de publicar, e uma falha aborta a ronda inteira. Resultado: **sete
+rondas seguidas falhadas**, das 16:10 de domingo às 06:09 de segunda. Dezesseis horas sem
+publicar resultados, agenda nem fichas.
+
+```
+11-10 08:11 ✓   16:10 ✗   22:11 ✗      12-10 00:07 ✗
+      10:10 ✓   18:11 ✗   23:39 ✗            06:09 ✗
+      12:13 ✓   20:10 ✗
+      14:10 ✓
+```
+
+### E foi isto que causou os +4 400 pedidos à APL
+
+No sábado eu tinha atribuído as rondas em falta ao agendador da GitHub. **Estava errado — o
+agendador disparou todas.** E o efeito de segunda ordem é o que custou caro:
+
+1. sem commits, o checkout que o ciclo ao vivo lê congelou nas 14:10;
+2. o ciclo reinicia de 10 em 10 minutos e lê sempre o último commit, por isso **esquece tudo
+   o que as rondas anteriores descobriram**;
+3. o `a_decorrer` só deixa de pedir um jogo quando a ficha **guardada** diz `Jogo Terminado` —
+   e essa ficha voltava ao estado de 14:10 a cada reinício;
+4. logo, 23 dos 39 jogos do dia foram repedidos de 30 em 30 segundos, durante horas.
+
+Medido: 4 758 pedidos de ficha no sábado, **9 153** no domingo, com o trabalho real igual
+(809→747 publicações, 415→383 resultados, 2 857→2 930 jogos-em-campo somados).
+
+**Um teste escrito para proteger a integridade dos dados foi o que nos pôs a martelar o
+servidor da associação.** Vale a pena guardar a frase.
+
+### E o aviso apontou para o lado errado
+
+A cadeia do observador ficou vermelha às 22:48 e abriu a issue #21 — sete horas depois do
+primeiro erro — a dizer *"ao vivo preso em: 9764, 9598, 9618…"*. O sintoma, não a causa. O
+observador vigia os **dados publicados**; o `vigia.yml` vigia o **observador**. Ninguém
+vigiava o `dados.yml`.
+
+### As duas correcções
+
+**1 · O teste da fonte avisa e deixa de bloquear.** Os cinco testes que comparam o nosso
+cálculo com a tabela que a APL publica *naquele momento* ficam marcados `fonte` — marca posta
+automaticamente pelo `conftest.py` a quem use o fixture `provas`, para não se perder numa
+reorganização nem depender de alguém se lembrar. O `dados.yml` corre `-m "not fonte"` no passo
+que bloqueia e `-m fonte` num passo que avisa.
+
+O argumento que decidiu isto foi de oportunidade: **a partir de hoje esse teste não protege
+nada.** Com o Mérito a ser a classificação dos Escolares e Benjamins, o `vale_calcular` fica
+só com `CAMP. REG.`, que nunca dispara porque a fonte publica todas as tabelas dos
+campeonatos regionais. Ou seja, ele estava a poder parar tudo o que publicamos para defender
+um cálculo cujo resultado é vazio nas 37 provas.
+
+**2 · O `dados.yml` ganha aviso próprio.** Uma issue à primeira falha, reutilizada nas
+seguintes, fechada sozinha quando a ronda voltar a correr. E uma segunda, separada, para
+quando a fonte está incoerente — que avisa sem parar nada.
+
+### O que fica por fazer, e é a raiz
+
+Nada disto corrige o facto de **a memória do ciclo ao vivo valer o que valer o último
+commit**. Isso está na decisão em aberto: o ciclo passar a ler o estado do CDN publicado em
+vez do checkout. Com as duas correcções de hoje, uma ronda falhada deixa de ser silenciosa e
+deixa de parar tudo — mas um checkout congelado continua a fazer o ciclo repetir trabalho.
+
+---
+
+## 809 publicações num dia: os dados vivem dentro do deployment da app (11/10/2026)
+
+Pergunta do dono, depois de ver o número na consola: *"é normal estarmos sempre a fazer um
+deploy total quando queremos apenas mudar um número? não é possível fazer com que a página
+apenas atualize precisamente aquilo que precisa?"*.
+
+A intuição dele está certa e o problema que o levou lá não era esse. Fica registado para a
+decisão não ser retomada do zero daqui a três meses.
+
+### O que são os 809
+
+Publicações reais no CDN, uma por cada ronda ao vivo que escreveu alguma coisa — de 30 em
+30 segundos enquanto há jogos. O observador conta-as pelo `generated_at` do `meta.json` a
+mudar; a 10/10/2026, um sábado com 36 jogos, foram 809.
+
+**Mas não são 809 cópias do site.** A Cloudflare desduplica, e o registo de cada publicação
+di-lo: `Uploaded 0 files (685 already uploaded)`. O que atravessa a rede são os poucos JSON
+que mudaram; o resto é um objecto de *deployment* novo a apontar para ficheiros que já lá
+estavam.
+
+**E não batem em limite nenhum.** O tecto de 500 construções por mês do plano gratuito é para
+projectos ligados ao Git. Nós publicamos por *Direct Upload* a partir das Actions, que não
+conta para essa quota — verificado na documentação de limites do Pages a 11/10/2026.
+
+### O que já está certo, e não foi por acaso
+
+A prática recomendada é o casco da aplicação em cache e os dados fora dela. Está feito:
+
+* o `globPatterns` do service worker apanha `js`, `css`, `html` e imagens — **nenhum JSON**;
+* a agenda, o `meta.json` e as fichas vão à rede primeiro, com 3 s de espera e queda para a
+  cache, que é o compromisso certo para dados onde a frescura vale mais do que a velocidade.
+
+É por isso que a correcção da versão determinista resolve o incómodo: 809 publicações que só
+mexem em dados produzem um pacote **idêntico**, e um pacote idêntico não avisa ninguém. O
+problema nunca foi o número de publicações — era o aviso.
+
+### O que não é ideal, e é a intuição dele
+
+Os dados vivem **dentro** do mesmo deployment que a aplicação, e isso junta dois ciclos de
+vida diferentes: o código muda uma vez por semana, os resultados de 30 em 30 segundos.
+Publicar o site para mudar um número é, conceptualmente, a coisa errada.
+
+O padrão alternativo é tirá-los de lá — R2 (ou KV) com uma Function à frente. Escrever um
+resultado passa a ser escrever um objecto, e o site só se publica quando o código muda.
+
+### A decisão: **não mexer agora**
+
+Não porque o desenho esteja certo, mas porque o que se ganha não paga o que custa.
+
+| | |
+|---|---|
+| sintoma | resolvido pela versão determinista |
+| custo actual | zero: desduplicação, e fora da quota de construções |
+| custo de mudar | uma Function à frente dos dados, cabeçalhos de cache novos, o ciclo ao vivo reescrito, a cache do service worker reafinada — meio dia, no caminho crítico de um sábado |
+
+**O que faz reabrir isto**, e é a parte que interessa ao próximo que ler:
+
+1. querer resultados mais rápidos do que 30 segundos — aí o custo de um deployment por
+   escrita passa a doer;
+2. a Cloudflare pôr tecto aos *deployments* por Direct Upload, ou começar a cobrá-los;
+3. os dados crescerem ao ponto de 685 ficheiros se tornarem 20 000, que é o limite de
+   ficheiros por site no plano gratuito.
+
+Enquanto nenhuma dessas três for verdade, mudar isto é trocar uma coisa que funciona por uma
+mais elegante que também funciona.
+
+---
+
+## A transmissão passa a poder ir a produção, e expira sozinha (10/10/2026)
+
+Horas depois de pedir a transmissão só para testes, o dono mudou de posição: *"mesmo que isto
+avance para produção, não há qualquer problema, pois não vamos ter links de jogo. até acho que
+já pode avançar, e já fica preparado para estas situações"*.
+
+A frase tinha um pressuposto falso e vale a pena registar porquê: **a lista não estava vazia**,
+tinha lá o jogo daquela tarde. Tirar a trava sem mais levava a transmissão de um jogo de
+sub-13 para a app que todos abrem. Perguntei, e ele escolheu produção com a lista a valer
+vazia.
+
+Mas esvaziá-la ali não dava: ele estava a ver o jogo no site de testes naquele momento.
+
+### A correcção: cada entrada vale no seu dia
+
+Em vez de esvaziar à mão depois — e de confiar em que alguém se lembrasse — as entradas
+ganharam `data` e o `directoDe` só devolve a de hoje. O jogo de 10/10 desapareceu sozinho a
+11/10, e por isso a publicação de segunda leva a capacidade e não leva transmissão nenhuma.
+
+**E isto é o desenho certo mesmo sem essa conversa.** A sala do XbotGo é reutilizada de jogo
+para jogo pelo mesmo utilizador: o endereço de ontem continua a responder, **a mostrar o jogo
+de hoje de outra gente**, e nós anunciávamo-lo como sendo o de ontem. Um endereço de
+transmissão fora do seu dia não é informação velha, é informação errada.
+
+### O que fica por responder antes disto ser usado a sério
+
+Duas coisas, e nenhuma é código: quem mantém a lista ao longo de uma época, e o que acontece
+quando um endereço morre a meio de um sábado. A segunda tem metade da resposta no botão de
+abrir no sítio original, que está sempre visível e não escondido como recurso de último caso.
+
+---
+
+## O número por cima de cada barra, e o custo das rondas completas (10/10/2026)
+
+Duas coisas do mesmo olhar do dono à consola.
+
+### "por cima de cada barra que tenhas valores, o número total"
+
+Pedido para **todos** os gráficos, e é o pedido certo: a legenda dá o total do dia, as alturas
+dão a proporção, e o número de uma hora em concreto só se adivinhava.
+
+Duas armadilhas, as duas apanhadas no browser e nenhuma delas pelo `svelte-check`:
+
+1. **Parti o `consola.js` outra vez com plicas inclinadas** num comentário de CSS — a sexta
+   vez que este ficheiro cai pelo mesmo buraco, e o comentário do próprio ficheiro avisa-o.
+   O `consola.test.ts` apanhou-o: com o defeito reposto à mão, o ficheiro não chega a ser
+   carregado e o `vitest` sai com código 1. É exactamente para isto que esse teste existe.
+2. **Os números caíam dentro do topo das barras**, em texto escuro sobre laranja. A causa é
+   de geometria: eu media a altura do rótulo contra a coluna inteira, que inclui a linha da
+   hora **por baixo** da barra, enquanto a barra se media contra a mesma coluna mas assentava
+   acima dessa linha. Duas percentagens com origens diferentes.
+
+A correcção da segunda é uma `.area` à volta da barra: o espaço do desenho, sem a linha da
+hora. As duas percentagens passam a ter a mesma origem. De brinde resolve um defeito antigo
+que nunca se via — uma barra a 100% era espremida pelo `flex`, porque a coluna não tinha
+espaço para ela e para o rótulo da hora.
+
+Num ecrã estreito os números **deitam-se**. Vinte e quatro colunas em 375 px dão ~13 px cada e
+um número de três dígitos precisa de 20; de pé não colidem nunca e custam ~14 px de altura.
+
+### E a pergunta: porquê 37+37 de duas em duas horas?
+
+Porque a ronda não tem como saber o que mudou sem perguntar — a plataforma da APL não responde
+a "o que mudou desde as 15:00?". O calendário traz jogos novos, adiamentos e resultados; a
+classificação traz a tabela publicada.
+
+Mas há desperdício, e tem número. Medido a 10/10/2026, um sábado com 36 jogos, 3 399 pedidos:
+
+| | |
+|---|---|
+| fichas de jogo | 2 982 — **88%** |
+| classificações | 191 |
+| calendários | 185 |
+| lista de competições | 41 |
+
+As cinco rondas completas (00:30, 11, 13, 15, 17) são **372 pedidos, 11% do dia**. O grosso é
+o ciclo ao vivo, e esse é por desenho.
+
+Dentro desses 372 há três coisas evitáveis:
+
+1. **Nove das 37 provas já acabaram** — todos os jogos disputados: as 4 Supertaças, os 4
+   Torneios de Abertura e o ZECA PINTO. São 18 pedidos por ronda a confirmar o que não pode
+   mudar: **90 hoje**. É a proposta do dono de 09/10, ainda por fazer.
+2. **Treze outras não tinham jogos hoje.** A classificação delas não pode ter mudado: mais
+   **65 hoje**. O calendário desse grupo tem de continuar a ler-se — um adiamento aparece lá
+   sem ninguém jogar.
+3. **41 pedidos só para reler o id da época**, que muda uma vez por ano. A ronda ao vivo
+   chama `_temporada_corrente` sempre que um jogo fecha, e o comentário ao lado dessa linha
+   diz, por escrito, que pedi-la por ronda "era um pedido inteiro a confirmar o que já
+   sabíamos". O `competitions.json` em disco já traz `"temporada": 5`.
+
+Total evitável hoje: **196 de 3 399, ~6%**. Vale a pena fazer — o ponto 3 é gratuito — mas não
+muda a forma do gráfico. Quem quiser mexer a sério no que pedimos à APL tem de olhar para as
+fichas.
+
+---
+
+## O endereço de testes partilhado por engano (10/10/2026)
+
+O dono partilhou `testes.hoquei.pages.dev` em vez de `hoquei.pages.dev` e ficou com pessoas a
+usar o site errado. A primeira reacção — a minha e a dele — foi tratar isto como um problema
+de endereço. Não é.
+
+**Um site de ramo serve os dados do último commit, e nunca os do ciclo ao vivo.** Medido nesse
+dia, às 13:40, com 36 jogos a decorrer e mais 39 no dia seguinte:
+
+| site | dados de | atraso |
+|---|---|---|
+| `hoquei.pages.dev` | 10/10 12:37, `ao_vivo: true` | — |
+| `versoes` e `regulamento` | 09/10 23:40 | 13 h |
+| `testes` | 09/10 10:49 | **26 h** |
+
+Quem seguiu aquele link não via **nenhum** dos 36 jogos do dia. Não era o endereço errado: era
+a app a mentir a quem tinha um filho em campo.
+
+### Porque é que a tranca é nossa e não o Cloudflare Access
+
+A pergunta do dono foi se dava para ligar ao IAM da Google e escolher os contactos. Dá: o
+Cloudflare Access faz isso, o plano gratuito do Zero Trust cobre 50 pessoas, o Google é um dos
+métodos de entrada, e o Pages tem um `Enable access policy` que protege só as publicações de
+pré-visualização. Confirmado na documentação, e continua a ser a escolha certa **se** um dia o
+que se quiser for identidade a sério em vez de uma chave partilhada.
+
+Para isto não serve, e por uma razão que não é técnica: o Access mostra a página de "acesso
+negado" **dele**. Quem aqui chega por engano é precisamente a pessoa que mais precisa de uma
+indicação, e essa página não lhe diz para onde ir. A nossa porta é a mesma coisa que o aviso:
+
+* em letras grandes, que os resultados ali estão parados, e um botão para o site a sério com
+  **o mesmo caminho** em que a pessoa estava — quem abriu um link para uma ficha quer aquela
+  ficha, não a página inicial;
+* a morada a guardar, escrita por extenso;
+* e, pequena e dobrada em baixo, a caixa da chave.
+
+### As duas decisões que não se adivinham a ler o código
+
+**Só as navegações são travadas.** Um pedido que não é navegação — o `sw.js`, o manifesto, um
+ficheiro de dados — passa. Parece um buraco e é a parte mais importante do desenho: quem
+**instalou** o site de um ramo no telemóvel tem a app servida pela cache do *service worker*,
+e os pedidos dessa pessoa nunca chegam à Cloudflare. A única forma de a alcançar é deixar o
+service worker actualizar-se, apanhar a versão que traz o `SaidaDoRamo`, desinstalar-se e
+mandá-la embora. Travar tudo selava essas pessoas no site errado para sempre, que é
+exactamente o que se está a tentar desfazer. E não há secretismo a perder: os dados são os
+mesmos que o site a sério publica a quem quiser.
+
+**A porta falha fechada.** Sem `CHAVE_TESTES` definida no ambiente `Preview` não entra
+ninguém, nem com cookie forjado. A alternativa — deixar passar quando falta configuração —
+transformava um esquecimento no painel numa porta aberta sem aviso nenhum.
+
+### O cookie, e a promessa da página de privacidade
+
+Este é o único cookie do projecto. Nunca é posto em produção — a guarda é o `ehSiteDeRamo`, e
+há um teste só para isso — e, mesmo num ramo, só aparece a quem escreveu a chave. A
+`/privacidade` continua verdadeira onde é lida: no site que as pessoas usam.
+
+### Contar quem ainda bate (pedido no mesmo dia)
+
+*"Sim quero saber"*. A pergunta é uma decisão e não curiosidade: se daqui a uns dias ainda
+houver gente a bater, o link anda a circular — num grupo, num favorito partilhado — e o dono
+tem de avisar as pessoas directamente em vez de esperar que a porta resolva sozinha.
+
+Tabela `porta(dia, ramo, evento, n)`, com `evento` a separar `aviso` (estranhos a ver a porta)
+de `entrou` (o dono a usar a chave). Separados porque não se podem somar: sem isso, as visitas
+dele a testar apareciam como pessoas perdidas. Quem já tem o cookie não conta — senão cada
+clique dele era uma pessoa nova.
+
+E não conta quem não é gente. Apanhei isto antes de publicar: as seis chamadas de `curl` que
+eu próprio fiz a confirmar que a porta estava de pé teriam entrado no total, e o número diria
+"ainda há gente a bater" quando era eu. O filtro é curto de propósito — não é segurança, é
+tirar do caminho o que de certeza não é um telemóvel — e quem não manda `User-Agent` nenhum
+também fica de fora, porque não há telefone que não o mande.
+
+**E isto mudou quem garante uma promessa antiga.** O `ramo.yml` promete que o tráfego de testes
+não entra nas contagens reais, e até agora isso era garantido por **não haver ligação à base
+de dados** no ambiente de Preview. Essa ligação passa a existir, para esta tabela. Quem garante
+a promessa agora é o `return next()` antecipado do `_middleware.js`, que trata os sites de ramo
+e sai antes do contador do `visita`. É uma linha, e é o género de linha que se perde numa
+reorganização sem ninguém notar — o que se notava, meses depois, eram os números reais
+inflados em silêncio. Daí o teste chamar-se `A PROMESSA`, em maiúsculas.
+
+### O defeito que isto teve, e que o dono apanhou na primeira tentativa
+
+Ele definiu a `CHAVE_TESTES`, abriu o site de testes, e viu o `SaidaDoRamo` — **o aviso que
+corre dentro da app, não a porta do servidor**. Mandou a imagem a perguntar o que faltava para
+entrar. A resposta certa era: nada que ele pudesse fazer. Não havia entrada.
+
+Duas causas, as duas minhas:
+
+1. **O aviso não tinha caixa de chave.** Desenhei-o a pensar só em quem se engana no endereço
+   e quer sair, e esqueci-me de que ele apanha na mesma quem tem a chave. Havia maneira de
+   sair, não havia maneira de entrar.
+2. **E mesmo com caixa, não chegaria.** O cookie que autoriza é `HttpOnly` — a app não lhe
+   pode tocar — por isso, depois de passar a porta, o aviso voltava a tapar o ecrã por não
+   saber que aquela pessoa já tinha entrado.
+
+A correcção são três coisas pequenas: uma segunda marca no cookie, sem segredo lá dentro, só
+para a app se calar; a caixa da chave no aviso; e o `desinstalar()` a devolver promessa, para
+quem carrega em Entrar **esperar** que o service worker se vá embora antes de navegar — senão
+a navegação com a chave era servida outra vez pela cache e nunca chegava à porta.
+
+E há aqui uma lição sobre o desenho: o `_middleware.js` deixa passar os pedidos que não são
+navegação para que um service worker instalado se possa actualizar e sair sozinho. Esse mesmo
+buraco deixa-o buscar o HTML da app e continuar a servi-lo nas navegações — medido: um `curl`
+sem `Sec-Fetch-Mode` ao `/` do site de testes devolve 21 referências a `_app/immutable`. O
+aviso dentro da app não é um extra; **é a única coisa que trava quem tem a app instalada**, e
+por isso tem de ser tão completo quanto a porta.
+
+### Os dois testes que interessam, e a verificação deles
+
+Nenhum destes se verifica a ler o código; verificam-se injectando o defeito e vendo quem cai.
+
+1. **A porta a apanhar produção** fechava a app a toda a gente — é o pior que pode sair daqui.
+   Pondo o `ehSiteDeRamo` a devolver `true` para tudo: falham três testes, passam os outros 30.
+2. **A promessa das contagens.** Tirando o `return next()` antecipado: falha um, passam 32.
 
 ---
 

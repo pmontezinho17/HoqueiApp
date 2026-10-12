@@ -17,6 +17,17 @@ build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+    # Os testes que comparam o nosso cálculo com o que a **fonte** publica naquele momento.
+    #
+    # Separados porque falham por duas razões muito diferentes: porque o nosso parser partiu,
+    # ou porque a APL está momentaneamente incoerente consigo mesma. A segunda aconteceu a
+    # 11/10/2026 — um golo de diferença num jogo do sub-15 — e abortou **sete rondas de
+    # publicação seguidas**, de 16:10 às 06:09 do dia seguinte. Nenhum dado saiu em 16 horas.
+    #
+    # A marca é posta automaticamente pelo `conftest.py` a quem use o fixture `provas`.
+    "fonte: compara o nosso cálculo com a tabela que a fonte publica agora",
+]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/hoquei"]

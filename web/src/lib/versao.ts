@@ -26,8 +26,19 @@
  * **Uma publicação que não mexe no que o utilizador vê não sobe a versão.** É o caso de uma
  * alteração à consola, ao raspador ou a um workflow — e é por isso que o aviso deixa de
  * aparecer nessas.
+ *
+ * ## Porque é que a primeira versão que as pessoas vêem é a 1.1 e não a 1.0
+ *
+ * A correcção do aviso foi a produção a 11/10/2026, um dia antes do resto, porque era um
+ * domingo com 39 jogos e cada publicação avisava todos. Essa publicação levou a `1.0` — e a
+ * caixa de novidades **não aparece a quem não tinha versão guardada**, por desenho: quem abre
+ * a app pela primeira vez não tem nada de "novo" para ver.
+ *
+ * Resultado: nesse domingo todos os aparelhos gravaram `1.0` em silêncio. Se a entrega de
+ * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
+ * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.0';
+export const VERSAO = '1.1';
 
 export type Novidade = {
 	/** a versão em que isto entrou */
@@ -48,8 +59,8 @@ export type Novidade = {
  */
 export const NOVIDADES: Novidade[] = [
 	{
-		versao: '1.0',
-		data: '2026-10-10',
+		versao: '1.1',
+		data: '2026-10-12',
 		pontos: [
 			'Nos Escolares e nos Benjamins a classificação passa a ser o Mérito da Formação, como o regulamento da associação manda: conta levar a equipa completa e pôr toda a gente a jogar, e não quem ganha. As regras estão na própria tabela.',
 			'As classificações desempatam agora como o regulamento manda — primeiro o confronto directo entre as equipas empatadas. Algumas tabelas mudam de ordem por causa disto.',

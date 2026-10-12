@@ -744,5 +744,58 @@
  "jornada": "1ª JORNADA",
  "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-i",
  "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I",
- "serie": "C"
+ "serie": "C",
+ "merito": [
+  {
+   "equipa": "APAC TOJAL",
+   "atletas": 9,
+   "guardas_redes": 1,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -1,
+   "total": 8,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "CRIAR-T GD",
+   "atletas": 9,
+   "guardas_redes": 1,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 12,
+   "penalizacao": -1,
+   "total": 11,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  }
+ ]
 }
