@@ -2253,6 +2253,50 @@ dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
 
 Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
 
+## A publicação da 1.1, e o aviso que reprovou uma ronda que correu bem (12/10/2026)
+
+O dono: *"avança com o deploy em produção"*. O `testes` entrou no `main` (cinco commits do dia),
+CI verde, e o `dados.yml` correu com `so_publicar` — **zero pedidos à APL**, que é o disparo
+certo para levar código ao site sem pedir dados. Escolhido também o momento: segunda-feira sem
+jogos, logo sem o ciclo ao vivo a publicar ao mesmo tempo, que é a regra dos "dois
+publicadores".
+
+**O site foi publicado e a corrida ficou vermelha.** O passo 12, "Publicar no Cloudflare
+Pages", foi a verde; falharam os passos 15 e 16, que são os avisos que eu próprio acrescentei
+a 11/10:
+
+```
+could not add label: 'fonte' not found
+```
+
+O `gh issue create --label` **não cria a etiqueta** — recusa, e o passo falha. O `if: failure()`
+do passo seguinte disparou e falhou pela mesma razão. Resultado: uma corrida vermelha, **zero
+avisos abertos** e um site publicado. O contrário exacto do que estes passos existem para fazer.
+
+**A lição estava escrita no próprio repositório.** O `vigia.yml` tem o comentário desde
+10/10/2026 — *"a etiqueta tem de existir antes de se usar... Apanhado no primeiro ensaio desta
+vigia, e o mesmo defeito estava escondido no `aviso.yml`"* — e os dois criam a etiqueta com
+`gh label create --force` antes de a usar. Os avisos do `dados.yml` nasceram no dia seguinte
+sem essa linha. Não foi um erro novo: foi o mesmo erro, no terceiro sítio.
+
+### O que ficou corrigido, e é mais do que a etiqueta
+
+| | |
+|---|---|
+| a etiqueta cria-se antes de se usar, com `--force` | o mesmo padrão do `vigia.yml` e do `aviso.yml` |
+| os três passos de aviso são `continue-on-error` | **um aviso que falha não pode reprovar uma ronda que publicou** |
+| o aviso de falha diz se o site foi ou não publicado | lê o `outcome` do passo da publicação |
+| o aviso da fonte deixa de comentar de duas em duas horas | o aviso do dia é o sinal |
+
+O terceiro é o que mais importa depois do segundo: o texto dizia *"a ronda falhou e **não
+publicou nada**"*, e desta vez isso era falso. Um aviso que mente sobre o estado do site é pior
+do que nenhum — manda procurar um problema que não existe e esconde o que é.
+
+No aviso da fonte o comentário por ronda saiu: doze por dia a dizer o mesmo ensinam a ignorar a
+notificação, e a incoerência da fonte é crónica por natureza. No aviso de falha da ronda o
+comentário por ocorrência **fica**, e de propósito: sete rondas falhadas seguidas e uma só não
+são o mesmo problema, e foi exactamente essa contagem que faltou na noite de 11/10.
+
 ## As novidades por grupos, e um chavão por linha (12/10/2026)
 
 Dois pedidos do dono sobre a caixa que ele acabara de reabrir: *"gostava de organizar as

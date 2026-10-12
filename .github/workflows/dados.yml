@@ -212,6 +212,7 @@ jobs:
       # publicava sem ele — e durante uma janela de jogos quem publica mais é o ciclo ao vivo.
       # O resultado seria um contador que desaparece ao sábado à tarde e volta sozinho.
       - name: Publicar no Cloudflare Pages
+        id: publicacao
         if: (steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || inputs.so_publicar
         uses: cloudflare/wrangler-action@v3
         with:
@@ -298,12 +299,25 @@ jobs:
       #
       # Uma issue por causa, reutilizada e fechada sozinha, como no `aviso.yml`.
 
+      # **Um aviso que falha não pode reprovar uma ronda que publicou.** Foi o que aconteceu
+      # a 12/10/2026, na publicação da 1.1: o site foi actualizado com sucesso e a corrida
+      # ficou vermelha porque este passo não conseguiu pôr uma etiqueta — e o `if: failure()`
+      # do passo seguinte disparou e falhou pela mesma razão. Resultado: uma corrida vermelha,
+      # zero avisos abertos, e um site publicado. Exactamente o contrário do que estes passos
+      # existem para fazer.
       - name: A fonte está incoerente
         if: steps.reproducao.outcome == 'failure'
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
           DONO: ${{ github.repository_owner }}
         run: |
+          # **A etiqueta tem de existir antes de se usar** — o `gh issue create --label` não a
+          # cria, recusa com `could not add label`. A lição é de 10/10/2026 e estava escrita
+          # no `vigia.yml` e no `aviso.yml`; estes dois passos nasceram a 11/10 sem ela.
+          gh label create fonte --color D4C5F9 --force \
+            --description "a fonte da APL discorda de si mesma" >/dev/null 2>&1 || true
+
           titulo="A fonte discorda de si mesma — $(TZ=Europe/Lisbon date +%F)"
           corpo=$(printf '%s\n' \
             "A tabela que a APL publica não bate com os jogos do calendário dela." \
@@ -317,28 +331,52 @@ jobs:
             "Corrida: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")
           n=$(gh issue list --state open --label fonte --limit 20 --json number,title \
                 --jq "[.[] | select(.title == \"$titulo\")] | .[0].number // empty")
-          if [ -n "$n" ]; then
-            gh issue comment "$n" --body "$corpo"
-          else
+          # **Se já está aberto, cala-se.** O aviso do dia é o sinal; a ronda corre de duas em
+          # duas horas e um comentário por ronda são doze por dia a dizer o mesmo, o que
+          # ensina a ignorar a notificação. A incoerência da fonte é crónica por natureza —
+          # vive enquanto a APL não corrigir a tabela dela — e o histórico das corridas tem o
+          # detalhe de cada uma para quem o quiser.
+          if [ -z "$n" ]; then
             gh issue create --title "$titulo" --body "$corpo" --label fonte --assignee "$DONO"
           fi
 
       - name: A ronda falhou
         if: failure()
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
           DONO: ${{ github.repository_owner }}
+          # **"Não publicou nada" era mentira metade das vezes.** A 12/10/2026 a ronda ficou
+          # vermelha depois de publicar com sucesso, e este aviso ia dizer ao dono que o site
+          # não tinha sido actualizado. Um aviso que mente sobre o estado do site é pior do
+          # que nenhum: manda-o procurar um problema que não existe e esconder-lhe o que é.
+          PUBLICOU: ${{ steps.publicacao.outcome }}
         run: |
+          gh label create ronda --color B60205 --force \
+            --description "a ronda do dados.yml está a falhar" >/dev/null 2>&1 || true
+
+          if [ "$PUBLICOU" = "success" ]; then
+            estado="**O site foi publicado** — o que falhou foi depois disso, e os resultados estão no ar."
+          else
+            estado=$(printf '%s\n' \
+              "A ronda **não publicou nada**." \
+              "" \
+              "Enquanto isto durar, a agenda e os resultados ficam no último commit — e o ciclo" \
+              "ao vivo, que lê daí, repete pedidos à associação por jogos que já viu.")
+          fi
+
           titulo="A ronda de dados está a falhar"
           corpo=$(printf '%s\n' \
-            "A ronda de $(TZ=Europe/Lisbon date '+%F às %H:%M') falhou e **não publicou nada**." \
+            "A ronda de $(TZ=Europe/Lisbon date '+%F às %H:%M') falhou." \
             "" \
-            "Enquanto isto durar, a agenda e os resultados ficam no último commit — e o ciclo" \
-            "ao vivo, que lê daí, repete pedidos à associação por jogos que já viu." \
+            "$estado" \
             "" \
             "Corrida: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")
           n=$(gh issue list --state open --label ronda --limit 20 --json number,title \
                 --jq "[.[] | select(.title == \"$titulo\")] | .[0].number // empty")
+          # Aqui o comentário por ocorrência **fica**, ao contrário do aviso da fonte: sete
+          # rondas falhadas seguidas e uma só não são o mesmo problema, e foi precisamente
+          # essa contagem que faltou na noite de 11/10/2026.
           if [ -n "$n" ]; then
             gh issue comment "$n" --body "$corpo"
           else
@@ -347,6 +385,7 @@ jobs:
 
       - name: A ronda voltou ao normal
         if: success()
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
