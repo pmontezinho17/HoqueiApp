@@ -2253,6 +2253,72 @@ dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
 
 Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
 
+## As novidades por grupos, e um chavão por linha (12/10/2026)
+
+Dois pedidos do dono sobre a caixa que ele acabara de reabrir: *"gostava de organizar as
+novidades por contextos, por exemplo, funcionalidade nova ou corrigida, layout, regras...
+avalia qual deverá ser a forma mais lógica num ponto de vista de experiência de utilizador"* e
+*"temos muito texto e não temos logo um chavão ao início do bullet"*.
+
+### A avaliação dos grupos: três, e o `layout` não é um deles
+
+**Um grupo só se justifica se mudar a forma de ler o que vem a seguir.** Estes mudam:
+
+| | o que diz a quem lê |
+|---|---|
+| **Regras da associação** | *"um número que vês mudou, e não foi avaria nossa"* |
+| **Novo** | *"passas a poder fazer ou ver uma coisa que não havia"* |
+| **Corrigido** | *"uma coisa que te irritava deixou de acontecer"* |
+
+O grupo das regras é o que paga o custo dos cabeçalhos: é o único que **defende a
+credibilidade da app**. Uma equipa que desce um lugar na tabela faz alguém pensar que nos
+enganámos, e este grupo é onde ele descobre que não. Por isso vem primeiro, e não as
+novidades: é a dúvida mais cara de deixar sem resposta.
+
+**O `layout` ficou de fora, e é aqui que discordo do dono.** "Layout" é uma categoria sobre
+*nós* — descreve o que mexemos, não o que mudou para quem usa. Uma alteração de desenho que se
+nota é sempre uma das outras três: ou passou a dar-se para fazer algo, ou deixou de atrapalhar.
+E uma que não se nota não entra nesta lista, pela regra que já estava no `versao.ts`.
+
+**A outra hipótese séria era agrupar por zona da app** — Jogos, Competições, Ficha de jogo —, e
+tinha um argumento real: quem segue só SUB-17 saltava o bloco dos Escolares de uma vez. Perde-se
+por aritmética. Dez pontos espalhados por cinco ou seis zonas dão grupos de um ponto cada, e aí
+há mais cabeçalhos do que conteúdo. A zona foi para o **título** de cada ponto — "Na ficha de
+jogo", "No iPhone", "Nos Escolares e Benjamins" — onde se lê de relance sem custar uma linha.
+
+### O chavão, e a correcção que a primeira tentativa precisou
+
+Os nove pontos passaram a dez (o dos cartões ao banco era dois assuntos em um: a ficha, que é
+de todos os escalões, e o desconto no Mérito, que é só de dois) e cada um passou a ter `titulo`
+e `texto`.
+
+A primeira versão punha os dois **na mesma linha**, com o título em negrito. Não resultou, e
+viu-se logo a 375px: *"...é o Mérito da Formação É o que o regulamento manda nestes escalões"* —
+uma frase corrida sem fronteira visível, que é exactamente o que o pedido vinha resolver. O
+título passou a `display: block`. Com o chavão em linha própria o olho tem onde parar, e a lista
+percorre-se aos saltos em vez de se ler toda.
+
+### O que fica amarrado em teste
+
+O pedido dele desfaz-se com o tempo se não houver quem o defenda, por isso há testes que
+varrem os pontos **publicados** e não uma lista copiada:
+
+* cada ponto tem chavão e descrição, e os dois dizem algo;
+* o chavão tem no máximo 64 caracteres — cerca de duas linhas a 375px. Um título de três
+  linhas deixa de ser um título e volta a ser a frase que isto substituiu;
+* o chavão não acaba em ponto, porque é um título;
+* cada ponto cai num grupo conhecido, e nenhum fica órfão no agrupamento.
+
+E o `agrupar` **deixa de fora os grupos vazios**: um cabeçalho sem nada debaixo faz a pessoa
+procurar o que não existe. Uma versão que só traga correcções mostra "Corrigido" e mais nada.
+
+### Uma consequência de desenho
+
+A caixa deixou de mostrar as novidades **por versão**. Quem salta da 1.1 para a 1.3 vê os três
+lotes misturados nos mesmos três grupos, porque a pergunta é "o que mudou desde a última vez
+que aqui estive?" e não "o que mudou em cada versão". A versão já não aparecia em sítio nenhum
+desta caixa antes disto; agora também não há onde a pôr sem duplicar cabeçalhos.
+
 ## O menu passa a ser o de três traços, e as novidades voltam a abrir-se (12/10/2026)
 
 Dois pedidos do dono no mesmo recado, depois de experimentar o site de testes: *"sem querer

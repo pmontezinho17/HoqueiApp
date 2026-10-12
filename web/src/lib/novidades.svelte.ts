@@ -12,7 +12,7 @@
  * `versao.ts`: antes, cada publicação avisava todos — mesmo uma que só mexesse na consola.
  * Agora quem publica decide, ao subir o número, se aquilo vale a interrupção.
  */
-import { NOVIDADES, VERSAO, type Novidade } from './versao';
+import { GRUPOS, NOVIDADES, VERSAO, type Novidade, type Ponto } from './versao';
 
 const CHAVE = 'hoquei:versao-vista:v1';
 
@@ -49,6 +49,28 @@ export function aReabrir(versao = VERSAO, lista = NOVIDADES): Novidade[] {
 	return desta.length ? desta : lista.slice(0, 1);
 }
 
+/** Um grupo já pronto a desenhar: o rótulo e os pontos que lhe pertencem. */
+export type Grupo = { rotulo: string; pontos: Ponto[] };
+
+/**
+ * Agrupa os pontos pelo `tipo`, na ordem do `GRUPOS`, e **deixa de fora os grupos vazios**.
+ *
+ * Função pura, e é aqui que vive a única regra de apresentação que vale a pena testar: um
+ * cabeçalho sem nada debaixo é pior do que não haver cabeçalhos, porque faz a pessoa procurar
+ * o que não existe. Uma versão que só traga correcções mostra "Corrigido" e mais nada.
+ *
+ * Recebe os pontos **já achatados de todas as versões a mostrar**. Quem salta da 1.1 para a
+ * 1.3 vê os três lotes misturados nos mesmos três grupos, e isso é de propósito: a pergunta é
+ * "o que mudou desde a última vez que aqui estive?", não "o que mudou em cada versão". A
+ * versão em si não aparece em sítio nenhum desta caixa.
+ */
+export function agrupar(pontos: Ponto[]): Grupo[] {
+	return GRUPOS.map(({ tipo, rotulo }) => ({
+		rotulo,
+		pontos: pontos.filter((p) => p.tipo === tipo)
+	})).filter((g) => g.pontos.length > 0);
+}
+
 /**
  * O estado da caixa. Lê o armazenamento uma vez, no arranque, e nunca falha por causa dele.
  *
@@ -66,6 +88,11 @@ class Novidades {
 
 	get aberta() {
 		return this.aMostrar.length > 0;
+	}
+
+	/** O que a caixa desenha: os grupos, já por ordem e sem os vazios. */
+	get grupos(): Grupo[] {
+		return agrupar(this.aMostrar.flatMap((n) => n.pontos));
 	}
 
 	arrancar() {
