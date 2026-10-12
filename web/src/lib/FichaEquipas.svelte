@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { nomeProprio } from '$lib/formato';
-	import type { EquipaFicha } from './tipos';
+	import type { EquipaFicha, LinhaJogador } from './tipos';
 	let {
 		equipas,
 		/** Antes do apito as colunas de estatística estão todas a zero e não dizem nada:
@@ -11,6 +11,34 @@
 	const tecnicos = (e: EquipaFicha) => e.jogadores.filter((j) => j.papel);
 	// "0/0" é o caso esmagador; só vale a pena destacar quem realmente rematou
 	const usou = (v: string | null) => !!v && v !== '0/0';
+
+	/**
+	 * Os cartões de quem está no banco, para a linha da equipa técnica.
+	 *
+	 * **Pedido por um colega do dono a 12/10/2026**, que leu o regulamento e notou que a
+	 * disciplina dos não atletas também conta. A fonte dava-nos estes números desde sempre —
+	 * a tabela dos jogadores já os mostrava — e nós é que desenhámos a linha dos técnicos
+	 * como uma lista de nomes e mais nada.
+	 *
+	 * Só quem levou alguma coisa aparece, e não há colunas fixas como na tabela de cima:
+	 * medido nas 317 fichas publicadas a 12/10/2026, são 42 cartões em 1745 linhas de banco,
+	 * 2,4%. Três colunas de travessões em todas as fichas para isto era ruído.
+	 */
+	type Marca = { classe: string; titulo: string; quantos: number };
+	const CARTOES: [string, string, string, keyof LinhaJogador][] = [
+		['am', 'cartão amarelo', 'cartões amarelos', 'cartoes_amarelos'],
+		['az', 'cartão azul', 'cartões azuis', 'cartoes_azuis'],
+		['vm', 'cartão vermelho', 'cartões vermelhos', 'cartoes_vermelhos']
+	];
+	function cartoes(t: LinhaJogador): Marca[] {
+		const saida: Marca[] = [];
+		for (const [classe, um, muitos, campo] of CARTOES) {
+			const quantos = (t[campo] as number) || 0;
+			if (quantos > 0)
+				saida.push({ classe, titulo: quantos > 1 ? `${quantos} ${muitos}` : um, quantos });
+		}
+		return saida;
+	}
 </script>
 
 {#each equipas as equipa (equipa.nome)}
@@ -56,7 +84,7 @@
 		</div>
 		{#if tecnicos(equipa).length}
 			<p class="tecnicos">
-				{#each tecnicos(equipa) as t, i (t.nome)}{i ? ' · ' : ''}<span>{t.papel}</span> {t.nome}{/each}
+				{#each tecnicos(equipa) as t, i (t.nome)}{i ? ' · ' : ''}<span class="tecnico"><span class="papel">{t.papel}</span> {t.nome}{#if !porComecar}{#each cartoes(t) as c (c.classe)}<span class="cartao {c.classe}" aria-hidden="true"></span><span class="quantos">{c.quantos}</span><span class="sr">{c.titulo}</span>{/each}{/if}</span>{/each}
 			</p>
 		{/if}
 	</section>
@@ -105,6 +133,18 @@
 	.levou { color: var(--texto); font-weight: 700; }
 	.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 	tbody tr + tr th, tbody tr + tr td { border-top: 1px solid var(--borda); }
-	.tecnicos { font-size: 0.72rem; color: var(--suave); margin: 0.4rem 0 0; }
-	.tecnicos span { font-weight: 600; }
+	.tecnicos { font-size: 0.72rem; color: var(--suave); margin: 0.4rem 0 0;
+		line-height: 1.8; }
+	/* só o papel vai a negrito. Era `.tecnicos span` e engordava as chapas dos cartões
+	   também — e uma chapa a negrito não é uma chapa mais forte, é só mais larga. */
+	.tecnicos .papel { font-weight: 600; }
+	/* **Cada técnico é indivisível.** Sem isto a linha partia entre o nome e a chapa do
+	   cartão, e a 375px vi a chapa amarela do PEDRO GONCALVES cair sozinha para a linha
+	   de baixo, encostada ao `·` do técnico seguinte — a ler como se fosse dele. Os `·`
+	   ficam de fora do `nowrap` e são eles que dão as oportunidades de quebra. */
+	.tecnicos .tecnico { white-space: nowrap; }
+	.tecnicos .cartao { margin-left: 0.3rem; }
+	/* o número vai sempre, mesmo quando é 1: é a mesma linguagem da tabela de cima, onde
+	   a célula diz `1` e não uma chapa sozinha */
+	.tecnicos .quantos { margin-left: 0.12rem; font-weight: 700; color: var(--texto); }
 </style>

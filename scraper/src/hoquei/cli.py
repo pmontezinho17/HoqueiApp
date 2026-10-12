@@ -18,7 +18,7 @@ from .fonte import UA, Fonte
 from .merito import escalonar, merito_do_jogo, vale_merito
 from .modelos import em_curso, para_dicionario
 from .parsers.calendario import calendario
-from .parsers.participacao import participacao
+from .parsers.participacao import nao_atletas, participacao
 from .parsers.classificacao import classificacao
 from .tabela import calcular, calcular_de_json, vale_calcular
 from .parsers.competicoes import competicoes, temporadas
@@ -186,9 +186,13 @@ def _merito_da_ficha(html: str, dados: dict) -> list[dict] | None:
     lido = participacao(html)
     if lido is None:
         return None
+    # o 92.4.2 — cartões a quem está no banco — sai das linhas de equipa técnica do mesmo
+    # boletim. `None` aqui não é motivo para desistir do mérito: só quer dizer que não há
+    # banco para ler, e o `merito_do_jogo` faz a conta sem o 4.2
+    banco = nao_atletas(html)
     return [para_dicionario(m) for m in merito_do_jogo(
         dados.get("casa"), dados.get("fora"), lido,
-        dados.get("golos_casa"), dados.get("golos_fora"))]
+        dados.get("golos_casa"), dados.get("golos_fora"), banco)]
 
 
 def _resultado_conhecido(caminho: pathlib.Path) -> tuple | None:

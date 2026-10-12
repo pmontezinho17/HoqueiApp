@@ -115,7 +115,9 @@
 		<dd>
 			Apresentar menos de 8 atletas, levar um só guarda-redes, e pôr um atleta a jogar três
 			meias partes ou as quatro — o regulamento parte estes jogos em quatro meias partes e
-			obriga a que cada atleta faça uma inteira de cada parte.
+			obriga a que cada atleta faça uma inteira de cada parte. Contam também os cartões a
+			quem está no banco e não joga: 2 pontos por um azul, 4 por um vermelho vindo da
+			acumulação de azuis e 6 por um vermelho directo.
 		</dd>
 		<dt>De onde vêm os números</dt>
 		<dd>

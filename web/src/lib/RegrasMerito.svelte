@@ -26,7 +26,10 @@
 		['−1', 'por cada atleta que faça três meias partes'],
 		['−2', 'a mais, se essas três forem seguidas e a equipa tiver mais de 8 atletas'],
 		['−4', 'por cada atleta que faça as quatro meias partes'],
-		['−10', 'falta de comparência']
+		['−10', 'falta de comparência'],
+		['−2', 'por cada cartão azul a quem está no banco'],
+		['−4', 'vermelho ao banco por acumulação de azuis'],
+		['−6', 'vermelho directo ao banco']
 	];
 </script>
 

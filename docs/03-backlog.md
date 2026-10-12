@@ -2210,15 +2210,18 @@ dados e apagava a estrutura; trocar os trinta nomes por pseudónimos protege os 
 a estrutura, que é o que um parser precisa de ter debaixo dos pés. Ganhou também um
 `--de-ficheiro`, para regerar uma amostra **sem** ir outra vez ao servidor da associação.
 
-### As duas aproximações, ditas à vista
+### A aproximação que fica, dita à vista
 
-1. **O 4.1.7 não é aplicado.** São -6 pontos e a perda das bonificações por um atleta fazer um
-   só período, "excepto em caso de lesão ou situação impeditiva comprovada pelo árbitro" — e
-   essa comprovação é texto escrito no boletim em papel. Detectamos o caso, marcamo-lo como
-   por confirmar, e **não descontamos**: penalizar uma equipa que levou um miúdo ao hospital
-   seria pior do que uma tabela incompleta. Nos 26 jogos lidos não houve nenhum caso.
-2. **Os cartões a não atletas (4.2) ficam de fora.** As colunas de disciplina do boletim são
-   dos atletas; as do banco não existem na grelha.
+**O 4.1.7 não é aplicado.** São -6 pontos e a perda das bonificações por um atleta fazer um
+só período, "excepto em caso de lesão ou situação impeditiva comprovada pelo árbitro" — e
+essa comprovação é texto escrito no boletim em papel. Detectamos o caso, marcamo-lo como
+por confirmar, e **não descontamos**: penalizar uma equipa que levou um miúdo ao hospital
+seria pior do que uma tabela incompleta. Nos 26 jogos lidos não houve nenhum caso.
+
+~~**Os cartões a não atletas (4.2) ficam de fora.** As colunas de disciplina do boletim são
+dos atletas; as do banco não existem na grelha.~~ **Errado, e corrigido a 12/10/2026** — ver
+a secção B9.33 mais abaixo. As linhas de banco do boletim têm as seis colunas de disciplina,
+com `a.c.` e `dir.` separadas, que é exactamente a diferença entre -4 e -6.
 
 E duas leituras literais que podem vir a ser discutidas: o 4.1.4 e o 4.1.5 **somam-se** numa
 equipa com mais de 8 atletas (três seguidas são também três, -1 e -2, -3 ao todo), e quem faz
@@ -2249,6 +2252,81 @@ dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
 | `docs/09-regulamento-apl.md` | os artigos que o código cita, para não ser preciso abrir o PDF |
 
 Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
+
+## B9.33 — os cartões ao banco: na ficha, e no Mérito (12/10/2026)
+
+O colega que emprestou o regulamento ao dono leu a página 93 e avisou-o de duas coisas: que há
+penalizações para **não atletas**, e que essa informação *"também deverá estar na ficha de
+jogo"*. O dono pediu para avaliar se elas valem só para Benjamins e Escolares ou para todos os
+escalões, e depois mandou avançar com as duas.
+
+### A avaliação: o 4.2 vale só onde o Mérito vale
+
+O ponto 4 do Artigo 92.º abre com *"às equipas que participam nas provas designadas no ponto
+1, será atribuída a seguinte penalização"*, e o 4.2 é um sub-ponto dele. Logo as penalizações
+de **Mérito** por cartões ao banco aplicam-se só aos Encontros Distritais de Escolares e
+Benjamins e às Taças APL desses escalões — que é o mesmo âmbito do resto do artigo.
+
+A **ficha**, essa, é outra conversa: mostrar quem levou um cartão não é aplicar uma
+penalização, é mostrar o que a fonte publica. Por isso a parte do colega — "também deverá
+estar na ficha de jogo" — ficou feita em **todos** os escalões.
+
+### O que estava lá e não se via
+
+Medido nas 317 fichas publicadas a 12/10/2026: **42 cartões a não atletas** (37 amarelos, 5
+vermelhos) em 1745 linhas de banco — 2,4% — e em sete escalões: SUB-17 (10), Seniores
+Masculinos (9), SUB-19 (6), SUB-13 (5), e dois cada em SUB-15, Torneios e Seniores Femininos.
+**Zero nos Encontros Distritais**, ou seja: o 4.2 entra em código mas hoje não muda uma única
+linha de nenhuma tabela de Mérito. Entra porque o dado existe e a regra é a regra, não porque
+alguma equipa esteja a ser mal pontuada agora.
+
+Nós já tínhamos estes 42 cartões nos ficheiros publicados. O que faltava era desenho: a
+`FichaEquipas.svelte` dava colunas de cartão aos jogadores e punha a equipa técnica numa
+linha de nomes separados por `·`, sem nada.
+
+### Duas avaliações minhas erradas, pela mesma razão
+
+1. O `merito.py` dizia, em comentário, que o 4.2 **não era calculável** porque "as colunas de
+   disciplina do boletim são dos atletas; as do banco não existem na grelha".
+2. Corrigi-me para "é calculável, mas só pela ficha" — e a ficha dá um `cartoes_vermelhos: 1`
+   sem dizer se o vermelho foi por acumulação (-4) ou directo (-6).
+
+As duas estavam erradas porque ninguém tinha aberto uma linha de banco do boletim. Elas têm as
+seis colunas de disciplina todas: amarelo, três suspensões, `a.c.` e `dir.`. Confirmado com
+**um** pedido à APL, ao jogo 9864, onde a ficha diz "1 vermelho" ao treinador da FSE/AJ
+Salesiana: o boletim tem o `X` na coluna `dir.`. Logo -6.
+
+Esse jogo ficou como amostra anonimizada — `apl-ficha-cartao-ao-banco.html` — porque é a única
+prova que temos de um vermelho a um não atleta.
+
+### A armadilha que a amostra de seniores apanhou
+
+A primeira versão do leitor distinguia uma linha de banco de uma linha de atleta **pelo número
+de células**. Parecia bastar e não bastava: o boletim de Escolares dá 19 células a um atleta e
+o de Seniores dá 15, e qualquer janela larga o bastante para as 9 de um banco apanha também as
+15 de um sénior. Medido no momento: o capitão de uma equipa de seniores aparecia como membro do
+banco com três azuis e duas expulsões, que eram os **cabeçalhos** das colunas.
+
+O que distingue mesmo é o `colspan` da célula do papel — ela tapa as colunas que um não atleta
+não tem. `colspan=7` nos Escolares, `colspan=3` nos Seniores, e 1 num atleta ou num cabeçalho.
+Há um teste com esse nome.
+
+### Onde ficou
+
+| | |
+|---|---|
+| `parsers/participacao.py` | `nao_atletas()` e `NaoAtletaBoletim`, do mesmo `#acta` — zero pedidos novos |
+| `merito.py` | `_disciplina_do_banco()` e o 4.2 no `_conta`; o cabeçalho corrigido |
+| `cli.py` | `_merito_da_ficha` passa o banco ao `merito_do_jogo` |
+| `web/src/lib/FichaEquipas.svelte` | as chapas de cartão na linha da equipa técnica, em todos os escalões |
+| `web/src/lib/RegrasMerito.svelte` e `/mais` | as três regras novas, ditas a quem lê |
+| `data-samples/paginas/apl-ficha-cartao-ao-banco.html` | a amostra do vermelho directo |
+
+Uma nota de desenho que custou uma segunda passagem no browser: a 375px a linha partia entre o
+nome e a chapa, e a chapa amarela do `T2` caía sozinha para a linha de baixo encostada ao `·`
+do técnico seguinte — a ler como se fosse dele. Cada técnico passou a ser `white-space: nowrap`,
+com os `·` de fora a dar as quebras.
+
 ## Sete rondas abortadas por um golo, e ninguém vigiava o pipeline (11–12/10/2026)
 
 O dono, na manhã de segunda: *"quero que avalies o que se passou durante a noite"*. O que se

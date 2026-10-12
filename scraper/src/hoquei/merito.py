@@ -7,7 +7,7 @@ completa, por porem toda a gente a jogar, e por cumprirem o rodízio das meias p
 mais golos vale 3 pontos; levar dez atletas e pô-los a todos em pista vale 10. É de propósito.
 
 A fonte publica os ingredientes — a grelha `5I` do boletim oficial, ver `parsers/participacao.py` —
-e não publica a conta. Nós fazemos a conta, com três avisos que não se escondem:
+e não publica a conta. Nós fazemos a conta, com dois avisos que não se escondem:
 
 1. **Não é oficial.** A pontuação oficial é preenchida pelos delegados na Folha de Controlo
    de Jogo em papel e validada pelo Comité Técnico da APL (Artigo 93.º ponto 4.1). A nossa é
@@ -17,9 +17,6 @@ e não publica a conta. Nós fazemos a conta, com três avisos que não se escon
    texto que o árbitro escreve no boletim em papel, não um campo. Nós detectamos o caso e
    marcamo-lo como **a confirmar**, em vez de penalizar uma equipa que levou um miúdo ao
    hospital.
-3. **Os cartões a não atletas (4.2) ficam de fora.** As colunas de disciplina do boletim são
-   dos atletas; as do banco não existem na grelha. Uma penalização que não conseguimos ver
-   é melhor assumida em falta do que inventada.
 
 ### A conta, artigo a artigo
 
@@ -40,6 +37,25 @@ Penalizações (92.4.1):
 | 4.1.6 | por atleta que faça as quatro meias partes              | -4 cada |
 | 4.1.7 | por atleta que faça um só período (e perde-se tudo)     | -6 cada |
 | 4.1.8 | falta de comparência                                    | -10 |
+
+Penalizações aos não atletas (92.4.2), lidas das linhas do banco do boletim:
+
+| 4.2 | cartão azul a um não atleta         | -2 cada |
+| 4.2 | vermelho por acumulação (`a.c.`)    | -4 cada |
+| 4.2 | vermelho directo (`dir.`)           | -6 cada |
+
+**O 4.2 esteve duas vezes mal avaliado aqui, e vale a pena saber porquê.** Primeiro escrevi
+que não era calculável, porque "as colunas de disciplina do boletim são dos atletas"; depois,
+que era calculável pela ficha mas sem separar acumulação de directo, que é a diferença entre
+-4 e -6. As duas avaliações estavam erradas pela mesma razão: ninguém tinha olhado para uma
+linha de banco do boletim. Elas têm as seis colunas todas — amarelo, três suspensões,
+`a.c.` e `dir.` — e a 12/10/2026 medi-o no jogo 9864, onde a ficha diz "1 vermelho" ao
+treinador da FSE/AJ Salesiana e o boletim diz **onde**: na coluna `dir.`, logo -6.
+
+Custo: zero pedidos novos. É o mesmo `#acta` de que já sai a grelha `5I`.
+
+O amarelo a um não atleta **não** desconta: o 4.2 fala de azul e de vermelho, e acrescentar
+o amarelo seria inventar regulamento.
 
 Duas leituras que tomámos à letra e que vale a pena saber que tomámos:
 
@@ -66,7 +82,7 @@ import re
 from collections.abc import Iterable
 from dataclasses import dataclass, field
 
-from .parsers.participacao import AtletaBoletim
+from .parsers.participacao import AtletaBoletim, NaoAtletaBoletim
 
 #: Em quantas meias partes se parte um jogo destes escalões — Artigo 87.º ponto 7.1.
 MEIAS_PARTES = 4
@@ -74,6 +90,12 @@ MEIAS_PARTES = 4
 #: Uma equipa completa, pelo 92.3.4 e pelo 87.º 7.4.2.
 GUARDAS_REDES_COMPLETA = 2
 JOGADORES_DE_CAMPO_COMPLETA = 8
+
+#: O 92.4.2, cartão a cartão. Os nomes estão aqui e não espalhados pelo `_conta` para que a
+#: tabela do cabeçalho e a conta nunca possam discordar.
+AZUL_NAO_ATLETA = -2
+VERMELHO_POR_ACUMULACAO = -4
+VERMELHO_DIRECTO = -6
 
 
 @dataclass(frozen=True)
@@ -101,7 +123,8 @@ class MeritoEquipa:
 
 
 def _conta(equipa: str, atletas: list[AtletaBoletim],
-           golos: int | None, golos_adversario: int | None) -> MeritoEquipa:
+           golos: int | None, golos_adversario: int | None,
+           banco: list[NaoAtletaBoletim] | None = None) -> MeritoEquipa:
     guarda_redes = [a for a in atletas if a.posicao == "GR"]
     campo = [a for a in atletas if a.posicao == "JC"]
     participantes = [a for a in atletas if a.participou]
@@ -169,6 +192,8 @@ def _conta(equipa: str, atletas: list[AtletaBoletim],
             "publicado não mostra. Fica por confirmar e não está descontado."
         )
 
+    pena += _disciplina_do_banco(banco or [])
+
     bonificacao = sum(p.pontos for p in boni)
     penalizacao = sum(p.pontos for p in pena)
     return MeritoEquipa(
@@ -185,13 +210,50 @@ def _conta(equipa: str, atletas: list[AtletaBoletim],
     )
 
 
+def _disciplina_do_banco(banco: list[NaoAtletaBoletim]) -> list[Parcela]:
+    """O 92.4.2: os cartões a quem está no banco e não joga.
+
+    Uma pessoa pode somar mais do que uma linha — três azuis e a expulsão por acumulação que
+    vem deles são quatro marcas no boletim, e o regulamento não diz que o vermelho absorve os
+    azuis. Contamos o que está marcado, que é o que o Comité Técnico tem à frente.
+
+    Os amarelos ficam de fora: o 4.2 fala de azul e de vermelho, e só.
+    """
+    azuis = sum(p.azuis for p in banco)
+    acumulacao = [p for p in banco if p.vermelho_acumulacao]
+    directos = [p for p in banco if p.vermelho_directo]
+
+    parcelas: list[Parcela] = []
+    if azuis:
+        texto = ("um cartão azul ao banco" if azuis == 1
+                 else f"{azuis} cartões azuis ao banco")
+        parcelas.append(Parcela("4.2", texto, AZUL_NAO_ATLETA * azuis))
+    if acumulacao:
+        texto = ("um vermelho por acumulação ao banco" if len(acumulacao) == 1
+                 else f"{len(acumulacao)} vermelhos por acumulação ao banco")
+        parcelas.append(Parcela("4.2", texto, VERMELHO_POR_ACUMULACAO * len(acumulacao)))
+    if directos:
+        texto = ("um vermelho directo ao banco" if len(directos) == 1
+                 else f"{len(directos)} vermelhos directos ao banco")
+        parcelas.append(Parcela("4.2", texto, VERMELHO_DIRECTO * len(directos)))
+    return parcelas
+
+
 def merito_do_jogo(casa: str, fora: str,
                    atletas: tuple[list[AtletaBoletim], list[AtletaBoletim]],
                    golos_casa: int | None, golos_fora: int | None,
+                   banco: tuple[list[NaoAtletaBoletim], list[NaoAtletaBoletim]] | None = None,
                    ) -> tuple[MeritoEquipa, MeritoEquipa]:
-    """O mérito das duas equipas de um jogo, pela ordem (visitada, visitante)."""
-    return (_conta(casa, atletas[0], golos_casa, golos_fora),
-            _conta(fora, atletas[1], golos_fora, golos_casa))
+    """O mérito das duas equipas de um jogo, pela ordem (visitada, visitante).
+
+    O `banco` é opcional porque pode faltar sem o jogo deixar de ter mérito: sem ele a conta
+    sai sem o 4.2, que é o que acontecia até 12/10/2026 e continua a ser o comportamento de
+    quem não o passe.
+    """
+    sem_banco: tuple[list[NaoAtletaBoletim], list[NaoAtletaBoletim]] = ([], [])
+    casa_banco, fora_banco = banco or sem_banco
+    return (_conta(casa, atletas[0], golos_casa, golos_fora, casa_banco),
+            _conta(fora, atletas[1], golos_fora, golos_casa, fora_banco))
 
 
 # --- escalonamento da prova -------------------------------------------------
