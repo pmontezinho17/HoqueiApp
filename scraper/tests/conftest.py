@@ -1,6 +1,22 @@
 import pathlib
 import pytest
 
+
+def pytest_collection_modifyitems(config, items):
+    """Marca com `fonte` tudo o que depende do que a APL publica **neste momento**.
+
+    Automático, e não um decorador por teste, por duas razões: um teste novo que use o
+    fixture `provas` fica marcado sem ninguém se lembrar, e a marca não se perde numa
+    reorganização do ficheiro.
+
+    O que a marca serve está no `pyproject.toml` e no `dados.yml`: estes testes avisam mas
+    **não bloqueiam** a publicação, porque uma incoerência passageira da fonte não é um
+    defeito nosso — e a 11/10/2026 custou-nos 16 horas sem publicar nada.
+    """
+    for item in items:
+        if "provas" in getattr(item, "fixturenames", ()):
+            item.add_marker(pytest.mark.fonte)
+
 AMOSTRAS = pathlib.Path(__file__).resolve().parent.parent.parent / "data-samples" / "paginas"
 
 

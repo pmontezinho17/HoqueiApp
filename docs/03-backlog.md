@@ -2249,6 +2249,82 @@ dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
 | `docs/09-regulamento-apl.md` | os artigos que o código cita, para não ser preciso abrir o PDF |
 
 Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
+## Sete rondas abortadas por um golo, e ninguém vigiava o pipeline (11–12/10/2026)
+
+O dono, na manhã de segunda: *"quero que avalies o que se passou durante a noite"*. O que se
+passou começou no domingo à tarde e explica, de passagem, o mistério que eu não tinha
+resolvido no dia anterior.
+
+### O que aconteceu
+
+A meio da tarde de domingo a APL passou a discordar de si mesma: a classificação do CAMP.
+REG. SUB-15 SÉRIE B não batia com os jogos do calendário dela, por **um golo** no jogo #9598
+(UD VILAFRANQUENSE A – SPORTING CP A).
+
+O `test_reproduz_as_tabelas_publicadas` apanhou-o, como foi escrito para apanhar. Mas esse
+teste corre **antes** de publicar, e uma falha aborta a ronda inteira. Resultado: **sete
+rondas seguidas falhadas**, das 16:10 de domingo às 06:09 de segunda. Dezesseis horas sem
+publicar resultados, agenda nem fichas.
+
+```
+11-10 08:11 ✓   16:10 ✗   22:11 ✗      12-10 00:07 ✗
+      10:10 ✓   18:11 ✗   23:39 ✗            06:09 ✗
+      12:13 ✓   20:10 ✗
+      14:10 ✓
+```
+
+### E foi isto que causou os +4 400 pedidos à APL
+
+No sábado eu tinha atribuído as rondas em falta ao agendador da GitHub. **Estava errado — o
+agendador disparou todas.** E o efeito de segunda ordem é o que custou caro:
+
+1. sem commits, o checkout que o ciclo ao vivo lê congelou nas 14:10;
+2. o ciclo reinicia de 10 em 10 minutos e lê sempre o último commit, por isso **esquece tudo
+   o que as rondas anteriores descobriram**;
+3. o `a_decorrer` só deixa de pedir um jogo quando a ficha **guardada** diz `Jogo Terminado` —
+   e essa ficha voltava ao estado de 14:10 a cada reinício;
+4. logo, 23 dos 39 jogos do dia foram repedidos de 30 em 30 segundos, durante horas.
+
+Medido: 4 758 pedidos de ficha no sábado, **9 153** no domingo, com o trabalho real igual
+(809→747 publicações, 415→383 resultados, 2 857→2 930 jogos-em-campo somados).
+
+**Um teste escrito para proteger a integridade dos dados foi o que nos pôs a martelar o
+servidor da associação.** Vale a pena guardar a frase.
+
+### E o aviso apontou para o lado errado
+
+A cadeia do observador ficou vermelha às 22:48 e abriu a issue #21 — sete horas depois do
+primeiro erro — a dizer *"ao vivo preso em: 9764, 9598, 9618…"*. O sintoma, não a causa. O
+observador vigia os **dados publicados**; o `vigia.yml` vigia o **observador**. Ninguém
+vigiava o `dados.yml`.
+
+### As duas correcções
+
+**1 · O teste da fonte avisa e deixa de bloquear.** Os cinco testes que comparam o nosso
+cálculo com a tabela que a APL publica *naquele momento* ficam marcados `fonte` — marca posta
+automaticamente pelo `conftest.py` a quem use o fixture `provas`, para não se perder numa
+reorganização nem depender de alguém se lembrar. O `dados.yml` corre `-m "not fonte"` no passo
+que bloqueia e `-m fonte` num passo que avisa.
+
+O argumento que decidiu isto foi de oportunidade: **a partir de hoje esse teste não protege
+nada.** Com o Mérito a ser a classificação dos Escolares e Benjamins, o `vale_calcular` fica
+só com `CAMP. REG.`, que nunca dispara porque a fonte publica todas as tabelas dos
+campeonatos regionais. Ou seja, ele estava a poder parar tudo o que publicamos para defender
+um cálculo cujo resultado é vazio nas 37 provas.
+
+**2 · O `dados.yml` ganha aviso próprio.** Uma issue à primeira falha, reutilizada nas
+seguintes, fechada sozinha quando a ronda voltar a correr. E uma segunda, separada, para
+quando a fonte está incoerente — que avisa sem parar nada.
+
+### O que fica por fazer, e é a raiz
+
+Nada disto corrige o facto de **a memória do ciclo ao vivo valer o que valer o último
+commit**. Isso está na decisão em aberto: o ciclo passar a ler o estado do CDN publicado em
+vez do checkout. Com as duas correcções de hoje, uma ronda falhada deixa de ser silenciosa e
+deixa de parar tudo — mas um checkout congelado continua a fazer o ciclo repetir trabalho.
+
+---
+
 ## 809 publicações num dia: os dados vivem dentro do deployment da app (11/10/2026)
 
 Pergunta do dono, depois de ver o número na consola: *"é normal estarmos sempre a fazer um
