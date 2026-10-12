@@ -30,6 +30,12 @@
 /sw.js
   Cache-Control: no-cache
 
+# O número da versão publicada, que a app lê para decidir se uma actualização vale um aviso.
+# **Nunca em cache:** um número de versão servido da cache responde à pergunta de há cinco
+# minutos, e aí a app ou avisa por nada ou cala-se quando devia avisar.
+/versao.json
+  Cache-Control: no-store
+
 # Emblemas: o nome é o id estável do clube na fonte e o conteúdo não muda.
 /emblemas/*
   Cache-Control: public, max-age=31536000, immutable

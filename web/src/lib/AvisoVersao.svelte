@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { useRegisterSW } from 'virtual:pwa-register/svelte';
+	import { decidirAviso, versaoPublicada, type Decisao } from './actualizacao';
+	import { VERSAO } from './versao';
 
 	/**
 	 * Regista o service worker **e** mostra o aviso de versão nova.
@@ -11,9 +13,35 @@
 	 * browser reconhecer a app como instalável.
 	 */
 	const { needRefresh, updateServiceWorker } = useRegisterSW();
+
+	/**
+	 * **Nem toda a actualização se anuncia.** A decisão está em `actualizacao.ts`, com a medição
+	 * que a motivou; em resumo: o service worker acende isto sempre que o build muda, e um
+	 * interruptor que entra desligado muda o build sem mudar nada no ecrã. Quem publica é que diz
+	 * se houve alteração para quem usa, e di-lo ao subir a versão.
+	 *
+	 * `null` é "ainda estou a decidir", e nesse intervalo não se mostra nada — um aviso que
+	 * aparece e desaparece é pior do que um aviso meio segundo mais tarde.
+	 */
+	let decidido = $state<Decisao | null>(null);
+
+	$effect(() => {
+		if (!$needRefresh) return void (decidido = null);
+		if (decidido !== null) return;
+		void (async () => {
+			const d = decidirAviso(VERSAO, await versaoPublicada());
+			decidido = d;
+			if (d !== 'calar') return;
+			// **Aplica-se sem recarregar.** A pessoa pode estar a ler uma ficha a meio de um jogo,
+			// e um recarregamento surpresa por uma alteração que ela nem vai ver é o pior dos dois
+			// mundos. O código novo entra na próxima vez que ela abrir a app.
+			updateServiceWorker(false);
+			$needRefresh = false;
+		})();
+	});
 </script>
 
-{#if $needRefresh}
+{#if $needRefresh && decidido === 'perguntar'}
 	<div class="aviso" role="status">
 		<p>Há uma versão nova da aplicação.</p>
 		<div class="accoes">

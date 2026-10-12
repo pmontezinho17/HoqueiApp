@@ -7,8 +7,31 @@ import { SvelteKitPWA } from '@vite-pwa/sveltekit';
 // SvelteKit usa o relógio e cada publicação avisa todos os utilizadores.
 import { VERSAO } from './src/lib/versao';
 
+/**
+ * Escreve o `/versao.json` que a app lê para saber se uma actualização vale um aviso.
+ *
+ * **Gerado e não escrito à mão**, a partir da mesma constante que vai no pacote: um ficheiro
+ * em `static/` com o número repetido era uma segunda casa para a mesma verdade, e um dia iam
+ * discordar — e discordar aqui significa ou avisos a mais para sempre, ou uma app que nunca
+ * avisa. Ver `src/lib/actualizacao.ts` para o porquê de isto existir.
+ */
+function versaoPublicada() {
+	return {
+		name: 'hoquei-versao-publicada',
+		generateBundle() {
+			// @ts-expect-error — `this.emitFile` existe no contexto do plugin do Rollup
+			this.emitFile({
+				type: 'asset',
+				fileName: 'versao.json',
+				source: JSON.stringify({ versao: VERSAO }) + '\n'
+			});
+		}
+	};
+}
+
 export default defineConfig({
 	plugins: [
+		versaoPublicada(),
 		sveltekit({
 			preprocess: vitePreprocess(),
 			compilerOptions: {
