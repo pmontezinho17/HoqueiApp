@@ -2,7 +2,7 @@
  * Se o painel de crítica está aberto.
  *
  * Passou a viver fora do `Feedback.svelte` porque passou a ter dois sítios de onde se abre:
- * a bolha flutuante e a linha "Dar uma opinião" no menu do ⋮. Com o estado dentro do
+ * a bolha flutuante e a linha "Dar uma opinião" no menu do ☰. Com o estado dentro do
  * componente, o menu não tinha como lhe chegar.
  *
  * A bolha fica **e** a linha fica. Não é descuido: a bolha é temporária — sai com o

@@ -117,10 +117,14 @@
 				aria-expanded={menuAberto}
 				onclick={() => (menuAberto = !menuAberto)}
 			>
-				<svg viewBox="0 0 20 20" width="19" height="19" aria-hidden="true">
-					<circle cx="10" cy="4" r="1.7" fill="currentColor" />
-					<circle cx="10" cy="10" r="1.7" fill="currentColor" />
-					<circle cx="10" cy="16" r="1.7" fill="currentColor" />
+				<!-- Três traços e não três pontos, por decisão do dono a 12/10/2026: *"na verdade
+				     deveria ser o menu do hamburguer, que são três traços paralelos"*. Tem razão
+				     pela convenção: três pontos querem dizer "mais acções **sobre isto**" e
+				     costumam viver ao lado da coisa a que se aplicam; três traços querem dizer "o
+				     menu da aplicação", que é o que este é — aparência, ajuda, privacidade. -->
+				<svg viewBox="0 0 20 20" width="19" height="19" aria-hidden="true"
+					  stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+					<path d="M3.5 5.5h13" /><path d="M3.5 10h13" /><path d="M3.5 14.5h13" />
 				</svg>
 			</button>
 		</div>
@@ -142,7 +146,7 @@
 </main>
 
 <!--
-  A atribuição saiu do rodapé para a página do ⋮, que já a tinha por extenso em "Dados" e
+  A atribuição saiu do rodapé para a página do ☰, que já a tinha por extenso em "Dados" e
   "Este site não é oficial". O que dissemos à APL foi que a aplicação "identifica a APL como
   fonte" — o "em todas as páginas" era regra nossa, não promessa. Fica em dois cliques em vez
   de um, e em troca o rodapé deixa de empurrar a barra de navegação.
@@ -350,7 +354,7 @@
 	.acoes { display: flex; align-items: center; gap: 0.15rem; }
 	.icone { display: inline-flex; align-items: center; justify-content: center;
 		width: 44px; height: 44px; color: var(--suave); text-decoration: none;
-		/* o ⋮ é um <button> e a lupa um <a>: sem isto um deles vinha com moldura e fundo */
+		/* o ☰ é um <button> e a lupa um <a>: sem isto um deles vinha com moldura e fundo */
 		border: 0; background: none; padding: 0; font: inherit; cursor: pointer; }
 	.icone:hover, .icone:focus-visible { color: var(--acento); }
 

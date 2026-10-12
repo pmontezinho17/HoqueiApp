@@ -2253,6 +2253,66 @@ dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
 
 Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
 
+## O menu passa a ser o de três traços, e as novidades voltam a abrir-se (12/10/2026)
+
+Dois pedidos do dono no mesmo recado, depois de experimentar o site de testes: *"sem querer
+carreguei em alguma coisa que me fez tirar a janela com as novidades. portanto, acho que é
+interessante colocar outra opção no menu dos três pontos (que na verdade deveria ser o menu do
+hamburguer, que são três traços paralelos. muda isto também) para que as pessoas possam ver
+novamente o que há de novo nesta versão"*.
+
+### O ícone: ele tem razão pela convenção
+
+Três pontos querem dizer "mais acções **sobre isto**" e costumam viver ao lado da coisa a que
+se aplicam — uma linha de uma lista, um cartão. Três traços querem dizer "o menu da
+aplicação". O nosso tem aparência, cor, perguntas frequentes e privacidade: é o segundo, e
+estava com o ícone do primeiro desde que nasceu, a 06/10/2026.
+
+**As entradas antigas deste backlog continuam a dizer `⋮`, e ficam como estão** — o P11.9 e as
+que falam dele descrevem o que se fez naquele dia, e reescrever história para a fazer coincidir
+com o presente é pior do que uma nota. Os comentários do código, esses, descrevem o que *é*, e
+foram todos corrigidos no mesmo commit: doze sítios em sete ficheiros, mais o diagrama do
+`00-onde-retomar.md`. A referência em `04-benchmarking.md` fica também: aquela é a FotMob.
+
+### A caixa só podia ser aberta de dentro de si mesma
+
+O `novidades.svelte.ts` expunha uma **fábrica** e não um objecto: `novidades()` devolvia uma
+instância nova a cada chamada, por isso o menu não tinha como falar com a caixa que o
+`CaixaNovidades` tinha criado. Passou a ser um `export const` com estado dentro, como o `tema`,
+a `cor` e o `guia` — e isso é a razão da mudança, não arrumação.
+
+A reabertura é uma pergunta diferente da abertura automática, e por isso é outra função. O
+`porMostrar` responde a *"há aqui alguma coisa que valha interromper esta pessoa?"*, e a
+resposta certa é quase sempre não — a primeira visita não vê nada, quem já viu esta versão não
+a vê outra vez. O `aReabrir` responde a *"ele pediu para ver, mostra o quê?"*, e aí **nunca**
+pode devolver nada: um botão que não faz nada é pior do que não haver botão. Mostra as notas
+desta versão e, se a versão em curso não trouxer notas — o caso de uma publicação que só mexeu
+no raspador —, cai na entrada mais recente.
+
+### Dois defeitos que só apareceram no browser
+
+Nenhum dos dois era visível a ler o código, e os dois só passaram a doer **hoje**: até agora a
+caixa aparecia uma vez, a quem acabava de actualizar, e ninguém a abria de propósito.
+
+1. **Com nove pontos a caixa não cabia no ecrã.** Ancorada em baixo e sem tecto, crescia para
+   cima até sair do ecrã, e a 375×812 o último ponto ficava cortado sem forma de chegar lá.
+   Ganhou `max-height`, `overflow-y` e um cabeçalho colado ao topo, para o botão de fechar
+   continuar à mão numa lista que rola.
+2. **A bolha de opinião tapava o último ponto.** As duas vivem no `z-index: 20` e no mesmo
+   canto, e a bolha é desenhada depois, logo ganha. O `main` já reservava 60px para este
+   mesmo problema — a caixa passa a subir acima dela, o que não desperdiça espaço por dentro
+   como um `padding` faria.
+
+### Onde ficou
+
+| | |
+|---|---|
+| `web/src/routes/+layout.svelte` | o ícone de três traços |
+| `web/src/lib/novidades.svelte.ts` | `export const novidades`, `reabrir()` e o `aReabrir` puro |
+| `web/src/lib/MenuMais.svelte` | a linha "O que há de novo", com o número da versão na ajuda |
+| `web/src/lib/Icone.svelte` | o ícone `novidades` — duas estrelas de quatro pontas |
+| `web/src/lib/CaixaNovidades.svelte` | o tecto, o rolamento, o cabeçalho colado e a folga da bolha |
+
 ## O convite para guardar a app no ecrã principal (12/10/2026)
 
 Decidido pelo dono depois do diagnóstico da secção anterior: *"quero que avances com o convite

@@ -3,8 +3,8 @@
 	 * A ficha técnica da app: de onde vêm os dados, quantos são, e de quando.
 	 *
 	 * **Era um ecrã com cinco blocos** — isto, o aviso de site não oficial, o guia, um resumo
-	 * de privacidade e os nomes de atletas — porque o ⋮ vinha directo para cá e tudo o que
-	 * não tinha casa acabava aqui. Desde 06/10/2026 o ⋮ abre um menu: o guia é uma linha lá,
+	 * de privacidade e os nomes de atletas — porque este botão vinha directo para cá e tudo o que
+	 * não tinha casa acabava aqui. Desde 06/10/2026 ele abre um menu: o guia é uma linha lá,
 	 * a privacidade é uma linha lá, e os nomes de atletas estavam a repetir em resumo o que a
 	 * `/privacidade` já diz por extenso, com o compromisso e o endereço. Dois textos a dizer
 	 * o mesmo divergem no dia em que um deles mudar.

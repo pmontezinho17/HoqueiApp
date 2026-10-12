@@ -66,7 +66,7 @@ export const NOVIDADES: Novidade[] = [
 			'As classificações desempatam agora como o regulamento manda — primeiro o confronto directo entre as equipas empatadas. Algumas tabelas mudam de ordem por causa disto.',
 			'As Competições abrem numa grelha de escalões, e mostram por omissão só as provas a decorrer.',
 			'Um jogo que ainda não começou já abre: mostra as equipas, a hora, o recinto e a classificação, em vez de um erro.',
-			'No menu ⋮ há agora Perguntas frequentes, e podes escolher o tema claro ou escuro em vez de seguir sempre o telemóvel.',
+			'O menu em cima à direita passa a ser o de três traços, e tem agora Perguntas frequentes, o que há de novo, e o tema claro ou escuro à tua escolha em vez de seguir sempre o telemóvel.',
 			'Em iPhone, a app avisa uma vez que vale a pena guardá-la no ecrã principal: é a única forma de o Safari não apagar as tuas equipas depois de uma semana sem a abrires. Há uma pergunta nova sobre isso nas Perguntas frequentes.',
 			'O guia da primeira visita deixa de reaparecer a quem o fechou a meio: passa a contar como visto assim que aparece. Quem o quiser rever tem o botão em Sobre a app.',
 			'Na ficha de jogo os cartões ao treinador e ao delegado passam a aparecer, como já apareciam os dos jogadores — e nos Escolares e Benjamins também descontam no Mérito, como o regulamento manda.',

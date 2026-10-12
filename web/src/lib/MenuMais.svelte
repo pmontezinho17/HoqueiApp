@@ -1,13 +1,13 @@
 <script lang="ts">
 	/**
-	 * O menu do ⋮.
+	 * O menu do ☰ — três traços, no canto superior direito.
 	 *
-	 * Antes o ⋮ era um link directo para `/mais`, e essa página tinha cinco blocos dentro:
+	 * Antes este botão era um link directo para `/mais`, e essa página tinha cinco blocos dentro:
 	 * ficha técnica dos dados, aviso de site não oficial, guia, resumo de privacidade e
 	 * nomes de atletas. Eram três coisas de natureza diferente — uma preferência, uma ficha
 	 * técnica e duas páginas legais — amontoadas num ecrã só.
 	 *
-	 * Agora o ⋮ abre isto, e cada coisa tem o seu sítio. Seis linhas em três grupos: o que
+	 * Agora abre isto, e cada coisa tem o seu sítio. Linhas em três grupos: o que
 	 * se faz, o que se escolhe, e o que se lê.
 	 *
 	 * **A aparência escolhe-se aqui dentro, sem ecrã próprio**, por decisão do Pedro a
@@ -22,6 +22,7 @@
 	import { VERSAO } from './versao';
 	import { guia } from './guia.svelte';
 	import { critica } from './critica.svelte';
+	import { novidades, HA_NOVIDADES } from './novidades.svelte';
 	import { tema, TEMAS } from './tema.svelte';
 	import { cor, CORES } from './cor.svelte';
 	import { RECOLHER_FEEDBACK } from './feedback';
@@ -54,7 +55,7 @@
 	/**
 	 * Ao abrir, o foco entra no painel.
 	 *
-	 * Sem isto quem navega por teclado carrega no ⋮, o menu abre, e o próximo `Tab` vai para
+	 * Sem isto quem navega por teclado carrega no ☰, o menu abre, e o próximo `Tab` vai para
 	 * o conteúdo da página atrás do véu — a pessoa fica a navegar uma coisa que não vê.
 	 */
 	$effect(() => {
@@ -81,6 +82,22 @@
 		fechar();
 		critica.abrir();
 	}
+
+	/**
+	 * Reabrir a caixa do "o que mudou".
+	 *
+	 * Pedida pelo dono a 12/10/2026, depois de a fechar sem querer: *"sem querer carreguei em
+	 * alguma coisa que me fez tirar a janela com as novidades"*. A caixa fechava-se com um
+	 * toque e não tinha segundo caminho — e uma lista de novidades é precisamente o género de
+	 * coisa que se fecha por reflexo e depois se quer ler.
+	 *
+	 * **Fecha o menu primeiro.** A caixa vive no fundo do ecrã e o menu tem um véu por cima de
+	 * tudo: abrir uma sem fechar o outro punha-a atrás do véu, visível e intocável.
+	 */
+	function verNovidades() {
+		fechar();
+		novidades.reabrir();
+	}
 </script>
 
 <svelte:window onkeydown={(e) => e.key === 'Escape' && fechar()} />
@@ -98,6 +115,16 @@
 		aria-label="Mais opções"
 		style="--queda: {topo}px"
 	>
+		{#if HA_NOVIDADES}
+			<button class="linha" onclick={verNovidades}>
+				<Icone nome="novidades" tamanho={18} />
+				<span class="texto">
+					<span class="rotulo">O que há de novo</span>
+					<span class="ajuda">As novidades da versão {VERSAO}</span>
+				</span>
+			</button>
+		{/if}
+
 		<button class="linha" onclick={verGuia}>
 			<Icone nome="guia" tamanho={18} />
 			<span class="texto">
@@ -201,7 +228,7 @@
 		background: rgb(0 0 0 / 0.45);
 	}
 	/*
-	  Encostado à direita e debaixo do ⋮, que é de onde sai — um menu que aparecesse ao meio
+	  Encostado à direita e debaixo do ☰, que é de onde sai — um menu que aparecesse ao meio
 	  do ecrã não se liga ao botão que o abriu.
 	*/
 	.painel {
