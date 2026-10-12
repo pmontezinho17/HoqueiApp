@@ -3,7 +3,7 @@
 	 * L7.4 — política de privacidade.
 	 *
 	 * Escrita a partir de uma auditoria ao código, e não de memória: zero cookies, zero
-	 * `sessionStorage`, zero rastreio, zero tipos de letra externos, e **três** chaves
+	 * `sessionStorage`, zero rastreio, zero tipos de letra externos, e um punhado de chaves
 	 * possíveis em `localStorage` — nenhuma delas com nada que identifique uma pessoa. Se
 	 * alguma destas coisas mudar, esta página tem de mudar no mesmo commit — é a única forma
 	 * de continuar verdadeira.
@@ -72,6 +72,12 @@
 			Numa chave chamada <code>hoquei:cor:v1</code>, com o nome da cor —
 			<code>azul</code>, <code>vermelho</code> e assim. Enquanto ficares no verde
 			<strong>não fica nada escrito</strong>: a chave só nasce se escolheres outra.
+		</dd>
+		<dt>O convite para guardar a app no ecrã principal, se o dispensares</dt>
+		<dd>
+			Numa chave chamada <code>hoquei:convite-visto:v1</code>, com um
+			<code>1</code>. Serve para o aviso não voltar depois de o fechares. Só existe em
+			iPhone e iPad, que são os únicos onde esse aviso aparece.
 		</dd>
 		<dt>A consola de manutenção — só se fores tu a abri-la</dt>
 		<dd>

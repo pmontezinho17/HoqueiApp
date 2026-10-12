@@ -76,6 +76,15 @@ export const PERGUNTAS: Pergunta[] = [
 		    aplicação". Fica com ícone próprio e abre sem a barra do browser.`
 	},
 	{
+		p: 'Porque é que perdi as minhas equipas?',
+		r: `Se estás num iPhone e abres a aplicação pelo browser, o Safari apaga o que ela
+		    guardou no teu aparelho depois de <strong>sete dias</strong> sem a abrires — e
+		    entre duas jornadas vai lá uma semana. É uma regra do próprio iPhone e não há
+		    forma de a desligar de fora. A excepção é uma: o que está
+		    <strong>no ecrã principal</strong> não é apagado. Põe lá a aplicação — Partilhar →
+		    "Adicionar ao ecrã principal" — e as tuas equipas ficam.`
+	},
+	{
 		p: 'Funciona sem rede?',
 		r: `Funciona com o que já tiveres lido. O que abriste antes fica guardado no
 		    aparelho e volta a aparecer — útil num pavilhão com rede fraca. O que nunca

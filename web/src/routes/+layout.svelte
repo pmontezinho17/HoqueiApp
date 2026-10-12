@@ -19,6 +19,7 @@
 	import { favoritos } from '$lib/favoritos.svelte';
 	import MenuMais from '$lib/MenuMais.svelte';
 	import CaixaNovidades from '$lib/CaixaNovidades.svelte';
+	import ConviteInstalar from '$lib/ConviteInstalar.svelte';
 	import { tema } from '$lib/tema.svelte';
 	import { cor } from '$lib/cor.svelte';
 	import { APP_NOME } from '$lib/sitio';
@@ -134,6 +135,9 @@
      ficou por baixo dela e deixou de se poder tocar. Enquanto a bolha existir, o conteúdo
      reserva-lhe a altura. -->
 <main id="conteudo" class:comBolha={RECOLHER_FEEDBACK} style="--topo: {alturaTopo}px">
+	<!-- no fluxo e no topo, e não flutuante como as outras notas: ver o cabeçalho do
+	     componente. Só aparece no iPhone, e só a quem não tem a app no ecrã principal. -->
+	<ConviteInstalar />
 	{@render children()}
 </main>
 

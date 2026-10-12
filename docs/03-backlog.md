@@ -2253,6 +2253,66 @@ dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
 
 Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
 
+## O convite para guardar a app no ecrã principal (12/10/2026)
+
+Decidido pelo dono depois do diagnóstico da secção anterior: *"quero que avances com o convite
+para instalar em testes, para eu verificar como fica. o outro do link não me faz muito
+sentido"*. Fica só o convite; o link que guardava as equipas não se faz.
+
+### Porque é que é só no iPhone
+
+Porque é só lá que há problema. No iOS o Safari apaga o armazenamento de um site depois de 7
+dias sem visitas, e a única excepção é um site que esteja no ecrã principal. No Android o
+Chrome não apaga nada por inactividade e já mostra o seu próprio convite de instalação — um
+aviso nosso ali seria ruído. E não há como contornar o tecto em código: o
+`navigator.storage.persist()`, que no Android e no desktop pede armazenamento durável, **não
+está implementado no Safari**.
+
+### São duas mensagens e não uma
+
+Dentro de um browser que vive noutra aplicação — um link tocado no WhatsApp — não há
+"Adicionar ao ecrã principal" nenhum para tocar, e o armazenamento é daquela sessão. Dizer
+"adiciona ao ecrã principal" a quem está ali é mandá-lo procurar um botão que não existe; a
+essa pessoa diz-se "abre no Safari". **E é o caso que mais provavelmente se aplica a quem
+recebeu o endereço numa mensagem**, que é como o endereço desta app andou a circular.
+
+O que os distingue é o `navigator.standalone`, que só existe no iOS e tem três valores que
+importam: `true` já está instalado, `false` está no Safari, `undefined` está numa vista dentro
+de outra aplicação.
+
+Duas armadilhas que ficaram em teste:
+
+* **o iPad não diz `iPad` desde o iPadOS 13** — diz `Macintosh`, igual a um portátil. O que os
+  separa é o ecrã táctil, e é por isso que o `maxTouchPoints` entra na conta;
+* **nesse iPad o `standalone` também não existe**, e aí não sabemos se é uma vista embutida ou
+  o Safari. Não se afirma: mostra-se o convite normal. Mandar abrir no Safari quem já está no
+  Safari desacredita a app em vez de a ajudar.
+
+### No fluxo e no topo, e não flutuante
+
+As outras notas desta app — o aviso de versão, a caixa do que mudou — flutuam no fundo, e isso
+resolve-se bem quando há uma. Com duas ao mesmo tempo ficavam uma por cima da outra, e para
+evitar isso teria de partilhar estado com a `CaixaNovidades`, que cria a sua própria instância.
+A faixa entra no fluxo da página: sem `z-index`, sem tapar nada, sem brigar com a bolha de
+opinião. Verificado a 375px nos dois temas, e ao rolar a faixa sai de vista com a fita de dias
+a colar-se ao cabeçalho como sempre.
+
+### A ironia que se registou em vez de se esconder
+
+A marca de "dispensei este aviso" fica no mesmo `localStorage` que o Safari apaga. A quem os
+dados forem limpos, a faixa volta — e **é o comportamento certo**: essa é exactamente a pessoa
+que ainda precisa de a ver.
+
+### Onde ficou
+
+| | |
+|---|---|
+| `web/src/lib/convite.ts` | a decisão, pura, e a razão toda no cabeçalho |
+| `web/src/lib/ConviteInstalar.svelte` | a faixa |
+| `web/src/routes/+layout.svelte` | montada no topo do `<main>` |
+| `web/src/routes/privacidade/+page.svelte` | a chave nova, `hoquei:convite-visto:v1` — e o teste da privacidade recusa quem a esquecer, verificado |
+| `web/src/lib/ajuda.ts` | *"Porque é que perdi as minhas equipas?"*, para quem dispensou a faixa e quer o motivo |
+
 ## O tour que nunca se calava, e os favoritos que desapareciam (12/10/2026)
 
 O dono, antes da entrega de segunda: *"o meu cunhado tem um iPhone, e tem-me dito que cada vez
@@ -2322,8 +2382,8 @@ Feito: a marca ao mostrar. Em aberto, por ordem de proveito:
 
 | | |
 |---|---|
-| **Convidar a instalar no ecrã principal**, uma vez e dispensável, só no Safari do iOS | é o único caminho que tira o tecto dos 7 dias, e está todo do nosso lado |
-| **Um link que guarda e devolve as equipas seguidas** | encaixa na partilha que o dono já pediu; um toque repõe o que o Safari apagou, sem conta e sem servidor |
+| ~~**Convidar a instalar no ecrã principal**~~ | **feito a 12/10/2026** — ver a secção seguinte |
+| ~~**Um link que guarda e devolve as equipas seguidas**~~ | **recusado pelo dono a 12/10/2026**: *"o outro do link não me faz muito sentido"* |
 | Um cookie posto pelo servidor em vez do `localStorage` | sobrevive ao tecto dos 7 dias, **mas a página de privacidade promete zero cookies em produção** — é decisão do dono e muda a página no mesmo commit |
 | `navigator.storage.persist()` | **não serve**: o Safari não o implementa |
 | Conta e sincronização | contra a Decisão 3, local-first |
