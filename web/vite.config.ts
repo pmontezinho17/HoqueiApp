@@ -103,7 +103,7 @@ export default defineConfig({
 				// excepções é uma lista que se discute a cada entrada nova, e foi uma discussão
 				// dessas que deixou o `/consola` de fora. A regra sem excepções é mais barata:
 				// **toda a Function está nesta lista.**
-				navigateFallbackDenylist: [/^\/contagens/, /^\/consola/, /^\/contar/],
+				navigateFallbackDenylist: [/^\/contagens/, /^\/consola/, /^\/contar/, /^\/sugerir/],
 				// 31 emblemas × 2,3 KB = 70 KB: vale a pena tê-los offline na app instalada
 				runtimeCaching: [
 					{

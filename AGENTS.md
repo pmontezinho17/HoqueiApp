@@ -99,7 +99,7 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
 | | |
 |---|---|
 | `scraper/` | o raspador em Python (`uv`, `httpx`, `selectolax`), os *parsers* e 305 testes |
-| `web/` | a PWA (SvelteKit 2, runes, `adapter-static`, `@vite-pwa/sveltekit`) e 297 testes |
+| `web/` | a PWA (SvelteKit 2, runes, `adapter-static`, `@vite-pwa/sveltekit`) e 311 testes |
 | `web/static/v1/` | os JSON publicados — o contrato de dados |
 | `scripts/` | o ciclo ao vivo (`aovivo.sh`) e utilitários |
 | `worker/relogio/` | o Cloudflare Worker que serve de relógio e cão de guarda às Actions |
@@ -153,6 +153,14 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
   escrever uma linha em `NOVIDADES` para quem a vai ver. Uma publicação que só mexe na
   consola, no raspador ou num workflow **não sobe a versão** — e é isso que impede o aviso de
   actualização de aparecer a toda a gente por nada.
+- **Guardamos texto de outras pessoas, e isso tem três obrigações.** A caixa "O que está mal"
+  escreve na tabela `sugestao` da D1 desde 13/10/2026 — é a primeira vez que este projecto tem
+  dados de alguém que não o próprio aparelho. Por isso: a política de privacidade enumera-a e
+  diz a retenção; a caixa avisa **antes** de a pessoa escrever; e apaga-se a pedido, como já
+  prometemos para os nomes de atletas. **Nem IP nem identificador** — o preço é não haver
+  limite por pessoa, só um tecto diário global e um limite de tamanho. Um processo diário
+  arquiva num repositório **privado**: palavras de outras pessoas não vão para uma issue
+  pública, e o registo público de uma alteração é escrito pelas nossas.
 - **O `/v1/*` não passa pelas Pages Functions, e isso não é arrumação.** No plano grátis cada
   invocação conta para os 100 000 pedidos diários da conta Workers, e esgotá-los faz a
   Cloudflare **ignorar as Functions e servir só os ficheiros estáticos** — sem consola, sem

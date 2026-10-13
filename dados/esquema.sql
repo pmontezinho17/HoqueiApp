@@ -117,6 +117,44 @@ CREATE TABLE IF NOT EXISTS entrada_hora (
 );
 
 -- ─────────────────────────────────────────────────────────────────────────────────────────
+-- As sugestões da caixa "O que está mal". Pedido do dono a 13/10/2026: que a sugestão virasse
+-- registo no GitHub sozinha, em vez de ficar num email à espera de alguém a copiar.
+--
+-- **É a primeira tabela deste projecto com texto de outras pessoas**, e isso tem três
+-- consequências que não são opcionais:
+--
+--   1. a política de privacidade enumera-a, diz o que fica e por quanto tempo;
+--   2. a caixa avisa **antes** de a pessoa escrever;
+--   3. apaga-se a pedido, como já prometemos para os nomes de atletas.
+--
+-- O que **não** está aqui, de propósito: nem IP, nem identificador, nem cabeçalhos. É a mesma
+-- promessa que a tabela `aparelho` cumpre. O preço é não haver limite por pessoa — há um tecto
+-- diário global e um limite de tamanho, no `functions/sugerir.js`, e é mais grosseiro de
+-- propósito, porque a alternativa era guardar quem é cada um.
+--
+-- A `issue` é o que impede duplicados: o processo diário só olha para as linhas onde ela é
+-- `NULL`, e escreve lá o número depois de criar o registo. Sem isso, uma corrida repetida
+-- criava a mesma issue duas vezes.
+--
+-- **A tabela é criada pela própria Function** (`CREATE TABLE IF NOT EXISTS` antes da escrita),
+-- e não aqui à mão: a ligação da D1 é o único caminho garantido, porque criar tabelas de fora
+-- exige o token da Cloudflare com âmbito de D1, que pode não estar lá. Fica escrita neste
+-- ficheiro porque é aqui que se vem ver o que existe.
+--
+-- Retenção: 180 dias, apagados pelo processo diário. Uma sugestão de há seis meses ou já virou
+-- trabalho ou já não é verdade sobre a app que existe.
+CREATE TABLE IF NOT EXISTS sugestao (
+  id     INTEGER PRIMARY KEY AUTOINCREMENT,
+  dia    TEXT NOT NULL,              -- data de Lisboa, 'AAAA-MM-DD'
+  hora   TEXT NOT NULL,              -- 'HH:MM:SS' de Lisboa
+  texto  TEXT NOT NULL,              -- o que a pessoa escreveu, até 2000 caracteres
+  ecra   TEXT,                       -- onde estava: '/jogo/9539?aba=equipas'
+  versao TEXT,                       -- a versão da app que ela tinha
+  issue  INTEGER                     -- o número do registo criado; NULL = ainda por arquivar
+);
+CREATE INDEX IF NOT EXISTS idx_sugestao_por_arquivar ON sugestao (issue) WHERE issue IS NULL;
+
+-- ─────────────────────────────────────────────────────────────────────────────────────────
 -- Quem ainda bate à porta de um site de ramo. Pedido pelo dono a 10/10/2026, no dia em que
 -- partilhou `testes.hoquei.pages.dev` em vez do endereço a sério: *"Sim quero saber"*.
 --
