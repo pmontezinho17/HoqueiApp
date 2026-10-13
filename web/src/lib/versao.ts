@@ -38,7 +38,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.1';
+export const VERSAO = '1.2';
 
 /**
  * Em que grupo é que uma novidade cai.
@@ -124,6 +124,29 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.2',
+		data: '2026-10-13',
+		pontos: [
+			{
+				tipo: 'novo',
+				titulo: 'O "O que está mal" passa a enviar com um toque',
+				texto:
+					'Antes abria o teu programa de email e tinhas de carregar em enviar lá. Agora ' +
+					'vai directamente, e a caixa diz-te claramente que chegou. Guardamos o que ' +
+					'escreveres, com o ecrã e a versão, para o podermos corrigir — e não guardamos ' +
+					'quem és. Está tudo explicado na política de privacidade, incluindo como pedir ' +
+					'que desapareça.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: 'A app deixa de avisar de actualizações que não se vêem',
+				texto:
+					'Só te interrompe quando houver mesmo algo de novo para ti. Quando a alteração ' +
+					'não muda nada no que vês, actualiza-se em silêncio.'
+			}
+		]
+	},
 	{
 		versao: '1.1',
 		data: '2026-10-12',

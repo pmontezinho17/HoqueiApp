@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
 /**
@@ -53,6 +53,22 @@ describe('a política de privacidade enumera o que é guardado', () => {
 		const apagadas = new Set(['guia-visto']);
 		const faltam = chaves.filter((c) => !apagadas.has(c) && !pagina.includes(c));
 		expect(faltam).toEqual([]);
+	});
+
+	it('se guardarmos texto de outras pessoas, a página tem de o dizer', () => {
+		/**
+		 * **O guarda que o `localStorage` não cobria.** Os testes acima varrem as chaves que
+		 * ficam no aparelho de quem usa; isto é outra coisa — desde 13/10/2026 guardamos texto
+		 * **no servidor**, escrito por outras pessoas, e essa é a primeira vez que este projecto
+		 * tem dados de alguém que não o próprio aparelho.
+		 *
+		 * Se a Function de sugestões existir e a página não a descrever, a página é falsa. E ao
+		 * contrário de uma chave esquecida, isto não é uma imprecisão: é guardar texto de
+		 * pessoas sem lhes dizer.
+		 */
+		if (!existsSync(new URL('../../functions/sugerir.js', import.meta.url))) return;
+		for (const promessa of ['O que está mal', '180 dias', 'privado'])
+			expect(pagina, promessa).toContain(promessa);
 	});
 
 	it('continua a prometer zero cookies, e nada no código escreve um', () => {

@@ -2343,6 +2343,166 @@ dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
 
 Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
 
+## As sugestões passam a virar registos sozinhas (13/10/2026)
+
+O dono: *"porque é que não escreve diretamente na nossa BD D1 que já temos em Cloudflare e
+depois temos um processo diário que vai verificar se existem novas entradas. Caso existam, então
+liga-se ao Github para fazer este registo"*.
+
+### Porque é que a proposta dele ganhou à minha
+
+Eu tinha proposto **Cloudflare Email Workers**: um endereço que executa um Worker ao receber uma
+mensagem. Funciona, mas exigia **comprar um domínio** — o Email Routing está ligado a uma zona,
+e o `hoquei.pages.dev` é da Cloudflare — e exigia meter um token da GitHub dentro de um segredo
+da Cloudflare.
+
+A dele não precisa de nenhuma das duas coisas: a D1 já existe com ligação em Production, o
+`/contar` já é uma Function que lhe escreve, e um GitHub Action já sabe criar registos. **Zero
+credenciais novas no caminho de escrita.** É melhor, e por uma razão estrutural e não de gosto.
+
+### Registos e não ramos, que era a pergunta a analisar
+
+Registos. Um ramo sem commits não é nada — um ramo é trabalho a decorrer, e quarenta ramos
+vazios contrariam o que este projecto mediu hoje sobre ramos de vida curta. Um registo tem
+etiqueta, data, estado e fio de conversa. O ramo e o PR vêm depois, quando a sugestão virar
+trabalho, e o merge fecha o registo.
+
+### O que isto custou, e é a parte que exige cuidado
+
+**O cabeçalho do `Feedback.svelte` argumentava contra isto, escrito por mim há dias:** *"não há
+servidor nem recolha... pôr aqui uma caixa que grava texto noutro sítio obrigaria a mudar essa
+página e a passar a guardar coisas de outras pessoas, e não vale a pena para uma funcionalidade
+que sai daqui a umas semanas"*.
+
+Não era um princípio, era uma conta — e o pedido do dono mudou os dois termos dela. Pediu um
+processo automático, e com isso **o botão deixou de ser temporário**: o interruptor
+`RECOLHER_FEEDBACK` passou de `ate: 2026-11-30` a permanente, porque alimentar um pipeline diário
+a partir de um botão marcado para sair não faz sentido.
+
+E o que a escolha antiga protegia tem de voltar de outra forma. **É a primeira tabela deste
+projecto com texto de outras pessoas**, e daí três obrigações que não são opcionais:
+
+| | |
+|---|---|
+| a política de privacidade enumera a tabela | o que fica, o que não fica, 180 dias, e como pedir que desapareça |
+| a caixa avisa **antes** de a pessoa escrever | *"Guardamos o que escreveres, com o ecrã e a versão… Não guardamos quem és"* |
+| apaga-se a pedido | a mesma promessa dos nomes de atletas, e no mesmo endereço |
+
+E há um teste novo: **se a Function existir e a página não a descrever, o teste falha.** Os
+testes antigos varriam as chaves do `localStorage`; esta é outra coisa — dados de alguém que não
+o próprio aparelho —, e ao contrário de uma chave esquecida não é uma imprecisão, é guardar
+texto de pessoas sem lhes dizer. Verificado a tirar o "180 dias" da página.
+
+### Privado, e é uma porta de sentido único
+
+As sugestões vão para um repositório **privado**. Um privado pode passar a público quando se
+quiser; o que foi publicado **não se despublica**. São palavras de outras pessoas — uma sugestão
+escrita em privado não pode virar uma página na Internet com o nome de um pai ou o clube do
+filho. Quando virar trabalho, o registo público descreve a alteração pelas **nossas** palavras.
+
+### O email fica, e para outra coisa
+
+Uma sugestão não precisa de resposta, precisa de ser registada; uma dúvida precisa de resposta.
+O `info.ok4sticks@gmail.com` continua a ser o caminho de quem quer falar com uma pessoa — e tem
+de continuar, porque é lá que a política de privacidade promete responder a quem queira um nome
+removido. O `mailto:` fica também como **segunda via**: se o envio falhar, a caixa abre o email
+com o texto já escrito e nada se perde.
+
+### A defesa é fraca de propósito
+
+Sem identificador não há limite por pessoa. Há um tecto diário **global** (200) e um limite de
+tamanho (2000 caracteres), mais uma armadilha anti-robô. É mais grosseiro e protege menos — um
+abusador gasta o tecto do dia —, mas a alternativa era guardar quem é cada um, ainda que por
+*hash*, e isso é precisamente o que a página diz que não fazemos.
+
+### Duas coisas que o ensaio local apanhou, e uma delas custava sugestões
+
+**1 · O `CREATE TABLE IF NOT EXISTS` não é uma migração.** Acrescentei a coluna `ramo` ao
+`CREATE`, corri outra vez contra a D1 local que já tinha a tabela da tentativa anterior, e o
+`INSERT` falhou com `no such column: ramo` — **503, e a sugestão perdida**. A tabela de produção
+ainda não existia, por isso esta vez não custou nada; da próxima coluna custava. Ficou o
+`COLUNAS_ACRESCENTADAS`: cada coluna que nasça depois da primeira versão leva um `ALTER TABLE`
+que se tenta sempre e cujo erro se ignora. Verificado a correr contra a tabela antiga: 204, e a
+coluna apareceu.
+
+**2 · A coluna `ramo`, que nasceu de o dono querer testar primeiro em `testes`.** O site de
+testes é o ambiente de Preview e **não tinha ligação à D1** — foi decisão dele hoje de manhã, e
+na altura era sobre contar quem bate à porta. Para a caixa, a ligação é o que faz guardar. Se ele
+a ligasse, os ensaios dele cairiam na mesma tabela das sugestões reais e virariam registos a par
+delas. A coluna diz de que site veio; o `sugestoes.yml` só arquiva onde ela é `NULL`, e o tecto
+diário também só conta essas.
+
+**Não é um identificador de pessoa, é de ambiente**: diz qual é o nosso site, não quem escreveu.
+Por isso não mexe na promessa da política de privacidade.
+
+**E ao fim da tarde deixou de ser o que separa os dois ambientes** — ver a secção seguinte. Com
+uma base de dados só para testes, um ensaio não tem por onde chegar à tabela de produção: a
+separação passou a ser a base, não a coluna. A coluna fica como rede, e isso é uma despromoção
+que tinha de ficar escrita: quem ler isto daqui a um mês não pode achar que é ela que garante a
+separação, porque não é. Rede de quê, concretamente: de alguém apontar o Preview à base de
+produção por engano no painel — que é configuração que o repositório não vê e nenhum teste
+apanha. Custa uma coluna e um `ALTER TABLE` que já existe.
+
+### O que ficou verificado, e o que não
+
+Verifiquei a Function **ponta a ponta localmente**, com `wrangler pages dev` e uma D1 local: a
+tabela é criada, uma sugestão válida devolve 204 e a linha entra com os acentos intactos, e as
+quatro recusas — vazia, gigante, armadilha preenchida, corpo que não é JSON — devolvem 400. E no
+browser, a 375px, o caminho de falha: sem ligação à base de dados a caixa mostra *"Não deu para
+enviar daqui. Manda por email — já vai escrito"* e **o texto fica lá**.
+
+**O que não está verificado:** o `sugestoes.yml` nunca correu. Falta-lhe o repositório privado e
+um segredo `TOKEN_SUGESTOES`, e o `CLOUDFLARE_API_TOKEN` que já existe pode precisar de âmbito
+de D1 — até hoje só publicava no Pages. A corrida diz qual das peças falta e **não falha em
+silêncio**: as sugestões ficam na D1 à espera e nada se perde entretanto. Testei a geração do
+título e do corpo à mão, com aspas, acentos e mudanças de linha.
+
+## Duas bases de dados, para os dois ambientes serem o mesmo (13/10/2026)
+
+*"eu quero garantir que os dois ambientes estão iguais. mas para isso temos de criar uma nova BD
+D1 que seja só para testes"*. Criada nesse dia: `ok4sticks-dados-testes`, em WEUR, construída com
+o `dados/esquema.sql` — o mesmo ficheiro que construiu a de produção, que é precisamente o que
+faz as duas serem iguais sem ninguém as comparar à mão.
+
+Confirmado a perguntar às duas o que têm dentro: produção tem `aparelho`, `entrada_hora`,
+`estado`, `observacao`, `pedido_fonte`, `porta`, `visita` e o índice do `observacao`; a de testes
+tem o mesmo mais o `sugestao` e o seu índice — porque a caixa de sugestões ainda só existe em
+`testes`. Quando o PR for a produção, a Function cria lá a tabela na primeira escrita.
+
+### O que isto resolve
+
+O site de testes diferia de produção em mais do que o código: metade das Functions respondia 503
+lá, porque não havia `DADOS` nenhum no ambiente de Preview. Testar nele era testar meia app. Isto
+é a terceira peça da mesma ideia — depois de haver **um só** site de testes, e de ele ler os
+dados de produção em vez de uma cópia commitada.
+
+### A consequência que não era óbvia: a porta muda de base
+
+A tabela `porta` conta quem bate no endereço de um site de ramo. A porta **só existe em sites de
+ramo**, os sites de ramo **são** o ambiente de Preview, e o Preview está agora ligado à base de
+testes. Logo estas linhas passam a nascer lá, e na base de produção a tabela fica vazia para
+sempre.
+
+Isto não se vê a olhar para o código da Function — ela escreve em `env.DADOS` e não sabe qual é.
+Vê-se a seguir o caminho: `_middleware.js` → `env.DADOS` → a ligação do painel. E depois
+mede-se, que é o que fecha a questão: uma navegação a `testes.hoquei.pages.dev` com `User-Agent`
+de iPhone, logo a seguir à ligação estar feita, deixou `testes/aviso=1` na base de testes e
+**zero** na de produção. Apaguei a linha a seguir — uma visita minha a confirmar que a porta
+está de pé não é uma pessoa perdida, e deixá-la lá respondia a outra pergunta. O
+`scripts/quem-bate.sh` perguntava à base de produção e passaria a responder *"Nada registado"*
+para sempre, com uma mensagem a dizer que faltava ligar o `DADOS` ao `ok4sticks-dados` em
+Preview — conselho que se tornou errado no momento em que esta decisão foi tomada. Corrigido no
+mesmo commit: pergunta à base de testes, e a mensagem de zero linhas passa a dar uma forma de
+separar as duas leituras (abrir o site de testes e ver se a caixa de sugestões consegue enviar).
+
+### O que é do painel e o que é do repositório
+
+A ligação `DADOS` → base é **configuração do painel de Pages**, por ambiente. Nada no repositório
+a controla e nenhum teste a confirma. O que o repositório tem é uma forma de **perguntar ao site
+publicado**: o `scripts/verificar_producao.py` manda um corpo que a caixa de sugestões deve
+recusar com 400, e um 503 em vez disso quer dizer que não há base de dados naquele ambiente. É
+assim que se sabe, de fora, se a ligação está feita.
+
 ## E voltou a acontecer uma hora depois, sem ninguém publicar (13/10/2026)
 
 O dono, às 19h: *"estou outra vez sem consola"*. E isto derruba a premissa com que eu tinha

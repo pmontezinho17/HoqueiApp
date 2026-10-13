@@ -65,11 +65,15 @@ export const BANDEIRAS: Bandeira[] = [
 		onde: 'web/src/lib/feedback.ts',
 		esconde: 'a bolha de opinião no canto e a linha "Dar uma opinião" no menu',
 		porque:
-			'existe para a fase de testes com pais e treinadores — o item 1 do backlog, pôr a ' +
-			'app na mão de 5 a 10 pessoas — e sai quando ela acabar. A data é um palpite meu e ' +
-			'é para ser corrigida: o que importa é que exista uma, não que esteja certa.',
-		ate: '2026-11-30',
-		aoSair: '`lib/feedback.ts`, `lib/Feedback.svelte` e a linha no `routes/+layout.svelte`'
+			'**deixou de ser temporário a 13/10/2026.** Nasceu para a fase de testes com pais e ' +
+			'treinadores e tinha data para sair; o dono pediu que a sugestão virasse registo no ' +
+			'GitHub sozinha, e construir um processo diário para alimentar um botão marcado para ' +
+			'sair não fazia sentido. Fica como funcionalidade da app. O interruptor mantém-se ' +
+			'porque continua a ser a forma de o tirar do ar numa linha, se um dia for preciso.',
+		ate: null,
+		aoSair:
+			'se um dia sair: `lib/feedback.ts`, `lib/Feedback.svelte`, `functions/sugerir.js`, ' +
+			'o `sugestoes.yml`, a tabela `sugestao` e a secção da política de privacidade'
 	},
 	{
 		nome: 'DIRECTOS',

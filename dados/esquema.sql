@@ -5,10 +5,27 @@
 --     npx wrangler d1 execute ok4sticks-dados --remote --file dados/esquema.sql
 --
 -- Tudo aqui é `CREATE TABLE IF NOT EXISTS`, logo correr isto numa base cheia não faz nada e
--- correr numa base vazia constrói-a inteira. É assim que se cria a base **de testes** igual à
+-- correr numa base vazia constrói-a inteira. É assim que se criou a base **de testes** igual à
 -- de produção, trocando o nome:
 --
 --     npx wrangler d1 execute ok4sticks-dados-testes --remote --file dados/esquema.sql
+--
+-- ## São duas bases, e isso foi decisão do dono a 13/10/2026
+--
+-- *"eu quero garantir que os dois ambientes estão iguais. mas para isso temos de criar uma
+-- nova BD D1 que seja só para testes"*. Criada nesse dia, em WEUR, com este ficheiro:
+--
+--   `ok4sticks-dados`          ligada como `DADOS` no ambiente **Production** do Pages;
+--   `ok4sticks-dados-testes`   ligada como `DADOS` no ambiente **Preview**.
+--
+-- O site de testes passa a ter a app inteira a funcionar — consola, contadores, caixa de
+-- sugestões — **com os seus próprios números**, que é o que faltava para ele diferir de
+-- produção só no código. Antes não havia ligação nenhuma em Preview, e metade das Functions
+-- respondia 503 lá.
+--
+-- Isto é configuração de painel: não há nada no repositório que a controle, e por isso não há
+-- teste que a confirme. Quem quiser saber qual está ligada pergunta ao site —
+-- `scripts/verificar_producao.py` dá 503 na caixa de sugestões quando não há base nenhuma.
 --
 -- **O que isto não faz é migrar.** Acrescentar uma coluna a uma tabela que já existe exige um
 -- `ALTER TABLE`, e o `IF NOT EXISTS` passa por ela em silêncio — apanhado a 13/10/2026, no
@@ -132,6 +149,50 @@ CREATE TABLE IF NOT EXISTS entrada_hora (
 );
 
 -- ─────────────────────────────────────────────────────────────────────────────────────────
+-- As sugestões da caixa "O que está mal". Pedido do dono a 13/10/2026: que a sugestão virasse
+-- registo no GitHub sozinha, em vez de ficar num email à espera de alguém a copiar.
+--
+-- **É a primeira tabela deste projecto com texto de outras pessoas**, e isso tem três
+-- consequências que não são opcionais:
+--
+--   1. a política de privacidade enumera-a, diz o que fica e por quanto tempo;
+--   2. a caixa avisa **antes** de a pessoa escrever;
+--   3. apaga-se a pedido, como já prometemos para os nomes de atletas.
+--
+-- O que **não** está aqui, de propósito: nem IP, nem identificador, nem cabeçalhos. É a mesma
+-- promessa que a tabela `aparelho` cumpre. O preço é não haver limite por pessoa — há um tecto
+-- diário global e um limite de tamanho, no `functions/sugerir.js`, e é mais grosseiro de
+-- propósito, porque a alternativa era guardar quem é cada um.
+--
+-- A `ramo` não é um identificador de pessoa, é de **ambiente**: diz qual é o nosso site, não
+-- quem escreveu. Existe para o dono poder experimentar a caixa no site de testes sem que os
+-- ensaios virem registos a par das sugestões reais — o `sugestoes.yml` só arquiva onde ela é
+-- `NULL`, e o tecto diário também só conta essas.
+--
+-- A `issue` é o que impede duplicados: o processo diário só olha para as linhas onde ela é
+-- `NULL`, e escreve lá o número depois de criar o registo. Sem isso, uma corrida repetida
+-- criava a mesma issue duas vezes.
+--
+-- **A tabela é criada pela própria Function** (`CREATE TABLE IF NOT EXISTS` antes da escrita),
+-- e não aqui à mão: a ligação da D1 é o único caminho garantido, porque criar tabelas de fora
+-- exige o token da Cloudflare com âmbito de D1, que pode não estar lá. Fica escrita neste
+-- ficheiro porque é aqui que se vem ver o que existe.
+--
+-- Retenção: 180 dias, apagados pelo processo diário. Uma sugestão de há seis meses ou já virou
+-- trabalho ou já não é verdade sobre a app que existe.
+CREATE TABLE IF NOT EXISTS sugestao (
+  id     INTEGER PRIMARY KEY AUTOINCREMENT,
+  dia    TEXT NOT NULL,              -- data de Lisboa, 'AAAA-MM-DD'
+  hora   TEXT NOT NULL,              -- 'HH:MM:SS' de Lisboa
+  texto  TEXT NOT NULL,              -- o que a pessoa escreveu, até 2000 caracteres
+  ecra   TEXT,                       -- onde estava: '/jogo/9539?aba=equipas'
+  versao TEXT,                       -- a versão da app que ela tinha
+  ramo   TEXT,                       -- 'testes' se veio do site de testes; NULL = produção
+  issue  INTEGER                     -- o número do registo criado; NULL = ainda por arquivar
+);
+CREATE INDEX IF NOT EXISTS idx_sugestao_por_arquivar ON sugestao (issue) WHERE issue IS NULL;
+
+-- ─────────────────────────────────────────────────────────────────────────────────────────
 -- Quem ainda bate à porta de um site de ramo. Pedido pelo dono a 10/10/2026, no dia em que
 -- partilhou `testes.hoquei.pages.dev` em vez do endereço a sério: *"Sim quero saber"*.
 --
@@ -151,6 +212,17 @@ CREATE TABLE IF NOT EXISTS entrada_hora (
 -- contador do `visita`. Há um teste só para isso, porque é o género de coisa que se perde
 -- numa reorganização e que ninguém nota — os números reais é que ficavam inflados em
 -- silêncio.
+--
+-- **E desde 13/10/2026 estas linhas nascem na base de testes, não nesta.** A porta só aparece
+-- em sites de ramo, os sites de ramo são o ambiente de Preview, e o Preview está ligado ao
+-- `ok4sticks-dados-testes`. Por isso o `scripts/quem-bate.sh` pergunta **lá**: a tabela existe
+-- nas duas bases, e na de produção fica vazia para sempre. Não é desarrumação — a porta é uma
+-- coisa de testes, e o número que ela dá é sobre testes.
+--
+-- Medido nesse dia, e não deduzido: uma navegação a `testes.hoquei.pages.dev` com `User-Agent`
+-- de iPhone deixou `testes/aviso=1` na base de testes e **zero** na de produção. A linha foi
+-- apagada a seguir, pela razão que o `quem-bate.sh` explica — uma visita minha a confirmar que
+-- a porta está de pé não é uma pessoa perdida, e contá-la seria responder a outra pergunta.
 CREATE TABLE IF NOT EXISTS porta (
   dia    TEXT NOT NULL,
   ramo   TEXT NOT NULL,                   -- 'testes', 'versoes', ou o id de uma publicação

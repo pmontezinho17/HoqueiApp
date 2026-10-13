@@ -30,9 +30,16 @@ name: Site de um ramo
 # último commit de dados, que pode estar algumas horas atrás. Para experimentar interface é o
 # que se quer; para ver resultados ao vivo, o site a sério é o outro.
 #
-# O contador de utilização fica **calado** aqui, e também é de propósito: a ligação ao KV
-# está no ambiente de *Production* do projecto, e o middleware foi escrito para ser um
-# `next()` quando não a encontra. Assim o tráfego de testes não entra nas contagens reais.
+# O contador de utilização fica **calado** aqui, e também é de propósito. Durante uns dias a
+# garantia era não haver ligação nenhuma à base de dados neste ambiente — o middleware é um
+# `next()` quando não a encontra. **Deixou de ser a 13/10/2026**, quando o dono pediu uma base
+# só para testes (`ok4sticks-dados-testes`, ligada como `DADOS` no ambiente de *Preview*) para
+# os dois ambientes passarem a diferir só no código.
+#
+# Quem garante agora é outra coisa, e é mais forte: o `_middleware.js` trata os sites de ramo e
+# **sai antes** de chegar ao contador do `visita`. Há um teste só para isso. E mesmo que
+# passasse, escrevia na base de testes e não na real. São duas travas onde havia uma, mas a
+# primeira — a que estava escrita aqui — já não existe, e por isso não vale citá-la.
 #
 # ## Estes sites estão trancados desde 10/10/2026
 #

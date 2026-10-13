@@ -1,12 +1,20 @@
 <script lang="ts">
 	/**
-	 * Botão de crítica, temporário, para a fase de testes.
+	 * A caixa "O que está mal", que envia a sugestão para nós.
 	 *
-	 * **Não há servidor nem recolha.** O texto é montado no aparelho e só sai se a pessoa
-	 * carregar em enviar no programa de email dela — exactamente o que a política de
-	 * privacidade já descreve em "Escreve-nos". Pôr aqui uma caixa que grava texto noutro
-	 * sítio obrigaria a mudar essa página e a passar a guardar coisas de outras pessoas, e
-	 * não vale a pena para uma funcionalidade que sai daqui a umas semanas.
+	 * **Até 13/10/2026 isto era um `mailto:`**, e o cabeçalho defendia essa escolha com duas
+	 * razões: *"não há servidor nem recolha"*, e *"não vale a pena para uma funcionalidade que
+	 * sai daqui a umas semanas"*. O dono mudou os dois termos dessa conta — pediu que a
+	 * sugestão virasse registo no GitHub sozinha, e com isso o botão deixou de ser temporário.
+	 * Fica aqui o que a escolha antiga protegia, porque o que a substitui tem de o devolver de
+	 * outra forma: **a pessoa tem de saber, antes de escrever, para onde é que aquilo vai.**
+	 *
+	 * Agora grava na nossa base de dados — ver `functions/sugerir.js` — e um processo diário
+	 * arquiva-a num repositório **privado**. O texto não vai para lado nenhum público.
+	 *
+	 * **E o email continua lá, para o que é outra coisa.** Uma sugestão não precisa de resposta,
+	 * precisa de ser registada; uma dúvida precisa de resposta. O `mailto:` fica como segunda
+	 * via para quando o envio falhar, e como caminho de quem quer falar com uma pessoa.
 	 *
 	 * O ecrã onde a pessoa está vai junto, porque uma crítica sem saber onde aconteceu
 	 * obriga a uma segunda troca de mensagens. Vai escrito à vista no corpo, e não
@@ -17,15 +25,15 @@
 	import { CONTACTO } from './contacto';
 	import { APP_NOME } from './sitio';
 	import { critica } from './critica.svelte';
+	import { VERSAO } from './versao';
+	import { MAXIMO } from '../../functions/sugerir.js';
 
 	let texto = $state('');
 	let copiado = $state(false);
 	let caixa = $state<HTMLTextAreaElement | null>(null);
 
-	const contexto = $derived(
-		[`ecrã: ${page.url.pathname}${page.url.search}`, `versão dos dados: ${page.data?.meta?.generated_at ?? '?'}`]
-			.join('\n')
-	);
+	const ecra = $derived(`${page.url.pathname}${page.url.search}`);
+	const contexto = $derived(`ecrã: ${ecra} · versão: ${VERSAO}`);
 	const corpo = $derived(`${texto}\n\n—\n${contexto}`);
 	const link = $derived(
 		`mailto:${CONTACTO}?subject=${encodeURIComponent(`${APP_NOME} — crítica`)}` +
@@ -41,6 +49,9 @@
 	$effect(() => {
 		if (!critica.aberto) return;
 		copiado = false;
+		// Cinto e suspensórios: todos os fechos passam pelo `fecharEReiniciar`, mas se um dia
+		// algum deixar de passar, o que se via ao abrir era a confirmação do envio anterior.
+		estado = 'parado';
 		requestAnimationFrame(() => caixa?.focus());
 	});
 
@@ -54,31 +65,71 @@
 	}
 
 	/**
-	 * Depois de enviar, a caixa fica vazia.
+	 * Depois de enviar, a caixa fica vazia — e isso é para continuar assim.
 	 *
 	 * Antes não ficava: o painel fechava e o texto continuava lá, por isso quem voltasse a
-	 * abrir encontrava a crítica anterior à sua espera — e ou a apagava à mão, ou escrevia
-	 * a segunda a seguir à primeira e mandava as duas.
+	 * abrir encontrava a crítica anterior à sua espera — e ou a apagava à mão, ou escrevia a
+	 * segunda a seguir à primeira e mandava as duas. A limpeza vive no `enviar()`, e só depois
+	 * de a resposta vir bem.
 	 *
-	 * **Limpar só no tique seguinte**, e não aqui dentro: o `href` deste link é derivado do
-	 * texto, e apagá-lo no mesmo instante em que o browser está a seguir o `mailto:`
-	 * arriscava abrir o programa de email com o corpo vazio. O `setTimeout` custa nada e
-	 * tira a dúvida.
-	 *
-	 * Fechar pelo × ou pelo véu **não** limpa: aí o rascunho sobrevive, que é o que se quer
-	 * de quem fechou sem querer.
+	 * Fechar pelo × ou pelo véu **não** limpa: aí o rascunho sobrevive, que é o que se quer de
+	 * quem fechou sem querer. É também por isso que o `fecharEReiniciar` mexe no `estado` e
+	 * não no `texto`.
 	 */
-	function enviar() {
-		if (!texto.trim()) return;
+
+	/**
+	 * O estado do envio. `falhou` não é um beco: é o que faz aparecer o caminho do email,
+	 * para uma sugestão nunca se perder por a nossa base de dados estar em baixo.
+	 *
+	 * ## Porque é que o `enviado` ficou como está, e não se fecha sozinho
+	 *
+	 * Havia confirmação — uma linha de `--t-micro` por baixo da caixa de texto — e o painel
+	 * fechava-se 1,6 s depois. **Não chegava.** A 13/10/2026 o dono mandou duas sugestões do
+	 * site de testes, as duas chegaram à base de dados, e o que ele escreveu a seguir foi:
+	 * *"depois de carregar no enviar podia estar uma mensagem de mensagem enviada"*. Ou seja,
+	 * enviou duas vezes sem ver nenhuma das confirmações que lá estavam.
+	 *
+	 * Três coisas conspiravam, e conta-se o que cada uma fazia porque a correcção é a soma:
+	 *
+	 *   1. a mensagem era a letra mais pequena do painel, por baixo de tudo o resto;
+	 *   2. 1,6 s é menos do que o tempo de reparar que algo mudou **e** ler a frase — e o olho
+	 *      de quem acabou de carregar está no botão, que nesse instante desaparece;
+	 *   3. ao fechar, não ficava rasto nenhum. Quem piscou os olhos perdeu a única prova.
+	 *
+	 * Agora o painel **passa a ser** a confirmação: o formulário sai, entra um visto grande com
+	 * duas linhas, e **fica até a pessoa fechar**. Sem relógio nenhum. Uma caixa que só se usa
+	 * uma vez de cada vez pode dar-se ao luxo de esperar pela pessoa em vez de o contrário, e
+	 * um fecho automático só serve para poupar um toque a quem já conseguiu o que queria.
+	 */
+	let estado = $state<'parado' | 'a-enviar' | 'enviado' | 'falhou'>('parado');
+
+	/** Fecha e volta ao princípio, para a próxima abertura não encontrar a confirmação velha. */
+	function fecharEReiniciar() {
 		critica.fechar();
-		setTimeout(() => {
+		estado = 'parado';
+	}
+
+	async function enviar() {
+		if (!texto.trim() || estado === 'a-enviar') return;
+		estado = 'a-enviar';
+		try {
+			const r = await fetch('/sugerir', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				cache: 'no-store',
+				// `ok4` é a armadilha anti-robô do `sugerir.js`: vai sempre vazio
+				body: JSON.stringify({ texto: texto.trim(), ecra, versao: VERSAO, ok4: '' })
+			});
+			if (!r.ok) throw new Error(String(r.status));
+			estado = 'enviado';
 			texto = '';
-			copiado = false;
-		}, 0);
+		} catch {
+			estado = 'falhou';
+		}
 	}
 </script>
 
-<svelte:window onkeydown={(e) => e.key === 'Escape' && critica.fechar()} />
+<svelte:window onkeydown={(e) => e.key === 'Escape' && fecharEReiniciar()} />
 
 {#if !critica.aberto}
 	<button class="bolha" data-guia="feedback" onclick={() => critica.abrir()} aria-label="Dar uma opinião sobre a aplicação">
@@ -86,39 +137,68 @@
 	</button>
 {:else}
 	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
-	<div class="veu" onclick={() => critica.fechar()}></div>
+	<div class="veu" onclick={fecharEReiniciar}></div>
 	<div class="painel" role="dialog" aria-label="Dar uma opinião" aria-modal="true">
 		<div class="cabeca">
-			<strong>O que está mal?</strong>
-			<button class="fechar" onclick={() => critica.fechar()} aria-label="Fechar">×</button>
+			<strong>{estado === 'enviado' ? 'Mensagem enviada' : 'O que está mal?'}</strong>
+			<button class="fechar" onclick={fecharEReiniciar} aria-label="Fechar">×</button>
 		</div>
-		<p class="ajuda">
-			Diz o que te incomodou, o que falta ou o que não percebeste. Quanto mais directo,
-			melhor.
-		</p>
-		<textarea
-			bind:this={caixa}
-			bind:value={texto}
-			rows="5"
-			placeholder="Por exemplo: no jogo dos sub-15 os nomes aparecem cortados…"
-		></textarea>
-		<p class="junto">Vai junto: {contexto.replace(/\n/g, ' · ')}</p>
-		<div class="accoes">
-			<button class="copiar" onclick={copiar} disabled={!texto.trim()}>
-				{copiado ? 'copiado' : 'copiar'}
-			</button>
-			<a
-				class="enviar"
-				class:inactivo={!texto.trim()}
-				href={texto.trim() ? link : undefined}
-				aria-disabled={!texto.trim()}
-				onclick={enviar}>Enviar por email</a
-			>
-		</div>
-		<p class="nota">
-			Abre o teu email com isto escrito. Nada sai daqui sem seres tu a carregar em
-			enviar — se preferires o WhatsApp, usa o <em>copiar</em> e cola lá.
-		</p>
+		{#if estado === 'enviado'}
+			<!--
+			  O painel **passa a ser** a confirmação: o formulário sai todo. Antes a mensagem era
+			  uma linha de letra mínima por baixo da caixa de texto ainda cheia de campos, e o
+			  dono mandou duas sugestões a 13/10/2026 sem ver nenhuma das duas confirmações.
+
+			  `role="status"` para quem ouve a página: o texto é anunciado sem roubar o foco.
+			-->
+			<div class="recebido" role="status">
+				<Icone nome="visto" tamanho={40} />
+				<p class="recebido-titulo">Recebido, obrigado.</p>
+				<p class="recebido-texto">
+					Vamos lê-la. Não é preciso enviar outra vez — se quiseres acrescentar alguma
+					coisa, abre a caixa de novo.
+				</p>
+				<button class="fechar-grande" onclick={fecharEReiniciar}>Fechar</button>
+			</div>
+		{:else}
+			<p class="ajuda">
+				Diz o que te incomodou, o que falta ou o que não percebeste. Quanto mais directo,
+				melhor.
+			</p>
+			<textarea
+				bind:this={caixa}
+				bind:value={texto}
+				rows="5"
+				maxlength={MAXIMO}
+				placeholder="Por exemplo: no jogo dos sub-15 os nomes aparecem cortados…"
+			></textarea>
+			<p class="junto">Vai junto: {contexto}</p>
+			<div class="accoes">
+				<button class="copiar" onclick={copiar} disabled={!texto.trim()}>
+					{copiado ? 'copiado' : 'copiar'}
+				</button>
+				<button
+					class="enviar"
+					class:inactivo={!texto.trim() || estado === 'a-enviar'}
+					disabled={!texto.trim() || estado === 'a-enviar'}
+					onclick={enviar}>{estado === 'a-enviar' ? 'a enviar…' : 'Enviar'}</button
+				>
+			</div>
+			{#if estado === 'falhou'}
+				<!-- **A segunda via.** Se o envio falhar, a sugestão não se perde: abre-se o email
+				     com o texto já escrito, que é exactamente o que esta caixa fazia antes. -->
+				<p class="nota falhou">
+					Não deu para enviar daqui.
+					<a href={link}>Manda por email</a> — já vai escrito.
+				</p>
+			{:else}
+				<p class="nota">
+					Guardamos o que escreveres, com o ecrã e a versão, para o podermos corrigir. Não
+					guardamos quem és. Se preferires falar com uma pessoa,
+					<a href="mailto:{CONTACTO}">escreve-nos</a>.
+				</p>
+			{/if}
+		{/if}
 	</div>
 {/if}
 
@@ -230,6 +310,43 @@
 		font-weight: 600;
 	}
 	.enviar.inactivo, .copiar:disabled { opacity: 0.45; pointer-events: none; }
+	/* A confirmação ocupa o painel todo, e é essa a correcção: o que falhava não era a frase,
+	   era a frase ser a coisa mais pequena do ecrã logo a seguir ao toque. */
+	.recebido {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: var(--e-2);
+		padding: var(--e-4) 0 var(--e-2);
+	}
+	.recebido :global(svg) { color: var(--acento); }
+	.recebido-titulo {
+		margin: 0;
+		font-size: var(--t-titulo);
+		font-weight: 600;
+		color: var(--texto);
+	}
+	.recebido-texto {
+		margin: 0;
+		font-size: var(--t-pequeno);
+		color: var(--texto-2);
+		line-height: 1.45;
+		max-width: 22rem;
+	}
+	.fechar-grande {
+		margin-top: var(--e-3);
+		min-height: 44px;
+		padding: 0 var(--e-5);
+		border-radius: var(--raio);
+		border: 1px solid var(--borda);
+		background: var(--cartao);
+		color: var(--texto-2);
+		font-size: var(--t-base);
+		cursor: pointer;
+	}
+	.nota.falhou { color: var(--directo); }
+	.nota a { color: inherit; text-decoration: underline; }
 	.nota {
 		margin: var(--e-3) 0 0;
 		font-size: var(--t-micro);
