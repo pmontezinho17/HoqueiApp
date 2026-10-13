@@ -23,7 +23,7 @@
 	import { tema } from '$lib/tema.svelte';
 	import { cor } from '$lib/cor.svelte';
 	import { APP_NOME } from '$lib/sitio';
-	import { marcarPresenca } from '$lib/presenca';
+	import { marcarPresenca, marcarSessao } from '$lib/presenca';
 
 	let { data, children } = $props();
 
@@ -86,6 +86,22 @@
 	// pedidos não sabe responder: uma app aberta numa bancada pede dados de 30 em 30
 	// segundos e parecem sessenta pessoas.
 	$effect(() => marcarPresenca());
+
+	// E uma vez por **sessão**: a app foi aberta, ou retomada depois de meia hora parada.
+	// Substitui o contador de `aberturas`, que morreu a 13/10/2026 quando o `/v1/*` saiu do
+	// caminho das Functions — ver `lib/presenca.ts`.
+	//
+	// O `visibilitychange` é a metade que importa num telemóvel: uma PWA instalada quase nunca
+	// recarrega a página, por isso sem isto contava-se uma sessão por instalação e não por
+	// utilização. Sai no fim, senão uma navegação deixava escutas penduradas.
+	$effect(() => {
+		marcarSessao();
+		const aoVoltar = () => {
+			if (document.visibilityState === 'visible') marcarSessao();
+		};
+		document.addEventListener('visibilitychange', aoVoltar);
+		return () => document.removeEventListener('visibilitychange', aoVoltar);
+	});
 </script>
 
 {#if navigating.to}<div class="progresso" role="status" aria-label="A carregar"></div>{/if}

@@ -15,7 +15,7 @@
 	 */
 	import { CONTACTO } from '$lib/contacto';
 	import { SITIO_NOME, APP_NOME } from '$lib/sitio';
-	const ACTUALIZADA = '6 de outubro de 2026';
+	const ACTUALIZADA = '13 de outubro de 2026';
 </script>
 
 <svelte:head><title>Privacidade — {APP_NOME}</title></svelte:head>
@@ -53,6 +53,16 @@
 			"hoje abriram isto catorze aparelhos" e <strong>não</strong> conseguimos saber que
 			"este aparelho abriu nove dias seguidos" — para isso seria preciso um
 			identificador, e não existe nenhum.
+		</dd>
+		<dt>Uma marca de tempo, para saber quantas vezes a app é aberta</dt>
+		<dd>
+			Numa chave chamada <code>hoquei:sessao:v1</code>, com a hora a que abriste a app da
+			última vez. Serve para o teu aparelho avisar o contador quando a abres — ou quando a
+			retomas depois de meia hora parada — e ficar calado nas vezes seguintes. É a mesma
+			ideia da data acima: <strong>quem decide é o teu aparelho</strong>, e o que chega
+			aqui é um toque sem nada que te identifique. Substituiu uma contagem que fazíamos
+			do nosso lado, a contar pedidos de dados, e que dizia muito menos: não distinguia a
+			app esquecida no bolso de alguém a usá-la.
 		</dd>
 		<dt>A última versão que viste</dt>
 		<dd>
