@@ -1422,6 +1422,56 @@ de fecho passa de 560 para ~302.
 **Combinado para depois do fim de semana de 10–11/10**, a pedido meu: não se mexe no raspador a
 dezasseis horas de 36 jogos.
 
+### Feito a 12/10/2026 — metade, e a outra metade com a sua condição escrita
+
+O dono mandou avançar. **Entregue: saltar a classificação.** Está num ramo com PR, atrás do
+interruptor `FILTRAR_TABELAS`, desligado.
+
+Medido na agenda de 12/10, com 37 provas, 802 jogos e **9 provas já terminadas**:
+
+| dia | provas com jogo | pedidos | em vez de | poupa |
+|---|---|---|---|---|
+| 06 e 07/10 (sem jogos) | 0 | 38 | 75 | 37 |
+| 09/10 | 1 | 39 | 75 | 36 |
+| 10/10 (sábado) | 15 | 53 | 75 | 22 |
+| 11/10 (domingo) | 23 | 61 | 75 | 14 |
+
+**A outra metade — saltar o calendário — não se fez, e a razão não é esforço.** Dava 1 a 47
+pedidos em vez de 75, o dobro da poupança. Mas o calendário é a fonte da agenda, dos emblemas,
+das equipas por escalão, das fichas e dos quadros: saltá-lo obriga a ronda a reconstruir tudo
+isso a partir do `comp/<id>.json` guardado, o que é um refactor do ciclo que escreve **todos**
+os ficheiros publicados. E ao ir ver o que havia de rede debaixo dele descobri que **não havia
+nada**: não existia um `test_cli.py`, e todos os testes do raspador eram de parsers e de funções
+puras. O ciclo nunca tinha sido corrido num teste.
+
+Refactorizar sem rede o código que produz tudo o que a app lê, para poupar a segunda metade dos
+pedidos, era trocar um custo medido por um risco que não sei medir. **A condição da outra metade
+é o `test_ronda.py` crescer** até cobrir a agenda, as fichas e os quadros reconstruídos — e a
+primeira pedra já está lá.
+
+### O que ficou em teste, e as três travões
+
+O `provas_a_pedir.py` é uma função pura, ao lado do `vale_pedir` e pela mesma razão. Pede-se a
+tabela quando: a prova tem jogo hoje; tem jogo de ontem sem resultado; **os resultados mudaram
+desde a última publicação** (o travão preciso — a tabela da fonte só muda por causa de um jogo,
+e o calendário continua a ser lido em todas as rondas, logo sabemos que mudou sem gastar um
+pedido); é o **dia da varredura** semanal, à segunda-feira, dia fixo e não um contador, porque
+um contador perde-se quando uma corrida falha; ou não há cópia publicada para reutilizar.
+
+Uma armadilha que tem teste com nome: **`all([])` é `True` em Python**. Sem uma guarda, uma
+prova que a fonte acabou de criar — já na lista de competições, ainda sem calendário — passava
+por "terminada" e nunca mais era olhada. É o modo de falha exacto que esta secção descreve.
+
+E a propriedade que torna isto publicável: **saltar o pedido não muda um byte do que a app
+lê.** O `test_ronda.py` corre a ronda duas vezes com o filtro e duas sem, e compara os
+`comp/*.json` e a `agenda.json` ficheiro a ficheiro. Verifiquei que esse teste falha se o salto
+publicar uma tabela vazia — que era o defeito óbvio, porque um `[]` fazia o `vale_calcular`
+concluir que a fonte não publica tabela e punha a nossa calculada no lugar dela.
+
+O `meta.json` passa a dizer `tabelas_saltadas` e `tabelas_saltadas_porque`, senão o gráfico da
+consola mostrava menos pedidos sem ninguém saber se foi poupança ou avaria — o defeito do B9.31
+outra vez.
+
 ## Todos os 76 jogos do fim de semana davam erro antes de começar (09/10/2026)
 
 Encontrado a verificar a publicação, horas antes do fim de semana que o dono não quer que

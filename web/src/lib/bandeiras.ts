@@ -84,6 +84,23 @@ export const BANDEIRAS: Bandeira[] = [
 		aoSair: 'nada — a capacidade é para ficar; o que vai e vem são as entradas'
 	},
 	{
+		nome: 'FILTRAR_TABELAS',
+		onde: 'scraper/src/hoquei/provas_a_pedir.py',
+		esconde:
+			'nada no ecrã — o que muda é a app pedir menos páginas ao servidor da associação',
+		porque:
+			'o item A do backlog, pedido do dono a 12/10/2026. Entra desligado porque o risco ' +
+			'é cegar-nos e não poupar de menos: uma prova que achemos terminada deixa de ser ' +
+			'olhada, e isso não dá sinal nenhum. Ligar é decisão dele, e depois de ligar o que ' +
+			'se olha é o gráfico de pedidos por hora na consola — os pedidos têm de cair e ' +
+			'nenhuma prova pode ficar calada.',
+		ate: '2026-10-26',
+		aoSair:
+			'se ficar ligado, a constante e este registo; se for recusado, o `provas_a_pedir.py`, ' +
+			'o `test_provas_a_pedir.py` e o `quer_tabela` no `cli.py` — o `test_ronda.py` fica, ' +
+			'que esse é a rede que faltava a este projecto'
+	},
+	{
 		nome: '--anonimizar-formacao',
 		onde: 'scraper/src/hoquei/cli.py',
 		esconde: 'os nomes dos atletas nos escalões abaixo de sub-17',
