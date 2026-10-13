@@ -1,5 +1,20 @@
 -- Esquema do `ok4sticks-dados` (D1), criado a 09/10/2026.
 --
+-- ## Este ficheiro é o comando que constrói uma base, e não só a sua descrição
+--
+--     npx wrangler d1 execute ok4sticks-dados --remote --file dados/esquema.sql
+--
+-- Tudo aqui é `CREATE TABLE IF NOT EXISTS`, logo correr isto numa base cheia não faz nada e
+-- correr numa base vazia constrói-a inteira. É assim que se cria a base **de testes** igual à
+-- de produção, trocando o nome:
+--
+--     npx wrangler d1 execute ok4sticks-dados-testes --remote --file dados/esquema.sql
+--
+-- **O que isto não faz é migrar.** Acrescentar uma coluna a uma tabela que já existe exige um
+-- `ALTER TABLE`, e o `IF NOT EXISTS` passa por ela em silêncio — apanhado a 13/10/2026, no
+-- `functions/sugerir.js`, onde custou um 503 e uma sugestão perdida no ensaio local. Quem
+-- acrescentar uma coluna a uma tabela viva trata disso à parte.
+--
 -- ## Porque é que isto saiu do KV
 --
 -- Estava tudo em dois armazéns chave-valor, e a Cloudflare mandou um aviso de 50% do limite
