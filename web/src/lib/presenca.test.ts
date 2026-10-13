@@ -1,5 +1,12 @@
 import { describe, expect, it, vi } from 'vitest';
-import { decidir, diaDeLisboa, marcarPresenca } from './presenca';
+import {
+	PAUSA_DE_SESSAO,
+	decidir,
+	decidirSessao,
+	diaDeLisboa,
+	marcarPresenca,
+	marcarSessao
+} from './presenca';
 
 /**
  * A regra de contar **uma vez por dia e por aparelho**, sem identificador.
@@ -108,5 +115,120 @@ describe('o pedido que sai', () => {
 		const buscar = vi.fn().mockResolvedValue(new Response(null, { status: 204 }));
 		marcarPresenca(buscar as unknown as typeof fetch, null);
 		expect(buscar).not.toHaveBeenCalled();
+	});
+});
+
+/**
+ * A contagem de **sessões**, que substituiu o `aberturas` a 13/10/2026.
+ *
+ * O número antigo vinha do servidor, amostrado 1 em 10 dos pedidos de dados, e morreu quando o
+ * `/v1/*` saiu do caminho das Functions para parar de esgotar a quota e derrubar produção.
+ * Este vem do cliente e tem uma definição que se diz numa frase: *a app foi aberta, ou
+ * retomada depois de meia hora parada*.
+ *
+ * O que estes testes guardam é a mesma propriedade do contador de aparelhos — o que sai é um
+ * toque sem nada que identifique ninguém — mais as duas horas em que isto se engana: o relógio
+ * do aparelho e o armazenamento bloqueado.
+ */
+describe('decidir se esta abertura é uma sessão nova', () => {
+	const agora = Date.parse('2026-10-13T21:00:00Z');
+
+	it('a primeira de sempre conta', () => {
+		expect(decidirSessao(null, agora)).toEqual({ desde: new Date(agora).toISOString() });
+	});
+
+	it('logo a seguir não conta', () => {
+		const ha5min = new Date(agora - 5 * 60_000).toISOString();
+		expect(decidirSessao(ha5min, agora)).toBeNull();
+	});
+
+	it('mesmo no limite da pausa ainda não conta', () => {
+		const quase = new Date(agora - (PAUSA_DE_SESSAO * 60_000 - 1)).toISOString();
+		expect(decidirSessao(quase, agora)).toBeNull();
+	});
+
+	it('passada a pausa, conta outra vez', () => {
+		const exacto = new Date(agora - PAUSA_DE_SESSAO * 60_000).toISOString();
+		expect(decidirSessao(exacto, agora)).not.toBeNull();
+	});
+
+	it('uma marca ilegível conta como nunca, e não emudece o aparelho', () => {
+		expect(decidirSessao('ontem à tarde', agora)).not.toBeNull();
+		expect(decidirSessao('', agora)).not.toBeNull();
+	});
+
+	it('uma marca no futuro conta, senão o aparelho desaparecia das contas', () => {
+		// Um relógio adiantado — por engano, ou por alguém a brincar — deixaria este aparelho
+		// calado até a data chegar. Contar uma sessão a mais é o modo de falha a preferir.
+		const amanha = new Date(agora + 24 * 3600_000).toISOString();
+		expect(decidirSessao(amanha, agora)).not.toBeNull();
+	});
+});
+
+describe('o toque da sessão', () => {
+	const resposta = () => vi.fn().mockResolvedValue(new Response(null, { status: 204 }));
+
+	it('leva `sessao=1` e mais nada — nenhum identificador', () => {
+		const a = armazem();
+		const buscar = resposta();
+		marcarSessao(buscar as unknown as typeof fetch, a, Date.parse('2026-10-13T21:00:00Z'));
+		expect(buscar).toHaveBeenCalledTimes(1);
+		expect(buscar.mock.calls[0][0]).toBe('/contar?sessao=1');
+		expect(String(buscar.mock.calls[0][0]).split('?')[1]).toBe('sessao=1');
+	});
+
+	it('o que fica guardado é uma marca de tempo, e só essa chave', () => {
+		const a = armazem();
+		marcarSessao(resposta() as unknown as typeof fetch, a, Date.parse('2026-10-13T21:00:00Z'));
+		expect(Object.keys(a.ver())).toEqual(['hoquei:sessao:v1']);
+		expect(a.ver()['hoquei:sessao:v1']).toBe('2026-10-13T21:00:00.000Z');
+	});
+
+	it('abrir e fechar a app dez vezes seguidas conta uma sessão', () => {
+		const a = armazem();
+		const buscar = resposta();
+		const t = Date.parse('2026-10-13T21:00:00Z');
+		for (let i = 0; i < 10; i++) {
+			marcarSessao(buscar as unknown as typeof fetch, a, t + i * 60_000);
+		}
+		expect(buscar).toHaveBeenCalledTimes(1);
+	});
+
+	it('voltar à app depois do jantar conta outra', () => {
+		const a = armazem();
+		const buscar = resposta();
+		const t = Date.parse('2026-10-13T19:00:00Z');
+		marcarSessao(buscar as unknown as typeof fetch, a, t);
+		marcarSessao(buscar as unknown as typeof fetch, a, t + 90 * 60_000);
+		expect(buscar).toHaveBeenCalledTimes(2);
+	});
+
+	it('com o armazenamento bloqueado, não conta', () => {
+		// Sem conseguir guardar a marca, contaria em cada abertura e inflacionava o número.
+		// Preferir um número baixo e verdadeiro a um número alto e inventado — é a mesma regra
+		// do contador de aparelhos.
+		const bloqueado = {
+			getItem: () => {
+				throw new Error('bloqueado');
+			},
+			setItem: () => {
+				throw new Error('bloqueado');
+			}
+		};
+		const buscar = resposta();
+		marcarSessao(buscar as unknown as typeof fetch, bloqueado);
+		expect(buscar).not.toHaveBeenCalled();
+	});
+
+	it('um fetch que atira não parte a app', () => {
+		const a = armazem();
+		const rebenta = (() => {
+			throw new Error('bloqueado por política');
+		}) as unknown as typeof fetch;
+		expect(() => marcarSessao(rebenta, a)).not.toThrow();
+	});
+
+	it('sem armazenamento nenhum, não estoura', () => {
+		expect(() => marcarSessao(resposta() as unknown as typeof fetch, null)).not.toThrow();
 	});
 });
