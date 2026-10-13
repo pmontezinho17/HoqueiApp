@@ -30,6 +30,14 @@
 /sw.js
   Cache-Control: no-cache
 
+# TEMPORÁRIO (13/10/2026) — a segunda metade do ensaio da cache, e sai no commit seguinte.
+# Com `no-store` a borda deixa de guardar este caminho, e aí a resposta velha de sete dias
+# que ela ainda tinha é substituída por uma que não se guarda. Sem este passo, o ficheiro
+# apagado continuava a ser servido da borda até sete dias depois — que é precisamente a
+# descoberta que este ensaio deu.
+/ensaio-cache.txt
+  Cache-Control: no-store
+
 # O número da versão publicada, que a app lê para decidir se uma actualização vale um aviso.
 # **Nunca em cache:** um número de versão servido da cache responde à pergunta de há cinco
 # minutos, e aí a app ou avisa por nada ou cala-se quando devia avisar.
