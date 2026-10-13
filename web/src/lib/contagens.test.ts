@@ -39,15 +39,30 @@ describe('o que o contador do servidor conta', () => {
 	 * `_middleware.js`. Conta-se 1 em `AMOSTRA` para não mandar dezenas de milhar de escritas
 	 * à mesma linha da tabela num sábado cheio — era um tecto do KV e hoje é uma escolha.
 	 */
-	it('o meta.json conta por amostragem, e nunca mais do que 1 em AMOSTRA', () => {
+	/**
+	 * **O `/v1/*` já não conta nada, e foi uma troca deliberada a 13/10/2026.**
+	 *
+	 * Este ramo amostrava 1 em 10 dos pedidos ao `meta.json` como sinal de "alguém tem a app
+	 * aberta". Para isso o `_routes.json` mandava **todos** os pedidos pelas Functions, e no
+	 * plano grátis cada um conta para as 100 000 invocações diárias da conta. Esgotá-las faz a
+	 * Cloudflare ignorar as Functions e servir só os estáticos — a avaria que o dono encontrou
+	 * duas vezes nesse dia. Um contador de aberturas que derruba o site é um mau negócio.
+	 *
+	 * O sinal volta pelo lado do cliente, que já é quem decide quando avisa o `/contar`.
+	 */
+	it('um pedido de dados não conta — nem chega a passar pelo middleware', () => {
 		const p = pedido('/v1/aplisboa/2026-27/meta.json');
-		expect(oQueContar(p, () => 0)).toBe('aberturas');
-		expect(oQueContar(p, () => 1 / AMOSTRA)).toBe(null);
+		expect(oQueContar(p, () => 0)).toBe(null);
 		expect(oQueContar(p, () => 0.99)).toBe(null);
 	});
 
-	it('o meta.json de outra época também conta: a época está no caminho', () => {
-		expect(oQueContar(pedido('/v1/aplisboa/2027-28/meta.json'), () => 0)).toBe('aberturas');
+	it('e nenhum outro ficheiro de dados, de qualquer época', () => {
+		for (const c of [
+			'/v1/aplisboa/2027-28/meta.json',
+			'/v1/aplisboa/2026-27/agenda.json',
+			'/v1/aplisboa/2026-27/match/9539.json'
+		])
+			expect(oQueContar(pedido(c), () => 0), c).toBe(null);
 	});
 
 	it('um POST não conta nada', () => {
@@ -64,12 +79,17 @@ describe('o que o contador do servidor conta', () => {
  * observador. Um número que cresce quando se olha mais para ele não serve para nada.
  */
 describe('os nossos próprios agentes não contam', () => {
+	/**
+	 * Mede-se numa **navegação** e não num pedido de dados: desde 13/10/2026 o `/v1/*` não
+	 * passa pelo middleware, por isso um `meta.json` já não contava de qualquer maneira e o
+	 * teste deixaria de medir a regra do agente.
+	 */
 	const nosso = (ua: string) =>
 		oQueContar(
-			new Request('https://hoquei.pages.dev/v1/aplisboa/2026-27/meta.json', {
-				headers: { 'User-Agent': ua }
+			new Request('https://hoquei.pages.dev/clube', {
+				headers: { 'User-Agent': ua, 'Sec-Fetch-Mode': 'navigate' }
 			}),
-			() => 0 // o sorteio garante que, sem a regra do agente, isto contava
+			() => 0
 		);
 
 	it('o observador, o script de observação e a sonda ficam de fora', () => {
@@ -80,16 +100,16 @@ describe('os nossos próprios agentes não contam', () => {
 	});
 
 	it('um telemóvel a sério continua a contar', () => {
-		expect(nosso('Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X)')).toBe('aberturas');
+		expect(nosso('Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X)')).toBe('/clube');
 		// e sem User-Agent nenhum também conta: não se presume que seja nosso
-		expect(nosso('')).toBe('aberturas');
+		expect(nosso('')).toBe('/clube');
 	});
 
 	it('o prefixo é o que manda, e não o nome inteiro', () => {
 		// um agente nosso que ainda não exista, com o mesmo prefixo, já fica de fora
 		expect(nosso('hoqueiAPP-qualquer-coisa-nova/9')).toBe(null);
 		// e um agente de fora que mencione o nome no fim não é nosso
-		expect(nosso('AlgumBot/1.0 (compatible; hoqueiAPP)')).toBe('aberturas');
+		expect(nosso('AlgumBot/1.0 (compatible; hoqueiAPP)')).toBe('/clube');
 	});
 
 	it('as navegações de um agente nosso também não contam', () => {

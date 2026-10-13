@@ -448,10 +448,22 @@ describe('o site de testes lê os dados de produção', () => {
 		expect(deUmSiteDeRamo(p)).toBe(true);
 	});
 
-	it('um telemóvel a usar a app a sério continua a contar', () => {
+	it('um telemóvel a usar a app a sério não é tratado como ramo', () => {
+		/**
+		 * **Mede o `deUmSiteDeRamo` e já não o `oQueContar`.** Estes pedidos são ao
+		 * `/v1/*`, e desde 13/10/2026 o `_routes.json` exclui-o das Functions: um ficheiro de
+		 * dados já não conta nada, venha de onde vier. A promessa que este bloco guarda — o
+		 * tráfego de testes não entra nas contagens reais — continua a ser guardada pelo
+		 * `deUmSiteDeRamo`, e o teste de cima verifica-a com o `oQueContar` a devolver `null`
+		 * pelas duas razões ao mesmo tempo, o que é mais fraco mas já não é evitável aqui.
+		 */
 		expect(deUmSiteDeRamo(pedidoDe(null))).toBe(false);
-		expect(oQueContar(pedidoDe(null), () => 0)).toBe('aberturas');
 		expect(deUmSiteDeRamo(pedidoDe('https://hoquei.pages.dev'))).toBe(false);
+		// e numa navegação, que é o que ainda passa pelo middleware, continua a contar
+		const navegacao = new Request('https://hoquei.pages.dev/clube', {
+			headers: { 'User-Agent': TELEMOVEL, 'Sec-Fetch-Mode': 'navigate' }
+		});
+		expect(oQueContar(navegacao, () => 0)).toBe('/clube');
 	});
 
 	it('um cabeçalho que não é um endereço não rebenta nem engana', () => {

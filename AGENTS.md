@@ -99,7 +99,7 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
 | | |
 |---|---|
 | `scraper/` | o raspador em Python (`uv`, `httpx`, `selectolax`), os *parsers* e 305 testes |
-| `web/` | a PWA (SvelteKit 2, runes, `adapter-static`, `@vite-pwa/sveltekit`) e 294 testes |
+| `web/` | a PWA (SvelteKit 2, runes, `adapter-static`, `@vite-pwa/sveltekit`) e 297 testes |
 | `web/static/v1/` | os JSON publicados — o contrato de dados |
 | `scripts/` | o ciclo ao vivo (`aovivo.sh`) e utilitários |
 | `worker/relogio/` | o Cloudflare Worker que serve de relógio e cão de guarda às Actions |
@@ -153,6 +153,14 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
   escrever uma linha em `NOVIDADES` para quem a vai ver. Uma publicação que só mexe na
   consola, no raspador ou num workflow **não sobe a versão** — e é isso que impede o aviso de
   actualização de aparecer a toda a gente por nada.
+- **O `/v1/*` não passa pelas Pages Functions, e isso não é arrumação.** No plano grátis cada
+  invocação conta para os 100 000 pedidos diários da conta Workers, e esgotá-los faz a
+  Cloudflare **ignorar as Functions e servir só os ficheiros estáticos** — sem consola, sem
+  contador, com os links directos a dar 404 e o `/v1/*` de volta à cache por omissão. A 13/10/2026
+  isso aconteceu duas vezes num dia, porque o `_routes.json` mandava **todos** os pedidos pelas
+  Functions, incluindo cada sondagem de dados de cada telemóvel. Quem acrescentar um caminho
+  muito pedido põe-no no `exclude` do `_routes.json`; há um teste que recusa tirar o `/v1/*` de
+  lá. O preço foi o contador de "aberturas", que volta pelo lado do cliente.
 - **Publicar não é ter publicado: confirma-se a pedir ao site.** O
   `scripts/verificar_producao.py` corre depois de cada publicação, nos **dois** publicadores, e
   verifica seis coisas no site que está no ar — as Functions, a consola, os links directos, a

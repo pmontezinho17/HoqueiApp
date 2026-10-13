@@ -2371,6 +2371,47 @@ incidente aberto nos Workers desde as 15:18. Coincide com a primeira descoberta,
 avaria apareceu depois de o incidente maior ter fechado. Fica registado como contexto, não como
 causa: **a causa não a consigo determinar de fora.**
 
+### A causa, encontrada — e eu ajudei a provocá-la
+
+Às 18:44 a vigia disse "sã". Às **18:45:44**, oitenta segundos depois, estava em baixo. Depois
+50 pedidos seguidos ao `/contar`, todos 404: não é intermitente, flipou e ficou.
+
+Oitenta segundos não é "degrada-se com o tempo" — é um limite a ser atingido. E a documentação
+da Cloudflare diz exactamente isto: no plano grátis, **os pedidos às Pages Functions contam para
+os 100 000 por dia da conta Workers**, com reposição à meia-noite UTC, e o modo por omissão é
+**"fail open"** — esgotado o limite, a Function é ignorada e o tráfego vai para os ficheiros
+estáticos. Pedidos a ficheiros estáticos são gratuitos e ilimitados.
+
+Todos os sintomas encaixam: sem Functions, o `/consola` e o `/contar` ficam sem ninguém a
+responder, e o encaminhamento do site muda de camada.
+
+**E o nosso `_routes.json` dizia `include: ["/*"]`.** Ou seja, **cada pedido ao site invocava o
+middleware**: cada página, e cada sondagem de dados de cada telemóvel — de 5 em 5 minutos com a
+app aberta, de 30 em 30 segundos durante os jogos. Mais o observador, mais o relógio a ler a
+agenda e o `meta.json` de dez em dez minutos. Mais, hoje, as **centenas de pedidos que eu próprio
+fiz** a diagnosticar e a medir a cache. É plausível que tenha sido eu a empurrar a conta por cima
+do limite — e a avaria de ontem, 18 horas, caiu no mesmo dia UTC em que eu andei a testar a porta
+dos ramos.
+
+**Não está provado**, e digo-o: o que a documentação dá é um mecanismo que explica todos os
+sintomas, e o que eu tenho é a coincidência do tempo. **O que prova é o painel**, que eu não vejo
+e o dono vê: *Workers & Pages → uso*, os pedidos do dia contra as 100 000.
+
+### A correcção, que é boa mesmo que a causa seja outra
+
+O `/v1/*` passou para o `exclude` do `_routes.json`. É o caminho mais pedido do site com enorme
+distância, e **não tem nada para decidir**: são ficheiros. Encaminhar o contrato de dados por um
+Worker para contar visitas é pagar com a resiliência do site inteiro um número que se pode obter
+de outra forma.
+
+**O que custou:** o contador de "aberturas", que amostrava 1 em 10 dos pedidos ao `meta.json`. A
+consola mostrará `aberturas` a zero nos dias novos; o histórico fica. **Volta pelo lado do
+cliente** — é ele que já decide quando avisa o `/contar`, uma vez por dia — e isso fica como o
+próximo item, pequeno.
+
+E há um teste que recusa tirar o `/v1/*` do `exclude`, verificado a pôr o defeito de propósito.
+Voltar a pôr os dados nas Functions é uma linha, e o sintoma demora horas a aparecer.
+
 ### A lição, e é sobre a correcção de ontem e não sobre a avaria
 
 **Uma verificação que só corre quando publicamos nunca apanha uma avaria que aparece sem

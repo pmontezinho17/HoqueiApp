@@ -145,6 +145,12 @@ export function deUmSiteDeRamo(pedido) {
  * `null` é o caso normal: um ficheiro de dados qualquer, um emblema, um pedido que não diz
  * nada sobre utilização.
  *
+ * **E já não vê o `/v1/*`.** O `_routes.json` exclui-o desde 13/10/2026, porque cada sondagem
+ * de dados a passar por uma Function custava uma das 100 000 invocações diárias do plano
+ * grátis — e esgotá-las faz a Cloudflare servir só os ficheiros estáticos, que é a avaria de
+ * produção desse dia. O `sorteio` fica no parâmetro porque é o que mantém os testes antigos a
+ * poder fixar a amostragem que ainda existe noutros caminhos.
+ *
  * @param {Request} pedido
  * @param {() => number} [sorteio] injectável só para o teste poder fixar a amostragem
  * @returns {string | null}
@@ -155,10 +161,24 @@ export function oQueContar(pedido, sorteio = Math.random) {
 	if (deUmSiteDeRamo(pedido)) return null;
 	const caminho = new URL(pedido.url).pathname;
 
-	// o sinal de "alguém tem a app aberta": não depende do service worker, mas é frequente
-	if (/^\/v1\/[^/]+\/[^/]+\/meta\.json$/.test(caminho)) {
-		return sorteio() < 1 / AMOSTRA ? 'aberturas' : null;
-	}
+	// **O `/v1/*` já não passa por aqui, e o contador de "aberturas" morreu com isso.**
+	//
+	// Até 13/10/2026 este ramo amostrava 1 em 10 dos pedidos ao `meta.json` como sinal de
+	// "alguém tem a app aberta". Para o fazer, o `_routes.json` mandava **todos** os pedidos
+	// pelas Functions — incluindo cada sondagem de dados de cada telemóvel, de 5 em 5 minutos
+	// e de 30 em 30 segundos durante os jogos.
+	//
+	// No plano grátis, cada um desses pedidos conta para os **100 000 por dia** da conta
+	// Workers, e o modo por omissão é *fail open*: esgotado o limite, a Cloudflare **ignora a
+	// Function** e serve só os ficheiros estáticos. É exactamente a avaria que o dono
+	// encontrou duas vezes a 13/10 — sem consola, sem contador, links directos a dar 404 e o
+	// `/v1/*` de volta à cache por omissão. Um contador de aberturas que derruba o site é um
+	// mau negócio.
+	//
+	// O `/v1/*` passou a estar no `exclude` do `_routes.json` e os dados deixaram de custar
+	// invocações. O sinal de "app aberta" volta pelo lado do cliente — é ele que já decide
+	// quando avisa o `/contar`, uma vez por dia; ver o backlog. Até lá, a consola mostra
+	// `aberturas` a zero nos dias novos, e o histórico fica como está.
 
 	// uma pessoa a abrir um ecrã de fora da app — primeira visita, link partilhado, recarregar
 	const navegacao =
