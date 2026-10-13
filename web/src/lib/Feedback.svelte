@@ -1,12 +1,20 @@
 <script lang="ts">
 	/**
-	 * Botão de crítica, temporário, para a fase de testes.
+	 * A caixa "O que está mal", que envia a sugestão para nós.
 	 *
-	 * **Não há servidor nem recolha.** O texto é montado no aparelho e só sai se a pessoa
-	 * carregar em enviar no programa de email dela — exactamente o que a política de
-	 * privacidade já descreve em "Escreve-nos". Pôr aqui uma caixa que grava texto noutro
-	 * sítio obrigaria a mudar essa página e a passar a guardar coisas de outras pessoas, e
-	 * não vale a pena para uma funcionalidade que sai daqui a umas semanas.
+	 * **Até 13/10/2026 isto era um `mailto:`**, e o cabeçalho defendia essa escolha com duas
+	 * razões: *"não há servidor nem recolha"*, e *"não vale a pena para uma funcionalidade que
+	 * sai daqui a umas semanas"*. O dono mudou os dois termos dessa conta — pediu que a
+	 * sugestão virasse registo no GitHub sozinha, e com isso o botão deixou de ser temporário.
+	 * Fica aqui o que a escolha antiga protegia, porque o que a substitui tem de o devolver de
+	 * outra forma: **a pessoa tem de saber, antes de escrever, para onde é que aquilo vai.**
+	 *
+	 * Agora grava na nossa base de dados — ver `functions/sugerir.js` — e um processo diário
+	 * arquiva-a num repositório **privado**. O texto não vai para lado nenhum público.
+	 *
+	 * **E o email continua lá, para o que é outra coisa.** Uma sugestão não precisa de resposta,
+	 * precisa de ser registada; uma dúvida precisa de resposta. O `mailto:` fica como segunda
+	 * via para quando o envio falhar, e como caminho de quem quer falar com uma pessoa.
 	 *
 	 * O ecrã onde a pessoa está vai junto, porque uma crítica sem saber onde aconteceu
 	 * obriga a uma segunda troca de mensagens. Vai escrito à vista no corpo, e não
@@ -17,15 +25,15 @@
 	import { CONTACTO } from './contacto';
 	import { APP_NOME } from './sitio';
 	import { critica } from './critica.svelte';
+	import { VERSAO } from './versao';
+	import { MAXIMO } from '../../functions/sugerir.js';
 
 	let texto = $state('');
 	let copiado = $state(false);
 	let caixa = $state<HTMLTextAreaElement | null>(null);
 
-	const contexto = $derived(
-		[`ecrã: ${page.url.pathname}${page.url.search}`, `versão dos dados: ${page.data?.meta?.generated_at ?? '?'}`]
-			.join('\n')
-	);
+	const ecra = $derived(`${page.url.pathname}${page.url.search}`);
+	const contexto = $derived(`ecrã: ${ecra} · versão: ${VERSAO}`);
 	const corpo = $derived(`${texto}\n\n—\n${contexto}`);
 	const link = $derived(
 		`mailto:${CONTACTO}?subject=${encodeURIComponent(`${APP_NOME} — crítica`)}` +
@@ -68,13 +76,36 @@
 	 * Fechar pelo × ou pelo véu **não** limpa: aí o rascunho sobrevive, que é o que se quer
 	 * de quem fechou sem querer.
 	 */
-	function enviar() {
-		if (!texto.trim()) return;
-		critica.fechar();
-		setTimeout(() => {
+		/**
+		 * O estado do envio. `falhou` não é um beco: é o que faz aparecer o caminho do email,
+		 * para uma sugestão nunca se perder por a nossa base de dados estar em baixo — ou por
+		 * estarmos no site de testes, onde não há ligação a ela.
+		 */
+	let estado = $state<'parado' | 'a-enviar' | 'enviado' | 'falhou'>('parado');
+
+	async function enviar() {
+		if (!texto.trim() || estado === 'a-enviar') return;
+		estado = 'a-enviar';
+		try {
+			const r = await fetch('/sugerir', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				cache: 'no-store',
+				// `ok4` é a armadilha anti-robô do `sugerir.js`: vai sempre vazio
+				body: JSON.stringify({ texto: texto.trim(), ecra, versao: VERSAO, ok4: '' })
+			});
+			if (!r.ok) throw new Error(String(r.status));
+			estado = 'enviado';
 			texto = '';
-			copiado = false;
-		}, 0);
+			// Fecha-se sozinha, mas **só depois de a pessoa ver que foi** — fechar no mesmo
+			// instante deixava-a sem saber se tinha resultado.
+			setTimeout(() => {
+				critica.fechar();
+				estado = 'parado';
+			}, 1600);
+		} catch {
+			estado = 'falhou';
+		}
 	}
 </script>
 
@@ -100,25 +131,39 @@
 			bind:this={caixa}
 			bind:value={texto}
 			rows="5"
+			maxlength={MAXIMO}
 			placeholder="Por exemplo: no jogo dos sub-15 os nomes aparecem cortados…"
 		></textarea>
-		<p class="junto">Vai junto: {contexto.replace(/\n/g, ' · ')}</p>
-		<div class="accoes">
-			<button class="copiar" onclick={copiar} disabled={!texto.trim()}>
-				{copiado ? 'copiado' : 'copiar'}
-			</button>
-			<a
-				class="enviar"
-				class:inactivo={!texto.trim()}
-				href={texto.trim() ? link : undefined}
-				aria-disabled={!texto.trim()}
-				onclick={enviar}>Enviar por email</a
-			>
-		</div>
-		<p class="nota">
-			Abre o teu email com isto escrito. Nada sai daqui sem seres tu a carregar em
-			enviar — se preferires o WhatsApp, usa o <em>copiar</em> e cola lá.
-		</p>
+		<p class="junto">Vai junto: {contexto}</p>
+		{#if estado === 'enviado'}
+			<p class="feito">Recebido. Obrigado — vamos lê-la.</p>
+		{:else}
+			<div class="accoes">
+				<button class="copiar" onclick={copiar} disabled={!texto.trim()}>
+					{copiado ? 'copiado' : 'copiar'}
+				</button>
+				<button
+					class="enviar"
+					class:inactivo={!texto.trim() || estado === 'a-enviar'}
+					disabled={!texto.trim() || estado === 'a-enviar'}
+					onclick={enviar}>{estado === 'a-enviar' ? 'a enviar…' : 'Enviar'}</button
+				>
+			</div>
+			{#if estado === 'falhou'}
+				<!-- **A segunda via.** Se o envio falhar, a sugestão não se perde: abre-se o email
+				     com o texto já escrito, que é exactamente o que esta caixa fazia antes. -->
+				<p class="nota falhou">
+					Não deu para enviar daqui.
+					<a href={link}>Manda por email</a> — já vai escrito.
+				</p>
+			{:else}
+				<p class="nota">
+					Guardamos o que escreveres, com o ecrã e a versão, para o podermos corrigir. Não
+					guardamos quem és. Se preferires falar com uma pessoa,
+					<a href="mailto:{CONTACTO}">escreve-nos</a>.
+				</p>
+			{/if}
+		{/if}
 	</div>
 {/if}
 
@@ -230,6 +275,10 @@
 		font-weight: 600;
 	}
 	.enviar.inactivo, .copiar:disabled { opacity: 0.45; pointer-events: none; }
+	.feito { margin: var(--e-2) 0 0; font-size: var(--t-micro); color: var(--acento);
+		font-weight: 600; }
+	.nota.falhou { color: var(--directo); }
+	.nota a { color: inherit; text-decoration: underline; }
 	.nota {
 		margin: var(--e-3) 0 0;
 		font-size: var(--t-micro);

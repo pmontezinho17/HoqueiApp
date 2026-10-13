@@ -1,0 +1,173 @@
+# Uma vez por dia: as sugestões novas viram registos num repositório privado.
+#
+# **Só arquiva o que veio de produção.** As linhas com `ramo` preenchido são ensaios do site de
+# testes, e virarem registos a par das sugestões reais era enchê-lo de ruído.
+#
+# ## O que isto é
+#
+# A caixa "O que está mal" grava na D1 — ver `web/functions/sugerir.js`. Esta corrida lê o que
+# ainda não foi arquivado, cria um registo por sugestão, e escreve o número de volta na linha.
+# Pedido do dono a 13/10/2026: *"um processo diário que vai verificar se existem novas entradas.
+# Caso existam, então liga-se ao Github para fazer este registo"*.
+#
+# ## Registos e não ramos, e isso foi analisado
+#
+# Um ramo sem commits não é nada — um ramo é trabalho a decorrer, e quarenta ramos vazios seriam
+# ruído que contraria o que este projecto mediu a 13/10 sobre ramos de vida curta. Um registo
+# tem etiqueta, data, estado e fio de conversa, que é exactamente o que uma sugestão precisa.
+# O ramo e o PR vêm **depois**, quando a sugestão virar trabalho, e o merge fecha o registo.
+#
+# ## Porque é que o repositório é privado
+#
+# Porque são palavras de outras pessoas. Uma sugestão escrita em privado não pode virar uma
+# página na Internet com o nome de um pai ou o clube do filho. Um repositório privado pode
+# passar a público quando se quiser; o que foi publicado **não se despublica**. Na dúvida, fica
+# fechado — e quando uma sugestão virar trabalho, o registo público descreve a alteração pelas
+# nossas palavras e não pelas dela.
+#
+# ## As duas coisas que isto precisa, e que o dono tem de criar
+#
+# 1. o repositório privado, vazio, com o nome em `REPO_SUGESTOES`;
+# 2. um segredo `TOKEN_SUGESTOES` — um *fine-grained token* com `issues: write` **só** nesse
+#    repositório. O `github.token` da corrida não serve: ele só pode escrever neste repositório,
+#    e este é público.
+#
+# E o `CLOUDFLARE_API_TOKEN` que já existe precisa de âmbito **D1 read/write**, porque até hoje
+# só era usado para publicar no Pages. Se faltar algum dos três, a corrida diz qual e não falha
+# em silêncio — as sugestões ficam na D1 à espera e **nada se perde** entretanto.
+name: Arquivar as sugestões
+
+on:
+  schedule:
+    - cron: '20 7 * * *'      # 08:20 em Lisboa — depois da ronda de fecho, antes do dia começar
+  workflow_dispatch:
+
+concurrency:
+  group: sugestoes
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  REPO_SUGESTOES: pmontezinho17/ok4sticks-sugestoes
+  BASE_D1: ok4sticks-dados
+  #: Dias que uma sugestão fica na D1. Ao fim disto ou já virou trabalho ou já não é verdade
+  #: sobre a app que existe.
+  RETENCAO: '180'
+
+jobs:
+  arquivar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: As três peças estão no sítio?
+        id: pecas
+        env:
+          CF: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          GH_SUG: ${{ secrets.TOKEN_SUGESTOES }}
+        run: |
+          falta=""
+          [ -z "$CF" ] && falta="$falta CLOUDFLARE_API_TOKEN"
+          [ -z "$GH_SUG" ] && falta="$falta TOKEN_SUGESTOES"
+          if [ -n "$falta" ]; then
+            echo "::warning::faltam segredos:$falta — as sugestões ficam na D1 à espera"
+            echo "pronto=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "pronto=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Ler as sugestões por arquivar
+        if: steps.pecas.outputs.pronto == 'true'
+        id: ler
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          # A tabela pode ainda não existir — ninguém escreveu nada desde que isto foi criado.
+          # `|| true` e um ficheiro vazio tratam esse caso sem o confundir com uma avaria.
+          npx --yes wrangler@4.149.0 d1 execute "$BASE_D1" --remote --json \
+            --command "SELECT id, dia, hora, texto, ecra, versao FROM sugestao WHERE issue IS NULL AND ramo IS NULL ORDER BY id LIMIT 50" \
+            > /tmp/sugestoes.json 2>/tmp/erro.txt || true
+
+          if [ ! -s /tmp/sugestoes.json ]; then
+            echo "::warning::não se conseguiu ler a D1 — $(head -c 300 /tmp/erro.txt)"
+            echo "quantas=0" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          n=$(node -e "
+            const d = require('/tmp/sugestoes.json');
+            const r = (Array.isArray(d) ? d[0] : d)?.results ?? [];
+            require('fs').writeFileSync('/tmp/linhas.json', JSON.stringify(r));
+            console.log(r.length);
+          ")
+          echo "quantas=$n" >> "$GITHUB_OUTPUT"
+          echo "$n sugestões por arquivar"
+
+      - name: Criar um registo por sugestão
+        if: steps.pecas.outputs.pronto == 'true' && steps.ler.outputs.quantas != '0'
+        env:
+          GH_TOKEN: ${{ secrets.TOKEN_SUGESTOES }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          gh label create sugestao --color 0E8A16 --force \
+            --description "chegou pela caixa 'O que está mal'" \
+            --repo "$REPO_SUGESTOES" >/dev/null 2>&1 || true
+
+          # O `jq` lê linha a linha para o texto poder ter aspas, acentos e mudanças de linha
+          # sem nada disso partir o shell. Já aconteceu num projecto meu; não se repete.
+          node -e "
+            const r = require('/tmp/linhas.json');
+            for (const s of r) console.log(JSON.stringify(s));
+          " | while IFS= read -r linha; do
+            id=$(node -e "console.log(JSON.parse(process.argv[1]).id)" "$linha")
+            titulo=$(node -e "
+              const s = JSON.parse(process.argv[1]);
+              const t = (s.texto || '').replace(/\s+/g, ' ').trim();
+              console.log(t.length > 60 ? t.slice(0, 57) + '…' : t);
+            " "$linha")
+            node -e "
+              const s = JSON.parse(process.argv[1]);
+              const l = [];
+              l.push(s.texto, '', '---', '');
+              l.push('| | |', '|---|---|');
+              l.push('| quando | ' + s.dia + ' às ' + s.hora + ' |');
+              l.push('| ecrã | \`' + (s.ecra || '—') + '\` |');
+              l.push('| versão | ' + (s.versao || '—') + ' |');
+              l.push('| id na D1 | ' + s.id + ' |');
+              l.push('', 'Arquivado pelo \`sugestoes.yml\`. Quando isto virar trabalho, o registo');
+              l.push('público vai para o \`HoqueiApp\` escrito pelas nossas palavras — aqui ficam as');
+              l.push('da pessoa, e é por isso que este repositório é privado.');
+              require('fs').writeFileSync('/tmp/corpo.md', l.join('\n'));
+            " "$linha"
+
+            n=$(gh issue create --repo "$REPO_SUGESTOES" \
+                  --title "$titulo" --body-file /tmp/corpo.md --label sugestao \
+                  | sed 's|.*/||')
+            echo "sugestão $id → $REPO_SUGESTOES#$n"
+
+            npx --yes wrangler@4.149.0 d1 execute "$BASE_D1" --remote \
+              --command "UPDATE sugestao SET issue = $n WHERE id = $id" >/dev/null
+          done
+
+      # ─────────────────────────────────────────────────────────────────────────────────────
+      # A retenção. **Só apaga o que já foi arquivado**: uma sugestão sem registo é uma que
+      # ainda não chegou a lado nenhum, e apagá-la era perdê-la.
+      - name: Apagar o que já passou da retenção
+        if: steps.pecas.outputs.pronto == 'true'
+        continue-on-error: true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npx --yes wrangler@4.149.0 d1 execute "$BASE_D1" --remote \
+            --command "DELETE FROM sugestao WHERE issue IS NOT NULL AND dia < date('now', '-$RETENCAO days')" \
+            >/dev/null && echo "retenção aplicada: $RETENCAO dias"

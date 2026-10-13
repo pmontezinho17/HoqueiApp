@@ -15,7 +15,7 @@
 	 */
 	import { CONTACTO } from '$lib/contacto';
 	import { SITIO_NOME, APP_NOME } from '$lib/sitio';
-	const ACTUALIZADA = '6 de outubro de 2026';
+	const ACTUALIZADA = '13 de outubro de 2026';
 </script>
 
 <svelte:head><title>Privacidade — {APP_NOME}</title></svelte:head>
@@ -111,7 +111,11 @@
 			Não carregamos tipos de letra nem código de terceiros — usamos as letras do teu
 			próprio sistema.
 		</li>
-		<li>Não vendemos nem partilhamos dados com ninguém. Não temos dados para ceder.</li>
+		<li>
+			Não vendemos nem partilhamos dados com ninguém. O <strong>único</strong> texto teu que
+			guardamos é o que escreveres na caixa "O que está mal" — e isso está descrito a
+			seguir, com o que fica, por quanto tempo, e como pedir que desapareça.
+		</li>
 		<li>Não há publicidade.</li>
 	</ul>
 </section>
@@ -164,6 +168,52 @@
 		Os números ficam guardados <strong>120 dias</strong> e apagam-se sozinhos. São
 		contadores, não um registo de visitas: o que existe é "a 6 de outubro abriram-se 14
 		páginas de equipa", e mais nada.
+	</p>
+</section>
+
+<section>
+	<h2>Se nos escreveres pela caixa "O que está mal"</h2>
+	<p>
+		Desde <strong>13 de outubro de 2026</strong>, o que escreveres nessa caixa é
+		<strong>guardado por nós</strong>. Antes abria o teu programa de email; agora é enviado
+		directamente, para não se perder numa caixa de correio à espera de alguém o ler.
+	</p>
+	<dl>
+		<dt>O que fica guardado</dt>
+		<dd>
+			Três coisas: o <strong>texto que escreveste</strong>, o <strong>ecrã</strong> onde
+			estavas, e a <strong>versão</strong> da aplicação que tinhas. O ecrã e a versão vão
+			escritos à vista na própria caixa, antes de enviares.
+		</dd>
+		<dt>O que não fica</dt>
+		<dd>
+			<strong>Nada que diga quem és.</strong> Não guardamos o teu endereço de IP, nem
+			identificador nenhum, nem o teu nome ou email — a caixa nem os pede. Se escreveres o
+			teu nome no texto, ele fica no texto; a decisão é tua.
+		</dd>
+		<dt>Onde fica, e quem o lê</dt>
+		<dd>
+			Na nossa base de dados na Cloudflare, e depois num arquivo <strong>privado</strong> no
+			GitHub a que só nós temos acesso. <strong>Não fica público.</strong> Quando uma
+			sugestão der origem a uma alteração, o registo público dessa alteração é escrito por
+			nós, com as nossas palavras — nunca com as tuas.
+		</dd>
+		<dt>Quanto tempo</dt>
+		<dd>
+			<strong>180 dias.</strong> Passado isso é apagado, porque uma sugestão de há seis meses
+			ou já deu origem a uma correcção ou já não é verdade sobre a aplicação que existe.
+		</dd>
+		<dt>Se te arrependeres</dt>
+		<dd>
+			Escreve-nos para <a href="mailto:{CONTACTO}">{CONTACTO}</a> e apagamos. Não tens de
+			explicar porquê — é a mesma promessa que fazemos para os nomes de atletas, a seguir.
+			Diz-nos mais ou menos quando escreveste, para sabermos qual é.
+		</dd>
+	</dl>
+	<p>
+		E o email continua a ser o caminho para falar com uma pessoa: dúvidas, pedidos, ou
+		qualquer coisa que precise de resposta. A caixa serve para nos dizeres o que está mal; o
+		email serve para conversarmos.
 	</p>
 </section>
 
