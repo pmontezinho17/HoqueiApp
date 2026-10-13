@@ -2379,41 +2379,54 @@ se prova melhor do que isto.
 
 A correcção foi uma publicação nova com `so_publicar`, zero pedidos à APL.
 
-### Uma publicação nova limpa a cache da borda — medido, e corrige-me
+### Uma publicação nova limpa a cache da borda — em minutos, não instantaneamente
 
 O dono pediu-me para o testar, e fez bem: eu tinha-lhe dito, duas vezes, que no sábado *"os
-resultados ficavam congelados na borda durante uma semana"*. **Afirmei-o com mais certeza do que
-tinha.**
+resultados ficavam congelados na borda durante uma semana"*. **Afirmei-o com mais certeza do
+que tinha, e o ensaio mostrou que estava errado — mas também mostrou que a minha primeira
+correcção estava optimista.**
 
-O ensaio, no site de testes a 13/10/2026: um ficheiro servido com `Cache-Control: public,
-s-maxage=604800` — os mesmos sete dias que a Cloudflare pôs no `/v1/*` — lido oito vezes do
-mesmo nó de Lisboa, e depois publicado outra vez com conteúdo diferente.
+O ensaio, no site de testes: um ficheiro servido com `Cache-Control: public, s-maxage=604800`
+— os mesmos sete dias que a Cloudflare pôs no `/v1/*` quando o nosso `_headers` deixou de ser
+aplicado —, lido várias vezes do nó de Lisboa, e depois publicado outra vez com conteúdo
+diferente. Duas medições:
 
-```
-18:29:55  início: ensaio-2
-18:30:02  empurrado para o testes
-18:30:43  MUDOU para: ensaio-3
-```
+| publicação | quando apareceu o conteúdo novo |
+|---|---|
+| 1.ª | **41 segundos** depois de empurrar |
+| 2.ª | entre **3 e 6 minutos** |
 
-**41 segundos**, com um cabeçalho de sete dias. A borda não guarda a cópia velha de uma
-publicação para a outra.
+Na segunda fiz 15 leituras seguidas, todas com o conteúdo velho, e concluí por um momento que a
+publicação **não** limpava — ia escrever isso. Estava a medir dentro da janela: minutos depois,
+o mesmo endereço servia o novo. **Duas conclusões erradas seguidas no mesmo ensaio**, a primeira
+por exagero e a segunda por impaciência.
 
-(Tentei primeiro medir pelo cabeçalho `age` e não dá: em estado saudável a Cloudflare não o
-manda nestas respostas — quatro leituras de um emblema com cache de um ano, 45 s de intervalo,
-nenhuma com `age`. Foi por isso que o ensaio passou a medir **conteúdo** e não cabeçalhos. O
-`age: 58268` que eu vi durante a avaria é o próprio sintoma: só aparece quando a resposta vem
-mesmo da cache partilhada, que é onde ela não devia estar.)
+**O que fica medido:** uma publicação refresca a cache partilhada, com um atraso de segundos a
+poucos minutos, mesmo com um cabeçalho de sete dias. Não é instantâneo e não é uma semana.
 
-**Então a frase certa é outra.** Os sete dias valiam só *entre publicações*. Num sábado, com o
-ciclo ao vivo a publicar a cada mudança de resultado — 809 vezes a 11/10 —, cada publicação
-refrescava tudo e a congelação seria de segundos. As 16 horas que medi aconteceram porque entre
-as 23:42 de 12/10 e as 17:43 de 13/10 **não houve uma única publicação**: a terça não tinha
-jogos e o `vale_pedir` parou todas as rondas.
+O que **não** fica estabelecido: o mecanismo, e se um caminho **apagado** chega a ser refrescado
+— substituí o ficheiro antes de descobrir. Enquanto ele esteve apagado, a borda continuou a
+servi-lo, e com uma query diferente o mesmo caminho já devolvia a app. Fica como pergunta aberta
+e com uma consequência prática a lembrar: **apagar um ficheiro publicado não o tira logo do ar.**
 
-E o que fica de pé, sem exagero: a avaria era real, mas **precisava de uma segunda falha para
-magoar a sério** — um dia de jogos em que o ciclo ao vivo não publicasse. É precisamente a
-combinação que tivemos a 11/10, com sete rondas abortadas seguidas. Duas avarias que
-isoladamente se aguentam e juntas dariam uma tarde inteira de resultados errados.
+(Tentei primeiro medir pelo cabeçalho `age` e não dá: em estado saudável a Cloudflare não o manda
+nestas respostas — quatro leituras de um emblema com cache de um ano, 45 s de intervalo, nenhuma
+com `age`. Daí medir conteúdo e não cabeçalhos. O `age: 58268` que vi durante a avaria é ele
+próprio o sintoma: só aparece quando a resposta vem mesmo da cache partilhada.)
+
+**Então o que a avaria de 12/10 custava, sem exagero:** os sete dias valiam só *entre*
+publicações. Num sábado, com o ciclo ao vivo a publicar a cada mudança de resultado — 809 vezes
+a 11/10 —, o atraso seria de minutos. As 16 horas que medi aconteceram porque entre as 23:42 de
+12/10 e as 17:43 de 13/10 **não houve uma única publicação**: a terça não tinha jogos e o
+`vale_pedir` parou todas as rondas.
+
+E o que fica de pé: a avaria era real, mas **precisava de uma segunda falha para magoar a
+sério** — um dia de jogos em que o ciclo ao vivo não publicasse. É precisamente a combinação que
+tivemos a 11/10, com sete rondas abortadas seguidas. Duas avarias que isoladamente se aguentam e
+juntas davam uma tarde de resultados errados.
+
+Nada disto muda o que se faz a seguir: o cabeçalho tem de estar certo, e desde hoje verifica-se
+em cada publicação.
 
 ### A lição, que é a parte que fica
 
