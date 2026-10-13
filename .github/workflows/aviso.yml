@@ -93,16 +93,31 @@ jobs:
             etiqueta=cadeia
           fi
 
-          # a issue deste dia, se já existir: um aviso que volta não abre uma segunda
-          numero=$(gh issue list --state open --label "$etiqueta" --limit 20 \
+          # **Abrir é por dia; fechar é por etiqueta, e essa diferença é um defeito pago.**
+          #
+          # A issue #21 nasceu a 11/10/2026 às 22:48 e ainda estava aberta a 13/10 à noite,
+          # com a cadeia verde desde há muito — o estado na base de dados dizia
+          # `ao_vivo_preso: []` e os seis jogos tinham todos resultado. O fecho procurava a
+          # issue com o título de **hoje**, e o título leva a data do dia em que o aviso
+          # nasceu. Um vermelho às 22:48 que recupere depois da meia-noite não tem como ser
+          # encontrado: fica aberto para sempre, e um aviso que não fecha ensina a ignorar
+          # avisos — que é a terceira vez que este projecto paga essa lição.
+          #
+          # Abrir continua a ser por dia, de propósito: duas noites más são dois registos, e
+          # um aviso que volta no mesmo dia comenta em vez de abrir uma segunda.
+          abrir_em=$(gh issue list --state open --label "$etiqueta" --limit 20 \
             --json number,title \
             --jq "[.[] | select(.title == \"$titulo\")] | .[0].number // empty")
+          # Fechar: **todas** as abertas desta etiqueta, de qualquer dia. Se a cadeia está
+          # verde, nenhuma delas ainda descreve o presente.
+          fechar=$(gh issue list --state open --label "$etiqueta" --limit 50 \
+            --json number --jq '.[].number')
 
           case "$ESTADO" in
             vermelho)
-              if [ -n "$numero" ]; then
-                gh issue comment "$numero" --body "$CORPO"
-                echo "comentada a issue #$numero" >> "$GITHUB_STEP_SUMMARY"
+              if [ -n "$abrir_em" ]; then
+                gh issue comment "$abrir_em" --body "$CORPO"
+                echo "comentada a issue #$abrir_em" >> "$GITHUB_STEP_SUMMARY"
               else
                 # `--label` cria a etiqueta se ela não existir ainda
                 url=$(gh issue create --title "$titulo" --body "$CORPO" \
@@ -111,13 +126,16 @@ jobs:
               fi
               ;;
             verde)
-              if [ -n "$numero" ]; then
-                gh issue close "$numero" \
-                  --comment "A cadeia voltou a verde. Fechada pelo \`aviso.yml\`."
-                echo "fechada a issue #$numero" >> "$GITHUB_STEP_SUMMARY"
+              if [ -n "$fechar" ]; then
+                for n in $fechar; do
+                  gh issue close "$n" \
+                    --comment "A cadeia voltou a verde. Fechada pelo \`aviso.yml\`."
+                  echo "fechada a issue #$n" >> "$GITHUB_STEP_SUMMARY"
+                done
               else
                 # não é erro: a saúde pode ter voltado a verde sem nunca ter aberto nada
-                echo "nada aberto para $DIA — nada a fechar" >> "$GITHUB_STEP_SUMMARY"
+                echo "nada aberto com a etiqueta $etiqueta — nada a fechar" \
+                  >> "$GITHUB_STEP_SUMMARY"
               fi
               ;;
             teste)

@@ -343,10 +343,12 @@ jobs:
             "A tabela que a APL publica não bate com os jogos do calendário dela." \
             "" \
             "**A ronda publicou mesmo assim**, e é de propósito: uma incoerência passageira" \
-            "da fonte não é razão para deixar todos sem resultados. O que pode estar errado" \
-            "são as nossas tabelas calculadas, e hoje elas estão vazias nas 37 provas." \
+            "da fonte não é razão para deixar todos sem resultados. A app mostra a tabela" \
+            "**da fonte** nas provas em que ela existe, e por isso o que se vê é o atraso dela." \
             "" \
-            "Se isto não desaparecer na ronda seguinte, aí sim é o parser." \
+            "Se isto não desaparecer em dois ou três dias, aí sim vale a pena desconfiar do" \
+            "nosso cálculo e correr \`uv run pytest -m fonte\` para ver as divergências linha" \
+            "a linha." \
             "" \
             "Corrida: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")
           n=$(gh issue list --state open --label fonte --limit 20 --json number,title \
@@ -359,6 +361,25 @@ jobs:
           if [ -z "$n" ]; then
             gh issue create --title "$titulo" --body "$corpo" --label fonte --assignee "$DONO"
           fi
+
+      # **Este aviso não tinha fecho nenhum**, e isso são duas issues abertas a 13/10/2026
+      # (#23 de 12/10 e #25 de 13/10) que ninguém ia fechar senão à mão — uma por dia,
+      # enquanto a APL não corrigir a tabela dela. Um aviso que se acumula é um aviso que se
+      # aprende a ignorar, e o `aviso.yml` pagou a mesma lição no mesmo dia.
+      #
+      # Fecha **todas** as abertas, de qualquer dia: se a reprodução passou, nenhuma delas
+      # ainda descreve o presente. Abrir continua a ser uma por dia.
+      - name: A fonte voltou a bater certo
+        if: steps.reproducao.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for n in $(gh issue list --state open --label fonte --limit 50 --json number \
+                       --jq '.[].number'); do
+            gh issue close "$n" \
+              --comment "A tabela da fonte voltou a bater certo com o calendário dela. Fechada pelo \`dados.yml\`."
+          done
 
       - name: A ronda falhou
         if: failure()
