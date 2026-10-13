@@ -2453,9 +2453,74 @@ enviar daqui. Manda por email — já vai escrito"* e **o texto fica lá**.
 
 **O que não está verificado:** o `sugestoes.yml` nunca correu. Falta-lhe o repositório privado e
 um segredo `TOKEN_SUGESTOES`, e o `CLOUDFLARE_API_TOKEN` que já existe pode precisar de âmbito
-de D1 — até hoje só publicava no Pages. A corrida diz qual das peças falta e **não falha em
-silêncio**: as sugestões ficam na D1 à espera e nada se perde entretanto. Testei a geração do
-título e do corpo à mão, com aspas, acentos e mudanças de linha.
+de D1 — até hoje só publicava no Pages. A corrida diz qual das peças falta: as sugestões ficam na
+D1 à espera e nada se perde entretanto.
+
+E havia uma terceira razão, maior do que as outras duas, encontrada a 14/10 ao tentar dispará-lo
+à mão: **a GitHub só conhece workflows do ramo por omissão.** Com o `sugestoes.yml` num ramo, o
+`gh workflow run` responde `HTTP 404: workflow not found on the default branch`, e o `schedule`
+também não existe. Não havia forma nenhuma de o correr antes de o PR ser junto.
+
+~~Testei a geração do título e do corpo à mão, com aspas, acentos e mudanças de linha.~~ **Isso
+era deixar a verificação de fora do que se publica** — uma coisa que corre todos os dias às 07:20
+e que, na vez em que partir, parte sozinha, de madrugada, sobre o texto de outra pessoa. Saiu do
+YAML para o `scripts/sugestao_para_registo.mjs`, com treze testes: ver a secção
+"Dois defeitos que só se viam a correr o processo" mais abaixo.
+
+## Dois defeitos que só se viam a correr o processo (14/10/2026)
+
+O dono: *"e já temos o teste de quando é criado uma sugestão, a mesma é criada de forma
+automática num processo diário no issues do github?"*. Não tínhamos, e ao ir ver porquê
+apareceram dois defeitos — nenhum deles no código que grava, que esse estava verificado.
+
+### 1 · Um erro de leitura contava-se como zero sugestões
+
+O passo que lê a D1 mandava o `wrangler` escrever para um ficheiro e seguia se o ficheiro não
+estivesse vazio. **Medido contra a base de produção**, onde a tabela `sugestao` ainda não
+existia: o wrangler escreve no stdout um objecto de erro e sai com código diferente de zero —
+
+    { "error": { "text": "A request to the Cloudflare API … failed.",
+                 "notes": [{ "text": "no such table: sugestao: SQLITE_ERROR [code: 7500]" }] } }
+
+— o ficheiro **não** fica vazio, o guarda deixava passar, e o `?? []` do `node` dava zero linhas.
+A corrida dizia *"0 sugestões por arquivar"*, verde, a afirmar que não havia nada quando o que
+houve foi uma falha. É a mesma classe dos avisos que não fechavam: **não se perdem dados,
+perde-se o sinal** — e um número que mente ensina a não olhar para ele.
+
+Agora distingue-se, e **falhar é deliberado**. Um `::warning::` aparece no resumo da corrida e
+não notifica ninguém; seria trocar um número que mente por um aviso que ninguém vê, num processo
+que corre uma vez por dia e cuja avaria só se notaria quando alguém estranhasse não haver
+registos nenhuns. A GitHub avisa o dono quando um workflow agendado falha, e é esse o canal.
+Falhar não perde nada: as sugestões ficam com `issue IS NULL` e a corrida seguinte apanha-as.
+
+A excepção é continuar a ser um aviso: **faltarem os segredos**. Isso não é uma avaria, é uma
+montagem por acabar, e falhar todos os dias por causa dela era o mesmo erro ao contrário.
+
+### 2 · A geração do registo estava testada "à mão"
+
+Eram três `node -e` dentro do YAML, e eu tinha escrito aqui que os testara à mão com aspas,
+acentos e mudanças de linha. Para código que corre todos os dias às 07:20, sobre o texto de
+outra pessoa, isso é deixar a verificação fora do que se publica.
+
+Saiu para `scripts/sugestao_para_registo.mjs`, com treze testes. O formato do registo não mudou —
+não vale a pena ter duas formas no mesmo arquivo. O que mudou foi uma coisa pequena que ninguém
+tinha visto porque **isto nunca chegou a correr**: o título cortava aos 57 e somava `…`, dando 58
+caracteres com um limite anunciado de 60. As reticências são um caracter, não três.
+
+E ficou coberto o caso que perderia uma sugestão para sempre: um texto só com espaços dava título
+vazio, o GitHub recusa uma issue sem título, e a linha ficava na D1 com `issue IS NULL` a tentar
+outra vez todos os dias. Agora dá `Sugestão sem texto (12)`.
+
+O ciclo do YAML passou a ler **ids**, um por linha, e nunca JSON — o texto da pessoa não chega a
+passar pelo shell. Era a mesma preocupação de antes, resolvida de forma mais simples.
+
+### O que continua por verificar
+
+A criação da issue em si, e o `UPDATE sugestao SET issue = …`. Precisam do repositório privado e
+do `TOKEN_SUGESTOES`, e não há como os simular sem criar registos reais num sítio real. A CLI foi
+corrida contra as quatro sugestões verdadeiras do site de testes e contra a resposta de erro de
+produção: imprime os quatro ids e escreve os quatro corpos no primeiro caso, e no segundo imprime
+a razão e sai com 1.
 
 ## Duas bases de dados, para os dois ambientes serem o mesmo (13/10/2026)
 
