@@ -1,5 +1,8 @@
 # Uma vez por dia: as sugestões novas viram registos num repositório privado.
 #
+# **Só arquiva o que veio de produção.** As linhas com `ramo` preenchido são ensaios do site de
+# testes, e virarem registos a par das sugestões reais era enchê-lo de ruído.
+#
 # ## O que isto é
 #
 # A caixa "O que está mal" grava na D1 — ver `web/functions/sugerir.js`. Esta corrida lê o que
@@ -90,7 +93,7 @@ jobs:
           # A tabela pode ainda não existir — ninguém escreveu nada desde que isto foi criado.
           # `|| true` e um ficheiro vazio tratam esse caso sem o confundir com uma avaria.
           npx --yes wrangler@4.149.0 d1 execute "$BASE_D1" --remote --json \
-            --command "SELECT id, dia, hora, texto, ecra, versao FROM sugestao WHERE issue IS NULL ORDER BY id LIMIT 50" \
+            --command "SELECT id, dia, hora, texto, ecra, versao FROM sugestao WHERE issue IS NULL AND ramo IS NULL ORDER BY id LIMIT 50" \
             > /tmp/sugestoes.json 2>/tmp/erro.txt || true
 
           if [ ! -s /tmp/sugestoes.json ]; then

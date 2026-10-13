@@ -132,6 +132,11 @@ CREATE TABLE IF NOT EXISTS entrada_hora (
 -- diário global e um limite de tamanho, no `functions/sugerir.js`, e é mais grosseiro de
 -- propósito, porque a alternativa era guardar quem é cada um.
 --
+-- A `ramo` não é um identificador de pessoa, é de **ambiente**: diz qual é o nosso site, não
+-- quem escreveu. Existe para o dono poder experimentar a caixa no site de testes sem que os
+-- ensaios virem registos a par das sugestões reais — o `sugestoes.yml` só arquiva onde ela é
+-- `NULL`, e o tecto diário também só conta essas.
+--
 -- A `issue` é o que impede duplicados: o processo diário só olha para as linhas onde ela é
 -- `NULL`, e escreve lá o número depois de criar o registo. Sem isso, uma corrida repetida
 -- criava a mesma issue duas vezes.
@@ -150,6 +155,7 @@ CREATE TABLE IF NOT EXISTS sugestao (
   texto  TEXT NOT NULL,              -- o que a pessoa escreveu, até 2000 caracteres
   ecra   TEXT,                       -- onde estava: '/jogo/9539?aba=equipas'
   versao TEXT,                       -- a versão da app que ela tinha
+  ramo   TEXT,                       -- 'testes' se veio do site de testes; NULL = produção
   issue  INTEGER                     -- o número do registo criado; NULL = ainda por arquivar
 );
 CREATE INDEX IF NOT EXISTS idx_sugestao_por_arquivar ON sugestao (issue) WHERE issue IS NULL;

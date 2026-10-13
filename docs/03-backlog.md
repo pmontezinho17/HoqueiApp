@@ -2415,6 +2415,26 @@ tamanho (2000 caracteres), mais uma armadilha anti-robô. É mais grosseiro e pr
 abusador gasta o tecto do dia —, mas a alternativa era guardar quem é cada um, ainda que por
 *hash*, e isso é precisamente o que a página diz que não fazemos.
 
+### Duas coisas que o ensaio local apanhou, e uma delas custava sugestões
+
+**1 · O `CREATE TABLE IF NOT EXISTS` não é uma migração.** Acrescentei a coluna `ramo` ao
+`CREATE`, corri outra vez contra a D1 local que já tinha a tabela da tentativa anterior, e o
+`INSERT` falhou com `no such column: ramo` — **503, e a sugestão perdida**. A tabela de produção
+ainda não existia, por isso esta vez não custou nada; da próxima coluna custava. Ficou o
+`COLUNAS_ACRESCENTADAS`: cada coluna que nasça depois da primeira versão leva um `ALTER TABLE`
+que se tenta sempre e cujo erro se ignora. Verificado a correr contra a tabela antiga: 204, e a
+coluna apareceu.
+
+**2 · A coluna `ramo`, que nasceu de o dono querer testar primeiro em `testes`.** O site de
+testes é o ambiente de Preview e **não tem ligação à D1** — foi decisão dele hoje, e na altura
+era sobre contar quem bate à porta. Para a caixa, a ligação é o que faz guardar. Se ele a ligar,
+os ensaios dele cairiam na mesma tabela das sugestões reais e virariam registos a par delas.
+A coluna diz de que site veio; o `sugestoes.yml` só arquiva onde ela é `NULL`, e o tecto diário
+também só conta essas.
+
+**Não é um identificador de pessoa, é de ambiente**: diz qual é o nosso site, não quem escreveu.
+Por isso não mexe na promessa da política de privacidade.
+
 ### O que ficou verificado, e o que não
 
 Verifiquei a Function **ponta a ponta localmente**, com `wrangler pages dev` e uma D1 local: a

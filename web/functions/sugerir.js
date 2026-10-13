@@ -27,12 +27,19 @@
  * abusador consegue gastar o tecto do dia —, mas a alternativa era guardar quem é cada um,
  * ainda que por *hash*, e isso é precisamente o que não queremos.
  *
- * ## Porque é que cria a tabela
+ * ## Porque é que cria a tabela, e porque é que também a altera
  *
  * O `CREATE TABLE IF NOT EXISTS` corre antes da escrita porque a ligação da D1 é o único
  * caminho que temos garantido: criar a tabela à mão exigiria o token da Cloudflare com âmbito
- * de D1, que o `dados.yml` pode não ter. Custa uma instrução por sugestão — a este volume, nada
- * — e dispensa um passo manual que alguém se esqueceria de fazer.
+ * de D1, que o `dados.yml` pode não ter. Custa duas instruções por sugestão — a este volume,
+ * nada — e dispensa um passo manual que alguém se esqueceria de fazer.
+ *
+ * **E o `IF NOT EXISTS` não é uma migração.** Apanhei isto a 13/10/2026, no ensaio local: a
+ * tabela já existia da tentativa anterior, acrescentei a coluna `ramo` ao `CREATE`, e o
+ * `INSERT` passou a falhar com `no such column: ramo` — **503, e a sugestão perdida**. A
+ * tabela de produção ainda não existia, por isso não custou nada desta vez; da próxima
+ * custava. Daí o `COLUNAS_ACRESCENTADAS`: cada coluna que nasça depois da primeira versão
+ * leva um `ALTER TABLE` que falha sem consequência quando ela já lá está.
  */
 
 /** O máximo que uma sugestão pode ter. Acima disto é recusada, e a caixa avisa antes. */
@@ -41,6 +48,17 @@ export const MAXIMO = 2000;
 /** Quantas sugestões se aceitam por dia, no total. Ver o cabeçalho para o porquê de ser global. */
 export const TECTO_DIARIO = 200;
 
+/**
+ * As colunas que nasceram **depois** da primeira versão da tabela.
+ *
+ * Cada uma leva um `ALTER TABLE ... ADD COLUMN` que se tenta sempre e cujo erro se ignora:
+ * numa base onde a coluna já existe, falha e não faz nada; numa base antiga, acrescenta-a. É
+ * uma migração minúscula, e existe porque o `CREATE TABLE IF NOT EXISTS` não é uma.
+ *
+ * Quem acrescentar uma coluna ao `ESQUEMA` acrescenta-a aqui no mesmo commit.
+ */
+const COLUNAS_ACRESCENTADAS = ['ALTER TABLE sugestao ADD COLUMN ramo TEXT'];
+
 const ESQUEMA = `CREATE TABLE IF NOT EXISTS sugestao (
   id     INTEGER PRIMARY KEY AUTOINCREMENT,
   dia    TEXT NOT NULL,
@@ -48,8 +66,29 @@ const ESQUEMA = `CREATE TABLE IF NOT EXISTS sugestao (
   texto  TEXT NOT NULL,
   ecra   TEXT,
   versao TEXT,
+  ramo   TEXT,
   issue  INTEGER
 )`;
+
+/**
+ * De que site veio, ou `null` se veio de produção.
+ *
+ * **Não é um identificador de pessoa, é de ambiente** — diz qual é o nosso site, não quem
+ * escreveu —, por isso não quebra a promessa da política de privacidade.
+ *
+ * Existe para o dono poder experimentar a caixa no site de testes sem que as sugestões de
+ * ensaio virem registos a par das reais: o `sugestoes.yml` só arquiva as linhas onde isto é
+ * `null`. Sem esta coluna, a alternativa era não poder testar o caminho que grava.
+ *
+ * @param {Request} request
+ * @returns {string | null}
+ */
+export function ramoDoPedido(request) {
+	const h = new URL(request.url).hostname.toLowerCase();
+	if (!h.endsWith('.pages.dev')) return null;      // domínio próprio, ou localhost
+	if (h === 'hoquei.pages.dev') return null;       // produção
+	return h.split('.')[0].slice(0, 40);             // 'testes', ou o id de uma publicação
+}
 
 /** A data e a hora de Lisboa, de uma só leitura do relógio — como no `/contar`. */
 function agoraEmLisboa() {
@@ -107,8 +146,15 @@ export async function onRequestPost({ request, env }) {
 	const { dia, hora } = agoraEmLisboa();
 	try {
 		await bd.prepare(ESQUEMA).run();
+		for (const alterar of COLUNAS_ACRESCENTADAS) {
+			try {
+				await bd.prepare(alterar).run();
+			} catch {
+				/* a coluna já existe — é o caso normal, e é por isso que o erro se ignora */
+			}
+		}
 		const { results } = await bd
-			.prepare('SELECT COUNT(*) AS n FROM sugestao WHERE dia = ?')
+			.prepare('SELECT COUNT(*) AS n FROM sugestao WHERE dia = ? AND ramo IS NULL')
 			.bind(dia)
 			.all();
 		const hoje = Number(results?.[0]?.n ?? 0);
@@ -122,8 +168,10 @@ export async function onRequestPost({ request, env }) {
 		}
 
 		await bd
-			.prepare('INSERT INTO sugestao (dia, hora, texto, ecra, versao) VALUES (?, ?, ?, ?, ?)')
-			.bind(dia, hora, d.texto, d.ecra, d.versao)
+			.prepare(
+				'INSERT INTO sugestao (dia, hora, texto, ecra, versao, ramo) VALUES (?, ?, ?, ?, ?, ?)'
+			)
+			.bind(dia, hora, d.texto, d.ecra, d.versao, ramoDoPedido(request))
 			.run();
 		return new Response(null, { status: 204, headers: { 'Cache-Control': 'no-store' } });
 	} catch (e) {

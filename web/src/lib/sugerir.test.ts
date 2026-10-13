@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { MAXIMO, TECTO_DIARIO, decidir } from '../../functions/sugerir.js';
+import { MAXIMO, TECTO_DIARIO, decidir, ramoDoPedido } from '../../functions/sugerir.js';
 
 /**
  * A decisão de aceitar ou recusar uma sugestão.
@@ -104,5 +104,42 @@ describe('os limites são números defensáveis', () => {
 		// medido a 13/10/2026: ~14 aparelhos distintos por dia
 		expect(TECTO_DIARIO).toBeGreaterThan(50);
 		expect(TECTO_DIARIO).toBeLessThanOrEqual(1000);
+	});
+});
+
+describe('de que site veio', () => {
+	/**
+	 * **Não é um identificador de pessoa, é de ambiente**: diz qual é o nosso site, não quem
+	 * escreveu. Existe para o dono poder experimentar a caixa no site de testes sem que os
+	 * ensaios virem registos a par das sugestões reais — o `sugestoes.yml` só arquiva as linhas
+	 * onde isto é `null`, e o tecto diário também só conta essas.
+	 */
+	const de = (url: string) => ramoDoPedido(new Request(url));
+
+	it('produção não é ramo nenhum', () => {
+		expect(de('https://hoquei.pages.dev/sugerir')).toBe(null);
+	});
+
+	it('o site de testes identifica-se', () => {
+		expect(de('https://testes.hoquei.pages.dev/sugerir')).toBe('testes');
+	});
+
+	it('uma publicação qualquer também', () => {
+		expect(de('https://a3189e4e.hoquei.pages.dev/sugerir')).toBe('a3189e4e');
+	});
+
+	it('um domínio próprio ou o localhost contam como produção', () => {
+		/**
+		 * No dia em que houver domínio próprio, ele é produção — e o `localhost` é onde se
+		 * testa a Function a sério, com `wrangler pages dev`, e aí queremos o caminho normal.
+		 */
+		expect(de('https://ok4sticks.pt/sugerir')).toBe(null);
+		expect(de('http://127.0.0.1:8788/sugerir')).toBe(null);
+		expect(de('http://localhost:8788/sugerir')).toBe(null);
+	});
+
+	it('maiúsculas no anfitrião não enganam', () => {
+		expect(de('https://HOQUEI.PAGES.DEV/sugerir')).toBe(null);
+		expect(de('https://TESTES.hoquei.pages.dev/sugerir')).toBe('testes');
 	});
 });
