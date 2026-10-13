@@ -126,7 +126,7 @@ export type Novidade = {
 export const NOVIDADES: Novidade[] = [
 	{
 		versao: '1.2',
-		data: '2026-10-13',
+		data: '2026-10-14',
 		pontos: [
 			{
 				tipo: 'novo',
