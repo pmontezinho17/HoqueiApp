@@ -17,6 +17,17 @@
  *
  * Ao contrário do contador de ecrãs, este **não** cresce com o uso de cada um: quem abre a
  * app vinte vezes num dia escreve uma vez.
+ *
+ * ## E passa a receber sessões
+ *
+ * Com `?sessao=1`, soma uma linha em `visita` com o ecrã `sessao`. É o substituto do contador
+ * de `aberturas`, que morreu a 13/10 quando o `/v1/*` saiu do caminho das Functions para não
+ * voltar a esgotar a quota e derrubar produção. **Não é o mesmo número**: o antigo era uma
+ * estimativa amostrada 1 em 10 dos pedidos de dados, e misturava uma app esquecida no bolso
+ * com alguém a usá-la; este é exacto e quer dizer uma coisa só — a app foi aberta, ou
+ * retomada depois de meia hora parada. Por isso vai para uma chave nova e o histórico do
+ * `aberturas` fica a dizer o que dizia — somar os dois seria somar uma estimativa amostrada
+ * com uma contagem.
  */
 
 /** O dia **e a hora** de Lisboa, de uma só leitura do relógio: às 23:59:59.9 duas leituras
@@ -41,7 +52,32 @@ export async function onRequestGet({ request, env, waitUntil }) {
 	const bd = env?.DADOS;
 	if (!bd) return resposta;
 
-	const novo = new URL(request.url).searchParams.get('novo') === '1' ? 1 : 0;
+	const parametros = new URL(request.url).searchParams;
+
+	// **Uma sessão é outra contagem e escreve noutro sítio.** Ver `lib/presenca.ts`: o cliente
+	// toca aqui quando a app é aberta ou retomada depois de meia hora parada. Não mexe no
+	// `aparelho`, que é uma vez por dia — somar as duas coisas na mesma linha tornava ambas
+	// ilegíveis.
+	if (parametros.get('sessao') === '1') {
+		waitUntil(
+			(async () => {
+				try {
+					await bd
+						.prepare(
+							`INSERT INTO visita (dia, ecra, n) VALUES (?, 'sessao', 1)
+							 ON CONFLICT (dia, ecra) DO UPDATE SET n = n + 1`
+						)
+						.bind(agoraEmLisboa().dia)
+						.run();
+				} catch {
+					// uma contagem perdida não é motivo para nada
+				}
+			})()
+		);
+		return resposta;
+	}
+
+	const novo = parametros.get('novo') === '1' ? 1 : 0;
 	const { dia, hora } = agoraEmLisboa();
 	waitUntil(
 		(async () => {

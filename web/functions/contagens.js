@@ -69,8 +69,18 @@ export async function onRequestGet({ request, env }) {
 						'e é ele que decide, guardando uma data. Não há identificador, logo não se ' +
 						'sabe se o aparelho de hoje é o mesmo de ontem.',
 					aberturas:
-						`estimativa: pedidos de meta.json contados 1 em ${AMOSTRA} e multiplicados. ` +
-						'É o sinal de app aberta, porque atravessa o service worker.',
+						`estimativa, e **só até 13/10/2026**: pedidos de meta.json contados 1 em ` +
+						`${AMOSTRA} e multiplicados. Acabou no dia em que o /v1/* saiu do caminho ` +
+						'das Functions, para os pedidos de dados deixarem de gastar a quota diária ' +
+						'da conta e de derrubar o site. Os dias seguintes não têm este ' +
+						'número — têm `sessao`, que não é o mesmo e não se soma a este.',
+					sessao:
+						'contagem exacta, a partir do dia em que esta alteração for publicada: '
+						+ 'quantas vezes a app foi aberta ou ' +
+						'retomada depois de meia hora parada. É o próprio aparelho que decide, ' +
+						'com uma marca de tempo guardada nele — sem identificador, como o resto. ' +
+						'Substitui o `aberturas` e tem uma definição que se diz numa frase, em vez ' +
+						'de misturar uma app esquecida no bolso com alguém a usá-la.',
 					ecras:
 						'navegações que chegaram ao servidor. Dentro da app a navegação é do lado ' +
 						'do cliente e não aparece aqui — isto conta sobretudo primeiras visitas, ' +

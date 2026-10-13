@@ -28,6 +28,16 @@
  */
 const CHAVE_DIA = 'hoquei:contado:v1';
 const CHAVE_CONHECIDO = 'hoquei:conhecido:v1';
+const CHAVE_SESSAO = 'hoquei:sessao:v1';
+
+/**
+ * Quantos minutos de pausa fazem da abertura seguinte uma **sessão nova**.
+ *
+ * Trinta, que é o que a analítica web usa há vinte anos — não por ser óptimo, mas por ser o
+ * número que toda a gente usa e que por isso se compara com alguma coisa. Com menos, abrir a
+ * app, ver um resultado e voltar ao WhatsApp contava três sessões num intervalo.
+ */
+export const PAUSA_DE_SESSAO = 30;
 
 /** A data de Lisboa, que é a que define "hoje" em todo o projecto. */
 export const diaDeLisboa = (quando = new Date()) =>
@@ -47,6 +57,78 @@ export function decidir(
 ): { novo: boolean } | null {
 	if (guardado.dia === hoje) return null;
 	return { novo: guardado.conhecido !== '1' };
+}
+
+/**
+ * Se esta abertura conta como sessão nova. Pura, como a `decidir`.
+ *
+ * `null` quer dizer "não contes". O relógio vem de fora para o teste não depender dele.
+ */
+export function decidirSessao(
+	ultimo: string | null,
+	agora: number,
+	pausa = PAUSA_DE_SESSAO
+): { desde: string } | null {
+	const t = ultimo ? Date.parse(ultimo) : NaN;
+	// Ausente, ilegível **ou no futuro** contam todos como "nunca". O futuro é o caso que
+	// obriga a pensar: um relógio adiantado deixaria o aparelho calado até a data chegar, e
+	// um aparelho que desaparece das contas sem ninguém saber porquê é pior do que uma sessão
+	// contada a mais.
+	const recente = Number.isFinite(t) && t <= agora && agora - t < pausa * 60_000;
+	return recente ? null : { desde: new Date(agora).toISOString() };
+}
+
+/**
+ * Conta uma **sessão**: a app foi aberta, ou retomada depois de meia hora parada.
+ *
+ * ## Porque é que isto existe, e porque é que não é o contador antigo
+ *
+ * Até 13/10/2026 o sinal de "app aberta" era server-side: o `_middleware.js` amostrava 1 em 10
+ * dos pedidos ao `meta.json`. Para isso, **todos** os pedidos passavam pelas Functions — e no
+ * plano grátis cada um conta para os 100 000 diários da conta Workers. Esgotados, a Cloudflare
+ * ignora as Functions e serve só os ficheiros estáticos: foi a avaria que derrubou produção
+ * duas vezes nesse dia. O `/v1/*` saiu do caminho das Functions e o contador morreu com ele.
+ *
+ * **O que volta não é o mesmo número, e é melhor.** O antigo misturava uma app esquecida no
+ * bolso com alguém a usá-la, e era uma estimativa: 12 contadas valiam "~120". Este é exacto e
+ * tem uma definição que se diz numa frase — *quantas vezes a app foi aberta ou retomada*. Por
+ * isso entra como `sessao` e **não** no lugar do `aberturas`: somar os dois seria somar uma
+ * estimativa amostrada com uma contagem, e o histórico do `aberturas` fica a dizer o que dizia.
+ *
+ * Custo: uma invocação por sessão, contra uma por sondagem de dados. Uma app aberta cinco
+ * horas num sábado pedia ~600 vezes o `meta.json`; agora toca uma vez, ou duas se for ao café.
+ */
+export function marcarSessao(
+	buscar: typeof fetch = fetch,
+	armazem: Pick<Storage, 'getItem' | 'setItem'> | null = typeof localStorage === 'undefined'
+		? null
+		: localStorage,
+	agora: number = Date.now()
+): void {
+	if (!armazem) return;
+	let ultimo: string | null;
+	try {
+		ultimo = armazem.getItem(CHAVE_SESSAO);
+	} catch {
+		return; // janela privada: não se conta, como na `marcarPresenca`
+	}
+
+	const decisao = decidirSessao(ultimo, agora);
+	if (!decisao) return;
+
+	try {
+		armazem.setItem(CHAVE_SESSAO, decisao.desde);
+	} catch {
+		return; // sem conseguir guardar, contaria em cada abertura e inflacionava
+	}
+
+	try {
+		void Promise.resolve(
+			buscar('/contar?sessao=1', { cache: 'no-store', keepalive: true })
+		).catch(() => {});
+	} catch {
+		/* uma contagem perdida não é motivo para nada */
+	}
 }
 
 /**
