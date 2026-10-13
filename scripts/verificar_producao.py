@@ -70,8 +70,12 @@ TENTATIVAS = 3
 ESPERA = 1.0
 
 
-def _pedir(url: str) -> tuple[int, dict[str, str], bytes]:
-    pedido = urllib.request.Request(url, headers={"User-Agent": UA})
+def _pedir(url: str, metodo: str = "GET",
+           corpo: bytes | None = None) -> tuple[int, dict[str, str], bytes]:
+    cabecalhos = {"User-Agent": UA}
+    if corpo is not None:
+        cabecalhos["Content-Type"] = "application/json"
+    pedido = urllib.request.Request(url, headers=cabecalhos, data=corpo, method=metodo)
     try:
         with urllib.request.urlopen(pedido, timeout=20) as r:
             return r.status, {k.lower(): v for k, v in r.headers.items()}, r.read()
@@ -186,6 +190,34 @@ def versao_servida(base: str) -> str | None:
     return None
 
 
+def base_de_dados_ligada(base: str) -> str | None:
+    """A caixa de sugestões tem base de dados onde escrever.
+
+    **Sonda sem escrever nada.** Manda um corpo que a Function recusa de certeza — texto vazio —
+    e lê o código: um **400** quer dizer que ela correu e decidiu, logo há ligação; um **503**
+    quer dizer que não há `env.DADOS`. Nenhum dos dois cria uma linha.
+
+    Existe porque esta é a única parte da app cujo comportamento depende de uma ligação que vive
+    só no painel da Cloudflare, e não no repositório. A 13/10/2026 descobriu-se isso por
+    tentativa — o dono publicou em `testes`, carregou em enviar, e viu a mensagem de falha —, e
+    uma assimetria entre ambientes que só se descobre a usar é uma assimetria que volta.
+    """
+    estado, _, _ = _pedir(f"{base}/sugerir", metodo="POST", corpo=b'{"texto":"","ok4":""}')
+    if estado == 503:
+        return ("/sugerir devolveu 503 — não há ligação à base de dados neste ambiente, "
+                "e a caixa de sugestões não guarda nada")
+    # **O 405 não é avaria: é a funcionalidade ainda não estar nesta publicação.** Um caminho
+    # sem Function cai no servidor de ficheiros, que só aceita GET. Distinguir isto de uma
+    # avaria importa, porque esta verificação corre de 15 em 15 minutos e um aviso falso
+    # ensina-se a ignorar — e porque o que cai quando a camada das Functions morre é o
+    # `/contar`, que tem a sua própria verificação e é a que apanha isso.
+    if estado == 405:
+        return None
+    if estado != 400:
+        return f"/sugerir devolveu HTTP {estado} em vez de 400 a um corpo que devia recusar"
+    return None
+
+
 #: Pela ordem em que correm. O nome é o que aparece no `stderr` e no registo do aviso.
 VERIFICACOES = [
     ("as Functions respondem", funcoes_vivas),
@@ -194,6 +226,7 @@ VERIFICACOES = [
     ("a cache dos dados é a nossa", cache_dos_dados),
     ("o contrato /v1 está intacto", contrato_intacto),
     ("a versão é servida", versao_servida),
+    ("a caixa de sugestões tem onde escrever", base_de_dados_ligada),
 ]
 
 

@@ -43,8 +43,11 @@ VERSAO = json.dumps({"versao": "1.1"}).encode()
 CACHE_NOSSA = {"cache-control": "public, max-age=20, stale-while-revalidate=600"}
 
 
-def site_bom(url: str):
+def site_bom(url: str, metodo: str = "GET", corpo: bytes | None = None):
     """O que produção serve quando está tudo bem — medido a 13/10/2026, depois da correcção."""
+    if url.endswith("/sugerir"):
+        # um corpo que a Function recusa: 400 quer dizer que ela correu e decidiu
+        return 400, {}, b""
     if url.endswith("/consola"):
         return 200, {}, b"<html><body><input name=chave></body></html>"
     if "/contar" in url:
@@ -62,7 +65,7 @@ def site_bom(url: str):
     raise AssertionError(f"a verificação pediu algo inesperado: {url}")
 
 
-def site_so_estaticos(url: str):
+def site_so_estaticos(url: str, metodo: str = "GET", corpo: bytes | None = None):
     """**O que produção serviu entre as 23:42 de 12/10 e as 17:45 de 13/10.**
 
     Os ficheiros estáticos saíam; as Functions, o `_redirects` e o `_headers` não. Os 404 de 0
@@ -70,6 +73,8 @@ def site_so_estaticos(url: str):
     """
     if url.endswith("/consola") or "/contar" in url or "/jogo/" in url:
         return 404, {"cache-control": "no-store"}, b""
+    if url.endswith("/sugerir"):
+        return 405, {}, b""        # sem Function, o servidor de ficheiros só aceita GET
     cache_por_omissao = {"cache-control": "public, s-maxage=604800"}
     if url.endswith("/meta.json"):
         return 200, cache_por_omissao, META
@@ -132,9 +137,9 @@ class TestCadaVerificacaoSozinha:
     """Uma avaria de cada vez, para nenhuma das verificações poder passar por acidente."""
 
     def _com(self, vp, monkeypatch, estrago):
-        def site(url: str):
+        def site(url: str, metodo: str = "GET", corpo: bytes | None = None):
             r = estrago(url)
-            return r if r is not None else site_bom(url)
+            return r if r is not None else site_bom(url, metodo, corpo)
         return correr(vp, monkeypatch, site)
 
     def test_a_consola_a_dar_503_por_falta_de_chave(self, vp, monkeypatch):
@@ -147,10 +152,10 @@ class TestCadaVerificacaoSozinha:
     def test_a_mesma_consola_a_503_fora_de_producao_nao_e_falha(self, vp, monkeypatch):
         """No site de testes a `CHAVE_CONTAGENS` não existe e o 503 está certo. Verificá-lo
         ali era ensinar-nos a ignorar esta verificação — e a de produção com ela."""
-        def site(url):
+        def site(url, metodo="GET", corpo=None):
             if url.endswith("/consola"):
                 return 503, {}, b"A consola nao tem chave configurada neste projecto."
-            return site_bom(url)
+            return site_bom(url, metodo, corpo)
         assert correr(vp, monkeypatch, site, base="https://testes.hoquei.pages.dev") == []
 
     def test_o_contador_a_dar_500(self, vp, monkeypatch):
@@ -188,12 +193,12 @@ class TestAsTentativas:
         """Uma ronda vermelha por causa de um soluço ensina a ignorar rondas vermelhas."""
         falhou_uma_vez = {"consola": 0}
 
-        def site(url: str):
+        def site(url: str, metodo: str = "GET", corpo: bytes | None = None):
             if url.endswith("/consola"):
                 falhou_uma_vez["consola"] += 1
                 if falhou_uma_vez["consola"] == 1:
                     raise TimeoutError("timed out")
-            return site_bom(url)
+            return site_bom(url, metodo, corpo)
 
         assert correr(vp, monkeypatch, site, tentativas=3) == []
         assert falhou_uma_vez["consola"] == 2, "não repetiu a verificação que falhou"
@@ -202,8 +207,65 @@ class TestAsTentativas:
         assert correr(vp, monkeypatch, site_so_estaticos, tentativas=3)
 
     def test_uma_excepcao_de_rede_e_uma_falha_e_nao_um_estouro(self, vp, monkeypatch):
-        def site(url: str):
+        def site(url: str, metodo: str = "GET", corpo: bytes | None = None):
             raise OSError("sem DNS")
         falhas = correr(vp, monkeypatch, site, tentativas=1)
         assert len(falhas) == len(vp.VERIFICACOES)
         assert all("não se conseguiu verificar" in f for f in falhas)
+
+
+class TestABaseDeDados:
+    """A sonda que torna visível a assimetria entre produção e o site de testes.
+
+    **Sonda sem escrever nada**: manda um corpo que a Function recusa de certeza e lê o código.
+    Nasceu a 13/10/2026 de o dono ter descoberto por tentativa que o site de testes não tinha
+    ligação à base de dados — publicou, carregou em enviar, e viu a mensagem de falha. Uma
+    assimetria entre ambientes que só se descobre a usar é uma assimetria que volta.
+    """
+
+    def test_um_503_e_a_ligacao_em_falta(self, vp, monkeypatch):
+        def site(url, metodo="GET", corpo=None):
+            if url.endswith("/sugerir"):
+                return 503, {}, b""
+            return site_bom(url, metodo, corpo)
+        falhas = correr(vp, monkeypatch, site)
+        assert len(falhas) == 1
+        assert "base de dados" in falhas[0]
+
+    def test_um_405_nao_e_avaria_e_sim_a_funcionalidade_por_publicar(self, vp, monkeypatch):
+        """Um caminho sem Function cai no servidor de ficheiros, que só aceita GET.
+
+        Importa distinguir: esta verificação corre de 15 em 15 minutos, e um aviso falso
+        ensina-se a ignorar. O que cai quando a camada das Functions morre é o `/contar`, que
+        tem a sua própria verificação.
+        """
+        def site(url, metodo="GET", corpo=None):
+            if url.endswith("/sugerir"):
+                return 405, {}, b""
+            return site_bom(url, metodo, corpo)
+        assert correr(vp, monkeypatch, site) == []
+
+    def test_e_um_400_e_a_Function_a_decidir(self, vp, monkeypatch):
+        assert correr(vp, monkeypatch, site_bom) == []
+
+    def test_um_codigo_inesperado_falha(self, vp, monkeypatch):
+        def site(url, metodo="GET", corpo=None):
+            if url.endswith("/sugerir"):
+                return 204, {}, b""      # aceitou um texto vazio: a decisão está partida
+            return site_bom(url, metodo, corpo)
+        falhas = correr(vp, monkeypatch, site)
+        assert len(falhas) == 1 and "em vez de 400" in falhas[0]
+
+    def test_pede_em_POST_e_com_um_corpo_que_e_recusado(self, vp, monkeypatch):
+        """Se isto passasse a GET, media outra coisa — e um GET a `/sugerir` devolve a app."""
+        visto = {}
+
+        def site(url, metodo="GET", corpo=None):
+            if url.endswith("/sugerir"):
+                visto["metodo"], visto["corpo"] = metodo, corpo
+                return 400, {}, b""
+            return site_bom(url, metodo, corpo)
+
+        correr(vp, monkeypatch, site)
+        assert visto["metodo"] == "POST"
+        assert b'"texto":""' in (visto["corpo"] or b"")
