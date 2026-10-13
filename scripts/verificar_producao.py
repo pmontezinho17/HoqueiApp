@@ -55,6 +55,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import ssl
 import sys
 import time
 import urllib.error
@@ -70,6 +71,39 @@ TENTATIVAS = 3
 ESPERA = 1.0
 
 
+def _contexto_ssl() -> ssl.SSLContext:
+    """O contexto de TLS, com as autoridades do sistema ou, se não as houver, as do `certifi`.
+
+    Isto não é zelo: **sem ele esta ferramenta mente**. Corrido a 13/10/2026 com o
+    `/usr/local/bin/python3`, as sete verificações falharam todas com
+    `CERTIFICATE_VERIFY_FAILED` e o relatório dizia *"7 de 7 verificações falharam"* — produção
+    estava perfeitamente bem. Medido a seguir: esse interpretador tem **zero** raízes no
+    contexto por omissão (é a distribuição python.org, a que precisa do
+    `Install Certificates.command`), e o `/usr/bin/python3` da mesma máquina tem 128. Qual
+    deles corre depende do `PATH` de quem chama, e é por isso que isto passou despercebido até
+    hoje. Uma verificação que grita "produção em baixo" quando o problema é o interpretador de
+    quem a corre ensina a ignorá-la, que é exactamente o contrário do que ela existe para fazer.
+
+    Nunca desliga a verificação do certificado. Ou há raízes, ou o pedido falha — e falhar
+    aparece como *"não se conseguiu verificar"*, que já é uma frase diferente de *"está mal"*.
+    """
+    contexto = ssl.create_default_context()
+    try:                                     # as raízes do sistema chegam? então é só isso.
+        contexto.load_default_certs(ssl.Purpose.SERVER_AUTH)
+        if contexto.get_ca_certs():
+            return contexto
+    except Exception:                        # pragma: no cover - depende da máquina
+        pass
+    try:
+        import certifi
+        return ssl.create_default_context(cafile=certifi.where())
+    except ImportError:                      # pragma: no cover - depende da máquina
+        return contexto
+
+
+_SSL = _contexto_ssl()
+
+
 def _pedir(url: str, metodo: str = "GET",
            corpo: bytes | None = None) -> tuple[int, dict[str, str], bytes]:
     cabecalhos = {"User-Agent": UA}
@@ -77,7 +111,7 @@ def _pedir(url: str, metodo: str = "GET",
         cabecalhos["Content-Type"] = "application/json"
     pedido = urllib.request.Request(url, headers=cabecalhos, data=corpo, method=metodo)
     try:
-        with urllib.request.urlopen(pedido, timeout=20) as r:
+        with urllib.request.urlopen(pedido, timeout=20, context=_SSL) as r:
             return r.status, {k.lower(): v for k, v in r.headers.items()}, r.read()
     except urllib.error.HTTPError as e:
         return e.code, {k.lower(): v for k, v in e.headers.items()}, e.read()
