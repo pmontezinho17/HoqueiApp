@@ -5,10 +5,27 @@
 --     npx wrangler d1 execute ok4sticks-dados --remote --file dados/esquema.sql
 --
 -- Tudo aqui é `CREATE TABLE IF NOT EXISTS`, logo correr isto numa base cheia não faz nada e
--- correr numa base vazia constrói-a inteira. É assim que se cria a base **de testes** igual à
+-- correr numa base vazia constrói-a inteira. É assim que se criou a base **de testes** igual à
 -- de produção, trocando o nome:
 --
 --     npx wrangler d1 execute ok4sticks-dados-testes --remote --file dados/esquema.sql
+--
+-- ## São duas bases, e isso foi decisão do dono a 13/10/2026
+--
+-- *"eu quero garantir que os dois ambientes estão iguais. mas para isso temos de criar uma
+-- nova BD D1 que seja só para testes"*. Criada nesse dia, em WEUR, com este ficheiro:
+--
+--   `ok4sticks-dados`          ligada como `DADOS` no ambiente **Production** do Pages;
+--   `ok4sticks-dados-testes`   ligada como `DADOS` no ambiente **Preview**.
+--
+-- O site de testes passa a ter a app inteira a funcionar — consola, contadores, caixa de
+-- sugestões — **com os seus próprios números**, que é o que faltava para ele diferir de
+-- produção só no código. Antes não havia ligação nenhuma em Preview, e metade das Functions
+-- respondia 503 lá.
+--
+-- Isto é configuração de painel: não há nada no repositório que a controle, e por isso não há
+-- teste que a confirme. Quem quiser saber qual está ligada pergunta ao site —
+-- `scripts/verificar_producao.py` dá 503 na caixa de sugestões quando não há base nenhuma.
 --
 -- **O que isto não faz é migrar.** Acrescentar uma coluna a uma tabela que já existe exige um
 -- `ALTER TABLE`, e o `IF NOT EXISTS` passa por ela em silêncio — apanhado a 13/10/2026, no
@@ -195,6 +212,12 @@ CREATE INDEX IF NOT EXISTS idx_sugestao_por_arquivar ON sugestao (issue) WHERE i
 -- contador do `visita`. Há um teste só para isso, porque é o género de coisa que se perde
 -- numa reorganização e que ninguém nota — os números reais é que ficavam inflados em
 -- silêncio.
+--
+-- **E desde 13/10/2026 estas linhas nascem na base de testes, não nesta.** A porta só aparece
+-- em sites de ramo, os sites de ramo são o ambiente de Preview, e o Preview está ligado ao
+-- `ok4sticks-dados-testes`. Por isso o `scripts/quem-bate.sh` pergunta **lá**: a tabela existe
+-- nas duas bases, e na de produção fica vazia para sempre. Não é desarrumação — a porta é uma
+-- coisa de testes, e o número que ela dá é sobre testes.
 CREATE TABLE IF NOT EXISTS porta (
   dia    TEXT NOT NULL,
   ramo   TEXT NOT NULL,                   -- 'testes', 'versoes', ou o id de uma publicação

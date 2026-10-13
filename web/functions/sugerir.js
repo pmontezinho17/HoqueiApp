@@ -76,9 +76,16 @@ const ESQUEMA = `CREATE TABLE IF NOT EXISTS sugestao (
  * **Não é um identificador de pessoa, é de ambiente** — diz qual é o nosso site, não quem
  * escreveu —, por isso não quebra a promessa da política de privacidade.
  *
- * Existe para o dono poder experimentar a caixa no site de testes sem que as sugestões de
- * ensaio virem registos a par das reais: o `sugestoes.yml` só arquiva as linhas onde isto é
- * `null`. Sem esta coluna, a alternativa era não poder testar o caminho que grava.
+ * Nasceu para o dono poder experimentar a caixa no site de testes sem que as sugestões de
+ * ensaio virassem registos a par das reais: o `sugestoes.yml` só arquiva as linhas onde isto é
+ * `null`. Nessa altura havia **uma** base de dados e era esta coluna que separava os dois
+ * ambientes.
+ *
+ * **Desde 13/10/2026 já não é ela que separa** — há uma base só para testes
+ * (`ok4sticks-dados-testes`, ligada ao ambiente de Preview), e um ensaio não tem por onde
+ * chegar à tabela de produção. Fica como rede para a única falha que resta: a ligação é
+ * configuração do painel, que o repositório não vê e nenhum teste confirma, e apontar o Preview
+ * à base de produção por engano é um clique. Custa uma coluna.
  *
  * @param {Request} request
  * @returns {string | null}
