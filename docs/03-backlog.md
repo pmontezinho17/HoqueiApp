@@ -2343,6 +2343,62 @@ dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
 
 Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
 
+## E voltou a acontecer uma hora depois, sem ninguém publicar (13/10/2026)
+
+O dono, às 19h: *"estou outra vez sem consola"*. E isto derruba a premissa com que eu tinha
+escrito a verificação de ontem.
+
+### O que se mediu
+
+A verificação nova passou nas publicações das **17:43** e das **18:03**, verde das duas vezes. A
+ronda das **18:09 saltou a publicação** — terça sem jogos, o `vale_pedir` parou-a. Não houve mais
+nenhuma. E por volta das 19h produção estava outra vez a servir só os ficheiros estáticos: as
+Functions em baixo, os links directos a dar 404, e o `/v1/*` de volta à cache por omissão de sete
+dias.
+
+**Produção degradou-se sozinha, em menos de uma hora, sem ninguém publicar.** Ontem eu tinha
+atribuído a avaria à publicação das 23:42; estava errado — ou, no mínimo, não era a causa.
+
+E já se sabia uma coisa que o confirma: com produção em baixo, o **alias daquela mesma
+publicação** servia tudo corretamente, no mesmo minuto e do mesmo cliente. Mesmo deployment,
+mesmo nó de Lisboa, anfitriões diferentes, comportamentos diferentes. É a configuração do
+anfitrião `hoquei.pages.dev` que se perde, e uma publicação nova repõe-na. **Nada no nosso
+repositório controla isso.**
+
+Contexto de fora, e não é prova: a página de estado da Cloudflare tem um incidente maior entre
+as 16:39 e as 17:07 UTC de 13/10 — *"increased errors across Cloudflare services"* — e um
+incidente aberto nos Workers desde as 15:18. Coincide com a primeira descoberta, mas a segunda
+avaria apareceu depois de o incidente maior ter fechado. Fica registado como contexto, não como
+causa: **a causa não a consigo determinar de fora.**
+
+### A lição, e é sobre a correcção de ontem e não sobre a avaria
+
+**Uma verificação que só corre quando publicamos nunca apanha uma avaria que aparece sem
+publicação.** E num dia sem jogos não publicamos durante 24 horas. É por isso que a avaria de
+12/10 durou 18 horas e que a de hoje foi descoberta pelo dono — **duas vezes seguidas, as duas
+por ele e nenhuma por nós.**
+
+Daí o `saude.yml`: a mesma verificação, de quinze em quinze minutos, com o aviso pelo registo
+com etiqueta `ronda`. Seis pedidos ao nosso próprio CDN por corrida, zero à APL.
+
+Quinze minutos e não um: o que se quer apanhar já durou 18 horas, e afinar para o minuto era
+precisão a mais para o problema e ruído a mais no histórico. E fica na GitHub e não no
+`worker/relogio` — que seria o sítio mais fiável, porque o agendador da GitHub é fraco a
+intervalos curtos — porque mover a verificação para lá obrigava a reescrevê-la em JavaScript e a
+ter duas versões da mesma regra. Para uma vigia de quinze minutos, uma corrida saltada apanha-se
+na seguinte. Se um dia não bastar, o relógio é o sítio.
+
+### O que a vigia **não** faz, e é uma decisão e não um esquecimento
+
+Não publica sozinha. Sabe-se que uma publicação nova resolve, e é tentador mandá-la daqui — mas
+a regra deste projecto é que nada se publica sem o dono pedir, e uma vigia a publicar sozinha é
+exactamente isso. Abre o registo e espera.
+
+**Fica como decisão dele:** autorizar a vigia a republicar sozinha quando a verificação falhar
+duas vezes seguidas, no máximo uma vez por hora. Custa zero pedidos à APL e tira a avaria do ar
+em quinze minutos em vez de esperar que alguém olhe. O argumento contra é o precedente: uma
+máquina com autorização para publicar.
+
 ## Produção servia só os estáticos e ninguém deu por ela em 18 horas (12–13/10/2026)
 
 O dono, ao fim da tarde de terça: *"ficámos sem consola"*.

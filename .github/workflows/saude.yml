@@ -1,0 +1,117 @@
+# Vigia o site publicado, de quinze em quinze minutos.
+#
+# ## Porque é que isto existe, e porque é que não bastava a verificação da publicação
+#
+# A 13/10/2026 acrescentei o `scripts/verificar_producao.py` ao fim do `dados.yml`: confirma,
+# depois de publicar, que o site serve o que lhe mandámos. Passou nas publicações das 17:43 e
+# das 18:03, verde das duas vezes.
+#
+# **Uma hora depois o dono disse outra vez "estou sem consola", e nada tinha publicado pelo
+# meio.** A ronda das 18:09 saltou a publicação — terça sem jogos, o `vale_pedir` parou-a — e a
+# anterior fora às 18:03, verificada sã. Produção degradou-se **sozinha**: as Functions deixaram
+# de correr, os links directos passaram a dar 404 e o `/v1/*` voltou à cache por omissão de sete
+# dias.
+#
+# E isso mata a premissa com que escrevi a verificação de ontem. Uma verificação que só corre
+# quando publicamos nunca apanha uma avaria que aparece sem publicação — e num dia sem jogos não
+# publicamos durante 24 horas. Foi por isso que a avaria de 12/10 durou 18 horas e que a de hoje
+# foi descoberta pelo dono e não por nós, duas vezes seguidas.
+#
+# ## O que se mediu sobre a avaria
+#
+# **Não é do nosso código, e não é da publicação.** Com produção em baixo, o alias daquela mesma
+# publicação — `<id>.hoquei.pages.dev` — servia tudo corretamente, no mesmo minuto e do mesmo
+# cliente. Mesmo deployment, mesmo nó de Lisboa, anfitriões diferentes, comportamentos
+# diferentes: é a configuração do anfitrião `hoquei.pages.dev` que se perde, e uma publicação
+# nova repõe-na. Nada no nosso repositório controla isso.
+#
+# ## Porquê quinze minutos, e porquê aqui e não no relógio
+#
+# Quinze minutos são ~96 corridas por dia, de ~20 segundos, e seis pedidos ao **nosso** CDN em
+# cada uma. Zero pedidos à APL. O que se quer apanhar é uma avaria que já durou 18 horas; afinar
+# para 1 minuto seria precisão a mais para o problema e ruído a mais no histórico.
+#
+# O agendador da GitHub é pouco fiável a intervalos curtos — está medido neste projecto, e é a
+# razão de existir o `worker/relogio`. Para uma vigia de quinze minutos isso é tolerável: salta
+# uma, apanha na seguinte. Se um dia não bastar, o sítio certo é o relógio, que já corre de dez
+# em dez minutos e já fala com as Actions.
+#
+# ## Avisa e não repara
+#
+# Sabemos que uma publicação nova resolve, e é tentador mandá-la daqui. **Não o faz de
+# propósito:** a regra deste projecto é que nada se publica sem o dono pedir, e uma vigia a
+# publicar sozinha é exactamente isso. Abre o registo, com a etiqueta `ronda`, e o dono decide.
+name: Vigiar o site publicado
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: saude
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  vigiar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: O site publicado serve o que lhe mandámos
+        id: verificar
+        run: python3 scripts/verificar_producao.py 2>&1 | tee /tmp/saude.txt
+
+      # ─────────────────────────────────────────────────────────────────────────────────────
+      # Os dois avisos seguem o padrão que o `dados.yml` já usa, e com as mesmas três lições
+      # que ele pagou: a etiqueta cria-se antes de se usar, o passo é `continue-on-error` para
+      # um aviso que falha não reprovar a vigia, e fecha-se o registo quando volta ao normal.
+      - name: Produção está em baixo
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DONO: ${{ github.repository_owner }}
+        run: |
+          gh label create ronda --color B60205 --force \
+            --description "a ronda do dados.yml está a falhar" >/dev/null 2>&1 || true
+
+          titulo="Produção não está a servir o que publicámos"
+          corpo=$(printf '%s\n' \
+            "A vigia de $(TZ=Europe/Lisbon date '+%F às %H:%M') encontrou o site publicado em baixo." \
+            "" \
+            '```' \
+            "$(cat /tmp/saude.txt 2>/dev/null || echo '(sem saída)')" \
+            '```' \
+            "" \
+            "**Uma publicação nova resolve** — o \`dados.yml\` com \`so_publicar\`, que não pede" \
+            "nada à APL. Está medido: com produção em baixo, o alias da mesma publicação serve" \
+            "tudo bem, logo é a configuração do anfitrião que se perde e não o nosso código." \
+            "" \
+            "A vigia **não publica sozinha**, de propósito: nada se publica sem o dono pedir." \
+            "" \
+            "Corrida: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")
+          n=$(gh issue list --state open --label ronda --limit 20 --json number,title \
+                --jq "[.[] | select(.title == \"$titulo\")] | .[0].number // empty")
+          if [ -n "$n" ]; then
+            gh issue comment "$n" --body "$corpo"
+          else
+            gh issue create --title "$titulo" --body "$corpo" --label ronda --assignee "$DONO"
+          fi
+
+      - name: Produção voltou ao normal
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh issue list --state open --label ronda --limit 20 --json number,title \
+                --jq "[.[] | select(.title == \"Produção não está a servir o que publicámos\")] | .[0].number // empty")
+          if [ -n "$n" ]; then
+            gh issue close "$n" --comment "A vigia voltou a encontrar o site são. Fechada pelo \`saude.yml\`."
+          fi
