@@ -2379,6 +2379,55 @@ se prova melhor do que isto.
 
 A correcção foi uma publicação nova com `so_publicar`, zero pedidos à APL.
 
+### Uma publicação nova limpa a cache da borda — em minutos, não instantaneamente
+
+O dono pediu-me para o testar, e fez bem: eu tinha-lhe dito, duas vezes, que no sábado *"os
+resultados ficavam congelados na borda durante uma semana"*. **Afirmei-o com mais certeza do
+que tinha, e o ensaio mostrou que estava errado — mas também mostrou que a minha primeira
+correcção estava optimista.**
+
+O ensaio, no site de testes: um ficheiro servido com `Cache-Control: public, s-maxage=604800`
+— os mesmos sete dias que a Cloudflare pôs no `/v1/*` quando o nosso `_headers` deixou de ser
+aplicado —, lido várias vezes do nó de Lisboa, e depois publicado outra vez com conteúdo
+diferente. Duas medições:
+
+| publicação | quando apareceu o conteúdo novo |
+|---|---|
+| 1.ª | **41 segundos** depois de empurrar |
+| 2.ª | entre **3 e 6 minutos** |
+
+Na segunda fiz 15 leituras seguidas, todas com o conteúdo velho, e concluí por um momento que a
+publicação **não** limpava — ia escrever isso. Estava a medir dentro da janela: minutos depois,
+o mesmo endereço servia o novo. **Duas conclusões erradas seguidas no mesmo ensaio**, a primeira
+por exagero e a segunda por impaciência.
+
+**O que fica medido:** uma publicação refresca a cache partilhada, com um atraso de segundos a
+poucos minutos, mesmo com um cabeçalho de sete dias. Não é instantâneo e não é uma semana.
+
+O que **não** fica estabelecido: o mecanismo, e se um caminho **apagado** chega a ser refrescado
+— substituí o ficheiro antes de descobrir. Enquanto ele esteve apagado, a borda continuou a
+servi-lo, e com uma query diferente o mesmo caminho já devolvia a app. Fica como pergunta aberta
+e com uma consequência prática a lembrar: **apagar um ficheiro publicado não o tira logo do ar.**
+
+(Tentei primeiro medir pelo cabeçalho `age` e não dá: em estado saudável a Cloudflare não o manda
+nestas respostas — quatro leituras de um emblema com cache de um ano, 45 s de intervalo, nenhuma
+com `age`. Daí medir conteúdo e não cabeçalhos. O `age: 58268` que vi durante a avaria é ele
+próprio o sintoma: só aparece quando a resposta vem mesmo da cache partilhada.)
+
+**Então o que a avaria de 12/10 custava, sem exagero:** os sete dias valiam só *entre*
+publicações. Num sábado, com o ciclo ao vivo a publicar a cada mudança de resultado — 809 vezes
+a 11/10 —, o atraso seria de minutos. As 16 horas que medi aconteceram porque entre as 23:42 de
+12/10 e as 17:43 de 13/10 **não houve uma única publicação**: a terça não tinha jogos e o
+`vale_pedir` parou todas as rondas.
+
+E o que fica de pé: a avaria era real, mas **precisava de uma segunda falha para magoar a
+sério** — um dia de jogos em que o ciclo ao vivo não publicasse. É precisamente a combinação que
+tivemos a 11/10, com sete rondas abortadas seguidas. Duas avarias que isoladamente se aguentam e
+juntas davam uma tarde de resultados errados.
+
+Nada disto muda o que se faz a seguir: o cabeçalho tem de estar certo, e desde hoje verifica-se
+em cada publicação.
+
 ### A lição, que é a parte que fica
 
 **Nada no projecto teria apanhado isto, e o CI estava verde — com razão.** Os 305 testes do
