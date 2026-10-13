@@ -133,9 +133,10 @@ export const NOVIDADES: Novidade[] = [
 				titulo: 'O "O que está mal" passa a enviar com um toque',
 				texto:
 					'Antes abria o teu programa de email e tinhas de carregar em enviar lá. Agora ' +
-					'vai directamente. Guardamos o que escreveres, com o ecrã e a versão, para o ' +
-					'podermos corrigir — e não guardamos quem és. Está tudo explicado na política ' +
-					'de privacidade, incluindo como pedir que desapareça.'
+					'vai directamente, e a caixa diz-te claramente que chegou. Guardamos o que ' +
+					'escreveres, com o ecrã e a versão, para o podermos corrigir — e não guardamos ' +
+					'quem és. Está tudo explicado na política de privacidade, incluindo como pedir ' +
+					'que desapareça.'
 			},
 			{
 				tipo: 'corrigido',
