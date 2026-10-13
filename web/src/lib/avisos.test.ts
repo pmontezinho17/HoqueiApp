@@ -39,13 +39,31 @@ describe('os avisos sabem fechar-se', () => {
 		expect(ficheiros.length).toBeGreaterThanOrEqual(8);
 	});
 
-	const queAvisam = ficheiros.filter((f) => f.texto.includes('gh issue create'));
+	/**
+	 * **Um aviso não é qualquer issue.** O que o distingue é reutilizar a mesma: procura uma
+	 * aberta e comenta, em vez de abrir a segunda. É essa procura — o `gh issue list` — que o
+	 * identifica aqui.
+	 *
+	 * A diferença não é académica: o `sugestoes.yml` abre **uma issue por sugestão**, num
+	 * repositório privado, e é um arquivo e não um alarme. Fechá-la é uma decisão de quem lê,
+	 * não do workflow. A primeira versão desta regra dizia "todo o workflow que abre uma issue
+	 * também a fecha" e reprovou-o — correctamente, para a letra da regra, e erradamente para o
+	 * que ela quer dizer. Escrevi-a num ramo onde o `sugestoes.yml` ainda não existia, e só
+	 * apareceu ao fundir no `testes`.
+	 */
+	const queAvisam = ficheiros.filter(
+		(f) => f.texto.includes('gh issue create') && f.texto.includes('gh issue list')
+	);
 
-	it('todo o workflow que abre uma issue também a fecha', () => {
+	it('todo o workflow que reutiliza uma issue de aviso também a fecha', () => {
 		const semFecho = queAvisam
 			.filter((f) => !f.texto.includes('gh issue close'))
 			.map((f) => f.nome);
 		expect(semFecho).toEqual([]);
+	});
+
+	it('e há avisos que chegue para a regra significar alguma coisa', () => {
+		expect(queAvisam.length).toBeGreaterThanOrEqual(3);
 	});
 
 	/**
