@@ -2379,6 +2379,42 @@ se prova melhor do que isto.
 
 A correcção foi uma publicação nova com `so_publicar`, zero pedidos à APL.
 
+### Uma publicação nova limpa a cache da borda — medido, e corrige-me
+
+O dono pediu-me para o testar, e fez bem: eu tinha-lhe dito, duas vezes, que no sábado *"os
+resultados ficavam congelados na borda durante uma semana"*. **Afirmei-o com mais certeza do que
+tinha.**
+
+O ensaio, no site de testes a 13/10/2026: um ficheiro servido com `Cache-Control: public,
+s-maxage=604800` — os mesmos sete dias que a Cloudflare pôs no `/v1/*` — lido oito vezes do
+mesmo nó de Lisboa, e depois publicado outra vez com conteúdo diferente.
+
+```
+18:29:55  início: ensaio-2
+18:30:02  empurrado para o testes
+18:30:43  MUDOU para: ensaio-3
+```
+
+**41 segundos**, com um cabeçalho de sete dias. A borda não guarda a cópia velha de uma
+publicação para a outra.
+
+(Tentei primeiro medir pelo cabeçalho `age` e não dá: em estado saudável a Cloudflare não o
+manda nestas respostas — quatro leituras de um emblema com cache de um ano, 45 s de intervalo,
+nenhuma com `age`. Foi por isso que o ensaio passou a medir **conteúdo** e não cabeçalhos. O
+`age: 58268` que eu vi durante a avaria é o próprio sintoma: só aparece quando a resposta vem
+mesmo da cache partilhada, que é onde ela não devia estar.)
+
+**Então a frase certa é outra.** Os sete dias valiam só *entre publicações*. Num sábado, com o
+ciclo ao vivo a publicar a cada mudança de resultado — 809 vezes a 11/10 —, cada publicação
+refrescava tudo e a congelação seria de segundos. As 16 horas que medi aconteceram porque entre
+as 23:42 de 12/10 e as 17:43 de 13/10 **não houve uma única publicação**: a terça não tinha
+jogos e o `vale_pedir` parou todas as rondas.
+
+E o que fica de pé, sem exagero: a avaria era real, mas **precisava de uma segunda falha para
+magoar a sério** — um dia de jogos em que o ciclo ao vivo não publicasse. É precisamente a
+combinação que tivemos a 11/10, com sete rondas abortadas seguidas. Duas avarias que
+isoladamente se aguentam e juntas dariam uma tarde inteira de resultados errados.
+
 ### A lição, que é a parte que fica
 
 **Nada no projecto teria apanhado isto, e o CI estava verde — com razão.** Os 305 testes do

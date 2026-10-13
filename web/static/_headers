@@ -30,13 +30,6 @@
 /sw.js
   Cache-Control: no-cache
 
-# TEMPORÁRIO (13/10/2026, só no site de testes) — o ensaio que responde a "uma publicação
-# nova limpa a cache da borda?". `s-maxage` de sete dias é o valor que a Cloudflare pôs no
-# `/v1/*` quando o nosso `_headers` deixou de ser aplicado; `max-age=0` tira o browser da
-# equação, para o que se mede ser só a cache partilhada. Sai no fim do ensaio.
-/ensaio-cache.txt
-  Cache-Control: public, s-maxage=604800, max-age=0
-
 # O número da versão publicada, que a app lê para decidir se uma actualização vale um aviso.
 # **Nunca em cache:** um número de versão servido da cache responde à pergunta de há cinco
 # minutos, e aí a app ou avisa por nada ou cala-se quando devia avisar.
