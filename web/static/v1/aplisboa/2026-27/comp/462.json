@@ -124,12 +124,12 @@
    "grupo": null,
    "jornada": "4ª JORNADA",
    "data": "2026-10-18",
-   "hora": "00:00:00",
+   "hora": "15:00:00",
    "casa": "CRIAR-T GD",
    "fora": "HC LOURINHÃ",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+   "recinto": "PAV. GIMNO. DA LOURINHÃ",
    "ao_vivo": false
   },
   {
@@ -269,7 +269,7 @@
    "fora": "CRIAR-T GD",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. GIMNO. DA LOURINHÃ",
+   "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
    "ao_vivo": false
   },
   {

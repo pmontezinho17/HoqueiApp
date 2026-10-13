@@ -34,6 +34,18 @@ DESCRIPTION:A Stuart HCM A vs FSE/AJ Salesiana\nCAMP. REG. SUB-15 - 1ª FAS
 URL:https://hoquei.pages.dev/jogo/9642
 END:VEVENT
 BEGIN:VEVENT
+UID:jogo-9645@hoquei.pages.dev
+DTSTAMP:20261106T000000Z
+DTSTART:20261106T203000Z
+DTEND:20261106T220000Z
+SUMMARY:🏑 Sub-15 🏑 FSE/AJ Salesiana vs SL Benfica A
+LOCATION:Salesianos do Estoril
+DESCRIPTION:FSE/AJ Salesiana vs SL Benfica A\nCAMP. REG. SUB-15 - 1ª FASE 
+ · Série D · SUB-15\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/9645\
+ nDados da Associação de Patinagem de Lisboa. Site não oficial.
+URL:https://hoquei.pages.dev/jogo/9645
+END:VEVENT
+BEGIN:VEVENT
 UID:jogo-9648@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T193000Z
@@ -44,18 +56,6 @@ DESCRIPTION:AD Oeiras B vs FSE/AJ Salesiana\nCAMP. REG. SUB-15 - 1ª FASE
  · Série D · SUB-15\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9648
  \nDados da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9648
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9645@hoquei.pages.dev
-DTSTAMP:20261113T000000Z
-DTSTART:20261113T210000Z
-DTEND:20261113T223000Z
-SUMMARY:🏑 Sub-15 🏑 FSE/AJ Salesiana vs SL Benfica A
-LOCATION:Salesianos do Estoril
-DESCRIPTION:FSE/AJ Salesiana vs SL Benfica A\nCAMP. REG. SUB-15 - 1ª FASE 
- · Série D · SUB-15\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/9645\
- nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9645
 END:VEVENT
 BEGIN:VEVENT
 UID:jogo-9650@hoquei.pages.dev
