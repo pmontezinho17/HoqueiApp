@@ -70,14 +70,18 @@ from __future__ import annotations
 
 import datetime as dt
 
-#: **O interruptor.** Com isto a `False` a ronda pede tudo como sempre pediu, e nada do que
-#: está aqui se aplica — o código vai a produção desligado e liga-se numa linha, sem publicar
-#: outra vez. Está registado em `web/src/lib/bandeiras.ts`, com data.
+#: **O interruptor, ligado pelo dono a 13/10/2026.** A `False` a ronda pede tudo como sempre
+#: pediu e nada do que está aqui se aplica; a `True` é o que corre hoje.
 #:
-#: Ligar é uma decisão do dono, e o que se olha depois de ligar é o gráfico de pedidos por hora
-#: na consola: os pedidos têm de cair e **nenhuma prova pode ficar calada**. O `meta.json`
-#: passa a dizer quantas tabelas se saltaram e porquê, para a queda se distinguir de uma avaria.
-FILTRAR_TABELAS = False
+#: **Fica como travão de emergência, e é por isso que ainda existe.** Se uma prova ficar calada,
+#: pôr isto a `False` devolve o comportamento antigo na ronda seguinte — sem reverter código,
+#: sem publicar, sem esperar por ninguém. Continua registado em `web/src/lib/bandeiras.ts` com
+#: data: no dia em que o travão deixar de ser preciso, apaga-se o interruptor e fica só o filtro.
+#:
+#: O que se olha, agora que está ligado: o gráfico de pedidos por hora na consola. Os pedidos
+#: têm de cair e **nenhuma prova pode ficar calada**. O `meta.json` diz quantas tabelas se
+#: saltaram e porquê, para a queda se distinguir de uma avaria.
+FILTRAR_TABELAS = True
 
 #: Segunda-feira. A varredura completa corre no fecho do domingo — ver o ponto 2 acima.
 #: `0` é segunda em `date.weekday()`.

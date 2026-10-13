@@ -89,16 +89,15 @@ export const BANDEIRAS: Bandeira[] = [
 		esconde:
 			'nada no ecrã — o que muda é a app pedir menos páginas ao servidor da associação',
 		porque:
-			'o item A do backlog, pedido do dono a 12/10/2026. Entra desligado porque o risco ' +
-			'é cegar-nos e não poupar de menos: uma prova que achemos terminada deixa de ser ' +
-			'olhada, e isso não dá sinal nenhum. Ligar é decisão dele, e depois de ligar o que ' +
-			'se olha é o gráfico de pedidos por hora na consola — os pedidos têm de cair e ' +
-			'nenhuma prova pode ficar calada.',
-		ate: '2026-10-26',
+			'o item A do backlog. **Ligado pelo dono a 13/10/2026** e mantido como travão de ' +
+			'emergência: o risco deste filtro é cegar-nos, não poupar de menos — uma prova que ' +
+			'achemos terminada deixa de ser olhada e isso não dá sinal nenhum. A `False` o ' +
+			'comportamento antigo volta na ronda seguinte, sem reverter código nem publicar. A ' +
+			'data é quando o travão deixa de valer o que custa: quatro fins de semana de jogos ' +
+			'são prova bastante.',
+		ate: '2026-11-09',
 		aoSair:
-			'se ficar ligado, a constante e este registo; se for recusado, o `provas_a_pedir.py`, ' +
-			'o `test_provas_a_pedir.py` e o `quer_tabela` no `cli.py` — o `test_ronda.py` fica, ' +
-			'que esse é a rede que faltava a este projecto'
+			'a constante e este registo — o filtro e os testes ficam'
 	},
 	{
 		nome: '--anonimizar-formacao',

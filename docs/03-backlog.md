@@ -1472,6 +1472,29 @@ O `meta.json` passa a dizer `tabelas_saltadas` e `tabelas_saltadas_porque`, sen�
 consola mostrava menos pedidos sem ninguém saber se foi poupança ou avaria — o defeito do B9.31
 outra vez.
 
+### Ligado a 13/10/2026
+
+O dono leu o PR e mandou juntar e ligar. O interruptor **fica**, como travão de emergência: a
+`False` o comportamento antigo volta na ronda seguinte, sem reverter código nem publicar. A data
+no registo é 09/11 — quatro fins de semana de jogos são prova bastante para o travão deixar de
+valer o que custa.
+
+**Uma assimetria que vale a pena ter escrita.** A regra do projecto é que um `git push` não
+publica, e isso é verdade para a **app**: quem leva código ao site é o `dados.yml`. Para o
+**raspador** não é: as rondas agendadas fazem `checkout` do ramo por omissão, logo uma alteração
+no `main` entra na ronda seguinte sozinha. Ligar este interruptor não precisou de publicação
+nenhuma — precisou de um merge.
+
+E **não se disparou nenhuma ronda à mão para ver se funciona**: 13/10 foi uma terça sem jogos, e
+a regra é que num dia sem jogos não se pede nada. Forçar uma ronda para confirmar o filtro
+custaria ~40 pedidos à APL num dia em que o custo devido é zero — exactamente o erro que o
+`vale_pedir` existe para impedir, e que eu já cometi uma vez a 09/10 com o R2.
+
+A primeira ronda a exercitá-lo é a do fecho, às 00:30 de 14/10. Nessa hora "hoje" é o dia 14,
+que tem 2 jogos em 2 provas, e "ontem" é o 13, que não teve nenhum — logo a previsão é **~40
+pedidos em vez de 75**, e `tabelas_saltadas` perto de 35. O que confirma é o `meta.json`
+publicado, que não precisa de chave nenhuma para ser lido.
+
 ## Todos os 76 jogos do fim de semana davam erro antes de começar (09/10/2026)
 
 Encontrado a verificar a publicação, horas antes do fim de semana que o dono não quer que
