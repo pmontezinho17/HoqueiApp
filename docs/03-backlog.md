@@ -2426,14 +2426,22 @@ que se tenta sempre e cujo erro se ignora. Verificado a correr contra a tabela a
 coluna apareceu.
 
 **2 · A coluna `ramo`, que nasceu de o dono querer testar primeiro em `testes`.** O site de
-testes é o ambiente de Preview e **não tem ligação à D1** — foi decisão dele hoje, e na altura
-era sobre contar quem bate à porta. Para a caixa, a ligação é o que faz guardar. Se ele a ligar,
-os ensaios dele cairiam na mesma tabela das sugestões reais e virariam registos a par delas.
-A coluna diz de que site veio; o `sugestoes.yml` só arquiva onde ela é `NULL`, e o tecto diário
-também só conta essas.
+testes é o ambiente de Preview e **não tinha ligação à D1** — foi decisão dele hoje de manhã, e
+na altura era sobre contar quem bate à porta. Para a caixa, a ligação é o que faz guardar. Se ele
+a ligasse, os ensaios dele cairiam na mesma tabela das sugestões reais e virariam registos a par
+delas. A coluna diz de que site veio; o `sugestoes.yml` só arquiva onde ela é `NULL`, e o tecto
+diário também só conta essas.
 
 **Não é um identificador de pessoa, é de ambiente**: diz qual é o nosso site, não quem escreveu.
 Por isso não mexe na promessa da política de privacidade.
+
+**E ao fim da tarde deixou de ser o que separa os dois ambientes** — ver a secção seguinte. Com
+uma base de dados só para testes, um ensaio não tem por onde chegar à tabela de produção: a
+separação passou a ser a base, não a coluna. A coluna fica como rede, e isso é uma despromoção
+que tinha de ficar escrita: quem ler isto daqui a um mês não pode achar que é ela que garante a
+separação, porque não é. Rede de quê, concretamente: de alguém apontar o Preview à base de
+produção por engano no painel — que é configuração que o repositório não vê e nenhum teste
+apanha. Custa uma coluna e um `ALTER TABLE` que já existe.
 
 ### O que ficou verificado, e o que não
 
@@ -2448,6 +2456,48 @@ um segredo `TOKEN_SUGESTOES`, e o `CLOUDFLARE_API_TOKEN` que já existe pode pre
 de D1 — até hoje só publicava no Pages. A corrida diz qual das peças falta e **não falha em
 silêncio**: as sugestões ficam na D1 à espera e nada se perde entretanto. Testei a geração do
 título e do corpo à mão, com aspas, acentos e mudanças de linha.
+
+## Duas bases de dados, para os dois ambientes serem o mesmo (13/10/2026)
+
+*"eu quero garantir que os dois ambientes estão iguais. mas para isso temos de criar uma nova BD
+D1 que seja só para testes"*. Criada nesse dia: `ok4sticks-dados-testes`, em WEUR, construída com
+o `dados/esquema.sql` — o mesmo ficheiro que construiu a de produção, que é precisamente o que
+faz as duas serem iguais sem ninguém as comparar à mão.
+
+Confirmado a perguntar às duas o que têm dentro: produção tem `aparelho`, `entrada_hora`,
+`estado`, `observacao`, `pedido_fonte`, `porta`, `visita` e o índice do `observacao`; a de testes
+tem o mesmo mais o `sugestao` e o seu índice — porque a caixa de sugestões ainda só existe em
+`testes`. Quando o PR for a produção, a Function cria lá a tabela na primeira escrita.
+
+### O que isto resolve
+
+O site de testes diferia de produção em mais do que o código: metade das Functions respondia 503
+lá, porque não havia `DADOS` nenhum no ambiente de Preview. Testar nele era testar meia app. Isto
+é a terceira peça da mesma ideia — depois de haver **um só** site de testes, e de ele ler os
+dados de produção em vez de uma cópia commitada.
+
+### A consequência que não era óbvia: a porta muda de base
+
+A tabela `porta` conta quem bate no endereço de um site de ramo. A porta **só existe em sites de
+ramo**, os sites de ramo **são** o ambiente de Preview, e o Preview está agora ligado à base de
+testes. Logo estas linhas passam a nascer lá, e na base de produção a tabela fica vazia para
+sempre.
+
+Isto não se vê a olhar para o código da Function — ela escreve em `env.DADOS` e não sabe qual é.
+Vê-se a seguir o caminho: `_middleware.js` → `env.DADOS` → a ligação do painel. O
+`scripts/quem-bate.sh` perguntava à base de produção e passaria a responder *"Nada registado"*
+para sempre, com uma mensagem a dizer que faltava ligar o `DADOS` ao `ok4sticks-dados` em
+Preview — conselho que se tornou errado no momento em que esta decisão foi tomada. Corrigido no
+mesmo commit: pergunta à base de testes, e a mensagem de zero linhas passa a dar uma forma de
+separar as duas leituras (abrir o site de testes e ver se a caixa de sugestões consegue enviar).
+
+### O que é do painel e o que é do repositório
+
+A ligação `DADOS` → base é **configuração do painel de Pages**, por ambiente. Nada no repositório
+a controla e nenhum teste a confirma. O que o repositório tem é uma forma de **perguntar ao site
+publicado**: o `scripts/verificar_producao.py` manda um corpo que a caixa de sugestões deve
+recusar com 400, e um 503 em vez disso quer dizer que não há base de dados naquele ambiente. É
+assim que se sabe, de fora, se a ligação está feita.
 
 ## E voltou a acontecer uma hora depois, sem ninguém publicar (13/10/2026)
 
