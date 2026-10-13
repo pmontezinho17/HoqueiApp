@@ -91,22 +91,40 @@ jobs:
         run: |
           set -euo pipefail
           # A tabela pode ainda não existir — ninguém escreveu nada desde que isto foi criado.
-          # `|| true` e um ficheiro vazio tratam esse caso sem o confundir com uma avaria.
+          # `|| true` deixa a corrida seguir; quem distingue "não há nada" de "não se conseguiu
+          # ler" é o `sugestao_para_registo.mjs`, e **essa distinção é o ponto**.
+          #
+          # Medido a 13/10/2026 contra a base de produção, onde a tabela ainda não existia: o
+          # wrangler escreve no stdout um `{ error: … }` com `no such table: sugestao`. O passo
+          # antigo via que o ficheiro não estava vazio, seguia, e o `?? []` dava zero — a corrida
+          # dizia "0 sugestões por arquivar", verde, a afirmar que não havia nada quando o que
+          # houve foi uma falha. É a mesma classe dos avisos que não fechavam: não se perdem
+          # dados, perde-se o **sinal**, e um número que mente ensina a não olhar para ele.
           npx --yes wrangler@4.149.0 d1 execute "$BASE_D1" --remote --json \
             --command "SELECT id, dia, hora, texto, ecra, versao FROM sugestao WHERE issue IS NULL AND ramo IS NULL ORDER BY id LIMIT 50" \
             > /tmp/sugestoes.json 2>/tmp/erro.txt || true
 
+          # **Não conseguir ler faz a corrida falhar, e isso é deliberado.**
+          #
+          # Um `::warning::` aparece no resumo da corrida e **não notifica ninguém** — seria
+          # trocar um número que mente por um aviso que ninguém vê, num processo que corre uma
+          # vez por dia e cuja avaria só se notaria quando alguém estranhasse não haver registos.
+          # A GitHub avisa o dono quando um workflow agendado falha, e é esse o canal.
+          #
+          # Falhar aqui **não perde nada**: as sugestões ficam na D1 com `issue IS NULL` e a
+          # corrida seguinte apanha-as. O que se perde é só o dia.
           if [ ! -s /tmp/sugestoes.json ]; then
-            echo "::warning::não se conseguiu ler a D1 — $(head -c 300 /tmp/erro.txt)"
-            echo "quantas=0" >> "$GITHUB_OUTPUT"
-            exit 0
+            echo "::error::a leitura da D1 não deixou resposta nenhuma — $(head -c 300 /tmp/erro.txt)"
+            exit 1
           fi
-          n=$(node -e "
-            const d = require('/tmp/sugestoes.json');
-            const r = (Array.isArray(d) ? d[0] : d)?.results ?? [];
-            require('fs').writeFileSync('/tmp/linhas.json', JSON.stringify(r));
-            console.log(r.length);
-          ")
+
+          if ! node scripts/sugestao_para_registo.mjs /tmp/sugestoes.json /tmp/registos \
+                 > /tmp/ids.txt 2>/tmp/porque.txt; then
+            echo "::error::não se conseguiu ler as sugestões — $(head -c 300 /tmp/porque.txt)"
+            exit 1
+          fi
+
+          n=$(wc -l < /tmp/ids.txt | tr -d ' ')
           echo "quantas=$n" >> "$GITHUB_OUTPUT"
           echo "$n sugestões por arquivar"
 
@@ -122,41 +140,25 @@ jobs:
             --description "chegou pela caixa 'O que está mal'" \
             --repo "$REPO_SUGESTOES" >/dev/null 2>&1 || true
 
-          # O `jq` lê linha a linha para o texto poder ter aspas, acentos e mudanças de linha
-          # sem nada disso partir o shell. Já aconteceu num projecto meu; não se repete.
-          node -e "
-            const r = require('/tmp/linhas.json');
-            for (const s of r) console.log(JSON.stringify(s));
-          " | while IFS= read -r linha; do
-            id=$(node -e "console.log(JSON.parse(process.argv[1]).id)" "$linha")
-            titulo=$(node -e "
-              const s = JSON.parse(process.argv[1]);
-              const t = (s.texto || '').replace(/\s+/g, ' ').trim();
-              console.log(t.length > 60 ? t.slice(0, 57) + '…' : t);
-            " "$linha")
-            node -e "
-              const s = JSON.parse(process.argv[1]);
-              const l = [];
-              l.push(s.texto, '', '---', '');
-              l.push('| | |', '|---|---|');
-              l.push('| quando | ' + s.dia + ' às ' + s.hora + ' |');
-              l.push('| ecrã | \`' + (s.ecra || '—') + '\` |');
-              l.push('| versão | ' + (s.versao || '—') + ' |');
-              l.push('| id na D1 | ' + s.id + ' |');
-              l.push('', 'Arquivado pelo \`sugestoes.yml\`. Quando isto virar trabalho, o registo');
-              l.push('público vai para o \`HoqueiApp\` escrito pelas nossas palavras — aqui ficam as');
-              l.push('da pessoa, e é por isso que este repositório é privado.');
-              require('fs').writeFileSync('/tmp/corpo.md', l.join('\n'));
-            " "$linha"
-
+          # **O título e o corpo são gerados pelo `scripts/sugestao_para_registo.mjs`**, que o
+          # passo de leitura já correu, e não por `node -e` aqui dentro. Estavam aqui três, e eu
+          # tinha-os "testado à mão, com aspas, acentos e mudanças de linha" — testar à mão uma
+          # coisa que corre todos os dias às 07:20 é deixar a verificação de fora do que se
+          # publica. Agora é código com teste, e o formato do registo não mudou.
+          #
+          # O ciclo lê **ids**, um por linha, e nunca JSON: o texto da pessoa não chega a passar
+          # pelo shell. É a mesma preocupação de antes, resolvida de maneira mais simples.
+          while IFS= read -r id; do
+            [ -n "$id" ] || continue
             n=$(gh issue create --repo "$REPO_SUGESTOES" \
-                  --title "$titulo" --body-file /tmp/corpo.md --label sugestao \
+                  --title "$(cat "/tmp/registos/$id.titulo")" \
+                  --body-file "/tmp/registos/$id.corpo.md" --label sugestao \
                   | sed 's|.*/||')
             echo "sugestão $id → $REPO_SUGESTOES#$n"
 
             npx --yes wrangler@4.149.0 d1 execute "$BASE_D1" --remote \
               --command "UPDATE sugestao SET issue = $n WHERE id = $id" >/dev/null
-          done
+          done < /tmp/ids.txt
 
       # ─────────────────────────────────────────────────────────────────────────────────────
       # A retenção. **Só apaga o que já foi arquivado**: uma sugestão sem registo é uma que
