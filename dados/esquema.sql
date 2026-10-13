@@ -218,6 +218,11 @@ CREATE INDEX IF NOT EXISTS idx_sugestao_por_arquivar ON sugestao (issue) WHERE i
 -- `ok4sticks-dados-testes`. Por isso o `scripts/quem-bate.sh` pergunta **lá**: a tabela existe
 -- nas duas bases, e na de produção fica vazia para sempre. Não é desarrumação — a porta é uma
 -- coisa de testes, e o número que ela dá é sobre testes.
+--
+-- Medido nesse dia, e não deduzido: uma navegação a `testes.hoquei.pages.dev` com `User-Agent`
+-- de iPhone deixou `testes/aviso=1` na base de testes e **zero** na de produção. A linha foi
+-- apagada a seguir, pela razão que o `quem-bate.sh` explica — uma visita minha a confirmar que
+-- a porta está de pé não é uma pessoa perdida, e contá-la seria responder a outra pergunta.
 CREATE TABLE IF NOT EXISTS porta (
   dia    TEXT NOT NULL,
   ramo   TEXT NOT NULL,                   -- 'testes', 'versoes', ou o id de uma publicação

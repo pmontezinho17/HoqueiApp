@@ -2484,7 +2484,11 @@ testes. Logo estas linhas passam a nascer lá, e na base de produção a tabela 
 sempre.
 
 Isto não se vê a olhar para o código da Function — ela escreve em `env.DADOS` e não sabe qual é.
-Vê-se a seguir o caminho: `_middleware.js` → `env.DADOS` → a ligação do painel. O
+Vê-se a seguir o caminho: `_middleware.js` → `env.DADOS` → a ligação do painel. E depois
+mede-se, que é o que fecha a questão: uma navegação a `testes.hoquei.pages.dev` com `User-Agent`
+de iPhone, logo a seguir à ligação estar feita, deixou `testes/aviso=1` na base de testes e
+**zero** na de produção. Apaguei a linha a seguir — uma visita minha a confirmar que a porta
+está de pé não é uma pessoa perdida, e deixá-la lá respondia a outra pergunta. O
 `scripts/quem-bate.sh` perguntava à base de produção e passaria a responder *"Nada registado"*
 para sempre, com uma mensagem a dizer que faltava ligar o `DADOS` ao `ok4sticks-dados` em
 Preview — conselho que se tornou errado no momento em que esta decisão foi tomada. Corrigido no
