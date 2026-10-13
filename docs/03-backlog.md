@@ -52,7 +52,7 @@
 | B1.10 | Modelo normalizado + escrita dos JSON do contrato | must | M | ✅ `publicar` gera competitions, comp/, match/ e meta.json |
 | B1.11 | Testes do parser contra amostras | must | M | ✅ 32 testes, sem rede, incluindo cruzamento entre parsers |
 | B1.12 | Deteção de mudanças por hash | should | S | aberto |
-| B1.13 | Normalização de nomes de clubes + slug estável | should | M | aberto |
+| B1.13 | Normalização de nomes de clubes + slug estável | should | M | **fechado 13/10** — medido, não há o que normalizar |
 | B1.14 | GitHub Action com cron | must | M | ✅ 2h aos fins-de-semana, 6h nos dias úteis — ver nota de cadência |
 | B1.15 | Publicação dos JSON **no mesmo domínio da PWA** (Cloudflare Pages) | must | M | ✅ mesmo domínio da PWA, sem CORS |
 | B1.16 | `meta.json` com `generated_at` e estado | must | XS | ✅ |
@@ -2196,7 +2196,7 @@ honesta):
 | Há notificações? | ainda não; é a Fase 5 e depende da base de dados | **sim** |
 | Porque é que aparecem nomes de atletas de formação, e como peço a remoção de um? | `/privacidade`, secção "Nomes de atletas — a parte séria" | não |
 | O que são as séries de um campeonato regional? | W5.22 e a vista agregada | não |
-| Porque é que o meu clube aparece com o nome estranho ou repetido? | grafias erradas na fonte: medido a 05/10, 3 em 86 (B1.13) | **sim**, quando B1.13 for feito |
+| Porque é que o meu clube aparece com o nome estranho ou repetido? | ~~grafias erradas na fonte~~ — remedido a 13/10 e já não acontece; ver B1.13 | não |
 | Tem custos ou publicidade? | não tem, nem conta | não |
 
 Ficam **de fora** por agora, e de propósito: qualquer pergunta sobre notificações por clube,
@@ -3402,6 +3402,39 @@ Nenhum destes se verifica a ler o código; verificam-se injectando o defeito e v
 
 ---
 
+## B1.13 fecha-se sem uma linha de código (13/10/2026)
+
+Ia abrir um PR para normalizar grafias de clube — era o item XS da lista, e o dono escolheu-o.
+**Medi primeiro, e não há o que normalizar.** Das três grafias que eu tinha medido a 05/10:
+
+| 05/10 | 13/10 |
+|---|---|
+| `HC LOURINHA` / `HC LOURINHÃ` | só existe `HC LOURINHÃ` — a APL corrigiu |
+| `A STRUART HCM` / `A STUART HCM` | só existe `A STUART HCM` — a APL corrigiu |
+| `AE FISICA D (B)` / `AE FISICA D B` | **nunca foi um erro** |
+
+O terceiro par é o que interessa, porque eu classifiquei-o mal em Outubro. O parêntesis não é
+uma grafia alternativa: é o **escalão**, e é assim que os Torneios Particulares nomeiam as
+equipas. `AE FISICA D (B)` é a equipa *AE Física D* no escalão de Benjamins; `AE FISICA D B` é
+a equipa *AE Física D B*, que é outra. Na mesma família há `(E)`, `(S)`, `(S13)`, `(S15)`,
+`(S17)`, `(S19)` — e também `AE FISICA D B (B)`, que só faz sentido se o parêntesis for o
+escalão. **Normalizar isto fundia duas equipas diferentes**, que é pior do que o problema.
+
+E o dano que o item alegava não existe. Medido nos dados publicados:
+
+* 86 nomes de equipa nos 37 ficheiros de prova, **86 chaves** no `emblemas.json`, **zero** sem
+  emblema;
+* 84 nomes nos jogos da agenda, **zero** sem emblema;
+* as 22 variantes da AE Física apontam todas para `/emblemas/11.webp`, as três do A Stuart para
+  `/emblemas/10.webp`. O emparelhamento por prefixo de clube já tolera as variantes.
+
+Fica aberto o que sempre foi a outra metade do item e que não é uma grafia: o **slug estável**.
+Hoje a identidade de uma equipa é o nome, e no dia em que a APL mudar um nome a equipa parte-se
+em duas no histórico. Isso é a Fase 9, e paga-se quando houver histórico para partir.
+
+**A lição é a de sempre neste projecto, e desta vez apanhou-me a mim:** o backlog dizia "medido
+a 05/10" e eu quase o tratei como verdade de hoje. Uma medição tem data por alguma razão.
+
 ## Próximo incremento (revisto a 05/10/2026)
 
 A lista que estava aqui — publicar no Cloudflare, ecrã de equipa, quadro de marcadores,
@@ -3417,7 +3450,7 @@ O que falta, por ordem de valor e não de esforço:
 | 3 | **Movimento quando o resultado muda** | hoje um 2–1 passa a 3–1 e não se nota; é o que falta para o "ao vivo" parecer ao vivo | nenhum |
 | 4 | **Fase 9 — a base de dados** (B9.1, B9.3–B9.5, B9.7–B9.11) | memória: jogos antecipados, histórico, e o `events.json` que a Fase 5 assume | nenhum, ~3–4 dias |
 | 5 | **Fase 5 — notificações** (~20 itens) | o maior bloco que resta | depende do 4 |
-| 6 | **B1.13** — normalizar grafias de clube | medido a 05/10: de 86 nomes, só **3** estão mal — `AE FISICA D (B)`/`AE FISICA D B`, `HC LOURINHA`/`HC LOURINHÃ`, `A STRUART HCM`/`A STUART HCM`. Parte emblemas e junções por nome, mas é pequeno | nenhum, XS |
+| 6 | ~~**B1.13** — normalizar grafias de clube~~ | ✅ **fechado a 13/10/2026 sem código**: remedido, e das três grafias de 05/10 duas desapareceram na fonte e a terceira nunca foi um erro. Ver a secção abaixo | — |
 | 7 | Qualidade: Q6.4 Lighthouse, Q6.5 orçamento de bundle, Q6.9 relatório de erros | nada disto se nota até haver utilizadores | depende do 1 |
 
 **A ordem importa mais do que a lista.** O 1 muda o que vale a pena fazer a seguir; tudo o
