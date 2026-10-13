@@ -2343,6 +2343,82 @@ dono, e o interruptor é a aba: sem ela, tudo o resto fica igual.
 
 Testes: 243 no raspador (eram 188) e 172 na app (eram 161).
 
+## Produção servia só os estáticos e ninguém deu por ela em 18 horas (12–13/10/2026)
+
+O dono, ao fim da tarde de terça: *"ficámos sem consola"*.
+
+### O que estava mal, e a consola era a menor das três
+
+A publicação da ronda de fecho de 12/10 às 23:42 UTC **enviou tudo**: o log do `wrangler` diz,
+por extenso, `Uploading Functions bundle`, `Uploading _headers`, `Uploading _redirects`. E o
+alias daquela publicação — `a3189e4e.hoquei.pages.dev` — servia as três coisas corretamente.
+Mas o `hoquei.pages.dev` servia **só os ficheiros estáticos**:
+
+| | produção | o alias da mesma publicação |
+|---|---|---|
+| `/consola` | 404, 0 bytes | 200 |
+| `/contar` | 404 | 204 |
+| `/jogo/123` e qualquer link directo | 404 | 200 |
+| `meta.json` | `public, s-maxage=604800` | `public, max-age=20, stale-while-revalidate=600` |
+
+Três avarias, não uma. **E a terceira é a que importa.** Sem o `_headers`, todo o `/v1/*` passou
+a ser servido com a cache por omissão da Cloudflare: **sete dias** em vez dos nossos 20
+segundos. Naquele dia não havia jogos e não se perdeu nada. Num sábado, os resultados ao vivo
+ficavam congelados na borda durante uma semana — e **ninguém daria por ela a olhar para a app**,
+porque a app mostrava números, só que os de antes. Era a pior falha que este projecto já teve.
+
+Duração: cerca de 18 horas, das 23:42 às 17:45.
+
+### Não foi o nosso código, e verifiquei
+
+Aquela foi a primeira publicação a levar o plugin do `/versao.json`, escrito horas antes, por
+isso tive de considerar que fosse meu. **O mesmo build, republicado sem uma linha de diferença,
+serve tudo corretamente** — e o alias da publicação estragada funcionou o tempo todo. Mesmas
+entradas, resultado diferente: é o *rollout* da Cloudflare e não o que construímos. De fora não
+se prova melhor do que isto.
+
+A correcção foi uma publicação nova com `so_publicar`, zero pedidos à APL.
+
+### A lição, que é a parte que fica
+
+**Nada no projecto teria apanhado isto, e o CI estava verde — com razão.** Os 305 testes do
+raspador e os 294 da app correram naquele commit e estavam todos certos: o código estava bem, o
+build estava bem, o upload estava bem. O `sonda.yml` sonda o servidor da **APL**, não o nosso; a
+cadeia do `vigia` e do `aviso` olha para o observador e para as Actions. Quem deu por ela foi o
+dono, 18 horas depois, e pelo sintoma menos grave dos três.
+
+Nenhum teste ao código apanha esta classe de avaria. Só há uma coisa que a apanha: **pedir ao
+site publicado, depois de publicar.** É o `scripts/verificar_producao.py`, e verifica seis
+coisas, cada uma escolhida por ser invisível de outra forma:
+
+| | porque está lá |
+|---|---|
+| o `/contar` responde 204 | as Functions correm. É a sonda boa para qualquer anfitrião: é um `fetch`, logo a porta dos ramos deixa-o passar |
+| o `/consola` responde 200 | só em produção — no site de testes o 503 está certo, porque a `CHAVE_CONTAGENS` só existe no Production |
+| o `/jogo/999999` devolve a app | o `_redirects`, que é o que faz um link partilhado no WhatsApp abrir |
+| o `meta.json` vem com `max-age=20` | **a mais importante**: é a que apanha o congelamento, e a única das três que não dá sinal a quem usa a app |
+| a `agenda`, o `meta` e as `competitions` são JSON com as chaves certas | o contrato `/v1` é público e há builds antigos em cache nos telemóveis; renomear um campo deixa-os com uma app vazia e sem explicação |
+| o `/versao.json` traz uma versão | sem ele a app volta a interromper todos a cada publicação |
+
+E corre nos **dois** publicadores, porque há dois — é regra escrita deste repositório. Um teste
+só no `dados.yml` deixava de fora todas as publicações do ciclo ao vivo, que são as que
+acontecem durante os jogos, quando isto custa mais. No ciclo não corre a cada publicação: a
+11/10 houve 809 num dia, e a cinco pedidos cada seriam ~4 000 ao nosso próprio CDN para repetir
+o mesmo. Corre na primeira — a que estreia o código novo — e depois uma em cada dez.
+
+**Avisa e não reverte.** Quando falha, o site já está no ar e já está mal; uma segunda
+publicação automática a adivinhar era pior do que o aviso. Quem avisa é o passo "A ronda falhou",
+que desde ontem já diz se o site foi publicado ou não.
+
+### E o teste que prova que isto serve para alguma coisa
+
+O `test_verificar_producao.py` reconstrói, resposta a resposta, o que produção serviu durante
+aquelas 18 horas — os 404 de 0 bytes, o `s-maxage=604800` — e exige que a verificação o apanhe,
+nomeando as três avarias. Sem esse teste, isto era uma verificação a dizer que está tudo bem,
+que é precisamente o que já tínhamos.
+
+É também o primeiro teste a um ficheiro de `scripts/` neste projecto.
+
 ## O registo de interruptores, e porque é que não foram mais ramos (12/10/2026)
 
 O dono tinha ficado com a ideia de que a regra dele de 10/10 — um só site de testes — o obrigava

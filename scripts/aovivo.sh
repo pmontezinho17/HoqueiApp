@@ -96,11 +96,34 @@ actualizar_dados_commitados() {
   DADOS_NOVOS=1
 }
 
+#: Quantas publicações do ciclo passam entre duas verificações do site publicado.
+#:
+#: **Não é a cada uma, e a razão é aritmética.** A 11/10/2026 houve 809 publicações num dia; a
+#: cinco pedidos por verificação seriam ~4 000 pedidos ao nosso próprio CDN para repetir o
+#: mesmo. Verifica-se a primeira — que é a que estreia o código novo e a que mais provavelmente
+#: estraga — e depois uma em cada dez.
+VERIFICAR_CADA=10
+publicacoes=0
+
 publicar() {
   # `/.` copia o conteúdo: sem isso o `cp -R` aninha e cria build/v1/v1
   cp -R web/static/v1/. web/build/v1/ || return 1
   (cd web && npx wrangler pages deploy build \
-      --project-name hoquei --branch main >/dev/null 2>&1)
+      --project-name hoquei --branch main >/dev/null 2>&1) || return 1
+
+  # **O segundo publicador também verifica.** A avaria de 12/10/2026 — produção a servir só os
+  # ficheiros estáticos, sem Functions, sem `_redirects` e com o `/v1/*` a congelar sete dias
+  # na borda — veio de uma publicação do `dados.yml`, mas pode vir de qualquer uma. E as deste
+  # ciclo são as que acontecem **durante os jogos**, quando custa mais.
+  #
+  # Avisa e não reverte: o ciclo continua a publicar, porque uma segunda publicação a adivinhar
+  # era pior do que uma mensagem no log que o observador apanha.
+  publicacoes=$((publicacoes + 1))
+  if [ $(( (publicacoes - 1) % VERIFICAR_CADA )) -eq 0 ]; then
+    if ! python3 scripts/verificar_producao.py >&2; then
+      echo "AVISO: o site publicado não está a servir o que lhe mandámos" >&2
+    fi
+  fi
 }
 
 echo "ciclo ao vivo: até $MINUTOS min, de $INTERVALO em $INTERVALO s"

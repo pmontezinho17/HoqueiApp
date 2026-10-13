@@ -235,6 +235,26 @@ jobs:
           command: pages deploy build --project-name hoquei --branch main
 
       # ───────────────────────────────────────────────────────────────────────────────────
+      # **Pedir ao site publicado, depois de publicar.**
+      #
+      # A 12/10/2026 a publicação das 23:42 enviou tudo — o log do wrangler diz `Uploading
+      # Functions bundle`, `_headers` e `_redirects` — e o `hoquei.pages.dev` serviu **só os
+      # ficheiros estáticos durante 18 horas**: sem consola, sem contador, com os links
+      # directos de jogo a dar 404, e com o `/v1/*` a vir com a cache por omissão da
+      # Cloudflare (**sete dias** em vez dos nossos 20 segundos). O alias daquela publicação
+      # servia as três coisas corretamente todo o tempo.
+      #
+      # **O CI não podia ter apanhado isto**, e é esse o ponto: os testes correram verdes nesse
+      # commit e estavam certos. O código estava bem, o build estava bem, o upload estava bem.
+      # A única coisa que apanha esta classe de avaria é pedir ao site depois de publicar.
+      #
+      # Não reverte nada: quando falha, o site já está no ar e já está mal, e o que se quer é
+      # o aviso. Quem avisa é o passo "A ronda falhou", que já diz se o site foi publicado.
+      - name: O site publicado serve o que lhe mandámos
+        if: steps.publicacao.outcome == 'success'
+        run: python3 scripts/verificar_producao.py
+
+      # ───────────────────────────────────────────────────────────────────────────────────
       # A fotografia do dia.
       #
       # **Uma por dia, e só a da ronda das 00:30.** É essa a ronda canónica: às 00:30 o dia

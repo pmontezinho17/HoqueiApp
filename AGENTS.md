@@ -98,7 +98,7 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
 
 | | |
 |---|---|
-| `scraper/` | o raspador em Python (`uv`, `httpx`, `selectolax`), os *parsers* e 288 testes |
+| `scraper/` | o raspador em Python (`uv`, `httpx`, `selectolax`), os *parsers* e 305 testes |
 | `web/` | a PWA (SvelteKit 2, runes, `adapter-static`, `@vite-pwa/sveltekit`) e 294 testes |
 | `web/static/v1/` | os JSON publicados — o contrato de dados |
 | `scripts/` | o ciclo ao vivo (`aovivo.sh`) e utilitários |
@@ -153,6 +153,16 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
   escrever uma linha em `NOVIDADES` para quem a vai ver. Uma publicação que só mexe na
   consola, no raspador ou num workflow **não sobe a versão** — e é isso que impede o aviso de
   actualização de aparecer a toda a gente por nada.
+- **Publicar não é ter publicado: confirma-se a pedir ao site.** O
+  `scripts/verificar_producao.py` corre depois de cada publicação, nos **dois** publicadores, e
+  verifica seis coisas no site que está no ar — as Functions, a consola, os links directos, a
+  cache do `/v1/*`, o contrato `/v1` e o `/versao.json`. Nasceu a 13/10/2026, depois de
+  produção servir **só os ficheiros estáticos durante 18 horas**: sem consola, sem contador,
+  com os links de jogo a dar 404 e com os dados a congelar sete dias na borda. O CI estava
+  verde e estava certo — o código, o build e o upload estavam bem, e a Cloudflare serviu mal.
+  **Nenhum teste ao código apanha esta classe de avaria; só pedir ao site depois de publicar.**
+  Quem acrescentar uma Function, uma regra no `_headers` ou um campo ao contrato acrescenta-lhe
+  aqui a verificação no mesmo commit.
 - **Durante uma janela de jogos há dois publicadores.** Nunca fazer `wrangler pages deploy`
   a partir de uma cópia local: a árvore local é a do último commit e o CDN tem o que o ciclo
   ao vivo escreveu entretanto. Já apagou resultados reais duas vezes.
