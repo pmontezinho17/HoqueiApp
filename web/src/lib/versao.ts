@@ -38,7 +38,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.2';
+export const VERSAO = '1.3';
 
 /**
  * Em que grupo é que uma novidade cai.
@@ -124,6 +124,21 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.3',
+		data: '2026-10-14',
+		pontos: [
+			{
+				tipo: 'corrigido',
+				titulo: 'Nos Escolares e Benjamins, a classificação da equipa voltou',
+				texto:
+					'Quem abrisse uma equipa destes escalões e fosse a "Classificação" lia que não ' +
+					'havia nenhuma publicada. Havia: é o Mérito da Formação, e aparecia na página ' +
+					'da competição mas não na da equipa. Já aparece nas duas, com a tua equipa ' +
+					'destacada.'
+			}
+		]
+	},
 	{
 		versao: '1.2',
 		data: '2026-10-14',

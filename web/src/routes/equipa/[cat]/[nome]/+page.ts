@@ -1,4 +1,4 @@
-import { carregarCompeticao, carregarQuadro } from '$lib/dados';
+import { carregarCompeticao, carregarMerito, carregarQuadro } from '$lib/dados';
 import { slug } from '$lib/slug';
 import { error } from '@sveltejs/kit';
 import type { EquipaIndice } from '$lib/tipos';
@@ -20,7 +20,15 @@ export const load: PageLoad = async ({ params, fetch, parent }) => {
 			const dados = await carregarCompeticao(id, fetch);
 			const no = indice.competicoes.find((c) => c.id === id);
 			if (no) dados.competicao = { ...dados.competicao, ...no };
-			return { id, dados, quadro: await carregarQuadro(id, fetch).catch(() => null) };
+			return {
+				id,
+				dados,
+				quadro: await carregarQuadro(id, fetch).catch(() => null),
+				// **O Mérito é a classificação dos Escolares e dos Benjamins**, e sem isto o
+				// separador "Classificação" desta equipa fica vazio — ver o comentário no
+				// `+page.svelte`. `catch` porque as outras provas não têm ficheiro nenhum.
+				merito: await carregarMerito(id, fetch).catch(() => null)
+			};
 		})
 	);
 	return { equipa: alvo.equipa, categoria: alvo.categoria, provas };

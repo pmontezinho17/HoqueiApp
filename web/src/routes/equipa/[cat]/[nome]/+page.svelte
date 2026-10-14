@@ -4,6 +4,10 @@
 	import RotuloCalculada from '$lib/RotuloCalculada.svelte';
 	import { tabelasDe } from '$lib/classificacao';
 	import CalendarioMes from '$lib/CalendarioMes.svelte';
+	import ChapeuMerito from '$lib/ChapeuMerito.svelte';
+	import LegendaMerito from '$lib/LegendaMerito.svelte';
+	import RegrasMerito from '$lib/RegrasMerito.svelte';
+	import TabelaMerito from '$lib/TabelaMerito.svelte';
 	import Emblema from '$lib/Emblema.svelte';
 	import FormaRecente from '$lib/FormaRecente.svelte';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
@@ -95,7 +99,8 @@
 				ids: new Set(p.dados.jogos.map((j) => j.id)),
 				classificacao: tabelasDe(p.dados).grupos,
 				calculada: tabelasDe(p.dados).calculada,
-				quadro: p.quadro
+				quadro: p.quadro,
+				merito: p.merito
 			};
 		})
 	);
@@ -117,6 +122,40 @@
 		for (const j of quadro.jogadores) m.set(j.equipa, (m.get(j.equipa) ?? 0) + j.assistencias);
 		return m;
 	};
+
+	/**
+	 * As provas em que esta equipa tem **Mérito** — a classificação dos Escolares e dos
+	 * Benjamins, pelo Artigo 92.º.
+	 *
+	 * ## Porque é que isto teve de ser acrescentado
+	 *
+	 * Este separador construía-se **só** a partir da tabela de pontos, e nestes dois escalões
+	 * não há tabela de pontos: a fonte não publica nenhuma e nós deixámos de a calcular a
+	 * 10/10/2026, quando o Mérito entrou — e com razão, porque é o Mérito que o regulamento
+	 * manda usar aqui, e duas classificações para a mesma prova seriam duas verdades.
+	 *
+	 * O que ninguém reparou é que o ecrã da **competição** passou a mostrar o Mérito e o ecrã
+	 * da **equipa** não. Resultado medido nos dados publicados: entre 07/10 e 10/10 a série A
+	 * dos Benjamins tinha 8 linhas de classificação calculada; a partir de 10/10 às 19:14,
+	 * zero — e desde então quem abrisse o HC Sintra / Benjamins lia *"Esta equipa não tem
+	 * classificação publicada"*. Quatro dias no ar, encontrado pelo dono a 14/10 no telemóvel.
+	 *
+	 * **Eu próprio olhei para isto a 13/10 e dei-o por bom**, porque fui ver os dados e não o
+	 * ecrã: as tabelas calculadas estarem vazias era de facto o comportamento desenhado, e
+	 * concluí daí que não havia avaria. A pergunta certa não era "os dados estão como
+	 * mandámos?" mas "o que é que aparece a quem abre a app?".
+	 */
+	const meritos = $derived(
+		provas.filter((p) => p.merito?.linhas.some((l) => l.equipa === data.equipa))
+	);
+
+	/** As duas ressalvas do Mérito, somadas só das provas desta equipa. */
+	const meritoPorConfirmar = $derived(
+		meritos.reduce((s, p) => s + (p.merito?.linhas ?? []).reduce((x, l) => x + l.por_confirmar, 0), 0)
+	);
+	const meritoSemBoletim = $derived(
+		meritos.reduce((s, p) => s + (p.merito?.jogos_sem_boletim ?? 0), 0)
+	);
 
 	/** Uma opção por tabela em que a equipa aparece. Sem "todas": séries diferentes não se
 	 *  enfrentam, por isso uma tabela única não teria significado. */
@@ -285,6 +324,24 @@
 			<p class="vazio">Sem jogos nesta competição.</p>
 		{/if}
 	{/if}
+{:else if aba === 'classificacao' && meritos.length}
+	<!-- Nos Escolares e nos Benjamins a classificação **é** o Mérito. Uma tabela por série em
+	     que esta equipa entra, como no ecrã da competição, e as mesmas três notas à volta: o
+	     chapéu em cima porque não se pode esconder, as regras e a legenda em baixo. -->
+	<ChapeuMerito />
+	{#each meritos as p (p.id)}
+		<section>
+			{#if meritos.length > 1}<p class="rotulo">{p.rotulo}</p>{/if}
+			<TabelaMerito
+				linhas={p.merito!.linhas}
+				emblemas={data.emblemas}
+				categoria={data.categoria}
+				{destaque}
+			/>
+		</section>
+	{/each}
+	<RegrasMerito />
+	<LegendaMerito porConfirmar={meritoPorConfirmar} semBoletim={meritoSemBoletim} />
 {:else if aba === 'classificacao'}
 	{#if tabelas.length === 0}
 		<p class="vazio">Esta equipa não tem classificação publicada.</p>
