@@ -2,7 +2,7 @@
 	import AdicionarCalendario from '$lib/AdicionarCalendario.svelte';
 	import { APP_NOME } from '$lib/sitio';
 	import RotuloCalculada from '$lib/RotuloCalculada.svelte';
-	import { tabelasDe } from '$lib/classificacao';
+	import { classificacaoDaEquipa, tabelasDe } from '$lib/classificacao';
 	import CalendarioMes from '$lib/CalendarioMes.svelte';
 	import ChapeuMerito from '$lib/ChapeuMerito.svelte';
 	import LegendaMerito from '$lib/LegendaMerito.svelte';
@@ -148,6 +148,14 @@
 	const meritos = $derived(
 		provas.filter((p) => p.merito?.linhas.some((l) => l.equipa === data.equipa))
 	);
+
+	/**
+	 * Qual das três coisas este separador mostra. **A decisão vive no `$lib/classificacao.ts`**,
+	 * e não aqui, para poder ser testada com os dados verdadeiros de todas as equipas sem montar
+	 * ecrã nenhum — ver o comentário lá, e o `equipa-sem-classificacao.test.ts`. Foi dentro deste
+	 * ficheiro que ela esteve errada quatro dias.
+	 */
+	const oQueMostrar = $derived(classificacaoDaEquipa(provas, data.equipa));
 
 	/** As duas ressalvas do Mérito, somadas só das provas desta equipa. */
 	const meritoPorConfirmar = $derived(
@@ -324,7 +332,7 @@
 			<p class="vazio">Sem jogos nesta competição.</p>
 		{/if}
 	{/if}
-{:else if aba === 'classificacao' && meritos.length}
+{:else if aba === 'classificacao' && oQueMostrar === 'merito'}
 	<!-- Nos Escolares e nos Benjamins a classificação **é** o Mérito. Uma tabela por série em
 	     que esta equipa entra, como no ecrã da competição, e as mesmas três notas à volta: o
 	     chapéu em cima porque não se pode esconder, as regras e a legenda em baixo. -->
