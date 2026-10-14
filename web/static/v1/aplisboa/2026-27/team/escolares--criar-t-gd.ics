@@ -11,14 +11,14 @@ X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:jogo-9931@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
-DTSTART:20261017T230000Z
-DTEND:20261018T003000Z
+DTSTART:20261018T140000Z
+DTEND:20261018T153000Z
 SUMMARY:🏑 Escolares 🏑 Criar-T GD vs HC Lourinhã
-LOCATION:Pavilhão de Hóquei do CRIAR-T
+LOCATION:Hoquei Clube da Lourinhã
 DESCRIPTION:Criar-T GD vs HC Lourinhã\nENCONTROS DISTRITAIS ESCOLARES - 1
- ª FASE NIVEL I · Série C · ESCOLARES\nPAV.MUNI.LEONEL FERNANDES-G.D.CR
- IAR-T\nhttps://hoquei.pages.dev/jogo/9931\nDados da Associação de Patina
- gem de Lisboa. Site não oficial.
+ ª FASE NIVEL I · Série C · ESCOLARES\nPAV. GIMNO. DA LOURINHÃ\nhttps:
+ //hoquei.pages.dev/jogo/9931\nDados da Associação de Patinagem de Lisboa
+ . Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9931
 END:VEVENT
 BEGIN:VEVENT
@@ -66,11 +66,11 @@ DTSTAMP:20261122T000000Z
 DTSTART:20261122T000000Z
 DTEND:20261122T013000Z
 SUMMARY:🏑 Escolares 🏑 HC Lourinhã vs Criar-T GD
-LOCATION:Hoquei Clube da Lourinhã
+LOCATION:Pavilhão de Hóquei do CRIAR-T
 DESCRIPTION:HC Lourinhã vs Criar-T GD\nENCONTROS DISTRITAIS ESCOLARES - 1
- ª FASE NIVEL I · Série C · ESCOLARES\nPAV. GIMNO. DA LOURINHÃ\nhttps:
- //hoquei.pages.dev/jogo/9941\nDados da Associação de Patinagem de Lisboa
- . Site não oficial.
+ ª FASE NIVEL I · Série C · ESCOLARES\nPAV.MUNI.LEONEL FERNANDES-G.D.CR
+ IAR-T\nhttps://hoquei.pages.dev/jogo/9941\nDados da Associação de Patina
+ gem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9941
 END:VEVENT
 END:VCALENDAR
