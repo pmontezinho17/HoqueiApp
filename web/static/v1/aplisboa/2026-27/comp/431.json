@@ -83,9 +83,19 @@
    "logo": "/emblemas/25.webp"
   },
   {
+   "id": 2067,
+   "nome": "SL BENFICA",
+   "logo": "/emblemas/1.webp"
+  },
+  {
    "id": 1808,
    "nome": "SPORTING CP",
    "logo": "/emblemas/2.webp"
+  },
+  {
+   "id": 2066,
+   "nome": "UD VILAFRANQUENSE",
+   "logo": "/emblemas/15.webp"
   }
  ],
  "jogos": [
@@ -199,6 +209,34 @@
    "golos_casa": null,
    "golos_fora": null,
    "recinto": "PAV.G.S.SACAVENENSE",
+   "ao_vivo": false
+  },
+  {
+   "id": 10093,
+   "numero": "793",
+   "grupo": null,
+   "jornada": "SENIORES MASC.",
+   "data": "2026-10-16",
+   "hora": "22:15:00",
+   "casa": "APAC TOJAL",
+   "fora": "UD VILAFRANQUENSE",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. A.P.A.C.TOJAL",
+   "ao_vivo": false
+  },
+  {
+   "id": 10094,
+   "numero": "794",
+   "grupo": null,
+   "jornada": "SENIORES MASC.",
+   "data": "2026-10-23",
+   "hora": "14:00:00",
+   "casa": "SL BENFICA",
+   "fora": "CANDELARIA SC",
+   "golos_casa": null,
+   "golos_fora": null,
+   "recinto": "PAV. FIDELIDADE",
    "ao_vivo": false
   },
   {
