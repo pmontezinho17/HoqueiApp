@@ -20,4 +20,16 @@ DESCRIPTION:Sporting CP vs Candelaria SC\nJOGO TREINO · TORNEIOS PARTICULA
  ociação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9448
 END:VEVENT
+BEGIN:VEVENT
+UID:jogo-10094@hoquei.pages.dev
+DTSTAMP:20261023T000000Z
+DTSTART:20261023T130000Z
+DTEND:20261023T143000Z
+SUMMARY:🏑 Torneios Particulares 🏑 SL Benfica vs Candelaria SC
+LOCATION:PAV. FIDELIDADE
+DESCRIPTION:SL Benfica vs Candelaria SC\nJOGO TREINO · TORNEIOS PARTICULAR
+ ES\nPAV. FIDELIDADE\nhttps://hoquei.pages.dev/jogo/10094\nDados da Associa
+ ção de Patinagem de Lisboa. Site não oficial.
+URL:https://hoquei.pages.dev/jogo/10094
+END:VEVENT
 END:VCALENDAR

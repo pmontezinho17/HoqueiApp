@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9766@hoquei.pages.dev
-DTSTAMP:20261014T000000Z
-DTSTART:20261014T200000Z
-DTEND:20261014T213000Z
-SUMMARY:🏑 Sub-17 🏑 Sporting CP A vs HC Sintra
-LOCATION:Pavilhão do Sacavenense ( Hóquei Formação SCP)
-DESCRIPTION:Sporting CP A vs HC Sintra\nCAMP. REG. SUB-17 - 1ª FASE · Sé
- rie E · SUB-17\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/9766\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9766
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9768@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T173000Z

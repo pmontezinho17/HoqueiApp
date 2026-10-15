@@ -1565,7 +1565,21 @@
    ]
   },
   {
+   "equipa": "SL BENFICA",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
    "equipa": "SPORTING CP",
+   "categoria": "TORNEIOS PARTICULARES",
+   "competicoes": [
+    431
+   ]
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE",
    "categoria": "TORNEIOS PARTICULARES",
    "competicoes": [
     431
