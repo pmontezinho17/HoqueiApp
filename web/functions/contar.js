@@ -30,6 +30,34 @@
  * com uma contagem.
  */
 
+/**
+ * Nós próprios. **Não se conta quem está a verificar se isto funciona.**
+ *
+ * O mesmo padrão que o `_middleware.js` já usava para o contador de ecrãs, e que aqui faltava.
+ * O prefixo `hoqueiAPP` é comum a todos os nossos agentes: o `User-Agent` identificável existe
+ * desde o início para a fonte saber quem a visita, e serve aqui para o contador saber quem
+ * **não** contar.
+ *
+ * ## O que isto custou, medido a 15/10/2026
+ *
+ * O dono olhou para a consola às 07:53 e não acreditou: *"durante a noite foram vistos várias
+ * vezes a aplicação? Tenho muitas dúvidas."* Tinha razão. As 16 "entradas" daquela madrugada
+ * eram **a nossa vigia**: o `scripts/verificar_producao.py` sonda o `/contar?novo=0` para saber
+ * se as Functions correm, e corre de quinze em quinze minutos pelo `saude.yml` mais uma vez por
+ * cada publicação do `dados.yml`. Contado nessa manhã: **15 corridas de sonda contra 16 entradas
+ * registadas**, hora a hora com a mesma forma — 1 em cada hora da noite, 2 a 4 nas pontas — e as
+ * diferenças de ±1 explicam-se pelo tempo que cada corrida demora a chegar ao passo da sonda.
+ *
+ * E o sinal que o denuncia estava à vista: **zero "pela primeira vez"**. A sonda manda sempre
+ * `novo=0`, logo inflaciona o total e nunca os novos. Vê-se na série diária: 40 aparelhos a
+ * 12/10, e **84 a 13/10**, que é o dia em que a vigia de quinze minutos nasceu, com os novos a
+ * cair de 14 para 11 no mesmo dia.
+ *
+ * A lição estava escrita no `_middleware.js` desde 09/10 — *"um número que cresce quando
+ * olhamos mais para ele"* — e eu acrescentei a sonda a 13/10 sem a aplicar aqui.
+ */
+const NOSSO = /^hoqueiAPP/i;
+
 /** O dia **e a hora** de Lisboa, de uma só leitura do relógio: às 23:59:59.9 duas leituras
  *  separadas podiam cair em dias diferentes e escrever a hora 0 no dia de ontem. */
 function agoraEmLisboa() {
@@ -51,6 +79,10 @@ export async function onRequestGet({ request, env, waitUntil }) {
 	// `waitUntil` o compilador perde a garantia que a guarda acima deu
 	const bd = env?.DADOS;
 	if (!bd) return resposta;
+
+	// **204 e não conta.** A sonda precisa do 204 para saber que a Function corre; o que não
+	// pode é ficar registada como gente. Ver o `NOSSO` acima.
+	if (NOSSO.test(request.headers.get('User-Agent') ?? '')) return resposta;
 
 	const parametros = new URL(request.url).searchParams;
 
