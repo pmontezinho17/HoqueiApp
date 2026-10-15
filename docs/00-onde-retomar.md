@@ -39,9 +39,17 @@ cd web && npm run check && npx vitest run
 
 ## Como isto chega ao ar
 
-**Um `git push` não publica.** Quem leva código novo ao site é o `dados.yml`, com o disparo
-`publicar_sempre` ou `so_publicar`. A excepção aprendida a 13/10: uma alteração ao **raspador**
-entra na ronda agendada seguinte por si só, porque as corridas agendadas usam o ramo por omissão.
+**Uma entrada no `main` publica, desde 15/10/2026.** Quem leva código novo ao site é sempre o
+`dados.yml` — agora com três gatilhos: o agendamento, o botão (`publicar_sempre` ou
+`so_publicar`) e um `push` no `main`. Um push num ramo qualquer continua a não publicar nada.
+
+Isto nasceu de o dono ter ligado a integração Git do Cloudflare Pages a 14/10 para não depender
+de ninguém para publicar — objectivo certo. O problema era quem construía: a Cloudflare constrói
+com as definições dela, que não sabem que a app vive em `web/` nem que as Functions estão em
+`web/functions`, e a 15/10 às 08:42 produção servia só ficheiros estáticos. **O alias daquela
+mesma publicação dava 404 também**, e foi isso que separou este caso do de 13/10, onde o alias
+servia tudo bem e a culpa era da configuração do anfitrião. Mantém-se o comportamento, troca-se
+quem o faz: publica o workflow que constrói bem, corre os testes e verifica o site a seguir.
 
 **O `main` é produção.** Trabalho não aprovado vive no `testes`, que é **um** site e só um — o
 `ramo.yml` só dispara nesse ramo, e um ramo novo não ganha endereço nenhum. O site de testes lê
