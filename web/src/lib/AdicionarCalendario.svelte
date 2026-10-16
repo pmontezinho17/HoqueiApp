@@ -5,6 +5,7 @@
 	import { clube, escalao } from '$lib/nomes';
 	import { slug } from '$lib/slug';
 	import type { Jogo } from '$lib/tipos';
+	import { diaDeLisboa } from '$lib/dia';
 
 	let {
 		equipa,
@@ -45,7 +46,7 @@
 		return 'outro';
 	});
 
-	const hoje = new Date().toISOString().slice(0, 10);
+	const hoje = diaDeLisboa();
 	/** Só de hoje em diante: ninguém quer jogos antigos no calendário pessoal. */
 	const proximos = $derived(
 		jogos

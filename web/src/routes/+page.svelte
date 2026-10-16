@@ -10,15 +10,16 @@
 	import { guia } from '$lib/guia.svelte';
 	import { caminhoEquipa } from '$lib/slug';
 	import type { JogoAgenda } from '$lib/tipos';
+	import { diaDeLisboa, diaDeLisboaMais } from '$lib/dia';
 
 	let { data } = $props();
 
-	const hoje = new Date().toISOString().slice(0, 10);
+	const hoje = diaDeLisboa();
 	// janela em torno de hoje: a época toda dava 52 fichas de data, que não se navega
 	const JANELA_ATRAS = 10,
 		JANELA_FRENTE = 35;
 	const limite = (dias: number) =>
-		new Date(Date.now() + dias * 864e5).toISOString().slice(0, 10);
+		diaDeLisboaMais(dias);
 
 	/** índice data → jogos, feito uma vez: a faixa pede três dias de cada vez */
 	const porDia = $derived.by(() => {
