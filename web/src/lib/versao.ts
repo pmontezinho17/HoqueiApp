@@ -38,7 +38,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.3';
+export const VERSAO = '1.4';
 
 /**
  * Em que grupo é que uma novidade cai.
@@ -124,6 +124,22 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.4',
+		data: '2026-10-17',
+		pontos: [
+			{
+				tipo: 'novo',
+				titulo: 'As faltas de equipa, debaixo do resultado, durante o jogo',
+				texto:
+					'Num jogo a decorrer passas a ver quantas faltas cada equipa leva, uma de cada ' +
+					'lado. À 9.ª o número fica amarelo — a próxima é livre directo — e à ' +
+					'10.ª fica vermelho. Depois repete-se de cinco em cinco, como manda a regra: ' +
+					'15.ª, 20.ª, e assim por diante. Num jogo terminado continuam onde sempre ' +
+					'estiveram, na caixa de informação.'
+			}
+		]
+	},
 	{
 		versao: '1.3',
 		data: '2026-10-14',
