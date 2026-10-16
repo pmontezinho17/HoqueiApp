@@ -155,8 +155,8 @@
    "hora": "21:00:00",
    "casa": "CD MAFRA",
    "fora": "SPORTING CP B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 12,
    "recinto": "PAV.G.S.SACAVENENSE",
    "ao_vivo": false
   },
@@ -337,15 +337,15 @@
      "posicao": 2,
      "equipa": "SPORTING CP B",
      "logo": "/intranet/logos/2.png",
-     "jogos": 3,
-     "vitorias": 2,
+     "jogos": 4,
+     "vitorias": 3,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 16,
+     "golos_marcados": 28,
      "golos_sofridos": 8,
-     "diferenca": 8,
-     "racio": 2.0,
-     "pontos": 6
+     "diferenca": 20,
+     "racio": 3.5,
+     "pontos": 9
     },
     {
      "posicao": 3,
@@ -379,14 +379,14 @@
      "posicao": 5,
      "equipa": "CD MAFRA",
      "logo": "/intranet/logos/32.png",
-     "jogos": 3,
+     "jogos": 4,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 3,
+     "derrotas": 4,
      "golos_marcados": 3,
-     "golos_sofridos": 75,
-     "diferenca": -72,
-     "racio": 0.04,
+     "golos_sofridos": 87,
+     "diferenca": -84,
+     "racio": 0.03,
      "pontos": 0
     }
    ]
