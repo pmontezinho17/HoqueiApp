@@ -1,0 +1,76 @@
+# Publica o relógio quando ele muda, porque publicá-lo à mão já falhou.
+#
+# ## O que correu mal, a 16/10/2026
+#
+# O dono fundiu os dois PRs no GitHub e correu `npx wrangler deploy` na sua cópia local. O
+# comando correu bem e **publicou o Worker antigo**: a cópia dele estava cinco commits atrás do
+# `origin/main`, e a vigia de produção que o PR trazia não ia lá dentro. Zero ocorrências de
+# `vigiarProducao` na árvore de onde se publicou.
+#
+# É a mesma armadilha que o `AGENTS.md` já registava para o site — *"o ciclo só sabe do que está
+# em `origin/main`"* — e que ninguém tinha escrito para o Worker. A diferença é que o site tem
+# quem o publique a partir do `main`; o Worker não tinha, e por isso dependia de alguém se
+# lembrar de fazer `git pull` primeiro. Confiar nisso é confiar de mais.
+#
+# ## Porquê um workflow só para isto, e não um passo no `dados.yml`
+#
+# Porque são coisas diferentes com ritmos diferentes: o `dados.yml` corre dezenas de vezes por
+# dia e publica o site; isto corre nas raras vezes em que o Worker muda. Metê-lo lá dentro
+# obrigava cada ronda de dados a pensar no relógio.
+#
+# ## O que isto não faz
+#
+# **Não mexe nos segredos do Worker.** O `GITHUB_TOKEN` dele foi posto com `wrangler secret put`
+# e um `deploy` não lhe toca — ver o README do relógio.
+name: Publicar o relógio
+
+on:
+  push:
+    branches: [main]
+    paths: ['worker/relogio/**']
+  workflow_dispatch:
+
+concurrency:
+  group: relogio
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: worker/relogio
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Os testes antes de publicar, como em qualquer outro caminho deste projecto.
+      - name: Testes do relógio
+        run: node teste.mjs
+
+      - name: Publicar
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker/relogio
+          wranglerVersion: '4.150.0'
+          command: deploy
+
+      # **Publicar não é ter publicado**, aqui como no site. O `?producao` sonda e não dispara
+      # nada: se o Worker novo não estiver a responder, isto falha e a corrida fica vermelha.
+      - name: O relógio publicado responde
+        run: |
+          set -euo pipefail
+          resposta=$(curl -sS --max-time 20 "https://hoquei-relogio.torneiopa.workers.dev/?producao")
+          echo "$resposta"
+          echo "$resposta" | grep -q '"sonda"' || {
+            echo "::error::o relógio publicado não respondeu à sonda — ver a resposta acima"
+            exit 1
+          }

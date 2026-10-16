@@ -182,6 +182,13 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
 - **Durante uma janela de jogos há dois publicadores.** Nunca fazer `wrangler pages deploy`
   a partir de uma cópia local: a árvore local é a do último commit e o CDN tem o que o ciclo
   ao vivo escreveu entretanto. Já apagou resultados reais duas vezes.
+- **Publicar à mão publica a tua cópia, não o que está no GitHub — e isso vale para os
+  Workers.** A 16/10/2026 o dono fundiu dois PRs e correu `npx wrangler deploy` no
+  `worker/relogio`. Correu bem e publicou o Worker **antigo**: a cópia local estava cinco
+  commits atrás e a vigia de produção que o PR trazia não ia lá dentro. Desde então o
+  `relogio.yml` publica-o a partir do `main` quando o `worker/relogio/**` muda, corre os testes
+  antes e sonda o Worker depois. **Um `wrangler deploy` à mão passa a ser a excepção**, e quem
+  o fizer faz `git pull` primeiro e confirma com o `?producao` que publicou o que queria.
 - **O contrato de dados `/v1/...` é público e há builds antigos em cache nos telemóveis.**
   Renomear um campo ou um caminho deixa esses telefones com uma app vazia e sem explicação.
   Texto mostrado ao utilizador não tem este problema; a forma dos dados tem.
