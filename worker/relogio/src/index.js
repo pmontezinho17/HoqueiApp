@@ -237,6 +237,35 @@ async function socorrer(env, d) {
 	return `SOCORRO: ${d.atraso.length} jogo(s) por fechar e dados com ${d.idade} min — ronda completa ${envio.ok ? 'lançada' : `falhou ${envio.status} ${envio.corpo}`}`;
 }
 
+/**
+ * Se este tique é dos de dia — os que tratam de jogos — ou dos da noite, que só vigiam.
+ *
+ * ## Isto existe por causa de uma pergunta do dono, a 16/10/2026
+ *
+ * *"esta alteração faz com que hajam mais chamadas à APL?"*. A vigia de produção não faz
+ * nenhuma — sonda o nosso próprio site. Mas eu tinha acrescentado um `cron` para a noite, e
+ * esse punha o `scheduled` inteiro a correr lá: incluindo o cão de guarda, que lança a **ronda
+ * completa** e essa sim pede ~75 páginas à APL.
+ *
+ * Fui ver se podia disparar de facto. O `decidir` só olha para os jogos de **hoje**, pela data
+ * de Lisboa, logo às 03:00 não há jogos por fechar e o guarda cala-se. Mas o tique das 23:00
+ * UTC, **a partir de 25/10/2026** — quando Portugal volta a UTC+0 — cai às 23:00 de Lisboa,
+ * ainda no mesmo dia: um jogo das 21:30 sem resultado está 90 minutos atrasado, e o guarda
+ * lançaria uma ronda que hoje espera pela das 00:30.
+ *
+ * Uma ronda a mais não é um disparate — é precisamente para isso que o guarda existe. Mas não
+ * era a intenção desta alteração, e a regra do projecto é contar o custo **antes** de
+ * acrescentar pedidos. Por isso os tiques da noite fazem só a vigia, e o custo em pedidos à
+ * APL fica **exactamente igual ao de antes**: zero de diferença. Dar cobertura nocturna ao cão
+ * de guarda é outra decisão, com a sua própria conta.
+ *
+ * @param {number} instante
+ */
+export const eTiqueDeDia = (instante) => {
+	const h = new Date(instante).getUTCHours();
+	return h >= 6 && h <= 22;
+};
+
 export default {
 	async scheduled(evento, env, ctx) {
 		// **O relógio passa a ser também o relógio do observador.**
@@ -280,6 +309,10 @@ export default {
 				)
 				.catch((e) => console.log(`produção: ${String(e).slice(0, 80)}`))
 		);
+
+		// Os tiques da noite ficam-se pela vigia: nem jogos, nem cão de guarda, nem um pedido à
+		// APL. Ver o `eTiqueDeDia` para a conta que levou a isto.
+		if (!eTiqueDeDia(evento.scheduledTime)) return;
 
 		ctx.waitUntil((async () => {
 			const d = await decidir(env, new Date(evento.scheduledTime));

@@ -1,4 +1,4 @@
-import { agoraEmLisboa, precisamDeCobertura, emMinutos, vigiarProducao } from './src/index.js';
+import { agoraEmLisboa, precisamDeCobertura, emMinutos, vigiarProducao, eTiqueDeDia } from './src/index.js';
 import assert from 'node:assert/strict';
 
 let falhas = 0;
@@ -223,6 +223,21 @@ t('e pede ao /contar, não a outra coisa qualquer', async () => {
   let url = '';
   await vigiarProducao(env, async (u) => { url = u; return { status: 204 }; }, registador().lancar);
   assert.equal(url, 'https://hoquei.pages.dev/contar?novo=0');
+});
+
+t('os tiques da noite não tratam de jogos, e por isso não pedem nada à APL', () => {
+  // A pergunta do dono a 16/10/2026: "esta alteração faz com que hajam mais chamadas à APL?".
+  // O `cron` da noite punha o `scheduled` inteiro a correr, incluindo o cão de guarda — que
+  // lança a ronda completa e essa pede ~75 páginas. Ver o `eTiqueDeDia`.
+  assert.equal(eTiqueDeDia(Date.parse('2026-10-16T03:00:00Z')), false);
+  assert.equal(eTiqueDeDia(Date.parse('2026-10-16T23:00:00Z')), false);
+  assert.equal(eTiqueDeDia(Date.parse('2026-10-16T05:30:00Z')), false);
+});
+
+t('e os do dia continuam a tratar, nas pontas inclusive', () => {
+  assert.equal(eTiqueDeDia(Date.parse('2026-10-16T06:00:00Z')), true);
+  assert.equal(eTiqueDeDia(Date.parse('2026-10-16T22:50:00Z')), true);
+  assert.equal(eTiqueDeDia(Date.parse('2026-10-16T14:00:00Z')), true);
 });
 
 // O fecho tem de esperar pelos testes assíncronos: antes estava a meio do ficheiro e o

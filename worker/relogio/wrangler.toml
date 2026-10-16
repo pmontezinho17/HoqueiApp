@@ -10,6 +10,11 @@ compatibility_date = "2026-10-04"
 # atravessou a madrugada inteira; uma vigia que dorme das 23h às 6h deixa passar exactamente
 # isso. De meia em meia hora chega: o que se quer apanhar durou horas, e são mais 14
 # invocações por dia.
+#
+# **Os tiques da noite fazem só a vigia** — ver o `eTiqueDeDia` no `src/index.js`. Sem isso, o
+# cão de guarda passava a poder lançar a ronda completa às 23:00 de Lisboa a partir de
+# 25/10/2026, e isso são ~75 pedidos à APL que hoje esperam pela ronda das 00:30. Com a trava,
+# esta alteração custa **zero** pedidos à fonte.
 [triggers]
 crons = ["*/10 6-22 * * *", "*/30 23,0-5 * * *"]
 
