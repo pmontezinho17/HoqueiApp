@@ -383,7 +383,20 @@ jobs:
           gh label create fonte --color D4C5F9 --force \
             --description "a fonte da APL discorda de si mesma" >/dev/null 2>&1 || true
 
-          titulo="A fonte discorda de si mesma — $(TZ=Europe/Lisbon date +%F)"
+          # **Um registo para a condição, e não um por dia.**
+          #
+          # O título era datado e abria uma issue por manhã. A 16/10/2026 o dono mostrou-me a
+          # lista dele: **cinco issues iguais**, de 12 a 16 de outubro, a dizerem todas a mesma
+          # coisa — a tabela da Taça Campelo que a APL ainda não actualizou desde a jornada de
+          # 11/10. A sexta nasceria no dia seguinte.
+          #
+          # A incoerência da fonte é **crónica por natureza**: vive enquanto a APL não corrigir
+          # a tabela dela, e isso pode ser uma semana. Um aviso crónico com um registo por dia
+          # transforma-se em ruído, e ruído ensina-se a ignorar — que é exactamente o contrário
+          # do que estes passos existem para fazer. Com título constante há um registo só, como
+          # já acontece na vigia do site e na ronda.
+          titulo="A fonte discorda de si mesma"
+          hoje=$(TZ=Europe/Lisbon date +%F)
           corpo=$(printf '%s\n' \
             "A tabela que a APL publica não bate com os jogos do calendário dela." \
             "" \
@@ -395,16 +408,25 @@ jobs:
             "nosso cálculo e correr \`uv run pytest -m fonte\` para ver as divergências linha" \
             "a linha." \
             "" \
-            "Corrida: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")
+            "Fecha-se sozinha quando a reprodução voltar a passar." \
+            "" \
+            "Corrida de $hoje: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")
           n=$(gh issue list --state open --label fonte --limit 20 --json number,title \
                 --jq "[.[] | select(.title == \"$titulo\")] | .[0].number // empty")
-          # **Se já está aberto, cala-se.** O aviso do dia é o sinal; a ronda corre de duas em
-          # duas horas e um comentário por ronda são doze por dia a dizer o mesmo, o que
-          # ensina a ignorar a notificação. A incoerência da fonte é crónica por natureza —
-          # vive enquanto a APL não corrigir a tabela dela — e o histórico das corridas tem o
-          # detalhe de cada uma para quem o quiser.
+
           if [ -z "$n" ]; then
             gh issue create --title "$titulo" --body "$corpo" --label fonte --assignee "$DONO"
+            exit 0
+          fi
+
+          # **Um comentário por dia, nem mais nem menos.** A ronda corre de duas em duas horas:
+          # comentar em cada uma seriam doze por dia a dizer o mesmo. Calar-se para sempre
+          # também não serve — com um registo só, o silêncio deixaria de distinguir "já passou"
+          # de "continua há cinco dias". Um por dia é o que mantém o registo vivo sem gritar.
+          ultimo=$(gh issue view "$n" --json comments \
+                     --jq '[.comments[].createdAt] | last // ""' | cut -c1-10)
+          if [ "$ultimo" != "$hoje" ]; then
+            gh issue comment "$n" --body "Continua a $hoje. $corpo"
           fi
 
       # **Este aviso não tinha fecho nenhum**, e isso são duas issues abertas a 13/10/2026
