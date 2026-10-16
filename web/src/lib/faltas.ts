@@ -23,34 +23,56 @@
  * só **uma** chegou às 10, e oito chegaram às 9. Um aviso que aparecesse em metade dos jogos não
  * serviria para nada.
  *
- * ## O que falta confirmar com o dono, e porque é que o ecrã não o afirma
+ * ## A sanção é um livre directo, e isso foi preciso perguntar
  *
- * Ele escreveu "livre direto" a 10/10 e "penalti" a 17/10, e o regulamento que temos em
- * `docs/09-regulamento-apl.md` cobre o Artigo 92.º e não as faltas de equipa. Enquanto isso não
- * estiver confirmado, **o ecrã não nomeia a sanção**: diz o número e avisa, sem dizer o que
- * acontece à décima. Numa app cuja credibilidade depende de acertar nas regras, é melhor não
- * dizer do que dizer mal.
+ * O dono escreveu "livre direto" a 10/10 e "penalti" a 17/10, e o ecrã não nomeou nenhuma das
+ * duas enquanto a dúvida durou — numa app cuja credibilidade depende de acertar nas regras, é
+ * melhor não dizer do que dizer mal. A 17/10 ele trouxe o regulamento e corrigiu-se a si
+ * próprio: **é livre directo**, e o penálti não depende da contagem de faltas mas da gravidade
+ * ou do local da infracção.
  */
 
-/** A partir daqui o número ganha fundo: falta uma para a sanção. */
-export const FALTAS_DE_ALERTA = 9;
+/** A primeira falta que vale livre directo. */
+export const PRIMEIRA_SANCAO = 10;
 
-/** A partir daqui a sanção já se aplica em cada falta seguinte. */
-export const FALTAS_COM_SANCAO = 10;
+/** E a partir daí, uma a cada cinco: 15.ª, 20.ª, 25.ª… */
+export const CICLO = 5;
 
 export type EstadoDasFaltas = 'normal' | 'alerta' | 'atingido';
 
 /**
  * Em que estado está o contador de uma equipa.
  *
- * `null` e valores negativos contam como `normal`: uma ficha sem faltas publicadas não é um
- * jogo sem faltas, é um jogo sobre o qual não sabemos — e inventar um aviso a partir de um
- * campo em falta seria pior do que não o mostrar.
+ * ## A regra, tal como o dono a deu a 17/10/2026
+ *
+ * *"À 10.ª falta colectiva (e a cada múltiplo de 5 seguinte: 15.ª, 20.ª, etc.) é assinalado um
+ * livre directo contra a equipa infractora."* E, sobre o intervalo: *"o contador não para nem
+ * recomeça do zero (…) no início da segunda parte retoma a contagem a partir do valor com que
+ * terminou a primeira"*.
+ *
+ * Essa segunda metade confirma, de fora, a medição que já se tinha feito nos dados publicados:
+ * em 332 das 337 fichas o total do cabeçalho é a soma exacta das duas partes do boletim.
+ *
+ * ## O que a regra faz ao aviso
+ *
+ * O aviso **não** é "a partir das 9 fica aceso até ao fim" — isso seria ruído permanente a meio
+ * do jogo numa equipa indisciplinada, e um aviso que está sempre aceso deixa de ser um aviso.
+ * É um ciclo de cinco:
+ *
+ *     alerta     9, 14, 19, 24…   a próxima falta é livre directo
+ *     atingido  10, 15, 20, 25…   esta foi
+ *
+ * Entre uma coisa e outra o número volta ao normal, porque entre a 11.ª e a 13.ª não há nada a
+ * avisar: a sanção seguinte está a três faltas de distância.
+ *
+ * `null` e valores negativos contam como `normal`: uma ficha sem faltas publicadas não é um jogo
+ * sem faltas, é um jogo sobre o qual não sabemos — e inventar um aviso a partir de um campo em
+ * falta seria pior do que não o mostrar.
  */
 export function estadoDasFaltas(n: number | null | undefined): EstadoDasFaltas {
 	if (typeof n !== 'number' || !Number.isFinite(n) || n < 0) return 'normal';
-	if (n >= FALTAS_COM_SANCAO) return 'atingido';
-	if (n >= FALTAS_DE_ALERTA) return 'alerta';
+	if (n >= PRIMEIRA_SANCAO && (n - PRIMEIRA_SANCAO) % CICLO === 0) return 'atingido';
+	if (n >= PRIMEIRA_SANCAO - 1 && (n - (PRIMEIRA_SANCAO - 1)) % CICLO === 0) return 'alerta';
 	return 'normal';
 }
 

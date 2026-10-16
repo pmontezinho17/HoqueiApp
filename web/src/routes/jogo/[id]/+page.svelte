@@ -285,9 +285,9 @@
 			  que estava a ler.
 			-->
 			{#if mostrarNoPlacar(aDecorrer, f.faltas)}
-				<span class="faltas" aria-live="polite">
-					<span class="rotulo">Faltas</span>
+				<span class="faltas" aria-live="polite" aria-label="Faltas de equipa: {f.faltas[0]} a {f.faltas[1]}">
 					<span class="n {estadoDasFaltas(f.faltas[0])}">{f.faltas[0]}</span>
+					<Icone nome="apito" tamanho={13} />
 					<span class="n {estadoDasFaltas(f.faltas[1])}">{f.faltas[1]}</span>
 				</span>
 			{/if}
@@ -498,12 +498,18 @@
 	   hostil para quem tem de a ignorar. Com `prefers-reduced-motion` teria de parar de piscar
 	   de qualquer maneira, e aí ficaria só a cor — que é esta. */
 	.faltas {
-		display: inline-flex; align-items: center; gap: var(--e-2);
+		display: inline-flex; align-items: center; justify-content: center; gap: var(--e-2);
 		margin-top: var(--e-1);
 		font-size: var(--t-micro);
 		font-variant-numeric: tabular-nums;
 	}
-	.faltas .rotulo { color: var(--heroi-suave); text-transform: uppercase; letter-spacing: 0.04em; }
+	/* **O apito ao meio, e um número de cada lado.** O dono apanhou a primeira versão, que
+	   tinha a palavra "FALTAS" à esquerda e os dois números colados a seguir: *"isso não faz
+	   sentido, pois ficam desfasadas de cada equipa"*. Tinha razão — o resultado em cima alinha
+	   casa à esquerda e fora à direita, e os números das faltas estavam os dois à direita do
+	   meio. Com o apito no centro, cada contador cai debaixo da sua equipa e dispensa rótulo:
+	   o símbolo diz o que são. */
+	.faltas :global(svg) { color: var(--heroi-suave); flex: 0 0 auto; }
 	.faltas .n {
 		min-width: 1.35rem; padding: 1px 4px; border-radius: 4px;
 		text-align: center; font-weight: 600; color: var(--directo);

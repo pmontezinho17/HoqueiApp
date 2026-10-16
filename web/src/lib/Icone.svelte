@@ -75,8 +75,10 @@
 	{:else if nome === 'local'}
 		<path d="M10 17.5s5.3-5 5.3-9A5.3 5.3 0 0 0 4.7 8.5c0 4 5.3 9 5.3 9Z" />
 		<circle cx="10" cy="8.4" r="1.9" />
-	{:else if nome === 'arbitro'}
-		<!-- apito -->
+	{:else if nome === 'arbitro' || nome === 'apito'}
+		<!-- Um apito, com dois nomes para dois significados. `arbitro` é quem apita o jogo, na
+		     caixa de informação; `apito` é a sanção, entre os dois contadores de faltas no
+		     placar. O desenho é o mesmo e o sentido não: por isso são dois nomes e não um. -->
 		<path d="M3 9.2h6.4l5.4-2.1v7l-5.4-2.1H3Z" />
 		<path d="M5.6 12v2.6a1.9 1.9 0 0 0 3.8 0V12" />
 	{:else if nome === 'jogos'}

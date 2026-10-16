@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { FALTAS_COM_SANCAO, FALTAS_DE_ALERTA, estadoDasFaltas, mostrarNoPlacar } from './faltas';
+import { CICLO, PRIMEIRA_SANCAO, estadoDasFaltas, mostrarNoPlacar } from './faltas';
 
 /**
  * As faltas de equipa no placar. A decisão vive numa função pura e não dentro do `.svelte`, pela
@@ -7,19 +7,42 @@ import { FALTAS_COM_SANCAO, FALTAS_DE_ALERTA, estadoDasFaltas, mostrarNoPlacar }
  * testável sem montar o ecrã.
  */
 describe('o estado do contador de faltas', () => {
-	it('é normal abaixo das nove', () => {
+	it('é normal até às oito', () => {
 		for (const n of [0, 1, 5, 8]) expect(estadoDasFaltas(n)).toBe('normal');
 	});
 
-	it('às nove passa a alerta — falta uma para a sanção', () => {
-		expect(estadoDasFaltas(FALTAS_DE_ALERTA)).toBe('alerta');
+	it('às nove avisa que a próxima é livre directo', () => {
+		expect(estadoDasFaltas(9)).toBe('alerta');
 	});
 
-	it('às dez já é a sanção, e o aviso não desaparece', () => {
-		// Um número que chega a 10 e perde o destaque seria pior do que não ter destaque
-		// nenhum: a partir daqui cada falta seguinte vale a sanção.
-		expect(estadoDasFaltas(FALTAS_COM_SANCAO)).toBe('atingido');
-		expect(estadoDasFaltas(17)).toBe('atingido');
+	it('à décima a sanção é essa', () => {
+		expect(estadoDasFaltas(PRIMEIRA_SANCAO)).toBe('atingido');
+	});
+
+	it('e depois é de cinco em cinco, não sempre aceso', () => {
+		// A regra que o dono trouxe a 17/10/2026: "à 10.ª (e a cada múltiplo de 5 seguinte:
+		// 15.ª, 20.ª) é assinalado um livre directo". Um aviso permanente a partir das 9 seria
+		// ruído a meio do jogo numa equipa indisciplinada — e um aviso sempre aceso deixa de
+		// ser um aviso.
+		expect(estadoDasFaltas(14)).toBe('alerta');
+		expect(estadoDasFaltas(15)).toBe('atingido');
+		expect(estadoDasFaltas(19)).toBe('alerta');
+		expect(estadoDasFaltas(20)).toBe('atingido');
+		expect(estadoDasFaltas(24)).toBe('alerta');
+		expect(estadoDasFaltas(25)).toBe('atingido');
+	});
+
+	it('entre uma sanção e o aviso seguinte volta ao normal', () => {
+		// Entre a 11.ª e a 13.ª não há nada a avisar: a seguinte está a três faltas.
+		for (const n of [11, 12, 13, 16, 17, 18, 21, 22, 23]) {
+			expect(estadoDasFaltas(n), `n=${n}`).toBe('normal');
+		}
+	});
+
+	it('o ciclo é de cinco e está numa constante, não espalhado pelo código', () => {
+		expect(CICLO).toBe(5);
+		expect(estadoDasFaltas(PRIMEIRA_SANCAO + CICLO)).toBe('atingido');
+		expect(estadoDasFaltas(PRIMEIRA_SANCAO + CICLO - 1)).toBe('alerta');
 	});
 
 	it('sem número não inventa aviso nenhum', () => {
