@@ -38,7 +38,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.4';
+export const VERSAO = '1.5';
 
 /**
  * Em que grupo é que uma novidade cai.
@@ -124,6 +124,19 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.5',
+		data: '2026-10-17',
+		pontos: [
+			{
+				tipo: 'corrigido',
+				titulo: 'Entre a meia-noite e a uma, a app já sabe que dia é',
+				texto:
+					'Se abrisses a app nessa hora, ela mostrava o dia anterior — era a hora de ' +
+					'verão a enganá-la. Agora abre sempre no dia certo em Portugal.'
+			}
+		]
+	},
 	{
 		versao: '1.4',
 		data: '2026-10-17',

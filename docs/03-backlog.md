@@ -54,7 +54,7 @@
 | B1.12 | Deteção de mudanças por hash | should | S | aberto |
 | R1 | Fechar o `workers.dev` do observador com ligação de serviço (fecha a B9.27) | must | S | aberto — ver "Um review externo" |
 | R2 | `ruff check` no CI, e corrigir os 5 nomes indefinidos do `comando_despejar` | must | S | aberto |
-| R3 | `diaDeLisboa()` partilhado, em vez de `toISOString()` em 7 ficheiros da interface | should | S | aberto — adormecido até finais de março |
+| R3 | `diaDeLisboa()` partilhado, em vez de `toISOString()` em 7 ficheiros da interface | should | S | ✅ **17/10** — e eu tinha-o despriorizado por "adormecido"; o dono apanhou-o às 00:48 |
 | R4 | Página de privacidade: tirar as duas frases que deixaram de ser verdade | must | XS | ✅ **16/10** — e a correcção ficou escrita na própria página, à vista, em vez de apagada |
 | R5 | `README.md` a descrever o produto que existe | should | S | aberto |
 | R6 | Tirar o DDL do `/sugerir` (a premissa caiu: o token já tem D1) | could | XS | aberto |

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Emblema from './Emblema.svelte';
 	import { disputado, type Jogo } from './tipos';
+	import { diaDeLisboa } from '$lib/dia';
 
 	// Uma equipa de cada vez, de propósito. Com várias, dois jogos no mesmo dia não cabiam
 	// na célula e acabavam escondidos atrás de um "+1" que não se podia abrir.
@@ -8,7 +9,7 @@
 		jogos, equipa, emblemas
 	}: { jogos: Jogo[]; equipa: string; emblemas: Record<string, string> } = $props();
 
-	const hoje = new Date().toISOString().slice(0, 10);
+	const hoje = diaDeLisboa();
 	const MES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
 		'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
 	const CABECA = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];

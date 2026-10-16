@@ -19,6 +19,7 @@
 	import { disputado, type Jogo, type TotaisJogador } from '$lib/tipos';
 	import { afterNavigate, replaceState } from '$app/navigation';
 	import { page } from '$app/state';
+	import { diaDeLisboa } from '$lib/dia';
 
 	let { data } = $props();
 
@@ -68,7 +69,7 @@
 	let tabelaEscolhida = $state('');
 	let completa = $state(false);
 
-	const hoje = new Date().toISOString().slice(0, 10);
+	const hoje = diaDeLisboa();
 	const segue = $derived(favoritos.segue(data.equipa, data.categoria));
 
 	/** Todos os jogos da equipa, de todas as provas do escalão. */

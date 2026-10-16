@@ -10,6 +10,7 @@
 	import { porQuando } from '$lib/formato';
 	import { caminhoEquipa } from '$lib/slug';
 	import { disputado, type FicheiroCompeticao, type Jogo } from '$lib/tipos';
+	import { diaDeLisboa } from '$lib/dia';
 
 	let { data } = $props();
 
@@ -69,7 +70,7 @@
 		return data.equipas.filter((e) => normal(`${e.equipa} ${e.categoria}`).includes(q)).slice(0, 40);
 	});
 
-	const hoje = new Date().toISOString().slice(0, 10);
+	const hoje = diaDeLisboa();
 
 	/** Só o essencial por equipa: o detalhe vive na página de cada uma. */
 	async function resumir() {
