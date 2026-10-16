@@ -139,6 +139,61 @@ const cabecalhos = (env) => ({
 	'user-agent': 'hoquei-relogio',
 });
 
+/**
+ * Vigia produção, e manda a verificação a sério quando ela não responde.
+ *
+ * ## Porque é que isto saiu da GitHub e veio para aqui
+ *
+ * A vigia vivia no `saude.yml`, de quinze em quinze minutos. **Medido a 15/10/2026: a última
+ * corrida dela foi às 07:01 e às 08:46 ainda não tinha havido outra** — uma hora e três
+ * quartos sem vigia, precisamente na manhã em que produção estava a servir só ficheiros
+ * estáticos. Quem deu por isso foi o dono, ao abrir a app. É o mesmo agendador que num sábado
+ * de jogos criou 2 de 8 rondas, e é a razão de este Worker existir.
+ *
+ * Aqui o `cron` dispara. Das últimas 60 rondas ao vivo, 31 foram lançadas por ele.
+ *
+ * ## Uma sonda, não uma segunda verificação
+ *
+ * Este Worker faz **um** pedido e compara **um** número. As sete verificações a sério ficam
+ * onde estavam, no `scripts/verificar_producao.py`, e são elas que dizem o que está mal e
+ * abrem o registo. Reescrevê-las aqui em JavaScript seria ter duas implementações da mesma
+ * pergunta, a divergir no dia em que alguém corrige uma só.
+ *
+ * O `/contar` é a sonda certa, e não por acaso: é um `fetch` e não uma navegação, logo
+ * atravessa a porta dos sites de ramo, e um 404 nele é o sintoma exacto desta avaria — as
+ * Pages Functions não correrem. Um 204 é o único "está bom".
+ *
+ * **O `User-Agent` tem de começar por `hoqueiAPP`.** É o prefixo que o `/contar` reconhece
+ * para não se contar a si próprio — ver o `NOSSO` no `functions/contar.js`. Sem ele, esta
+ * sonda somava uma "entrada" de dez em dez minutos e era exactamente o defeito que o dono
+ * apanhou a 15/10: 16 entradas de madrugada e zero primeiras vezes. Não basta dizer
+ * `hoquei-relogio`, que é o que o resto deste ficheiro usa para a API da GitHub.
+ *
+ * @param {Record<string, string>} env
+ * @param {typeof fetch} buscar
+ * @param {(env: unknown, workflow: string) => Promise<{ ok: boolean, status: number }>} lancar
+ */
+export async function vigiarProducao(env, buscar = fetch, lancar = disparar) {
+	let estado = 0;
+	try {
+		const r = await buscar(`${env.SONDA}?novo=0`, {
+			headers: { 'user-agent': 'hoqueiAPP-relogio (github.com/pmontezinho17/HoqueiApp)' },
+			// nunca da cache: uma sonda servida da borda não diz nada sobre o estado de agora
+			cf: { cacheTtl: 0, cacheEverything: false },
+		});
+		estado = r.status;
+	} catch (e) {
+		// Uma falha de rede **conta como suspeita**, e não como "não sei". O custo de uma
+		// verificação a mais são seis pedidos ao nosso próprio CDN; o de uma a menos foram as
+		// 18 horas de 12/10.
+		estado = -1;
+	}
+	if (estado === 204) return { sa: true, estado };
+
+	const envio = await lancar(env, env.WORKFLOW_SAUDE);
+	return { sa: false, estado, disparou: envio.ok, http: envio.status };
+}
+
 async function disparar(env, workflow, ref = env.REF || 'main') {
 	const url = `https://api.github.com/repos/${env.REPO}/actions/workflows/${workflow}/dispatches`;
 	const r = await fetch(url, {
@@ -211,6 +266,21 @@ export default {
 				.catch((e) => console.log(`observador: ${String(e).slice(0, 80)}`))
 		);
 
+		// **Produção primeiro.** Separado do resto e sem `await` no caminho crítico, pela mesma
+		// razão do observador: se o `decidir` rebentar, isto tem de correr à mesma — e um site
+		// em baixo é a coisa que mais depressa se quer saber.
+		ctx.waitUntil(
+			vigiarProducao(env)
+				.then((v) =>
+					console.log(
+						v.sa
+							? 'produção: responde'
+							: `produção: /contar deu ${v.estado} — verificação ${v.disparou ? 'disparada' : `não disparada (HTTP ${v.http})`}`
+					)
+				)
+				.catch((e) => console.log(`produção: ${String(e).slice(0, 80)}`))
+		);
+
 		ctx.waitUntil((async () => {
 			const d = await decidir(env, new Date(evento.scheduledTime));
 			if (d.erro) return console.log(`[${d.agora.hora}] ${d.erro}`);
@@ -247,6 +317,15 @@ export default {
 					? 'o 422 é o esperado: a permissão está boa e o ramo de teste não existe, de propósito'
 					: 'um 403 aqui é falta da permissão Actions: Read and write — ver o README',
 			}, { status: pode ? 200 : 502, headers: { 'cache-control': 'no-store' } });
+		}
+
+		// `?producao` sonda sem disparar nada: serve para ver o que o `cron` veria.
+		if (new URL(pedido.url).searchParams.has('producao')) {
+			const v = await vigiarProducao(env, fetch, async () => ({ ok: false, status: 0 }));
+			return Response.json(
+				{ sonda: `${env.SONDA}?novo=0`, estado: v.estado, sa: v.sa, nota: 'não disparou nada' },
+				{ status: v.sa ? 200 : 502, headers: { 'cache-control': 'no-store' } }
+			);
 		}
 
 		const d = await decidir(env, new Date());

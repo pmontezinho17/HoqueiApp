@@ -90,6 +90,18 @@ e continuam sem resultado.
 lançadas por ele** (`workflow_dispatch`) e 28 pelo agendador da GitHub — contado a 13/10/2026.
 Num dia sem jogos ele não lança nada, de propósito, e por isso um dia desses dá só agendadas.
 
+**Desde 15/10/2026 é também ele que vigia produção.** A cada tique faz *uma* sonda — um `GET`
+ao `/contar`, onde só um 204 é "está bom" — e, se ela não responder como deve, dispara o
+`saude.yml`, que é quem corre as sete verificações a sério e abre o registo. As verificações
+não foram reescritas no Worker de propósito: duas implementações da mesma pergunta divergem no
+dia em que alguém corrige uma só.
+
+Isto saiu da GitHub porque o agendador dela não serve para vigiar: medido a 15/10, a vigia de
+quinze em quinze minutos teve a última corrida às 07:01 e às 08:46 ainda não tinha havido
+outra — uma hora e três quartos, precisamente na manhã em que produção servia só ficheiros
+estáticos, e quem deu por isso foi o dono ao abrir a app. O `saude.yml` **fica** com o seu
+`cron`: duas camadas sobre a mesma falha custam nada e já salvaram este projecto antes.
+
 **Fecho do dia às 00:30**: o dia que acabou fecha-se e a mesma corrida republica a agenda, que é
 o que estabelece os jogos de hoje — é por aqui que entra um jogo antecipado ou adiado. Essa ronda
 corre sempre, e é ela que permite a regra de **num dia sem jogos não se pedir nada** (medido:
