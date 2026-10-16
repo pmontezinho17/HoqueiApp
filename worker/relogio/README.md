@@ -110,8 +110,13 @@ cd "$(git rev-parse --show-toplevel)/worker/relogio" && npx wrangler deploy
 
 No fim ele diz o endereço do Worker e os `cron` que registou.
 
-**Uma alteração a este Worker só existe depois deste comando.** Não há CI que o publique, e o
-código estar no `main` não o põe a correr — ao contrário do site, que tem o `dados.yml`.
+**Desde 16/10/2026 isto corre sozinho**: o `.github/workflows/relogio.yml` publica o Worker
+quando algo em `worker/relogio/**` entra no `main`, corre os testes antes e sonda o Worker
+depois. O comando acima fica para emergências.
+
+**E se o correres à mão, faz `git pull` primeiro.** Publicar à mão publica a **tua cópia**: a
+16/10/2026 isso publicou o Worker antigo, porque a cópia local estava cinco commits atrás e a
+vigia de produção que o PR trazia não ia lá dentro. Correu sem um único erro.
 
 ### 5. Ver o que ele vê, sem esperar pelo `cron`
 
