@@ -94,10 +94,13 @@ describe('as três formas de classificar aparecem onde têm de aparecer', () => 
 	});
 
 	it('o ecrã da equipa só diz "não tem classificação" quando não tem mesmo nenhuma', () => {
-		// A mensagem tem de estar **depois** do ramo do Mérito, senão volta a ganhar-lhe.
+		// A mensagem tem de estar **depois** do ramo do Mérito, senão volta a ganhar-lhe. E a
+		// decisão tem de vir da função pura — é lá que está testada contra os dados de todas as
+		// equipas, no `equipa-sem-classificacao.test.ts`.
 		const vazio = equipa.indexOf('não tem classificação publicada');
-		const comMerito = equipa.indexOf("aba === 'classificacao' && meritos.length");
+		const comMerito = equipa.indexOf("aba === 'classificacao' && oQueMostrar === 'merito'");
 		expect(comMerito).toBeGreaterThan(-1);
 		expect(vazio).toBeGreaterThan(comMerito);
+		expect(equipa).toMatch(/classificacaoDaEquipa\(provas, data\.equipa\)/);
 	});
 });

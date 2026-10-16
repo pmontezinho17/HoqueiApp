@@ -201,6 +201,23 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
   número de grafias de clube erradas. Quando há forma de medir, mede-se primeiro.
 - **Verificar no browser o que é visível no browser.** As correcções de interface confirmam-se
   a 375×812, nos dois temas, e com os dados reais — não por leitura do código.
+- **Quando um tipo de dado desaparece ou é substituído, abrir *todos* os ecrãs que o mostravam.**
+  A 10/10/2026 o Mérito substituiu a tabela de pontos nos Escolares e Benjamins; verificou-se o
+  ecrã da competição e não o da equipa, que ficou a dizer *"Esta equipa não tem classificação
+  publicada"* durante quatro dias. Quem deu por isso foi o dono, no telemóvel. Verificar o ecrã
+  que se mexeu não chega — a avaria aparece no outro.
+- **A decisão de "o que é que este ecrã mostra" vive numa função pura, não dentro do `.svelte`.**
+  Nenhum dos testes do `web/` monta um componente — não há jsdom nem testing-library no projecto,
+  e isso é uma escolha. O preço é que qualquer defeito que viva no `{#if}` de um ecrã é invisível
+  para a suite inteira. Trazer a decisão para um módulo (como o `classificacaoDaEquipa` no
+  `lib/classificacao.ts`) põe-na ao alcance de um teste com os dados publicados verdadeiros, que
+  é o que se pode fazer sem mudar a stack de testes. **Um ecrã com uma mensagem de "não há nada"
+  tem de ter um teste que prove que ela não aparece num caso real.**
+- **Um número medido que surpreende investiga-se até à causa antes de virar alarme.** Ao escrever
+  o teste acima apareceram 44 equipas sem classificação; fui ver uma a uma e 39 eram Torneios
+  Particulares e as outras equipas que só jogam eliminatórias, inscritas pela APL com o nome do
+  clube sem sufixo. Nenhuma era defeito nosso. O teste fixa a **razão** e não o número, senão
+  falha de cada vez que uma equipa entra ou sai.
 - **Cuidado com a faixa que se arrasta.** Estão três dias montados ao mesmo tempo, por isso
   um `querySelector` apanha o vizinho fora do ecrã. Já enganou um teste e o tour guiado.
 - Nomes de atletas são publicados em todos os escalões, por decisão do dono a 30/09/2026. O
