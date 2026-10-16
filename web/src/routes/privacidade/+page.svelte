@@ -15,7 +15,7 @@
 	 */
 	import { CONTACTO } from '$lib/contacto';
 	import { SITIO_NOME, APP_NOME } from '$lib/sitio';
-	const ACTUALIZADA = '13 de outubro de 2026';
+	const ACTUALIZADA = '16 de outubro de 2026';
 </script>
 
 <svelte:head><title>Privacidade — {APP_NOME}</title></svelte:head>
@@ -152,10 +152,13 @@
 			"jogos do dia", "o meu clube", "uma equipa", "um jogo". <strong>Agregado</strong>:
 			fica registado que alguém abriu uma página de equipa, não <em>qual</em> equipa.
 		</dd>
-		<dt>Quantas vezes a aplicação foi aberta ou actualizada</dt>
+		<dt>Quantas vezes a aplicação foi aberta</dt>
 		<dd>
-			Contado por amostragem — um em cada dez pedidos — e o número que vemos é uma
-			estimativa.
+			Contado <strong>uma vez por cada vez que abres a app</strong>, ou que voltas a ela
+			depois de meia hora parada. É o teu próprio aparelho que decide, com a hora da última
+			vez guardada nele — ver acima. Até 13 de outubro de 2026 isto era uma estimativa, tirada
+			de um em cada dez pedidos de dados; deixou de ser, e agora é uma contagem exacta de
+			aberturas, que é menos e diz mais.
 		</dd>
 	</dl>
 	<dl>
@@ -267,12 +270,24 @@
 		</dd>
 		<dt>Ligações para a fonte</dt>
 		<dd>Levam-te ao site da Associação de Patinagem de Lisboa, que tem regras próprias.</dd>
-		<dt>"Escreve-nos" e o botão de opinião</dt>
+		<dt>"Escreve-nos"</dt>
 		<dd>
-			Abrem o teu programa de email com o texto já escrito. <strong>Nada sai do teu
-			aparelho sem seres tu a carregar em enviar</strong>, e o que vai junto — o ecrã em
-			que estavas e a data dos dados — está à vista no corpo da mensagem antes de a
-			enviares. Não há servidor nenhum a receber opiniões.
+			Abre o teu programa de email com o texto já escrito. <strong>Nada sai do teu aparelho
+			sem seres tu a carregar em enviar</strong>, e o que vai junto — o ecrã em que estavas e
+			a data dos dados — está à vista no corpo da mensagem antes de a enviares.
+		</dd>
+		<dt>A caixa "O que está mal"</dt>
+		<dd>
+			Essa <strong>envia para nós</strong>, e o que escreves fica guardado. Está descrito em
+			detalhe mais abaixo, nesta mesma página: o que fica, por quanto tempo, para onde vai, e
+			como pedir que desapareça.
+			<br />
+			<em>
+				Até 16 de outubro de 2026 este parágrafo dizia que não havia servidor nenhum a
+				receber opiniões. Era verdade quando foi escrito e deixou de ser a 13 de outubro,
+				quando a caixa passou a enviar directamente. Ficou três dias errado, e é por isso
+				que está corrigido assim, à vista, em vez de apagado.
+			</em>
 		</dd>
 	</dl>
 </section>
