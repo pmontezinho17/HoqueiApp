@@ -287,7 +287,7 @@
 			{#if mostrarNoPlacar(aDecorrer, f.faltas)}
 				<span class="faltas" aria-live="polite" aria-label="Faltas de equipa: {f.faltas[0]} a {f.faltas[1]}">
 					<span class="n {estadoDasFaltas(f.faltas[0])}">{f.faltas[0]}</span>
-					<Icone nome="apito" tamanho={13} />
+					<Icone nome="falta" tamanho={14} />
 					<span class="n {estadoDasFaltas(f.faltas[1])}">{f.faltas[1]}</span>
 				</span>
 			{/if}
@@ -503,12 +503,16 @@
 		font-size: var(--t-micro);
 		font-variant-numeric: tabular-nums;
 	}
-	/* **O apito ao meio, e um número de cada lado.** O dono apanhou a primeira versão, que
+	/* **A mão ao meio, e um número de cada lado.** O dono apanhou a primeira versão, que
 	   tinha a palavra "FALTAS" à esquerda e os dois números colados a seguir: *"isso não faz
 	   sentido, pois ficam desfasadas de cada equipa"*. Tinha razão — o resultado em cima alinha
 	   casa à esquerda e fora à direita, e os números das faltas estavam os dois à direita do
 	   meio. Com o apito no centro, cada contador cai debaixo da sua equipa e dispensa rótulo:
-	   o símbolo diz o que são. */
+	   o símbolo diz o que são.
+
+	   O apito foi a primeira tentativa e o dono recusou-o: a 13 px lia-se como um megafone. A
+	   mão aberta ganhou de seis candidatos vistos lado a lado — e ganha sobretudo porque a
+	   cronologia já marca as faltas de equipa com ✋, logo é a mesma silhueta no mesmo ecrã. */
 	.faltas :global(svg) { color: var(--heroi-suave); flex: 0 0 auto; }
 	.faltas .n {
 		min-width: 1.35rem; padding: 1px 4px; border-radius: 4px;

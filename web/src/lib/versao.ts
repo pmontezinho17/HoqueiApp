@@ -132,8 +132,8 @@ export const NOVIDADES: Novidade[] = [
 				tipo: 'novo',
 				titulo: 'As faltas de equipa, debaixo do resultado, durante o jogo',
 				texto:
-					'Num jogo a decorrer passas a ver quantas faltas cada equipa leva, de cada lado ' +
-					'de um apito. À 9.ª o número fica amarelo — a próxima é livre directo — e à ' +
+					'Num jogo a decorrer passas a ver quantas faltas cada equipa leva, uma de cada ' +
+					'lado. À 9.ª o número fica amarelo — a próxima é livre directo — e à ' +
 					'10.ª fica vermelho. Depois repete-se de cinco em cinco, como manda a regra: ' +
 					'15.ª, 20.ª, e assim por diante. Num jogo terminado continuam onde sempre ' +
 					'estiveram, na caixa de informação.'

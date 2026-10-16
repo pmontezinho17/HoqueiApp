@@ -75,10 +75,8 @@
 	{:else if nome === 'local'}
 		<path d="M10 17.5s5.3-5 5.3-9A5.3 5.3 0 0 0 4.7 8.5c0 4 5.3 9 5.3 9Z" />
 		<circle cx="10" cy="8.4" r="1.9" />
-	{:else if nome === 'arbitro' || nome === 'apito'}
-		<!-- Um apito, com dois nomes para dois significados. `arbitro` é quem apita o jogo, na
-		     caixa de informação; `apito` é a sanção, entre os dois contadores de faltas no
-		     placar. O desenho é o mesmo e o sentido não: por isso são dois nomes e não um. -->
+	{:else if nome === 'arbitro'}
+		<!-- apito -->
 		<path d="M3 9.2h6.4l5.4-2.1v7l-5.4-2.1H3Z" />
 		<path d="M5.6 12v2.6a1.9 1.9 0 0 0 3.8 0V12" />
 	{:else if nome === 'jogos'}
@@ -120,6 +118,26 @@
 	{:else if nome === 'faltas'}
 		<!-- contagem -->
 		<path d="M4.4 6h11.2M4.4 10h7.6M4.4 14h9.4" />
+	{:else if nome === 'falta'}
+		<!--
+		  A mão aberta: a falta. **Cheia e não em contorno**, e isso não é gosto — é legibilidade
+		  a 13 px, que é o tamanho a que isto vive no placar. Em contorno, os quatro dedos e a
+		  palma colapsam numa mancha.
+
+		  Escolhida de entre seis candidatos desenhados a 17/10/2026, vistos lado a lado aos 13,
+		  15 e 17 px nos dois temas, depois de o dono recusar o apito: *"não gosto muito do ícone
+		  que escolheste. não consegues encontrar outro mais fácil de perceber que é uma falta?"*.
+		  Os três apitos liam-se como um megafone, uma chave e uma mancha.
+
+		  E ganha por uma segunda razão, que vale mais do que o desenho: **a cronologia já marca
+		  as faltas de equipa com ✋** desde que existe. Quem desce o ecrã vê a mesma silhueta ao
+		  lado de "Falta 9"; usar outra coisa no placar seria dar dois símbolos à mesma ideia.
+		-->
+		<path
+			fill="currentColor"
+			stroke="none"
+			d="M6.1 11.2V5.6a1.15 1.15 0 0 1 2.3 0v4.1h.5V4.3a1.15 1.15 0 0 1 2.3 0v5.4h.5V5.1a1.15 1.15 0 0 1 2.3 0v4.6h.5V7.3a1.15 1.15 0 0 1 2.3 0v5.2c0 3.1-2.1 5.2-5.1 5.2-3 0-5.3-1.7-6.3-4.3l-.9-2.3a1.1 1.1 0 0 1 1.9-1.1Z"
+		/>
 	{:else if nome === 'estrela' || nome === 'estrela-contorno'}
 		<!--
 		  Duas estrelas com o mesmo contorno, e é de propósito: a cheia diz "esta equipa é
