@@ -123,6 +123,22 @@ O `sugestoes.yml` **nunca correu** e não pode correr: a GitHub só conhece work
 omissão, e ele ainda está num ramo. Faltam-lhe também o repositório privado `ok4sticks-sugestoes`
 e o segredo `TOKEN_SUGESTOES`.
 
+## Ver o estado sem ler 3 700 linhas
+
+```bash
+python3 scripts/estado.py
+```
+
+Diz três coisas: os itens do backlog que ainda estão abertos, por prioridade; as sugestões já
+arquivadas no repositório privado; e as que a D1 tem à espera do processo diário. Lê e não
+escreve nada, e não toca na APL. Nasceu de uma pergunta do dono a 16/10/2026 — *"como é que eu
+consigo ver o que temos em backlog para fazer?"* — porque as respostas existiam e nenhuma era
+prática.
+
+Quando não conseguir ler a D1 **diz isso**, em vez de dizer que não há sugestões: uma sessão do
+`wrangler` expirada contada como zero é pior do que um erro, porque ninguém vai procurar. A cura
+é `npx wrangler login`.
+
 ## O que falta, por valor
 
 A lista a sério está no [03-backlog.md](03-backlog.md), secção *Próximo incremento*. Em resumo:
