@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9791@hoquei.pages.dev
-DTSTAMP:20261017T000000Z
-DTSTART:20261017T163000Z
-DTEND:20261017T180000Z
-SUMMARY:🏑 Sub-17 🏑 HC Vasco Gama vs CF Estremoz
-LOCATION:Pavilhão dos Desportos Sines
-DESCRIPTION:HC Vasco Gama 10–2 CF Estremoz\nCAMP. REG. SUB-17 - 1ª FASE 
- · Série F · SUB-17\nPAV. SINES\nhttps://hoquei.pages.dev/jogo/9791\nDad
- os da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9791
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9796@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T113000Z

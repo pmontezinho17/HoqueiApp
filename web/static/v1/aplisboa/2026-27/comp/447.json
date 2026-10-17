@@ -480,20 +480,6 @@
     },
     {
      "posicao": 2,
-     "equipa": "AE FISICA D B",
-     "logo": "/intranet/logos/11.png",
-     "jogos": 3,
-     "vitorias": 3,
-     "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 16,
-     "golos_sofridos": 6,
-     "diferenca": 10,
-     "racio": 2.67,
-     "pontos": 9
-    },
-    {
-     "posicao": 3,
      "equipa": "CD PAÇO ARCOS A",
      "logo": "/intranet/logos/7.png",
      "jogos": 3,
@@ -507,18 +493,32 @@
      "pontos": 6
     },
     {
-     "posicao": 4,
+     "posicao": 3,
      "equipa": "CRIAR-T GD",
      "logo": "/intranet/logos/17.png",
      "jogos": 3,
-     "vitorias": 1,
+     "vitorias": 2,
      "empates": 0,
-     "derrotas": 2,
-     "golos_marcados": 13,
-     "golos_sofridos": 22,
-     "diferenca": -9,
-     "racio": 0.59,
-     "pontos": 3
+     "derrotas": 1,
+     "golos_marcados": 20,
+     "golos_sofridos": 17,
+     "diferenca": 3,
+     "racio": 1.18,
+     "pontos": 6
+    },
+    {
+     "posicao": 4,
+     "equipa": "AE FISICA D B",
+     "logo": "/intranet/logos/11.png",
+     "jogos": 3,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 11,
+     "golos_sofridos": 13,
+     "diferenca": -2,
+     "racio": 0.85,
+     "pontos": 6
     },
     {
      "posicao": 5,

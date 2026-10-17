@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9998@hoquei.pages.dev
-DTSTAMP:20261017T000000Z
-DTSTART:20261017T140000Z
-DTEND:20261017T153000Z
-SUMMARY:🏑 Benjamins 🏑 AD Oeiras A vs HC Sintra
-LOCATION:Sports Association of Oeiras
-DESCRIPTION:AD Oeiras A 31–1 HC Sintra\nENCONTROS DISTRITAIS BENJAMINS - 
- 1ª FASE NIVEL I · Série A · BENJAMINS\nPAV. A.D.OEIRAS\nhttps://hoquei
- .pages.dev/jogo/9998\nDados da Associação de Patinagem de Lisboa. Site n
- ão oficial.
-URL:https://hoquei.pages.dev/jogo/9998
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-10003@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T140000Z

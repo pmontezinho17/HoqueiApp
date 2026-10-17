@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9742@hoquei.pages.dev
-DTSTAMP:20261017T000000Z
-DTSTART:20261017T153000Z
-DTEND:20261017T170000Z
-SUMMARY:🏑 Sub-17 🏑 HC Lourinhã vs UD Vilafranquense
-LOCATION:Hoquei Clube da Lourinhã
-DESCRIPTION:HC Lourinhã 4–2 UD Vilafranquense\nCAMP. REG. SUB-17 - 1ª F
- ASE · Série D · SUB-17\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.
- dev/jogo/9742\nDados da Associação de Patinagem de Lisboa. Site não ofi
- cial.
-URL:https://hoquei.pages.dev/jogo/9742
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9744@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T150000Z

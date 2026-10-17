@@ -9,16 +9,16 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9318@hoquei.pages.dev
-DTSTAMP:20261017T000000Z
-DTSTART:20261017T170000Z
-DTEND:20261017T183000Z
-SUMMARY:🏑 Seniores Masculinos 🏑 HC Sintra vs AD Oeiras
+UID:jogo-9319@hoquei.pages.dev
+DTSTAMP:20261018T000000Z
+DTSTART:20261018T170000Z
+DTEND:20261018T183000Z
+SUMMARY:🏑 Seniores Masculinos 🏑 Sporting CP vs AD Oeiras
 LOCATION:Fisica Torres Vedras
-DESCRIPTION:HC Sintra 1–4 AD Oeiras\nTAÇA JESUS CORREIA - SENIORES MASCU
- LINOS · SENIORES MASCULINOS\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.p
- ages.dev/jogo/9318\nDados da Associação de Patinagem de Lisboa. Site nã
- o oficial.
-URL:https://hoquei.pages.dev/jogo/9318
+DESCRIPTION:Sporting CP vs AD Oeiras\nTAÇA JESUS CORREIA - SENIORES MASCUL
+ INOS · SENIORES MASCULINOS\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pa
+ ges.dev/jogo/9319\nDados da Associação de Patinagem de Lisboa. Site não
+  oficial.
+URL:https://hoquei.pages.dev/jogo/9319
 END:VEVENT
 END:VCALENDAR

@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9512@hoquei.pages.dev
-DTSTAMP:20261017T000000Z
-DTSTART:20261017T151500Z
-DTEND:20261017T164500Z
-SUMMARY:🏑 Sub-13 🏑 FSE/AJ Salesiana vs A Stuart HCM
-LOCATION:Salesianos do Estoril
-DESCRIPTION:FSE/AJ Salesiana 2–1 A Stuart HCM\nCAMP. REG. SUB-13 - 1ª FA
- SE · Série C · SUB-13\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jogo/95
- 12\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9512
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9515@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T153000Z

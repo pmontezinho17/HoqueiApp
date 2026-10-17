@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9544@hoquei.pages.dev
-DTSTAMP:20261017T000000Z
-DTSTART:20261017T144500Z
-DTEND:20261017T161500Z
-SUMMARY:🏑 Sub-13 🏑 Parede FC B vs AD Oeiras B
-LOCATION:Pavilhão Parede F.C.
-DESCRIPTION:Parede FC B 2–4 AD Oeiras B\nCAMP. REG. SUB-13 - 1ª FASE · 
- Série D · SUB-13\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9544\nDados
-  da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9544
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9545@hoquei.pages.dev
 DTSTAMP:20261018T000000Z
 DTSTART:20261018T160000Z

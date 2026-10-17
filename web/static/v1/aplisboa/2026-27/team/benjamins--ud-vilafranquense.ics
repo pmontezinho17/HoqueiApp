@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-10068@hoquei.pages.dev
-DTSTAMP:20261017T000000Z
-DTSTART:20261017T143000Z
-DTEND:20261017T160000Z
-SUMMARY:🏑 Benjamins 🏑 Caco B vs UD Vilafranquense
-LOCATION:Clube Atlético de Campo de Ourique (CACO)
-DESCRIPTION:Caco B 0–36 UD Vilafranquense\nENCONTROS DISTRITAIS BENJAMINS
-  - 1ª FASE NIVEL II · Série C · BENJAMINS\nPAV.C.A.C.OURIQUE\nhttps://
- hoquei.pages.dev/jogo/10068\nDados da Associação de Patinagem de Lisboa.
-  Site não oficial.
-URL:https://hoquei.pages.dev/jogo/10068
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-10071@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T133000Z
