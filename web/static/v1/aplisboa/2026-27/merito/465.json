@@ -1,7 +1,7 @@
 {
  "competicao_id": 465,
  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
- "jogos_lidos": 12,
+ "jogos_lidos": 13,
  "jogos_sem_boletim": 0,
  "linhas": [
   {
@@ -28,6 +28,17 @@
   },
   {
    "posicao": 3,
+   "equipa": "SC TORRES",
+   "jogos": 4,
+   "participantes": 36,
+   "bonificacao": 42,
+   "penalizacao": -4,
+   "pontos": 38,
+   "media": 9.5,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 4,
    "equipa": "HC SINTRA",
    "jogos": 3,
    "participantes": 28,
@@ -35,17 +46,6 @@
    "penalizacao": 0,
    "pontos": 33,
    "media": 11.0,
-   "por_confirmar": 0
-  },
-  {
-   "posicao": 4,
-   "equipa": "SC TORRES",
-   "jogos": 3,
-   "participantes": 27,
-   "bonificacao": 30,
-   "penalizacao": -3,
-   "pontos": 27,
-   "media": 9.0,
    "por_confirmar": 0
   },
   {
@@ -61,6 +61,17 @@
   },
   {
    "posicao": 6,
+   "equipa": "A STUART HCM",
+   "jogos": 4,
+   "participantes": 31,
+   "bonificacao": 32,
+   "penalizacao": -6,
+   "pontos": 26,
+   "media": 6.5,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 7,
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 3,
    "participantes": 27,
@@ -68,17 +79,6 @@
    "penalizacao": -8,
    "pontos": 25,
    "media": 8.33,
-   "por_confirmar": 0
-  },
-  {
-   "posicao": 7,
-   "equipa": "A STUART HCM",
-   "jogos": 3,
-   "participantes": 23,
-   "bonificacao": 24,
-   "penalizacao": -5,
-   "pontos": 19,
-   "media": 6.33,
    "por_confirmar": 0
   },
   {
