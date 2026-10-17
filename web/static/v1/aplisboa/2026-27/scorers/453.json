@@ -1,6 +1,6 @@
 {
  "competicao_id": 453,
- "jogos_considerados": 12,
+ "jogos_considerados": 13,
  "jogadores": [
   {
    "nome": "TIAGO FERREIRA",
@@ -11,6 +11,19 @@
    "assistencias": 0,
    "defesas": 0,
    "pontos": 7,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARTIM PAULINO",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 5,
+   "numero": "5",
+   "golos": 6,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 6,
    "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
@@ -42,22 +55,9 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM PAULINO",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 4,
-   "numero": "5",
-   "golos": 4,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MARTIM ANTUNES",
    "equipa": "APAC TOJAL",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "3",
    "golos": 3,
    "assistencias": 1,
@@ -146,36 +146,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS SIMÃO",
-   "equipa": "APAC TOJAL",
-   "jogos": 3,
-   "numero": "6",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "ANTÓNIO PEREIRA",
    "equipa": "APAC TOJAL",
    "jogos": 4,
    "numero": "5",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DAVID PINTO",
-   "equipa": "APAC TOJAL",
-   "jogos": 4,
-   "numero": "4",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -198,9 +172,35 @@
    "vermelhos": 0
   },
   {
+   "nome": "TOMÁS SIMÃO",
+   "equipa": "APAC TOJAL",
+   "jogos": 4,
+   "numero": "6",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DAVID PINTO",
+   "equipa": "APAC TOJAL",
+   "jogos": 5,
+   "numero": "4",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TOMÁS ALEIXO",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "2",
    "golos": 2,
    "assistencias": 0,
@@ -237,9 +237,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "GUILHERME MOURÃO",
+   "equipa": "APAC TOJAL",
+   "jogos": 5,
+   "numero": "7",
+   "golos": 1,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "GUSTAVO CARVALHO",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "6",
    "golos": 1,
    "assistencias": 1,
@@ -252,7 +265,7 @@
   {
    "nome": "MADHAV KANTILAL",
    "equipa": "APAC TOJAL",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "9",
    "golos": 1,
    "assistencias": 1,
@@ -393,19 +406,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME MOURÃO",
-   "equipa": "APAC TOJAL",
-   "jogos": 4,
-   "numero": "7",
-   "golos": 0,
-   "assistencias": 3,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "AFONSO PIRES",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 1,
@@ -421,7 +421,7 @@
   {
    "nome": "BERNARDO TEIXEIRA",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "9",
    "golos": 0,
    "assistencias": 1,
@@ -449,19 +449,6 @@
    "equipa": "PAREDE FC",
    "jogos": 1,
    "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DANIEL BORGES",
-   "equipa": "APAC TOJAL",
-   "jogos": 1,
-   "numero": "6",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -510,6 +497,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "FRANCISCO PASCOAL",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 1,
+   "numero": "4",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "FRANCISCO PITA",
    "equipa": "PAREDE FC",
    "jogos": 1,
@@ -525,19 +525,6 @@
   {
    "nome": "GABRIEL SANTOS",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 1,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO RODRIGUES",
-   "equipa": "APAC TOJAL",
    "jogos": 1,
    "numero": "1",
    "golos": 0,
@@ -679,19 +666,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "RODRIGO MILA",
-   "equipa": "APAC TOJAL",
-   "jogos": 1,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "SANTIAGO CALHEIROS",
    "equipa": "SL BENFICA A",
    "jogos": 1,
@@ -699,19 +673,6 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TIAGO FERREIRA",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 1,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -796,6 +757,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DANIEL BORGES",
+   "equipa": "APAC TOJAL",
+   "jogos": 2,
+   "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "FRANCISCO SILVA",
    "equipa": "PAREDE FC",
    "jogos": 2,
@@ -835,6 +809,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "GONÇALO RODRIGUES",
+   "equipa": "APAC TOJAL",
+   "jogos": 2,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOÃO LEITÃO",
    "equipa": "PAREDE FC",
    "jogos": 2,
@@ -861,16 +848,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "MÁRIO FRANCISCO",
-   "equipa": "CD PAÇO ARCOS B",
+   "nome": "RODRIGO MILA",
+   "equipa": "APAC TOJAL",
    "jogos": 2,
-   "numero": "7",
+   "numero": "8",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
-   "azuis": 1,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -907,6 +894,19 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO FERREIRA",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 2,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -952,19 +952,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO SEGADÃES",
-   "equipa": "APAC TOJAL",
-   "jogos": 3,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MIGUEL ROCHA",
    "equipa": "PAREDE FC",
    "jogos": 3,
@@ -975,6 +962,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MÁRIO FRANCISCO",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 3,
+   "numero": "7",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -1043,8 +1043,8 @@
    "vermelhos": 0
   },
   {
-   "nome": "GONÇALO HERMENEGILDO",
-   "equipa": "CD PAÇO ARCOS B",
+   "nome": "JOSÉ GONÇALVES",
+   "equipa": "A STUART HCM",
    "jogos": 4,
    "numero": "10",
    "golos": 0,
@@ -1056,10 +1056,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOSÉ GONÇALVES",
-   "equipa": "A STUART HCM",
+   "nome": "JOÃO SEGADÃES",
+   "equipa": "APAC TOJAL",
    "jogos": 4,
-   "numero": "10",
+   "numero": "2",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1147,9 +1147,22 @@
    "vermelhos": 0
   },
   {
-   "nome": "SALVADOR CARDOSO",
-   "equipa": "APAC TOJAL",
+   "nome": "SANTIAGO MARQUES",
+   "equipa": "A STUART HCM",
    "jogos": 4,
+   "numero": "8",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GONÇALO HERMENEGILDO",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 5,
    "numero": "10",
    "golos": 0,
    "assistencias": 0,
@@ -1160,10 +1173,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "SANTIAGO MARQUES",
-   "equipa": "A STUART HCM",
-   "jogos": 4,
-   "numero": "8",
+   "nome": "SALVADOR CARDOSO",
+   "equipa": "APAC TOJAL",
+   "jogos": 5,
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

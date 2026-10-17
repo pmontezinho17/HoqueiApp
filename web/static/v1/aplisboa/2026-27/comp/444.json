@@ -127,8 +127,8 @@
    "hora": "15:00:00",
    "casa": "CRIAR-T GD",
    "fora": "S ALENQUER BENFICA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 1,
+   "golos_fora": 1,
    "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
    "ao_vivo": false
   },
@@ -351,15 +351,15 @@
      "posicao": 3,
      "equipa": "S ALENQUER BENFICA",
      "logo": "/intranet/logos/5.png",
-     "jogos": 2,
+     "jogos": 3,
      "vitorias": 1,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 1,
-     "golos_marcados": 8,
-     "golos_sofridos": 11,
+     "golos_marcados": 9,
+     "golos_sofridos": 12,
      "diferenca": -3,
-     "racio": 0.73,
-     "pontos": 3
+     "racio": 0.75,
+     "pontos": 4
     },
     {
      "posicao": 4,
@@ -379,15 +379,15 @@
      "posicao": 5,
      "equipa": "CRIAR-T GD",
      "logo": "/intranet/logos/17.png",
-     "jogos": 3,
+     "jogos": 4,
      "vitorias": 0,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 3,
-     "golos_marcados": 1,
-     "golos_sofridos": 19,
+     "golos_marcados": 2,
+     "golos_sofridos": 20,
      "diferenca": -18,
-     "racio": 0.05,
-     "pontos": 0
+     "racio": 0.1,
+     "pontos": 1
     }
    ]
   }

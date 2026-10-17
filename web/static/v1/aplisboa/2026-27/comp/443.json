@@ -174,8 +174,8 @@
    "hora": "15:00:00",
    "casa": "HC SINTRA",
    "fora": "CD PAÇO ARCOS A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 9,
    "recinto": "PAV. HC SINTRA",
    "ao_vivo": false
   },
@@ -466,6 +466,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "CD PAÇO ARCOS A",
+     "logo": "/intranet/logos/7.png",
+     "jogos": 4,
+     "vitorias": 3,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 52,
+     "golos_sofridos": 3,
+     "diferenca": 49,
+     "racio": 17.33,
+     "pontos": 9
+    },
+    {
+     "posicao": 2,
      "equipa": "AD OEIRAS A",
      "logo": "/intranet/logos/6.png",
      "jogos": 3,
@@ -477,20 +491,6 @@
      "diferenca": 15,
      "racio": 4.75,
      "pontos": 9
-    },
-    {
-     "posicao": 2,
-     "equipa": "CD PAÇO ARCOS A",
-     "logo": "/intranet/logos/7.png",
-     "jogos": 3,
-     "vitorias": 2,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 43,
-     "golos_sofridos": 3,
-     "diferenca": 40,
-     "racio": 14.33,
-     "pontos": 6
     },
     {
      "posicao": 3,
@@ -538,14 +538,14 @@
      "posicao": 6,
      "equipa": "HC SINTRA",
      "logo": "/intranet/logos/8.png",
-     "jogos": 3,
+     "jogos": 4,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 3,
+     "derrotas": 4,
      "golos_marcados": 2,
-     "golos_sofridos": 30,
-     "diferenca": -28,
-     "racio": 0.07,
+     "golos_sofridos": 39,
+     "diferenca": -37,
+     "racio": 0.05,
      "pontos": 0
     }
    ]

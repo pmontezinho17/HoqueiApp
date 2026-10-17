@@ -174,8 +174,8 @@
    "hora": "12:45:00",
    "casa": "AE FISICA D B",
    "fora": "SPORTING CP B",
-   "golos_casa": 0,
-   "golos_fora": 3,
+   "golos_casa": 1,
+   "golos_fora": 7,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
   },
@@ -486,10 +486,10 @@
      "vitorias": 3,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 20,
-     "golos_sofridos": 4,
-     "diferenca": 16,
-     "racio": 5.0,
+     "golos_marcados": 24,
+     "golos_sofridos": 5,
+     "diferenca": 19,
+     "racio": 4.8,
      "pontos": 9
     },
     {
@@ -514,10 +514,10 @@
      "vitorias": 1,
      "empates": 0,
      "derrotas": 3,
-     "golos_marcados": 4,
-     "golos_sofridos": 11,
-     "diferenca": -7,
-     "racio": 0.36,
+     "golos_marcados": 5,
+     "golos_sofridos": 15,
+     "diferenca": -10,
+     "racio": 0.33,
      "pontos": 3
     },
     {

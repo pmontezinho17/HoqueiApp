@@ -1,16 +1,16 @@
 {
  "competicao_id": 445,
- "jogos_considerados": 11,
+ "jogos_considerados": 12,
  "jogadores": [
   {
    "nome": "ALEXANDRE ABRANTES",
    "equipa": "SPORTING CP A",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "4",
-   "golos": 6,
+   "golos": 7,
    "assistencias": 2,
    "defesas": 0,
-   "pontos": 8,
+   "pontos": 9,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -18,12 +18,25 @@
   {
    "nome": "ISABELA PILÃO",
    "equipa": "PAREDE FC A",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "8",
    "golos": 5,
    "assistencias": 2,
    "defesas": 0,
    "pontos": 7,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FRANCISCO SIMÕES",
+   "equipa": "SPORTING CP A",
+   "jogos": 3,
+   "numero": "2",
+   "golos": 5,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 6,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -42,27 +55,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO SIMÕES",
+   "nome": "VICENTE CARVALHO",
    "equipa": "SPORTING CP A",
-   "jogos": 2,
-   "numero": "2",
-   "golos": 5,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 5,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ANA SEGADÃES",
-   "equipa": "PAREDE FC A",
    "jogos": 4,
-   "numero": "4",
+   "numero": "3",
    "golos": 5,
-   "assistencias": 0,
+   "assistencias": 1,
    "defesas": 0,
-   "pontos": 5,
+   "pontos": 6,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -81,12 +81,12 @@
    "vermelhos": 0
   },
   {
-   "nome": "VICENTE CARVALHO",
-   "equipa": "SPORTING CP A",
-   "jogos": 3,
-   "numero": "3",
-   "golos": 4,
-   "assistencias": 1,
+   "nome": "ANA SEGADÃES",
+   "equipa": "PAREDE FC A",
+   "jogos": 5,
+   "numero": "4",
+   "golos": 5,
+   "assistencias": 0,
    "defesas": 0,
    "pontos": 5,
    "amarelos": 0,
@@ -109,7 +109,7 @@
   {
    "nome": "VICENTE ROCHA",
    "equipa": "PAREDE FC A",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "3",
    "golos": 4,
    "assistencias": 1,
@@ -148,7 +148,7 @@
   {
    "nome": "SALVADOR MONTEZINHO",
    "equipa": "PAREDE FC A",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "7",
    "golos": 3,
    "assistencias": 1,
@@ -172,19 +172,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOSÉ SILVA",
-   "equipa": "SPORTING CP A",
-   "jogos": 3,
-   "numero": "2",
-   "golos": 3,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DINIS STABILE",
    "equipa": "A STUART HCM",
    "jogos": 4,
@@ -198,9 +185,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOSÉ SILVA",
+   "equipa": "SPORTING CP A",
+   "jogos": 4,
+   "numero": "5",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "LOURENÇO FILIPE",
    "equipa": "PAREDE FC A",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "9",
    "golos": 3,
    "assistencias": 0,
@@ -213,7 +213,7 @@
   {
    "nome": "JOÃO REIS",
    "equipa": "SPORTING CP A",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "9",
    "golos": 2,
    "assistencias": 1,
@@ -289,19 +289,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "CARLOTA SEABRA",
-   "equipa": "PAREDE FC A",
-   "jogos": 4,
-   "numero": "5",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "NURIA TEIXEIRA",
    "equipa": "A STUART HCM",
    "jogos": 4,
@@ -315,9 +302,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "CARLOTA SEABRA",
+   "equipa": "PAREDE FC A",
+   "jogos": 5,
+   "numero": "5",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TOMÁS MARTINS",
    "equipa": "SPORTING CP A",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "7",
    "golos": 1,
    "assistencias": 2,
@@ -328,10 +328,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "SANTIAGO BANDEIRAS",
-   "equipa": "SPORTING CP A",
-   "jogos": 2,
-   "numero": "6",
+   "nome": "JOÃO MAGGIOLLI",
+   "equipa": "AE FISICA D A",
+   "jogos": 3,
+   "numero": "5",
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
@@ -341,10 +341,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO MAGGIOLLI",
-   "equipa": "AE FISICA D A",
+   "nome": "SANTIAGO BANDEIRAS",
+   "equipa": "SPORTING CP A",
    "jogos": 3,
-   "numero": "5",
+   "numero": "6",
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
@@ -380,19 +380,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DAVID MONTEIRO",
-   "equipa": "SPORTING CP A",
-   "jogos": 3,
-   "numero": "8",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GUILHERME PORFIRIO",
    "equipa": "SPORTING CP A",
    "jogos": 3,
@@ -410,6 +397,19 @@
    "equipa": "CD MAFRA",
    "jogos": 3,
    "numero": "17",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DAVID MONTEIRO",
+   "equipa": "SPORTING CP A",
+   "jogos": 4,
+   "numero": "8",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -614,32 +614,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "PEDRO BRIGANTIN",
-   "equipa": "SPORTING CP A",
-   "jogos": 2,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "PEDRO LUZ",
-   "equipa": "SPORTING CP A",
-   "jogos": 2,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "BENEDITA AMORIM",
    "equipa": "CD MAFRA",
    "jogos": 3,
@@ -744,10 +718,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "SALVADOR RAMOS",
-   "equipa": "PAREDE FC A",
+   "nome": "PEDRO BRIGANTIN",
+   "equipa": "SPORTING CP A",
    "jogos": 3,
    "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PEDRO LUZ",
+   "equipa": "SPORTING CP A",
+   "jogos": 3,
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -761,19 +748,6 @@
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 3,
    "numero": "9",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SEBASTIÃO PILÃO",
-   "equipa": "PAREDE FC A",
-   "jogos": 3,
-   "numero": "2",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -913,10 +887,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "SIMÃO LOPES",
+   "nome": "SALVADOR RAMOS",
    "equipa": "PAREDE FC A",
    "jogos": 4,
-   "numero": "1",
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SEBASTIÃO PILÃO",
+   "equipa": "PAREDE FC A",
+   "jogos": 4,
+   "numero": "2",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -930,6 +917,19 @@
    "equipa": "CD MAFRA",
    "jogos": 4,
    "numero": "8",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SIMÃO LOPES",
+   "equipa": "PAREDE FC A",
+   "jogos": 5,
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
