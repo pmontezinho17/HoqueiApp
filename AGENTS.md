@@ -19,9 +19,11 @@ ponteiro para aqui.
 2. `docs/00-onde-retomar.md` — o estado do projecto e por onde continuar.
 3. `docs/02-arquitetura-e-stack.md` — as cinco decisões de arquitectura e o contrato de dados.
 4. `docs/03-backlog.md` — itens com ID, critério de aceitação e a secção "Próximo incremento".
-5. Só depois o resto, e só o que a tarefa pedir.
+5. `docs/10-processo.md` — do pedido ao ar: quem valida o quê, e porque é que o `main` entrega
+   mas não liberta.
+6. Só depois o resto, e só o que a tarefa pedir.
 
-**O conhecimento deste projecto vive em `docs/`.** São dez documentos numerados e são a
+**O conhecimento deste projecto vive em `docs/`.** São onze documentos numerados e são a
 fonte, sem segunda casa: o vault do andaime foi abandonado a 05/10/2026 precisamente para não
 haver duas. Os comentários do código citam estes documentos por caminho (`docs/04-...`), e é
 assim que se chega ao raciocínio a partir do sítio onde ele importa — quem mover ou renomear
@@ -104,18 +106,36 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
 | `scripts/` | o ciclo ao vivo (`aovivo.sh`) e utilitários |
 | `worker/relogio/` | o Cloudflare Worker que serve de relógio e cão de guarda às Actions |
 | `.github/workflows/` | `ci.yml`, `dados.yml`, `aovivo.yml`, `sonda.yml` |
-| `docs/` | o conhecimento: dez documentos numerados |
+| `docs/` | o conhecimento: onze documentos numerados |
 | `data-samples/` | HTML real da fonte, para os testes correrem sem rede |
 
 ## Rules
 
+- **O trabalho acumula-se no `dev`; o `main` é produção.** Ramos de funcionalidade saem do `dev`
+  e voltam ao `dev`; o site de testes publica a cada merge lá. À **segunda-feira** vai um PR do
+  `dev` para o `main` com o pacote da semana. O processo inteiro está em `docs/10-processo.md`.
+  Até 17/10/2026 era ao contrário — juntar um PR publicava, e o dono via a alteração já no ar.
+  Numa noite saíram três versões em duas horas, todas aprovadas a ler uma descrição e nenhuma
+  validada a usar.
+- **Nada sai do `dev` sem o dono dizer *validado*.** O CI é a verificação; o UAT no site de testes
+  é a validação. Eram a mesma coisa, e esse era o erro.
+- **Sem interruptores como mecanismo de entrega.** Decisão do dono a 17/10/2026: *"não quero que
+  esteja deployed em produtivo mas com o tal switch de ativo ou inativo, pois isso pode ter algum
+  impacto"*. As bandeiras ficam só onde já estavam.
+- **Os dados não esperam pela segunda, e não é escolha nossa.** O publicador corre entre 2 e 14
+  vezes por dia e o que leva é o resultado do jogo das 21:00. Uma publicação do Pages é atómica e
+  inteira — não há como actualizar um ficheiro de dados sem reenviar o site e o código que esteja
+  na árvore. Daí os dois ramos. O que **repara** vai a qualquer dia, directo ao `main`; o que
+  **acrescenta** espera pela segunda.
 - **Nunca publicar sem o dono pedir.** E saber o que publicar significa: o `git push` só
   corre testes. Quem leva código novo ao site é o `dados.yml`, com o disparo
   `publicar_sempre` ou `so_publicar`. Um push não publica.
-- **O `main` é produção. Trabalho não aprovado vive no `testes`.** Há **um** site de testes,
+- **O `main` é produção. Trabalho não aprovado vive no `dev`.** Há **um** site de testes,
   `https://testes.hoquei.pages.dev`, e é só nesse que as funcionalidades novas aparecem. Um
-  ramo novo não ganha endereço nenhum — o `ramo.yml` só dispara no `testes`, e isso está no
-  ficheiro e não na memória de quem trabalha.
+  ramo novo não ganha endereço nenhum — o `ramo.yml` só dispara no `dev`, e isso está no
+  ficheiro e não na memória de quem trabalha. **O endereço continua a dizer `testes` embora o
+  ramo se chame `dev`**: o que escolhe o ambiente é a flag `--branch` do comando, e esse endereço
+  está partilhado e escrito na política de privacidade — não podia mudar com o nome do ramo.
 
   A 10/10/2026 criei um sítio por funcionalidade e o dono parou-me: *"se temos o site de
   testes, é SÓ neste que eu quero ter as novas funcionalidades"*. Quatro sítios de testes são

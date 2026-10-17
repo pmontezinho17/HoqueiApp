@@ -51,12 +51,16 @@ mesma publicação dava 404 também**, e foi isso que separou este caso do de 13
 servia tudo bem e a culpa era da configuração do anfitrião. Mantém-se o comportamento, troca-se
 quem o faz: publica o workflow que constrói bem, corre os testes e verifica o site a seguir.
 
-**O `main` é produção.** Trabalho não aprovado vive no `testes`, que é **um** site e só um — o
-`ramo.yml` só dispara nesse ramo, e um ramo novo não ganha endereço nenhum. O site de testes lê
-os **dados de produção** e difere só no código; desde 13/10 tem **base de dados própria**
+**O `main` é produção e o `dev` é onde o trabalho se acumula**, desde 17/10/2026 — o processo
+inteiro está em [10-processo.md](10-processo.md). Ramos de funcionalidade saem do `dev` e voltam
+ao `dev`; à segunda-feira um PR leva o pacote da semana ao `main`. Há **um** site de testes e só
+um, e ele continua a chamar-se `testes.hoquei.pages.dev` embora o ramo se chame `dev`: o que
+escolhe o ambiente é a flag `--branch` do comando, não o ramo. O site de testes lê os **dados de
+produção** e difere só no código; desde 15/10 tem **base de dados própria**
 (`ok4sticks-dados-testes`, ligada ao ambiente de *Preview*), para os dois ambientes serem iguais.
 
-**Uma funcionalidade que não pode aparecer ainda vai a produção desligada.** O registo está em
+**As bandeiras deixaram de ser o mecanismo de entrega**, por decisão do dono a 17/10: código
+inactivo em produção continua a ser código que foi para lá. O registo está em
 `web/src/lib/bandeiras.ts`, cada entrada com o que esconde, o que apagar quando sair, e uma data
 até à qual tem de estar resolvida — com um teste que falha quando a data passa.
 
@@ -110,7 +114,7 @@ eram 28% de tudo o que pediríamos à APL até dezembro).
 ## O que está em curso (13/10/2026)
 
 Quatro PRs abertos contra o `main`, nenhum junto — o dono junta-os num pacote ao fim da semana.
-Todos já estão no `testes`.
+Todos já estão no `dev`, e por isso no site de testes.
 
 | PR | O quê |
 |---|---|
