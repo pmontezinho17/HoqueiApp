@@ -216,8 +216,8 @@
    "hora": "21:00:00",
    "casa": "CACO B",
    "fora": "AD OEIRAS B",
-   "golos_casa": 0,
-   "golos_fora": 0,
+   "golos_casa": 2,
+   "golos_fora": 2,
    "recinto": "PAV.C.A.C.OURIQUE",
    "ao_vivo": false
   },
@@ -500,10 +500,10 @@
      "vitorias": 2,
      "empates": 1,
      "derrotas": 2,
-     "golos_marcados": 10,
-     "golos_sofridos": 12,
+     "golos_marcados": 12,
+     "golos_sofridos": 14,
      "diferenca": -2,
-     "racio": 0.83,
+     "racio": 0.86,
      "pontos": 7
     },
     {
@@ -514,10 +514,10 @@
      "vitorias": 1,
      "empates": 2,
      "derrotas": 2,
-     "golos_marcados": 3,
-     "golos_sofridos": 29,
+     "golos_marcados": 5,
+     "golos_sofridos": 31,
      "diferenca": -26,
-     "racio": 0.1,
+     "racio": 0.16,
      "pontos": 5
     },
     {
