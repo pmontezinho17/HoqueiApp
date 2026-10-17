@@ -76,8 +76,8 @@
    "hora": "11:30:00",
    "casa": "SC TORRES",
    "fora": "AD OEIRAS A",
-   "golos_casa": 1,
-   "golos_fora": 20,
+   "golos_casa": 0,
+   "golos_fora": 10,
    "recinto": "PAV. SC TORRES",
    "ao_vivo": false
   },
@@ -472,10 +472,10 @@
      "vitorias": 3,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 29,
-     "golos_sofridos": 5,
-     "diferenca": 24,
-     "racio": 5.8,
+     "golos_marcados": 19,
+     "golos_sofridos": 4,
+     "diferenca": 15,
+     "racio": 4.75,
      "pontos": 9
     },
     {
@@ -528,9 +528,9 @@
      "vitorias": 1,
      "empates": 0,
      "derrotas": 2,
-     "golos_marcados": 4,
-     "golos_sofridos": 45,
-     "diferenca": -41,
+     "golos_marcados": 3,
+     "golos_sofridos": 35,
+     "diferenca": -32,
      "racio": 0.09,
      "pontos": 3
     },

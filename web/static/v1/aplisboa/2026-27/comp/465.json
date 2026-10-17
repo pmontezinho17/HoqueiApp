@@ -86,8 +86,8 @@
    "hora": "15:00:00",
    "casa": "HC SINTRA",
    "fora": "AE FISICA D A",
-   "golos_casa": 11,
-   "golos_fora": 7,
+   "golos_casa": 10,
+   "golos_fora": 0,
    "recinto": "PAV. HC SINTRA",
    "ao_vivo": false
   },

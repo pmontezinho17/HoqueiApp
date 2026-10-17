@@ -68,19 +68,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "RAFAEL CARAPINHA",
-   "equipa": "CRIAR-T GD",
-   "jogos": 3,
-   "numero": "7",
-   "golos": 6,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 7,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MANUEL HENRIQUES",
    "equipa": "AD OEIRAS A",
    "jogos": 3,
@@ -120,10 +107,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS CABRAL",
-   "equipa": "CD PAÇO ARCOS A",
+   "nome": "RAFAEL CARAPINHA",
+   "equipa": "CRIAR-T GD",
    "jogos": 3,
-   "numero": "9",
+   "numero": "7",
    "golos": 5,
    "assistencias": 1,
    "defesas": 0,
@@ -133,27 +120,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "BERNARDO ABREU",
-   "equipa": "AE FISICA D B",
+   "nome": "TOMÁS CABRAL",
+   "equipa": "CD PAÇO ARCOS A",
    "jogos": 3,
    "numero": "9",
    "golos": 5,
-   "assistencias": 0,
+   "assistencias": 1,
    "defesas": 0,
-   "pontos": 5,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TOMÁS ANGELINO",
-   "equipa": "CRIAR-T GD",
-   "jogos": 3,
-   "numero": "8",
-   "golos": 4,
-   "assistencias": 3,
-   "defesas": 0,
-   "pontos": 7,
+   "pontos": 6,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -172,14 +146,27 @@
    "vermelhos": 0
   },
   {
-   "nome": "SEBASTIÃO PAIVA",
+   "nome": "BERNARDO ABREU",
    "equipa": "AE FISICA D B",
    "jogos": 3,
-   "numero": "7",
+   "numero": "9",
    "golos": 4,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS ANGELINO",
+   "equipa": "CRIAR-T GD",
+   "jogos": 3,
+   "numero": "8",
+   "golos": 3,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 6,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -250,10 +237,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MIGUEL GODINHO",
+   "nome": "MIGUEL RODRIGUES",
    "equipa": "AE FISICA D B",
    "jogos": 3,
-   "numero": "4",
+   "numero": "3",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -263,10 +250,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MIGUEL RODRIGUES",
+   "nome": "SEBASTIÃO PAIVA",
    "equipa": "AE FISICA D B",
    "jogos": 3,
-   "numero": "3",
+   "numero": "7",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -328,19 +315,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM REIMÃO",
-   "equipa": "AE FISICA D B",
-   "jogos": 1,
-   "numero": "2",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 1,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIEGO ALVES",
    "equipa": "AE FISICA D B",
    "jogos": 2,
@@ -380,10 +354,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIANA BALÃO",
-   "equipa": "CRIAR-T GD",
+   "nome": "MIGUEL GODINHO",
+   "equipa": "AE FISICA D B",
    "jogos": 3,
-   "numero": "5",
+   "numero": "4",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -442,6 +416,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARTIM REIMÃO",
+   "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -624,6 +611,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIANA BALÃO",
+   "equipa": "CRIAR-T GD",
+   "jogos": 3,
+   "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {

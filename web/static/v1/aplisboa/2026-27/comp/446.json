@@ -174,8 +174,8 @@
    "hora": "12:45:00",
    "casa": "AE FISICA D B",
    "fora": "SPORTING CP B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 3,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
   },
@@ -480,6 +480,20 @@
     },
     {
      "posicao": 2,
+     "equipa": "SPORTING CP B",
+     "logo": "/intranet/logos/2.png",
+     "jogos": 4,
+     "vitorias": 3,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 20,
+     "golos_sofridos": 4,
+     "diferenca": 16,
+     "racio": 5.0,
+     "pontos": 9
+    },
+    {
+     "posicao": 3,
      "equipa": "PAREDE FC B",
      "logo": "/intranet/logos/3.png",
      "jogos": 4,
@@ -493,31 +507,17 @@
      "pontos": 9
     },
     {
-     "posicao": 3,
-     "equipa": "SPORTING CP B",
-     "logo": "/intranet/logos/2.png",
-     "jogos": 3,
-     "vitorias": 2,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 17,
-     "golos_sofridos": 4,
-     "diferenca": 13,
-     "racio": 4.25,
-     "pontos": 6
-    },
-    {
      "posicao": 4,
      "equipa": "AE FISICA D B",
      "logo": "/intranet/logos/11.png",
-     "jogos": 3,
+     "jogos": 4,
      "vitorias": 1,
      "empates": 0,
-     "derrotas": 2,
+     "derrotas": 3,
      "golos_marcados": 4,
-     "golos_sofridos": 8,
-     "diferenca": -4,
-     "racio": 0.5,
+     "golos_sofridos": 11,
+     "diferenca": -7,
+     "racio": 0.36,
      "pontos": 3
     },
     {

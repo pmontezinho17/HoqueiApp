@@ -16,19 +16,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MANUEL CAPELA",
-   "equipa": "AD OEIRAS A",
-   "jogos": 3,
-   "numero": "4",
-   "golos": 13,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 13,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "HENRIQUE GONÇALVES",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 3,
@@ -133,16 +120,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "XAVIER LOPES",
+   "nome": "MANUEL CAPELA",
    "equipa": "AD OEIRAS A",
    "jogos": 3,
-   "numero": "5",
+   "numero": "4",
    "golos": 5,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 5,
    "amarelos": 0,
-   "azuis": 1,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -167,58 +154,6 @@
    "assistencias": 0,
    "defesas": 0,
    "pontos": 4,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUILHERME BARREIROS",
-   "equipa": "AD OEIRAS A",
-   "jogos": 3,
-   "numero": "6",
-   "golos": 3,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUILHERME AMORIM",
-   "equipa": "AD OEIRAS A",
-   "jogos": 3,
-   "numero": "8",
-   "golos": 3,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MIGUEL AZEVEDO",
-   "equipa": "SC TORRES",
-   "jogos": 3,
-   "numero": "3",
-   "golos": 3,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TOMÁS DUARTE",
-   "equipa": "AD OEIRAS A",
-   "jogos": 3,
-   "numero": "2",
-   "golos": 3,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 3,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -263,10 +198,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO PINHO",
+   "nome": "MIGUEL AZEVEDO",
+   "equipa": "SC TORRES",
+   "jogos": 3,
+   "numero": "3",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS DUARTE",
    "equipa": "AD OEIRAS A",
    "jogos": 3,
-   "numero": "7",
+   "numero": "2",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -289,6 +237,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "GUILHERME BARREIROS",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "numero": "6",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RODRIGO GUERREIRO",
    "equipa": "APAC TOJAL",
    "jogos": 3,
@@ -297,6 +258,19 @@
    "assistencias": 1,
    "defesas": 0,
    "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO PINHO",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "numero": "7",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -757,6 +731,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "GUILHERME AMORIM",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "numero": "8",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "ISABEL HIGINO",
    "equipa": "HC SINTRA",
    "jogos": 3,
@@ -806,6 +793,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "XAVIER LOPES",
+   "equipa": "AD OEIRAS A",
+   "jogos": 3,
+   "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   }
  ],
