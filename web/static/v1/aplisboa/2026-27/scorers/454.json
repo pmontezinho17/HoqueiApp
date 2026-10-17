@@ -133,6 +133,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DIOGO SIMÕES",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 4,
+   "numero": "44",
+   "golos": 6,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 8,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "ALEXANDRE FARIAS",
    "equipa": "AD OEIRAS A",
    "jogos": 3,
@@ -141,19 +154,6 @@
    "assistencias": 4,
    "defesas": 0,
    "pontos": 9,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DIOGO SIMÕES",
-   "equipa": "UD VILAFRANQUENSE",
-   "jogos": 4,
-   "numero": "44",
-   "golos": 5,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 7,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -237,6 +237,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DIEGO PEDRO",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 3,
+   "numero": "9",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "ALEXANDRE FONSECA",
    "equipa": "UD VILAFRANQUENSE",
    "jogos": 4,
@@ -258,20 +271,7 @@
    "assistencias": 1,
    "defesas": 0,
    "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DIEGO PEDRO",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 3,
-   "numero": "9",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -310,7 +310,7 @@
    "assistencias": 0,
    "defesas": 0,
    "pontos": 2,
-   "amarelos": 0,
+   "amarelos": 2,
    "azuis": 0,
    "vermelhos": 0
   },

@@ -188,8 +188,8 @@
    "hora": "18:00:00",
    "casa": "CACO B",
    "fora": "CD PAÇO ARCOS B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 3,
    "recinto": "PAV.C.A.C.OURIQUE",
    "ao_vivo": false
   },
@@ -508,6 +508,20 @@
     },
     {
      "posicao": 4,
+     "equipa": "CD PAÇO ARCOS B",
+     "logo": "/intranet/logos/7.png",
+     "jogos": 5,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 3,
+     "golos_marcados": 11,
+     "golos_sofridos": 30,
+     "diferenca": -19,
+     "racio": 0.37,
+     "pontos": 6
+    },
+    {
+     "posicao": 5,
      "equipa": "AE FISICA D B",
      "logo": "/intranet/logos/11.png",
      "jogos": 4,
@@ -521,31 +535,17 @@
      "pontos": 3
     },
     {
-     "posicao": 5,
-     "equipa": "CD PAÇO ARCOS B",
-     "logo": "/intranet/logos/7.png",
-     "jogos": 4,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 3,
-     "golos_marcados": 8,
-     "golos_sofridos": 28,
-     "diferenca": -20,
-     "racio": 0.29,
-     "pontos": 3
-    },
-    {
      "posicao": 6,
      "equipa": "CACO B",
      "logo": "/intranet/logos/26.png",
-     "jogos": 3,
+     "jogos": 4,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 3,
-     "golos_marcados": 2,
-     "golos_sofridos": 22,
-     "diferenca": -20,
-     "racio": 0.09,
+     "derrotas": 4,
+     "golos_marcados": 4,
+     "golos_sofridos": 25,
+     "diferenca": -21,
+     "racio": 0.16,
      "pontos": 0
     }
    ]

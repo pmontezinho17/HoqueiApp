@@ -169,8 +169,8 @@
    "hora": "16:30:00",
    "casa": "HC LOURINHÃ",
    "fora": "UD VILAFRANQUENSE",
-   "golos_casa": 3,
-   "golos_fora": 1,
+   "golos_casa": 4,
+   "golos_fora": 2,
    "recinto": "PAV. GIMNO. DA LOURINHÃ",
    "ao_vivo": false
   },
@@ -355,10 +355,10 @@
      "vitorias": 2,
      "empates": 0,
      "derrotas": 2,
-     "golos_marcados": 24,
-     "golos_sofridos": 12,
+     "golos_marcados": 25,
+     "golos_sofridos": 13,
      "diferenca": 12,
-     "racio": 2.0,
+     "racio": 1.92,
      "pontos": 6
     },
     {
@@ -369,10 +369,10 @@
      "vitorias": 1,
      "empates": 0,
      "derrotas": 3,
-     "golos_marcados": 24,
-     "golos_sofridos": 26,
+     "golos_marcados": 25,
+     "golos_sofridos": 27,
      "diferenca": -2,
-     "racio": 0.92,
+     "racio": 0.93,
      "pontos": 3
     },
     {

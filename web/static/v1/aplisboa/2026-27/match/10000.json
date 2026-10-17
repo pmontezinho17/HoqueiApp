@@ -3,9 +3,9 @@
  "competicao": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
  "casa": "CACO A",
  "fora": "AE FISICA D A",
- "golos_casa": 5,
- "golos_fora": 1,
- "estado": null,
+ "golos_casa": 13,
+ "golos_fora": 4,
+ "estado": "Jogo Terminado",
  "data": "2026-10-17",
  "hora": "16:45:00",
  "recinto": "PAV.C.A.C.OURIQUE",
@@ -13,21 +13,35 @@
   "RUI MATOSO"
  ],
  "faltas": [
-  3,
-  3
+  6,
+  4
  ],
- "situacao": "2ª Parte (2:03)",
- "periodo": "2ª Parte",
- "relogio": "2:03",
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "CACO A",
    "jogadores": [
     {
+     "numero": "92",
+     "nome": "VICENTE CABRITA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
      "numero": "7",
      "nome": "LUCA COSTA",
-     "titular": false,
-     "golos": 3,
+     "titular": true,
+     "golos": 7,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -40,7 +54,7 @@
     {
      "numero": "10",
      "nome": "DJERIDANE KAMIL",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -69,7 +83,7 @@
      "numero": "18",
      "nome": "FRANCISCO FIGUEIREDO",
      "titular": false,
-     "golos": 1,
+     "golos": 4,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -96,7 +110,7 @@
     {
      "numero": "23",
      "nome": "LOURENÇO ESTEVES",
-     "titular": false,
+     "titular": true,
      "golos": 1,
      "assistencias": 0,
      "defesas": 0,
@@ -124,25 +138,11 @@
     {
      "numero": "75",
      "nome": "TOMAS MALHEIRO",
-     "titular": false,
-     "golos": 0,
-     "assistencias": 0,
+     "titular": true,
+     "golos": 1,
+     "assistencias": 1,
      "defesas": 0,
-     "penalidades": "0/0",
-     "livres_diretos": "0/0",
-     "cartoes_amarelos": 0,
-     "cartoes_azuis": 0,
-     "cartoes_vermelhos": 0,
-     "papel": null
-    },
-    {
-     "numero": "92",
-     "nome": "VICENTE CABRITA",
-     "titular": false,
-     "golos": 0,
-     "assistencias": 0,
-     "defesas": 0,
-     "penalidades": "0/0",
+     "penalidades": "1/1",
      "livres_diretos": "0/0",
      "cartoes_amarelos": 0,
      "cartoes_azuis": 0,
@@ -213,7 +213,7 @@
     {
      "numero": "1",
      "nome": "MARIA MAGGIOLLI",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -227,7 +227,7 @@
     {
      "numero": "2",
      "nome": "VASCO SANCHES",
-     "titular": false,
+     "titular": true,
      "golos": 1,
      "assistencias": 0,
      "defesas": 0,
@@ -270,7 +270,7 @@
      "numero": "5",
      "nome": "MANUEL MARTINHO",
      "titular": false,
-     "golos": 0,
+     "golos": 2,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -283,7 +283,7 @@
     {
      "numero": "6",
      "nome": "XAVIER FERREIRA",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -297,8 +297,8 @@
     {
      "numero": "7",
      "nome": "MIGUEL CARDADOR",
-     "titular": false,
-     "golos": 0,
+     "titular": true,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -325,7 +325,7 @@
     {
      "numero": "9",
      "nome": "FRANCISCO SILVÉRIO",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -606,10 +606,405 @@
    "golos_casa": 5,
    "golos_fora": 1,
    "texto": "Golo para CACO A | FRANCISCO FIGUEIREDO"
+  },
+  {
+   "ordem": 15,
+   "tipo": "golo",
+   "relogio": "1:28",
+   "parte": 2,
+   "minuto": 14,
+   "equipa": "CACO A",
+   "jogador": "LUCA COSTA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 6,
+   "golos_fora": 1,
+   "texto": "Golo para CACO A | LUCA COSTA"
+  },
+  {
+   "ordem": 16,
+   "tipo": "golo",
+   "relogio": "0:59",
+   "parte": 2,
+   "minuto": 15,
+   "equipa": "AE FISICA D A",
+   "jogador": "MANUEL MARTINHO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 6,
+   "golos_fora": 2,
+   "texto": "Golo para AE FISICA D A | MANUEL MARTINHO"
+  },
+  {
+   "ordem": 17,
+   "tipo": "golo",
+   "relogio": "0:47",
+   "parte": 2,
+   "minuto": 15,
+   "equipa": "CACO A",
+   "jogador": "FRANCISCO FIGUEIREDO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 7,
+   "golos_fora": 2,
+   "texto": "Golo para CACO A | FRANCISCO FIGUEIREDO"
+  },
+  {
+   "ordem": 18,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 2,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 2ª parte"
+  },
+  {
+   "ordem": 19,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 3ª parte"
+  },
+  {
+   "ordem": 20,
+   "tipo": "golo",
+   "relogio": "3:37",
+   "parte": 3,
+   "minuto": 20,
+   "equipa": "AE FISICA D A",
+   "jogador": "MANUEL MARTINHO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 7,
+   "golos_fora": 3,
+   "texto": "Golo para AE FISICA D A | MANUEL MARTINHO"
+  },
+  {
+   "ordem": 21,
+   "tipo": "golo",
+   "relogio": "2:05",
+   "parte": 3,
+   "minuto": 21,
+   "equipa": "CACO A",
+   "jogador": "TOMAS MALHEIRO",
+   "assistencia": null,
+   "variante": "penalti",
+   "numero": null,
+   "golos_casa": 8,
+   "golos_fora": 3,
+   "texto": "Golo para CACO A de Penálti | Marcado por TOMAS MALHEIRO"
+  },
+  {
+   "ordem": 22,
+   "tipo": "golo",
+   "relogio": "1:30",
+   "parte": 3,
+   "minuto": 22,
+   "equipa": "CACO A",
+   "jogador": "LUCA COSTA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 9,
+   "golos_fora": 3,
+   "texto": "Golo para CACO A | LUCA COSTA"
+  },
+  {
+   "ordem": 23,
+   "tipo": "falta_equipa",
+   "relogio": "0:52",
+   "parte": 3,
+   "minuto": 23,
+   "equipa": "CACO A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 4,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 4 para CACO A"
+  },
+  {
+   "ordem": 24,
+   "tipo": "golo",
+   "relogio": "0:24",
+   "parte": 3,
+   "minuto": 23,
+   "equipa": "CACO A",
+   "jogador": "LUCA COSTA",
+   "assistencia": "TOMAS MALHEIRO",
+   "variante": null,
+   "numero": null,
+   "golos_casa": 10,
+   "golos_fora": 3,
+   "texto": "Golo para CACO A | LUCA COSTA | Assistência por TOMAS MALHEIRO"
+  },
+  {
+   "ordem": 25,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 3,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 3ª parte"
+  },
+  {
+   "ordem": 26,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 4ª parte"
+  },
+  {
+   "ordem": 27,
+   "tipo": "falta_equipa",
+   "relogio": "7:02",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": "AE FISICA D A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 4,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 4 para AE FISICA D A"
+  },
+  {
+   "ordem": 28,
+   "tipo": "golo",
+   "relogio": "6:25",
+   "parte": 4,
+   "minuto": 25,
+   "equipa": "CACO A",
+   "jogador": "FRANCISCO FIGUEIREDO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 11,
+   "golos_fora": 3,
+   "texto": "Golo para CACO A | FRANCISCO FIGUEIREDO"
+  },
+  {
+   "ordem": 29,
+   "tipo": "golo",
+   "relogio": "5:29",
+   "parte": 4,
+   "minuto": 26,
+   "equipa": "AE FISICA D A",
+   "jogador": "MIGUEL CARDADOR",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 11,
+   "golos_fora": 4,
+   "texto": "Golo para AE FISICA D A | MIGUEL CARDADOR"
+  },
+  {
+   "ordem": 30,
+   "tipo": "falta_equipa",
+   "relogio": "4:27",
+   "parte": 4,
+   "minuto": 27,
+   "equipa": "CACO A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 5,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 5 para CACO A"
+  },
+  {
+   "ordem": 31,
+   "tipo": "golo",
+   "relogio": "4:09",
+   "parte": 4,
+   "minuto": 27,
+   "equipa": "CACO A",
+   "jogador": "FRANCISCO FIGUEIREDO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 12,
+   "golos_fora": 4,
+   "texto": "Golo para CACO A | FRANCISCO FIGUEIREDO"
+  },
+  {
+   "ordem": 32,
+   "tipo": "falta_equipa",
+   "relogio": "2:53",
+   "parte": 4,
+   "minuto": 29,
+   "equipa": "CACO A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 6,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 6 para CACO A"
+  },
+  {
+   "ordem": 33,
+   "tipo": "golo",
+   "relogio": "2:20",
+   "parte": 4,
+   "minuto": 29,
+   "equipa": "CACO A",
+   "jogador": "LUCA COSTA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 13,
+   "golos_fora": 4,
+   "texto": "Golo para CACO A | LUCA COSTA"
+  },
+  {
+   "ordem": 34,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 4,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
- "merito": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RUI MATOSO",
+   "Árbitro Auxiliar": "Arlete Santos",
+   "Cronometrista": "Miguel Matos",
+   "Diretor de campo": "Sara Matos",
+   "Gestor de segurança": "MARCO POVOA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 7,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 6,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 13,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   3,
+   3
+  ],
+  "faltas_fora": [
+   3,
+   1
+  ],
+  "inicio": [
+   "17:00",
+   "17:31"
+  ],
+  "termo": [
+   "17:26",
+   "17:57"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
+ "merito": [
+  {
+   "equipa": "CACO A",
+   "atletas": 10,
+   "guardas_redes": 2,
+   "participantes": 10,
+   "completa": true,
+   "bonificacao": 14,
+   "penalizacao": 0,
+   "total": 14,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "10 atletas participantes",
+     "pontos": 10
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "3.4",
+     "texto": "equipa completa (2 GR e 8 JC)",
+     "pontos": 1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "AE FISICA D A",
+   "atletas": 10,
+   "guardas_redes": 2,
+   "participantes": 10,
+   "completa": true,
+   "bonificacao": 11,
+   "penalizacao": 0,
+   "total": 11,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "10 atletas participantes",
+     "pontos": 10
+    },
+    {
+     "regra": "3.4",
+     "texto": "equipa completa (2 GR e 8 JC)",
+     "pontos": 1
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 465,
  "categoria": "BENJAMINS",
  "jornada": "4ª JORNADA",

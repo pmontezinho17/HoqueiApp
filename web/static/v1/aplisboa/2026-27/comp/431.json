@@ -150,8 +150,8 @@
    "hora": "18:00:00",
    "casa": "SC TORRES",
    "fora": "A STUART HCM",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 9,
+   "golos_fora": 0,
    "recinto": "PAV. SC TORRES",
    "ao_vivo": false
   },

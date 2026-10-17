@@ -1,8 +1,8 @@
 {
  "competicao_id": 465,
  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
- "jogos_lidos": 15,
- "jogos_sem_boletim": 1,
+ "jogos_lidos": 16,
+ "jogos_sem_boletim": 0,
  "linhas": [
   {
    "posicao": 1,
@@ -17,6 +17,17 @@
   },
   {
    "posicao": 2,
+   "equipa": "CACO A",
+   "jogos": 4,
+   "participantes": 40,
+   "bonificacao": 53,
+   "penalizacao": 0,
+   "pontos": 53,
+   "media": 13.25,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 3,
    "equipa": "HC SINTRA",
    "jogos": 4,
    "participantes": 38,
@@ -24,17 +35,6 @@
    "penalizacao": 0,
    "pontos": 44,
    "media": 11.0,
-   "por_confirmar": 0
-  },
-  {
-   "posicao": 3,
-   "equipa": "CACO A",
-   "jogos": 3,
-   "participantes": 30,
-   "bonificacao": 39,
-   "penalizacao": 0,
-   "pontos": 39,
-   "media": 13.0,
    "por_confirmar": 0
   },
   {
@@ -62,12 +62,12 @@
   {
    "posicao": 6,
    "equipa": "AE FISICA D A",
-   "jogos": 3,
-   "participantes": 24,
-   "bonificacao": 28,
+   "jogos": 4,
+   "participantes": 34,
+   "bonificacao": 39,
    "penalizacao": -2,
-   "pontos": 26,
-   "media": 8.67,
+   "pontos": 37,
+   "media": 9.25,
    "por_confirmar": 0
   },
   {

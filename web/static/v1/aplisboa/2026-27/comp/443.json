@@ -202,8 +202,8 @@
    "hora": "17:45:00",
    "casa": "APAC TOJAL",
    "fora": "AD OEIRAS A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 1,
+   "golos_fora": 21,
    "recinto": "PAV. A.P.A.C.TOJAL",
    "ao_vivo": false
   },
@@ -466,6 +466,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "AD OEIRAS A",
+     "logo": "/intranet/logos/6.png",
+     "jogos": 4,
+     "vitorias": 4,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 40,
+     "golos_sofridos": 5,
+     "diferenca": 35,
+     "racio": 8.0,
+     "pontos": 12
+    },
+    {
+     "posicao": 2,
      "equipa": "CD PAÇO ARCOS A",
      "logo": "/intranet/logos/7.png",
      "jogos": 4,
@@ -476,20 +490,6 @@
      "golos_sofridos": 4,
      "diferenca": 55,
      "racio": 14.75,
-     "pontos": 9
-    },
-    {
-     "posicao": 2,
-     "equipa": "AD OEIRAS A",
-     "logo": "/intranet/logos/6.png",
-     "jogos": 3,
-     "vitorias": 3,
-     "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 19,
-     "golos_sofridos": 4,
-     "diferenca": 15,
-     "racio": 4.75,
      "pontos": 9
     },
     {
@@ -508,20 +508,6 @@
     },
     {
      "posicao": 4,
-     "equipa": "APAC TOJAL",
-     "logo": "/intranet/logos/12.png",
-     "jogos": 3,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 2,
-     "golos_marcados": 11,
-     "golos_sofridos": 28,
-     "diferenca": -17,
-     "racio": 0.39,
-     "pontos": 3
-    },
-    {
-     "posicao": 5,
      "equipa": "SC TORRES",
      "logo": "/intranet/logos/25.png",
      "jogos": 3,
@@ -532,6 +518,20 @@
      "golos_sofridos": 35,
      "diferenca": -32,
      "racio": 0.09,
+     "pontos": 3
+    },
+    {
+     "posicao": 5,
+     "equipa": "APAC TOJAL",
+     "logo": "/intranet/logos/12.png",
+     "jogos": 4,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 3,
+     "golos_marcados": 12,
+     "golos_sofridos": 49,
+     "diferenca": -37,
+     "racio": 0.24,
      "pontos": 3
     },
     {

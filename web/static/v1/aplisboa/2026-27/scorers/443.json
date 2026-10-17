@@ -1,6 +1,6 @@
 {
  "competicao_id": 443,
- "jogos_considerados": 10,
+ "jogos_considerados": 11,
  "jogadores": [
   {
    "nome": "FRANCISCO FATELA",
@@ -12,6 +12,19 @@
    "defesas": 0,
    "pontos": 27,
    "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MANUEL CAPELA",
+   "equipa": "AD OEIRAS A",
+   "jogos": 4,
+   "numero": "4",
+   "golos": 14,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 15,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -70,12 +83,12 @@
   {
    "nome": "LUCAS MORGADO",
    "equipa": "APAC TOJAL",
-   "jogos": 3,
-   "numero": "19",
-   "golos": 6,
+   "jogos": 4,
+   "numero": "09",
+   "golos": 7,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 6,
+   "pontos": 7,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -98,6 +111,19 @@
    "equipa": "CACO A",
    "jogos": 3,
    "numero": "57",
+   "golos": 5,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 7,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS DUARTE",
+   "equipa": "AD OEIRAS A",
+   "jogos": 4,
+   "numero": "2",
    "golos": 5,
    "assistencias": 2,
    "defesas": 0,
@@ -133,16 +159,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "MANUEL CAPELA",
+   "nome": "XAVIER LOPES",
    "equipa": "AD OEIRAS A",
-   "jogos": 3,
-   "numero": "4",
-   "golos": 5,
-   "assistencias": 0,
+   "jogos": 4,
+   "numero": "5",
+   "golos": 4,
+   "assistencias": 1,
    "defesas": 0,
    "pontos": 5,
    "amarelos": 0,
-   "azuis": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -172,10 +198,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "GUILHERME BARREIROS",
+   "equipa": "AD OEIRAS A",
+   "jogos": 4,
+   "numero": "6",
+   "golos": 2,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "CONSTANÇA COSTA",
+   "equipa": "AD OEIRAS A",
+   "jogos": 4,
+   "numero": "3",
+   "golos": 2,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GUSTAVO DUARTE",
    "equipa": "APAC TOJAL",
-   "jogos": 3,
-   "numero": "3",
+   "jogos": 4,
+   "numero": "03",
    "golos": 2,
    "assistencias": 2,
    "defesas": 0,
@@ -198,6 +250,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DIOGO PINHO",
+   "equipa": "AD OEIRAS A",
+   "jogos": 4,
+   "numero": "7",
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MIGUEL AZEVEDO",
    "equipa": "SC TORRES",
    "jogos": 3,
@@ -208,19 +273,6 @@
    "pontos": 2,
    "amarelos": 0,
    "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TOMÁS DUARTE",
-   "equipa": "AD OEIRAS A",
-   "jogos": 3,
-   "numero": "2",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -239,8 +291,8 @@
   {
    "nome": "DIOGO LOPES",
    "equipa": "APAC TOJAL",
-   "jogos": 3,
-   "numero": "21",
+   "jogos": 4,
+   "numero": "06",
    "golos": 1,
    "assistencias": 2,
    "defesas": 0,
@@ -250,22 +302,9 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME BARREIROS",
-   "equipa": "AD OEIRAS A",
-   "jogos": 3,
-   "numero": "6",
-   "golos": 1,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "RODRIGO GUERREIRO",
    "equipa": "APAC TOJAL",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "8",
    "golos": 1,
    "assistencias": 1,
@@ -276,36 +315,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO PINHO",
-   "equipa": "AD OEIRAS A",
-   "jogos": 3,
-   "numero": "7",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "FRANCISCO LEITE",
    "equipa": "CACO A",
    "jogos": 3,
    "numero": "23",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GASTÃO BOTELHO",
-   "equipa": "APAC TOJAL",
-   "jogos": 3,
-   "numero": "2",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -341,6 +354,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "GASTÃO BOTELHO",
+   "equipa": "APAC TOJAL",
+   "jogos": 4,
+   "numero": "02",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME AMORIM",
+   "equipa": "AD OEIRAS A",
+   "jogos": 4,
+   "numero": "8",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "EDUARDO BOTELHO",
    "equipa": "SC TORRES",
    "jogos": 3,
@@ -354,36 +393,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO SOUSA",
-   "equipa": "APAC TOJAL",
-   "jogos": 1,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GUILHERME MARTINS",
    "equipa": "APAC TOJAL",
    "jogos": 1,
    "numero": "17",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LOURENÇO OLIVEIRA",
-   "equipa": "APAC TOJAL",
-   "jogos": 1,
-   "numero": "7",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -406,19 +419,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "PEDRO MONTEIRO",
-   "equipa": "AD OEIRAS A",
-   "jogos": 1,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "TOMÁS ESTEVES",
    "equipa": "SC TORRES",
    "jogos": 1,
@@ -432,10 +432,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DAVID BERNARDO",
+   "nome": "FRANCISCO SOUSA",
    "equipa": "APAC TOJAL",
    "jogos": 2,
-   "numero": "41",
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -458,10 +458,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO RODRIGUES",
-   "equipa": "AD OEIRAS A",
+   "nome": "LOURENÇO OLIVEIRA",
+   "equipa": "APAC TOJAL",
    "jogos": 2,
-   "numero": "1",
+   "numero": "07",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -471,10 +471,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MANUEL MENDES",
-   "equipa": "APAC TOJAL",
+   "nome": "LOURENÇO RODRIGUES",
+   "equipa": "AD OEIRAS A",
    "jogos": 2,
-   "numero": "22",
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -501,6 +501,19 @@
    "equipa": "HC SINTRA",
    "jogos": 2,
    "numero": "6",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PEDRO MONTEIRO",
+   "equipa": "AD OEIRAS A",
+   "jogos": 2,
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -575,19 +588,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "CONSTANÇA COSTA",
-   "equipa": "AD OEIRAS A",
-   "jogos": 3,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DANIEL LOURENÇO",
    "equipa": "HC SINTRA",
    "jogos": 3,
@@ -601,10 +601,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIEGO LUIS",
-   "equipa": "SC TORRES",
+   "nome": "DAVID BERNARDO",
+   "equipa": "APAC TOJAL",
    "jogos": 3,
-   "numero": "4",
+   "numero": "41",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -614,10 +614,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DINIS MATOS",
-   "equipa": "AD OEIRAS A",
+   "nome": "DIEGO LUIS",
+   "equipa": "SC TORRES",
    "jogos": 3,
-   "numero": "10",
+   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -679,32 +679,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "GONÇALO OLIVEIRA",
-   "equipa": "APAC TOJAL",
-   "jogos": 3,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUILHERME AMORIM",
-   "equipa": "AD OEIRAS A",
-   "jogos": 3,
-   "numero": "8",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOÃO SILVESTRE",
    "equipa": "CACO A",
    "jogos": 3,
@@ -718,16 +692,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "XAVIER LOPES",
-   "equipa": "AD OEIRAS A",
+   "nome": "MANUEL MENDES",
+   "equipa": "APAC TOJAL",
    "jogos": 3,
-   "numero": "5",
+   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
-   "azuis": 1,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -738,6 +712,19 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DINIS MATOS",
+   "equipa": "AD OEIRAS A",
+   "jogos": 4,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -764,6 +751,19 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GONÇALO OLIVEIRA",
+   "equipa": "APAC TOJAL",
+   "jogos": 4,
+   "numero": "49",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
