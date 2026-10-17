@@ -52,6 +52,14 @@
 | B1.10 | Modelo normalizado + escrita dos JSON do contrato | must | M | ✅ `publicar` gera competitions, comp/, match/ e meta.json |
 | B1.11 | Testes do parser contra amostras | must | M | ✅ 32 testes, sem rede, incluindo cruzamento entre parsers |
 | B1.12 | Deteção de mudanças por hash | should | S | aberto |
+| C1 | O cão de guarda não vê o jogo de ontem: à meia-noite o dia muda e o jogo preso desaparece-lhe da vista | must | S | aberto — apanhado a 17/10 com um jogo "a decorrer" às 00:45 |
+| C2 | Um jogo deixa de se mostrar "a decorrer" quando passou tempo de mais desde o apito inicial | must | S | aberto — a fonte congelou o Tojal–Vilafranquense ao minuto 1 |
+| C3 | `paths-ignore` do `dados.yml` ignorar também `worker/**` e `scraper/**` | could | XS | aberto — hoje um PR do Worker gasta uma construção do site por nada |
+| C4 | Trava que adia a publicação enquanto houver jogo a decorrer | could | S | aberto — hoje o ciclo ao vivo repõe em ≤30 s, mas há uma janela |
+| C5 | Confirmar com jogo a sério que o contador de faltas sobe enquanto se olha | must | XS | aberto — o mecanismo está provado, o comportamento em jogo não |
+| C6 | Confirmar em produção que o aviso de actualização aparece | should | XS | aberto — provado em localhost a 17/10, não no ar |
+| C7 | Decidir o que fazer aos totais de "entradas" inflacionados de 13 a 15/10 | could | XS | aberto — os `novos` estão limpos; os totais não se separam |
+| C8 | Botão para arquivar sugestões sem esperar pelas 07:20 | could | XS | aberto — hoje é `gh workflow run sugestoes.yml` |
 | R1 | Fechar o `workers.dev` do observador com ligação de serviço (fecha a B9.27) | must | S | aberto — ver "Um review externo" |
 | R2 | `ruff check` no CI, e corrigir os 5 nomes indefinidos do `comando_despejar` | must | S | aberto |
 | R3 | `diaDeLisboa()` partilhado, em vez de `toISOString()` em 7 ficheiros da interface | should | S | ✅ **17/10** — e eu tinha-o despriorizado por "adormecido"; o dono apanhou-o às 00:48 |

@@ -28,6 +28,7 @@ from __future__ import annotations
 import json
 import re
 import subprocess
+from collections import Counter
 import sys
 from pathlib import Path
 
@@ -38,24 +39,47 @@ BASE_D1 = "ok4sticks-dados"
 #: Um item da tabela do backlog: `| B1.12 | descrição | should | S | aberto |`
 ITEM = re.compile(r"^[A-Z]+\d+(?:\.\d+[a-z]?)?$|^R\d+$")
 
+#: Como se lê a quinta coluna. Nem todas as linhas lá têm estado: as fases antigas têm o
+#: **critério de aceitação**, e isso quer dizer "por fazer e ninguém lhe tocou" — não "sem
+#: estado". A contagem distingue as duas coisas de propósito, porque juntá-las dava um número
+#: que ninguém saberia ler.
+def classificar(estado: str) -> str:
+    e = estado.strip()
+    baixo = e.lower()
+    if e.startswith("✅") or "feito" in baixo or "fechado" in baixo:
+        return "feito"
+    if e.startswith("❌"):
+        return "recusado"
+    if e.startswith("🟡"):
+        return "a meio"
+    if "aberto" in baixo:
+        return "aberto"
+    if "adiado" in baixo:
+        return "adiado"
+    return "por começar"
+
 
 def _correr(cmd: list[str]) -> tuple[int, str]:
     r = subprocess.run(cmd, capture_output=True, text=True, cwd=RAIZ)
     return r.returncode, (r.stdout or "") + (r.stderr or "")
 
 
-def itens_abertos() -> list[tuple[str, str, str, str]]:
-    """Os itens da tabela do backlog cujo estado ainda diz `aberto`."""
-    abertos = []
+def itens() -> list[tuple[str, str, str, str, str]]:
+    """Todos os itens da tabela do backlog: `(id, prioridade, tamanho, descrição, classe)`."""
+    saida = []
     for linha in (RAIZ / "docs" / "03-backlog.md").read_text(encoding="utf-8").splitlines():
         if not linha.startswith("|"):
             continue
         celulas = [c.strip() for c in linha.strip("|").split("|")]
         if len(celulas) < 5 or not ITEM.match(celulas[0]):
             continue
-        if "aberto" in celulas[4].lower():
-            abertos.append((celulas[0], celulas[2], celulas[3], celulas[1]))
-    return abertos
+        saida.append((celulas[0], celulas[2], celulas[3], celulas[1], classificar(celulas[4])))
+    return saida
+
+
+def itens_abertos() -> list[tuple[str, str, str, str]]:
+    """Só os que dizem `aberto` — os que alguém marcou como por fazer agora."""
+    return [(i[0], i[1], i[2], i[3]) for i in itens() if i[4] == "aberto"]
 
 
 def sugestoes_arquivadas() -> tuple[list[dict], str | None]:
@@ -95,7 +119,39 @@ def sugestoes_por_arquivar() -> tuple[list[dict], str | None]:
     return primeiro["results"], None
 
 
+def panorama() -> int:
+    """A contagem por classe, para a pergunta "quanto falta ao todo?"."""
+    todos = itens()
+    classes = Counter(i[4] for i in todos)
+    print(f"\n── Backlog: {len(todos)} itens ao todo " + "─" * 28)
+    for classe in ("feito", "aberto", "por começar", "a meio", "adiado", "recusado"):
+        if classes[classe]:
+            print(f"  {classes[classe]:4}  {classe}")
+    porFazer = classes["aberto"] + classes["por começar"] + classes["a meio"]
+    print(f"\n  Por fazer, ao todo: {porFazer}")
+    print("  (`aberto` é o que alguém marcou como por fazer agora; `por começar` são as fases")
+    print("   antigas, cuja quinta coluna é o critério de aceitação e não um estado.)")
+
+    print("\n── Por fase " + "─" * 46)
+    fases = Counter()
+    porFazerFase = Counter()
+    for i in todos:
+        # `B9.14` → fase `B9`; `R1` e `C3` não têm ponto e são famílias por si — agrupam-se
+        # pelas letras, senão cada um aparecia como uma "fase" de um item só.
+        m = re.match(r"^([A-Z]+)(\d+)(\.)?", i[0])
+        f = m.group(1) + m.group(2) if m.group(3) else m.group(1)
+        fases[f] += 1
+        if i[4] in ("aberto", "por começar", "a meio"):
+            porFazerFase[f] += 1
+    for f, n in sorted(fases.items(), key=lambda x: -porFazerFase[x[0]]):
+        if porFazerFase[f]:
+            print(f"  {f:7} {porFazerFase[f]:3} por fazer de {n}")
+    return porFazer
+
+
 def main() -> int:
+    if "--tudo" in sys.argv:
+        panorama()
     abertos = itens_abertos()
     print(f"\n── Backlog: {len(abertos)} itens por fazer " + "─" * 30)
     for ident, prioridade, tamanho, descricao in sorted(
