@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { aReabrir, agrupar, porMostrar } from './novidades.svelte';
+import { aReabrir, oHistorico, agrupar, porMostrar } from './novidades.svelte';
 import { GRUPOS, NOVIDADES, type Novidade, type Ponto } from './versao';
 
 const ponto = (titulo: string, tipo: Ponto['tipo'] = 'novo'): Ponto => ({
@@ -153,5 +153,33 @@ describe('os pontos que vamos publicar', () => {
 
 	it('todos aparecem na caixa — nenhum fica órfão por causa do agrupamento', () => {
 		expect(agrupar(todos).flatMap((g) => g.pontos)).toHaveLength(todos.length);
+	});
+});
+
+/**
+ * O histórico do menu mostra **tudo**, e a folha automática mostra só o que é novo para este
+ * aparelho. São duas perguntas diferentes — *"o que mudou para mim?"* e *"o que já mudou nesta
+ * app?"* — e durante uns dias tiveram a mesma resposta.
+ *
+ * Pedido do dono a 17/10/2026: *"colocar todas as alterações que foram feitas, mas mais
+ * resumidas, caso contrário fica um texto gigantesco"*.
+ */
+describe('o histórico do menu', () => {
+	it('mostra todas as versões, e não só a actual', () => {
+		expect(oHistorico().length).toBe(NOVIDADES.length);
+		expect(oHistorico().length).toBeGreaterThan(1);
+	});
+
+	it('pela ordem da lista, da mais recente para a mais antiga', () => {
+		// A ordem é a do `NOVIDADES` e não se reordena aqui: o ficheiro é a fonte, e uma
+		// segunda ordenação seria uma segunda verdade sobre o que veio primeiro.
+		const versoes = oHistorico().map((n) => n.versao);
+		expect(versoes).toEqual(NOVIDADES.map((n) => n.versao));
+	});
+
+	it('e é mais do que a folha automática mostra a quem acabou de actualizar', () => {
+		// Quem vinha da versão anterior vê um lote; quem abre o menu vê-os todos.
+		const anterior = NOVIDADES[1].versao;
+		expect(porMostrar(anterior).length).toBeLessThan(oHistorico().length);
 	});
 });

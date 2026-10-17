@@ -49,6 +49,29 @@ export function aReabrir(versao = VERSAO, lista = NOVIDADES): Novidade[] {
 	return desta.length ? desta : lista.slice(0, 1);
 }
 
+/**
+ * O histórico inteiro, para a entrada do menu.
+ *
+ * ## Porque é que o menu mostra tudo e a caixa automática não
+ *
+ * São duas perguntas diferentes, e durante uns dias tiveram a mesma resposta.
+ *
+ * A caixa que aparece sozinha depois de actualizar responde a *"o que mudou para mim?"* — por
+ * isso mostra só o que este aparelho ainda não viu, com o texto todo: é a primeira e única vez
+ * que a pessoa o lê.
+ *
+ * A entrada do menu responde a *"o que já mudou nesta app?"*. Quem lá vai, vai à procura. Pedido
+ * do dono a 17/10/2026: *"deveria ser interessante colocar todas as alterações que foram feitas,
+ * mas mais resumidas, caso contrário fica um texto gigantesco"*. Tinha razão na segunda metade:
+ * cinco versões com o texto todo são mais de quarenta linhas, e ninguém percorre isso.
+ *
+ * **O resumo já existia e não foi preciso escrevê-lo duas vezes.** O `titulo` de cada ponto foi
+ * desenhado para ser lido de relance — *"o chavão, curto"*, com um teste que o mantém assim. No
+ * histórico mostram-se os títulos, e o texto fica a um toque de distância. A alternativa era um
+ * campo `resumo` por ponto, e aí alguém teria de escrever dois textos para sempre.
+ */
+export const oHistorico = (lista = NOVIDADES): Novidade[] => lista;
+
 /** Um grupo já pronto a desenhar: o rótulo e os pontos que lhe pertencem. */
 export type Grupo = { rotulo: string; pontos: Ponto[] };
 
@@ -82,8 +105,19 @@ export function agrupar(pontos: Ponto[]): Grupo[] {
 class Novidades {
 	private aMostrar = $state<Novidade[]>([]);
 
+	/**
+	 * Qual das duas folhas está aberta. `novidade` é a que aparece sozinha depois de
+	 * actualizar — por tipo e com o texto todo. `historico` é a do menu — por versão, só os
+	 * títulos, com o texto a um toque. Ver o `oHistorico` para o porquê de serem duas.
+	 */
+	private comoMostrar = $state<'novidade' | 'historico'>('novidade');
+
 	get lista() {
 		return this.aMostrar;
+	}
+
+	get modo() {
+		return this.comoMostrar;
 	}
 
 	get aberta() {
@@ -103,6 +137,7 @@ class Novidades {
 			return; // janela privada ou armazenamento bloqueado: não se mostra nada
 		}
 		this.aMostrar = porMostrar(vista);
+		this.comoMostrar = 'novidade';
 		// **A versão guarda-se logo, mesmo antes de a caixa ser lida.** Se só se guardasse ao
 		// fechar, quem fechasse a aplicação a meio voltava a ver a mesma lista — e uma caixa
 		// que reaparece é pior do que uma caixa que se perdeu.
@@ -123,7 +158,8 @@ class Novidades {
 	 * um aviso novo, é a mesma folha outra vez.
 	 */
 	reabrir() {
-		this.aMostrar = aReabrir();
+		this.aMostrar = oHistorico();
+		this.comoMostrar = 'historico';
 	}
 
 	fechar() {

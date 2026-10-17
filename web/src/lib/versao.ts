@@ -38,7 +38,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.5';
+export const VERSAO = '1.6';
 
 /**
  * Em que grupo é que uma novidade cai.
@@ -124,6 +124,21 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.6',
+		data: '2026-10-17',
+		pontos: [
+			{
+				tipo: 'novo',
+				titulo: 'O "O que há de novo" passa a ter tudo o que já mudou',
+				texto:
+					'No menu ☰, em vez de te mostrar só a última entrega, mostra todas — por ' +
+					'versão e só os títulos, para caber num ecrã. Tocas num título e abre-se a ' +
+					'explicação. A nota que aparece sozinha depois de actualizares continua a ' +
+					'mostrar só o que é novo para ti, com o texto todo.'
+			}
+		]
+	},
 	{
 		versao: '1.5',
 		data: '2026-10-17',
