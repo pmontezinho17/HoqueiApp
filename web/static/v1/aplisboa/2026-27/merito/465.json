@@ -1,22 +1,33 @@
 {
  "competicao_id": 465,
  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
- "jogos_lidos": 13,
- "jogos_sem_boletim": 2,
+ "jogos_lidos": 15,
+ "jogos_sem_boletim": 1,
  "linhas": [
   {
    "posicao": 1,
    "equipa": "AD OEIRAS A",
-   "jogos": 3,
-   "participantes": 30,
-   "bonificacao": 42,
+   "jogos": 4,
+   "participantes": 40,
+   "bonificacao": 56,
    "penalizacao": 0,
-   "pontos": 42,
+   "pontos": 56,
    "media": 14.0,
    "por_confirmar": 0
   },
   {
    "posicao": 2,
+   "equipa": "HC SINTRA",
+   "jogos": 4,
+   "participantes": 38,
+   "bonificacao": 44,
+   "penalizacao": 0,
+   "pontos": 44,
+   "media": 11.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 3,
    "equipa": "CACO A",
    "jogos": 3,
    "participantes": 30,
@@ -27,7 +38,18 @@
    "por_confirmar": 0
   },
   {
-   "posicao": 3,
+   "posicao": 4,
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 4,
+   "participantes": 37,
+   "bonificacao": 47,
+   "penalizacao": -8,
+   "pontos": 39,
+   "media": 9.75,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 5,
    "equipa": "SC TORRES",
    "jogos": 4,
    "participantes": 36,
@@ -38,18 +60,7 @@
    "por_confirmar": 0
   },
   {
-   "posicao": 4,
-   "equipa": "HC SINTRA",
-   "jogos": 3,
-   "participantes": 28,
-   "bonificacao": 33,
-   "penalizacao": 0,
-   "pontos": 33,
-   "media": 11.0,
-   "por_confirmar": 0
-  },
-  {
-   "posicao": 5,
+   "posicao": 6,
    "equipa": "AE FISICA D A",
    "jogos": 3,
    "participantes": 24,
@@ -60,7 +71,7 @@
    "por_confirmar": 0
   },
   {
-   "posicao": 6,
+   "posicao": 7,
    "equipa": "A STUART HCM",
    "jogos": 4,
    "participantes": 31,
@@ -71,25 +82,14 @@
    "por_confirmar": 0
   },
   {
-   "posicao": 7,
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 3,
-   "participantes": 27,
-   "bonificacao": 33,
-   "penalizacao": -8,
-   "pontos": 25,
-   "media": 8.33,
-   "por_confirmar": 0
-  },
-  {
    "posicao": 8,
    "equipa": "CD PAÇO ARCOS A",
-   "jogos": 3,
-   "participantes": 24,
-   "bonificacao": 27,
-   "penalizacao": -14,
-   "pontos": 13,
-   "media": 4.33,
+   "jogos": 4,
+   "participantes": 32,
+   "bonificacao": 35,
+   "penalizacao": -15,
+   "pontos": 20,
+   "media": 5.0,
    "por_confirmar": 0
   }
  ]

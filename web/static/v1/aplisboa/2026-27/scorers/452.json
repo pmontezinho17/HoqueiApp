@@ -1,11 +1,11 @@
 {
  "competicao_id": 452,
- "jogos_considerados": 12,
+ "jogos_considerados": 13,
  "jogadores": [
   {
    "nome": "DANIEL ANTUNES",
    "equipa": "CACO A",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "66",
    "golos": 12,
    "assistencias": 3,
@@ -31,7 +31,7 @@
   {
    "nome": "RAFAEL PEREIRA",
    "equipa": "S ALENQUER BENFICA",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "44",
    "golos": 8,
    "assistencias": 2,
@@ -44,7 +44,7 @@
   {
    "nome": "PAULO FERNANDES",
    "equipa": "CACO A",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "77",
    "golos": 7,
    "assistencias": 5,
@@ -57,7 +57,7 @@
   {
    "nome": "RODRIGO FARIA",
    "equipa": "S ALENQUER BENFICA",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "47",
    "golos": 6,
    "assistencias": 2,
@@ -70,7 +70,7 @@
   {
    "nome": "RODRIGO SANTOS",
    "equipa": "CACO A",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "5",
    "golos": 5,
    "assistencias": 5,
@@ -83,7 +83,7 @@
   {
    "nome": "PEDRO CARDÃO",
    "equipa": "CACO A",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "3",
    "golos": 5,
    "assistencias": 2,
@@ -122,26 +122,13 @@
   {
    "nome": "DAVI OLIVEIRA",
    "equipa": "CACO A",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "76",
    "golos": 4,
    "assistencias": 10,
    "defesas": 0,
    "pontos": 14,
    "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DAVID BANDEIRA",
-   "equipa": "CACO A",
-   "jogos": 4,
-   "numero": "70",
-   "golos": 4,
-   "assistencias": 4,
-   "defesas": 0,
-   "pontos": 8,
-   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -159,9 +146,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "DAVID BANDEIRA",
+   "equipa": "CACO A",
+   "jogos": 5,
+   "numero": "70",
+   "golos": 4,
+   "assistencias": 4,
+   "defesas": 0,
+   "pontos": 8,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOÃO HENRIQUES",
    "equipa": "CACO A",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "4",
    "golos": 4,
    "assistencias": 3,
@@ -213,7 +213,7 @@
   {
    "nome": "TOMÁS LEITÃO",
    "equipa": "S ALENQUER BENFICA",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "77",
    "golos": 3,
    "assistencias": 0,
@@ -237,19 +237,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DINIS FERRO",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 3,
-   "numero": "99",
-   "golos": 2,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DINIS VALENTE",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 3,
@@ -263,23 +250,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE ALVES",
+   "nome": "DINIS FERRO",
    "equipa": "S ALENQUER BENFICA",
    "jogos": 4,
-   "numero": "18",
-   "golos": 2,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DUARTE SANCHES",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 4,
-   "numero": "1",
+   "numero": "99",
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
@@ -293,6 +267,32 @@
    "equipa": "SL BENFICA B",
    "jogos": 4,
    "numero": "4",
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DUARTE ALVES",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 5,
+   "numero": "18",
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DUARTE SANCHES",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 5,
+   "numero": "1",
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
@@ -395,7 +395,7 @@
   {
    "nome": "SANTIAGO SANTOS",
    "equipa": "S ALENQUER BENFICA",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "49",
    "golos": 1,
    "assistencias": 1,
@@ -575,32 +575,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIEGO MATOS",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 3,
-   "numero": "79",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DIOGO PINTO",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 3,
-   "numero": "33",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "FILIPA GONÇALVES",
    "equipa": "SL BENFICA B",
    "jogos": 3,
@@ -666,19 +640,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO MARUJO",
-   "equipa": "CACO A",
-   "jogos": 4,
-   "numero": "26",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "AFONSO NEVES",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 4,
@@ -699,6 +660,32 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIEGO MATOS",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 4,
+   "numero": "79",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO PINTO",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 4,
+   "numero": "33",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -796,10 +783,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "RODRIGO MUHAREIA",
-   "equipa": "CACO A",
+   "nome": "RUBEN DIAS",
+   "equipa": "CRIAR-T GD",
    "jogos": 4,
-   "numero": "50",
+   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -809,10 +796,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "RUBEN DIAS",
-   "equipa": "CRIAR-T GD",
-   "jogos": 4,
-   "numero": "5",
+   "nome": "AFONSO MARUJO",
+   "equipa": "CACO A",
+   "jogos": 5,
+   "numero": "26",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RODRIGO MUHAREIA",
+   "equipa": "CACO A",
+   "jogos": 5,
+   "numero": "50",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

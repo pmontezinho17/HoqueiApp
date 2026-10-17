@@ -99,8 +99,8 @@
    "hora": "16:30:00",
    "casa": "AD OEIRAS B",
    "fora": "CD PAÇO ARCOS B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 11,
+   "golos_fora": 0,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
   },
@@ -113,8 +113,8 @@
    "hora": "15:30:00",
    "casa": "S ALENQUER BENFICA",
    "fora": "AE FISICA D B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 21,
+   "golos_fora": 1,
    "recinto": "PAV.S.ALENQUER E BENFICA",
    "ao_vivo": false
   },

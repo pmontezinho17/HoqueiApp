@@ -1,6 +1,6 @@
 {
  "competicao_id": 445,
- "jogos_considerados": 12,
+ "jogos_considerados": 13,
  "jogadores": [
   {
    "nome": "ALEXANDRE ABRANTES",
@@ -44,7 +44,7 @@
   {
    "nome": "GUSTAVO FAVINHA",
    "equipa": "FSE/AJ SALESIANA",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "8",
    "golos": 5,
    "assistencias": 1,
@@ -107,6 +107,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "LOURENÇO FURTADO",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 4,
+   "numero": "4",
+   "golos": 4,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "VICENTE ROCHA",
    "equipa": "PAREDE FC A",
    "jogos": 5,
@@ -122,25 +135,12 @@
   {
    "nome": "FRANCISCO AFONSO",
    "equipa": "FSE/AJ SALESIANA",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "6",
    "golos": 3,
    "assistencias": 3,
    "defesas": 0,
    "pontos": 6,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LOURENÇO FURTADO",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 3,
-   "numero": "4",
-   "golos": 3,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 4,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -172,10 +172,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DINIS STABILE",
-   "equipa": "A STUART HCM",
+   "nome": "JOSÉ SILVA",
+   "equipa": "SPORTING CP A",
    "jogos": 4,
-   "numero": "32",
+   "numero": "5",
    "golos": 3,
    "assistencias": 0,
    "defesas": 0,
@@ -185,10 +185,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOSÉ SILVA",
-   "equipa": "SPORTING CP A",
-   "jogos": 4,
-   "numero": "5",
+   "nome": "DINIS STABILE",
+   "equipa": "A STUART HCM",
+   "jogos": 5,
+   "numero": "32",
    "golos": 3,
    "assistencias": 0,
    "defesas": 0,
@@ -226,7 +226,7 @@
   {
    "nome": "SARA ROLDAO",
    "equipa": "FSE/AJ SALESIANA",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "2",
    "golos": 2,
    "assistencias": 1,
@@ -263,19 +263,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANA RODRIGUES",
-   "equipa": "A STUART HCM",
-   "jogos": 4,
-   "numero": "84",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ANTÓNIO ALMEIDA",
    "equipa": "AE FISICA D A",
    "jogos": 4,
@@ -289,10 +276,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "NURIA TEIXEIRA",
+   "nome": "ANA RODRIGUES",
    "equipa": "A STUART HCM",
-   "jogos": 4,
-   "numero": "44",
+   "jogos": 5,
+   "numero": "84",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -306,6 +293,32 @@
    "equipa": "PAREDE FC A",
    "jogos": 5,
    "numero": "5",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FRANCISCO MARQUES",
+   "equipa": "A STUART HCM",
+   "jogos": 5,
+   "numero": "15",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "NURIA TEIXEIRA",
+   "equipa": "A STUART HCM",
+   "jogos": 5,
+   "numero": "44",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -367,19 +380,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "RAFAEL GOMES",
-   "equipa": "A STUART HCM",
-   "jogos": 2,
-   "numero": "92",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GUILHERME PORFIRIO",
    "equipa": "SPORTING CP A",
    "jogos": 3,
@@ -397,6 +397,19 @@
    "equipa": "CD MAFRA",
    "jogos": 3,
    "numero": "17",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RAFAEL GOMES",
+   "equipa": "A STUART HCM",
+   "jogos": 3,
+   "numero": "92",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -432,10 +445,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO MARQUES",
-   "equipa": "A STUART HCM",
+   "nome": "MANUEL QUEIRÓ",
+   "equipa": "FSE/AJ SALESIANA",
    "jogos": 4,
-   "numero": "15",
+   "numero": "17",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -447,7 +460,7 @@
   {
    "nome": "LOURENÇO OLIVEIRA",
    "equipa": "A STUART HCM",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "12",
    "golos": 1,
    "assistencias": 0,
@@ -460,7 +473,7 @@
   {
    "nome": "FRANCISCO MORGADO",
    "equipa": "FSE/AJ SALESIANA",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "7",
    "golos": 0,
    "assistencias": 1,
@@ -475,19 +488,6 @@
    "equipa": "CD MAFRA",
    "jogos": 1,
    "numero": "6",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DIOGO REIS",
-   "equipa": "A STUART HCM",
-   "jogos": 1,
-   "numero": "91",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -562,6 +562,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DIOGO REIS",
+   "equipa": "A STUART HCM",
+   "jogos": 2,
+   "numero": "91",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "EDUARDO SAMPAIO",
    "equipa": "A STUART HCM",
    "jogos": 2,
@@ -579,19 +592,6 @@
    "equipa": "SPORTING CP A",
    "jogos": 2,
    "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "JOÃO VENÂNCIO",
-   "equipa": "A STUART HCM",
-   "jogos": 2,
-   "numero": "67",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -640,19 +640,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE SOUSA",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 3,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GONÇALO MORAIS",
    "equipa": "AE FISICA D A",
    "jogos": 3,
@@ -666,23 +653,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MANUEL QUEIRÓ",
-   "equipa": "FSE/AJ SALESIANA",
+   "nome": "JOÃO VENÂNCIO",
+   "equipa": "A STUART HCM",
    "jogos": 3,
-   "numero": "17",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARIANA ABRANTES",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 3,
-   "numero": "3",
+   "numero": "67",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -744,32 +718,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "SEBASTIÃO GOMES",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 3,
-   "numero": "9",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SOFIA GALHOFO",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 3,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "AFONSO DEODATO",
    "equipa": "CD MAFRA",
    "jogos": 4,
@@ -783,10 +731,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE BARROS",
-   "equipa": "A STUART HCM",
+   "nome": "DUARTE SOUSA",
+   "equipa": "FSE/AJ SALESIANA",
    "jogos": 4,
-   "numero": "8",
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -800,19 +748,6 @@
    "equipa": "CD MAFRA",
    "jogos": 4,
    "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO POTRA",
-   "equipa": "A STUART HCM",
-   "jogos": 4,
-   "numero": "88",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -874,6 +809,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MARIANA ABRANTES",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 4,
+   "numero": "3",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "NATANAEL PRAZERES",
    "equipa": "CD MAFRA",
    "jogos": 4,
@@ -900,10 +848,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "SEBASTIÃO GOMES",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 4,
+   "numero": "9",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "SEBASTIÃO PILÃO",
    "equipa": "PAREDE FC A",
    "jogos": 4,
    "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SOFIA GALHOFO",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 4,
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -920,6 +894,32 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DUARTE BARROS",
+   "equipa": "A STUART HCM",
+   "jogos": 5,
+   "numero": "8",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GONÇALO POTRA",
+   "equipa": "A STUART HCM",
+   "jogos": 5,
+   "numero": "88",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,

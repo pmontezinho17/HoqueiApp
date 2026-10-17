@@ -1,7 +1,20 @@
 {
  "competicao_id": 451,
- "jogos_considerados": 8,
+ "jogos_considerados": 9,
  "jogadores": [
+  {
+   "nome": "MIGUEL OLIVEIRA",
+   "equipa": "SC TOMAR",
+   "jogos": 4,
+   "numero": "73",
+   "golos": 10,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 10,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
   {
    "nome": "TOMÁS SILVA",
    "equipa": "UF ENTRONCAMENTO",
@@ -13,19 +26,6 @@
    "pontos": 9,
    "amarelos": 0,
    "azuis": 3,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MIGUEL OLIVEIRA",
-   "equipa": "SC TOMAR",
-   "jogos": 3,
-   "numero": "73",
-   "golos": 8,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 8,
-   "amarelos": 0,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -83,7 +83,7 @@
   {
    "nome": "FRANCISCO NUNES",
    "equipa": "SC TOMAR",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "78",
    "golos": 3,
    "assistencias": 1,
@@ -107,36 +107,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARIA MARQUES",
+   "nome": "GUSTAVO SERRALHA",
    "equipa": "SC TOMAR",
-   "jogos": 1,
-   "numero": "18",
+   "jogos": 3,
+   "numero": "2",
    "golos": 2,
-   "assistencias": 0,
+   "assistencias": 1,
    "defesas": 0,
-   "pontos": 2,
+   "pontos": 3,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
   {
-   "nome": "JOAO FERNANDES",
+   "nome": "MARIA MARQUES",
    "equipa": "SC TOMAR",
    "jogos": 2,
-   "numero": "13",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SANTIAGO OLIVEIRA",
-   "equipa": "SC TOMAR",
-   "jogos": 2,
-   "numero": "97",
+   "numero": "18",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -159,16 +146,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO HENRIQUES",
-   "equipa": "BIBLIOTECA IR A",
+   "nome": "JOAO FERNANDES",
+   "equipa": "SC TOMAR",
    "jogos": 3,
-   "numero": "7",
+   "numero": "13",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 2,
    "amarelos": 0,
-   "azuis": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -185,16 +172,29 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUSTAVO SERRALHA",
+   "nome": "SANTIAGO OLIVEIRA",
    "equipa": "SC TOMAR",
-   "jogos": 2,
-   "numero": "2",
-   "golos": 1,
-   "assistencias": 1,
+   "jogos": 3,
+   "numero": "97",
+   "golos": 2,
+   "assistencias": 0,
    "defesas": 0,
    "pontos": 2,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO HENRIQUES",
+   "equipa": "BIBLIOTECA IR A",
+   "jogos": 4,
+   "numero": "8",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 2,
    "vermelhos": 0
   },
   {
@@ -206,19 +206,6 @@
    "assistencias": 1,
    "defesas": 0,
    "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "FRANCISCO TORRES",
-   "equipa": "SC TOMAR",
-   "jogos": 1,
-   "numero": "23",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -237,23 +224,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MANUEL SANTOS",
+   "nome": "FRANCISCO TORRES",
    "equipa": "SC TOMAR",
    "jogos": 2,
-   "numero": "5",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARTIM PESSA",
-   "equipa": "BIBLIOTECA IR A",
-   "jogos": 2,
-   "numero": "7",
+   "numero": "23",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -289,45 +263,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE MARTINS",
-   "equipa": "BIBLIOTECA IR A",
-   "jogos": 3,
-   "numero": "5",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUILHERME PAIVA",
-   "equipa": "BIBLIOTECA IR A",
-   "jogos": 3,
-   "numero": "6",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUSTAVO GUERRA",
-   "equipa": "BIBLIOTECA IR A",
-   "jogos": 3,
-   "numero": "4",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOÃO FRANQUINHO",
    "equipa": "HC TURQUEL",
    "jogos": 3,
@@ -341,15 +276,15 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO HENRIQUES",
-   "equipa": "BIBLIOTECA IR A",
+   "nome": "MANUEL SANTOS",
+   "equipa": "SC TOMAR",
    "jogos": 3,
-   "numero": "2",
+   "numero": "5",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 1,
-   "amarelos": 0,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -367,10 +302,75 @@
    "vermelhos": 0
   },
   {
+   "nome": "MARTIM PESSA",
+   "equipa": "BIBLIOTECA IR A",
+   "jogos": 3,
+   "numero": "7",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MATEUS TORRADO",
    "equipa": "BIBLIOTECA IR B",
    "jogos": 3,
    "numero": "8",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DUARTE MARTINS",
+   "equipa": "BIBLIOTECA IR A",
+   "jogos": 4,
+   "numero": "5",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME PAIVA",
+   "equipa": "BIBLIOTECA IR A",
+   "jogos": 4,
+   "numero": "9",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUSTAVO GUERRA",
+   "equipa": "BIBLIOTECA IR A",
+   "jogos": 4,
+   "numero": "4",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO HENRIQUES",
+   "equipa": "BIBLIOTECA IR A",
+   "jogos": 4,
+   "numero": "2",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -458,19 +458,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "RICARDO BUGADA",
-   "equipa": "SC TOMAR",
-   "jogos": 1,
-   "numero": "11",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIOGO SALVADOR",
    "equipa": "SC TOMAR",
    "jogos": 2,
@@ -549,10 +536,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS MARQUES",
+   "nome": "RICARDO BUGADA",
    "equipa": "SC TOMAR",
    "jogos": 2,
-   "numero": "1",
+   "numero": "11",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -601,32 +588,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO MASSA",
-   "equipa": "BIBLIOTECA IR A",
-   "jogos": 3,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUILHERME MIGUEL SOUSA",
-   "equipa": "BIBLIOTECA IR A",
-   "jogos": 3,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GUILHERME NAVALHO",
    "equipa": "UF ENTRONCAMENTO",
    "jogos": 3,
@@ -644,19 +605,6 @@
    "equipa": "BIBLIOTECA IR B",
    "jogos": 3,
    "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "JOSÉ ELIAS",
-   "equipa": "BIBLIOTECA IR A",
-   "jogos": 3,
-   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -731,6 +679,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "TOMÁS MARQUES",
+   "equipa": "SC TOMAR",
+   "jogos": 3,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DIEGO INÁCIO",
    "equipa": "UF ENTRONCAMENTO",
    "jogos": 4,
@@ -744,10 +705,49 @@
    "vermelhos": 0
   },
   {
+   "nome": "DIOGO MASSA",
+   "equipa": "BIBLIOTECA IR A",
+   "jogos": 4,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "EDUARDO NOBRE",
    "equipa": "UF ENTRONCAMENTO",
    "jogos": 4,
    "numero": "07",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME MIGUEL SOUSA",
+   "equipa": "BIBLIOTECA IR A",
+   "jogos": 4,
+   "numero": "3",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOSÉ ELIAS",
+   "equipa": "BIBLIOTECA IR A",
+   "jogos": 4,
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

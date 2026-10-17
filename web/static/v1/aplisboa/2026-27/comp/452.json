@@ -230,8 +230,8 @@
    "hora": "17:00:00",
    "casa": "S ALENQUER BENFICA",
    "fora": "CACO A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 0,
    "recinto": "PAV.S.ALENQUER E BENFICA",
    "ao_vivo": false
   },
@@ -468,15 +468,15 @@
      "posicao": 1,
      "equipa": "CACO A",
      "logo": "/intranet/logos/26.png",
-     "jogos": 4,
+     "jogos": 5,
      "vitorias": 4,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 0,
      "golos_marcados": 41,
      "golos_sofridos": 6,
      "diferenca": 35,
      "racio": 6.83,
-     "pontos": 12
+     "pontos": 13
     },
     {
      "posicao": 2,
@@ -494,6 +494,20 @@
     },
     {
      "posicao": 3,
+     "equipa": "S ALENQUER BENFICA",
+     "logo": "/intranet/logos/5.png",
+     "jogos": 5,
+     "vitorias": 2,
+     "empates": 1,
+     "derrotas": 2,
+     "golos_marcados": 24,
+     "golos_sofridos": 15,
+     "diferenca": 9,
+     "racio": 1.6,
+     "pontos": 7
+    },
+    {
+     "posicao": 4,
      "equipa": "CD PAÇO ARCOS A",
      "logo": "/intranet/logos/7.png",
      "jogos": 4,
@@ -504,20 +518,6 @@
      "golos_sofridos": 11,
      "diferenca": 14,
      "racio": 2.27,
-     "pontos": 6
-    },
-    {
-     "posicao": 4,
-     "equipa": "S ALENQUER BENFICA",
-     "logo": "/intranet/logos/5.png",
-     "jogos": 4,
-     "vitorias": 2,
-     "empates": 0,
-     "derrotas": 2,
-     "golos_marcados": 24,
-     "golos_sofridos": 15,
-     "diferenca": 9,
-     "racio": 1.6,
      "pontos": 6
     },
     {

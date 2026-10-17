@@ -174,8 +174,8 @@
    "hora": "15:00:00",
    "casa": "HC SINTRA",
    "fora": "CD PAÇO ARCOS A",
-   "golos_casa": 0,
-   "golos_fora": 9,
+   "golos_casa": 1,
+   "golos_fora": 16,
    "recinto": "PAV. HC SINTRA",
    "ao_vivo": false
   },
@@ -472,10 +472,10 @@
      "vitorias": 3,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 52,
-     "golos_sofridos": 3,
-     "diferenca": 49,
-     "racio": 17.33,
+     "golos_marcados": 59,
+     "golos_sofridos": 4,
+     "diferenca": 55,
+     "racio": 14.75,
      "pontos": 9
     },
     {
@@ -542,10 +542,10 @@
      "vitorias": 0,
      "empates": 0,
      "derrotas": 4,
-     "golos_marcados": 2,
-     "golos_sofridos": 39,
-     "diferenca": -37,
-     "racio": 0.05,
+     "golos_marcados": 3,
+     "golos_sofridos": 46,
+     "diferenca": -43,
+     "racio": 0.07,
      "pontos": 0
     }
    ]

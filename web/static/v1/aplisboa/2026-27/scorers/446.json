@@ -1,7 +1,20 @@
 {
  "competicao_id": 446,
- "jogos_considerados": 11,
+ "jogos_considerados": 12,
  "jogadores": [
+  {
+   "nome": "TIAGO RIBEIRO",
+   "equipa": "PAREDE FC B",
+   "jogos": 5,
+   "numero": "2",
+   "golos": 10,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 11,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
   {
    "nome": "MANUEL ANDRADE",
    "equipa": "SPORTING CP B",
@@ -16,27 +29,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO RIBEIRO",
-   "equipa": "PAREDE FC B",
-   "jogos": 4,
-   "numero": "2",
-   "golos": 9,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 10,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "HENRIQUE RIBEIRO",
    "equipa": "AD OEIRAS B",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "8",
-   "golos": 7,
+   "golos": 9,
    "assistencias": 3,
    "defesas": 0,
-   "pontos": 10,
+   "pontos": 12,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -44,12 +44,12 @@
   {
    "nome": "MÁRIO SILVA",
    "equipa": "AD OEIRAS B",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "5",
-   "golos": 7,
+   "golos": 8,
    "assistencias": 3,
    "defesas": 0,
-   "pontos": 10,
+   "pontos": 11,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -57,13 +57,26 @@
   {
    "nome": "MIGUEL ALMEIDA",
    "equipa": "AD OEIRAS B",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "3",
-   "golos": 6,
+   "golos": 7,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 7,
+   "pontos": 8,
    "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RODRIGO FELIX",
+   "equipa": "PAREDE FC B",
+   "jogos": 5,
+   "numero": "7",
+   "golos": 5,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 7,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -77,19 +90,6 @@
    "defesas": 0,
    "pontos": 6,
    "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RODRIGO FELIX",
-   "equipa": "PAREDE FC B",
-   "jogos": 4,
-   "numero": "7",
-   "golos": 4,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 6,
-   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -135,7 +135,7 @@
   {
    "nome": "VICENTE MATOS",
    "equipa": "PAREDE FC B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "6",
    "golos": 3,
    "assistencias": 0,
@@ -148,25 +148,12 @@
   {
    "nome": "RODRIGO PINTO",
    "equipa": "AD OEIRAS B",
-   "jogos": 2,
-   "numero": "10",
+   "jogos": 3,
+   "numero": "6",
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
    "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SEBASTIAO GOMES",
-   "equipa": "AD OEIRAS B",
-   "jogos": 3,
-   "numero": "7",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -211,16 +198,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "SEBASTIÃO SILVA",
+   "nome": "SEBASTIAO GOMES",
    "equipa": "AD OEIRAS B",
-   "jogos": 3,
-   "numero": "4",
-   "golos": 1,
-   "assistencias": 1,
+   "jogos": 4,
+   "numero": "7",
+   "golos": 2,
+   "assistencias": 0,
    "defesas": 0,
    "pontos": 2,
    "amarelos": 0,
-   "azuis": 1,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -237,20 +224,20 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM MARREIROS",
+   "nome": "SEBASTIÃO SILVA",
    "equipa": "AD OEIRAS B",
-   "jogos": 1,
-   "numero": "9",
+   "jogos": 4,
+   "numero": "4",
    "golos": 1,
-   "assistencias": 0,
+   "assistencias": 1,
    "defesas": 0,
-   "pontos": 1,
+   "pontos": 2,
    "amarelos": 0,
-   "azuis": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
-   "nome": "RICARDO FERNANDES",
+   "nome": "MARTIM MARREIROS",
    "equipa": "AD OEIRAS B",
    "jogos": 1,
    "numero": "9",
@@ -273,6 +260,19 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RICARDO FERNANDES",
+   "equipa": "AD OEIRAS B",
+   "jogos": 2,
+   "numero": "9",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -380,6 +380,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "SARA DANTAS",
+   "equipa": "PAREDE FC B",
+   "jogos": 5,
+   "numero": "3",
+   "golos": 0,
+   "assistencias": 4,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "ALEXANDRE CLÉRIGO",
    "equipa": "SPORTING CP B",
    "jogos": 4,
@@ -393,22 +406,9 @@
    "vermelhos": 0
   },
   {
-   "nome": "SARA DANTAS",
-   "equipa": "PAREDE FC B",
-   "jogos": 4,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 3,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "RODRIGO QUEIROS",
    "equipa": "PAREDE FC B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "8",
    "golos": 0,
    "assistencias": 2,
@@ -575,19 +575,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANDRE GOMES",
-   "equipa": "PAREDE FC B",
-   "jogos": 2,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ANDRE RAFAEL",
    "equipa": "AE FISICA D B",
    "jogos": 2,
@@ -627,36 +614,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO FONSECA",
-   "equipa": "PAREDE FC B",
-   "jogos": 2,
-   "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GONÇALO FONSECA",
    "equipa": "AE FISICA D B",
    "jogos": 2,
    "numero": "9",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "JOAO MONTEIRO",
-   "equipa": "AD OEIRAS B",
-   "jogos": 2,
-   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -692,10 +653,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "ANDRE GOMES",
+   "equipa": "PAREDE FC B",
+   "jogos": 3,
+   "numero": "4",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "ANTÓNIO CABRAL",
    "equipa": "CACO B",
    "jogos": 3,
    "numero": "9",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO FONSECA",
+   "equipa": "PAREDE FC B",
+   "jogos": 3,
+   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -770,10 +757,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOANA ALMEIDA",
+   "nome": "JOAO MONTEIRO",
    "equipa": "AD OEIRAS B",
    "jogos": 3,
-   "numero": "1",
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -874,36 +861,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO SANTOS",
-   "equipa": "PAREDE FC B",
-   "jogos": 4,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUILHERME PINTO",
-   "equipa": "PAREDE FC B",
+   "nome": "JOANA ALMEIDA",
+   "equipa": "AD OEIRAS B",
    "jogos": 4,
    "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARCOS MOREIRA",
-   "equipa": "PAREDE FC B",
-   "jogos": 4,
-   "numero": "9",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -930,6 +891,45 @@
    "equipa": "SPORTING CP B",
    "jogos": 4,
    "numero": "8",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FRANCISCO SANTOS",
+   "equipa": "PAREDE FC B",
+   "jogos": 5,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME PINTO",
+   "equipa": "PAREDE FC B",
+   "jogos": 5,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARCOS MOREIRA",
+   "equipa": "PAREDE FC B",
+   "jogos": 5,
+   "numero": "9",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

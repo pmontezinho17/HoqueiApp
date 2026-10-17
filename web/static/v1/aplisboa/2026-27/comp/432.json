@@ -490,8 +490,8 @@
    "hora": "15:30:00",
    "casa": "SPORTING CP",
    "fora": "SL BENFICA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 6,
+   "golos_fora": 4,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
   },

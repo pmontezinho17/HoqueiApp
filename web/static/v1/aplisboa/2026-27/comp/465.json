@@ -226,8 +226,8 @@
    "hora": "14:45:00",
    "casa": "FSE/AJ SALESIANA",
    "fora": "CD PAÇO ARCOS A",
-   "golos_casa": 3,
-   "golos_fora": 0,
+   "golos_casa": 10,
+   "golos_fora": 1,
    "recinto": "PAV. SALESIANA",
    "ao_vivo": false
   },
@@ -240,7 +240,7 @@
    "hora": "15:00:00",
    "casa": "AD OEIRAS A",
    "fora": "HC SINTRA",
-   "golos_casa": 13,
+   "golos_casa": 31,
    "golos_fora": 1,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
@@ -268,8 +268,8 @@
    "hora": "16:45:00",
    "casa": "CACO A",
    "fora": "AE FISICA D A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 5,
+   "golos_fora": 1,
    "recinto": "PAV.C.A.C.OURIQUE",
    "ao_vivo": false
   },

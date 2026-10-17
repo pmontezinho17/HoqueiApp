@@ -3,9 +3,9 @@
  "competicao": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE C",
  "casa": "HC LOURINHÃ",
  "fora": "PAREDE FC",
- "golos_casa": 2,
- "golos_fora": 1,
- "estado": null,
+ "golos_casa": 8,
+ "golos_fora": 7,
+ "estado": "Jogo Terminado",
  "data": "2026-10-17",
  "hora": "15:00:00",
  "recinto": "PAV. GIMNO. DA LOURINHÃ",
@@ -16,9 +16,9 @@
   0,
   0
  ],
- "situacao": "2ª Parte (2:34)",
- "periodo": "2ª Parte",
- "relogio": "2:34",
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "HC LOURINHÃ",
@@ -40,7 +40,7 @@
     {
      "numero": "3",
      "nome": "SALVADOR SILVA",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -82,7 +82,7 @@
     {
      "numero": "6",
      "nome": "YASMIN BOZYK",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -96,8 +96,8 @@
     {
      "numero": "7",
      "nome": "JAIME CARVALHO",
-     "titular": false,
-     "golos": 2,
+     "titular": true,
+     "golos": 8,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -110,7 +110,7 @@
     {
      "numero": "8",
      "nome": "VICENTE DINIS",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -138,7 +138,7 @@
     {
      "numero": "10",
      "nome": "BENJAMIN MIGUEL",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -213,7 +213,7 @@
     {
      "numero": "2",
      "nome": "JOÃO AMADOR",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -228,7 +228,7 @@
      "numero": "3",
      "nome": "SOFIA SANTOS",
      "titular": false,
-     "golos": 0,
+     "golos": 4,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -241,7 +241,7 @@
     {
      "numero": "4",
      "nome": "INÊS MENDES",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -269,7 +269,7 @@
     {
      "numero": "6",
      "nome": "EVA LEHNERT",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -283,8 +283,8 @@
     {
      "numero": "7",
      "nome": "ANTONIO ROSA",
-     "titular": false,
-     "golos": 0,
+     "titular": true,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -298,7 +298,7 @@
      "numero": "8",
      "nome": "INÊS QUEIRÓS",
      "titular": false,
-     "golos": 1,
+     "golos": 2,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -325,7 +325,7 @@
     {
      "numero": "10",
      "nome": "HENRIQUE ANTUNES",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -457,10 +457,360 @@
    "golos_casa": 2,
    "golos_fora": 1,
    "texto": "Golo para PAREDE FC | INÊS QUEIRÓS"
+  },
+  {
+   "ordem": 6,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 2,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 2ª parte"
+  },
+  {
+   "ordem": 7,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 3ª parte"
+  },
+  {
+   "ordem": 8,
+   "tipo": "golo",
+   "relogio": "7:25",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": "PAREDE FC",
+   "jogador": "SOFIA SANTOS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 2,
+   "golos_fora": 2,
+   "texto": "Golo para PAREDE FC | SOFIA SANTOS"
+  },
+  {
+   "ordem": 9,
+   "tipo": "golo",
+   "relogio": "6:48",
+   "parte": 3,
+   "minuto": 17,
+   "equipa": "PAREDE FC",
+   "jogador": "SOFIA SANTOS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 2,
+   "golos_fora": 3,
+   "texto": "Golo para PAREDE FC | SOFIA SANTOS"
+  },
+  {
+   "ordem": 10,
+   "tipo": "golo",
+   "relogio": "6:14",
+   "parte": 3,
+   "minuto": 17,
+   "equipa": "HC LOURINHÃ",
+   "jogador": "JAIME CARVALHO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 3,
+   "golos_fora": 3,
+   "texto": "Golo para HC LOURINHÃ | JAIME CARVALHO"
+  },
+  {
+   "ordem": 11,
+   "tipo": "golo",
+   "relogio": "5:48",
+   "parte": 3,
+   "minuto": 18,
+   "equipa": "PAREDE FC",
+   "jogador": "SOFIA SANTOS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 3,
+   "golos_fora": 4,
+   "texto": "Golo para PAREDE FC | SOFIA SANTOS"
+  },
+  {
+   "ordem": 12,
+   "tipo": "golo",
+   "relogio": "2:04",
+   "parte": 3,
+   "minuto": 21,
+   "equipa": "HC LOURINHÃ",
+   "jogador": "JAIME CARVALHO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 4,
+   "golos_fora": 4,
+   "texto": "Golo para HC LOURINHÃ | JAIME CARVALHO"
+  },
+  {
+   "ordem": 13,
+   "tipo": "golo",
+   "relogio": "1:11",
+   "parte": 3,
+   "minuto": 22,
+   "equipa": "PAREDE FC",
+   "jogador": "SOFIA SANTOS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 4,
+   "golos_fora": 5,
+   "texto": "Golo para PAREDE FC | SOFIA SANTOS"
+  },
+  {
+   "ordem": 14,
+   "tipo": "golo",
+   "relogio": "0:50",
+   "parte": 3,
+   "minuto": 23,
+   "equipa": "HC LOURINHÃ",
+   "jogador": "JAIME CARVALHO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 5,
+   "golos_fora": 5,
+   "texto": "Golo para HC LOURINHÃ | JAIME CARVALHO"
+  },
+  {
+   "ordem": 15,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 3,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 3ª parte"
+  },
+  {
+   "ordem": 16,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 4ª parte"
+  },
+  {
+   "ordem": 17,
+   "tipo": "golo",
+   "relogio": "7:08",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": "HC LOURINHÃ",
+   "jogador": "JAIME CARVALHO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 6,
+   "golos_fora": 5,
+   "texto": "Golo para HC LOURINHÃ | JAIME CARVALHO"
+  },
+  {
+   "ordem": 18,
+   "tipo": "golo",
+   "relogio": "5:03",
+   "parte": 4,
+   "minuto": 26,
+   "equipa": "PAREDE FC",
+   "jogador": "INÊS QUEIRÓS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 6,
+   "golos_fora": 6,
+   "texto": "Golo para PAREDE FC | INÊS QUEIRÓS"
+  },
+  {
+   "ordem": 19,
+   "tipo": "golo",
+   "relogio": "4:56",
+   "parte": 4,
+   "minuto": 27,
+   "equipa": "HC LOURINHÃ",
+   "jogador": "JAIME CARVALHO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 7,
+   "golos_fora": 6,
+   "texto": "Golo para HC LOURINHÃ | JAIME CARVALHO"
+  },
+  {
+   "ordem": 20,
+   "tipo": "golo",
+   "relogio": "3:29",
+   "parte": 4,
+   "minuto": 28,
+   "equipa": "PAREDE FC",
+   "jogador": "ANTONIO ROSA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 7,
+   "golos_fora": 7,
+   "texto": "Golo para PAREDE FC | ANTONIO ROSA"
+  },
+  {
+   "ordem": 21,
+   "tipo": "golo",
+   "relogio": "2:14",
+   "parte": 4,
+   "minuto": 29,
+   "equipa": "HC LOURINHÃ",
+   "jogador": "JAIME CARVALHO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 8,
+   "golos_fora": 7,
+   "texto": "Golo para HC LOURINHÃ | JAIME CARVALHO"
+  },
+  {
+   "ordem": 22,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 4,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
- "merito": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "VASCO FERREIRA",
+   "Árbitro Auxiliar": "CHRISTINE LEHNERT",
+   "Cronometrista": "VANESSA MEDRANO",
+   "Diretor de campo": "ANA TORRAO",
+   "Gestor de segurança": "IVO AUGUSTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 6,
+    "fora": 6
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 8,
+    "fora": 7
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "15:00",
+   "15:27"
+  ],
+  "termo": [
+   "15:22",
+   "15:52"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
+ "merito": [
+  {
+   "equipa": "HC LOURINHÃ",
+   "atletas": 9,
+   "guardas_redes": 2,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 12,
+   "penalizacao": -2,
+   "total": 10,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "4.1.4",
+     "texto": "2 com 3 meias partes",
+     "pontos": -2
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "PAREDE FC",
+   "atletas": 10,
+   "guardas_redes": 2,
+   "participantes": 10,
+   "completa": true,
+   "bonificacao": 11,
+   "penalizacao": 0,
+   "total": 11,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "10 atletas participantes",
+     "pontos": 10
+    },
+    {
+     "regra": "3.4",
+     "texto": "equipa completa (2 GR e 8 JC)",
+     "pontos": 1
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 467,
  "categoria": "BENJAMINS",
  "jornada": "3ª JORNADA",
