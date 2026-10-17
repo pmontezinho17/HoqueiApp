@@ -1,6 +1,6 @@
 {
  "competicao_id": 431,
- "jogos_considerados": 8,
+ "jogos_considerados": 9,
  "jogadores": [
   {
    "nome": "XAVIER LOURENÇO",
@@ -26,6 +26,32 @@
    "pontos": 3,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANDRÉ COIMBRA",
+   "equipa": "APAC TOJAL",
+   "jogos": 3,
+   "numero": "57",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO SAMPAIO",
+   "equipa": "APAC TOJAL",
+   "jogos": 3,
+   "numero": "9",
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 2,
    "vermelhos": 0
   },
   {
@@ -72,19 +98,6 @@
    "equipa": "GDS CASCAIS",
    "jogos": 1,
    "numero": "7",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ANDRÉ COIMBRA",
-   "equipa": "APAC TOJAL",
-   "jogos": 2,
-   "numero": "57",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -185,6 +198,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOÃO MENDES",
+   "equipa": "APAC TOJAL",
+   "jogos": 2,
+   "numero": "27",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "AFONSO PIMENTEL",
    "equipa": "GDS CASCAIS",
    "jogos": 1,
@@ -276,6 +302,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "FRANCISCO CARRAÇA",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 1,
+   "numero": "77",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GONCALO BELO",
    "equipa": "GDS CASCAIS",
    "jogos": 1,
@@ -286,19 +325,6 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "JOÃO MENDES",
-   "equipa": "APAC TOJAL",
-   "jogos": 1,
-   "numero": "27",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -471,10 +497,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "DUARTE MORAIS",
+   "equipa": "APAC TOJAL",
+   "jogos": 3,
+   "numero": "72",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RUI MENDES",
    "equipa": "APAC TOJAL",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "28",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VASCO BAPTISTA",
+   "equipa": "APAC TOJAL",
+   "jogos": 3,
+   "numero": "99",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -572,19 +624,6 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DIOGO SAMPAIO",
-   "equipa": "APAC TOJAL",
-   "jogos": 2,
-   "numero": "9",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 2,
    "vermelhos": 0
   },
   {
@@ -735,19 +774,6 @@
    "equipa": "CRIAR-T GD",
    "jogos": 1,
    "numero": "12",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DAVID GOMES",
-   "equipa": "APAC TOJAL",
-   "jogos": 1,
-   "numero": "77",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -913,6 +939,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "GUILHERME FERREIRA",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 1,
+   "numero": "87",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GUILHERME MARQUES",
    "equipa": "GDS CASCAIS",
    "jogos": 1,
@@ -923,6 +962,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME PASSAGEM",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 1,
+   "numero": "78",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -956,6 +1008,19 @@
    "equipa": "SPORTING CP",
    "jogos": 1,
    "numero": "99",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO BEIROLAS",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 1,
+   "numero": "9",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1041,6 +1106,19 @@
    "amarelos": 2,
    "azuis": 1,
    "vermelhos": 2
+  },
+  {
+   "nome": "LUCAS SERRAZINA",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 1,
+   "numero": "89",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
   },
   {
    "nome": "MANUEL CORREIA",
@@ -1199,10 +1277,49 @@
    "vermelhos": 0
   },
   {
+   "nome": "PEDRO FALCÃO",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 1,
+   "numero": "91",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 2,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PEDRO TOMÁS",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 1,
+   "numero": "7",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "PEDRO VELOSO",
    "equipa": "SPORTING CP",
    "jogos": 1,
    "numero": "87",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RAFAEL TOMÁS",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 1,
+   "numero": "74",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1225,6 +1342,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "RICARDO FILIPE",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 1,
+   "numero": "71",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "RITA GOMES",
    "equipa": "PAREDE FC (SF)",
    "jogos": 1,
@@ -1242,19 +1372,6 @@
    "equipa": "CRIAR-T GD",
    "jogos": 1,
    "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RODRIGO GODINHO",
-   "equipa": "APAC TOJAL",
-   "jogos": 1,
-   "numero": "64",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1342,6 +1459,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "VASCO ALEXANDRE",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 1,
+   "numero": "27",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "VASCO TEIXEIRA",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 1,
@@ -1394,10 +1524,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE MORAIS",
+   "nome": "DAVID GOMES",
    "equipa": "APAC TOJAL",
    "jogos": 2,
-   "numero": "72",
+   "numero": "77",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1498,19 +1628,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MIGUEL PEREIRA",
-   "equipa": "APAC TOJAL",
-   "jogos": 2,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "NUNO COITO",
    "equipa": "HC TURQUEL",
    "jogos": 2,
@@ -1537,13 +1654,13 @@
    "vermelhos": 0
   },
   {
-   "nome": "RODRIGO TEIXEIRA",
+   "nome": "RODRIGO GODINHO",
    "equipa": "APAC TOJAL",
    "jogos": 2,
-   "numero": "1",
+   "numero": "64",
    "golos": 0,
    "assistencias": 0,
-   "defesas": 1,
+   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -1563,13 +1680,26 @@
    "vermelhos": 0
   },
   {
-   "nome": "VASCO BAPTISTA",
+   "nome": "MIGUEL PEREIRA",
    "equipa": "APAC TOJAL",
-   "jogos": 2,
-   "numero": "99",
+   "jogos": 3,
+   "numero": "3",
    "golos": 0,
    "assistencias": 0,
-   "defesas": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RODRIGO TEIXEIRA",
+   "equipa": "APAC TOJAL",
+   "jogos": 3,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,

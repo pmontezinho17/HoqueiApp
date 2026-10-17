@@ -80,7 +80,21 @@ describe('os avisos sabem fechar-se', () => {
 	);
 
 	it('há títulos com data, senão esta regra não verifica nada', () => {
-		expect(comTituloDatado.map((f) => f.nome).sort()).toEqual(['aviso.yml', 'dados.yml']);
+		// Só o `aviso.yml` desde 16/10/2026: o aviso da fonte deixou de ter data no título.
+		// Era um registo por dia e o dono acordou com **cinco** na lista, todos a dizer a mesma
+		// coisa — a tabela que a APL não actualiza desde 11/10. Uma condição crónica leva um
+		// registo só, como a vigia do site e a ronda.
+		expect(comTituloDatado.map((f) => f.nome).sort()).toEqual(['aviso.yml']);
+	});
+
+	it('o aviso da fonte tem um registo só, e comenta uma vez por dia', () => {
+		const dados = ficheiros.find((f) => f.nome === 'dados.yml')!.texto;
+		// Título constante: é o que faz dele um registo e não um por manhã.
+		expect(dados).toMatch(/titulo="A fonte discorda de si mesma"\n/);
+		// E um comentário por dia: nem doze (uma ronda de duas em duas horas), nem zero — com
+		// um registo só, o silêncio deixaria de distinguir "já passou" de "continua há cinco
+		// dias".
+		expect(dados).toMatch(/\[ "\$ultimo" != "\$hoje" \]/);
 	});
 
 	it('o aviso da cadeia fecha todas as abertas da etiqueta, de qualquer dia', () => {

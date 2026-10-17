@@ -1,4 +1,5 @@
 import { disputado, type Competicao, type Jogo } from './tipos';
+import { diaDeLisboa } from './dia';
 
 /**
  * A prova onde a equipa está **agora** — o que se quer ver por defeito na classificação e
@@ -17,7 +18,7 @@ import { disputado, type Competicao, type Jogo } from './tipos';
  */
 export function provaActual(
 	provas: { id: number; jogos: Jogo[] }[],
-	hoje = new Date().toISOString().slice(0, 10)
+	hoje = diaDeLisboa()
 ): number | null {
 	const chave = (jogos: Jogo[]) => {
 		const feitos = jogos.filter(disputado).map((j) => j.data ?? '').sort();

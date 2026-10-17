@@ -39,9 +39,17 @@ cd web && npm run check && npx vitest run
 
 ## Como isto chega ao ar
 
-**Um `git push` não publica.** Quem leva código novo ao site é o `dados.yml`, com o disparo
-`publicar_sempre` ou `so_publicar`. A excepção aprendida a 13/10: uma alteração ao **raspador**
-entra na ronda agendada seguinte por si só, porque as corridas agendadas usam o ramo por omissão.
+**Uma entrada no `main` publica, desde 15/10/2026.** Quem leva código novo ao site é sempre o
+`dados.yml` — agora com três gatilhos: o agendamento, o botão (`publicar_sempre` ou
+`so_publicar`) e um `push` no `main`. Um push num ramo qualquer continua a não publicar nada.
+
+Isto nasceu de o dono ter ligado a integração Git do Cloudflare Pages a 14/10 para não depender
+de ninguém para publicar — objectivo certo. O problema era quem construía: a Cloudflare constrói
+com as definições dela, que não sabem que a app vive em `web/` nem que as Functions estão em
+`web/functions`, e a 15/10 às 08:42 produção servia só ficheiros estáticos. **O alias daquela
+mesma publicação dava 404 também**, e foi isso que separou este caso do de 13/10, onde o alias
+servia tudo bem e a culpa era da configuração do anfitrião. Mantém-se o comportamento, troca-se
+quem o faz: publica o workflow que constrói bem, corre os testes e verifica o site a seguir.
 
 **O `main` é produção.** Trabalho não aprovado vive no `testes`, que é **um** site e só um — o
 `ramo.yml` só dispara nesse ramo, e um ramo novo não ganha endereço nenhum. O site de testes lê
@@ -82,6 +90,18 @@ e continuam sem resultado.
 lançadas por ele** (`workflow_dispatch`) e 28 pelo agendador da GitHub — contado a 13/10/2026.
 Num dia sem jogos ele não lança nada, de propósito, e por isso um dia desses dá só agendadas.
 
+**Desde 15/10/2026 é também ele que vigia produção.** A cada tique faz *uma* sonda — um `GET`
+ao `/contar`, onde só um 204 é "está bom" — e, se ela não responder como deve, dispara o
+`saude.yml`, que é quem corre as sete verificações a sério e abre o registo. As verificações
+não foram reescritas no Worker de propósito: duas implementações da mesma pergunta divergem no
+dia em que alguém corrige uma só.
+
+Isto saiu da GitHub porque o agendador dela não serve para vigiar: medido a 15/10, a vigia de
+quinze em quinze minutos teve a última corrida às 07:01 e às 08:46 ainda não tinha havido
+outra — uma hora e três quartos, precisamente na manhã em que produção servia só ficheiros
+estáticos, e quem deu por isso foi o dono ao abrir a app. O `saude.yml` **fica** com o seu
+`cron`: duas camadas sobre a mesma falha custam nada e já salvaram este projecto antes.
+
 **Fecho do dia às 00:30**: o dia que acabou fecha-se e a mesma corrida republica a agenda, que é
 o que estabelece os jogos de hoje — é por aqui que entra um jogo antecipado ou adiado. Essa ronda
 corre sempre, e é ela que permite a regra de **num dia sem jogos não se pedir nada** (medido:
@@ -102,6 +122,22 @@ Todos já estão no `testes`.
 O `sugestoes.yml` **nunca correu** e não pode correr: a GitHub só conhece workflows do ramo por
 omissão, e ele ainda está num ramo. Faltam-lhe também o repositório privado `ok4sticks-sugestoes`
 e o segredo `TOKEN_SUGESTOES`.
+
+## Ver o estado sem ler 3 700 linhas
+
+```bash
+python3 scripts/estado.py
+```
+
+Diz três coisas: os itens do backlog que ainda estão abertos, por prioridade; as sugestões já
+arquivadas no repositório privado; e as que a D1 tem à espera do processo diário. Lê e não
+escreve nada, e não toca na APL. Nasceu de uma pergunta do dono a 16/10/2026 — *"como é que eu
+consigo ver o que temos em backlog para fazer?"* — porque as respostas existiam e nenhuma era
+prática.
+
+Quando não conseguir ler a D1 **diz isso**, em vez de dizer que não há sugestões: uma sessão do
+`wrangler` expirada contada como zero é pior do que um erro, porque ninguém vai procurar. A cura
+é `npx wrangler login`.
 
 ## O que falta, por valor
 

@@ -21,6 +21,31 @@ on:
     # sexta ao serão: há jornadas às 19:30 e, só com o cron de 6h, o resultado
     # ficava por publicar até às 00:06 — quase cinco horas depois do apito final
     - cron: '0 21 * * 5'
+  # **Uma entrada no `main` publica, e isso é de propósito.**
+  #
+  # O dono ligou a integração Git do Cloudflare Pages a 14/10/2026 para não depender de mim
+  # para publicar — objectivo certo, e é para ficar. O que estava errado era quem construía: a
+  # Cloudflare constrói com as definições dela, que não sabem que a app vive em `web/` nem que
+  # as Functions estão em `web/functions`. Resultado medido a 15/10 às 08:42, com produção a
+  # servir só ficheiros estáticos: `/contar`, `/consola` e `/jogo/999999` todos a 404, e o
+  # `_headers` por aplicar. **E o alias daquela mesma publicação dava 404 também** — foi isso
+  # que separou este caso do de 13/10, onde o alias servia tudo bem e a culpa era da
+  # configuração do anfitrião.
+  #
+  # Então o comportamento mantém-se e troca-se quem o faz: é **este** workflow que passa a
+  # publicar ao fundir, porque é o que constrói como deve ser, corre os dois conjuntos de
+  # testes e **pergunta ao site** se o que lá está é o que mandámos. A integração da Cloudflare
+  # desliga-se por ter ficado redundante, não por a automatização ser má.
+  #
+  # Não entra em ciclo: os commits de dados que este workflow faz levam `[skip ci]`, e a
+  # GitHub não cria corridas para esses.
+  push:
+    branches: [main]
+    # Um documento não muda o site. Evita uma construção e uma publicação por nada.
+    paths-ignore:
+      - 'docs/**'
+      - '**/*.md'
+
   workflow_dispatch:
     inputs:
       publicar_sempre:
@@ -52,6 +77,12 @@ permissions:
 jobs:
   actualizar:
     runs-on: ubuntu-latest
+    env:
+      # **"Só publicar" passa a ser uma pergunta só, e não três condições repetidas.**
+      # Um `push` no `main` é exactamente isso: levar ao site o que já está commitado, sem
+      # pedir nada à fonte. Antes isto estava escrito em quatro sítios como `inputs.so_publicar`
+      # e acrescentar o gatilho novo obrigava a mexer nos quatro — que é como se esquece um.
+      SO_PUBLICAR: ${{ inputs.so_publicar || github.event_name == 'push' }}
     steps:
       # `fetch-depth: 0`, e isto é o que faz a nova tentativa de `push` funcionar (P11.12).
       #
@@ -81,6 +112,20 @@ jobs:
       # YAML é lógica sem testes. Ela responde sem custar um pedido, lendo a agenda do nosso
       # próprio CDN — e **em dúvida corre**, porque uma ronda a mais custa 75 pedidos e uma a
       # menos custa uma tarde de resultados errados.
+      # **Quem pediu esta publicação, escrito no resumo da corrida.** Com três gatilhos — o
+      # agendamento, o botão e a entrada no `main` — quem abre uma corrida vermelha precisa de
+      # saber qual deles foi antes de perceber o resto.
+      - name: Porque é que esta corrida existe
+        run: |
+          case "${{ github.event_name }}" in
+            push)     porque="entrou algo no \`main\` (${{ github.event.head_commit.id }})" ;;
+            schedule) porque="agendamento \`${{ github.event.schedule }}\`" ;;
+            *)        porque="pedido à mão por @${{ github.actor }}" ;;
+          esac
+          echo "### $porque" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Só publicar o que está commitado: \`${{ env.SO_PUBLICAR }}\`" >> "$GITHUB_STEP_SUMMARY"
+
       - name: Há razão para pedir à fonte?
         id: vale
         working-directory: scraper
@@ -88,7 +133,7 @@ jobs:
           uv run python -m hoquei.vale_pedir \
             --cron "${{ github.event.schedule }}" \
             ${{ inputs.publicar_sempre && '--forcar' || '' }} \
-            ${{ (inputs.so_fotografia || inputs.so_publicar) && '--nao-pedir' || '' }} >> "$GITHUB_OUTPUT"
+            ${{ (inputs.so_fotografia || env.SO_PUBLICAR == 'true') && '--nao-pedir' || '' }} >> "$GITHUB_OUTPUT"
 
       - name: Nada a pedir à fonte
         if: steps.vale.outputs.correr != 'true'
@@ -193,14 +238,14 @@ jobs:
       # código ficava no repositório sem chegar ao site até os dados mudarem por conta
       # própria — num dia sem jogos, dias.
       - uses: actions/setup-node@v4
-        if: (steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || inputs.so_publicar
+        if: (steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || env.SO_PUBLICAR == 'true'
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: web/package-lock.json
 
       - name: Construir a PWA
-        if: (steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || inputs.so_publicar
+        if: (steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || env.SO_PUBLICAR == 'true'
         working-directory: web
         run: npm ci && npm run build
 
@@ -213,7 +258,7 @@ jobs:
       # O resultado seria um contador que desaparece ao sábado à tarde e volta sozinho.
       - name: Publicar no Cloudflare Pages
         id: publicacao
-        if: (steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || inputs.so_publicar
+        if: (steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || env.SO_PUBLICAR == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -338,7 +383,20 @@ jobs:
           gh label create fonte --color D4C5F9 --force \
             --description "a fonte da APL discorda de si mesma" >/dev/null 2>&1 || true
 
-          titulo="A fonte discorda de si mesma — $(TZ=Europe/Lisbon date +%F)"
+          # **Um registo para a condição, e não um por dia.**
+          #
+          # O título era datado e abria uma issue por manhã. A 16/10/2026 o dono mostrou-me a
+          # lista dele: **cinco issues iguais**, de 12 a 16 de outubro, a dizerem todas a mesma
+          # coisa — a tabela da Taça Campelo que a APL ainda não actualizou desde a jornada de
+          # 11/10. A sexta nasceria no dia seguinte.
+          #
+          # A incoerência da fonte é **crónica por natureza**: vive enquanto a APL não corrigir
+          # a tabela dela, e isso pode ser uma semana. Um aviso crónico com um registo por dia
+          # transforma-se em ruído, e ruído ensina-se a ignorar — que é exactamente o contrário
+          # do que estes passos existem para fazer. Com título constante há um registo só, como
+          # já acontece na vigia do site e na ronda.
+          titulo="A fonte discorda de si mesma"
+          hoje=$(TZ=Europe/Lisbon date +%F)
           corpo=$(printf '%s\n' \
             "A tabela que a APL publica não bate com os jogos do calendário dela." \
             "" \
@@ -350,16 +408,25 @@ jobs:
             "nosso cálculo e correr \`uv run pytest -m fonte\` para ver as divergências linha" \
             "a linha." \
             "" \
-            "Corrida: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")
+            "Fecha-se sozinha quando a reprodução voltar a passar." \
+            "" \
+            "Corrida de $hoje: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")
           n=$(gh issue list --state open --label fonte --limit 20 --json number,title \
                 --jq "[.[] | select(.title == \"$titulo\")] | .[0].number // empty")
-          # **Se já está aberto, cala-se.** O aviso do dia é o sinal; a ronda corre de duas em
-          # duas horas e um comentário por ronda são doze por dia a dizer o mesmo, o que
-          # ensina a ignorar a notificação. A incoerência da fonte é crónica por natureza —
-          # vive enquanto a APL não corrigir a tabela dela — e o histórico das corridas tem o
-          # detalhe de cada uma para quem o quiser.
+
           if [ -z "$n" ]; then
             gh issue create --title "$titulo" --body "$corpo" --label fonte --assignee "$DONO"
+            exit 0
+          fi
+
+          # **Um comentário por dia, nem mais nem menos.** A ronda corre de duas em duas horas:
+          # comentar em cada uma seriam doze por dia a dizer o mesmo. Calar-se para sempre
+          # também não serve — com um registo só, o silêncio deixaria de distinguir "já passou"
+          # de "continua há cinco dias". Um por dia é o que mantém o registo vivo sem gritar.
+          ultimo=$(gh issue view "$n" --json comments \
+                     --jq '[.comments[].createdAt] | last // ""' | cut -c1-10)
+          if [ "$ultimo" != "$hoje" ]; then
+            gh issue comment "$n" --body "Continua a $hoje. $corpo"
           fi
 
       # **Este aviso não tinha fecho nenhum**, e isso são duas issues abertas a 13/10/2026

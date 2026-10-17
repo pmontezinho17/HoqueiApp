@@ -5,8 +5,18 @@ compatibility_date = "2026-10-04"
 # Os `cron` da Cloudflare são em UTC, como os da GitHub — mas estes disparam.
 # 07:00–23:59 em Portugal cobre folgadamente o primeiro jogo (10:00) e o último (21:30).
 # São ~100 invocações por dia, contra as 100 000 do plano gratuito.
+#
+# **E a vigia de produção obriga a cobrir a noite.** A avaria de 12/10/2026 durou 18 horas e
+# atravessou a madrugada inteira; uma vigia que dorme das 23h às 6h deixa passar exactamente
+# isso. De meia em meia hora chega: o que se quer apanhar durou horas, e são mais 14
+# invocações por dia.
+#
+# **Os tiques da noite fazem só a vigia** — ver o `eTiqueDeDia` no `src/index.js`. Sem isso, o
+# cão de guarda passava a poder lançar a ronda completa às 23:00 de Lisboa a partir de
+# 25/10/2026, e isso são ~75 pedidos à APL que hoje esperam pela ronda das 00:30. Com a trava,
+# esta alteração custa **zero** pedidos à fonte.
 [triggers]
-crons = ["*/10 6-22 * * *"]
+crons = ["*/10 6-22 * * *", "*/30 23,0-5 * * *"]
 
 # Logs e rastreios guardados no painel da Cloudflare. Sem isto, o que este Worker fez às 03:00
 # só se vê se alguém estiver com um `wrangler tail` aberto nesse instante — e este é
@@ -24,6 +34,10 @@ WORKFLOW = "aovivo.yml"
 WORKFLOW_DADOS = "dados.yml"
 REF = "main"
 AGENDA = "https://hoquei.pages.dev/v1/aplisboa/2026-27/agenda.json"
+# A vigia de produção: uma sonda, e a verificação a sério fica no `saude.yml`. Ver o
+# `vigiarProducao` no `src/index.js` para o porquê de ser o `/contar` e não outra coisa.
+SONDA = "https://hoquei.pages.dev/contar"
+WORKFLOW_SAUDE = "saude.yml"
 # (O observador deixou de ser um endereço aqui — passou a ligação de serviço, em baixo.)
 META = "https://hoquei.pages.dev/v1/aplisboa/2026-27/meta.json"
 

@@ -14,6 +14,7 @@
 	import { nomeProprio, nomeProva } from '$lib/formato';
 	import { piscar } from '$lib/piscar';
 	import { caminhoEquipa } from '$lib/slug';
+	import { estadoDasFaltas, mostrarNoPlacar } from '$lib/faltas';
 	import type { EventoJogo } from '$lib/tipos';
 	import { untrack } from 'svelte';
 
@@ -271,6 +272,25 @@
 			<span class="estado" class:vivo={aDecorrer}>
 				{#if aDecorrer}<i aria-hidden="true"></i>{/if}{estado}
 			</span>
+			<!--
+			  **As faltas de equipa, e só com o jogo a decorrer.** Pedido do dono a 10/10/2026 e
+			  aprovado a 17/10: *"só faz sentido se for no ecrã de jogo ao vivo"*. Num jogo
+			  terminado continuam na caixa de informação, onde já estavam.
+
+			  A decisão de quando mostrar e quando avisar vive no `$lib/faltas.ts`, para poder
+			  ser testada sem montar este ecrã — é a regra que nasceu do Mérito desaparecido.
+
+			  `aria-live="polite"` porque isto muda sozinho enquanto alguém olha: quem ouve a
+			  página tem de saber que o número subiu, e `polite` espera que ela acabe de ler o
+			  que estava a ler.
+			-->
+			{#if mostrarNoPlacar(aDecorrer, f.faltas)}
+				<span class="faltas" aria-live="polite" aria-label="Faltas de equipa: {f.faltas[0]} a {f.faltas[1]}">
+					<span class="n {estadoDasFaltas(f.faltas[0])}">{f.faltas[0]}</span>
+					<Icone nome="falta" tamanho={14} />
+					<span class="n {estadoDasFaltas(f.faltas[1])}">{f.faltas[1]}</span>
+				</span>
+			{/if}
 		</span>
 		<span class="emb"><Emblema equipa={f.fora} src={data.emblemas[f.fora]} tamanho={44} /></span>
 	</div>
@@ -468,6 +488,39 @@
 		font-variant-numeric: tabular-nums;
 	}
 	.estado.vivo { color: var(--vivo); font-weight: 600; }
+	/* ── As faltas de equipa, debaixo do resultado ─────────────────────────────────────────
+	   Vermelho porque é a única coisa deste cabeçalho que é um risco e não um facto: os golos
+	   são o que aconteceu, as faltas são o que está prestes a acontecer.
+
+	   **Fundo âmbar às 9, vermelho cheio a partir das 10**, e não a piscar. O dono deu as duas
+	   hipóteses — "amarelo ou a piscar" — e o âmbar ganha por uma razão prática: isto vive num
+	   ecrã onde se está cinquenta minutos a olhar, e uma coisa a piscar esse tempo todo é
+	   hostil para quem tem de a ignorar. Com `prefers-reduced-motion` teria de parar de piscar
+	   de qualquer maneira, e aí ficaria só a cor — que é esta. */
+	.faltas {
+		display: inline-flex; align-items: center; justify-content: center; gap: var(--e-2);
+		margin-top: var(--e-1);
+		font-size: var(--t-micro);
+		font-variant-numeric: tabular-nums;
+	}
+	/* **A mão ao meio, e um número de cada lado.** O dono apanhou a primeira versão, que
+	   tinha a palavra "FALTAS" à esquerda e os dois números colados a seguir: *"isso não faz
+	   sentido, pois ficam desfasadas de cada equipa"*. Tinha razão — o resultado em cima alinha
+	   casa à esquerda e fora à direita, e os números das faltas estavam os dois à direita do
+	   meio. Com o apito no centro, cada contador cai debaixo da sua equipa e dispensa rótulo:
+	   o símbolo diz o que são.
+
+	   O apito foi a primeira tentativa e o dono recusou-o: a 13 px lia-se como um megafone. A
+	   mão aberta ganhou de seis candidatos vistos lado a lado — e ganha sobretudo porque a
+	   cronologia já marca as faltas de equipa com ✋, logo é a mesma silhueta no mesmo ecrã. */
+	.faltas :global(svg) { color: var(--heroi-suave); flex: 0 0 auto; }
+	.faltas .n {
+		min-width: 1.35rem; padding: 1px 4px; border-radius: 4px;
+		text-align: center; font-weight: 600; color: var(--directo);
+	}
+	.faltas .n.alerta { background: var(--aviso-fundo); color: var(--aviso); }
+	.faltas .n.atingido { background: var(--directo); color: #fff; }
+
 	.estado i {
 		width: 6px; height: 6px; border-radius: 50%; background: var(--vivo);
 		animation: pulsar 1.6s ease-in-out infinite;

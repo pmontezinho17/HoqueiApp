@@ -220,8 +220,8 @@
    "hora": "22:15:00",
    "casa": "APAC TOJAL",
    "fora": "UD VILAFRANQUENSE",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 5,
+   "golos_fora": 1,
    "recinto": "PAV. A.P.A.C.TOJAL",
    "ao_vivo": false
   },

@@ -18,6 +18,7 @@
 	 */
 	import { novidades } from './novidades.svelte';
 	import { RECOLHER_FEEDBACK } from './feedback';
+	import { dataCurta } from './formato';
 
 	// um só objecto para toda a app, e não uma instância deste componente: é o que permite ao
 	// menu reabrir esta caixa. Ver o cabeçalho do `novidades.svelte.ts`.
@@ -31,20 +32,49 @@
 	     prender o foco dentro dele para ser honesto com quem navega por teclado -->
 	<div class="caixa" class:comBolha={RECOLHER_FEEDBACK} role="status">
 		<div class="cabeca">
-			<h2>O que mudou</h2>
+			<h2>{n.modo === 'historico' ? 'O que há de novo' : 'O que mudou'}</h2>
 			<button type="button" onclick={() => n.fechar()} aria-label="Fechar">✕</button>
 		</div>
-		<!-- Cabeçalhos a sério e não parágrafos em maiúsculas: quem lê por voz salta de
-		     cabeçalho em cabeçalho, e numa lista de dez pontos é assim que se chega ao grupo
-		     que interessa sem ouvir os outros. Ver o `GRUPOS` para a razão de serem três. -->
-		{#each n.grupos as g (g.rotulo)}
-			<h3>{g.rotulo}</h3>
-			<ul>
-				{#each g.pontos as p (p.titulo)}
-					<li><strong>{p.titulo}</strong>{p.texto}</li>
-				{/each}
-			</ul>
-		{/each}
+		{#if n.modo === 'historico'}
+			<!--
+			  **O histórico: tudo, por versão, e só os títulos.** Pedido do dono a 17/10/2026 —
+			  *"colocar todas as alterações que foram feitas, mas mais resumidas, caso contrário
+			  fica um texto gigantesco"*. Cinco versões com o texto todo passam das quarenta
+			  linhas.
+
+			  O resumo não foi preciso escrevê-lo: o `titulo` de cada ponto já é curto por
+			  desenho, com um teste que o mantém assim. O texto fica num `<details>`, a um toque
+			  — que é também o que faz isto funcionar para quem lê por voz, porque o `<summary>`
+			  é um botão e anuncia-se como tal.
+			-->
+			{#each n.lista as v (v.versao)}
+				<h3 class="versao">
+					{v.versao}<span class="data">{dataCurta(v.data)}</span>
+				</h3>
+				<ul class="resumida">
+					{#each v.pontos as p (p.titulo)}
+						<li>
+							<details>
+								<summary>{p.titulo}</summary>
+								<p>{p.texto}</p>
+							</details>
+						</li>
+					{/each}
+				</ul>
+			{/each}
+		{:else}
+			<!-- Cabeçalhos a sério e não parágrafos em maiúsculas: quem lê por voz salta de
+			     cabeçalho em cabeçalho, e numa lista de dez pontos é assim que se chega ao grupo
+			     que interessa sem ouvir os outros. Ver o `GRUPOS` para a razão de serem três. -->
+			{#each n.grupos as g (g.rotulo)}
+				<h3>{g.rotulo}</h3>
+				<ul>
+					{#each g.pontos as p (p.titulo)}
+						<li><strong>{p.titulo}</strong>{p.texto}</li>
+					{/each}
+				</ul>
+			{/each}
+		{/if}
 	</div>
 {/if}
 
@@ -105,6 +135,30 @@
 	   manda", uma frase corrida sem fronteira visível, que é exactamente o que isto veio
 	   resolver. Em `block` o olho tem onde parar. */
 	li strong { display: block; color: var(--texto); font-weight: 600; }
+
+	/* ── O histórico, do menu ──────────────────────────────────────────────────────────────
+	   Mais compacto do que a folha automática de propósito: aqui a pergunta é "o que já mudou
+	   nesta app?" e a resposta é uma lista para percorrer, não um texto para ler. */
+	h3.versao {
+		display: flex; align-items: baseline; gap: var(--e-2);
+		margin: var(--e-3) 0 var(--e-1);
+		font-size: var(--t-micro); color: var(--acento); text-transform: none; letter-spacing: 0;
+	}
+	h3.versao .data { color: var(--suave); font-weight: 400; }
+	/* sem o ponto da lista: o triângulo do `<details>` já é o marcador desta linha */
+	ul.resumida { margin: 0; list-style: none; padding-left: 0; }
+	ul.resumida li { margin-bottom: 2px; }
+	/* **Sem `display: flex` no `<summary>`.** Foi a primeira tentativa e o Chrome esconde o
+	   triângulo de abertura quando se lhe muda o `display` — resultado: uma lista de títulos
+	   que parecem texto e não dão sinal nenhum de que se abrem. Apanhado no browser. O alvo de
+	   toque faz-se com `padding`, que não mexe no marcador. */
+	ul.resumida summary {
+		cursor: pointer; color: var(--texto); font-weight: 600;
+		padding: 6px 0; /* ~32px de alvo com a linha de texto, para se tocar num telemóvel */
+	}
+	ul.resumida summary::marker { color: var(--acento); }
+	ul.resumida summary:hover { color: var(--acento); }
+	ul.resumida details p { margin: 0 0 var(--e-2); color: var(--texto-2); }
 	li:last-child { margin-bottom: 0; }
 	/* **A bolha de opinião tapava o último ponto.** As duas vivem no `z-index: 20` e no mesmo
 	   canto, e a bolha é desenhada depois, logo ganha — medido a 375×812 com a lista da 1.1.

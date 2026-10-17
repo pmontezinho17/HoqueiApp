@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { diaDeLisboa } from '$lib/dia';
 	/**
 	 * A fita de dias, com aspecto de calendário e não de bolas todas iguais.
 	 *
@@ -21,7 +22,7 @@
 		progresso?: number;
 	} = $props();
 
-	const hoje = new Date().toISOString().slice(0, 10);
+	const hoje = diaDeLisboa();
 	const DIA = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'];
 	const MES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun',
 		'jul', 'ago', 'set', 'out', 'nov', 'dez'];

@@ -110,6 +110,30 @@ cd "$(git rev-parse --show-toplevel)/worker/relogio" && npx wrangler deploy
 
 No fim ele diz o endereço do Worker e os `cron` que registou.
 
+**Desde 16/10/2026 isto corre sozinho**: o `.github/workflows/relogio.yml` publica o Worker
+quando algo em `worker/relogio/**` entra no `main`, corre os testes antes e sonda o Worker
+depois. O comando acima fica para emergências.
+
+**E se o correres à mão, faz `git pull` primeiro.** Publicar à mão publica a **tua cópia**: a
+16/10/2026 isso publicou o Worker antigo, porque a cópia local estava cinco commits atrás e a
+vigia de produção que o PR trazia não ia lá dentro. Correu sem um único erro.
+
+### 5. Ver o que ele vê, sem esperar pelo `cron`
+
+```bash
+curl -s "https://hoquei-relogio.<subdominio>.workers.dev/?producao"
+```
+
+Sonda produção e **não dispara nada** — serve para ver o que o tique seguinte veria. Um
+`"sa": true` com `"estado": 204` é o normal. Também há o `?verificar`, que prova a permissão
+do token sem lançar workflow nenhum, e o endereço sem argumentos, que mostra a decisão do
+relógio sobre os jogos de agora.
+
+Para experimentar sem publicar: `npx wrangler dev --local` e o mesmo `?producao` em
+`127.0.0.1`. Foi assim que a vigia de produção se confirmou antes de ir ao ar, a 15/10/2026 —
+contra produção a sério, com a contagem de aparelhos antes e depois para provar que a sonda
+não se conta a si própria.
+
 ## Verificar que ficou bem
 
 Abre o endereço do Worker no browser. Ele responde com o que **faria** agora, sem disparar

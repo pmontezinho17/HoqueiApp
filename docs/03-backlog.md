@@ -52,6 +52,13 @@
 | B1.10 | Modelo normalizado + escrita dos JSON do contrato | must | M | ✅ `publicar` gera competitions, comp/, match/ e meta.json |
 | B1.11 | Testes do parser contra amostras | must | M | ✅ 32 testes, sem rede, incluindo cruzamento entre parsers |
 | B1.12 | Deteção de mudanças por hash | should | S | aberto |
+| R1 | Fechar o `workers.dev` do observador com ligação de serviço (fecha a B9.27) | must | S | aberto — ver "Um review externo" |
+| R2 | `ruff check` no CI, e corrigir os 5 nomes indefinidos do `comando_despejar` | must | S | aberto |
+| R3 | `diaDeLisboa()` partilhado, em vez de `toISOString()` em 7 ficheiros da interface | should | S | ✅ **17/10** — e eu tinha-o despriorizado por "adormecido"; o dono apanhou-o às 00:48 |
+| R4 | Página de privacidade: tirar as duas frases que deixaram de ser verdade | must | XS | ✅ **16/10** — e a correcção ficou escrita na própria página, à vista, em vez de apagada |
+| R5 | `README.md` a descrever o produto que existe | should | S | aberto |
+| R6 | Tirar o DDL do `/sugerir` (a premissa caiu: o token já tem D1) | could | XS | aberto |
+| R7 | Emblemas pedidos pela classe `Fonte`, com o limite de 1/s | should | XS | aberto |
 | B1.13 | Normalização de nomes de clubes + slug estável | should | M | **fechado 13/10** — medido, não há o que normalizar |
 | B1.14 | GitHub Action com cron | must | M | ✅ 2h aos fins-de-semana, 6h nos dias úteis — ver nota de cadência |
 | B1.15 | Publicação dos JSON **no mesmo domínio da PWA** (Cloudflare Pages) | must | M | ✅ mesmo domínio da PWA, sem CORS |
@@ -3660,6 +3667,79 @@ em duas no histórico. Isso é a Fase 9, e paga-se quando houver histórico para
 **A lição é a de sempre neste projecto, e desta vez apanhou-me a mim:** o backlog dizia "medido
 a 05/10" e eu quase o tratei como verdade de hoje. Uma medição tem data por alguma razão.
 
+## Um review externo, verificado item a item (16/10/2026)
+
+O dono pediu a outro agente um *code review* ao repositório e entregou-mo para avaliar. Está
+bem feito e **as sete coisas que aponta são todas reais** — confirmei-as uma a uma contra o
+código de hoje, e não contra o que ele diz. Fica aqui o que verifiquei, o que ele errou, e por
+que ordem as faria.
+
+**Foi feito contra o `46e1c87`, de 13/10 às 23:49 — treze commits atrás.** Não conhece nada do
+que se fez desde então: a guarda do contador, o Mérito no ecrã da equipa, a publicação ao fundir,
+a vigia no relógio, nem o `sugestoes.yml` a funcionar. Isso não invalida nenhum dos achados, mas
+explica por que razão alguns mudaram de forma.
+
+### O que confirmei
+
+| | O quê | Como verifiquei |
+|---|---|---|
+| **R1** | O Worker `hoquei-observador` responde a qualquer pessoa, sem chave | pedido de fora ao `workers.dev`: **HTTP 200 e 8 224 bytes**, com `ent`, `horas`, `porDia`, `sempre` e `entradasHora` — exactamente as medições que o `/contagens` e a `/consola` protegem com a `CHAVE_CONTAGENS`. E `/observar` e `/verificar-aviso` estão abertos: forçam escritas na D1 e disparos de workflows com o `GITHUB_TOKEN` do Worker |
+| **R2** | `comando_despejar` referencia cinco nomes que não existem | `uvx ruff check --select F821 src/` → **5 erros**, todos entre as linhas 112 e 129 do `cli.py`. O subcomando rebenta com `NameError` |
+| **R3** | Sete ficheiros da interface usam `toISOString().slice(0, 10)` | `grep` confirma os sete. Em hora de verão, entre as 00:00 e as 00:59 de Lisboa, "hoje" é ontem |
+| **R4** | A página de privacidade contradiz-se | linha 275: *"Não há servidor nenhum a receber opiniões"*. Linha 157: a contagem *"por amostragem — um em cada dez pedidos"* |
+| **R5** | O `README.md` ficou no início do projecto | diz "39 testes", "`/web` por começar" e "três ecrãs". São 677 testes e sete ecrãs |
+| **R6** | O `/sugerir` corre DDL em cada submissão | `CREATE TABLE IF NOT EXISTS` mais um `ALTER TABLE` antes de cada `INSERT` |
+| **R7** | Os emblemas são pedidos fora da classe `Fonte` | `cli.py:783` chama `httpx.get` directamente, saltando o limite de um pedido por segundo e a contagem em `fonte.pedidos` |
+
+### Três coisas que ele diz e que não são verdade
+
+1. **"o `pyproject.toml` só activa `E`, `F`, `I`, `UP`, `B`, `SIM`"** — não activa nada: **não há
+   configuração de `ruff` neste projecto**. A recomendação continua a valer, mas é acrescentar um
+   linter, não ligar um que já lá está.
+2. **O diagrama diz que a fonte é `placar.fpp.pt`.** É `{tenant}.assyssoftware.es` — ver o
+   `fonte.py`. O diagrama não saiu do código.
+3. **"Cron min-a-min" para o observador.** É de dez em dez minutos, e desde 09/10 vem do relógio
+   porque os `cron` do próprio observador deixaram de disparar.
+
+### E duas que ele não podia saber, e mudam a prioridade
+
+**O R3 está adormecido até à primavera.** Portugal volta a UTC+0 a **25/10/2026**, e a partir daí
+`toISOString()` e a data de Lisboa coincidem — o defeito desaparece sozinho e volta em finais de
+março. Continua a ter de ser corrigido, porque é barato e volta de certeza, mas não está a arder.
+
+**O R6 mudou de natureza hoje.** O DDL na Function existia porque criar a tabela de fora exigia o
+`CLOUDFLARE_API_TOKEN` com âmbito de D1, que não tínhamos — está escrito no `sugerir.js`. **Hoje
+já tem**, porque foi preciso para o `sugestoes.yml`. A premissa caiu, e o DDL pode sair.
+
+### Por que ordem eu as faria — e não é a dele
+
+Ele pôs a segurança em P0 e a documentação em P2. **Eu troco as duas**, e a razão é a regra
+deste projecto e não uma preferência:
+
+**Primeiro o R4, hoje.** A página de privacidade diz a quem usa a app que *"não há servidor
+nenhum a receber opiniões"*, e desde 13/10 há: o texto é gravado na D1 e arquivado num
+repositório privado. O `AGENTS.md` diz que um documento que afirma algo sobre o código se
+corrige no mesmo commit, e dá esta página como exemplo. **Uma promessa que deixou de ser verdade
+é pior do que um endereço aberto**, porque a pessoa não tem como saber. Três dias assim já é de
+mais.
+
+**Depois o R1.** É real e é a seguir: o que está exposto não são dados de pessoas — não há lá
+identificador nenhum —, são as nossas medições de utilização e uma forma de queimar quota e
+abrir registos. O caminho certo é o que o `worker/relogio` já usa para falar com o observador:
+**ligação de serviço**, não chave partilhada. A `consola.js` é uma Pages Function e pode ter uma.
+Isso fecha o `workers.dev` em vez de o proteger, que é melhor — e fecha também a tarefa B9.27,
+que está aberta desde 10/10 à espera disto.
+
+**Depois o R2 — mas com o linter, não só a correcção.** Corrigir cinco nomes é meia hora; o que
+interessa é que **nada no CI olha para símbolos indefinidos**. Um `ruff check` no `ci.yml` fecha a
+classe inteira, e este projecto já pagou duas vezes por defeitos que só se viam a correr. O
+subcomando em si não é usado por ninguém: só aparece citado no `README.md`, que também está
+errado.
+
+**O R3, o R5, o R6 e o R7 a seguir**, por esta ordem de valor. O R7 é o mais pequeno de todos e
+só dispara quando aparece um clube novo, mas é o único que toca na postura com a fonte, e essa
+não se negoceia por tamanho.
+
 ## Próximo incremento (revisto a 05/10/2026)
 
 A lista que estava aqui — publicar no Cloudflare, ecrã de equipa, quadro de marcadores,
@@ -3680,3 +3760,7 @@ O que falta, por ordem de valor e não de esforço:
 
 **A ordem importa mais do que a lista.** O 1 muda o que vale a pena fazer a seguir; tudo o
 resto é adivinhar o que as pessoas vão precisar.
+
+**À frente de tudo isto estão o R4 e o R1**, do review externo de 16/10 — uma promessa de
+privacidade que deixou de ser verdade e um endereço aberto. Nenhum dos dois acrescenta nada ao
+produto, e é por isso mesmo que se fazem primeiro: são dívidas, não funcionalidades.

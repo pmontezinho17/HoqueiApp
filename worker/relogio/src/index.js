@@ -139,6 +139,61 @@ const cabecalhos = (env) => ({
 	'user-agent': 'hoquei-relogio',
 });
 
+/**
+ * Vigia produção, e manda a verificação a sério quando ela não responde.
+ *
+ * ## Porque é que isto saiu da GitHub e veio para aqui
+ *
+ * A vigia vivia no `saude.yml`, de quinze em quinze minutos. **Medido a 15/10/2026: a última
+ * corrida dela foi às 07:01 e às 08:46 ainda não tinha havido outra** — uma hora e três
+ * quartos sem vigia, precisamente na manhã em que produção estava a servir só ficheiros
+ * estáticos. Quem deu por isso foi o dono, ao abrir a app. É o mesmo agendador que num sábado
+ * de jogos criou 2 de 8 rondas, e é a razão de este Worker existir.
+ *
+ * Aqui o `cron` dispara. Das últimas 60 rondas ao vivo, 31 foram lançadas por ele.
+ *
+ * ## Uma sonda, não uma segunda verificação
+ *
+ * Este Worker faz **um** pedido e compara **um** número. As sete verificações a sério ficam
+ * onde estavam, no `scripts/verificar_producao.py`, e são elas que dizem o que está mal e
+ * abrem o registo. Reescrevê-las aqui em JavaScript seria ter duas implementações da mesma
+ * pergunta, a divergir no dia em que alguém corrige uma só.
+ *
+ * O `/contar` é a sonda certa, e não por acaso: é um `fetch` e não uma navegação, logo
+ * atravessa a porta dos sites de ramo, e um 404 nele é o sintoma exacto desta avaria — as
+ * Pages Functions não correrem. Um 204 é o único "está bom".
+ *
+ * **O `User-Agent` tem de começar por `hoqueiAPP`.** É o prefixo que o `/contar` reconhece
+ * para não se contar a si próprio — ver o `NOSSO` no `functions/contar.js`. Sem ele, esta
+ * sonda somava uma "entrada" de dez em dez minutos e era exactamente o defeito que o dono
+ * apanhou a 15/10: 16 entradas de madrugada e zero primeiras vezes. Não basta dizer
+ * `hoquei-relogio`, que é o que o resto deste ficheiro usa para a API da GitHub.
+ *
+ * @param {Record<string, string>} env
+ * @param {typeof fetch} buscar
+ * @param {(env: unknown, workflow: string) => Promise<{ ok: boolean, status: number }>} lancar
+ */
+export async function vigiarProducao(env, buscar = fetch, lancar = disparar) {
+	let estado = 0;
+	try {
+		const r = await buscar(`${env.SONDA}?novo=0`, {
+			headers: { 'user-agent': 'hoqueiAPP-relogio (github.com/pmontezinho17/HoqueiApp)' },
+			// nunca da cache: uma sonda servida da borda não diz nada sobre o estado de agora
+			cf: { cacheTtl: 0, cacheEverything: false },
+		});
+		estado = r.status;
+	} catch (e) {
+		// Uma falha de rede **conta como suspeita**, e não como "não sei". O custo de uma
+		// verificação a mais são seis pedidos ao nosso próprio CDN; o de uma a menos foram as
+		// 18 horas de 12/10.
+		estado = -1;
+	}
+	if (estado === 204) return { sa: true, estado };
+
+	const envio = await lancar(env, env.WORKFLOW_SAUDE);
+	return { sa: false, estado, disparou: envio.ok, http: envio.status };
+}
+
 async function disparar(env, workflow, ref = env.REF || 'main') {
 	const url = `https://api.github.com/repos/${env.REPO}/actions/workflows/${workflow}/dispatches`;
 	const r = await fetch(url, {
@@ -182,6 +237,35 @@ async function socorrer(env, d) {
 	return `SOCORRO: ${d.atraso.length} jogo(s) por fechar e dados com ${d.idade} min — ronda completa ${envio.ok ? 'lançada' : `falhou ${envio.status} ${envio.corpo}`}`;
 }
 
+/**
+ * Se este tique é dos de dia — os que tratam de jogos — ou dos da noite, que só vigiam.
+ *
+ * ## Isto existe por causa de uma pergunta do dono, a 16/10/2026
+ *
+ * *"esta alteração faz com que hajam mais chamadas à APL?"*. A vigia de produção não faz
+ * nenhuma — sonda o nosso próprio site. Mas eu tinha acrescentado um `cron` para a noite, e
+ * esse punha o `scheduled` inteiro a correr lá: incluindo o cão de guarda, que lança a **ronda
+ * completa** e essa sim pede ~75 páginas à APL.
+ *
+ * Fui ver se podia disparar de facto. O `decidir` só olha para os jogos de **hoje**, pela data
+ * de Lisboa, logo às 03:00 não há jogos por fechar e o guarda cala-se. Mas o tique das 23:00
+ * UTC, **a partir de 25/10/2026** — quando Portugal volta a UTC+0 — cai às 23:00 de Lisboa,
+ * ainda no mesmo dia: um jogo das 21:30 sem resultado está 90 minutos atrasado, e o guarda
+ * lançaria uma ronda que hoje espera pela das 00:30.
+ *
+ * Uma ronda a mais não é um disparate — é precisamente para isso que o guarda existe. Mas não
+ * era a intenção desta alteração, e a regra do projecto é contar o custo **antes** de
+ * acrescentar pedidos. Por isso os tiques da noite fazem só a vigia, e o custo em pedidos à
+ * APL fica **exactamente igual ao de antes**: zero de diferença. Dar cobertura nocturna ao cão
+ * de guarda é outra decisão, com a sua própria conta.
+ *
+ * @param {number} instante
+ */
+export const eTiqueDeDia = (instante) => {
+	const h = new Date(instante).getUTCHours();
+	return h >= 6 && h <= 22;
+};
+
 export default {
 	async scheduled(evento, env, ctx) {
 		// **O relógio passa a ser também o relógio do observador.**
@@ -210,6 +294,25 @@ export default {
 				.then((r) => console.log(`observador: HTTP ${r.status}`))
 				.catch((e) => console.log(`observador: ${String(e).slice(0, 80)}`))
 		);
+
+		// **Produção primeiro.** Separado do resto e sem `await` no caminho crítico, pela mesma
+		// razão do observador: se o `decidir` rebentar, isto tem de correr à mesma — e um site
+		// em baixo é a coisa que mais depressa se quer saber.
+		ctx.waitUntil(
+			vigiarProducao(env)
+				.then((v) =>
+					console.log(
+						v.sa
+							? 'produção: responde'
+							: `produção: /contar deu ${v.estado} — verificação ${v.disparou ? 'disparada' : `não disparada (HTTP ${v.http})`}`
+					)
+				)
+				.catch((e) => console.log(`produção: ${String(e).slice(0, 80)}`))
+		);
+
+		// Os tiques da noite ficam-se pela vigia: nem jogos, nem cão de guarda, nem um pedido à
+		// APL. Ver o `eTiqueDeDia` para a conta que levou a isto.
+		if (!eTiqueDeDia(evento.scheduledTime)) return;
 
 		ctx.waitUntil((async () => {
 			const d = await decidir(env, new Date(evento.scheduledTime));
@@ -247,6 +350,15 @@ export default {
 					? 'o 422 é o esperado: a permissão está boa e o ramo de teste não existe, de propósito'
 					: 'um 403 aqui é falta da permissão Actions: Read and write — ver o README',
 			}, { status: pode ? 200 : 502, headers: { 'cache-control': 'no-store' } });
+		}
+
+		// `?producao` sonda sem disparar nada: serve para ver o que o `cron` veria.
+		if (new URL(pedido.url).searchParams.has('producao')) {
+			const v = await vigiarProducao(env, fetch, async () => ({ ok: false, status: 0 }));
+			return Response.json(
+				{ sonda: `${env.SONDA}?novo=0`, estado: v.estado, sa: v.sa, nota: 'não disparou nada' },
+				{ status: v.sa ? 200 : 502, headers: { 'cache-control': 'no-store' } }
+			);
 		}
 
 		const d = await decidir(env, new Date());
