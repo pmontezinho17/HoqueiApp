@@ -2,7 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    # O `dev` também: é lá que as funcionalidades se acumulam durante a semana, e uma semana
+    # inteira sem o CI a correr no ramo integrado era descobrir à segunda o que se parte.
+    branches: [main, dev]
   pull_request:
 
 jobs:

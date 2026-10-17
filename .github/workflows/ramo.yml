@@ -55,9 +55,13 @@ name: Site de um ramo
 
 on:
   push:
-    # Só o `testes`. O `main` tem o seu caminho pelo `dados.yml`; qualquer outro ramo não
-    # publica em lado nenhum, de propósito — ver o comentário acima.
-    branches: [testes]
+    # **Só o `dev`**, desde 17/10/2026. Era o `testes`, e o ramo mudou de nome porque mudou de
+    # papel: deixou de ser "um sítio para ver uma coisa antes de a publicar" e passou a ser
+    # **onde as funcionalidades se acumulam** até à segunda-feira. Ver `docs/10-processo.md`.
+    #
+    # O `main` tem o seu caminho pelo `dados.yml`; qualquer outro ramo não publica em lado
+    # nenhum, de propósito — ver o comentário acima.
+    branches: [dev]
   workflow_dispatch:
 
 concurrency:
@@ -112,9 +116,13 @@ jobs:
           # `workingDirectory` acima, e com o mesmo sintoma possível: um sábado em que o que
           # vai para o CDN depende de quem publicou.
           wranglerVersion: '4.149.0'
-          # O nome do ramo tal e qual: a Cloudflare faz dele o subdomínio. Um ramo com `/`
-          # no nome — `wip/x` — vira `wip-x` nas mãos dela, e o endereço sai no resumo.
-          command: pages deploy build --project-name hoquei --branch ${{ github.ref_name }}
+          # **`--branch testes` fixo, e não o nome do ramo do git.** O endereço do site de
+          # testes é conhecido, está partilhado e está escrito na política de privacidade e nos
+          # documentos; o ramo passou a chamar-se `dev` e o endereço **não** podia mudar com
+          # ele. A flag é só o rótulo que a Cloudflare usa para o subdomínio e para escolher o
+          # ambiente — nada a obriga a ser igual ao ramo, e o `dados.yml` já usa `--branch main`
+          # da mesma maneira.
+          command: pages deploy build --project-name hoquei --branch testes
 
       - name: Onde ficou
         run: |

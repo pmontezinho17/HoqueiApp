@@ -226,6 +226,34 @@ jobs:
             git pull --rebase --autostash origin main
           done
 
+      # ─────────────────────────────────────────────────────────────────────────────────────
+      # **Levar os dados também ao `dev`, senão ele envelhece sozinho.**
+      #
+      # Desde 17/10/2026 o `main` é produção e o `dev` é onde as funcionalidades se acumulam
+      # até segunda-feira — ver `docs/10-processo.md`. Os dados continuam a entrar pelo `main`,
+      # todos os dias, porque é por lá que chegam ao telemóvel de quem está na bancada. Sem
+      # isto, o `dev` ficaria uma semana com os dados da segunda anterior e os testes que lêem
+      # `web/static/v1` passariam a medir o passado.
+      #
+      # **Não há conflito possível** em condições normais: só este workflow e o `aovivo.sh`
+      # escrevem em `web/static/v1`, e o `dev` nunca lá toca. Se ainda assim houver, **aborta e
+      # avisa** em vez de resolver sozinho — um merge automático num ramo de trabalho é a
+      # maneira de desfazer o trabalho de alguém sem ninguém dar por isso.
+      - name: Levar os dados ao `dev`
+        if: steps.commit.outputs.mudou == 'true'
+        continue-on-error: true
+        run: |
+          set -uo pipefail
+          git fetch origin dev || { echo "::warning::não há ramo \`dev\` — nada a sincronizar"; exit 0; }
+          git checkout -q -B dev origin/dev
+          if git merge --no-edit main; then
+            git push origin dev && echo "dados levados ao \`dev\`"
+          else
+            git merge --abort || true
+            echo "::warning::o merge dos dados no \`dev\` deu conflito e foi abortado — o \`dev\` fica com os dados de antes, e alguém tem de olhar"
+          fi
+          git checkout -q main
+
       # **`so_publicar` existe porque publicar não pode depender da fonte.** A 09/10/2026,
       # com uma correcção pronta e urgente, o servidor da associação ficou em baixo e o
       # `Regenerar /v1` falhava — levando com ele o build e a publicação. Código novo não

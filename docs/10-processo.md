@@ -36,28 +36,57 @@ caminho de produção.
 **3 · As actualizações de segurança das dependências estavam desligadas.** O `secret scanning`
 e a protecção de push estão ligados; o Dependabot não.
 
-## O fluxo que o dono propôs, e o que lhe falta
+## O fluxo, tal como o dono o quer
 
 > ideia → backlog (prioridade e esforço) → desenvolvimento e testes → deploy em DEV → UAT com o
-> stakeholder → correcções ou validação → PR para produção → **deploy à segunda-feira**
+> stakeholder → correcções ou validação → PR para produção → **entrega à segunda-feira**
 
-Está certo em tudo menos num ponto, e esse ponto é específico deste projecto:
+**Sem interruptores em produção.** O dono recusou-os como mecanismo de entrega, a 17/10/2026, e a
+razão é boa: *"não quero que esteja deployed em produtivo mas com o tal switch de ativo ou
+inativo, pois isso pode ter algum impacto ou comprometer o resto da aplicação"*. Um interruptor
+desligado continua a ser código que foi para lá, que pode partir a construção e que ninguém está a
+exercitar. Ficam só onde já estavam, para coisas como os nomes de atletas.
 
-**Não se pode agendar os *deploys* para segunda, porque os nossos deploys levam dados.** Medido
-nos últimos oito dias: o publicador correu com sucesso **entre 2 e 14 vezes por dia**. Não é
-código a ser entregue — é o resultado do jogo das 21:00 a chegar ao telemóvel de quem está na
-bancada. Uma janela semanal de publicação congelaria os resultados durante uma semana, que é
-exactamente o contrário do que a app existe para fazer.
+## Dois ramos, e o que cada um significa
 
-**O que se agenda é a *libertação*, não a publicação.** E isso já existe aqui, em duas peças que
-foram construídas antes de haver processo:
+```
+  feature/x ──PR──►  dev  ─────────────────►  testes.hoquei.pages.dev   (a cada merge)
+                      │                        ↑ é aqui que se faz UAT
+                      │
+                      └──PR à segunda────►  main  ──►  hoquei.pages.dev
+                                             ▲
+        robô dos dados ──────────────────────┘   (2 a 14× por dia, só dados)
+```
 
-* **as bandeiras** (`web/src/lib/bandeiras.ts`): uma funcionalidade vai a produção **desligada**,
-  com data de validade e um teste que falha quando a data passa;
-* **a versão** (`web/src/lib/versao.ts`): é ela que decide se a app interrompe alguém. Subir o
-  número é o acto de libertar; publicar sem o subir não interrompe ninguém, por desenho.
+**`dev` é onde as funcionalidades se acumulam.** Publica no site de testes a cada merge, por isso
+o pacote da semana vai sendo validado ao longo dela em vez de tudo na segunda — que é o que torna
+um lançamento semanal aceitável em vez de temerário.
 
-Ou seja: **o código entra todos os dias, a funcionalidade aparece à segunda.**
+**`main` é produção, e só lá chegam duas coisas:** os dados do robô, todos os dias, e **um PR por
+semana** vindo do `dev`.
+
+### Porque é que os dados não podem esperar pela segunda
+
+Medido a 17/10, nos oito dias anteriores: o publicador correu com sucesso **entre 2 e 14 vezes por
+dia**. O que ele leva não é código — é o resultado do jogo das 21:00 a chegar ao telemóvel de quem
+está na bancada. Uma janela semanal de publicação congelava os resultados durante uma semana.
+
+E isto não é uma escolha nossa: no Cloudflare Pages uma publicação é **atómica e inteira**. Não há
+forma de actualizar um ficheiro de dados sem reenviar o site todo, e com ele o código que estiver
+na árvore. É por isso que os dados e o código **têm** de viver em ramos diferentes — foi a
+plataforma que o impôs, não o processo.
+
+O publicador, depois de comitar os dados no `main`, leva-os também ao `dev`. Conflito não há em
+condições normais, porque só ele escreve em `web/static/v1` e o `dev` nunca lá toca; se houver,
+**aborta e avisa** em vez de resolver sozinho.
+
+### O rótulo e o ramo são coisas diferentes
+
+O que diz à Cloudflare se uma publicação é de produção ou de testes é a flag `--branch` do comando,
+não o ramo do git. O `dados.yml` publica sempre com `--branch main` e o `ramo.yml` com
+`--branch testes`, corram de onde correrem. Foi assim que o ramo pôde mudar de nome sem o endereço
+do site de testes mudar — e esse endereço está partilhado, está na política de privacidade e está
+nos documentos.
 
 ## O processo, então
 
@@ -84,40 +113,42 @@ não cita quem a pediu.
 
 ### 3 · Desenvolvimento
 
-Ramo curto a partir do `main`: `feat/…`, `fix/…`, `docs/…`, `test/…`. Os dois conjuntos de
-testes correm antes de o trabalho se dar por feito, e o que é visível confirma-se **no browser
-a 375×812, nos dois temas**, com dados reais.
-
-**Nada visível entra sem bandeira enquanto não estiver validado.**
+Ramo curto a partir do **`dev`**: `feat/…`, `fix/…`, `docs/…`, `test/…`. Os dois conjuntos de
+testes correm antes de o trabalho se dar por feito, e o que é visível confirma-se **no browser a
+375×812, nos dois temas**, com dados reais.
 
 ### 4 · DEV — o site de testes
 
-O ramo funde-se em `testes` e o `ramo.yml` publica. É aqui que o dono vê a coisa a funcionar,
-com os dados de produção.
+PR para o `dev`, CI verde, merge. O `ramo.yml` publica em `testes.hoquei.pages.dev`, que lê os
+**dados de produção** e difere de produção só no código.
 
 ### 5 · UAT
 
-O dono usa e responde uma de três coisas: **validado**, **corrige isto**, ou **repensa**. Enquanto
-não disser *validado*, não há PR para `main` — e é esta a inversão face ao que se fazia até 17/10.
+O dono usa e responde uma de três coisas: **validado**, **corrige isto**, ou **repensa**. Nada sai
+do `dev` sem a primeira — e é esta a inversão face ao que se fazia até 17/10, quando juntar um PR
+era publicar e ele só via a alteração depois de estar no ar.
 
-### 6 · Entrega
+### 6 · Entrega — à segunda-feira
 
-PR para `main`, CI verde, e o dono funde. O código vai a produção na publicação seguinte,
-**desligado** se for visível e ainda não for para mostrar.
+Um PR do `dev` para o `main`, com a lista do que vai dentro. O dono funde, e sai **uma** publicação
+com o pacote todo. A versão sobe e as novidades ganham as linhas da semana.
 
-### 7 · Libertação — à segunda-feira
+**A excepção, e tem de haver uma:** uma correcção de uma coisa partida em produção vai por um ramo
+**directo ao `main`**, em qualquer dia, e é depois levada ao `dev`. A 17/10 a app dizia que sábado
+era sexta, e isso corrigiu-se e publicou-se na mesma noite. A regra é: *o que repara, a qualquer
+dia; o que acrescenta, à segunda*.
 
-À segunda sobe-se a **versão** e escreve-se a linha das **novidades**, e é aí que as pessoas
-vêem o que mudou. Uma bandeira que esteja pronta liga-se no mesmo dia.
+### 7 · Depois de publicar
 
-**Excepção, e tem de haver uma:** uma correcção de uma coisa partida em produção não espera pela
-segunda. A 17/10 a app dizia que sábado era sexta, e isso corrigiu-se e publicou-se na mesma
-noite. A regra é: *o que repara, a qualquer dia; o que acrescenta, à segunda*.
+A verificação corre sozinha e pergunta ao site sete coisas. O relógio da Cloudflare sonda produção
+de 10 em 10 minutos, 24 h por dia. E a consola diz quantas pessoas abriram a app — o único número
+que é exacto.
 
-### 8 · Depois de publicar
+## O preço disto, dito à frente
 
-A verificação corre sozinha e pergunta ao site. O relógio sonda de 10 em 10 minutos. E a
-consola diz quantas pessoas abriram a app — o único número que é exacto.
+Um pacote semanal é mais coisas a chegar de uma vez, e se alguma correr mal há mais sítios onde
+procurar. É o custo conhecido de entregar por lotes, e o que o compensa aqui é o site de testes
+correr o `dev` continuamente: no dia do lançamento, nada daquilo é novidade para quem validou.
 
 ## O que vem do playbook, e o que fica de fora
 
@@ -127,6 +158,7 @@ O documento que o dono trouxe é um *playbook* de organização grande. O que se
 |---|---|
 | **Definition of Ready** antes de desenvolver | a triagem do passo 2: sem prioridade e tamanho, não entra |
 | **Verification gate** / **Validation gate** | o CI é a verificação; o UAT no site de testes é a validação. **Eram a mesma coisa até 17/10, e esse era o erro** |
+| **Entrega por lotes, numa janela combinada** | o PR semanal do `dev` para o `main`, à segunda |
 | Ramos curtos com nome normalizado | já é prática; fica escrito |
 | Proteger o ramo principal | **a adoptar** — sem pushes directos, com o CI obrigatório |
 | SCA / dependências | **a adoptar** — ligar as actualizações de segurança do Dependabot |
@@ -152,4 +184,5 @@ E o que **não** se adopta, com a razão:
 
 ## Em uma frase
 
-**O CI verifica, o site de testes valida, o `main` entrega, e a segunda-feira liberta.**
+**O `dev` acumula, o site de testes valida, e à segunda-feira um PR leva o pacote a produção.**
+Os dados não esperam por ninguém.
