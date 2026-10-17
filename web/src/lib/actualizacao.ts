@@ -39,12 +39,31 @@
  * do service worker (medido no `build/sw.js`); e que o `updateServiceWorker(reloadPage?)` aceita
  * mesmo o `false`, lido dos tipos instalados.
  *
- * **Não verificado de ponta a ponta:** que o `needRefresh` leva a este caminho. Não consegui
- * pôr o `vite preview` a produzir um service worker em espera — num recarregamento completo o
- * novo activa logo, e o `registration.update()` não trouxe nenhum. O aviso só aparece com a
- * página aberta enquanto o servidor muda, e isso vê-se a sério no site de testes: publica-se,
- * deixa-se a app aberta, publica-se outra vez com uma alteração invisível, e olha-se. Fica dito
- * em vez de ser dado por feito.
+ * ## Verificado de ponta a ponta a 17/10/2026, e porque é que falhou das primeiras vezes
+ *
+ * O dono perguntou o que acontece a quem esteja numa versão antiga depois de três publicações
+ * seguidas: *"o utilizador vai ter de carregar 3 vezes no botão atualizar?"*. Pergunta boa, e a
+ * resposta estava por provar — este comentário dizia que o caminho do `needRefresh` nunca tinha
+ * sido confirmado.
+ *
+ * **Confirmado agora, num build de produção servido em `localhost`:**
+ *
+ * 1. app aberta na 1.6, service worker activo;
+ * 2. constrói-se a 1.9 e **reinicia-se o servidor** → `registration.update()` → `waiting: 1`;
+ * 3. constrói-se a 2.0, reinicia-se, `update()` outra vez → **`waiting` continua a ser 1**, e é
+ *    o da 2.0. Não há fila: `registration.waiting` é um lugar só e cada instalação substitui a
+ *    anterior;
+ * 4. `postMessage({ type: 'SKIP_WAITING' })` — que é o que o botão faz — e a página recarregou
+ *    sozinha, com `waiting: 0` e a app na **2.0**, saltando a 1.7, a 1.8 e a 1.9.
+ *
+ * **Uma vez, portanto. Um toque leva sempre à mais recente.**
+ *
+ * E a razão pela qual isto não se tinha conseguido provar antes era um erro de método meu, não
+ * do código: o `vite preview` indexa os ficheiros quando arranca e **devolve 404 aos que o build
+ * criou depois**. O service worker novo tentava pré-guardar 124 ficheiros, apanhava 404 em
+ * dezenas, a instalação falhava e ele morria — `installing → redundant`, sem nunca ficar em
+ * espera. Os mesmos ficheiros davam 200 em produção. Reiniciar o servidor entre as construções
+ * resolve, e aí vê-se o comportamento verdadeiro.
  */
 
 export type Decisao = 'calar' | 'perguntar';
