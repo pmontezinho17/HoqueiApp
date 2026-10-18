@@ -15,8 +15,11 @@ publica (ver `tests/test_tabela.py`, que volta a medi-las a cada execução):
   acerta em 151, `2V+1E` em 65.
 * **A tabela conta só a fase de grupos.** Numa prova com séries, os jogos a eliminar
   (quartos, meias, final) vêm com a coluna de grupo vazia e **não** contam para lado nenhum.
-* **Prova de série única deixa a coluna de grupo vazia em todos os jogos.** Aí contam todos,
-  numa só tabela sem nome.
+* **Prova de série única deixa a coluna de grupo vazia em todos os jogos.** Aí contam todos
+  os da fase de grupos, numa só tabela sem nome — mas a eliminatória continua de fora, e aí
+  quem a reconhece é a **jornada** e não a coluna de grupo. Ver `_ELIMINATORIA`: esta regra
+  chegou a 18/10/2026, e até lá a TAÇA PROF. JOAO CAMPELO levava com as meias-finais dentro
+  da tabela.
 * **A ordem é a do Artigo 7.º do regulamento da APL** — confronto directo primeiro, e
   quociente no fim. Ver `_ordenar`.
 
@@ -260,16 +263,47 @@ def _linhas(jogos: list[Jogo], como_a_fonte: bool = False) -> list[LinhaClassifi
     ]
 
 
+#: Uma jornada que é **eliminatória** e não fase de grupos.
+#:
+#: A coluna de grupo não chega para as separar, e isso só se viu a 18/10/2026. Numa prova com
+#: séries, a eliminatória vem com a coluna de grupo vazia e o `calcular` já a deixava de fora
+#: por aí. Mas a **prova de série única deixa a coluna vazia em todos os jogos**, e aí o ramo
+#: do "entram todos" engolia também as meias-finais.
+#:
+#: Medido nas 37 competições publicadas: das dez com eliminatória, nove não se enganam — cinco
+#: têm séries (a TAÇA JESUS CORREIA e os quatro TORNEIO ABERTURA) e as outras quatro são
+#: Supertaças, eliminatórias puras sem tabela nenhuma. **A TAÇA PROF. JOAO CAMPELO - SENIORES
+#: FEMININOS é a única que é série única *e* tem eliminatória**, e era a única das 42 tabelas
+#: publicadas que não reproduzíamos: contávamos as duas meias-finais de 11/10 e dávamos quatro
+#: jogos a cada equipa onde a fonte dá três — 23 campos errados, e 12 pontos ao A STUART HCM
+#: onde a fonte dá 9.
+#:
+#: O `JORNADA` ganha à palavra de eliminatória de propósito: a fonte escreve
+#: `1ª JORNADA - 1ª FASE`, e um dia pode escrever `1ª JORNADA - FASE FINAL`. Uma jornada
+#: numerada é fase de grupos, diga o resto o que disser.
+_ELIMINATORIA = re.compile(r"\b(FINAL|MEIA|QUARTOS|OITAVOS)\b", re.IGNORECASE)
+
+
+def _de_grupos(j: Jogo) -> bool:
+    jornada = (getattr(j, "jornada", None) or "").upper()
+    return "JORNADA" in jornada or not _ELIMINATORIA.search(jornada)
+
+
 def calcular(jogos: Iterable[Jogo], como_a_fonte: bool = False) -> list[GrupoClassificacao]:
     """A classificação de uma prova, um grupo por série.
 
-    Numa prova com séries, os jogos sem grupo são a fase a eliminar e ficam de fora. Numa
-    prova de série única — onde *nenhum* jogo traz grupo — entram todos, num grupo sem nome.
+    Só conta a fase de grupos, e isso decide-se por **duas** coisas: numa prova com séries, os
+    jogos sem grupo são a fase a eliminar e ficam de fora; e em qualquer prova, uma jornada de
+    eliminatória fica de fora — ver `_ELIMINATORIA`, que é o que apanha a prova de série única,
+    onde *nenhum* jogo traz grupo e o teste da coluna não distingue nada.
+
+    Uma equipa que só apareça na eliminatória deixa de ter linha, e é o que deve ser: ela não
+    disputou a fase de grupos que esta tabela classifica.
 
     `como_a_fonte` troca o desempate do regulamento pelo da fonte e serve **só** ao teste de
     reprodução — ver `_como_a_fonte` para o porquê e para o caso que separa os dois.
     """
-    jogos = list(jogos)
+    jogos = [j for j in jogos if _de_grupos(j)]
     series = sorted({j.grupo for j in jogos if j.grupo})
     if not series:
         return [GrupoClassificacao(nome=None, linhas=_linhas(jogos, como_a_fonte))]
@@ -332,7 +366,7 @@ class _JogoDeJson:
     estas provas não tem tabela nenhuma para dar.
     """
 
-    __slots__ = ("casa", "fora", "golos_casa", "golos_fora", "grupo", "ao_vivo")
+    __slots__ = ("casa", "fora", "golos_casa", "golos_fora", "grupo", "jornada", "ao_vivo")
 
     def __init__(self, d: dict) -> None:
         self.casa = d.get("casa")
@@ -340,6 +374,9 @@ class _JogoDeJson:
         self.golos_casa = d.get("golos_casa")
         self.golos_fora = d.get("golos_fora")
         self.grupo = d.get("grupo")
+        # a `jornada` entrou a 18/10/2026: é ela que separa a eliminatória da fase de
+        # grupos numa prova de série única — ver `_ELIMINATORIA`
+        self.jornada = d.get("jornada")
         self.ao_vivo = bool(d.get("ao_vivo"))
 
 

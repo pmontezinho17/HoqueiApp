@@ -16,7 +16,7 @@ nativa: chega a Android e iPhone ao mesmo tempo e publica-se por link. As lojas 
 via TWA/Capacitor, se houver confiança para isso. Ver [docs/00-onde-retomar.md](docs/00-onde-retomar.md).
 
 ```bash
-cd scraper && uv sync && uv run pytest -q -m "not fonte"   # 311 testes, sem rede
+cd scraper && uv sync && uv run pytest -q -m "not fonte"   # 317 testes, sem rede
 uv run python -m hoquei.cli jogo --id 9308                 # ficha e cronologia de um jogo
 cd ../web && npm install && npx vitest run                 # 387 testes
 npm run dev                                                # a PWA em localhost:5173
@@ -25,7 +25,7 @@ npm run dev                                                # a PWA em localhost:
 A marca `fonte` separa os cinco testes que comparam o nosso cálculo da classificação com a
 tabela que a fonte publica **naquele momento**: também correm sem rede — lêem o JSON já
 publicado em `web/static/v1` — mas avisam sem bloquear, porque uma incoerência passageira da
-fonte não é um defeito nosso. São 316 ao todo. Porquê, em `scraper/tests/conftest.py`.
+fonte não é um defeito nosso. São 322 ao todo. Porquê, em `scraper/tests/conftest.py`.
 
 **Dados pessoais.** Desde 30/09/2026, por decisão do dono do projecto, os nomes de atletas são
 publicados em todos os escalões, incluindo os de formação, por a fonte já os expor publicamente.
