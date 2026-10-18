@@ -127,8 +127,8 @@
    "hora": "20:00:00",
    "casa": "AD OEIRAS B",
    "fora": "A STUART HCM A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 5,
+   "golos_fora": 1,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
   },
@@ -335,6 +335,20 @@
     },
     {
      "posicao": 2,
+     "equipa": "AD OEIRAS B",
+     "logo": "/intranet/logos/6.png",
+     "jogos": 4,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 14,
+     "golos_sofridos": 13,
+     "diferenca": 1,
+     "racio": 1.08,
+     "pontos": 6
+    },
+    {
+     "posicao": 3,
      "equipa": "FSE/AJ SALESIANA",
      "logo": "/intranet/logos/9.png",
      "jogos": 3,
@@ -348,7 +362,7 @@
      "pontos": 4
     },
     {
-     "posicao": 3,
+     "posicao": 4,
      "equipa": "CD PAÇO ARCOS B",
      "logo": "/intranet/logos/7.png",
      "jogos": 3,
@@ -362,30 +376,16 @@
      "pontos": 4
     },
     {
-     "posicao": 4,
-     "equipa": "AD OEIRAS B",
-     "logo": "/intranet/logos/6.png",
-     "jogos": 3,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 2,
-     "golos_marcados": 9,
-     "golos_sofridos": 12,
-     "diferenca": -3,
-     "racio": 0.75,
-     "pontos": 3
-    },
-    {
      "posicao": 5,
      "equipa": "A STUART HCM A",
      "logo": "/intranet/logos/10.png",
-     "jogos": 2,
+     "jogos": 3,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 2,
-     "golos_marcados": 2,
-     "golos_sofridos": 10,
-     "diferenca": -8,
+     "derrotas": 3,
+     "golos_marcados": 3,
+     "golos_sofridos": 15,
+     "diferenca": -12,
      "racio": 0.2,
      "pontos": 0
     }

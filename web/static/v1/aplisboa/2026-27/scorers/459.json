@@ -1,6 +1,6 @@
 {
  "competicao_id": 459,
- "jogos_considerados": 5,
+ "jogos_considerados": 6,
  "jogadores": [
   {
    "nome": "FRANCISCO MAURICIO",
@@ -94,6 +94,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "RODRIGO HERMENEGILDO",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "2",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DANIEL ANTUNES",
    "equipa": "CACO",
    "jogos": 2,
@@ -133,19 +146,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "RODRIGO HERMENEGILDO",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
-   "numero": "2",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "AFONSO SOARES",
    "equipa": "PAREDE FC",
    "jogos": 2,
@@ -159,10 +159,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "CAIO HELENO",
+   "equipa": "A STUART HCM",
+   "jogos": 2,
+   "numero": "17",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOÃO COUTO",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 2,
    "numero": "4",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RAFAEL ANTUNES",
+   "equipa": "A STUART HCM",
+   "jogos": 2,
+   "numero": "19",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -250,45 +276,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANDRÉ CARREIRO",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
-   "numero": "7",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "CAIO HELENO",
-   "equipa": "A STUART HCM",
-   "jogos": 1,
-   "numero": "17",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO HELFRICH",
-   "equipa": "A STUART HCM",
-   "jogos": 1,
-   "numero": "6",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GUSTAVO ROSA",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 1,
@@ -302,10 +289,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "RAFAEL ANTUNES",
+   "nome": "ANDRÉ CARREIRO",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "7",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GONÇALO HELFRICH",
    "equipa": "A STUART HCM",
-   "jogos": 1,
-   "numero": "19",
+   "jogos": 2,
+   "numero": "6",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -367,16 +367,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO VIEIRA",
-   "equipa": "A STUART HCM",
-   "jogos": 1,
-   "numero": "77",
+   "nome": "DANIEL SILVA",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "15",
    "golos": 0,
-   "assistencias": 1,
+   "assistencias": 2,
    "defesas": 0,
-   "pontos": 1,
+   "pontos": 2,
    "amarelos": 0,
-   "azuis": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -393,32 +393,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANTONIO PINHEIRO",
-   "equipa": "A STUART HCM",
-   "jogos": 1,
-   "numero": "21",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DANIEL SILVA",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "AFONSO REIS",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 2,
@@ -429,6 +403,32 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "AFONSO VIEIRA",
+   "equipa": "A STUART HCM",
+   "jogos": 2,
+   "numero": "77",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANTONIO PINHEIRO",
+   "equipa": "A STUART HCM",
+   "jogos": 2,
+   "numero": "21",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -484,23 +484,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DANIEL AFONSO",
+   "nome": "DANIEL ALMEIDA",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 1,
-   "numero": "17",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DAVID SOUSA",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
-   "numero": "10",
+   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -523,10 +510,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOAQUIM RESINA",
+   "nome": "JOSÉ GONÇALVES",
    "equipa": "A STUART HCM",
    "jogos": 1,
-   "numero": "92",
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -549,10 +536,10 @@
    "vermelhos": 1
   },
   {
-   "nome": "MATEUS MARQUES",
+   "nome": "MARTIM XISTO",
    "equipa": "A STUART HCM",
    "jogos": 1,
-   "numero": "4",
+   "numero": "9",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -577,71 +564,6 @@
   {
    "nome": "NUNO REIS",
    "equipa": "PAREDE FC",
-   "jogos": 1,
-   "numero": "7",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "PABLO GALLETTI",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RAFAEL GASPAR",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
-   "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SALVADOR SANTOS",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SALVADOR SILVA",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 1,
-   "numero": "15",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SANTIAGO MORAIS",
-   "equipa": "A STUART HCM",
    "jogos": 1,
    "numero": "7",
    "golos": 0,
@@ -692,10 +614,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "DANIEL AFONSO",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "17",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "DAVI OLIVEIRA",
    "equipa": "CACO",
    "jogos": 2,
    "numero": "76",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DAVID SOUSA",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -744,6 +692,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOAQUIM RESINA",
+   "equipa": "A STUART HCM",
+   "jogos": 2,
+   "numero": "92",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOÃO CASTRO",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 2,
@@ -783,6 +744,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MATEUS MARQUES",
+   "equipa": "A STUART HCM",
+   "jogos": 2,
+   "numero": "4",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MATEUS PALMEIRIM",
    "equipa": "PAREDE FC",
    "jogos": 2,
@@ -796,10 +770,75 @@
    "vermelhos": 0
   },
   {
+   "nome": "PABLO GALLETTI",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "4",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RAFAEL GASPAR",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "RODRIGO MUHAREIA",
    "equipa": "CACO",
    "jogos": 2,
    "numero": "50",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SALVADOR SANTOS",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SALVADOR SILVA",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "33",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SANTIAGO MORAIS",
+   "equipa": "A STUART HCM",
+   "jogos": 2,
+   "numero": "7",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
