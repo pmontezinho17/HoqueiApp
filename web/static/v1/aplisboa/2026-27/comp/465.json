@@ -433,12 +433,12 @@
    "grupo": null,
    "jornada": "7ª JORNADA",
    "data": "2026-11-07",
-   "hora": "13:30:00",
+   "hora": "15:00:00",
    "casa": "CD PAÇO ARCOS A",
    "fora": "HC SINTRA",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. PAÇO DE ARCOS",
+   "recinto": "PAV. HC SINTRA",
    "ao_vivo": false
   },
   {
@@ -830,7 +830,7 @@
    "fora": "CD PAÇO ARCOS A",
    "golos_casa": null,
    "golos_fora": null,
-   "recinto": "PAV. HC SINTRA",
+   "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
   }
  ],
