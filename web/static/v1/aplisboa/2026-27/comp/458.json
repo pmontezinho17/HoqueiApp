@@ -118,8 +118,8 @@
    "hora": "18:15:00",
    "casa": "SPORTING CP",
    "fora": "GD SESIMBRA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 3,
    "recinto": "PAV.G.S.SACAVENENSE",
    "ao_vivo": false
   },
@@ -466,6 +466,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "GD SESIMBRA",
+     "logo": "/intranet/logos/66.png",
+     "jogos": 2,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 9,
+     "golos_sofridos": 4,
+     "diferenca": 5,
+     "racio": 2.25,
+     "pontos": 6
+    },
+    {
+     "posicao": 2,
      "equipa": "AD OEIRAS",
      "logo": "/intranet/logos/6.png",
      "jogos": 1,
@@ -475,20 +489,6 @@
      "golos_marcados": 9,
      "golos_sofridos": 3,
      "diferenca": 6,
-     "racio": 3.0,
-     "pontos": 3
-    },
-    {
-     "posicao": 2,
-     "equipa": "GD SESIMBRA",
-     "logo": "/intranet/logos/66.png",
-     "jogos": 1,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 6,
-     "golos_sofridos": 2,
-     "diferenca": 4,
      "racio": 3.0,
      "pontos": 3
     },
@@ -510,14 +510,14 @@
      "posicao": 4,
      "equipa": "SPORTING CP",
      "logo": "/intranet/logos/2.png",
-     "jogos": 0,
+     "jogos": 1,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 0,
-     "golos_sofridos": 0,
-     "diferenca": 0,
-     "racio": null,
+     "derrotas": 1,
+     "golos_marcados": 2,
+     "golos_sofridos": 3,
+     "diferenca": -1,
+     "racio": 0.67,
      "pontos": 0
     },
     {

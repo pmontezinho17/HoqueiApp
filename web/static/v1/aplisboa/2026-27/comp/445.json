@@ -216,7 +216,7 @@
    "hora": "16:30:00",
    "casa": "SPORTING CP A",
    "fora": "FSE/AJ SALESIANA",
-   "golos_casa": 3,
+   "golos_casa": 4,
    "golos_fora": 0,
    "recinto": "PAV.G.S.SACAVENENSE",
    "ao_vivo": false
@@ -486,9 +486,9 @@
      "vitorias": 5,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 29,
+     "golos_marcados": 30,
      "golos_sofridos": 0,
-     "diferenca": 29,
+     "diferenca": 30,
      "racio": null,
      "pontos": 15
     },
@@ -501,9 +501,9 @@
      "empates": 0,
      "derrotas": 2,
      "golos_marcados": 25,
-     "golos_sofridos": 8,
-     "diferenca": 17,
-     "racio": 3.12,
+     "golos_sofridos": 9,
+     "diferenca": 16,
+     "racio": 2.78,
      "pontos": 9
     },
     {

@@ -34,9 +34,9 @@
    "jogos": 5,
    "numero": "3",
    "golos": 10,
-   "assistencias": 3,
+   "assistencias": 4,
    "defesas": 0,
-   "pontos": 13,
+   "pontos": 14,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -250,6 +250,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "AFONSO EIRAS",
+   "equipa": "AD OEIRAS B",
+   "jogos": 2,
+   "numero": "2",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "VICENTE QUINTELA",
    "equipa": "SPORTING CP B",
    "jogos": 4,
@@ -445,6 +458,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DINIS GONÇALVES",
+   "equipa": "AD OEIRAS B",
+   "jogos": 2,
+   "numero": "6",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DUARTE DINIZ",
    "equipa": "AE FISICA D B",
    "jogos": 5,
@@ -562,19 +588,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO EIRAS",
-   "equipa": "AD OEIRAS B",
-   "jogos": 2,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ANDRE RAFAEL",
    "equipa": "AE FISICA D B",
    "jogos": 2,
@@ -592,19 +605,6 @@
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 2,
    "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DINIS GONÇALVES",
-   "equipa": "AD OEIRAS B",
-   "jogos": 2,
-   "numero": "6",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -750,7 +750,7 @@
    "numero": "1",
    "golos": 0,
    "assistencias": 0,
-   "defesas": 1,
+   "defesas": 2,
    "pontos": 0,
    "amarelos": 1,
    "azuis": 0,

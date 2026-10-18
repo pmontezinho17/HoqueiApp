@@ -16,6 +16,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "ALEXANDRE ABRANTES",
+   "equipa": "SPORTING CP A",
+   "jogos": 5,
+   "numero": "4",
+   "golos": 9,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 11,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "ISABELA PILÃO",
    "equipa": "PAREDE FC A",
    "jogos": 6,
@@ -24,19 +37,6 @@
    "assistencias": 4,
    "defesas": 0,
    "pontos": 12,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ALEXANDRE ABRANTES",
-   "equipa": "SPORTING CP A",
-   "jogos": 5,
-   "numero": "4",
-   "golos": 8,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 10,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0

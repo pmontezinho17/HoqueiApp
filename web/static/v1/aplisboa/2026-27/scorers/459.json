@@ -7,10 +7,23 @@
    "equipa": "UF ENTRONCAMENTO",
    "jogos": 2,
    "numero": "78",
-   "golos": 5,
+   "golos": 7,
    "assistencias": 5,
    "defesas": 0,
-   "pontos": 10,
+   "pontos": 12,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MIGUEL JOÃO",
+   "equipa": "UF ENTRONCAMENTO",
+   "jogos": 2,
+   "numero": "10",
+   "golos": 4,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 6,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -29,25 +42,12 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO SANTOS",
-   "equipa": "UF ENTRONCAMENTO",
+   "nome": "JOÃO FERNANDES",
+   "equipa": "CD PAÇO ARCOS A",
    "jogos": 2,
-   "numero": "12",
-   "golos": 3,
-   "assistencias": 4,
-   "defesas": 0,
-   "pontos": 7,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MIGUEL JOÃO",
-   "equipa": "UF ENTRONCAMENTO",
-   "jogos": 2,
-   "numero": "10",
-   "golos": 3,
-   "assistencias": 1,
+   "numero": "8",
+   "golos": 4,
+   "assistencias": 0,
    "defesas": 0,
    "pontos": 4,
    "amarelos": 0,
@@ -55,14 +55,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO FERNANDES",
-   "equipa": "CD PAÇO ARCOS A",
+   "nome": "LOURENÇO SANTOS",
+   "equipa": "UF ENTRONCAMENTO",
    "jogos": 2,
-   "numero": "8",
+   "numero": "12",
    "golos": 3,
-   "assistencias": 0,
+   "assistencias": 5,
    "defesas": 0,
-   "pontos": 3,
+   "pontos": 8,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -98,6 +98,32 @@
    "equipa": "CACO",
    "jogos": 2,
    "numero": "66",
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MATEUS MARQUES",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 2,
+   "numero": "5",
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PAULO FERNANDES",
+   "equipa": "CACO",
+   "jogos": 2,
+   "numero": "77",
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
@@ -146,19 +172,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MATEUS MARQUES",
-   "equipa": "CD PAÇO ARCOS A",
-   "jogos": 2,
-   "numero": "5",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "RODRIGO SANTOS",
    "equipa": "CACO",
    "jogos": 2,
@@ -169,6 +182,19 @@
    "pontos": 3,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARTIM CORREIA",
+   "equipa": "UF ENTRONCAMENTO",
+   "jogos": 1,
+   "numero": "22",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -185,10 +211,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "PAULO FERNANDES",
-   "equipa": "CACO",
+   "nome": "HUGO MATOS",
+   "equipa": "UF ENTRONCAMENTO",
    "jogos": 2,
-   "numero": "77",
+   "numero": "08",
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
@@ -202,6 +228,19 @@
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 2,
    "numero": "7",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VASCO ROSA",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 2,
+   "numero": "3",
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
@@ -276,19 +315,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "HUGO MATOS",
-   "equipa": "UF ENTRONCAMENTO",
-   "jogos": 2,
-   "numero": "08",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOÃO LOURENÇO",
    "equipa": "CACO",
    "jogos": 2,
@@ -325,6 +351,19 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS GAMA",
+   "equipa": "PAREDE FC",
+   "jogos": 2,
+   "numero": "5",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -397,19 +436,6 @@
    "equipa": "CACO",
    "jogos": 2,
    "numero": "4",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "VASCO ROSA",
-   "equipa": "CD PAÇO ARCOS A",
-   "jogos": 2,
-   "numero": "3",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -521,19 +547,6 @@
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 1
-  },
-  {
-   "nome": "MARTIM CORREIA",
-   "equipa": "UF ENTRONCAMENTO",
-   "jogos": 1,
-   "numero": "22",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
   },
   {
    "nome": "MATEUS MARQUES",
@@ -675,7 +688,7 @@
    "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
-   "azuis": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -714,7 +727,7 @@
    "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
-   "azuis": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -778,7 +791,7 @@
    "assistencias": 0,
    "defesas": 0,
    "pontos": 0,
-   "amarelos": 0,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -802,7 +815,7 @@
    "numero": "10",
    "golos": 0,
    "assistencias": 0,
-   "defesas": 0,
+   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -813,19 +826,6 @@
    "equipa": "PAREDE FC",
    "jogos": 2,
    "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TOMÁS GAMA",
-   "equipa": "PAREDE FC",
-   "jogos": 2,
-   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
