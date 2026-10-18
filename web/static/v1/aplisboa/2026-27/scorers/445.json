@@ -1,14 +1,14 @@
 {
  "competicao_id": 445,
- "jogos_considerados": 13,
+ "jogos_considerados": 14,
  "jogadores": [
   {
-   "nome": "ALEXANDRE ABRANTES",
-   "equipa": "SPORTING CP A",
-   "jogos": 4,
+   "nome": "ANA SEGADÃES",
+   "equipa": "PAREDE FC A",
+   "jogos": 6,
    "numero": "4",
-   "golos": 7,
-   "assistencias": 2,
+   "golos": 9,
+   "assistencias": 0,
    "defesas": 0,
    "pontos": 9,
    "amarelos": 0,
@@ -18,12 +18,25 @@
   {
    "nome": "ISABELA PILÃO",
    "equipa": "PAREDE FC A",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "8",
-   "golos": 5,
+   "golos": 7,
+   "assistencias": 4,
+   "defesas": 0,
+   "pontos": 11,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ALEXANDRE ABRANTES",
+   "equipa": "SPORTING CP A",
+   "jogos": 4,
+   "numero": "4",
+   "golos": 7,
    "assistencias": 2,
    "defesas": 0,
-   "pontos": 7,
+   "pontos": 9,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -81,19 +94,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANA SEGADÃES",
-   "equipa": "PAREDE FC A",
-   "jogos": 5,
-   "numero": "4",
-   "golos": 5,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 5,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIEGO ALVES",
    "equipa": "AE FISICA D A",
    "jogos": 4,
@@ -120,14 +120,40 @@
    "vermelhos": 0
   },
   {
+   "nome": "SALVADOR MONTEZINHO",
+   "equipa": "PAREDE FC A",
+   "jogos": 6,
+   "numero": "7",
+   "golos": 4,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "VICENTE ROCHA",
    "equipa": "PAREDE FC A",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "3",
    "golos": 4,
    "assistencias": 1,
    "defesas": 0,
    "pontos": 5,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "CARLOTA SEABRA",
+   "equipa": "PAREDE FC A",
+   "jogos": 6,
+   "numero": "5",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -141,19 +167,6 @@
    "assistencias": 3,
    "defesas": 0,
    "pontos": 6,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SALVADOR MONTEZINHO",
-   "equipa": "PAREDE FC A",
-   "jogos": 5,
-   "numero": "7",
-   "golos": 3,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 4,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -200,7 +213,7 @@
   {
    "nome": "LOURENÇO FILIPE",
    "equipa": "PAREDE FC A",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "9",
    "golos": 3,
    "assistencias": 0,
@@ -280,19 +293,6 @@
    "equipa": "A STUART HCM",
    "jogos": 5,
    "numero": "84",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "CARLOTA SEABRA",
-   "equipa": "PAREDE FC A",
-   "jogos": 5,
-   "numero": "5",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -393,19 +393,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "LUCAS ESTALAGEM",
-   "equipa": "CD MAFRA",
-   "jogos": 3,
-   "numero": "17",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "RAFAEL GOMES",
    "equipa": "A STUART HCM",
    "jogos": 3,
@@ -442,6 +429,19 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LUCAS ESTALAGEM",
+   "equipa": "CD MAFRA",
+   "jogos": 4,
+   "numero": "17",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -484,8 +484,8 @@
    "vermelhos": 0
   },
   {
-   "nome": "DANIEL PFISTER",
-   "equipa": "CD MAFRA",
+   "nome": "ALICE SANTOS",
+   "equipa": "PAREDE FC A",
    "jogos": 1,
    "numero": "6",
    "golos": 0,
@@ -523,19 +523,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "RODRIGO RATO",
-   "equipa": "CD MAFRA",
-   "jogos": 1,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "TIAGO LAMEGO",
    "equipa": "A STUART HCM",
    "jogos": 1,
@@ -549,10 +536,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "TOMAS MARÇAL",
+   "equipa": "PAREDE FC A",
+   "jogos": 1,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TOMAS PEREIRA",
    "equipa": "CD MAFRA",
    "jogos": 1,
    "numero": "8",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DANIEL PFISTER",
+   "equipa": "CD MAFRA",
+   "jogos": 2,
+   "numero": "6",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -614,23 +627,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "BENEDITA AMORIM",
+   "nome": "RODRIGO RATO",
    "equipa": "CD MAFRA",
-   "jogos": 3,
-   "numero": "14",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "CONTANCA CESAR",
-   "equipa": "CD MAFRA",
-   "jogos": 3,
-   "numero": "21",
+   "jogos": 2,
+   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -657,19 +657,6 @@
    "equipa": "A STUART HCM",
    "jogos": 3,
    "numero": "67",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MIGUEL PACHECO",
-   "equipa": "CD MAFRA",
-   "jogos": 3,
-   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -718,16 +705,29 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO DEODATO",
+   "nome": "BENEDITA AMORIM",
    "equipa": "CD MAFRA",
    "jogos": 4,
-   "numero": "26",
+   "numero": "14",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
-   "azuis": 3,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "CONTANCA CESAR",
+   "equipa": "CD MAFRA",
+   "jogos": 4,
+   "numero": "21",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -757,19 +757,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "HENRIQUE JANEIRO",
-   "equipa": "CD MAFRA",
-   "jogos": 4,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JAIME FONSECA",
    "equipa": "AE FISICA D A",
    "jogos": 4,
@@ -777,19 +764,6 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LUAN LUCENA",
-   "equipa": "CD MAFRA",
-   "jogos": 4,
-   "numero": "20",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -822,10 +796,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "NATANAEL PRAZERES",
+   "nome": "MIGUEL PACHECO",
    "equipa": "CD MAFRA",
    "jogos": 4,
-   "numero": "23",
+   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -900,6 +874,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "AFONSO DEODATO",
+   "equipa": "CD MAFRA",
+   "jogos": 5,
+   "numero": "26",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 3,
+   "vermelhos": 0
+  },
+  {
    "nome": "DUARTE BARROS",
    "equipa": "A STUART HCM",
    "jogos": 5,
@@ -926,9 +913,48 @@
    "vermelhos": 0
   },
   {
+   "nome": "HENRIQUE JANEIRO",
+   "equipa": "CD MAFRA",
+   "jogos": 5,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LUAN LUCENA",
+   "equipa": "CD MAFRA",
+   "jogos": 5,
+   "numero": "20",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "NATANAEL PRAZERES",
+   "equipa": "CD MAFRA",
+   "jogos": 5,
+   "numero": "23",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "SIMÃO LOPES",
    "equipa": "PAREDE FC A",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "1",
    "golos": 0,
    "assistencias": 0,

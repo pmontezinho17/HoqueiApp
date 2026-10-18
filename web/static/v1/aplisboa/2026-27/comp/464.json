@@ -127,8 +127,8 @@
    "hora": "14:30:00",
    "casa": "CACO B",
    "fora": "UD VILAFRANQUENSE B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 10,
    "recinto": "PAV.C.A.C.OURIQUE",
    "ao_vivo": false
   },
@@ -141,8 +141,8 @@
    "hora": "15:00:00",
    "casa": "FSE/AJ SALESIANA B",
    "fora": "AE FISICA D B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 1,
+   "golos_fora": 1,
    "recinto": "PAV. SALESIANA",
    "ao_vivo": false
   },
