@@ -647,7 +647,8 @@ As regras que saíram daí, medidas e não assumidas:
 | **3 pontos por vitória, 1 por empate** | ajuste contra 151 linhas publicadas: `3V+1E` acerta 151/151, `2V+1E` só 65/151 |
 | **Ordem: pontos → diferença de golos → golos marcados** | reproduz a ordem exacta das 42 tabelas |
 | **A tabela conta só a fase de grupos** | os jogos a eliminar (quartos, meias, final) vêm com a coluna de grupo vazia e **não** entram. Era a causa de 25 das 29 divergências iniciais |
-| **Prova de série única deixa a coluna de grupo vazia** | aí contam todos os jogos. Eram as 4 divergências restantes |
+| **Prova de série única deixa a coluna de grupo vazia** | aí contam todos os jogos **da fase de grupos**. Eram as 4 divergências restantes |
+| **Numa prova de série única, quem separa a eliminatória é a jornada** | corrigido a 18/10/2026: a coluna de grupo não distingue nada quando está vazia em todos os jogos, e a TAÇA PROF. JOAO CAMPELO entrava com as duas meias-finais de 11/10 dentro da tabela — 23 campos errados. Ver `_ELIMINATORIA` no `tabela.py` |
 
 Isto quer dizer que podemos gerar as tabelas em falta **com o mesmo motor que reproduz as
 existentes** — e manter essa reprodução como teste permanente. Se a APL mudar a regra de
