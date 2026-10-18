@@ -694,6 +694,7 @@ Daí saem três cadências, e não duas:
 | B9.13 | **Teste de reprodução**: recalcular as 42 tabelas publicadas e exigir igualdade | must | S | ✅ `tests/test_tabela.py`, 17 testes. Compara 10 campos por linha, baralha a entrada antes de ordenar, e falha se a amostra encolher |
 | B9.14 | Publicar classificação calculada para ESCOLARES e BENJAMINS | should | S | ✅ **feito a 07/10/2026.** 8 séries, 43 equipas, **43 linhas** de tabela. Decisão do dono, com o travão acima à frente e **sem** resposta da APL ao email de 01/10. Os **Torneios Particulares** e as Supertaças ficaram de fora, contra a formulação original deste item: são jogos-treino e eliminatórias, e ali uma tabela punha o vencedor de uma meia-final à frente do vencedor da final — ver `vale_calcular` |
 | B9.15 | Rótulo "calculada por nós, não oficial" nessas tabelas | must | XS | ✅ **feito a 07/10/2026**, num componente só (`RotuloCalculada.svelte`) usado nos três ecrãs que mostram tabelas: competição, equipa e ficha de jogo. Três cópias do texto divergiam na primeira vez que uma mudasse |
+| B9.14b | **Medição de 18/10/2026: a tabela calculada não serve hoje nenhuma prova** | — | — | ✅ medido, e **fica como está** — ver a secção "A tabela calculada está inactiva, e é de propósito" a seguir a esta tabela |
 | B9.16 | Ronda de **fecho do dia** às 00:30, que sela o dia e recalcula | must | S | o `cron` actual de 2h fica para frescura |
 | B9.17 | Ronda **ao vivo** sobre os jogos a decorrer, sem saber favoritos | could | M | ✅ **feito e validado em jogo real a 03/10** — `cli aovivo`. Parte da agenda publicada, escolhe só os jogos a decorrer e vai buscar esses: 12 jogos = 12 pedidos, ronda completa em ~15 s. Mede-se com o utilizador na bancada: ~20 s da mesa + ~15 s nossos, **menos de um minuto de ponta a ponta** |
 | B9.18 | **Normalizar grafias de clube** | should | S | a fonte tem `A STRUART HCM` vs `A STUART HCM` e `HC LOURINHA` vs `HC LOURINHÃ`. É literalmente a "limpeza" do pedido, e hoje parte emblemas e junções por nome |
@@ -710,6 +711,56 @@ Daí saem três cadências, e não duas:
 | B9.26 | A ronda ao vivo começa a seguir um jogo **25 min antes** da hora marcada | should | XS | ✅ é a única janela em que a convocatória pode existir, e usa a máquina que já está a correr em vez de pedidos novos. A app já sabe mostrar "Convocados" em vez de "Ficha" e esconder as colunas a zero |
 | B9.19 | **Impressão estrutural por ronda**: nº de colunas por tipo de tabela, com aviso quando muda | should | S | ideia emprestada do Scrapling (ver [07](07-avaliacao-scrapling.md)), sem a dependência nem a relocalização silenciosa |
 | Q4.7 | **A sonda pára quando já não há nada a observar** | must | XS | ✅ corria as 4 horas inteiras depois do apito final — ~57 pedidos inúteis a um servidor pequeno de uma federação, contra a nossa própria postura, e o diário só era comitado no fim. Agora sai `--apos-fim` rondas (5) depois de todos os jogos terminarem, e essas rondas medem quanto tempo o boletim ainda mexe |
+
+### A tabela calculada está inactiva, e é de propósito — medido a 18/10/2026
+
+Quem abrir o `tabela.py` encontra um motor de classificação completo, um guarda
+(`vale_calcular`), uma chave `classificacao_calculada` no contrato e um rótulo de "não
+oficial" em três ecrãs — e **nada disso produz uma única linha hoje**. Fui ver se era código
+esquecido. Não é, e fica registado aqui para o próximo não ter de redescobrir.
+
+**O que se mediu**, nas 37 competições publicadas em `web/static/v1/aplisboa/2026-27/comp/`:
+
+| | |
+|---|---|
+| competições | 37 |
+| com tabela publicada pela fonte | 23 (42 tabelas, 176 linhas) |
+| sem tabela nenhuma | 14 |
+| **com tabela calculada por nós** | **0** |
+
+As 14 sem tabela dividem-se exactamente como o `vale_calcular` as descreve, e nenhuma está de
+fora por engano: **8** Encontros Distritais (5 Escolares + 3 Benjamins), que levam o Mérito do
+Artigo 92.º e não uma tabela de vitórias; **4** Supertaças, que são eliminatórias puras; e
+**2** Torneios Particulares, que são jogos-treino de pré-época.
+
+**Porque é que o guarda nunca dispara.** A expressão `_POR_PONTOS` só aceita nomes começados
+por `CAMP. REG.`, e isso casa com **17** competições — os campeonatos regionais de sub-13 a
+sub-19. As 17 têm tabela publicada pela fonte, e onde a fonte publica a dela é que manda. O
+guarda é, portanto, uma rede para o dia em que a APL deixe de publicar a tabela de um
+campeonato regional.
+
+**Esse dia nunca aconteceu**, e também se mediu: o `data-samples/rondas/aplisboa.jsonl` tem
+36 rondas entre 03/10 e 17/10/2026, e o `linhas_classificacao` esteve nas **176** em todas —
+mínimo 176, máximo 176, zero descidas.
+
+**Fica como está**, por três razões que não são inércia:
+
+1. **O motor não é código morto.** O teste de reprodução corre-o contra as 42 tabelas
+   publicadas a cada execução. É a parte mais exercitada do `scraper`, e foi ele que apanhou
+   o arredondamento bancário, o jogo ao vivo a entrar como empate e as meias-finais de 18/10.
+   Remover o guarda não removia o motor.
+2. **O rótulo tem de estar no ar *antes* dos dados.** É a mesma razão por que a tabela
+   calculada foi para uma chave nova e não para a `classificacao` — ver `_com_tabela_calculada`.
+   Tirar o `RotuloCalculada.svelte` agora e repô-lo no dia em que a rede fosse precisa abria
+   uma janela em que a nossa tabela chegava a telemóveis cujo *build* não sabe rotulá-la.
+3. **O custo é uma expressão regular e uma verificação de verdade**, por prova, por ronda.
+
+**O que não se confirmou.** Fui procurar o caminho em que o guarda dispara *errado* — uma
+prova `CAMP. REG.` cuja tabela não foi pedida nessa ronda, ficando com `classificacao` vazia e
+levando a nossa no lugar da dela. Está fechado em duas camadas: o `comando_publicar` reutiliza
+a classificação da última publicação quando salta a tabela, e o `pedir_tabela` devolve sempre
+"pedir" quando não há cópia publicada para reutilizar (`sem cópia publicada para reutilizar`).
+Uma prova nova nunca é saltada. Não encontrei forma de lá chegar.
 
 ### Firebase e GCP — avaliado a 06/10/2026, a pedido do dono
 
@@ -2204,7 +2255,7 @@ honesta):
 | De quanto em quanto tempo actualiza? | `dados.yml` e o ciclo ao vivo: 30 s durante os jogos, duas horas aos fins de semana, seis nos dias úteis | sim, se a cadência mudar |
 | Isto é oficial? | não — `/mais`, secção "Este site não é oficial" | não |
 | Porque é que falta um jogo, ou um resultado está errado? | republicamos o que a fonte publica, tal como lá está; o caminho é escrever-nos | não |
-| Porque é que a classificação dos Escolares e Benjamins diz "não oficial"? | a fonte não a publica; calculamo-la nós desde 07/10/2026, com o rótulo (B9.14/B9.15) | não |
+| ~~Porque é que a classificação dos Escolares e Benjamins diz "não oficial"?~~ | **a pergunta deixou de fazer sentido a 10/10/2026**: esses escalões passaram a mostrar o Mérito da Formação e nunca tiveram tabela calculada desde então. O `/ajuda` que se construiu já pergunta o que interessa — *"porque é que a classificação dos Escolares e dos Benjamins é tão estranha?"* — e responde com o Artigo 92.º. Corrigido a 18/10/2026; esta linha apodreceu três dias depois de ser escrita, que é exactamente o que o critério de aceitação acima avisava | — |
 | Como sigo as minhas equipas, e como as mudo depois? | `O Meu Clube` — o ecrã de escolha de emblemas | não |
 | Dá para instalar no telemóvel? | é uma PWA: "Adicionar ao ecrã principal" | não |
 | Funciona sem rede? | sim, com o que já foi lido — `/privacidade` descreve a cópia local | não |
