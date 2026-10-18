@@ -1,0 +1,84 @@
+Copyright (c) 2026 Pedro Montezinho. Todos os direitos reservados.
+
+Este repositório é público para ser **lido**. Não é software de código aberto.
+
+
+## O que não é concedido
+
+Nenhuma licença é concedida sobre este código, estes textos ou este desenho. Em
+particular, e sem autorização escrita prévia do titular, não é permitido:
+
+  - usar este código, no todo ou em parte, em qualquer outro projecto;
+  - copiar, modificar, adaptar ou criar obras derivadas;
+  - publicar, distribuir, sublicenciar, alugar ou vender;
+  - usar o nome **OK4Sticks**, ou nome semelhante ao ponto de se confundir com ele,
+    para identificar qualquer produto ou serviço.
+
+A ausência de um ficheiro de licença permissiva não é um descuido: é a posição.
+Repositório público significa visível, não significa livre.
+
+
+## O que é permitido
+
+  - Ler o código e os documentos.
+  - As operações que os termos de serviço do GitHub concedem a quem visita um
+    repositório público — nomeadamente visualizar e bifurcar (*fork*) dentro do
+    próprio GitHub.
+  - Usar a aplicação publicada em hoquei.pages.dev, que é de acesso livre e
+    gratuito.
+
+Nada nesta licença impede ninguém de escrever, do zero, a sua própria aplicação de
+resultados desportivos. O direito de autor protege esta expressão concreta, não a
+ideia de acompanhar hóquei em patins.
+
+
+## Os dados
+
+Os ficheiros em `web/static/v1/` e em `data-samples/` são dados desportivos
+derivados de fonte terceira. **Nada nesta licença concede direitos sobre esses
+dados**, nem o titular reclama qualquer direito sobre eles para lá do trabalho de
+recolha, normalização e apresentação. Quem quiser usar dados desportivos deve
+tratar disso com quem os publica.
+
+
+## Contribuições
+
+Este repositório não aceita contribuições externas de momento. É deliberado: manter
+a titularidade do código numa só mão evita discussões de propriedade mais tarde.
+*Pull requests* não solicitados serão fechados sem análise.
+
+
+## Pedidos de autorização
+
+Qualquer uso fora do que está acima precisa de autorização escrita. Pede-a a
+info.ok4sticks@gmail.com, dizendo o que queres fazer e com que fim. A resposta pode
+perfeitamente ser "sim".
+
+
+--------------------------------------------------------------------------------
+
+## English summary
+
+**Copyright (c) 2026 Pedro Montezinho. All rights reserved.**
+
+This repository is public so that it can be read. It is **not** open source, and no
+licence is granted. You may not use, copy, modify, distribute, sublicense or sell
+this code or any part of it without prior written permission, and you may not use
+the name **OK4Sticks** to identify any product or service.
+
+You may read the code, use the published application at hoquei.pages.dev free of
+charge, and do whatever the GitHub Terms of Service allow a visitor to a public
+repository to do, including forking within GitHub itself.
+
+The sports data under `web/static/v1/` and `data-samples/` is derived from a
+third-party source. **No rights to that data are granted here**, and none are
+claimed beyond the work of collecting, normalising and presenting it.
+
+Nothing here stops anyone from writing their own sports results application from
+scratch. Copyright protects this particular expression, not the idea.
+
+External contributions are not accepted at this time; unsolicited pull requests
+will be closed unread. For permission requests, write to info.ok4sticks@gmail.com
+saying what you want to do and why. The answer may well be yes.
+
+The Portuguese text above prevails in case of divergence.
