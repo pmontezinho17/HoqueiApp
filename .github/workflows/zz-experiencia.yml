@@ -1,0 +1,10 @@
+# Ficheiro descartável: existe só para medir se um PR que toca em `.github/workflows/`
+# deixa de receber corrida de CI. Apagar com o ramo `teste/ci-dispara`.
+name: Experiência descartável
+on:
+  workflow_dispatch:
+jobs:
+  nada:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "não faz nada"
