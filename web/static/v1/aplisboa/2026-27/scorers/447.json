@@ -3,6 +3,19 @@
  "jogos_considerados": 12,
  "jogadores": [
   {
+   "nome": "ALEXANDRE FARIAS",
+   "equipa": "AD OEIRAS A",
+   "jogos": 4,
+   "numero": "4",
+   "golos": 14,
+   "assistencias": 13,
+   "defesas": 0,
+   "pontos": 27,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOÃO RAMOS",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 4,
@@ -11,19 +24,6 @@
    "assistencias": 7,
    "defesas": 0,
    "pontos": 19,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ALEXANDRE FARIAS",
-   "equipa": "AD OEIRAS A",
-   "jogos": 4,
-   "numero": "4",
-   "golos": 11,
-   "assistencias": 13,
-   "defesas": 0,
-   "pontos": 24,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -47,9 +47,9 @@
    "jogos": 4,
    "numero": "11",
    "golos": 9,
-   "assistencias": 4,
+   "assistencias": 9,
    "defesas": 0,
-   "pontos": 13,
+   "pontos": 18,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -59,10 +59,10 @@
    "equipa": "AD OEIRAS A",
    "jogos": 4,
    "numero": "6",
-   "golos": 8,
+   "golos": 9,
    "assistencias": 2,
    "defesas": 0,
-   "pontos": 10,
+   "pontos": 11,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -120,25 +120,25 @@
    "vermelhos": 0
   },
   {
+   "nome": "RAFAEL ALMEIDA",
+   "equipa": "AD OEIRAS A",
+   "jogos": 4,
+   "numero": "2",
+   "golos": 5,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 7,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RAFAEL CARAPINHA",
    "equipa": "CRIAR-T GD",
    "jogos": 4,
    "numero": "7",
    "golos": 5,
    "assistencias": 1,
-   "defesas": 0,
-   "pontos": 6,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RAFAEL ALMEIDA",
-   "equipa": "AD OEIRAS A",
-   "jogos": 4,
-   "numero": "2",
-   "golos": 4,
-   "assistencias": 2,
    "defesas": 0,
    "pontos": 6,
    "amarelos": 0,
