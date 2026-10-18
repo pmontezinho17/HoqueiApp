@@ -216,7 +216,7 @@
    "hora": "17:00:00",
    "casa": "AD OEIRAS B",
    "fora": "AE FISICA D B",
-   "golos_casa": 6,
+   "golos_casa": 8,
    "golos_fora": 0,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
@@ -472,10 +472,10 @@
      "vitorias": 5,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 37,
+     "golos_marcados": 39,
      "golos_sofridos": 6,
-     "diferenca": 31,
-     "racio": 6.17,
+     "diferenca": 33,
+     "racio": 6.5,
      "pontos": 15
     },
     {
@@ -529,9 +529,9 @@
      "empates": 0,
      "derrotas": 4,
      "golos_marcados": 5,
-     "golos_sofridos": 21,
-     "diferenca": -16,
-     "racio": 0.24,
+     "golos_sofridos": 23,
+     "diferenca": -18,
+     "racio": 0.22,
      "pontos": 3
     },
     {

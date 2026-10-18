@@ -142,7 +142,7 @@
    "casa": "FSE/AJ SALESIANA",
    "fora": "CD PAÇO ARCOS B",
    "golos_casa": 3,
-   "golos_fora": 2,
+   "golos_fora": 3,
    "recinto": "PAV. SALESIANA",
    "ao_vivo": false
   },
@@ -338,14 +338,14 @@
      "equipa": "FSE/AJ SALESIANA",
      "logo": "/intranet/logos/9.png",
      "jogos": 3,
-     "vitorias": 2,
-     "empates": 0,
+     "vitorias": 1,
+     "empates": 1,
      "derrotas": 1,
      "golos_marcados": 9,
-     "golos_sofridos": 8,
-     "diferenca": 1,
-     "racio": 1.12,
-     "pontos": 6
+     "golos_sofridos": 9,
+     "diferenca": 0,
+     "racio": 1.0,
+     "pontos": 4
     },
     {
      "posicao": 3,
@@ -353,13 +353,13 @@
      "logo": "/intranet/logos/7.png",
      "jogos": 3,
      "vitorias": 1,
-     "empates": 0,
-     "derrotas": 2,
-     "golos_marcados": 7,
+     "empates": 1,
+     "derrotas": 1,
+     "golos_marcados": 8,
      "golos_sofridos": 9,
-     "diferenca": -2,
-     "racio": 0.78,
-     "pontos": 3
+     "diferenca": -1,
+     "racio": 0.89,
+     "pontos": 4
     },
     {
      "posicao": 4,
