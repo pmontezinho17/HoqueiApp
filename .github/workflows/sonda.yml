@@ -41,6 +41,13 @@ jobs:
     timeout-minutes: 290
     steps:
       - uses: actions/checkout@v4
+        with:
+          # A mesma chave de escrita do `dados.yml`, e pela mesma razão: esta sonda também
+          # commita no `main` com `[skip ci]`, portanto sem checks, e o ruleset `main protegido`
+          # recusá-la-ia. O porquê completo — incluindo a medição de 18/10/2026 que mostra que o
+          # bypass do `github-actions[bot]` não existe em repositórios pessoais — está no
+          # comentário do `dados.yml`, onde vive o publicador principal.
+          ssh-key: ${{ secrets.CHAVE_ESCRITA }}
 
       - name: Sondar os jogos de hoje
         run: |

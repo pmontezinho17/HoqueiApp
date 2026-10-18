@@ -95,6 +95,28 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          # **A chave de escrita, e porque é que tinha de ser uma chave.**
+          #
+          # Desde 18/10/2026 o `main` exige PR e `scraper`/`web` verdes — o ruleset
+          # `main protegido`, que existe porque dos 30 commits anteriores **6 eram pushes
+          # directos** sem revisão nenhuma, e desde 16/10 um push no `main` publica.
+          #
+          # Esta ronda escreve no `main` 2 a 14 vezes por dia e os commits dela levam
+          # `[skip ci]`: nunca teriam os checks, por isso eram recusados pelas duas regras ao
+          # mesmo tempo e **a recolha parava**. Os dados não podem esperar pela segunda-feira —
+          # ver `docs/10-processo.md`.
+          #
+          # O bypass óbvio não existe. **Medido a 18/10/2026** contra a API do GitHub: pôr o
+          # `github-actions[bot]` nas excepções de um repositório **pessoal** é recusado com
+          # *"Actor GitHub Actions integration must be part of the ruleset source or owner
+          # organization"* — só funciona em organizações. O que a API aceita é `DeployKey`: uma
+          # chave presa a este repositório, sem poderes de utilizador nenhum. É essa que vai
+          # aqui, e é ela que distingue "o robô dos dados" de "alguém a publicar à pressa".
+          #
+          # **Com o segredo em falta isto não muda nada.** Lido no código da acção
+          # (`git-auth-helper.ts:205`): com `ssh-key` vazio sai e volta ao token. Foi o que
+          # permitiu aterrar a alteração num domingo de jogos sem janela de risco.
+          ssh-key: ${{ secrets.CHAVE_ESCRITA }}
 
       - uses: astral-sh/setup-uv@v5
         with:
