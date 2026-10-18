@@ -216,8 +216,8 @@
    "hora": "17:00:00",
    "casa": "AD OEIRAS B",
    "fora": "AE FISICA D B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 6,
+   "golos_fora": 0,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
   },
@@ -230,8 +230,8 @@
    "hora": "14:45:00",
    "casa": "SPORTING CP B",
    "fora": "CACO B",
-   "golos_casa": 3,
-   "golos_fora": 1,
+   "golos_casa": 16,
+   "golos_fora": 2,
    "recinto": "PAV.G.S.SACAVENENSE",
    "ao_vivo": false
   },
@@ -468,15 +468,15 @@
      "posicao": 1,
      "equipa": "AD OEIRAS B",
      "logo": "/intranet/logos/6.png",
-     "jogos": 4,
-     "vitorias": 4,
+     "jogos": 5,
+     "vitorias": 5,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 31,
+     "golos_marcados": 37,
      "golos_sofridos": 6,
-     "diferenca": 25,
-     "racio": 5.17,
-     "pontos": 12
+     "diferenca": 31,
+     "racio": 6.17,
+     "pontos": 15
     },
     {
      "posicao": 2,
@@ -486,10 +486,10 @@
      "vitorias": 4,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 27,
-     "golos_sofridos": 6,
-     "diferenca": 21,
-     "racio": 4.5,
+     "golos_marcados": 40,
+     "golos_sofridos": 7,
+     "diferenca": 33,
+     "racio": 5.71,
      "pontos": 12
     },
     {
@@ -524,14 +524,14 @@
      "posicao": 5,
      "equipa": "AE FISICA D B",
      "logo": "/intranet/logos/11.png",
-     "jogos": 4,
+     "jogos": 5,
      "vitorias": 1,
      "empates": 0,
-     "derrotas": 3,
+     "derrotas": 4,
      "golos_marcados": 5,
-     "golos_sofridos": 15,
-     "diferenca": -10,
-     "racio": 0.33,
+     "golos_sofridos": 21,
+     "diferenca": -16,
+     "racio": 0.24,
      "pontos": 3
     },
     {
@@ -542,10 +542,10 @@
      "vitorias": 0,
      "empates": 0,
      "derrotas": 5,
-     "golos_marcados": 5,
-     "golos_sofridos": 28,
-     "diferenca": -23,
-     "racio": 0.18,
+     "golos_marcados": 6,
+     "golos_sofridos": 41,
+     "diferenca": -35,
+     "racio": 0.15,
      "pontos": 0
     }
    ]

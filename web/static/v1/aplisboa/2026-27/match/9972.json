@@ -3,9 +3,9 @@
  "competicao": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE E",
  "casa": "FSE/AJ SALESIANA B",
  "fora": "AE FISICA D B",
- "golos_casa": 1,
- "golos_fora": 1,
- "estado": null,
+ "golos_casa": 4,
+ "golos_fora": 3,
+ "estado": "Jogo Terminado",
  "data": "2026-10-18",
  "hora": "15:00:00",
  "recinto": "PAV. SALESIANA",
@@ -13,11 +13,11 @@
   "JOSE BENEDI"
  ],
  "faltas": [
-  0,
-  0
+  1,
+  4
  ],
- "situacao": "Intervalo 2º",
- "periodo": "Intervalo 2º",
+ "situacao": "Jogo Terminado",
+ "periodo": null,
  "relogio": null,
  "equipas": [
   {
@@ -41,7 +41,7 @@
      "numero": "2",
      "nome": "EVA CÍRIACO",
      "titular": false,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -54,7 +54,7 @@
     {
      "numero": "3",
      "nome": "JOÃO CONSTANTINO",
-     "titular": false,
+     "titular": true,
      "golos": 1,
      "assistencias": 0,
      "defesas": 0,
@@ -68,7 +68,7 @@
     {
      "numero": "4",
      "nome": "DUARTE CASTRO",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -82,7 +82,7 @@
     {
      "numero": "5",
      "nome": "LOURENÇO FERNANDES",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -96,7 +96,7 @@
     {
      "numero": "6",
      "nome": "LUCA FRIOLI",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -111,7 +111,7 @@
      "numero": "7",
      "nome": "MARIANA GOARMON",
      "titular": false,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -139,11 +139,11 @@
      "numero": "9",
      "nome": "VASCO RODRIGUES",
      "titular": false,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
-     "livres_diretos": "0/0",
+     "livres_diretos": "1/1",
      "cartoes_amarelos": 0,
      "cartoes_azuis": 0,
      "cartoes_vermelhos": 0,
@@ -152,7 +152,7 @@
     {
      "numero": "10",
      "nome": "JOSÉ GARIN",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -227,7 +227,7 @@
     {
      "numero": "2",
      "nome": "ALICE ALVES",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -243,7 +243,7 @@
      "nome": "AFONSO CARRIÇO",
      "titular": false,
      "golos": 1,
-     "assistencias": 0,
+     "assistencias": 1,
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
@@ -283,8 +283,8 @@
     {
      "numero": "6",
      "nome": "LEONARDO ROSA",
-     "titular": false,
-     "golos": 0,
+     "titular": true,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -297,7 +297,7 @@
     {
      "numero": "8",
      "nome": "AFONSO FERREIRA",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -311,9 +311,9 @@
     {
      "numero": "9",
      "nome": "RODRIGO GONÇALVES",
-     "titular": false,
-     "golos": 0,
-     "assistencias": 0,
+     "titular": true,
+     "golos": 1,
+     "assistencias": 1,
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
@@ -325,7 +325,7 @@
     {
      "numero": "10",
      "nome": "GONÇALO POVOA",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -457,10 +457,316 @@
    "golos_casa": null,
    "golos_fora": null,
    "texto": "Final da 2ª parte"
+  },
+  {
+   "ordem": 6,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 3ª parte"
+  },
+  {
+   "ordem": 7,
+   "tipo": "falta_equipa",
+   "relogio": "5:57",
+   "parte": 3,
+   "minuto": 18,
+   "equipa": "AE FISICA D B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 1,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 1 para AE FISICA D B"
+  },
+  {
+   "ordem": 8,
+   "tipo": "falta_equipa",
+   "relogio": "3:41",
+   "parte": 3,
+   "minuto": 20,
+   "equipa": "AE FISICA D B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 2,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 2 para AE FISICA D B"
+  },
+  {
+   "ordem": 9,
+   "tipo": "golo",
+   "relogio": "3:18",
+   "parte": 3,
+   "minuto": 20,
+   "equipa": "AE FISICA D B",
+   "jogador": "LEONARDO ROSA",
+   "assistencia": "RODRIGO GONÇALVES",
+   "variante": null,
+   "numero": null,
+   "golos_casa": 1,
+   "golos_fora": 2,
+   "texto": "Golo para AE FISICA D B | LEONARDO ROSA | Assistência por RODRIGO GONÇALVES"
+  },
+  {
+   "ordem": 10,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 3,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 3ª parte"
+  },
+  {
+   "ordem": 11,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 4ª parte"
+  },
+  {
+   "ordem": 12,
+   "tipo": "golo",
+   "relogio": "6:16",
+   "parte": 4,
+   "minuto": 25,
+   "equipa": "AE FISICA D B",
+   "jogador": "RODRIGO GONÇALVES",
+   "assistencia": "AFONSO CARRIÇO",
+   "variante": null,
+   "numero": null,
+   "golos_casa": 1,
+   "golos_fora": 3,
+   "texto": "Golo para AE FISICA D B | RODRIGO GONÇALVES | Assistência por AFONSO CARRIÇO"
+  },
+  {
+   "ordem": 13,
+   "tipo": "falta_equipa",
+   "relogio": "3:41",
+   "parte": 4,
+   "minuto": 28,
+   "equipa": "AE FISICA D B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 3,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 3 para AE FISICA D B"
+  },
+  {
+   "ordem": 14,
+   "tipo": "golo",
+   "relogio": "2:41",
+   "parte": 4,
+   "minuto": 29,
+   "equipa": "FSE/AJ SALESIANA B",
+   "jogador": "VASCO RODRIGUES",
+   "assistencia": null,
+   "variante": "livre_direto",
+   "numero": null,
+   "golos_casa": 2,
+   "golos_fora": 3,
+   "texto": "Golo para FSE/AJ SALESIANA B de Livre Direto | Marcado por VASCO RODRIGUES"
+  },
+  {
+   "ordem": 15,
+   "tipo": "falta_equipa",
+   "relogio": "2:13",
+   "parte": 4,
+   "minuto": 29,
+   "equipa": "FSE/AJ SALESIANA B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 1,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 1 para FSE/AJ SALESIANA B"
+  },
+  {
+   "ordem": 16,
+   "tipo": "golo",
+   "relogio": "1:43",
+   "parte": 4,
+   "minuto": 30,
+   "equipa": "FSE/AJ SALESIANA B",
+   "jogador": "EVA CÍRIACO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 3,
+   "golos_fora": 3,
+   "texto": "Golo para FSE/AJ SALESIANA B | EVA CÍRIACO"
+  },
+  {
+   "ordem": 17,
+   "tipo": "golo",
+   "relogio": "1:18",
+   "parte": 4,
+   "minuto": 30,
+   "equipa": "FSE/AJ SALESIANA B",
+   "jogador": "MARIANA GOARMON",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 4,
+   "golos_fora": 3,
+   "texto": "Golo para FSE/AJ SALESIANA B | MARIANA GOARMON"
+  },
+  {
+   "ordem": 18,
+   "tipo": "falta_equipa",
+   "relogio": "0:14",
+   "parte": 4,
+   "minuto": 31,
+   "equipa": "AE FISICA D B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 4,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 4 para AE FISICA D B"
+  },
+  {
+   "ordem": 19,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 4,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
- "merito": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE BENEDI",
+   "Árbitro Auxiliar": "RITA NASCIMENTO",
+   "Cronometrista": "DANIEL LENCASTRE",
+   "Diretor de campo": "RUI QUADRADO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   0,
+   1
+  ],
+  "faltas_fora": [
+   0,
+   4
+  ],
+  "inicio": [
+   "15:00",
+   "15:25"
+  ],
+  "termo": [
+   "15:18",
+   "15:47"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
+ "merito": [
+  {
+   "equipa": "FSE/AJ SALESIANA B",
+   "atletas": 10,
+   "guardas_redes": 2,
+   "participantes": 10,
+   "completa": true,
+   "bonificacao": 14,
+   "penalizacao": 0,
+   "total": 14,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "10 atletas participantes",
+     "pontos": 10
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "3.4",
+     "texto": "equipa completa (2 GR e 8 JC)",
+     "pontos": 1
+    }
+   ],
+   "avisos": [
+    "1 atleta(s) com um só período — o 4.1.7 penaliza em 6 pontos e retira as bonificações, salvo lesão comprovada pelo árbitro, que o boletim publicado não mostra. Fica por confirmar e não está descontado."
+   ]
+  },
+  {
+   "equipa": "AE FISICA D B",
+   "atletas": 9,
+   "guardas_redes": 2,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -2,
+   "total": 7,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "4.1.4",
+     "texto": "2 com 3 meias partes",
+     "pontos": -2
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 464,
  "categoria": "ESCOLARES",
  "jornada": "4ª JORNADA",

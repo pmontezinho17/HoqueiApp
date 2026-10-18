@@ -5,7 +5,7 @@
  "fora": "UD VILAFRANQUENSE B",
  "golos_casa": 0,
  "golos_fora": 10,
- "estado": null,
+ "estado": "Jogo Terminado",
  "data": "2026-10-18",
  "hora": "14:30:00",
  "recinto": "PAV.C.A.C.OURIQUE",
@@ -14,11 +14,11 @@
  ],
  "faltas": [
   0,
-  3
+  4
  ],
- "situacao": "4ª Parte (4:42)",
- "periodo": "4ª Parte",
- "relogio": "4:42",
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "CACO B",
@@ -26,7 +26,7 @@
     {
      "numero": "80",
      "nome": "DUARTE FERREIRA",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -40,7 +40,7 @@
     {
      "numero": "19",
      "nome": "VASCO HENRIQUES",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -68,7 +68,7 @@
     {
      "numero": "35",
      "nome": "JOANA RODRIGUES",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -124,7 +124,7 @@
     {
      "numero": "88",
      "nome": "FRANCISCO LUIS",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -138,7 +138,7 @@
     {
      "numero": "97",
      "nome": "CATARINA DOMINGOS",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -199,7 +199,7 @@
     {
      "numero": "61",
      "nome": "RODRIGO VENTURA",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -227,7 +227,7 @@
     {
      "numero": "7",
      "nome": "GONCALO RODRIGUES",
-     "titular": false,
+     "titular": true,
      "golos": 2,
      "assistencias": 1,
      "defesas": 0,
@@ -241,7 +241,7 @@
     {
      "numero": "9",
      "nome": "GONÇALO ALMEIDA",
-     "titular": false,
+     "titular": true,
      "golos": 2,
      "assistencias": 0,
      "defesas": 0,
@@ -255,7 +255,7 @@
     {
      "numero": "23",
      "nome": "PEDRO REIS",
-     "titular": false,
+     "titular": true,
      "golos": 4,
      "assistencias": 0,
      "defesas": 0,
@@ -269,7 +269,7 @@
     {
      "numero": "62",
      "nome": "CAETANA VICENTE",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -625,10 +625,140 @@
    "golos_casa": 0,
    "golos_fora": 10,
    "texto": "Golo para UD VILAFRANQUENSE B | GONÇALO ALMEIDA"
+  },
+  {
+   "ordem": 20,
+   "tipo": "falta_equipa",
+   "relogio": "0:37",
+   "parte": 4,
+   "minuto": 31,
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 4,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 4 para UD VILAFRANQUENSE B"
+  },
+  {
+   "ordem": 21,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 4,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
- "merito": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "FABIO LEITAO",
+   "Árbitro Auxiliar": "SUSANA OLIVEIRA",
+   "Cronometrista": "SERGIO DOMINGOS",
+   "Diretor de campo": "ARLETE RAFAELA",
+   "Gestor de segurança": "MARCO POVOA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 6
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 4
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 10
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   2,
+   2
+  ],
+  "inicio": [
+   "14:30",
+   "15:00"
+  ],
+  "termo": [
+   "14:55",
+   "15:26"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
+ "merito": [
+  {
+   "equipa": "CACO B",
+   "atletas": 9,
+   "guardas_redes": 1,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -1,
+   "total": 8,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE B",
+   "atletas": 7,
+   "guardas_redes": 1,
+   "participantes": 7,
+   "completa": false,
+   "bonificacao": 10,
+   "penalizacao": -2,
+   "total": 8,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "7 atletas participantes",
+     "pontos": 7
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "4.1.1",
+     "texto": "apresentou 7 atletas",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 464,
  "categoria": "ESCOLARES",
  "jornada": "4ª JORNADA",
