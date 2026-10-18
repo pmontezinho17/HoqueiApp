@@ -17,7 +17,7 @@ escrito em código em vez de na memória de alguém.
 | Testes automáticos | 316 no raspador, 388 no `web/` — bloqueantes no CI, excepto os marcados `fonte` |
 | Depois de publicar | `scripts/verificar_producao.py` pergunta ao site 7 coisas, nos dois publicadores |
 | Vigia | o relógio da Cloudflare sonda produção de 10 em 10 minutos, 24 h por dia |
-| Protecção do `main` | ruleset `main protegido`. Activo desde 18/10: não se apaga nem se reescreve. Por ligar: PR obrigatório e `scraper`/`web` verdes — ver "Como é que o `main` ficou fechado" |
+| Protecção do `main` | ruleset `main protegido`, quatro regras activas desde 18/10: PR obrigatório, `scraper` e `web` verdes, sem apagar nem reescrever. O robô dos dados entra por chave de implantação |
 | Backlog | `docs/03-backlog.md` · `python3 scripts/estado.py --tudo` |
 | Sugestões de fora | repositório privado `ok4sticks-sugestoes`, alimentado sozinho pela caixa "O que está mal" |
 
@@ -83,12 +83,20 @@ condições normais, porque só ele escreve em `web/static/v1` e o `dev` nunca l
 
 ### Como é que o `main` ficou fechado, e porque é que demorou duas tentativas
 
-O ruleset chama-se **`main protegido`** e tem quatro regras previstas: não se apaga o ramo, não se
-reescreve o histórico, **exige-se um PR**, e exigem-se os checks **`scraper`** e **`web`** verdes.
+O ruleset chama-se **`main protegido`** e tem quatro regras, **as quatro activas desde
+18/10/2026**: não se apaga o ramo, não se reescreve o histórico, **exige-se um PR**, e exigem-se os
+checks **`scraper`** e **`web`** verdes.
 
-**As duas primeiras entraram a 18/10/2026; as duas últimas entram quando a chave abaixo estiver
-provada numa ronda verdadeira** — e enquanto não entrarem, o `main` está protegido só contra o
-irreversível. A razão de serem dois tempos é que as duas últimas bloqueiam, e bloqueariam o robô
+Verificado no próprio dia, com uma tentativa de push directo ao `main`:
+
+```
+GH013: Repository rule violations found for refs/heads/main
+ - Changes must be made through a pull request.
+ - 2 of 2 required status checks are expected.
+```
+
+As duas primeiras entraram primeiro, sozinhas, porque não bloqueiam pushes normais. A razão de
+serem dois tempos é que as duas últimas bloqueiam, e bloqueariam o robô
 dos dados ao mesmo tempo que a mim. Ele escreve no
 `main` 2 a 14 vezes por dia e os commits dele levam `[skip ci]`, portanto nunca teriam os checks:
 seriam recusados pelas duas regras de uma vez.
@@ -107,6 +115,21 @@ O que isto compra: **o robô tem uma porta e eu não tenho nenhuma**. Até aqui 
 ronda de dados" e "alguém a publicar à pressa sem revisão" era a boa-fé de quem estava ao teclado,
 e a 09/10/2026 essa boa-fé não chegou — eu tinha escrito o risco por palavras minhas e publiquei
 sete vezes na mesma.
+
+**O que ainda não está provado, e porquê não podia estar.** A chave lê — o `checkout` do publicador
+autenticou-se com ela a 18/10. O que falta ver é a **excepção** a funcionar num push verdadeiro, e
+isso não se consegue testar com as regras desligadas: sem regras não há nada a furar. A sequência
+"provar primeiro, ligar depois" era impossível por construção, e foi assim que ficou planeada
+durante uma manhã inteira.
+
+O que torna o risco aceitável é outra coisa: durante os jogos quem leva os resultados ao telemóvel
+é o **ciclo ao vivo**, e esse publica no CDN **sem comitar**. Se o push do publicador for recusado,
+perde-se o registo daquela ronda no repositório, não o resultado na bancada — e a ronda seguinte,
+duas horas depois, traz tudo. A reversão é uma chamada à API.
+
+Quem vir uma ronda a falhar no `git push` com `GH013` sabe o que aconteceu: a excepção da chave não
+está a ser respeitada, e a decisão é tirar as duas últimas regras enquanto se percebe porquê — não
+tirar a chave.
 
 ### O rótulo e o ramo são coisas diferentes
 
