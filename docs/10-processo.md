@@ -17,6 +17,7 @@ escrito em código em vez de na memória de alguém.
 | Testes automáticos | 316 no raspador, 388 no `web/` — bloqueantes no CI, excepto os marcados `fonte` |
 | Depois de publicar | `scripts/verificar_producao.py` pergunta ao site 7 coisas, nos dois publicadores |
 | Vigia | o relógio da Cloudflare sonda produção de 10 em 10 minutos, 24 h por dia |
+| Protecção do `main` | ruleset `main protegido`. Activo desde 18/10: não se apaga nem se reescreve. Por ligar: PR obrigatório e `scraper`/`web` verdes — ver "Como é que o `main` ficou fechado" |
 | Backlog | `docs/03-backlog.md` · `python3 scripts/estado.py --tudo` |
 | Sugestões de fora | repositório privado `ok4sticks-sugestoes`, alimentado sozinho pela caixa "O que está mal" |
 
@@ -79,6 +80,33 @@ plataforma que o impôs, não o processo.
 O publicador, depois de comitar os dados no `main`, leva-os também ao `dev`. Conflito não há em
 condições normais, porque só ele escreve em `web/static/v1` e o `dev` nunca lá toca; se houver,
 **aborta e avisa** em vez de resolver sozinho.
+
+### Como é que o `main` ficou fechado, e porque é que demorou duas tentativas
+
+O ruleset chama-se **`main protegido`** e tem quatro regras previstas: não se apaga o ramo, não se
+reescreve o histórico, **exige-se um PR**, e exigem-se os checks **`scraper`** e **`web`** verdes.
+
+**As duas primeiras entraram a 18/10/2026; as duas últimas entram quando a chave abaixo estiver
+provada numa ronda verdadeira** — e enquanto não entrarem, o `main` está protegido só contra o
+irreversível. A razão de serem dois tempos é que as duas últimas bloqueiam, e bloqueariam o robô
+dos dados ao mesmo tempo que a mim. Ele escreve no
+`main` 2 a 14 vezes por dia e os commits dele levam `[skip ci]`, portanto nunca teriam os checks:
+seriam recusados pelas duas regras de uma vez.
+
+A saída parecia óbvia — pôr o `github-actions[bot]` na lista de excepções — **e não existe**. A API
+do GitHub recusa-a num repositório pessoal:
+
+> `Actor GitHub Actions integration must be part of the ruleset source or owner organization`
+
+É uma opção só de organizações. O que ela aceita é **`DeployKey`**, e foi esse o caminho: uma chave
+de implantação com escrita, presa a este repositório e sem poderes de utilizador nenhum, guardada
+como segredo `CHAVE_ESCRITA`. O `dados.yml` e o `sonda.yml` fazem o checkout com ela e é por ela
+que empurram.
+
+O que isto compra: **o robô tem uma porta e eu não tenho nenhuma**. Até aqui a diferença entre "uma
+ronda de dados" e "alguém a publicar à pressa sem revisão" era a boa-fé de quem estava ao teclado,
+e a 09/10/2026 essa boa-fé não chegou — eu tinha escrito o risco por palavras minhas e publiquei
+sete vezes na mesma.
 
 ### O rótulo e o ramo são coisas diferentes
 
@@ -160,8 +188,8 @@ O documento que o dono trouxe é um *playbook* de organização grande. O que se
 | **Verification gate** / **Validation gate** | o CI é a verificação; o UAT no site de testes é a validação. **Eram a mesma coisa até 17/10, e esse era o erro** |
 | **Entrega por lotes, numa janela combinada** | o PR semanal do `dev` para o `main`, à segunda |
 | Ramos curtos com nome normalizado | já é prática; fica escrito |
-| Proteger o ramo principal | **a adoptar** — sem pushes directos, com o CI obrigatório |
-| SCA / dependências | **a adoptar** — ligar as actualizações de segurança do Dependabot |
+| Proteger o ramo principal | **feito a 18/10/2026** — ruleset `main protegido`; ver abaixo |
+| SCA / dependências | **feito a 17/10/2026** — Dependabot ligado pelo dono |
 | Monitorização pós-publicação | já existe, e é mais apertada do que o playbook pede |
 | Registo de decisões técnicas | já existe, noutra forma: o *porquê* vive nos comentários e no backlog, com a data e a medição |
 

@@ -117,6 +117,12 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
   Até 17/10/2026 era ao contrário — juntar um PR publicava, e o dono via a alteração já no ar.
   Numa noite saíram três versões em duas horas, todas aprovadas a ler uma descrição e nenhuma
   validada a usar.
+- **O `main` não aceita pushes directos, e isso agora é o servidor que o garante.** O ruleset
+  `main protegido`, desde 18/10/2026, exige PR e os checks `scraper` e `web`. O robô dos dados
+  passa por uma **chave de implantação** (`CHAVE_ESCRITA`), porque o bypass do
+  `github-actions[bot]` não existe em repositórios pessoais — medido contra a API. Quem
+  acrescentar um workflow que escreva no `main` tem de lhe dar a mesma chave no `checkout`, senão
+  é recusado. O porquê completo está em `docs/10-processo.md`.
 - **Nada sai do `dev` sem o dono dizer *validado*.** O CI é a verificação; o UAT no site de testes
   é a validação. Eram a mesma coisa, e esse era o erro.
 - **Sem interruptores como mecanismo de entrega.** Decisão do dono a 17/10/2026: *"não quero que
@@ -299,3 +305,11 @@ este projecto, a não ser que alguém lho entregue. Se isso acontecer, a regra �
 - Identificadores curtos aparecem sempre com o nome legível ao lado.
 - Mensagens de commit: uma linha de assunto que diz o que mudou para o utilizador, e um
   corpo que diz o que estava errado, como se soube, e o que se mediu.
+- **Nunca escrever `[skip ci]` à letra numa mensagem de commit, nem a citá-lo.** O GitHub obedece
+  à etiqueta esteja ela onde estiver na mensagem, assunto ou corpo, e o PR fica **sem corrida
+  nenhuma** — não uma corrida vermelha, que se via, mas nenhuma. Medido a 18/10/2026: um PR cujo
+  corpo explicava que os commits do robô levam a etiqueta esteve **dez minutos** sem CI, através
+  de abrir, fechar, reabrir e um `synchronize`, enquanto um PR de controlo recebeu CI em **17
+  segundos** — e continuou a recebê-lo mesmo depois de lhe acrescentar um workflow, o que
+  arrumou a hipótese errada de que a culpa era de tocar em `.github/workflows/`. Para falar da
+  etiqueta num commit, escreve-se sem os parênteses rectos.
