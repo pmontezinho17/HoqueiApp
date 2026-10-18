@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9952@hoquei.pages.dev
-DTSTAMP:20261018T000000Z
-DTSTART:20261018T134500Z
-DTEND:20261018T151500Z
-SUMMARY:🏑 Escolares 🏑 A Stuart HCM B vs Sporting CP B
-LOCATION:Pavilhão João Campelo - A. Stuart Hóquei Clube de Massamá
-DESCRIPTION:A Stuart HCM B 4–6 Sporting CP B\nENCONTROS DISTRITAIS ESCOLA
- RES - 1ª FASE NIVEL II · Série D · ESCOLARES\nPAV.PROF.JOÃO CAMPELO\n
- https://hoquei.pages.dev/jogo/9952\nDados da Associação de Patinagem de 
- Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9952
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9953@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T120000Z
