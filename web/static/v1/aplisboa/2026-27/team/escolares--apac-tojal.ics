@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9932@hoquei.pages.dev
-DTSTAMP:20261018T000000Z
-DTSTART:20261018T090000Z
-DTEND:20261018T103000Z
-SUMMARY:🏑 Escolares 🏑 APAC Tojal vs Parede FC A
-LOCATION:APAC Tojal - Associação de Patinagem Atlético Clube do Tojal
-DESCRIPTION:APAC Tojal 3–5 Parede FC A\nENCONTROS DISTRITAIS ESCOLARES - 
- 1ª FASE NIVEL I · Série C · ESCOLARES\nPAV. A.P.A.C.TOJAL\nhttps://hoq
- uei.pages.dev/jogo/9932\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
-URL:https://hoquei.pages.dev/jogo/9932
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9933@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T161500Z

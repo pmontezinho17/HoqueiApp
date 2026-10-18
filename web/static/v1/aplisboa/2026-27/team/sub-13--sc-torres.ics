@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9467@hoquei.pages.dev
-DTSTAMP:20261018T000000Z
-DTSTART:20261018T103000Z
-DTEND:20261018T120000Z
-SUMMARY:🏑 Sub-13 🏑 SC Torres vs APAC Tojal
-LOCATION:Sporting Clube de Torres (SCT)
-DESCRIPTION:SC Torres 4–5 APAC Tojal\nCAMP. REG. SUB-13 - 1ª FASE · Sé
- rie A · SUB-13\nPAV. SC TORRES\nhttps://hoquei.pages.dev/jogo/9467\nDados
-  da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9467
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9470@hoquei.pages.dev
 DTSTAMP:20261024T000000Z
 DTSTART:20261024T130000Z

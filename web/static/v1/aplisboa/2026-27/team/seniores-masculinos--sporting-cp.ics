@@ -8,17 +8,4 @@ X-WR-CALDESC:Jogos de Sporting CP (Seniores Masculinos)
 X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
-BEGIN:VEVENT
-UID:jogo-9319@hoquei.pages.dev
-DTSTAMP:20261018T000000Z
-DTSTART:20261018T170000Z
-DTEND:20261018T183000Z
-SUMMARY:🏑 Seniores Masculinos 🏑 Sporting CP vs AD Oeiras
-LOCATION:Fisica Torres Vedras
-DESCRIPTION:Sporting CP 5–0 AD Oeiras\nTAÇA JESUS CORREIA - SENIORES MAS
- CULINOS · SENIORES MASCULINOS\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei
- .pages.dev/jogo/9319\nDados da Associação de Patinagem de Lisboa. Site n
- ão oficial.
-URL:https://hoquei.pages.dev/jogo/9319
-END:VEVENT
 END:VCALENDAR

@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9640@hoquei.pages.dev
-DTSTAMP:20261018T000000Z
-DTSTART:20261018T153000Z
-DTEND:20261018T170000Z
-SUMMARY:🏑 Sub-15 🏑 FSE/AJ Salesiana vs CD Paço Arcos B
-LOCATION:Salesianos do Estoril
-DESCRIPTION:FSE/AJ Salesiana 3–3 CD Paço Arcos B\nCAMP. REG. SUB-15 - 1
- ª FASE · Série D · SUB-15\nPAV. SALESIANA\nhttps://hoquei.pages.dev/jo
- go/9640\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9640
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9641@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T150000Z

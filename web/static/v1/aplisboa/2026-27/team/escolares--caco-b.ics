@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9971@hoquei.pages.dev
-DTSTAMP:20261018T000000Z
-DTSTART:20261018T133000Z
-DTEND:20261018T150000Z
-SUMMARY:🏑 Escolares 🏑 Caco B vs UD Vilafranquense B
-LOCATION:Clube Atlético de Campo de Ourique (CACO)
-DESCRIPTION:Caco B 0–10 UD Vilafranquense B\nENCONTROS DISTRITAIS ESCOLAR
- ES - 1ª FASE NIVEL II · Série E · ESCOLARES\nPAV.C.A.C.OURIQUE\nhttps:
- //hoquei.pages.dev/jogo/9971\nDados da Associação de Patinagem de Lisboa
- . Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9971
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9975@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T143000Z
