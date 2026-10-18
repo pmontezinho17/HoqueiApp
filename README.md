@@ -3,6 +3,11 @@
 PWA para acompanhar hóquei em patins em Portugal — resultados, calendários, classificações
 e fichas de jogo das competições nacionais (FPP) e regionais.
 
+> ⚖️ **Público para ser lido, não para ser usado.** Isto não é software de código aberto:
+> **todos os direitos reservados, nenhuma licença concedida** — ver [LICENSE](LICENSE), que
+> também diz o que *é* permitido, o que se passa com o nome **OK4Sticks** e porque é que os
+> dados desportivos ficam de fora. A app em si é de acesso livre e gratuito.
+
 ## Estado
 
 🟢 **Ao vivo em [hoquei.pages.dev](https://hoquei.pages.dev).** Três ecrãs — jogos, classificação
