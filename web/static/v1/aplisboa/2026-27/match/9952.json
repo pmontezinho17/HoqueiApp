@@ -3,9 +3,9 @@
  "competicao": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE D",
  "casa": "A STUART HCM B",
  "fora": "SPORTING CP B",
- "golos_casa": 3,
- "golos_fora": 2,
- "estado": null,
+ "golos_casa": 4,
+ "golos_fora": 6,
+ "estado": "Jogo Terminado",
  "data": "2026-10-18",
  "hora": "14:45:00",
  "recinto": "PAV.PROF.JOÃO CAMPELO",
@@ -13,12 +13,12 @@
   "RUI MATOSO"
  ],
  "faltas": [
-  6,
-  0
+  10,
+  3
  ],
- "situacao": "3ª Parte (4:25)",
- "periodo": "3ª Parte",
- "relogio": "4:25",
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "A STUART HCM B",
@@ -29,7 +29,7 @@
      "titular": true,
      "golos": 0,
      "assistencias": 0,
-     "defesas": 0,
+     "defesas": 1,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
      "cartoes_amarelos": 0,
@@ -83,7 +83,7 @@
      "numero": "17",
      "nome": "FRANCISCO GUIMARÃES",
      "titular": true,
-     "golos": 2,
+     "golos": 3,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -214,7 +214,7 @@
      "numero": "3",
      "nome": "AFONSO FONSECA",
      "titular": true,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -256,7 +256,7 @@
      "numero": "7",
      "nome": "FRANCISCO SILVA",
      "titular": true,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -270,11 +270,11 @@
      "numero": "8",
      "nome": "VALENTIM FREIRE",
      "titular": true,
-     "golos": 1,
+     "golos": 2,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
-     "livres_diretos": "0/0",
+     "livres_diretos": "0/1",
      "cartoes_amarelos": 0,
      "cartoes_azuis": 0,
      "cartoes_vermelhos": 0,
@@ -284,7 +284,7 @@
      "numero": "9",
      "nome": "HENRIQUE MATOSO",
      "titular": true,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -579,10 +579,340 @@
    "golos_casa": null,
    "golos_fora": null,
    "texto": "Início da 3ª parte"
+  },
+  {
+   "ordem": 16,
+   "tipo": "falta_equipa",
+   "relogio": "3:23",
+   "parte": 3,
+   "minuto": 20,
+   "equipa": "SPORTING CP B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 1,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 1 para SPORTING CP B"
+  },
+  {
+   "ordem": 17,
+   "tipo": "golo",
+   "relogio": "1:24",
+   "parte": 3,
+   "minuto": 22,
+   "equipa": "SPORTING CP B",
+   "jogador": "HENRIQUE MATOSO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 3,
+   "golos_fora": 3,
+   "texto": "Golo para SPORTING CP B | HENRIQUE MATOSO"
+  },
+  {
+   "ordem": 18,
+   "tipo": "falta_equipa",
+   "relogio": "1:06",
+   "parte": 3,
+   "minuto": 22,
+   "equipa": "SPORTING CP B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 2,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 2 para SPORTING CP B"
+  },
+  {
+   "ordem": 19,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 3,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 3ª parte"
+  },
+  {
+   "ordem": 20,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 4ª parte"
+  },
+  {
+   "ordem": 21,
+   "tipo": "golo",
+   "relogio": "3:46",
+   "parte": 4,
+   "minuto": 28,
+   "equipa": "A STUART HCM B",
+   "jogador": "FRANCISCO GUIMARÃES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 4,
+   "golos_fora": 3,
+   "texto": "Golo para A STUART HCM B | FRANCISCO GUIMARÃES"
+  },
+  {
+   "ordem": 22,
+   "tipo": "falta_equipa",
+   "relogio": "3:33",
+   "parte": 4,
+   "minuto": 28,
+   "equipa": "A STUART HCM B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 7,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 7 para A STUART HCM B"
+  },
+  {
+   "ordem": 23,
+   "tipo": "golo",
+   "relogio": "2:45",
+   "parte": 4,
+   "minuto": 29,
+   "equipa": "SPORTING CP B",
+   "jogador": "AFONSO FONSECA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 4,
+   "golos_fora": 4,
+   "texto": "Golo para SPORTING CP B | AFONSO FONSECA"
+  },
+  {
+   "ordem": 24,
+   "tipo": "falta_equipa",
+   "relogio": "1:55",
+   "parte": 4,
+   "minuto": 30,
+   "equipa": "A STUART HCM B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 8,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 8 para A STUART HCM B"
+  },
+  {
+   "ordem": 25,
+   "tipo": "falta_equipa",
+   "relogio": "1:43",
+   "parte": 4,
+   "minuto": 30,
+   "equipa": "A STUART HCM B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 9,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 9 para A STUART HCM B"
+  },
+  {
+   "ordem": 26,
+   "tipo": "golo",
+   "relogio": "1:34",
+   "parte": 4,
+   "minuto": 30,
+   "equipa": "SPORTING CP B",
+   "jogador": "FRANCISCO SILVA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 4,
+   "golos_fora": 5,
+   "texto": "Golo para SPORTING CP B | FRANCISCO SILVA"
+  },
+  {
+   "ordem": 27,
+   "tipo": "falta_equipa",
+   "relogio": "1:10",
+   "parte": 4,
+   "minuto": 30,
+   "equipa": "A STUART HCM B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 10,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 10 para A STUART HCM B"
+  },
+  {
+   "ordem": 28,
+   "tipo": "livre_direto_falhado",
+   "relogio": "1:02",
+   "parte": 4,
+   "minuto": 30,
+   "equipa": "SPORTING CP B",
+   "jogador": "VALENTIM FREIRE",
+   "assistencia": null,
+   "variante": "livre_direto",
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Livre Direto para SPORTING CP B | Falhado por VALENTIM FREIRE | Defendido por JOÃO VENÂNCIO"
+  },
+  {
+   "ordem": 29,
+   "tipo": "golo",
+   "relogio": "1:00",
+   "parte": 4,
+   "minuto": 31,
+   "equipa": "SPORTING CP B",
+   "jogador": "VALENTIM FREIRE",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 4,
+   "golos_fora": 6,
+   "texto": "Golo para SPORTING CP B | VALENTIM FREIRE"
+  },
+  {
+   "ordem": 30,
+   "tipo": "falta_equipa",
+   "relogio": "0:02",
+   "parte": 4,
+   "minuto": 31,
+   "equipa": "SPORTING CP B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 3,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 3 para SPORTING CP B"
+  },
+  {
+   "ordem": 31,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 4,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
- "merito": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RUI MATOSO",
+   "Árbitro Auxiliar": "ALVARO MATOS",
+   "Cronometrista": "RICARDO DIAS",
+   "Diretor de campo": "ANA ALMEIDA",
+   "Gestor de segurança": "JOANA MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 4
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 6
+   }
+  ],
+  "faltas_casa": [
+   6,
+   4
+  ],
+  "faltas_fora": [
+   0,
+   3
+  ],
+  "inicio": [
+   "14:45",
+   "15:15"
+  ],
+  "termo": [
+   "15:10",
+   "15:39"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
+ "merito": [
+  {
+   "equipa": "A STUART HCM B",
+   "atletas": 9,
+   "guardas_redes": 1,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -1,
+   "total": 8,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "SPORTING CP B",
+   "atletas": 8,
+   "guardas_redes": 2,
+   "participantes": 8,
+   "completa": false,
+   "bonificacao": 11,
+   "penalizacao": 0,
+   "total": 11,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "8 atletas participantes",
+     "pontos": 8
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 463,
  "categoria": "ESCOLARES",
  "jornada": "4ª JORNADA",

@@ -104,8 +104,8 @@
    "hora": "16:30:00",
    "casa": "PAREDE FC",
    "fora": "UF ENTRONCAMENTO",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 7,
    "recinto": "PAV. PAREDE",
    "ao_vivo": false
   },
@@ -118,8 +118,8 @@
    "hora": "17:15:00",
    "casa": "CACO",
    "fora": "CD PAÇO ARCOS A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 0,
    "recinto": "PAV.C.A.C.OURIQUE",
    "ao_vivo": false
   },
@@ -468,43 +468,43 @@
      "posicao": 1,
      "equipa": "UF ENTRONCAMENTO",
      "logo": "/intranet/logos/24.png",
-     "jogos": 1,
-     "vitorias": 1,
+     "jogos": 2,
+     "vitorias": 2,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 15,
-     "golos_sofridos": 3,
-     "diferenca": 12,
-     "racio": 5.0,
-     "pontos": 3
+     "golos_marcados": 22,
+     "golos_sofridos": 5,
+     "diferenca": 17,
+     "racio": 4.4,
+     "pontos": 6
     },
     {
      "posicao": 2,
      "equipa": "CD PAÇO ARCOS A",
      "logo": "/intranet/logos/7.png",
-     "jogos": 1,
+     "jogos": 2,
      "vitorias": 1,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 0,
      "golos_marcados": 9,
      "golos_sofridos": 1,
      "diferenca": 8,
      "racio": 9.0,
-     "pontos": 3
+     "pontos": 4
     },
     {
      "posicao": 3,
      "equipa": "CACO",
      "logo": "/intranet/logos/26.png",
-     "jogos": 1,
+     "jogos": 2,
      "vitorias": 1,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 0,
      "golos_marcados": 7,
      "golos_sofridos": 3,
      "diferenca": 4,
      "racio": 2.33,
-     "pontos": 3
+     "pontos": 4
     },
     {
      "posicao": 4,
@@ -522,20 +522,6 @@
     },
     {
      "posicao": 5,
-     "equipa": "PAREDE FC",
-     "logo": "/intranet/logos/3.png",
-     "jogos": 1,
-     "vitorias": 0,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 1,
-     "golos_sofridos": 9,
-     "diferenca": -8,
-     "racio": 0.11,
-     "pontos": 0
-    },
-    {
-     "posicao": 6,
      "equipa": "A STUART HCM",
      "logo": "/intranet/logos/10.png",
      "jogos": 1,
@@ -546,6 +532,20 @@
      "golos_sofridos": 15,
      "diferenca": -12,
      "racio": 0.2,
+     "pontos": 0
+    },
+    {
+     "posicao": 6,
+     "equipa": "PAREDE FC",
+     "logo": "/intranet/logos/3.png",
+     "jogos": 2,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 3,
+     "golos_sofridos": 16,
+     "diferenca": -13,
+     "racio": 0.19,
      "pontos": 0
     }
    ]

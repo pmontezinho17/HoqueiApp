@@ -174,8 +174,8 @@
    "hora": "15:00:00",
    "casa": "HC SINTRA",
    "fora": "UD VILAFRANQUENSE B",
-   "golos_casa": 1,
-   "golos_fora": 0,
+   "golos_casa": 3,
+   "golos_fora": 1,
    "recinto": "PAV. HC SINTRA",
    "ao_vivo": false
   },
@@ -528,10 +528,10 @@
      "vitorias": 1,
      "empates": 0,
      "derrotas": 3,
-     "golos_marcados": 1,
-     "golos_sofridos": 35,
-     "diferenca": -34,
-     "racio": 0.03,
+     "golos_marcados": 3,
+     "golos_sofridos": 36,
+     "diferenca": -33,
+     "racio": 0.08,
      "pontos": 3
     },
     {
@@ -542,10 +542,10 @@
      "vitorias": 0,
      "empates": 0,
      "derrotas": 4,
-     "golos_marcados": 6,
-     "golos_sofridos": 39,
-     "diferenca": -33,
-     "racio": 0.15,
+     "golos_marcados": 7,
+     "golos_sofridos": 41,
+     "diferenca": -34,
+     "racio": 0.17,
      "pontos": 0
     }
    ]
