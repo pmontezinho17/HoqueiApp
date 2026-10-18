@@ -315,6 +315,7 @@ novo, para uma eventual insistência.
 | Calendário de cada clube e do meu clube | W4.7, W4.8, W4.5 | 4 |
 | Notificações de alterações, com confirmação | B5.1–B5.3, B5.8, W5.9–W5.11 — **muda de forma**, ver Decisão 4 | 5 |
 | Adicionar ao calendário jogos de um clube/escalão | ✅ **feito a 02/10** — B4.11 + W4.12 (feed ICS) | 4 |
+| Catálogo de componentes para entregar a um designer | 🟡 **a entrega está feita a 18/10/2026** — `scripts/catalogo/` gera a página, os ícones em SVG e os dois pacotes. O que falta é o designer trabalhar e o trabalho voltar. [issue #4](https://github.com/pmontezinho17/ok4sticks-sugestoes/issues/4) | — |
 
 ---
 
@@ -3799,6 +3800,70 @@ errado.
 **O R3, o R5, o R6 e o R7 a seguir**, por esta ordem de valor. O R7 é o mais pequeno de todos e
 só dispara quando aparece um clube novo, mas é o único que toca na postura com a fonte, e essa
 não se negoceia por tamanho.
+
+## O catálogo de componentes, e porque é que ele não é um documento (18/10/2026)
+
+O pedido chegou por email a 10/10/2026 e está aberto como [issue #4](https://github.com/pmontezinho17/ok4sticks-sugestoes/issues/4)
+no repositório de sugestões: *"catalogar todos os componentes existentes na aplicação e criar
+um documento que eu possa consultar. Calendário, tabela, cartão jogos, Bla Bla Bla. Eu tenho
+de os ver a todos. Para poder identificar padrões e desenhar um a um."* O destinatário é um
+designer gráfico, e o critério que o dono deu é **a facilidade de integração depois**, não a
+beleza da entrega.
+
+**O item não estava no backlog.** Verificado a 18/10: nem por ID, nem pelo texto do email, nem
+na rastreabilidade — o issue existia e o backlog não sabia dele. É o primeiro pedido arquivado
+à mão a 17/10 que ficou só do lado do GitHub, e fica registado aqui para não se repetir.
+
+### Onde eu discordo do pedido, e o que fiz em vez disso
+
+Um documento é a forma errada. Não por ser pobre — por ser uma **cópia** da interface. No dia
+em que alguém mexe num ecrã, o documento fica errado e ninguém dá por isso; e um catálogo que
+mente sobre uma cor é pior do que não haver catálogo. Foi exactamente o erro que este projecto
+já pagou com o vault abandonado a 05/10.
+
+O que existe em vez disso é uma **página gerada**, e a diferença não é de formato:
+
+- as cores, as medidas, a lista de ícones e a dos crachás são **lidas do código** —
+  `scripts/catalogo/tokens.mjs` lê o bloco `:root` do `+layout.svelte`, a paleta do
+  `cor.svelte.ts` e os escalões do `CrachaEscalao.svelte`, e **rebenta** se não os encontrar;
+- os 26 ícones saem de dentro do `Icone.svelte`, que é onde eles têm de continuar a viver;
+- as 50 capturas (25 ecrãs × 2 temas) são tiradas pelo Playwright a 375×812, sempre com o
+  mesmo dia de dados, para duas rondas se compararem.
+
+Refaz-se em quatro comandos. Nada disto é commitado: seriam 19 MB de PNG por ronda no
+histórico de um repositório público, e uma segunda cópia da interface a envelhecer ao lado da
+primeira. O `scripts/catalogo/README.md` tem os comandos.
+
+### Três medições que mudaram o que ficou feito
+
+1. **A moldura do telemóvel ficava com 752 px e esmagava o texto para 169.** Uma coluna de
+   grelha `auto` mede o conteúdo *máximo* da imagem — e as capturas têm 750 px de largura
+   real, por serem de dupla densidade. A coluna passou a ser fixa em 375 px.
+2. **O cromado fixo aparecia a meio da página.** Numa captura de página inteira o Playwright
+   desenha o que é `position: fixed` onde ele está *no ecrã*, isto é a 812 px do topo — a
+   barra de navegação atravessava a tabela do Mérito. Passam a `absolute` dentro de um `body`
+   posicionado, e assentam no fim da imagem; a linha da dobra continua lá a dizer onde o
+   telemóvel corta.
+3. **O jogo com classificação não é o jogo terminado.** O separador da tabela só existe em
+   jogos **por começar** — depois do apito ele dá lugar à cronologia e à ficha. Sondados
+   quatro jogos antes de escolher os três que entram no catálogo.
+
+### O que isto deixa decidido para quando o trabalho voltar
+
+| o que ele devolve | onde assenta | o que custa integrar |
+|---|---|---|
+| ícones (`.svg`, grelha 20×20, traço 1,8, `currentColor`) | `web/src/lib/Icone.svelte` | colar, um ramo cada |
+| crachás de escalão (`.svg`) | `web/static/escaloes/` | substituir o ficheiro |
+| ícone da aplicação | `scripts/gerar_icones.py` → `web/static/icones/` | recortar três tamanhos |
+| cores, aos pares claro/escuro | `:root` do `+layout.svelte` e `cor.svelte.ts` | medir contraste e verificar nos dois temas |
+| ecrãs redesenhados | `web/src/lib/` e `web/src/routes/` | um item de backlog cada |
+
+**O ícone da aplicação é o primeiro trabalho a sério que há aqui**, e é o mais fácil de
+fechar: o que está no ar foi desenhado por um script em Python (`scripts/gerar_icones.py`,
+um stick branco sobre amarelo torrado) e está marcado como provisório desde o W2.8. É uma
+peça só, não depende de mais nada, e não mexe em nenhum ecrã.
+
+---
 
 ## Próximo incremento (revisto a 05/10/2026)
 
