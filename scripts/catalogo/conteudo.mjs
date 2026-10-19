@@ -103,6 +103,19 @@ export const NAO_ENTREGUES = [
 
 export const DEVOLVER = [
 	{
+		o: 'Um componente redesenhado',
+		como:
+			'Um ficheiro por componente, com <strong>o identificador do catálogo no nome</strong> — ' +
+			'<code>C09-linha-de-jogo.png</code> — e um ficheiro por estado quando o componente tem ' +
+			'mais do que um. PNG a dupla densidade, ou um link do Figma com acesso de leitura. ' +
+			'Ao lado, os números: tamanhos de letra, espaçamentos, e <strong>que token é cada ' +
+			'cor</strong>. Uma imagem sem números obriga-me a adivinhar e a voltar a perguntar.',
+		onde: 'o ficheiro que o catálogo nomeia em cada componente',
+		depois:
+			'Reescrevo o componente, corro as capturas outra vez e mando-te o mesmo catálogo com ' +
+			'o teu desenho lá dentro, ao lado do antigo.'
+	},
+	{
 		o: 'Ícones',
 		como:
 			'Um ficheiro <code>.svg</code> por ícone, com o nome exacto da lista deste catálogo. ' +
@@ -117,7 +130,7 @@ export const DEVOLVER = [
 		o: 'Crachás de escalão',
 		como:
 			'Um <code>.svg</code> quadrado por escalão, com o nome da lista (<code>sub-15.svg</code>). ' +
-			'Têm de se ler a 18 px, que é o tamanho a que aparecem na barra do jogo.',
+			'Têm de se ler a 18 px, que é o tamanho a que aparecem no placar do jogo.',
 		onde: 'web/static/escaloes/',
 		depois: 'Substituo os ficheiros. O código não muda.'
 	},
@@ -139,25 +152,26 @@ export const DEVOLVER = [
 			'diz-me — às vezes compensa mudar o fundo em vez da cor.',
 		onde: 'web/src/routes/+layout.svelte (o bloco :root) e web/src/lib/cor.svelte.ts',
 		depois: 'Meço o contraste de cada par, aplico, e verifico nos dois temas a 375×812.'
-	},
-	{
-		o: 'Ecrãs redesenhados',
-		como:
-			'Um ficheiro por ecrã, com o número e o nome deste catálogo (<code>03-jogo-cronologia</code>). ' +
-			'PNG a 375×812 em dupla densidade, ou um link do Figma com acesso de leitura. ' +
-			'Ao lado, os números: tamanhos de letra, espaçamentos, e que token é cada cor. ' +
-			'Uma imagem sem números obriga-me a adivinhar e a voltar a perguntar.',
-		onde: 'os componentes em web/src/lib/ e as páginas em web/src/routes/',
-		depois:
-			'Cada ecrã passa a ser um item com critério de aceitação, e entra um de cada vez — ' +
-			'nunca os 25 de uma vez, que é como se perde a conta ao que partiu.'
 	}
 ];
 
 /** O ritmo de entrega, que é o que o pedido original dizia: alterações progressivas. */
 export const RITMO = [
-	'Começa pelos <strong>ícones</strong>: são 26 desenhos pequenos, entram sem discussão e dão para ver o resultado na app no mesmo dia.',
-	'Depois o <strong>ícone da aplicação</strong>, que é uma peça só e está provisório desde o início.',
-	'Só então os <strong>ecrãs</strong>, um a um, pela ordem que quiseres — mas diz qual começas, para eu não estar a mexer no mesmo.',
+	'Começa pelos <strong>ícones</strong> (C32): são 26 desenhos pequenos, entram sem discussão, e vês o resultado na app no mesmo dia.',
+	'Depois o <strong>ícone da aplicação</strong>, que é uma peça só e está provisório desde o primeiro dia.',
+	'Depois os componentes <strong>que aparecem em todos os ecrãs</strong> — C01 barra de secções, C02 cabeçalho, C09 linha de jogo. Mexer num destes muda a app inteira de uma vez.',
+	'Só então os restantes, pela ordem que quiseres. Diz-me o identificador de cada um que começas, para eu não estar a mexer no mesmo.',
 	'As <strong>cores</strong> ficam para o fim: mexem em tudo ao mesmo tempo e são as mais caras de verificar.'
 ];
+
+/** O que mudou da primeira entrega para esta, e porquê. Vai no topo da página. */
+export const PORQUE_MUDOU = {
+	titulo: 'O que mudou nesta versão',
+	texto:
+		'A primeira entrega, a 18/10/2026, eram os 25 ecrãs fotografados inteiros. O retorno foi ' +
+		'que não servia: <em>"é mais uma overview das páginas (…) eu assim não desenho páginas, ' +
+		'desenho apenas components, que depois irão formar as páginas"</em>. Tinha razão. Esta ' +
+		'versão é o contrário: <strong>43 componentes, cada um com nome e identificador, ' +
+		'fotografado sozinho em cada um dos seus estados</strong>. Os ecrãs continuam no fim, ' +
+		'mas já só para mostrar onde é que cada peça encaixa.'
+};

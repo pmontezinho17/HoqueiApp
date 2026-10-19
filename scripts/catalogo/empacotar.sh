@@ -10,7 +10,7 @@ cd "$(dirname "$0")"
 LINK="${LINK:-https://claude.ai/artifact/1e4hGsHhrJVAaUs8oMM61k}"
 SAIDA="entrega"
 rm -rf "$SAIDA"
-mkdir -p "$SAIDA/trabalhar" "$SAIDA/capturas"
+mkdir -p "$SAIDA/trabalhar" "$SAIDA/capturas/componentes" "$SAIDA/capturas/ecras"
 
 cp -R icones "$SAIDA/trabalhar/icones"
 cp -R ../../web/static/escaloes "$SAIDA/trabalhar/escaloes"
@@ -18,7 +18,8 @@ rm -f "$SAIDA/trabalhar/escaloes"/*.png   # os PNG são cópias velhas; o que va
 mkdir -p "$SAIDA/trabalhar/icone-da-app"
 cp ../../web/static/icones/icone-192.png ../../web/static/icones/icone-512.png \
    ../../web/static/icones/icone-maskable-512.png "$SAIDA/trabalhar/icone-da-app/"
-cp capturas/*.png "$SAIDA/capturas/"
+cp capturas/componentes/*.png "$SAIDA/capturas/componentes/"
+cp capturas/*.png "$SAIDA/capturas/ecras/"
 
 cat > "$SAIDA/trabalhar/LEIA-ME.txt" <<TXT
 OK4Sticks — ficheiros para trabalhar
@@ -56,20 +57,27 @@ A medida de referência é 375 x 812.
 TXT
 
 cat > "$SAIDA/capturas/LEIA-ME.txt" <<TXT
-OK4Sticks — capturas dos ecrãs
-==============================
+OK4Sticks — capturas
+====================
 
-Os 25 ecrãs da aplicação, cada um no tema claro e no escuro, a 375 x 812 em dupla
-densidade (os ficheiros têm 750 px de largura). São capturas da página inteira: a
-linha vermelha tracejada marca os 812 px, que é onde o telemóvel corta.
+  componentes/   cada componente sozinho, recortado de onde ele vive na app.
+                 O nome do ficheiro é
+                     <identificador>-<nome>--<estado>--<tema>.png
+                 por exemplo C09-linha-de-jogo--jogo-a-decorrer--escuro.png.
+                 Ao devolveres um componente redesenhado, usa o MESMO
+                 identificador no nome. É por ele que eu sei o que substituir.
 
-A barra de navegação de baixo e a bolha de opinião estão sempre à vista na app; aqui
-foram postas no fim da imagem para não atravessarem o conteúdo.
+  ecras/         os 25 ecrãs inteiros, a 375 x 812 em dupla densidade. Não são
+                 para desenhar — são para veres onde é que cada peça encaixa e
+                 quanta coisa há num ecrã ao mesmo tempo. A linha vermelha
+                 tracejada marca os 812 px, onde o telemóvel corta; a barra de
+                 baixo foi posta no fim da imagem para não atravessar o conteúdo.
 
-O catálogo com o contexto de cada ecrã está em:
+Tudo a 375 px de largura e em dupla densidade: os ficheiros têm o dobro dos pixels.
+
+O catálogo, com o que cada componente é, onde aparece, de que partes é feito e em que
+estados tem de funcionar:
     $LINK
-
-Ao devolveres um ecrã redesenhado, usa o mesmo número e nome (03-jogo-cronologia).
 TXT
 
 ( cd "$SAIDA" && zip -rq ok4sticks-trabalhar.zip trabalhar && zip -rq ok4sticks-capturas.zip capturas )
