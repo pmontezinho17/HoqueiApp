@@ -45,14 +45,25 @@ import { caminhoEquipa } from './slug';
 import type { JogoAgenda } from './tipos';
 
 /**
- * A ficha do jogo, ou `null` quando ainda não há nada lá dentro.
+ * A ficha do jogo. **Sempre, desde que a fonte lhe tenha dado um id.**
  *
- * Um jogo por disputar passa a ter ficha dias antes, quando a fonte publica a convocatória, e
- * é isso que se quer ver na véspera. Antes disso, abrir levaria a um ecrã vazio.
+ * Houve aqui, durante umas horas de 20/10/2026, a condição `jogado || tem_ficha`, com a razão
+ * escrita de que "sem ficha não há nada para mostrar lá dentro". **Era falso, e desde 09/10.**
+ * Nessa data a página do jogo passou a montar uma ficha a partir da agenda quando a fonte ainda
+ * não publicou a sua — ver `fichaDaAgenda.ts` — e a mostrar os separadores que existem, com uma
+ * nota a dizer que o onze e o boletim aparecem quando o jogo começar. Eu escrevi a condição a
+ * olhar para o nome do campo e não para o que o ecrã faz.
+ *
+ * O dono trouxe a ideia certa: *"num dia por disputar, acho que seria interessante entrar no
+ * menu de jogo, mas apresentar apenas o tab de informação"*. É o que a página já sabia fazer, e
+ * é o que quem vai ao pavilhão quer na véspera — a hora e o recinto.
+ *
+ * Com isto, **todas as linhas da lista passam a abrir o jogo**, e nenhuma oferece um segundo
+ * alvo ao dedo. A regra "um alvo por linha" fica satisfeita sem ter de escolher qual: há sempre
+ * um só, e é o mesmo em toda a lista.
  */
-export function destinoDoJogo(jogo: Pick<JogoAgenda, 'id' | 'gc' | 'gf'> & { tem_ficha?: boolean }): string | null {
-	const jogado = jogo.gc !== null && jogo.gf !== null;
-	return jogo.id && (jogado || jogo.tem_ficha) ? `/jogo/${jogo.id}` : null;
+export function destinoDoJogo(jogo: Pick<JogoAgenda, 'id'>): string | null {
+	return jogo.id ? `/jogo/${jogo.id}` : null;
 }
 
 /**
@@ -68,14 +79,12 @@ export function destinoDaEquipa(equipa: string, categoria: string | null | undef
 }
 
 /**
- * As saídas de uma linha de jogo, com a regra toda num sítio só.
+ * ## A regra que ficou: **um alvo por linha**
  *
- * ## A regra: **um alvo por linha**
+ * Numa linha de jogo há **um** destino e só um: a ficha do jogo.
  *
- * Ou a linha abre o jogo, ou as equipas são alcançáveis. **Nunca as duas coisas.**
- *
- * A primeira versão disto, de 20/10/2026, dava as duas: a linha tinha um link a cobri-la e as
- * equipas por cima dele. O dono parou-a assim que a viu no site de testes:
+ * Houve uma versão, a 20/10/2026, em que a linha tinha um link a cobri-la e as equipas
+ * clicáveis por cima dele. O dono parou-a assim que a viu no site de testes:
  *
  * > neste menu, não quero que os clubes sejam clicáveis, pois cada vez que quero abrir o jogo
  * > posso sem querer carregar em cima do nome clube e abrir o clube ao invés do jogo
@@ -85,23 +94,13 @@ export function destinoDaEquipa(equipa: string, categoria: string | null | undef
  * Quem está na lista quer abrir o jogo — pôr-lhe um segundo alvo por cima era resolver um
  * pedido num sítio onde ele não existia e criar um problema onde não havia nenhum.
  *
- * O que se perde: numa linha com ficha, chegar à equipa leva dois toques em vez de um — abre-se
- * o jogo e, lá dentro, o emblema. O que se ganha: nunca um toque faz a coisa errada. Entre um
- * atalho e um engano, escolhe-se o engano que não acontece.
+ * **Onde é que o pedido fica então resolvido:** na ficha de jogo, onde o emblema abre a equipa
+ * ao lado do nome que já o fazia, e onde nunca disputou alvo com nada. Da lista chega-se lá num
+ * toque, e à equipa no seguinte.
  *
- * E ganha-se uma coisa de borla: com a regra, um `<a>` dentro de outro `<a>` deixa de ser
- * possível por construção. A linha volta a ser um link inteiro quando abre o jogo, e todo o
- * andaime que existia para contornar o aninhamento — o link que a cobria, os `z-index` — foi
- * embora.
+ * Duas coisas de borla, e as duas valem mais do que o atalho que se perdeu: um `<a>` dentro de
+ * outro deixou de ser possível por construção — e com isso foram-se o link que cobria a linha,
+ * o `position: relative`, os `z-index` e a regra com `:has()` — e a lista passou a comportar-se
+ * **da mesma maneira em todas as linhas**, em vez de depender de a fonte já ter publicado a
+ * convocatória.
  */
-export function saidasDaLinha(
-	jogo: Pick<JogoAgenda, 'id' | 'gc' | 'gf' | 'casa' | 'fora' | 'cat'> & { tem_ficha?: boolean }
-): { jogo: string | null; casa: string | null; fora: string | null } {
-	const ficha = destinoDoJogo(jogo);
-	if (ficha) return { jogo: ficha, casa: null, fora: null };
-	return {
-		jogo: null,
-		casa: destinoDaEquipa(jogo.casa, jogo.cat),
-		fora: destinoDaEquipa(jogo.fora, jogo.cat)
-	};
-}

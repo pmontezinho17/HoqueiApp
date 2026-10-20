@@ -1,41 +1,40 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { destinoDaEquipa, destinoDoJogo, saidasDaLinha } from './destinos';
+import { destinoDaEquipa, destinoDoJogo } from './destinos';
 import type { JogoAgenda } from './tipos';
 
 /**
- * **De uma linha de jogo chega-se sempre a alguma coisa.**
+ * **De uma linha de jogo chega-se sempre à ficha do jogo — e só a ela.**
  *
- * Foi o pedido mais repetido da caixa "O que está mal" — cinco das dezoito sugestões — e o
- * caso que lhe deu origem foi este: *"o click na equipa para irmos directos à equipa só dá nos
- * jogos com resultados, no que tem próximo jogo não dá"*. Um jogo por disputar sem ficha não
- * tinha saída nenhuma, e nenhum teste o podia dizer porque a decisão vivia dentro do `.svelte`.
+ * Duas coisas foram apanhadas por utilizadores e vivem aqui agora:
+ *
+ * * *"o click na equipa para irmos directos à equipa só dá nos jogos com resultados, no que tem
+ *   próximo jogo não dá"* — um jogo por disputar não tinha saída nenhuma;
+ * * e, do dono, *"cada vez que quero abrir o jogo posso sem querer carregar em cima do nome
+ *   clube e abrir o clube ao invés do jogo"* — a correcção ao excesso da primeira tentativa.
+ *
+ * A resposta às duas é a mesma regra: **um alvo por linha, e é o jogo**. Ver o `destinos.ts`.
  */
 
-const jogo = (p: Partial<JogoAgenda> & { tem_ficha?: boolean } = {}) =>
-	({ id: 9377, casa: 'CACO A', fora: 'SL BENFICA', gc: null, gf: null, cat: 'SUB-17', ...p }) as
-		JogoAgenda & { tem_ficha?: boolean };
+const jogo = (p: Partial<JogoAgenda> = {}) =>
+	({ id: 9377, casa: 'CACO A', fora: 'SL BENFICA', gc: null, gf: null, cat: 'SUB-17', ...p }) as JogoAgenda;
 
 describe('a ficha do jogo', () => {
 	it('abre quando já houve jogo', () => {
 		expect(destinoDoJogo(jogo({ gc: 3, gf: 2 }))).toBe('/jogo/9377');
 	});
 
-	it('abre antes do jogo se a convocatória já estiver publicada', () => {
-		expect(destinoDoJogo(jogo({ tem_ficha: true }))).toBe('/jogo/9377');
+	it('abre também num jogo por disputar: desde 09/10 a página monta-se a partir da agenda', () => {
+		expect(destinoDoJogo(jogo())).toBe('/jogo/9377');
 	});
 
-	it('não abre um ecrã vazio: sem resultado e sem ficha não há destino', () => {
-		expect(destinoDoJogo(jogo())).toBeNull();
-	});
-
-	it('nem sequer com ficha, se a fonte não deu id ao jogo', () => {
-		expect(destinoDoJogo(jogo({ id: null, tem_ficha: true }))).toBeNull();
+	it('não abre quando a fonte não deu id ao jogo — aí não há para onde ir', () => {
+		expect(destinoDoJogo(jogo({ id: null }))).toBeNull();
 	});
 });
 
 describe('a página da equipa', () => {
-	it('é sempre alcançável quando se sabe o escalão', () => {
+	it('é alcançável quando se sabe o escalão', () => {
 		expect(destinoDaEquipa('CACO A', 'SUB-17')).toBe('/equipa/sub-17/caco-a');
 	});
 
@@ -47,24 +46,6 @@ describe('a página da equipa', () => {
 		expect(destinoDaEquipa('CACO A', null)).toBeNull();
 		expect(destinoDaEquipa('CACO A', '')).toBeNull();
 		expect(destinoDaEquipa('', 'SUB-17')).toBeNull();
-	});
-});
-
-describe('um alvo por linha', () => {
-	it('com ficha, a linha abre o jogo e as equipas ficam fora do alcance do dedo', () => {
-		expect(saidasDaLinha(jogo({ gc: 3, gf: 2 }))).toEqual({ jogo: '/jogo/9377', casa: null, fora: null });
-	});
-
-	it('sem ficha, a linha não abre nada e as duas equipas abrem-se', () => {
-		expect(saidasDaLinha(jogo())).toEqual({
-			jogo: null,
-			casa: '/equipa/sub-17/caco-a',
-			fora: '/equipa/sub-17/sl-benfica'
-		});
-	});
-
-	it('sem ficha e sem escalão não há saída nenhuma, e isso é honesto', () => {
-		expect(saidasDaLinha(jogo({ cat: '' }))).toEqual({ jogo: null, casa: null, fora: null });
 	});
 });
 
@@ -83,35 +64,25 @@ describe('contra a agenda publicada', () => {
 		expect(agenda.length).toBeGreaterThan(0);
 	});
 
-	it('nenhuma linha fica sem saída nenhuma', () => {
-		const presos = agenda.filter((j) => {
-			const s = saidasDaLinha(j);
-			return !s.jogo && !s.casa && !s.fora;
-		});
+	it('nenhuma linha fica sem saída', () => {
+		const presos = agenda.filter((j) => destinoDoJogo(j) === null);
 		expect(presos.map((j) => `${j.data} ${j.casa} × ${j.fora} [${j.cat}]`)).toEqual([]);
 	});
 
-	it('nenhuma linha dá dois alvos ao mesmo dedo', () => {
-		const ambos = agenda.filter((j) => {
-			const s = saidasDaLinha(j);
-			return !!s.jogo && (!!s.casa || !!s.fora);
-		});
-		expect(ambos.map((j) => `${j.data} ${j.casa} × ${j.fora}`)).toEqual([]);
+	it('há mesmo jogos por disputar na agenda — é o caso que estava sem saída', () => {
+		// Se um dia isto falhar é porque a agenda só tem jogos já disputados. Aí confirma-se nos
+		// dados e empurra-se a verificação por escrito, em vez de a apagar.
+		const porDisputar = agenda.filter((j) => j.gc === null && j.gf === null);
+		expect(porDisputar.length).toBeGreaterThan(0);
+		expect(porDisputar.every((j) => destinoDoJogo(j) !== null)).toBe(true);
 	});
 
-	it('quando a linha não abre o jogo, abre as duas equipas — era o pedido do utilizador', () => {
-		const semFicha = agenda.filter((j) => destinoDoJogo(j) === null);
-		expect(semFicha.length).toBeGreaterThan(0);
-		const incompletos = semFicha.filter((j) => {
-			const s = saidasDaLinha(j);
-			return !s.casa || !s.fora;
-		});
-		expect(incompletos.map((j) => `${j.data} ${j.casa} × ${j.fora} [${j.cat}]`)).toEqual([]);
-	});
-
-	it('há mesmo jogos sem ficha na agenda, senão a regra não está a ser exercitada', () => {
-		// Se um dia isto falhar é porque a agenda só tem jogos já disputados ou com ficha. Aí
-		// confirma-se nos dados e empurra-se a verificação por escrito, em vez de a apagar.
-		expect(agenda.some((j) => destinoDoJogo(j) === null)).toBe(true);
+	it('as equipas da agenda são todas alcançáveis a partir da ficha do jogo', () => {
+		// Não é a linha que lá leva — é o emblema, já dentro da ficha. Mas o endereço tem de
+		// existir, senão o emblema fica sem destino.
+		const sem = agenda.filter(
+			(j) => !destinoDaEquipa(j.casa, j.cat) || !destinoDaEquipa(j.fora, j.cat)
+		);
+		expect(sem.map((j) => `${j.data} ${j.casa} × ${j.fora} [${j.cat}]`)).toEqual([]);
 	});
 });

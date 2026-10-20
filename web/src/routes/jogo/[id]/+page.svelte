@@ -110,8 +110,16 @@
 		if (!abas.length || abas.includes(tab as Tab)) return;
 		// Num jogo por começar, o que se quer ver é a **convocatória** — foi isso que o dono
 		// foi procurar. Sem esta preferência caía na classificação, que é a primeira da barra.
-		const preferida = porComecar && abas.includes('equipas') ? 'equipas' : abas[0];
-		tab = preferida;
+		if (porComecar && abas.includes('equipas')) {
+			tab = 'equipas';
+			return;
+		}
+		// **Sem ficha publicada, cai nas Informações.** Desde 20/10/2026 a lista de jogos abre
+		// também os jogos por disputar, a pedido do dono: *"num dia por disputar, acho que seria
+		// interessante entrar no menu de jogo, mas apresentar apenas o tab de informação"*. Sem
+		// isto chegava-se aqui na classificação da prova — correcta, mas não é o que quem vai ao
+		// pavilhão na véspera veio buscar: veio ver a hora e o recinto.
+		tab = semFicha && abas.includes('info') ? 'info' : abas[0];
 	});
 
 	/**

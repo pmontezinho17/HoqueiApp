@@ -140,13 +140,14 @@ export const NOVIDADES: Novidade[] = [
 			},
 			{
 				tipo: 'novo',
-				titulo: 'Toca no emblema para entrar na equipa',
+				titulo: 'Todos os jogos da lista se abrem, e o emblema leva-te à equipa',
 				texto:
-					'Foi o pedido mais repetido na caixa "O que está mal". Na ficha de jogo, o ' +
-					'emblema passa a abrir a página da equipa, tal como o nome já fazia. E nas ' +
-					'listas, um jogo que ainda não se disputou — onde antes não dava para ' +
-					'carregar em nada — passa a abrir as duas equipas. Nas linhas que abrem a ' +
-					'ficha do jogo não mexemos: aí um segundo alvo só servia para o dedo falhar.'
+					'Um jogo que ainda não se disputou já se pode abrir: mostra a hora, o ' +
+					'recinto e a prova, e avisa que o onze aparece quando o jogo começar. Antes ' +
+					'não dava para carregar em nada. E lá dentro, no topo, o emblema de cada ' +
+					'equipa passa a abrir a página dela — era o pedido mais repetido na caixa ' +
+					'"O que está mal". Na lista, tocar em qualquer ponto da linha abre sempre o ' +
+					'jogo, para o dedo nunca fazer a coisa errada.'
 			}
 		]
 	},
