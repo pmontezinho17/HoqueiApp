@@ -38,7 +38,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.6';
+export const VERSAO = '1.7';
 
 /**
  * Em que grupo é que uma novidade cai.
@@ -124,6 +124,43 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.7',
+		data: '2026-10-20',
+		pontos: [
+			{
+				tipo: 'corrigido',
+				titulo: 'O calendário da equipa deixa de trocar casa com fora',
+				texto:
+					'Num dia com dois jogos — um em casa e outro fora — o calendário pintava o dia ' +
+					'inteiro conforme o primeiro, e o segundo aparecia trocado. Agora o dia só se ' +
+					'pinta quando os jogos concordam, e num dia misto é cada jogo que leva o seu ' +
+					'"F". Obrigado a quem nos avisou pela caixa "O que está mal": estavam 67 dias ' +
+					'desta época a dizer mal.'
+			},
+			{
+				tipo: 'novo',
+				titulo: 'Todos os jogos da lista se abrem, e o emblema leva-te à equipa',
+				texto:
+					'Um jogo que ainda não se disputou já se pode abrir: mostra a hora, o ' +
+					'recinto e a prova, e avisa que o onze aparece quando o jogo começar. Antes ' +
+					'não dava para carregar em nada. E lá dentro, no topo, o emblema de cada ' +
+					'equipa passa a abrir a página dela — era o pedido mais repetido na caixa ' +
+					'"O que está mal". Na lista, tocar em qualquer ponto da linha abre sempre o ' +
+					'jogo, para o dedo nunca fazer a coisa errada.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: 'A seta de voltar volta para onde estavas',
+				texto:
+					'Quem abria um jogo a partir da página de uma equipa, e carregava na seta ' +
+					'para trás, ia parar à lista de jogos em vez de voltar à equipa. Agora volta ' +
+					'ao ecrã de onde vieste, com o separador e a posição como os deixaste. Se ' +
+					'abriste o jogo por um link partilhado, a seta leva-te ao dia desse jogo — ' +
+					'que é o melhor que há quando não houve ecrã nenhum antes.'
+			}
+		]
+	},
 	{
 		versao: '1.6',
 		data: '2026-10-17',

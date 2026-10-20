@@ -150,8 +150,8 @@
    "hora": "15:30:00",
    "casa": "A STUART HCM",
    "fora": "CRIAR-T GD",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 5,
+   "golos_fora": 1,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
   }

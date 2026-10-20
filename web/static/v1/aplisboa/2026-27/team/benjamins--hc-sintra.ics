@@ -37,14 +37,14 @@ END:VEVENT
 BEGIN:VEVENT
 UID:jogo-10012@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
-DTSTART:20261107T133000Z
-DTEND:20261107T150000Z
+DTSTART:20261107T150000Z
+DTEND:20261107T163000Z
 SUMMARY:🏑 Benjamins 🏑 CD Paço Arcos A vs HC Sintra
-LOCATION:Pavilhão do Clube Desportivo de Paço de Arcos (CDPA)
+LOCATION:Hockey Club de Sintra
 DESCRIPTION:CD Paço Arcos A vs HC Sintra\nENCONTROS DISTRITAIS BENJAMINS -
-  1ª FASE NIVEL I · Série A · BENJAMINS\nPAV. PAÇO DE ARCOS\nhttps://h
- oquei.pages.dev/jogo/10012\nDados da Associação de Patinagem de Lisboa. 
- Site não oficial.
+  1ª FASE NIVEL I · Série A · BENJAMINS\nPAV. HC SINTRA\nhttps://hoquei
+ .pages.dev/jogo/10012\nDados da Associação de Patinagem de Lisboa. Site 
+ não oficial.
 URL:https://hoquei.pages.dev/jogo/10012
 END:VEVENT
 BEGIN:VEVENT
@@ -131,11 +131,11 @@ DTSTAMP:20261212T000000Z
 DTSTART:20261212T144500Z
 DTEND:20261212T161500Z
 SUMMARY:🏑 Benjamins 🏑 HC Sintra vs CD Paço Arcos A
-LOCATION:Hockey Club de Sintra
+LOCATION:Pavilhão do Clube Desportivo de Paço de Arcos (CDPA)
 DESCRIPTION:HC Sintra vs CD Paço Arcos A\nENCONTROS DISTRITAIS BENJAMINS -
-  1ª FASE NIVEL I · Série A · BENJAMINS\nPAV. HC SINTRA\nhttps://hoquei
- .pages.dev/jogo/10040\nDados da Associação de Patinagem de Lisboa. Site 
- não oficial.
+  1ª FASE NIVEL I · Série A · BENJAMINS\nPAV. PAÇO DE ARCOS\nhttps://h
+ oquei.pages.dev/jogo/10040\nDados da Associação de Patinagem de Lisboa. 
+ Site não oficial.
 URL:https://hoquei.pages.dev/jogo/10040
 END:VEVENT
 END:VCALENDAR

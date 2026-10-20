@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9620@hoquei.pages.dev
-DTSTAMP:20261018T000000Z
-DTSTART:20261018T144500Z
-DTEND:20261018T161500Z
-SUMMARY:🏑 Sub-15 🏑 Caco vs HC Lourinhã
-LOCATION:Clube Atlético de Campo de Ourique (CACO)
-DESCRIPTION:Caco vs HC Lourinhã\nCAMP. REG. SUB-15 - 1ª FASE · Série C 
- · SUB-15\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9620\nDados da
-  Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9620
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9621@hoquei.pages.dev
 DTSTAMP:20261023T000000Z
 DTSTART:20261023T203000Z

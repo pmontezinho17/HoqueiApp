@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9868@hoquei.pages.dev
-DTSTAMP:20261018T000000Z
-DTSTART:20261018T161500Z
-DTEND:20261018T174500Z
-SUMMARY:🏑 Sub-19 🏑 Caco vs CD Paço Arcos A
-LOCATION:Clube Atlético de Campo de Ourique (CACO)
-DESCRIPTION:Caco vs CD Paço Arcos A\nCAMP. REG. SUB-19 - 1ª FASE · Séri
- e C · SUB-19\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9868\nDado
- s da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9868
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9871@hoquei.pages.dev
 DTSTAMP:20261025T000000Z
 DTSTART:20261025T163000Z

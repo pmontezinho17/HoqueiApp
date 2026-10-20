@@ -1,18 +1,31 @@
 {
  "competicao_id": 432,
- "jogos_considerados": 30,
+ "jogos_considerados": 31,
  "jogadores": [
   {
    "nome": "ALESSANDRO VERONA",
    "equipa": "SPORTING CP",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "14",
-   "golos": 10,
+   "golos": 12,
    "assistencias": 6,
    "defesas": 0,
-   "pontos": 16,
-   "amarelos": 1,
+   "pontos": 18,
+   "amarelos": 2,
    "azuis": 2,
+   "vermelhos": 0
+  },
+  {
+   "nome": "NIL DEL FRESNO",
+   "equipa": "SPORTING CP",
+   "jogos": 6,
+   "numero": "2",
+   "golos": 8,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 11,
+   "amarelos": 2,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -37,19 +50,6 @@
    "assistencias": 4,
    "defesas": 0,
    "pontos": 11,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "NIL DEL FRESNO",
-   "equipa": "SPORTING CP",
-   "jogos": 5,
-   "numero": "2",
-   "golos": 7,
-   "assistencias": 3,
-   "defesas": 0,
-   "pontos": 10,
    "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
@@ -133,6 +133,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DIOGO BARATA",
+   "equipa": "SPORTING CP",
+   "jogos": 6,
+   "numero": "88",
+   "golos": 5,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 7,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "ANDRÉ GASPAR",
    "equipa": "GRF MURCHES",
    "jogos": 4,
@@ -142,6 +155,19 @@
    "defesas": 0,
    "pontos": 6,
    "amarelos": 2,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SEBASTIÃO VALADAS",
+   "equipa": "SPORTING CP",
+   "jogos": 4,
+   "numero": "87",
+   "golos": 5,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 6,
+   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -211,19 +237,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO BARATA",
-   "equipa": "SPORTING CP",
-   "jogos": 5,
-   "numero": "88",
-   "golos": 4,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 6,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MANUEL SANTOS",
    "equipa": "HC LOURINHA",
    "jogos": 3,
@@ -234,19 +247,6 @@
    "pontos": 5,
    "amarelos": 0,
    "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SEBASTIÃO VALADAS",
-   "equipa": "SPORTING CP",
-   "jogos": 3,
-   "numero": "87",
-   "golos": 4,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 5,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -278,7 +278,7 @@
   {
    "nome": "JOÃO PINA",
    "equipa": "SPORTING CP",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "8",
    "golos": 4,
    "assistencias": 1,
@@ -302,19 +302,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME CAETANO",
-   "equipa": "AD OEIRAS",
-   "jogos": 4,
-   "numero": "17",
-   "golos": 4,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 1,
-   "azuis": 2,
-   "vermelhos": 0
-  },
-  {
    "nome": "MATEUS MARQUES",
    "equipa": "CD PAÇO ARCOS",
    "jogos": 4,
@@ -325,6 +312,19 @@
    "pontos": 4,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME CAETANO",
+   "equipa": "AD OEIRAS",
+   "jogos": 5,
+   "numero": "17",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 2,
+   "azuis": 2,
    "vermelhos": 0
   },
   {
@@ -471,19 +471,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANTÓNIO ESTRELA",
-   "equipa": "AD OEIRAS",
-   "jogos": 3,
-   "numero": "8",
-   "golos": 2,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "FRANCISCO FERREIRA",
    "equipa": "AE FISICA D",
    "jogos": 3,
@@ -519,6 +506,19 @@
    "defesas": 0,
    "pontos": 3,
    "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANTÓNIO ESTRELA",
+   "equipa": "AD OEIRAS",
+   "jogos": 4,
+   "numero": "8",
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -562,10 +562,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME MONTEIRO",
-   "equipa": "AD OEIRAS",
+   "nome": "RODRIGO GONÇALVES",
+   "equipa": "CD PAÇO ARCOS",
    "jogos": 4,
-   "numero": "9",
+   "numero": "3",
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
@@ -575,10 +575,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "RODRIGO GONÇALVES",
-   "equipa": "CD PAÇO ARCOS",
-   "jogos": 4,
-   "numero": "3",
+   "nome": "GUILHERME MONTEIRO",
+   "equipa": "AD OEIRAS",
+   "jogos": 5,
+   "numero": "9",
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
@@ -611,19 +611,6 @@
    "pontos": 2,
    "amarelos": 0,
    "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ANTONIO FERREIRA",
-   "equipa": "AD OEIRAS",
-   "jogos": 3,
-   "numero": "3",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -683,6 +670,19 @@
    "equipa": "SC TORRES",
    "jogos": 3,
    "numero": "13",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANTONIO FERREIRA",
+   "equipa": "AD OEIRAS",
+   "jogos": 4,
+   "numero": "3",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -822,19 +822,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MIGUEL CATARINO",
-   "equipa": "AD OEIRAS",
-   "jogos": 2,
-   "numero": "54",
-   "golos": 1,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "FILIPE LOURENÇO",
    "equipa": "APAC TOJAL",
    "jogos": 3,
@@ -852,6 +839,19 @@
    "equipa": "UD VILAFRANQUENSE",
    "jogos": 3,
    "numero": "9",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MIGUEL CATARINO",
+   "equipa": "AD OEIRAS",
+   "jogos": 3,
+   "numero": "54",
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
@@ -1173,19 +1173,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "FILIPE PEREIRA",
-   "equipa": "SPORTING CP",
-   "jogos": 5,
-   "numero": "10",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GUILHERME JESUS",
    "equipa": "HC SINTRA",
    "jogos": 5,
@@ -1196,6 +1183,19 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FILIPE PEREIRA",
+   "equipa": "SPORTING CP",
+   "jogos": 6,
+   "numero": "10",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -1277,19 +1277,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO ALMEIDA",
-   "equipa": "SPORTING CP",
-   "jogos": 2,
-   "numero": "99",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "LUIS BERNARDO",
    "equipa": "GRF MURCHES",
    "jogos": 2,
@@ -1329,6 +1316,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOÃO ALMEIDA",
+   "equipa": "SPORTING CP",
+   "jogos": 3,
+   "numero": "99",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RUBEN ALMEIDA",
    "equipa": "GDS CASCAIS",
    "jogos": 3,
@@ -1352,32 +1352,6 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DAVID FONSECA",
-   "equipa": "AD OEIRAS",
-   "jogos": 4,
-   "numero": "75",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DIOGO DAVID",
-   "equipa": "AD OEIRAS",
-   "jogos": 4,
-   "numero": "79",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 1,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -1420,9 +1394,35 @@
    "vermelhos": 0
   },
   {
+   "nome": "DAVID FONSECA",
+   "equipa": "AD OEIRAS",
+   "jogos": 5,
+   "numero": "75",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO DAVID",
+   "equipa": "AD OEIRAS",
+   "jogos": 5,
+   "numero": "79",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 1,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOÃO LAMPREIA",
    "equipa": "SPORTING CP",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "33",
    "golos": 0,
    "assistencias": 1,
@@ -1862,19 +1862,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO FERNANDES",
-   "equipa": "AD OEIRAS",
-   "jogos": 2,
-   "numero": "47",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIOGO LOURENÇO",
    "equipa": "A STUART HCM",
    "jogos": 2,
@@ -2131,6 +2118,19 @@
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO FERNANDES",
+   "equipa": "AD OEIRAS",
+   "jogos": 3,
+   "numero": "47",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -2538,19 +2538,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MANUEL COIMBRA",
-   "equipa": "AD OEIRAS",
-   "jogos": 4,
-   "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "NUNO EMÍDIO",
    "equipa": "PAREDE FC",
    "jogos": 4,
@@ -2558,19 +2545,6 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TELMO EMÍDIO",
-   "equipa": "AD OEIRAS",
-   "jogos": 4,
-   "numero": "71",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -2590,19 +2564,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO CAMPOSANA",
-   "equipa": "SPORTING CP",
-   "jogos": 5,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "AFONSO COSTA",
    "equipa": "HC SINTRA",
    "jogos": 5,
@@ -2616,13 +2577,52 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANTÓNIO MARANTE",
-   "equipa": "SPORTING CP",
+   "nome": "MANUEL COIMBRA",
+   "equipa": "AD OEIRAS",
    "jogos": 5,
-   "numero": "68",
+   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TELMO EMÍDIO",
+   "equipa": "AD OEIRAS",
+   "jogos": 5,
+   "numero": "71",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "AFONSO CAMPOSANA",
+   "equipa": "SPORTING CP",
+   "jogos": 6,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANTÓNIO MARANTE",
+   "equipa": "SPORTING CP",
+   "jogos": 6,
+   "numero": "68",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,

@@ -127,8 +127,8 @@
    "hora": "14:00:00",
    "casa": "AD OEIRAS B",
    "fora": "CD PAÇO ARCOS B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 23,
+   "golos_fora": 0,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
   },
@@ -141,8 +141,8 @@
    "hora": "14:45:00",
    "casa": "A STUART HCM B",
    "fora": "SPORTING CP B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 4,
+   "golos_fora": 6,
    "recinto": "PAV.PROF.JOÃO CAMPELO",
    "ao_vivo": false
   },

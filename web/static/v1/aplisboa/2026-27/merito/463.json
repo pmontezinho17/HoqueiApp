@@ -1,17 +1,17 @@
 {
  "competicao_id": 463,
  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE D",
- "jogos_lidos": 6,
+ "jogos_lidos": 8,
  "jogos_sem_boletim": 0,
  "linhas": [
   {
    "posicao": 1,
    "equipa": "AD OEIRAS B",
-   "jogos": 3,
-   "participantes": 30,
-   "bonificacao": 42,
+   "jogos": 4,
+   "participantes": 40,
+   "bonificacao": 56,
    "penalizacao": 0,
-   "pontos": 42,
+   "pontos": 56,
    "media": 14.0,
    "por_confirmar": 0
   },
@@ -29,34 +29,34 @@
   {
    "posicao": 3,
    "equipa": "SPORTING CP B",
-   "jogos": 2,
-   "participantes": 16,
-   "bonificacao": 19,
+   "jogos": 3,
+   "participantes": 24,
+   "bonificacao": 30,
    "penalizacao": 0,
-   "pontos": 19,
-   "media": 9.5,
+   "pontos": 30,
+   "media": 10.0,
    "por_confirmar": 0
   },
   {
    "posicao": 4,
    "equipa": "A STUART HCM B",
-   "jogos": 2,
-   "participantes": 18,
-   "bonificacao": 18,
-   "penalizacao": -2,
-   "pontos": 16,
+   "jogos": 3,
+   "participantes": 27,
+   "bonificacao": 27,
+   "penalizacao": -3,
+   "pontos": 24,
    "media": 8.0,
    "por_confirmar": 0
   },
   {
    "posicao": 5,
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 2,
-   "participantes": 17,
-   "bonificacao": 17,
-   "penalizacao": -6,
-   "pontos": 11,
-   "media": 5.5,
+   "jogos": 3,
+   "participantes": 25,
+   "bonificacao": 25,
+   "penalizacao": -8,
+   "pontos": 17,
+   "media": 5.67,
    "por_confirmar": 0
   }
  ]

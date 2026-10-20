@@ -15,11 +15,31 @@
 	import { piscar } from '$lib/piscar';
 	import { caminhoEquipa } from '$lib/slug';
 	import { estadoDasFaltas, mostrarNoPlacar } from '$lib/faltas';
+	import { destinoDeVoltar, recuarNaHistoria, veioDeDentro } from '$lib/voltar';
 	import type { EventoJogo } from '$lib/tipos';
 	import { untrack } from 'svelte';
+	import { afterNavigate } from '$app/navigation';
 
 	let { data } = $props();
 	const f = $derived(data.ficha);
+
+	/**
+	 * Chegámos aqui de dentro da app, ou de fora?
+	 *
+	 * O `from` do `afterNavigate` é `null` quando a página é a primeira do arranque — um link
+	 * partilhado, um favorito, a app instalada a abrir de raiz. Nesse caso não há história para
+	 * onde recuar e a seta tem de seguir o seu `href`. Ver `lib/voltar.ts`.
+	 */
+	let deDentro = $state(false);
+	afterNavigate(({ from, type }) => {
+		deDentro = veioDeDentro(type, from);
+	});
+
+	function voltar(e: MouseEvent) {
+		if (!recuarNaHistoria(deDentro, { meta: e.metaKey, ctrl: e.ctrlKey, shift: e.shiftKey, alt: e.altKey, botao: e.button })) return;
+		e.preventDefault();
+		history.back();
+	}
 	/**
 	 * Verdadeiro quando não há `match/<id>.json` publicado e o que se está a ver foi montado
 	 * a partir da agenda — ver `lib/fichaDaAgenda.ts`.
@@ -110,8 +130,16 @@
 		if (!abas.length || abas.includes(tab as Tab)) return;
 		// Num jogo por começar, o que se quer ver é a **convocatória** — foi isso que o dono
 		// foi procurar. Sem esta preferência caía na classificação, que é a primeira da barra.
-		const preferida = porComecar && abas.includes('equipas') ? 'equipas' : abas[0];
-		tab = preferida;
+		if (porComecar && abas.includes('equipas')) {
+			tab = 'equipas';
+			return;
+		}
+		// **Sem ficha publicada, cai nas Informações.** Desde 20/10/2026 a lista de jogos abre
+		// também os jogos por disputar, a pedido do dono: *"num dia por disputar, acho que seria
+		// interessante entrar no menu de jogo, mas apresentar apenas o tab de informação"*. Sem
+		// isto chegava-se aqui na classificação da prova — correcta, mas não é o que quem vai ao
+		// pavilhão na véspera veio buscar: veio ver a hora e o recinto.
+		tab = semFicha && abas.includes('info') ? 'info' : abas[0];
 	});
 
 	/**
@@ -245,9 +273,21 @@
 <div class="reserva" style="height: {alturaExpandida || ''}px">
 <div class="cromado" class:fixo={k === 1} bind:this={cromado}>
 <article class="heroi" style="--k: {k}; --alt: {alturaExtras}px">
-	<!-- leva ao dia **deste** jogo e não a hoje: quem abriu um jogo de quinta-feira quer
-	     voltar a quinta-feira, e não ao dia em que calha estar -->
-	<a class="voltar" href={f.data ? `/?dia=${f.data}` : '/'} aria-label="Voltar aos jogos">←</a>
+	<!--
+	  **Volta para onde a pessoa estava, não para a lista de jogos.**
+
+	  Reportado a 18/10/2026: *"Estou dentro do menu da equipa. Escolho um jogo para ver os
+	  detalhes. Se carrego para voltar para trás, volta ao menu principal, não ao menu onde se
+	  estava."* O `href` era fixo, e fazia sentido quando a ficha só se abria a partir da lista
+	  do dia — hoje abre-se também da equipa, da competição, da pesquisa e de O Meu Clube. E a
+	  20/10 passou a abrir-se de **todas** as linhas, incluindo os jogos por disputar, o que
+	  multiplicou as vezes que esta porta é usada.
+
+	  O `href` fica, e é o que se segue quando não há história: um link partilhado, um favorito,
+	  a app a abrir de raiz. Leva ao dia **deste** jogo e não a hoje — quem abriu um jogo de
+	  quinta-feira quer voltar a quinta-feira. A decisão vive no `lib/voltar.ts`.
+	-->
+	<a class="voltar" href={destinoDeVoltar(f.data)} onclick={voltar} aria-label="Voltar">←</a>
 
 	<!--
 	  O escalão **acima** do resultado, e na parte que não se fecha.
@@ -264,7 +304,23 @@
 
 	<!-- sempre visível: é isto que sobra quando tudo o resto se fecha -->
 	<div class="placar">
-		<span class="emb"><Emblema equipa={f.casa} src={data.emblemas[f.casa]} tamanho={44} /></span>
+		<!--
+		  **O emblema abre a equipa**, e não só o nome lá em baixo. Dois utilizadores pediram
+		  exactamente isto, a 17/10/2026: *"só consigo entrar dentro dos detalhes de cada uma se
+		  carregar no nome da equipa. Seria mais prático se carregar também no próprio emblema"*
+		  e *"quando pressiono num símbolo da equipa (…) devia de ir para o detalhe da mesma"*.
+
+		  Aqui não houve que desfazer nada: o placar nunca foi um link, por isso o emblema podia
+		  passar a sê-lo sem o problema do `<a>` dentro de `<a>` que a lista de jogos tinha.
+
+		  E ganha mais importância do que parece: os nomes vivem no bloco `.extras`, que colapsa
+		  ao rolar num jogo a decorrer — o emblema é o que fica sempre no ecrã.
+		-->
+		<svelte:element this={f.categoria ? 'a' : 'span'} class="emb"
+			href={f.categoria ? caminhoEquipa(f.casa, f.categoria) : null}
+			aria-label={f.categoria ? `Ver ${f.casa}` : null}>
+			<Emblema equipa={f.casa} src={data.emblemas[f.casa]} tamanho={44} />
+		</svelte:element>
 		<span class="centro">
 			<span class="numeros" use:piscar={`${f.golos_casa}-${f.golos_fora}`}
 				>{f.golos_casa}<span class="tr">–</span>{f.golos_fora}</span
@@ -292,7 +348,11 @@
 				</span>
 			{/if}
 		</span>
-		<span class="emb"><Emblema equipa={f.fora} src={data.emblemas[f.fora]} tamanho={44} /></span>
+		<svelte:element this={f.categoria ? 'a' : 'span'} class="emb"
+			href={f.categoria ? caminhoEquipa(f.fora, f.categoria) : null}
+			aria-label={f.categoria ? `Ver ${f.fora}` : null}>
+			<Emblema equipa={f.fora} src={data.emblemas[f.fora]} tamanho={44} />
+		</svelte:element>
 	</div>
 
 	<div class="extras" bind:this={extras}>

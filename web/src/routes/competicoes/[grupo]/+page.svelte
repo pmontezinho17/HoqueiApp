@@ -65,6 +65,22 @@
 
 	// marcadores: somados entre séries, com a série ao lado de cada jogador, porque
 	// as séries não se enfrentam e um ranking sem isso seria enganador
+	/**
+	 * Quantos jogos é que estes totais contam.
+	 *
+	 * Existe por uma pergunta de uma utilizadora a 17/10/2026: *"Não percebo bem a parte dos
+	 * golos, e por jogo? Fui ver a lista e o meu filho tem o número de golos equivalente aos que
+	 * marcou no jogo de hoje."*
+	 *
+	 * Fui medir antes de tocar em nada, e **os dados estavam certos**: a 20/10 eram 414 fichas
+	 * para 414 jogos disputados, e mesmo na noite em que ela escreveu os totais já somavam vários
+	 * jogos por jogador. O que faltava era o ecrã dizer o que o número é — o total aparecia a
+	 * negrito e, por baixo, `2A · 4j` sem legenda nenhuma. Ela não leu mal: não havia o que ler.
+	 */
+	const jogosContados = $derived(
+		visiveis.reduce((n, p) => n + (p.quadro?.jogos_considerados ?? 0), 0)
+	);
+
 	const marcadores = $derived.by(() => {
 		const linhas: (TotaisJogador & { serie: string | null })[] = [];
 		for (const p of visiveis)
@@ -168,6 +184,13 @@
 	{#if marcadores.length === 0}
 		<p class="nota">Ainda não há fichas de jogo publicadas nesta competição.</p>
 	{:else}
+		<!-- A chave dos números, antes da lista: sem ela o total lê-se como se fosse de um jogo
+		     só — ver o comentário do `jogosContados`. -->
+		<p class="chave">
+			Totais de <b>{jogosContados}</b>
+			{jogosContados === 1 ? 'jogo' : 'jogos'} com ficha publicada: golos a
+			<b>negrito</b>, assistências (<b>A</b>) e jogos de cada jogador (<b>j</b>).
+		</p>
 		<ol class="marcadores">
 			{#each marcadores as m, i (m.equipa + m.nome)}
 				<li class:minha={destaque(m.equipa)}>
@@ -218,6 +241,10 @@
 	.jornada.curso { color: var(--acento); }
 	.agora { margin-left: 0.35rem; padding: 0.02rem 0.3rem; border-radius: 999px;
 		background: var(--acento); color: var(--cartao); font-size: 0.6rem; }
+
+	.chave { margin: 0 0 var(--e-2); font-size: var(--t-pequeno); color: var(--suave);
+		line-height: 1.4; }
+	.chave b { color: var(--texto-2); font-weight: 600; }
 
 	.marcadores { list-style: none; margin: 0; padding: 0; }
 	.marcadores li { display: grid; grid-template-columns: 1.6rem 1fr auto;
