@@ -137,6 +137,16 @@ export const NOVIDADES: Novidade[] = [
 					'pinta quando os jogos concordam, e num dia misto é cada jogo que leva o seu ' +
 					'"F". Obrigado a quem nos avisou pela caixa "O que está mal": estavam 67 dias ' +
 					'desta época a dizer mal.'
+			},
+			{
+				tipo: 'novo',
+				titulo: 'Toca no emblema para entrar na equipa',
+				texto:
+					'Foi o pedido mais repetido na caixa "O que está mal". Na lista de jogos e na ' +
+					'ficha de jogo, o emblema e o nome de cada equipa passam a abrir a página ' +
+					'dela; o resto da linha continua a abrir o jogo. E num jogo que ainda não se ' +
+					'disputou, onde antes não dava para carregar em nada, as duas equipas já se ' +
+					'alcançam.'
 			}
 		]
 	},
