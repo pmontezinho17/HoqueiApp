@@ -148,6 +148,16 @@ export const NOVIDADES: Novidade[] = [
 					'equipa passa a abrir a página dela — era o pedido mais repetido na caixa ' +
 					'"O que está mal". Na lista, tocar em qualquer ponto da linha abre sempre o ' +
 					'jogo, para o dedo nunca fazer a coisa errada.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: 'A seta de voltar volta para onde estavas',
+				texto:
+					'Quem abria um jogo a partir da página de uma equipa, e carregava na seta ' +
+					'para trás, ia parar à lista de jogos em vez de voltar à equipa. Agora volta ' +
+					'ao ecrã de onde vieste, com o separador e a posição como os deixaste. Se ' +
+					'abriste o jogo por um link partilhado, a seta leva-te ao dia desse jogo — ' +
+					'que é o melhor que há quando não houve ecrã nenhum antes.'
 			}
 		]
 	},
