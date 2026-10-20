@@ -142,11 +142,11 @@ export const NOVIDADES: Novidade[] = [
 				tipo: 'novo',
 				titulo: 'Toca no emblema para entrar na equipa',
 				texto:
-					'Foi o pedido mais repetido na caixa "O que está mal". Na lista de jogos e na ' +
-					'ficha de jogo, o emblema e o nome de cada equipa passam a abrir a página ' +
-					'dela; o resto da linha continua a abrir o jogo. E num jogo que ainda não se ' +
-					'disputou, onde antes não dava para carregar em nada, as duas equipas já se ' +
-					'alcançam.'
+					'Foi o pedido mais repetido na caixa "O que está mal". Na ficha de jogo, o ' +
+					'emblema passa a abrir a página da equipa, tal como o nome já fazia. E nas ' +
+					'listas, um jogo que ainda não se disputou — onde antes não dava para ' +
+					'carregar em nada — passa a abrir as duas equipas. Nas linhas que abrem a ' +
+					'ficha do jogo não mexemos: aí um segundo alvo só servia para o dedo falhar.'
 			}
 		]
 	},

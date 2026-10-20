@@ -66,3 +66,42 @@ export function destinoDaEquipa(equipa: string, categoria: string | null | undef
 	if (!equipa || !categoria) return null;
 	return caminhoEquipa(equipa, categoria);
 }
+
+/**
+ * As saídas de uma linha de jogo, com a regra toda num sítio só.
+ *
+ * ## A regra: **um alvo por linha**
+ *
+ * Ou a linha abre o jogo, ou as equipas são alcançáveis. **Nunca as duas coisas.**
+ *
+ * A primeira versão disto, de 20/10/2026, dava as duas: a linha tinha um link a cobri-la e as
+ * equipas por cima dele. O dono parou-a assim que a viu no site de testes:
+ *
+ * > neste menu, não quero que os clubes sejam clicáveis, pois cada vez que quero abrir o jogo
+ * > posso sem querer carregar em cima do nome clube e abrir o clube ao invés do jogo
+ *
+ * E os dados dão-lhe razão. Das cinco sugestões que pediam o emblema clicável, **nenhuma foi
+ * escrita na lista de jogos**: vieram de `/jogo/9377`, de `/clube` e de duas páginas de equipa.
+ * Quem está na lista quer abrir o jogo — pôr-lhe um segundo alvo por cima era resolver um
+ * pedido num sítio onde ele não existia e criar um problema onde não havia nenhum.
+ *
+ * O que se perde: numa linha com ficha, chegar à equipa leva dois toques em vez de um — abre-se
+ * o jogo e, lá dentro, o emblema. O que se ganha: nunca um toque faz a coisa errada. Entre um
+ * atalho e um engano, escolhe-se o engano que não acontece.
+ *
+ * E ganha-se uma coisa de borla: com a regra, um `<a>` dentro de outro `<a>` deixa de ser
+ * possível por construção. A linha volta a ser um link inteiro quando abre o jogo, e todo o
+ * andaime que existia para contornar o aninhamento — o link que a cobria, os `z-index` — foi
+ * embora.
+ */
+export function saidasDaLinha(
+	jogo: Pick<JogoAgenda, 'id' | 'gc' | 'gf' | 'casa' | 'fora' | 'cat'> & { tem_ficha?: boolean }
+): { jogo: string | null; casa: string | null; fora: string | null } {
+	const ficha = destinoDoJogo(jogo);
+	if (ficha) return { jogo: ficha, casa: null, fora: null };
+	return {
+		jogo: null,
+		casa: destinoDaEquipa(jogo.casa, jogo.cat),
+		fora: destinoDaEquipa(jogo.fora, jogo.cat)
+	};
+}

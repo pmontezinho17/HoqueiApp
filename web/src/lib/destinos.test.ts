@@ -1,6 +1,6 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { destinoDaEquipa, destinoDoJogo } from './destinos';
+import { destinoDaEquipa, destinoDoJogo, saidasDaLinha } from './destinos';
 import type { JogoAgenda } from './tipos';
 
 /**
@@ -50,6 +50,24 @@ describe('a página da equipa', () => {
 	});
 });
 
+describe('um alvo por linha', () => {
+	it('com ficha, a linha abre o jogo e as equipas ficam fora do alcance do dedo', () => {
+		expect(saidasDaLinha(jogo({ gc: 3, gf: 2 }))).toEqual({ jogo: '/jogo/9377', casa: null, fora: null });
+	});
+
+	it('sem ficha, a linha não abre nada e as duas equipas abrem-se', () => {
+		expect(saidasDaLinha(jogo())).toEqual({
+			jogo: null,
+			casa: '/equipa/sub-17/caco-a',
+			fora: '/equipa/sub-17/sl-benfica'
+		});
+	});
+
+	it('sem ficha e sem escalão não há saída nenhuma, e isso é honesto', () => {
+		expect(saidasDaLinha(jogo({ cat: '' }))).toEqual({ jogo: null, casa: null, fora: null });
+	});
+});
+
 describe('contra a agenda publicada', () => {
 	const raiz = new URL('../../static/v1/aplisboa/', import.meta.url);
 	const temporadas = existsSync(raiz) ? readdirSync(raiz).sort().reverse() : [];
@@ -65,14 +83,33 @@ describe('contra a agenda publicada', () => {
 		expect(agenda.length).toBeGreaterThan(0);
 	});
 
-	it('de nenhum jogo se fica sem saída: as duas equipas são sempre alcançáveis', () => {
-		const presos = agenda.filter(
-			(j) => !destinoDaEquipa(j.casa, j.cat) || !destinoDaEquipa(j.fora, j.cat)
-		);
+	it('nenhuma linha fica sem saída nenhuma', () => {
+		const presos = agenda.filter((j) => {
+			const s = saidasDaLinha(j);
+			return !s.jogo && !s.casa && !s.fora;
+		});
 		expect(presos.map((j) => `${j.data} ${j.casa} × ${j.fora} [${j.cat}]`)).toEqual([]);
 	});
 
-	it('há mesmo jogos sem ficha na agenda — é o caso que o utilizador reportou', () => {
+	it('nenhuma linha dá dois alvos ao mesmo dedo', () => {
+		const ambos = agenda.filter((j) => {
+			const s = saidasDaLinha(j);
+			return !!s.jogo && (!!s.casa || !!s.fora);
+		});
+		expect(ambos.map((j) => `${j.data} ${j.casa} × ${j.fora}`)).toEqual([]);
+	});
+
+	it('quando a linha não abre o jogo, abre as duas equipas — era o pedido do utilizador', () => {
+		const semFicha = agenda.filter((j) => destinoDoJogo(j) === null);
+		expect(semFicha.length).toBeGreaterThan(0);
+		const incompletos = semFicha.filter((j) => {
+			const s = saidasDaLinha(j);
+			return !s.casa || !s.fora;
+		});
+		expect(incompletos.map((j) => `${j.data} ${j.casa} × ${j.fora} [${j.cat}]`)).toEqual([]);
+	});
+
+	it('há mesmo jogos sem ficha na agenda, senão a regra não está a ser exercitada', () => {
 		// Se um dia isto falhar é porque a agenda só tem jogos já disputados ou com ficha. Aí
 		// confirma-se nos dados e empurra-se a verificação por escrito, em vez de a apagar.
 		expect(agenda.some((j) => destinoDoJogo(j) === null)).toBe(true);
