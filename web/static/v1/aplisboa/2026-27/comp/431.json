@@ -206,8 +206,8 @@
    "hora": "15:00:00",
    "casa": "SPORTING CP",
    "fora": "CANDELARIA SC",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 3,
+   "golos_fora": 2,
    "recinto": "PAV.G.S.SACAVENENSE",
    "ao_vivo": false
   },
