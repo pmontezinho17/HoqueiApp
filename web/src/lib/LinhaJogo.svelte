@@ -4,7 +4,7 @@
 	import { directoDe } from './directos';
 	import { emCurso, escalaoCurto, faseCurta } from './formato';
 	import { piscar } from './piscar';
-	import { destinoDaEquipa, destinoDoJogo } from './destinos';
+	import { destinoDoJogo } from './destinos';
 	import type { JogoAgenda } from './tipos';
 
 	let {
@@ -33,12 +33,12 @@
 	const directo = $derived(directoDe(jogo.id));
 	const ganhouCasa = $derived(jogado && jogo.gc! > jogo.gf!);
 	const ganhouFora = $derived(jogado && jogo.gf! > jogo.gc!);
-	// As três saídas desta linha vivem no `lib/destinos.ts`, não aqui: a pergunta "esta linha
-	// leva a algum lado?" tem de ser testável sem montar o componente, e foi por não o ser que
-	// um jogo por disputar ficou quatro semanas sem saída nenhuma. Ver lá o porquê completo.
+	// As saídas desta linha vivem no `lib/destinos.ts`, não aqui: a pergunta "esta linha leva a
+	// algum lado?" tem de ser testável sem montar o componente, e foi por não o ser que um jogo
+	// por disputar ficou quatro semanas sem saída nenhuma. Ver lá o porquê completo.
+	// **Um alvo por linha**, e é sempre a ficha do jogo — mesmo num jogo por disputar, que desde
+	// 09/10 abre com o recinto e a hora. A razão é do dono e está no `destinos.ts`.
 	const destino = $derived(destinoDoJogo(jogo));
-	const casaEm = $derived(destinoDaEquipa(jogo.casa, jogo.cat));
-	const foraEm = $derived(destinoDaEquipa(jogo.fora, jogo.cat));
 
 	const diaCurto = (iso: string) => {
 		const d = new Date(`${iso}T00:00:00`);
@@ -58,23 +58,17 @@
   sempre. O custo é a linha passar de ~44px para ~56px — exactamente a altura que medimos
   nas duas (ver docs/04-benchmarking.md).
 -->
-<div class="linha" class:ligavel={destino} class:comDirecto={!!directo}>
-	<!--
-	  **A linha deixou de ser um link e passou a ter um por baixo.**
+<!--
+  **Um alvo por linha, e é a ficha do jogo.** A linha inteira é o link; as equipas são texto.
 
-	  Era um `<a>` à volta de tudo, e por isso tocar no emblema de uma equipa abria a ficha do
-	  jogo. Cinco das dezoito sugestões da caixa "O que está mal" pediam a mesma coisa — chegar
-	  à equipa pelo emblema —, e não havia forma de o dar sem isto: um `<a>` não pode viver
-	  dentro de outro `<a>`.
-
-	  O link que cobre a linha fica por baixo (`z-index: 0`) e as equipas por cima, cada uma com
-	  o seu destino. É o padrão habitual, e mantém links verdadeiros: nada aqui navega por
-	  `onclick`, por isso abrir num separador novo e copiar o endereço continuam a funcionar.
-	-->
-	{#if destino}
-		<a class="cobre" href={destino}
-			aria-label="Ficha do jogo: {jogo.casa} contra {jogo.fora}"></a>
-	{/if}
+  Houve uma versão, a 20/10/2026, em que a linha tinha um link a cobri-la e as equipas
+  clicáveis por cima. O dono parou-a no site de testes: *"cada vez que quero abrir o jogo posso
+  sem querer carregar em cima do nome clube e abrir o clube ao invés do jogo"*. O pedido que
+  motivou aquilo fica resolvido na ficha de jogo, onde o emblema abre a equipa sem disputar
+  alvo com nada. Ver `destinos.ts`.
+-->
+<svelte:element this={destino ? 'a' : 'div'} href={destino} class="linha"
+	class:ligavel={destino} class:comDirecto={!!directo}>
 	<span class="quando">
 		{#if live}
 			<!-- O ponto a pulsar lê-se antes do texto; o texto é para quem não vê cor.
@@ -92,16 +86,14 @@
 	</span>
 
 	<span class="equipas">
-		<svelte:element this={casaEm ? 'a' : 'span'} href={casaEm} class="equipa"
-			class:vencedor={ganhouCasa} class:minha={seguida?.(jogo.casa)}>
+		<span class="equipa" class:vencedor={ganhouCasa} class:minha={seguida?.(jogo.casa)}>
 			<Emblema equipa={jogo.casa} src={emblemas[jogo.casa]} tamanho={18} />
 			<span class="nome">{jogo.casa}</span>
-		</svelte:element>
-		<svelte:element this={foraEm ? 'a' : 'span'} href={foraEm} class="equipa"
-			class:vencedor={ganhouFora} class:minha={seguida?.(jogo.fora)}>
+		</span>
+		<span class="equipa" class:vencedor={ganhouFora} class:minha={seguida?.(jogo.fora)}>
 			<Emblema equipa={jogo.fora} src={emblemas[jogo.fora]} tamanho={18} />
 			<span class="nome">{jogo.fora}</span>
-		</svelte:element>
+		</span>
 	</span>
 
 	{#if directo}
@@ -123,7 +115,7 @@
 			<b class:vencedor={ganhouFora} use:piscar={jogo.gf}>{jogo.gf}</b>
 		</span>
 	{/if}
-</div>
+</svelte:element>
 
 <style>
 	.camara {
@@ -158,8 +150,6 @@
 	}
 
 	.linha {
-		/* âncora do link que cobre a linha — ver o comentário no HTML */
-		position: relative;
 		display: grid;
 		/* sem coluna de resultado quando não há resultado: o nome fica com esse espaço */
 		grid-template-columns: 3.1rem 1fr auto;
@@ -177,10 +167,6 @@
 	.ligavel:hover, .ligavel:focus-visible { background: var(--acento-fraco); outline: none; }
 	/* no telemóvel não há `hover`: sem isto, tocar numa linha não dá retorno nenhum */
 	.ligavel:active { background: var(--acento-fraco); }
-	/* o realce com o teclado deixou de vir do `:focus` da própria linha, que já não é um link */
-	.linha:has(.cobre:focus-visible) { background: var(--acento-fraco); }
-
-	.cobre { position: absolute; inset: 0; z-index: 0; }
 
 	.quando { display: flex; flex-direction: column; line-height: 1.3; }
 	.dia, .hora { color: var(--suave); font-variant-numeric: tabular-nums;
@@ -202,24 +188,8 @@
 	@media (prefers-reduced-motion: reduce) { .vivo i { animation: none; } }
 	.dia { font-weight: 600; }
 
-	/* **A coluna não sobe; só os links sobem.** Com `z-index` aqui, o espaço vazio à direita de
-	   um nome curto deixava de abrir seja o que for: ficava por cima do link que cobre a linha
-	   sem ser link nenhum. Medido no browser a 20/10/2026 — `elementFromPoint` nesse ponto
-	   devolvia `null`, e antes devolvia a ficha do jogo. */
 	.equipas { display: grid; gap: var(--e-0); min-width: 0; }
-	/* **`width: max-content` e não a coluna toda.** Com a largura inteira, o espaço vazio à
-	   direita de um nome curto passava a abrir a equipa, e o jogo — que é a acção principal da
-	   linha — ficava só com a coluna da hora e a do resultado. Assim o link agarra o nome e o
-	   emblema, e o resto da coluna continua a abrir o jogo. O `max-width` mantém as reticências
-	   nos nomes compridos, que foi o que se mediu em 15 dos 34 nomes de um domingo. */
-	.equipa { display: flex; align-items: center; gap: var(--e-2); min-width: 0;
-		width: max-content; max-width: 100%;
-		position: relative; z-index: 1;
-		text-decoration: none; color: inherit; border-radius: 6px; }
-	/* a área de toque não se dá a conhecer sozinha: o sublinhado ao passar e ao focar é o que
-	   diz "isto abre a equipa" a quem experimenta */
-	a.equipa:hover .nome, a.equipa:focus-visible .nome { text-decoration: underline; }
-	a.equipa:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+	.equipa { display: flex; align-items: center; gap: var(--e-2); min-width: 0; }
 	/* quem perdeu recua para o nível secundário: lê-se quem ganhou sem ler os números */
 	.nome { overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 		color: var(--texto-2); }
