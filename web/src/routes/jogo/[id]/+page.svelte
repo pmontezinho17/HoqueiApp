@@ -264,7 +264,23 @@
 
 	<!-- sempre visível: é isto que sobra quando tudo o resto se fecha -->
 	<div class="placar">
-		<span class="emb"><Emblema equipa={f.casa} src={data.emblemas[f.casa]} tamanho={44} /></span>
+		<!--
+		  **O emblema abre a equipa**, e não só o nome lá em baixo. Dois utilizadores pediram
+		  exactamente isto, a 17/10/2026: *"só consigo entrar dentro dos detalhes de cada uma se
+		  carregar no nome da equipa. Seria mais prático se carregar também no próprio emblema"*
+		  e *"quando pressiono num símbolo da equipa (…) devia de ir para o detalhe da mesma"*.
+
+		  Aqui não houve que desfazer nada: o placar nunca foi um link, por isso o emblema podia
+		  passar a sê-lo sem o problema do `<a>` dentro de `<a>` que a lista de jogos tinha.
+
+		  E ganha mais importância do que parece: os nomes vivem no bloco `.extras`, que colapsa
+		  ao rolar num jogo a decorrer — o emblema é o que fica sempre no ecrã.
+		-->
+		<svelte:element this={f.categoria ? 'a' : 'span'} class="emb"
+			href={f.categoria ? caminhoEquipa(f.casa, f.categoria) : null}
+			aria-label={f.categoria ? `Ver ${f.casa}` : null}>
+			<Emblema equipa={f.casa} src={data.emblemas[f.casa]} tamanho={44} />
+		</svelte:element>
 		<span class="centro">
 			<span class="numeros" use:piscar={`${f.golos_casa}-${f.golos_fora}`}
 				>{f.golos_casa}<span class="tr">–</span>{f.golos_fora}</span
@@ -292,7 +308,11 @@
 				</span>
 			{/if}
 		</span>
-		<span class="emb"><Emblema equipa={f.fora} src={data.emblemas[f.fora]} tamanho={44} /></span>
+		<svelte:element this={f.categoria ? 'a' : 'span'} class="emb"
+			href={f.categoria ? caminhoEquipa(f.fora, f.categoria) : null}
+			aria-label={f.categoria ? `Ver ${f.fora}` : null}>
+			<Emblema equipa={f.fora} src={data.emblemas[f.fora]} tamanho={44} />
+		</svelte:element>
 	</div>
 
 	<div class="extras" bind:this={extras}>

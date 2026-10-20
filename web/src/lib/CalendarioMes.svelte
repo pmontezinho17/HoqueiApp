@@ -2,6 +2,7 @@
 	import Emblema from './Emblema.svelte';
 	import { disputado, type Jogo } from './tipos';
 	import { diaDeLisboa } from '$lib/dia';
+	import { adversario, jogoPrecisaDeMarca, localDoDia } from '$lib/calendario';
 
 	// Uma equipa de cada vez, de propósito. Com várias, dois jogos no mesmo dia não cabiam
 	// na célula e acabavam escondidos atrás de um "+1" que não se podia abrir.
@@ -40,9 +41,9 @@
 		ano = d.getFullYear();
 	}
 
-	// casa/fora pela cor da célula: para quem tem de conduzir, é *a* informação
-	const emCasa = (j: Jogo) => j.casa === equipa;
-	const adversario = (j: Jogo) => (j.casa === equipa ? j.fora : j.casa);
+	// casa/fora pela cor da célula: para quem tem de conduzir, é *a* informação. A decisão
+	// mudou-se para o `lib/calendario.ts` a 20/10/2026 — vivia aqui e, por viver aqui, nenhum
+	// teste lhe chegava. Ver lá o defeito que isso deixou passar.
 </script>
 
 <div class="topo">
@@ -62,20 +63,25 @@
 					<td class:vazio={!dia}>
 						{#if dia}
 							{@const doDia = porDia.get(dia) ?? []}
-							<div class="celula" class:hoje={dia === hoje} class:fora={doDia.length && !emCasa(doDia[0])}
+							{@const local = localDoDia(doDia, equipa)}
+							<!-- a célula só afirma um local quando o dia inteiro concorda; num dia
+							     com um jogo em casa e outro fora, quem fala é cada jogo -->
+							<div class="celula" class:hoje={dia === hoje} class:fora={local === 'fora'}
 								class:comJogo={doDia.length}>
 								<span class="num">
 									{Number(dia.slice(-2))}
-									{#if doDia.length && !emCasa(doDia[0])}<b class="f" title="Fora">F</b>{/if}
+									{#if local === 'fora'}<b class="f" title="Fora">F</b>{/if}
 								</span>
 								<!-- todos, não só o primeiro: esconder um jogo atrás de um "+N"
 								     é tirar ao utilizador o que ele veio cá buscar -->
 								{#each doDia as j (j.id ?? j.casa)}
+									{@const outro = adversario(j, equipa)}
 									<svelte:element this={j.id && disputado(j) ? 'a' : 'div'}
 										href={j.id && disputado(j) ? `/jogo/${j.id}` : null} class="jogo">
-										<Emblema equipa={adversario(j)} src={emblemas[adversario(j)]} tamanho={18} />
+										<Emblema equipa={outro} src={emblemas[outro]} tamanho={18} />
 										<span class="hora">
 											{disputado(j) ? `${j.golos_casa}-${j.golos_fora}` : (j.hora?.slice(0, 5) ?? '')}
+											{#if jogoPrecisaDeMarca(doDia, equipa, j)}<b class="f-jogo" title="Fora">F</b>{/if}
 										</span>
 									</svelte:element>
 								{/each}
@@ -91,6 +97,7 @@
 <p class="legenda">
 	<span class="amostra casa"></span> Em casa
 	<span class="amostra fora"></span> Fora <b>F</b>
+	<span class="ressalva">· num dia com jogos em casa e fora, o <b>F</b> fica no jogo</span>
 </p>
 
 <style>
@@ -119,6 +126,8 @@
 	.jogo { display: flex; flex-direction: column; align-items: center; gap: 0.05rem;
 		text-decoration: none; color: inherit; }
 	.hora { font-size: 0.56rem; font-variant-numeric: tabular-nums; }
+	/* o F de um jogo só aparece em dias mistos, por isso não compete com o F da célula */
+	.f-jogo { font-size: 0.5rem; font-weight: 700; margin-left: 0.1rem; color: var(--suave); }
 
 	.legenda { display: flex; align-items: center; gap: 0.35rem; margin-top: 0.6rem;
 		font-size: 0.68rem; color: var(--suave); }
@@ -127,4 +136,7 @@
 	.amostra.casa { background: var(--cartao); }
 	.amostra.fora { background: var(--texto); }
 	.legenda b { font-size: 0.62rem; }
+	/* a ressalva quebra para a linha de baixo a 375px em vez de empurrar a legenda para fora */
+	.legenda { flex-wrap: wrap; }
+	.ressalva { font-size: 0.64rem; }
 </style>
