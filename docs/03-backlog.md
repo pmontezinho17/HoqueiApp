@@ -3800,6 +3800,45 @@ errado.
 só dispara quando aparece um clube novo, mas é o único que toca na postura com a fonte, e essa
 não se negoceia por tamanho.
 
+## Sugestões de utilizadores — o lote de 16 a 20/10/2026
+
+**Vinte e quatro sugestões**, vinte pela caixa "O que está mal" e quatro por email. Doze foram
+escritas no sábado 17/10, o primeiro dia de jornada com a app na mão de pessoas que não o dono
+— mais do que as três semanas anteriores juntas.
+
+As palavras de quem escreveu ficam no arquivo privado `ok4sticks-sugestoes`. **Aqui estão as
+nossas**, que é a regra do `AGENTS.md`: o registo público descreve a alteração, não cita quem a
+pediu. Esta secção nasceu a 20/10/2026, **depois de o dono perguntar se as sugestões tinham
+chegado a virar trabalho registado.** Não tinham: havia três PRs de código e zero itens de
+backlog, e um pedido que só existe numa conversa é um pedido que se perde.
+
+| | O quê | prioridade | tamanho | estado |
+|---|---|---|---|---|
+| S1 | Calendário da equipa: casa/fora saía do primeiro jogo do dia e mentia nos outros | must | S | ✅ 20/10 — a célula só afirma um local quando o dia concorda; 67 dias desta época estavam errados |
+| S2 | Lista de marcadores: o total não dizia que era de vários jogos | must | XS | ✅ 20/10 — chave antes da lista, com os jogos contados. Os dados estavam certos: 414 fichas para 414 jogos |
+| S3 | Chegar à equipa pelo emblema, e não só pelo nome | must | M | ✅ 20/10 — na ficha de jogo. **Não** na lista: ali a linha abre o jogo e um segundo alvo só faz o dedo falhar |
+| S4 | Um jogo por disputar não abria nada | must | S | ✅ 20/10 — abre a ficha, no separador de Informações, com hora e recinto |
+| S5 | Voltar na ficha de jogo leva ao ecrã de jogos e não a onde se estava | **must** | S | aberto — e **agravado pelo S4**: com todas as linhas a abrir o jogo, esta porta passa a ser muito mais usada |
+| S6 | Mostrar a jornada no calendário | should | S | aberto |
+| S7 | Notificações escolhíveis: golos, início, intervalo, resultado final | should | L | aberto — é a Fase 5, que depende da Fase 9 |
+| S8 | Escolher o idioma da aplicação | could | L | aberto |
+| S9 | Catálogo dos componentes, para entregar a um designer | should | M | em PR para o `dev` |
+| S10 | Ler o campeonato nacional (`hp.fpp.pt`), 1.ª à 3.ª divisão | should | L | aberto — outra fonte, outra postura a combinar |
+| S11 | O balão de sugestões tapa resultados | should | XS | aberto |
+| S12 | Agrupar os jogos do dia por hora, escalão ou clube | could | M | aberto |
+| S13 | Pontuação de forma de 0 a 100 por equipa | could | M | aberto — inventar um número que a fonte não publica pede cuidado |
+| S14 | ~~Pavilhão errado num jogo de sub-17~~ | — | — | ❌ **não é defeito nosso**: eram dois jogos do Torneio Abertura de 19/09, disputado todo no pavilhão do Alenquer, onde a equipa de fora era nominalmente "casa". Verificado contra o estado publicado às 10:20 de 17/10 |
+| S15 | Abrir a morada do pavilhão no mapa | should | S | aberto — o `recintos.json` já tem as moradas |
+| S16 | Tabela de classificação: clicar no clube **já funciona** e as pessoas não dão por isso | should | S | aberto — não é um link a faltar, é uma área de toque que não se dá a conhecer. Mede-se no telemóvel |
+
+**Cinco das vinte e quatro não pedem nada** — são agradecimentos. Um delegado há 25 anos
+escreveu *"nunca houve nada assim"*. Não entram em backlog nenhum e ficam aqui registadas
+porque são a melhor medição que este projecto tem sobre se vale a pena continuar.
+
+**A lição de processo, e é a mais cara deste lote:** o código de S1 a S4 ficou pronto antes de
+qualquer destes itens existir. Fechar o ciclo não é publicar — é o pedido ficar escrito num
+sítio onde o próximo a passar o encontre.
+
 ## Próximo incremento (revisto a 05/10/2026)
 
 A lista que estava aqui — publicar no Cloudflare, ecrã de equipa, quadro de marcadores,
