@@ -1,0 +1,9 @@
+{
+  "name": "catalogo-de-ecras",
+  "private": true,
+  "type": "module",
+  "description": "Capturas do catálogo de componentes. Fora do web/ de propósito: o `npm ci` do CI não leva o Playwright.",
+  "devDependencies": {
+    "playwright": "1.64.1"
+  }
+}

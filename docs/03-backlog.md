@@ -315,6 +315,7 @@ novo, para uma eventual insistência.
 | Calendário de cada clube e do meu clube | W4.7, W4.8, W4.5 | 4 |
 | Notificações de alterações, com confirmação | B5.1–B5.3, B5.8, W5.9–W5.11 — **muda de forma**, ver Decisão 4 | 5 |
 | Adicionar ao calendário jogos de um clube/escalão | ✅ **feito a 02/10** — B4.11 + W4.12 (feed ICS) | 4 |
+| Catálogo de componentes para entregar a um designer | 🟡 **segunda entrega a 19/10/2026**, por componente e não por página, depois de o designer recusar a primeira. 43 componentes com identificador, 52 estados. `scripts/catalogo/` gera tudo. O que falta é o trabalho dele voltar. [issue #4](https://github.com/pmontezinho17/ok4sticks-sugestoes/issues/4) | — |
 
 ---
 
@@ -3800,6 +3801,124 @@ errado.
 só dispara quando aparece um clube novo, mas é o único que toca na postura com a fonte, e essa
 não se negoceia por tamanho.
 
+## O catálogo de componentes, e porque é que ele não é um documento (18–19/10/2026)
+
+O pedido chegou por email a 10/10/2026 e está aberto como [issue #4](https://github.com/pmontezinho17/ok4sticks-sugestoes/issues/4)
+no repositório de sugestões: *"catalogar todos os componentes existentes na aplicação e criar
+um documento que eu possa consultar. Calendário, tabela, cartão jogos, Bla Bla Bla. Eu tenho
+de os ver a todos. Para poder identificar padrões e desenhar um a um."* O destinatário é um
+designer gráfico, e o critério que o dono deu é **a facilidade de integração depois**, não a
+beleza da entrega.
+
+**O item não estava no backlog.** Verificado a 18/10: nem por ID, nem pelo texto do email, nem
+na rastreabilidade — o issue existia e o backlog não sabia dele. É o primeiro pedido arquivado
+à mão a 17/10 que ficou só do lado do GitHub, e fica registado aqui para não se repetir.
+
+### Onde eu discordo do pedido, e o que fiz em vez disso
+
+Um documento é a forma errada. Não por ser pobre — por ser uma **cópia** da interface. No dia
+em que alguém mexe num ecrã, o documento fica errado e ninguém dá por isso; e um catálogo que
+mente sobre uma cor é pior do que não haver catálogo. Foi exactamente o erro que este projecto
+já pagou com o vault abandonado a 05/10.
+
+O que existe em vez disso é uma **página gerada**, e a diferença não é de formato:
+
+- as cores, as medidas, a lista de ícones e a dos crachás são **lidas do código** —
+  `scripts/catalogo/tokens.mjs` lê o bloco `:root` do `+layout.svelte`, a paleta do
+  `cor.svelte.ts` e os escalões do `CrachaEscalao.svelte`, e **rebenta** se não os encontrar;
+- os 26 ícones saem de dentro do `Icone.svelte`, que é onde eles têm de continuar a viver;
+- as 50 capturas (25 ecrãs × 2 temas) são tiradas pelo Playwright a 375×812, sempre com o
+  mesmo dia de dados, para duas rondas se compararem.
+
+Refaz-se em quatro comandos. Nada disto é commitado: seriam 19 MB de PNG por ronda no
+histórico de um repositório público, e uma segunda cópia da interface a envelhecer ao lado da
+primeira. O `scripts/catalogo/README.md` tem os comandos.
+
+### Três medições que mudaram o que ficou feito
+
+1. **A moldura do telemóvel ficava com 752 px e esmagava o texto para 169.** Uma coluna de
+   grelha `auto` mede o conteúdo *máximo* da imagem — e as capturas têm 750 px de largura
+   real, por serem de dupla densidade. A coluna passou a ser fixa em 375 px.
+2. **O cromado fixo aparecia a meio da página.** Numa captura de página inteira o Playwright
+   desenha o que é `position: fixed` onde ele está *no ecrã*, isto é a 812 px do topo — a
+   barra de navegação atravessava a tabela do Mérito. Passam a `absolute` dentro de um `body`
+   posicionado, e assentam no fim da imagem; a linha da dobra continua lá a dizer onde o
+   telemóvel corta.
+3. **O jogo com classificação não é o jogo terminado.** O separador da tabela só existe em
+   jogos **por começar** — depois do apito ele dá lugar à cronologia e à ficha. Sondados
+   quatro jogos antes de escolher os três que entram no catálogo.
+
+### O designer recusou a primeira entrega, e tinha razão (19/10/2026)
+
+O dono enviou-lhe o catálogo dos 25 ecrãs e a resposta veio no dia seguinte: *"o que me
+deste não está errado mas é mais uma overview das páginas"*, *"eu assim não desenho páginas,
+desenho apenas components, que depois irão formar as páginas"*, e — a frase que mais
+importa — *"era bom o Claude dar os nomes a isto e separar primeiro, para que depois seja
+fácil pedir-lhe para substituir"*. Mandou também o [Material 3](https://m3.material.io/components)
+como referência do que esperava.
+
+**O erro foi meu e é nomeável: entreguei o que era fácil de produzir em vez do que era
+preciso para trabalhar.** Fotografar 25 ecrãs é uma travessia da app; catalogar 43
+componentes obriga a decidir o que é um componente, a dar-lhe um nome que dure, e a
+enumerar os estados em que ele tem de funcionar. A segunda coisa é a que torna possível
+*"substituir"*, que era a palavra dele desde o início — está no email de 10/10 e eu li-a
+como "ver".
+
+A segunda versão inverte a ordem: **43 componentes, cada um com identificador, nome,
+anatomia e estados**, recortados de onde vivem na app; os ecrãs ficam no fim, só para
+mostrar onde encaixam. O identificador é a parte que faz o trabalho: `C09` é sempre a linha
+de jogo, e é por ele que ele devolve e eu substituo.
+
+### Três armadilhas de captura, cada uma com uma ronda perdida
+
+1. **`page.screenshot({ clip })` conta a partir do documento e `boundingBox()` a partir do
+   ecrã.** Enquanto o alvo estava no topo as duas coincidiam; mal era preciso rolar para lá
+   chegar, o recorte subia o tanto que a página tinha rolado, e a captura de "jogo por
+   começar" trazia o cabeçalho do bloco em vez da linha. Passou a `locator.screenshot()`,
+   que recorta o elemento e ainda espera que ele pare de se mexer.
+2. **A faixa dos dias outra vez.** O aviso está no `AGENTS.md` desde que enganou um teste e
+   o guia, e enganou-me na mesma: um selector solto no ecrã de Jogos apanha o dia vizinho,
+   que está montado fora do ecrã, e a captura do bloco de escalão saiu com o cabeçalho da
+   aplicação lá dentro.
+3. **Um estado distingue-se pelo conteúdo, não pela posição.** `.linha:has(.golos)` é um
+   jogo jogado, `.linha:has(.vivo)` é um a decorrer. Com `:first-child` a captura mudava de
+   estado de cada vez que a jornada andasse.
+
+### Os estados que os dados não têm, e como se mostram sem mentir
+
+Dois estados reais do produto não existiam nos dados do dia: **o jogo a decorrer** (não
+havia nenhum à hora da captura) e **a classificação calculada por nós** (medido a 19/10: das
+23 provas com tabela, zero estão nesse caso — todas têm a oficial). Sem eles o catálogo
+calava a cor `--vivo` e o rótulo de "não oficial", que são das peças que mais importam.
+
+A saída foi reescrever a resposta do servidor antes de a página a ler, e **marcar a captura
+como forçada**, com a razão escrita ao lado. A alternativa — mostrar sem dizer — tornava o
+catálogo inútil para medir fosse o que fosse.
+
+### Um componente que não está em uso
+
+Ao percorrer os 43, o `SeletorCompeticao.svelte` não é importado por ecrã nenhum. Fica no
+catálogo, sem captura e com a nota, porque existe no código; se voltar a ser preciso, é
+aquele o desenho. E duas afirmações do catálogo que o código desmentiu: o "dia sem jogos"
+não se alcança a usar a app — a fita só oferece dias que têm jogos — e "O Meu Clube" sem
+equipas não mostra um estado vazio, mostra a grelha de escolher clubes.
+
+### O que isto deixa decidido para quando o trabalho voltar
+
+| o que ele devolve | onde assenta | o que custa integrar |
+|---|---|---|
+| ícones (`.svg`, grelha 20×20, traço 1,8, `currentColor`) | `web/src/lib/Icone.svelte` | colar, um ramo cada |
+| crachás de escalão (`.svg`) | `web/static/escaloes/` | substituir o ficheiro |
+| ícone da aplicação | `scripts/gerar_icones.py` → `web/static/icones/` | recortar três tamanhos |
+| cores, aos pares claro/escuro | `:root` do `+layout.svelte` e `cor.svelte.ts` | medir contraste e verificar nos dois temas |
+| ecrãs redesenhados | `web/src/lib/` e `web/src/routes/` | um item de backlog cada |
+
+**O ícone da aplicação é o primeiro trabalho a sério que há aqui**, e é o mais fácil de
+fechar: o que está no ar foi desenhado por um script em Python (`scripts/gerar_icones.py`,
+um stick branco sobre amarelo torrado) e está marcado como provisório desde o W2.8. É uma
+peça só, não depende de mais nada, e não mexe em nenhum ecrã.
+
+---
 ## Sugestões de utilizadores — o lote de 16 a 20/10/2026
 
 **Vinte e quatro sugestões**, vinte pela caixa "O que está mal" e quatro por email. Doze foram
@@ -3822,7 +3941,7 @@ backlog, e um pedido que só existe numa conversa é um pedido que se perde.
 | S6 | Mostrar a jornada no calendário | should | S | aberto |
 | S7 | Notificações escolhíveis: golos, início, intervalo, resultado final | should | L | aberto — é a Fase 5, que depende da Fase 9 |
 | S8 | Escolher o idioma da aplicação | could | L | aberto |
-| S9 | Catálogo dos componentes, para entregar a um designer | should | M | em PR para o `dev` |
+| S9 | Catálogo dos componentes, para entregar a um designer | should | M | 🟡 segunda entrega a 19/10, por componente e não por página — ver "O catálogo de componentes" acima. Falta o trabalho do designer voltar |
 | S10 | Ler o campeonato nacional (`hp.fpp.pt`), 1.ª à 3.ª divisão | should | L | aberto — outra fonte, outra postura a combinar |
 | S11 | O balão de sugestões tapa resultados | should | XS | aberto |
 | S12 | Agrupar os jogos do dia por hora, escalão ou clube | could | M | aberto |
