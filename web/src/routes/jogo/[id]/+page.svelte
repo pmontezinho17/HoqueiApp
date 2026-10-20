@@ -15,11 +15,31 @@
 	import { piscar } from '$lib/piscar';
 	import { caminhoEquipa } from '$lib/slug';
 	import { estadoDasFaltas, mostrarNoPlacar } from '$lib/faltas';
+	import { destinoDeVoltar, recuarNaHistoria, veioDeDentro } from '$lib/voltar';
 	import type { EventoJogo } from '$lib/tipos';
 	import { untrack } from 'svelte';
+	import { afterNavigate } from '$app/navigation';
 
 	let { data } = $props();
 	const f = $derived(data.ficha);
+
+	/**
+	 * Chegámos aqui de dentro da app, ou de fora?
+	 *
+	 * O `from` do `afterNavigate` é `null` quando a página é a primeira do arranque — um link
+	 * partilhado, um favorito, a app instalada a abrir de raiz. Nesse caso não há história para
+	 * onde recuar e a seta tem de seguir o seu `href`. Ver `lib/voltar.ts`.
+	 */
+	let deDentro = $state(false);
+	afterNavigate(({ from, type }) => {
+		deDentro = veioDeDentro(type, from);
+	});
+
+	function voltar(e: MouseEvent) {
+		if (!recuarNaHistoria(deDentro, { meta: e.metaKey, ctrl: e.ctrlKey, shift: e.shiftKey, alt: e.altKey, botao: e.button })) return;
+		e.preventDefault();
+		history.back();
+	}
 	/**
 	 * Verdadeiro quando não há `match/<id>.json` publicado e o que se está a ver foi montado
 	 * a partir da agenda — ver `lib/fichaDaAgenda.ts`.
@@ -253,9 +273,21 @@
 <div class="reserva" style="height: {alturaExpandida || ''}px">
 <div class="cromado" class:fixo={k === 1} bind:this={cromado}>
 <article class="heroi" style="--k: {k}; --alt: {alturaExtras}px">
-	<!-- leva ao dia **deste** jogo e não a hoje: quem abriu um jogo de quinta-feira quer
-	     voltar a quinta-feira, e não ao dia em que calha estar -->
-	<a class="voltar" href={f.data ? `/?dia=${f.data}` : '/'} aria-label="Voltar aos jogos">←</a>
+	<!--
+	  **Volta para onde a pessoa estava, não para a lista de jogos.**
+
+	  Reportado a 18/10/2026: *"Estou dentro do menu da equipa. Escolho um jogo para ver os
+	  detalhes. Se carrego para voltar para trás, volta ao menu principal, não ao menu onde se
+	  estava."* O `href` era fixo, e fazia sentido quando a ficha só se abria a partir da lista
+	  do dia — hoje abre-se também da equipa, da competição, da pesquisa e de O Meu Clube. E a
+	  20/10 passou a abrir-se de **todas** as linhas, incluindo os jogos por disputar, o que
+	  multiplicou as vezes que esta porta é usada.
+
+	  O `href` fica, e é o que se segue quando não há história: um link partilhado, um favorito,
+	  a app a abrir de raiz. Leva ao dia **deste** jogo e não a hoje — quem abriu um jogo de
+	  quinta-feira quer voltar a quinta-feira. A decisão vive no `lib/voltar.ts`.
+	-->
+	<a class="voltar" href={destinoDeVoltar(f.data)} onclick={voltar} aria-label="Voltar">←</a>
 
 	<!--
 	  O escalão **acima** do resultado, e na parte que não se fecha.
