@@ -38,7 +38,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.6';
+export const VERSAO = '1.7';
 
 /**
  * Em que grupo é que uma novidade cai.
@@ -124,6 +124,22 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.7',
+		data: '2026-10-20',
+		pontos: [
+			{
+				tipo: 'corrigido',
+				titulo: 'O calendário da equipa deixa de trocar casa com fora',
+				texto:
+					'Num dia com dois jogos — um em casa e outro fora — o calendário pintava o dia ' +
+					'inteiro conforme o primeiro, e o segundo aparecia trocado. Agora o dia só se ' +
+					'pinta quando os jogos concordam, e num dia misto é cada jogo que leva o seu ' +
+					'"F". Obrigado a quem nos avisou pela caixa "O que está mal": estavam 67 dias ' +
+					'desta época a dizer mal.'
+			}
+		]
+	},
 	{
 		versao: '1.6',
 		data: '2026-10-17',
