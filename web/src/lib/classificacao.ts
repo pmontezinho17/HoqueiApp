@@ -71,3 +71,35 @@ export function classificacaoDaEquipa(
 	);
 	return temPontos ? 'pontos' : 'nenhuma';
 }
+
+/**
+ * O mesmo, para o separador "Classificação" da **ficha de jogo**.
+ *
+ * **É o terceiro ecrã da mesma história**, e foi preciso o dono pedi-lo a 21/10/2026: *"no meu
+ * dos jogos, quando entro num jogo de Benjamins ou Escolares, quero ver a tabela de mérito"*.
+ * A 10/10 o Mérito entrou no ecrã da competição; a 14/10 apanhou-se o da equipa, e escreveu-se
+ * ali ao lado que verificar o ecrã que se mexeu não chega porque a avaria aparece no outro. E
+ * mesmo assim este ficou de fora onze dias — a ficha de jogo nem sequer **pedia** o ficheiro do
+ * Mérito, por isso não havia nada a decidir: o separador simplesmente não existia.
+ *
+ * Aqui a pergunta é mais simples do que na equipa, porque não há equipa nenhuma a filtrar: o
+ * que interessa é se a prova tem tabela, e qual.
+ *
+ * **Medido a 21/10/2026 nas 37 provas publicadas:** 8 têm só Mérito — os Encontros Distritais
+ * de Escolares e Benjamins —, 23 só tabela de pontos, 6 nenhuma das duas, e **zero têm as
+ * duas**. A ordem — Mérito primeiro — não muda nada hoje, e fica igual à da equipa para não
+ * haver duas regras para a mesma pergunta.
+ *
+ * As 6 sem nada não são defeito: são os jogos-treino, o Zeca Pinto e as Supertaças, que são
+ * eliminatórias. Ali uma classificação não quer dizer nada — ver `vale_calcular` no raspador.
+ */
+export function classificacaoDoJogo(
+	competicao:
+		| { classificacao?: GrupoClassificacao[]; classificacao_calculada?: GrupoClassificacao[] }
+		| null
+		| undefined,
+	merito: { linhas: unknown[] } | null | undefined
+): OQueMostrar {
+	if (merito?.linhas?.length) return 'merito';
+	return tabelasDe(competicao).grupos.some((g) => g.linhas.length > 0) ? 'pontos' : 'nenhuma';
+}

@@ -2,10 +2,12 @@
 	import Cronologia from '$lib/Cronologia.svelte';
 	import CrachaEscalao from '$lib/CrachaEscalao.svelte';
 	import RotuloCalculada from '$lib/RotuloCalculada.svelte';
-	import { tabelasDe } from '$lib/classificacao';
+	import { classificacaoDoJogo, tabelasDe } from '$lib/classificacao';
 	import Emblema from '$lib/Emblema.svelte';
 	import FichaEquipas from '$lib/FichaEquipas.svelte';
 	import TabelaClassificacao from '$lib/TabelaClassificacao.svelte';
+	import TabelaMerito from '$lib/TabelaMerito.svelte';
+	import LegendaMerito from '$lib/LegendaMerito.svelte';
 	import Faixa from '$lib/Faixa.svelte';
 	import InfoJogo from './InfoJogo.svelte';
 	import Icone from '$lib/Icone.svelte';
@@ -15,6 +17,7 @@
 	import { piscar } from '$lib/piscar';
 	import { caminhoEquipa } from '$lib/slug';
 	import { estadoDasFaltas, mostrarNoPlacar } from '$lib/faltas';
+	import { estadoDoPlacar } from '$lib/placar';
 	import { destinoDeVoltar, recuarNaHistoria, veioDeDentro } from '$lib/voltar';
 	import type { EventoJogo } from '$lib/tipos';
 	import { untrack } from 'svelte';
@@ -77,16 +80,25 @@
 		!!(f.data || f.hora || f.recinto || f.arbitros.length || f.boletim?.parciais?.length)
 	);
 	/**
-	 * A tabela desta prova, da fonte ou nossa.
+	 * A classificação desta prova: tabela de pontos, Mérito, ou nenhuma.
 	 *
 	 * Até 07/10/2026 os Escolares e os Benjamins não tinham separador nenhum aqui, porque a
-	 * fonte não publica tabela nesses escalões. Agora têm, com o rótulo de não oficial.
-	 * Continua a não haver separador nas eliminatórias e nos jogos-treino, onde uma
-	 * classificação não quer dizer nada — ver `vale_calcular` no raspador.
+	 * fonte não publica tabela nesses escalões. Desde 21/10 têm o **Mérito**, que é a
+	 * classificação que o Artigo 92.º manda usar ali — pedido do dono, e o terceiro ecrã da
+	 * mesma história. Continua a não haver separador nas eliminatórias e nos jogos-treino, onde
+	 * uma classificação não quer dizer nada — ver `vale_calcular` no raspador.
+	 *
+	 * A decisão vive no `classificacaoDoJogo`, com a medição das 37 provas ao lado.
 	 */
+	const oQueMostrar = $derived(classificacaoDoJogo(data.competicao, data.merito));
 	const tabela = $derived(tabelasDe(data.competicao));
 	const grupos = $derived(tabela.grupos);
-	const temTabela = $derived(grupos.some((g) => g.linhas.length > 0));
+	const merito = $derived(data.merito);
+	const temTabela = $derived(oQueMostrar !== 'nenhuma');
+	/** o que a legenda do Mérito precisa de saber sobre o que ainda não está confirmado */
+	const meritoPorConfirmar = $derived(
+		(merito?.linhas ?? []).reduce((n, l) => n + l.por_confirmar, 0)
+	);
 	const temSeparadores = $derived(temEventos || temTabela || temEquipas || temInfo);
 
 	/**
@@ -254,11 +266,14 @@
 		return () => removeEventListener('scroll', ao);
 	});
 
+	// A parte do jogo, o resultado e as faltas: o dono enumerou a 21/10/2026 o que este placar
+	// deve ter. A decisão do texto vive no `lib/placar.ts`, onde um teste lhe chega — aqui
+	// mostrava-se o relógio e o período ficava escondido atrás dele.
 	const estado = $derived(
-		aDecorrer ? (f.relogio ?? f.periodo ?? f.situacao ?? 'Ao vivo')
-			: porComecar ? 'Por começar'
-			: 'Final'
+		estadoDoPlacar({ aDecorrer, porComecar, periodo: f.periodo, relogio: f.relogio, situacao: f.situacao })
 	);
+	/** as faltas aparecem assim que o jogo começa, e não só ao vivo — ver `faltas.ts` */
+	const jogoComecou = $derived(aDecorrer || !porComecar);
 </script>
 
 <svelte:head><title>{f.casa} {f.golos_casa}–{f.golos_fora} {f.fora}</title></svelte:head>
@@ -329,9 +344,12 @@
 				{#if aDecorrer}<i aria-hidden="true"></i>{/if}{estado}
 			</span>
 			<!--
-			  **As faltas de equipa, e só com o jogo a decorrer.** Pedido do dono a 10/10/2026 e
-			  aprovado a 17/10: *"só faz sentido se for no ecrã de jogo ao vivo"*. Num jogo
-			  terminado continuam na caixa de informação, onde já estavam.
+			  **As faltas de equipa, assim que o jogo começa.** Pedido do dono a 10/10/2026 e
+			  aprovado a 17/10 com o limite *"só faz sentido se for no ecrã de jogo ao vivo"*. A
+			  21/10 ele alargou-o, ao enumerar o que o placar deve ter: *"num jogo a decorrer ou
+			  finalizado devem aparecer as faltas cometidas por cada equipa"*. Num jogo por
+			  começar continuam a não aparecer — a fonte publica `[null, null]` nesses, e um `0`
+			  antes do apito seria um número inventado a partir de um campo vazio.
 
 			  A decisão de quando mostrar e quando avisar vive no `$lib/faltas.ts`, para poder
 			  ser testada sem montar este ecrã — é a regra que nasceu do Mérito desaparecido.
@@ -340,7 +358,7 @@
 			  página tem de saber que o número subiu, e `polite` espera que ela acabe de ler o
 			  que estava a ler.
 			-->
-			{#if mostrarNoPlacar(aDecorrer, f.faltas)}
+			{#if mostrarNoPlacar(jogoComecou, f.faltas)}
 				<span class="faltas" aria-live="polite" aria-label="Faltas de equipa: {f.faltas[0]} a {f.faltas[1]}">
 					<span class="n {estadoDasFaltas(f.faltas[0])}">{f.faltas[0]}</span>
 					<Icone nome="falta" tamanho={14} />
@@ -449,15 +467,26 @@
 				<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
 					omitidos={f.individuais_omitidos ?? false} />
 			{:else if aba === 'tabela'}
-				{#each grupos as g (g.nome ?? '')}
-					{#if g.linhas.length}
-						{#if g.nome}<h2 class="serie">{g.nome}</h2>{/if}
-						<TabelaClassificacao linhas={g.linhas} emblemas={data.emblemas}
-							categoria={f.categoria ?? ''}
-							destaque={(e) => e === f.casa || e === f.fora} />
-					{/if}
-				{/each}
-				{#if tabela.calculada}<RotuloCalculada />{/if}
+				<!-- Nos Escolares e nos Benjamins a classificação **é** o Mérito do Artigo 92.º,
+				     e não uma tabela de pontos. Medido a 21/10/2026: das 37 provas publicadas, 8
+				     têm só Mérito, 23 só pontos e nenhuma tem as duas. -->
+				{#if oQueMostrar === 'merito'}
+					<TabelaMerito linhas={merito!.linhas} emblemas={data.emblemas}
+						categoria={f.categoria ?? ''}
+						destaque={(e) => e === f.casa || e === f.fora} />
+					<LegendaMerito porConfirmar={meritoPorConfirmar}
+						semBoletim={merito!.jogos_sem_boletim} />
+				{:else}
+					{#each grupos as g (g.nome ?? '')}
+						{#if g.linhas.length}
+							{#if g.nome}<h2 class="serie">{g.nome}</h2>{/if}
+							<TabelaClassificacao linhas={g.linhas} emblemas={data.emblemas}
+								categoria={f.categoria ?? ''}
+								destaque={(e) => e === f.casa || e === f.fora} />
+						{/if}
+					{/each}
+					{#if tabela.calculada}<RotuloCalculada />{/if}
+				{/if}
 			{:else if aba === 'equipas'}
 				{#if porComecar}
 					<p class="aviso">

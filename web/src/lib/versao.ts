@@ -150,6 +150,23 @@ export const NOVIDADES: Novidade[] = [
 					'jogo, para o dedo nunca fazer a coisa errada.'
 			},
 			{
+				tipo: 'novo',
+				titulo: 'O placar diz em que parte vai o jogo',
+				texto:
+					'Num jogo a decorrer, por baixo do resultado passa a dizer a parte e o minuto ' +
+					'— "2ª Parte · 12:34". Antes mostrava só o minuto, e não se sabia se era a ' +
+					'primeira ou a segunda. E as faltas de equipa, que só apareciam ao vivo, ' +
+					'ficam agora visíveis também nos jogos já terminados.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: 'Nos Escolares e Benjamins, a ficha de jogo mostra o Mérito',
+				texto:
+					'Nesses escalões a classificação é o Mérito do Artigo 92.º, e a ficha de jogo ' +
+					'não o mostrava — não tinha sequer separador de classificação. Agora tem, com ' +
+					'as duas equipas do jogo realçadas na tabela.'
+			},
+			{
 				tipo: 'corrigido',
 				titulo: 'A seta de voltar volta para onde estavas',
 				texto:
