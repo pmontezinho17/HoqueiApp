@@ -13,6 +13,7 @@
 	import LinhaJogo from './LinhaJogo.svelte';
 	import { dataLonga, emCurso, nomeProva } from './formato';
 	import { porEscalao } from './escaloes';
+	import { agruparPorLocal, ordenarPorHora, type Agrupamento } from './agrupar';
 	import type { JogoAgenda } from './tipos';
 
 	let {
@@ -21,6 +22,7 @@
 		emblemas,
 		eSeguida,
 		escalao = null,
+		agrupamento = 'escalao',
 		agora = 0
 	}: {
 		dia: string;
@@ -29,6 +31,12 @@
 		eSeguida: (cat: string) => (equipa: string) => boolean;
 		/** o escalão escolhido nos chips, ou `null` para todos */
 		escalao?: string | null;
+		/**
+		 * Como agrupar: por escalão — a árvore de três níveis que vive aqui — ou por hora ou
+		 * recinto, que são planos e vivem no `lib/agrupar.ts`. Sugestão `S12`, pedida pelo dono
+		 * a 21/10/2026. Vem de fora porque há três dias montados e a escolha vale para todos.
+		 */
+		agrupamento?: Agrupamento;
 		/**
 		 * O minuto a que vamos, dado de fora. Serve só para a secção dos jogos a decorrer
 		 * se reavaliar — e se apagar sozinha quando o último apito toca. O contador vive na
@@ -132,6 +140,51 @@
 		</section>
 	{/if}
 
+	{#if agrupamento === 'hora'}
+		<!--
+		  **Uma caixa só, por ordem de relógio** — e não uma caixa por hora, que foi a primeira
+		  versão. O dono parou-a assim que a viu: *"a caixa das 10h tem um jogo que começa às
+		  10h, depois a caixa das 11h tens um jogo que começa às 11"*. Medido: em 24 dos 56 dias
+		  com jogos, cada caixa teria exactamente um jogo lá dentro.
+
+		  Sem cabeçalho nenhum: a hora já vai em cada linha e o `comEscalao` diz o escalão. Um
+		  título por cima seria a moldura que se veio tirar.
+		-->
+		<section class="bloco" data-guia="jogos">
+			<div class="conteudo">
+				{#each ordenarPorHora(filtrados) as j (j.id ?? `${j.casa}${j.fora}`)}
+					<LinhaJogo jogo={j} {emblemas} seguida={eSeguida(j.cat)} comEscalao />
+				{/each}
+			</div>
+		</section>
+	{:else if agrupamento === 'local'}
+		<!--
+		  Um cartão por pavilhão, por ordem alfabética, e cada um abre e fecha como os dos
+		  escalões — pedido do dono a 21/10/2026. O estado vive no mesmo `fechadas` deles: a
+		  chave é o nome do recinto em vez do escalão, e o conjunto não precisa de saber a
+		  diferença.
+		-->
+		{#each agruparPorLocal(filtrados) as b, i (b.chave)}
+			<section class="bloco" data-guia={i === 0 ? 'jogos' : undefined}>
+				<button
+					class="cabecalho"
+					onclick={() => alternar(b.chave)}
+					aria-expanded={!fechadas.has(b.chave)}
+				>
+					<span class="escalao">{b.titulo}</span>
+					<span class="conta">{b.jogos.length}</span>
+					<span class="chevron" class:fechado={fechadas.has(b.chave)} aria-hidden="true">⌃</span>
+				</button>
+				{#if !fechadas.has(b.chave)}
+					<div class="conteudo">
+						{#each b.jogos as j (j.id ?? `${j.casa}${j.fora}`)}
+							<LinhaJogo jogo={j} {emblemas} seguida={eSeguida(j.cat)} comEscalao />
+						{/each}
+					</div>
+				{/if}
+			</section>
+		{/each}
+	{:else}
 	{#each blocos as b, i (b.cat)}
 		<!-- `data-guia` só no primeiro: é o alvo do passo do tour que explica entrar num jogo,
 		     e um alvo tem de ser um elemento, não nove. -->
@@ -160,6 +213,7 @@
 			{/if}
 		</section>
 	{/each}
+	{/if}
 {/if}
 
 <style>

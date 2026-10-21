@@ -38,7 +38,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.6';
+export const VERSAO = '1.8';
 
 /**
  * Em que grupo é que uma novidade cai.
@@ -124,6 +124,86 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.8',
+		data: '2026-10-21',
+		pontos: [
+			{
+				tipo: 'corrigido',
+				titulo: 'O calendário da equipa deixa de trocar casa com fora',
+				texto:
+					'Num dia com dois jogos — um em casa e outro fora — o calendário pintava o dia ' +
+					'inteiro conforme o primeiro, e o segundo aparecia trocado. Agora o dia só se ' +
+					'pinta quando os jogos concordam, e num dia misto é cada jogo que leva o seu ' +
+					'"F". Obrigado a quem nos avisou pela caixa "O que está mal": estavam 67 dias ' +
+					'desta época a dizer mal.'
+			},
+			{
+				tipo: 'novo',
+				titulo: 'Todos os jogos da lista se abrem, e o emblema leva-te à equipa',
+				texto:
+					'Um jogo que ainda não se disputou já se pode abrir: mostra a hora, o ' +
+					'recinto e a prova, e avisa que o onze aparece quando o jogo começar. Antes ' +
+					'não dava para carregar em nada. E lá dentro, no topo, o emblema de cada ' +
+					'equipa passa a abrir a página dela — era o pedido mais repetido na caixa ' +
+					'"O que está mal". Na lista, tocar em qualquer ponto da linha abre sempre o ' +
+					'jogo, para o dedo nunca fazer a coisa errada.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: 'Voltar de um jogo mantém o dia onde estavas',
+				texto:
+					'Escolhias o dia 31 na fita, abrias um jogo, carregavas na seta para trás — e ' +
+					'caías no dia de hoje. O endereço estava certo e era a app que o reescrevia a ' +
+					'seguir. Agora volta ao dia de onde vieste.'
+			},
+			{
+				tipo: 'novo',
+				titulo: 'Os filtros ficam à vista enquanto rolas',
+				texto:
+					'A linha do escalão e do agrupar cola-se por baixo do calendário, como ele já ' +
+					'faz com o cabeçalho. Num sábado de 40 jogos deixa de ser preciso subir tudo ' +
+					'para mudar de escalão.'
+			},
+			{
+				tipo: 'novo',
+				titulo: 'Agrupa os jogos do dia por hora ou por pavilhão',
+				texto:
+					'No topo há agora duas listas: à esquerda escolhes o escalão, à direita como ' +
+					'queres ver o dia. Por hora mostra tudo numa lista só, a subir com o relógio; ' +
+					'por local junta o que se joga em cada pavilhão, por ordem alfabética, e cada ' +
+					'pavilhão abre e fecha. Por escalão continua a ser como era. Foi uma sugestão ' +
+					'deixada na caixa "O que está mal".'
+			},
+			{
+				tipo: 'novo',
+				titulo: 'O placar diz em que parte vai o jogo',
+				texto:
+					'Num jogo a decorrer, por baixo do resultado passa a dizer a parte e o minuto ' +
+					'— "2ª Parte · 12:34". Antes mostrava só o minuto, e não se sabia se era a ' +
+					'primeira ou a segunda. E as faltas de equipa, que só apareciam ao vivo, ' +
+					'ficam agora visíveis também nos jogos já terminados.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: 'Nos Escolares e Benjamins, a ficha de jogo mostra o Mérito',
+				texto:
+					'Nesses escalões a classificação é o Mérito do Artigo 92.º, e a ficha de jogo ' +
+					'não o mostrava — não tinha sequer separador de classificação. Agora tem, com ' +
+					'as duas equipas do jogo realçadas na tabela.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: 'A seta de voltar volta para onde estavas',
+				texto:
+					'Quem abria um jogo a partir da página de uma equipa, e carregava na seta ' +
+					'para trás, ia parar à lista de jogos em vez de voltar à equipa. Agora volta ' +
+					'ao ecrã de onde vieste, com o separador e a posição como os deixaste. Se ' +
+					'abriste o jogo por um link partilhado, a seta leva-te ao dia desse jogo — ' +
+					'que é o melhor que há quando não houve ecrã nenhum antes.'
+			}
+		]
+	},
 	{
 		versao: '1.6',
 		data: '2026-10-17',

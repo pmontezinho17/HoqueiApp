@@ -41,3 +41,40 @@ export const diaDeLisboa = (quando: Date = new Date()): string =>
  */
 export const diaDeLisboaMais = (dias: number, quando: Date = new Date()): string =>
 	diaDeLisboa(new Date(quando.getTime() + dias * 864e5));
+
+/**
+ * Que dia abrir na lista de jogos: o que vem no endereço, ou o mais próximo de hoje.
+ *
+ * ## O defeito que isto fecha
+ *
+ * Reportado pelo dono a 21/10/2026: *"entrei dentro dos detalhes de um jogo que vai acontecer no
+ * dia 31 de outubro, e quando carrego na seta para voltar atrás, volto para o dia de hoje"*.
+ *
+ * **Medido no browser, com um ouvinte no `popstate`**, e o resultado aponta o culpado sem
+ * margem:
+ *
+ *     popstate                ?dia=2026-10-31   ← o browser restaurou o endereço certo
+ *     400 ms depois do back   ?dia=2026-10-21   ← a app reescreveu-o
+ *
+ * A escolha do dia inicial lia o `page.url` do SvelteKit, que **ainda não estava actualizado**
+ * no instante em que o efeito corre ao voltar. Sem `?dia=` à vista, caía no ramo "o dia com
+ * jogos mais próximo de hoje" — e o efeito que mantém o endereço a par gravava esse engano por
+ * cima do endereço bom. O `+page.svelte` já tinha um aviso sobre o router não estar pronto na
+ * primeira renderização; era a mesma classe de problema noutro sítio.
+ *
+ * A correcção é ler o `location.search`, que no `popstate` já está certo — é por isso que o
+ * ouvinte o viu certo. Esta função fica com a **escolha**, que é o que se pode testar sem
+ * browser; de onde vem o `pedido` é o que o comentário acima guarda.
+ *
+ * @param pedido o `?dia=` tal como vem do endereço, ou `null`
+ * @param dias os dias com jogos dentro da janela da fita, por ordem
+ * @param hoje o dia de hoje em Lisboa
+ */
+export function diaInicial(
+	pedido: string | null | undefined,
+	dias: readonly string[],
+	hoje: string
+): string {
+	if (pedido && dias.includes(pedido)) return pedido;
+	return dias.find((d) => d >= hoje) ?? dias.at(-1) ?? '';
+}

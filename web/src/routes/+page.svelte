@@ -3,10 +3,11 @@
 	import { APP_NOME } from '$lib/sitio';
 	import FitaDatas from '$lib/FitaDatas.svelte';
 	import PaginaDia from '$lib/PaginaDia.svelte';
-	import { page } from '$app/state';
 	import { afterNavigate, replaceState } from '$app/navigation';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import { porEscalao } from '$lib/escaloes';
+	import { diaInicial } from '$lib/dia';
+	import { AGRUPAMENTOS, type Agrupamento } from '$lib/agrupar';
 	import { guia } from '$lib/guia.svelte';
 	import { caminhoEquipa } from '$lib/slug';
 	import type { JogoAgenda } from '$lib/tipos';
@@ -45,11 +46,11 @@
 	let dia = $state('');
 	$effect(() => {
 		if (dia) return;
-		const pedido = page.url.searchParams.get('dia');
-		dia = (pedido && dias.includes(pedido) ? pedido : null)
-			?? dias.find((d) => d >= hoje)
-			?? dias.at(-1)
-			?? '';
+		// **`location.search` e não `page.url`.** Ao voltar de um jogo, o `page.url` do SvelteKit
+		// ainda não está actualizado no instante em que este efeito corre: sem `?dia=` à vista
+		// caía-se no dia mais próximo de hoje, e o efeito de baixo gravava esse engano por cima
+		// do endereço bom. Medido a 21/10/2026 com um ouvinte no `popstate` — ver `diaInicial`.
+		dia = diaInicial(new URLSearchParams(location.search).get('dia'), dias, hoje);
 	});
 	/**
 	 * Mantém o endereço a par do dia, sem encher o histórico.
@@ -72,8 +73,19 @@
 
 	/** quanto da página já foi arrastada: a fita de datas usa-o para acompanhar o dedo */
 	let progresso = $state(0);
+	/** a altura real da fita de datas, para a barra dos filtros colar por baixo dela */
+	let alturaFita = $state(0);
 
 	let escalao = $state<string | null>(null);
+	/**
+	 * Como agrupar os jogos do dia: por escalão, por hora ou por recinto.
+	 *
+	 * Sugestão `S12`, de um utilizador a 17/10/2026, que o dono mandou avançar a 21/10. Fica em
+	 * `$state` simples, como os chips de escalão aqui ao lado — nem no endereço nem no
+	 * armazenamento. O armazenamento tinha um preço que isto não paga: a política de privacidade
+	 * enumera **uma** chave em `localStorage`, e acrescentar outra obrigava a reescrevê-la.
+	 */
+	let agrupamento = $state<Agrupamento>('escalao');
 
 	// seguir é por clube E escalão
 	const chave = (e: string, c: string) => `${c}\u0000${e}`;
@@ -143,16 +155,42 @@
 
 <h1 class="sr">Jogos</h1>
 
-<FitaDatas {dias} bind:escolhido={dia} {progresso} />
+<FitaDatas {dias} bind:escolhido={dia} {progresso} bind:altura={alturaFita} />
 
+<!--
+  **Filtrar e agrupar, lado a lado, em duas listas.**
+
+  Eram duas linhas: uma fita horizontal de chips de escalão e, por baixo, três botões de
+  agrupar. O dono pediu as duas coisas no mesmo sítio a 21/10/2026 — *"do lado esquerdo o
+  filtro de escalões com um drop-down list e do lado direito o Agrupar com um drop-down list"*.
+
+  O que se perde: um toque. Um chip escolhe-se com um dedo, uma lista abre e depois escolhe-se.
+  O que se ganha: **uma linha em vez de duas** num ecrã onde a altura antes do primeiro
+  resultado já custou caro uma vez, e os escalões deixam de estar escondidos numa fita que é
+  preciso arrastar para ver que existem mais.
+
+  O `data-guia="escaloes"` fica: é o alvo de um passo do tour guiado, e sem ele o passo aponta
+  para o nada.
+-->
 {#if escaloes.length}
-	<div class="escaloes" role="group" aria-label="Filtrar por escalão" data-guia="escaloes">
-		<button class:activo={escalao === null} onclick={() => (escalao = null)}>Todos</button>
-		{#each escaloes as e (e)}
-			<button class:activo={escalao === e} onclick={() => (escalao = escalao === e ? null : e)}>
-				{e.replace('SENIORES ', 'SEN. ')}
-			</button>
-		{/each}
+	<div class="controlos" data-guia="escaloes" style="--fita: {alturaFita}px">
+		<label>
+			<span class="sr">Filtrar por escalão</span>
+			<select bind:value={escalao}>
+				<option value={null}>Todos os escalões</option>
+				{#each escaloes as e (e)}
+					<option value={e}>{e.replace('SENIORES ', 'SEN. ')}</option>
+				{/each}
+			</select>
+		</label>
+		<label>
+			<span class="sr">Agrupar os jogos</span>
+			<select bind:value={agrupamento}>
+				{#each AGRUPAMENTOS as a (a.id)}
+					<option value={a.id}>Agrupar: {a.rotulo}</option>
+				{/each}
+			</select>
+		</label>
 	</div>
 {/if}
 
@@ -164,6 +202,7 @@
 			emblemas={data.emblemas}
 			{eSeguida}
 			{escalao}
+			{agrupamento}
 			{agora}
 		/>
 	{/snippet}
@@ -172,37 +211,46 @@
 <style>
 	/* Um degrau visual abaixo da fita de datas: a fita é navegação, isto é filtro. Com os
 	   dois no mesmo tamanho liam-se como duas filas iguais a competir pela atenção. */
-	.escaloes {
+	/* **Duas listas, meia largura cada.** Nativas de propósito: num telemóvel um `<select>`
+	   abre a roda do sistema, que é maior, mais rápida e mais acessível do que qualquer lista
+	   que eu desenhe — e não traz um único byte de JavaScript. */
+	/* **Colada por baixo da fita de datas**, a pedido do dono a 21/10/2026: *"queria que a
+	   componente onde estão os filtros e os agrupar ficasse sempre visível quando estou a fazer
+	   scroll"*. Faz sentido pelo mesmo motivo que a fita já cola: num sábado de 40 jogos, rolar
+	   até ao fim e querer mudar de escalão obrigava a subir tudo outra vez.
+
+	   O `top` é a soma de duas alturas **medidas**: o cabeçalho (`--topo`, do layout) e a fita
+	   (`--fita`, que ela publica). Nenhum dos dois é um número escrito aqui — o comentário da
+	   própria fita explica porquê, e é a mesma razão.
+
+	   `z-index: 7` fica **abaixo** da fita (8) e do cabeçalho (10): os três têm topos
+	   diferentes e não chegam a sobrepor-se, mas se um dia chegarem, a ordem de quem tapa quem
+	   já está decidida. O fundo opaco e o `padding-bottom` existem para os jogos não
+	   aparecerem por baixo da barra enquanto passam. */
+	.controlos {
+		position: sticky;
+		top: calc(var(--topo, 60px) + var(--fita, 44px));
+		z-index: 7;
+		background: var(--fundo);
 		display: flex;
-		gap: var(--e-1);
-		overflow-x: auto;
-		scrollbar-width: none;
-		margin: 0 -0.9rem var(--e-4);
-		padding: 0 0.9rem var(--e-1);
+		gap: var(--e-2);
+		padding-bottom: var(--e-2);
+		margin-bottom: var(--e-3);
 	}
-	.escaloes::-webkit-scrollbar {
-		display: none;
-	}
-	.escaloes button {
-		flex: 0 0 auto;
-		min-height: 36px;
-		padding: var(--e-1) var(--e-3);
+	.controlos label { flex: 1 1 0; min-width: 0; }
+	.controlos select {
+		width: 100%;
+		min-height: 40px;
+		padding: 0 var(--e-2);
 		font-size: var(--t-micro);
-		letter-spacing: 0.02em;
-		white-space: nowrap;
+		font-family: inherit;
 		cursor: pointer;
 		border-radius: var(--raio-pilula);
 		border: 1px solid var(--borda);
-		background: transparent;
-		color: var(--suave);
+		background: var(--cartao);
+		color: var(--texto-2);
 	}
-	/* preenchido, como o dia escolhido na fita: era o que faltava para se ver que isto
-	   filtra — ver docs/04-benchmarking.md */
-	.escaloes button.activo {
-		background: var(--acento);
-		border-color: var(--acento);
-		color: var(--cartao);
-		font-weight: 600;
-	}
+	.controlos select:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+
 
 </style>

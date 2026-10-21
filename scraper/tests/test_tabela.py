@@ -20,9 +20,10 @@ from hoquei.tabela import calcular, calcular_de_json, vale_calcular
 PUBLICADO = pathlib.Path(__file__).resolve().parents[2] / "web" / "static" / "v1"
 
 
-def jogo(casa, fora, gc=None, gf=None, grupo=None, ao_vivo=False) -> Jogo:
+def jogo(casa, fora, gc=None, gf=None, grupo=None, ao_vivo=False,
+         jornada="1ª JORNADA") -> Jogo:
     return Jogo(
-        id=None, numero=None, grupo=grupo, jornada="1ª JORNADA", data=None, hora=None,
+        id=None, numero=None, grupo=grupo, jornada=jornada, data=None, hora=None,
         casa=casa, fora=fora, golos_casa=gc, golos_fora=gf, recinto=None, ao_vivo=ao_vivo,
     )
 
@@ -249,6 +250,71 @@ class TestGrupos:
         assert {l.equipa: l.jogos for l in grupos[0].linhas} == {"A": 2, "B": 2}
 
 
+class TestEliminatoriaNumaProvaDeSerieUnica:
+    """A coluna de grupo não chega para separar a eliminatória: a jornada é que chega.
+
+    O caso real é a TAÇA PROF. JOAO CAMPELO - SENIORES FEMININOS, a 18/10/2026: série única,
+    por isso **nenhum** jogo traz grupo, e com duas meias-finais a 11/10. O motor contava-as e
+    dava quatro jogos a cada equipa onde a fonte dá três — 23 campos errados numa tabela de
+    quatro linhas, e 12 pontos ao A STUART HCM onde a fonte dá 9.
+
+    Aqui os jogos são escritos à mão, de propósito: o teste de reprodução mede o caso real mas
+    muda de resultado sempre que a APL publica mais uma jornada, e uma regra tem de ficar fixa
+    em algum lado que não dependa disso.
+    """
+
+    def test_a_meia_final_nao_entra_na_tabela(self):
+        grupos = calcular([
+            jogo("A", "B", 2, 0),
+            jogo("C", "D", 2, 4),
+            jogo("A", "C", 1, 0, jornada="MEIA FINAL"),
+        ])
+        assert len(grupos) == 1 and grupos[0].nome is None
+        linhas = {l.equipa: l for l in grupos[0].linhas}
+        assert {e: l.jogos for e, l in linhas.items()} == {"A": 1, "B": 1, "C": 1, "D": 1}
+        assert (linhas["A"].pontos, linhas["A"].golos_marcados) == (3, 2)
+
+    def test_os_quartos_a_final_e_a_final_four_tambem_nao(self):
+        for jornada in ("QUARTOS FINAL", "FINAL", "FINAL FOUR - MEIA FINAL",
+                        "FINAL FOUR - FINAL"):
+            grupos = calcular([jogo("A", "B", 2, 0), jogo("A", "B", 5, 0, jornada=jornada)])
+            linhas = {l.equipa: l for l in grupos[0].linhas}
+            assert linhas["A"].jogos == 1, f"{jornada} entrou na tabela"
+            assert linhas["A"].golos_marcados == 2, f"{jornada} somou golos"
+
+    def test_uma_jornada_numerada_conta_mesmo_que_diga_final(self):
+        """`JORNADA` ganha à palavra de eliminatória.
+
+        A fonte já escreve `1ª JORNADA - 1ª FASE`; o dia em que escrever `1ª JORNADA - FASE
+        FINAL` não pode ser o dia em que uma jornada inteira desaparece da tabela.
+        """
+        grupos = calcular([
+            jogo("A", "B", 2, 0, jornada="1ª JORNADA - 1ª FASE"),
+            jogo("A", "B", 3, 1, jornada="2ª JORNADA - FASE FINAL"),
+        ])
+        linhas = {l.equipa: l for l in grupos[0].linhas}
+        assert linhas["A"].jogos == 2
+        assert linhas["A"].pontos == 6
+
+    def test_quem_so_joga_a_eliminatoria_nao_tem_linha(self):
+        """E é o que deve ser: não disputou a fase de grupos que esta tabela classifica."""
+        grupos = calcular([
+            jogo("A", "B", 2, 0),
+            jogo("A", "Z", 1, 0, jornada="MEIA FINAL"),
+        ])
+        assert {l.equipa for l in grupos[0].linhas} == {"A", "B"}
+
+    def test_numa_prova_com_series_decide_se_a_mesma_pela_coluna(self):
+        """A regra antiga não muda: sem grupo e com séries, fica de fora à mesma."""
+        grupos = calcular([
+            jogo("A", "B", 1, 0, grupo="A"),
+            jogo("C", "D", 2, 0, grupo="B"),
+            jogo("A", "C", 3, 2),  # meia-final, sem grupo e sem jornada que o diga
+        ])
+        assert [g.nome for g in grupos] == ["SERIE A", "SERIE B"]
+        assert {l.equipa: l.jogos for l in grupos[0].linhas} == {"A": 1, "B": 1}
+
+
 # ─── B9.13: reprodução contra os dados reais ────────────────────────────────────
 
 def _provas_publicadas():
@@ -259,8 +325,12 @@ def _provas_publicadas():
 
 
 def _jogos_de(d) -> list[Jogo]:
+    # A `jornada` tem de vir do JSON e não do valor por omissão do `jogo()`. Enquanto veio,
+    # este teste reconstruía todos os jogos como "1ª JORNADA" e **escondia de si próprio** o
+    # campo que separa a eliminatória da fase de grupos: a TAÇA PROF. JOAO CAMPELO falhava
+    # com 23 divergências e a correcção no `tabela.py` não mudava nada aqui. 18/10/2026.
     return [jogo(j["casa"], j["fora"], j["golos_casa"], j["golos_fora"], j["grupo"],
-                 j.get("ao_vivo", False))
+                 j.get("ao_vivo", False), j.get("jornada") or "")
             for j in d["jogos"]]
 
 
@@ -473,3 +543,16 @@ class TestCalcularDeJson:
         linhas = {l.equipa: l for l in so(calcular_de_json(jogos))}
         assert linhas["A"].jogos == 1
         assert linhas["A"].pontos == 3
+
+    def test_a_eliminatoria_tambem_fica_de_fora_por_aqui(self):
+        """A `jornada` tem de atravessar o `_JogoDeJson`, senão a regra morre neste caminho.
+
+        É por aqui que a ronda ao vivo recalcula, e o `_JogoDeJson` não transportava o campo
+        — tinha seis `__slots__` e nenhum era a jornada. 18/10/2026.
+        """
+        jogos = self.jogos()
+        jogos.append({"casa": "A", "fora": "B", "golos_casa": 9, "golos_fora": 0,
+                      "grupo": None, "jornada": "MEIA FINAL"})
+        linhas = {l.equipa: l for l in so(calcular_de_json(jogos))}
+        assert linhas["A"].jogos == 1
+        assert linhas["A"].golos_marcados == 3

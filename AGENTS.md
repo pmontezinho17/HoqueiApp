@@ -179,6 +179,17 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
   escrever uma linha em `NOVIDADES` para quem a vai ver. Uma publicação que só mexe na
   consola, no raspador ou num workflow **não sobe a versão** — e é isso que impede o aviso de
   actualização de aparecer a toda a gente por nada.
+
+  **E sobe a cada merge no `dev`, não a cada entrega em produção.** A 21/10/2026 juntei cinco
+  alterações visíveis ao `dev` ao longo do dia e deixei-as todas debaixo da `1.7`, com o
+  raciocínio de que a 1.7 ainda não tinha chegado a produção e por isso o número ainda servia.
+  Está certo para a lista de novidades de produção e **errado para o site de testes**: o
+  `actualizacao.ts` só avisa quando o número muda, por isso a app instalada do dono nunca
+  recebeu aviso nenhum e continuou a servir a cópia velha. Ele fundiu, foi ver, e disse
+  *"parece-me tudo igual"* — e tinha razão: para a app dele era tudo igual.
+
+  No site de testes o número é o **único** sinal de que há coisa nova. Parar o número é parar o
+  aviso.
 - **Guardamos texto de outras pessoas, e isso tem três obrigações.** A caixa "O que está mal"
   escreve na tabela `sugestao` da D1 desde 13/10/2026 — é a primeira vez que este projecto tem
   dados de alguém que não o próprio aparelho. Por isso: a política de privacidade enumera-a e

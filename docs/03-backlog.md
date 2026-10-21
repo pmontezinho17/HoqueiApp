@@ -315,6 +315,7 @@ novo, para uma eventual insistência.
 | Calendário de cada clube e do meu clube | W4.7, W4.8, W4.5 | 4 |
 | Notificações de alterações, com confirmação | B5.1–B5.3, B5.8, W5.9–W5.11 — **muda de forma**, ver Decisão 4 | 5 |
 | Adicionar ao calendário jogos de um clube/escalão | ✅ **feito a 02/10** — B4.11 + W4.12 (feed ICS) | 4 |
+| Catálogo de componentes para entregar a um designer | 🟡 **segunda entrega a 19/10/2026**, por componente e não por página, depois de o designer recusar a primeira. 43 componentes com identificador, 52 estados. `scripts/catalogo/` gera tudo. O que falta é o trabalho dele voltar. [issue #4](https://github.com/pmontezinho17/ok4sticks-sugestoes/issues/4) | — |
 
 ---
 
@@ -647,7 +648,8 @@ As regras que saíram daí, medidas e não assumidas:
 | **3 pontos por vitória, 1 por empate** | ajuste contra 151 linhas publicadas: `3V+1E` acerta 151/151, `2V+1E` só 65/151 |
 | **Ordem: pontos → diferença de golos → golos marcados** | reproduz a ordem exacta das 42 tabelas |
 | **A tabela conta só a fase de grupos** | os jogos a eliminar (quartos, meias, final) vêm com a coluna de grupo vazia e **não** entram. Era a causa de 25 das 29 divergências iniciais |
-| **Prova de série única deixa a coluna de grupo vazia** | aí contam todos os jogos. Eram as 4 divergências restantes |
+| **Prova de série única deixa a coluna de grupo vazia** | aí contam todos os jogos **da fase de grupos**. Eram as 4 divergências restantes |
+| **Numa prova de série única, quem separa a eliminatória é a jornada** | corrigido a 18/10/2026: a coluna de grupo não distingue nada quando está vazia em todos os jogos, e a TAÇA PROF. JOAO CAMPELO entrava com as duas meias-finais de 11/10 dentro da tabela — 23 campos errados. Ver `_ELIMINATORIA` no `tabela.py` |
 
 Isto quer dizer que podemos gerar as tabelas em falta **com o mesmo motor que reproduz as
 existentes** — e manter essa reprodução como teste permanente. Se a APL mudar a regra de
@@ -694,6 +696,7 @@ Daí saem três cadências, e não duas:
 | B9.13 | **Teste de reprodução**: recalcular as 42 tabelas publicadas e exigir igualdade | must | S | ✅ `tests/test_tabela.py`, 17 testes. Compara 10 campos por linha, baralha a entrada antes de ordenar, e falha se a amostra encolher |
 | B9.14 | Publicar classificação calculada para ESCOLARES e BENJAMINS | should | S | ✅ **feito a 07/10/2026.** 8 séries, 43 equipas, **43 linhas** de tabela. Decisão do dono, com o travão acima à frente e **sem** resposta da APL ao email de 01/10. Os **Torneios Particulares** e as Supertaças ficaram de fora, contra a formulação original deste item: são jogos-treino e eliminatórias, e ali uma tabela punha o vencedor de uma meia-final à frente do vencedor da final — ver `vale_calcular` |
 | B9.15 | Rótulo "calculada por nós, não oficial" nessas tabelas | must | XS | ✅ **feito a 07/10/2026**, num componente só (`RotuloCalculada.svelte`) usado nos três ecrãs que mostram tabelas: competição, equipa e ficha de jogo. Três cópias do texto divergiam na primeira vez que uma mudasse |
+| B9.14b | **Medição de 18/10/2026: a tabela calculada não serve hoje nenhuma prova** | — | — | ✅ medido, e **fica como está** — ver a secção "A tabela calculada está inactiva, e é de propósito" a seguir a esta tabela |
 | B9.16 | Ronda de **fecho do dia** às 00:30, que sela o dia e recalcula | must | S | o `cron` actual de 2h fica para frescura |
 | B9.17 | Ronda **ao vivo** sobre os jogos a decorrer, sem saber favoritos | could | M | ✅ **feito e validado em jogo real a 03/10** — `cli aovivo`. Parte da agenda publicada, escolhe só os jogos a decorrer e vai buscar esses: 12 jogos = 12 pedidos, ronda completa em ~15 s. Mede-se com o utilizador na bancada: ~20 s da mesa + ~15 s nossos, **menos de um minuto de ponta a ponta** |
 | B9.18 | **Normalizar grafias de clube** | should | S | a fonte tem `A STRUART HCM` vs `A STUART HCM` e `HC LOURINHA` vs `HC LOURINHÃ`. É literalmente a "limpeza" do pedido, e hoje parte emblemas e junções por nome |
@@ -710,6 +713,56 @@ Daí saem três cadências, e não duas:
 | B9.26 | A ronda ao vivo começa a seguir um jogo **25 min antes** da hora marcada | should | XS | ✅ é a única janela em que a convocatória pode existir, e usa a máquina que já está a correr em vez de pedidos novos. A app já sabe mostrar "Convocados" em vez de "Ficha" e esconder as colunas a zero |
 | B9.19 | **Impressão estrutural por ronda**: nº de colunas por tipo de tabela, com aviso quando muda | should | S | ideia emprestada do Scrapling (ver [07](07-avaliacao-scrapling.md)), sem a dependência nem a relocalização silenciosa |
 | Q4.7 | **A sonda pára quando já não há nada a observar** | must | XS | ✅ corria as 4 horas inteiras depois do apito final — ~57 pedidos inúteis a um servidor pequeno de uma federação, contra a nossa própria postura, e o diário só era comitado no fim. Agora sai `--apos-fim` rondas (5) depois de todos os jogos terminarem, e essas rondas medem quanto tempo o boletim ainda mexe |
+
+### A tabela calculada está inactiva, e é de propósito — medido a 18/10/2026
+
+Quem abrir o `tabela.py` encontra um motor de classificação completo, um guarda
+(`vale_calcular`), uma chave `classificacao_calculada` no contrato e um rótulo de "não
+oficial" em três ecrãs — e **nada disso produz uma única linha hoje**. Fui ver se era código
+esquecido. Não é, e fica registado aqui para o próximo não ter de redescobrir.
+
+**O que se mediu**, nas 37 competições publicadas em `web/static/v1/aplisboa/2026-27/comp/`:
+
+| | |
+|---|---|
+| competições | 37 |
+| com tabela publicada pela fonte | 23 (42 tabelas, 176 linhas) |
+| sem tabela nenhuma | 14 |
+| **com tabela calculada por nós** | **0** |
+
+As 14 sem tabela dividem-se exactamente como o `vale_calcular` as descreve, e nenhuma está de
+fora por engano: **8** Encontros Distritais (5 Escolares + 3 Benjamins), que levam o Mérito do
+Artigo 92.º e não uma tabela de vitórias; **4** Supertaças, que são eliminatórias puras; e
+**2** Torneios Particulares, que são jogos-treino de pré-época.
+
+**Porque é que o guarda nunca dispara.** A expressão `_POR_PONTOS` só aceita nomes começados
+por `CAMP. REG.`, e isso casa com **17** competições — os campeonatos regionais de sub-13 a
+sub-19. As 17 têm tabela publicada pela fonte, e onde a fonte publica a dela é que manda. O
+guarda é, portanto, uma rede para o dia em que a APL deixe de publicar a tabela de um
+campeonato regional.
+
+**Esse dia nunca aconteceu**, e também se mediu: o `data-samples/rondas/aplisboa.jsonl` tem
+36 rondas entre 03/10 e 17/10/2026, e o `linhas_classificacao` esteve nas **176** em todas —
+mínimo 176, máximo 176, zero descidas.
+
+**Fica como está**, por três razões que não são inércia:
+
+1. **O motor não é código morto.** O teste de reprodução corre-o contra as 42 tabelas
+   publicadas a cada execução. É a parte mais exercitada do `scraper`, e foi ele que apanhou
+   o arredondamento bancário, o jogo ao vivo a entrar como empate e as meias-finais de 18/10.
+   Remover o guarda não removia o motor.
+2. **O rótulo tem de estar no ar *antes* dos dados.** É a mesma razão por que a tabela
+   calculada foi para uma chave nova e não para a `classificacao` — ver `_com_tabela_calculada`.
+   Tirar o `RotuloCalculada.svelte` agora e repô-lo no dia em que a rede fosse precisa abria
+   uma janela em que a nossa tabela chegava a telemóveis cujo *build* não sabe rotulá-la.
+3. **O custo é uma expressão regular e uma verificação de verdade**, por prova, por ronda.
+
+**O que não se confirmou.** Fui procurar o caminho em que o guarda dispara *errado* — uma
+prova `CAMP. REG.` cuja tabela não foi pedida nessa ronda, ficando com `classificacao` vazia e
+levando a nossa no lugar da dela. Está fechado em duas camadas: o `comando_publicar` reutiliza
+a classificação da última publicação quando salta a tabela, e o `pedir_tabela` devolve sempre
+"pedir" quando não há cópia publicada para reutilizar (`sem cópia publicada para reutilizar`).
+Uma prova nova nunca é saltada. Não encontrei forma de lá chegar.
 
 ### Firebase e GCP — avaliado a 06/10/2026, a pedido do dono
 
@@ -2204,7 +2257,7 @@ honesta):
 | De quanto em quanto tempo actualiza? | `dados.yml` e o ciclo ao vivo: 30 s durante os jogos, duas horas aos fins de semana, seis nos dias úteis | sim, se a cadência mudar |
 | Isto é oficial? | não — `/mais`, secção "Este site não é oficial" | não |
 | Porque é que falta um jogo, ou um resultado está errado? | republicamos o que a fonte publica, tal como lá está; o caminho é escrever-nos | não |
-| Porque é que a classificação dos Escolares e Benjamins diz "não oficial"? | a fonte não a publica; calculamo-la nós desde 07/10/2026, com o rótulo (B9.14/B9.15) | não |
+| ~~Porque é que a classificação dos Escolares e Benjamins diz "não oficial"?~~ | **a pergunta deixou de fazer sentido a 10/10/2026**: esses escalões passaram a mostrar o Mérito da Formação e nunca tiveram tabela calculada desde então. O `/ajuda` que se construiu já pergunta o que interessa — *"porque é que a classificação dos Escolares e dos Benjamins é tão estranha?"* — e responde com o Artigo 92.º. Corrigido a 18/10/2026; esta linha apodreceu três dias depois de ser escrita, que é exactamente o que o critério de aceitação acima avisava | — |
 | Como sigo as minhas equipas, e como as mudo depois? | `O Meu Clube` — o ecrã de escolha de emblemas | não |
 | Dá para instalar no telemóvel? | é uma PWA: "Adicionar ao ecrã principal" | não |
 | Funciona sem rede? | sim, com o que já foi lido — `/privacidade` descreve a cópia local | não |
@@ -3747,6 +3800,163 @@ errado.
 **O R3, o R5, o R6 e o R7 a seguir**, por esta ordem de valor. O R7 é o mais pequeno de todos e
 só dispara quando aparece um clube novo, mas é o único que toca na postura com a fonte, e essa
 não se negoceia por tamanho.
+
+## O catálogo de componentes, e porque é que ele não é um documento (18–19/10/2026)
+
+O pedido chegou por email a 10/10/2026 e está aberto como [issue #4](https://github.com/pmontezinho17/ok4sticks-sugestoes/issues/4)
+no repositório de sugestões: *"catalogar todos os componentes existentes na aplicação e criar
+um documento que eu possa consultar. Calendário, tabela, cartão jogos, Bla Bla Bla. Eu tenho
+de os ver a todos. Para poder identificar padrões e desenhar um a um."* O destinatário é um
+designer gráfico, e o critério que o dono deu é **a facilidade de integração depois**, não a
+beleza da entrega.
+
+**O item não estava no backlog.** Verificado a 18/10: nem por ID, nem pelo texto do email, nem
+na rastreabilidade — o issue existia e o backlog não sabia dele. É o primeiro pedido arquivado
+à mão a 17/10 que ficou só do lado do GitHub, e fica registado aqui para não se repetir.
+
+### Onde eu discordo do pedido, e o que fiz em vez disso
+
+Um documento é a forma errada. Não por ser pobre — por ser uma **cópia** da interface. No dia
+em que alguém mexe num ecrã, o documento fica errado e ninguém dá por isso; e um catálogo que
+mente sobre uma cor é pior do que não haver catálogo. Foi exactamente o erro que este projecto
+já pagou com o vault abandonado a 05/10.
+
+O que existe em vez disso é uma **página gerada**, e a diferença não é de formato:
+
+- as cores, as medidas, a lista de ícones e a dos crachás são **lidas do código** —
+  `scripts/catalogo/tokens.mjs` lê o bloco `:root` do `+layout.svelte`, a paleta do
+  `cor.svelte.ts` e os escalões do `CrachaEscalao.svelte`, e **rebenta** se não os encontrar;
+- os 26 ícones saem de dentro do `Icone.svelte`, que é onde eles têm de continuar a viver;
+- as 50 capturas (25 ecrãs × 2 temas) são tiradas pelo Playwright a 375×812, sempre com o
+  mesmo dia de dados, para duas rondas se compararem.
+
+Refaz-se em quatro comandos. Nada disto é commitado: seriam 19 MB de PNG por ronda no
+histórico de um repositório público, e uma segunda cópia da interface a envelhecer ao lado da
+primeira. O `scripts/catalogo/README.md` tem os comandos.
+
+### Três medições que mudaram o que ficou feito
+
+1. **A moldura do telemóvel ficava com 752 px e esmagava o texto para 169.** Uma coluna de
+   grelha `auto` mede o conteúdo *máximo* da imagem — e as capturas têm 750 px de largura
+   real, por serem de dupla densidade. A coluna passou a ser fixa em 375 px.
+2. **O cromado fixo aparecia a meio da página.** Numa captura de página inteira o Playwright
+   desenha o que é `position: fixed` onde ele está *no ecrã*, isto é a 812 px do topo — a
+   barra de navegação atravessava a tabela do Mérito. Passam a `absolute` dentro de um `body`
+   posicionado, e assentam no fim da imagem; a linha da dobra continua lá a dizer onde o
+   telemóvel corta.
+3. **O jogo com classificação não é o jogo terminado.** O separador da tabela só existe em
+   jogos **por começar** — depois do apito ele dá lugar à cronologia e à ficha. Sondados
+   quatro jogos antes de escolher os três que entram no catálogo.
+
+### O designer recusou a primeira entrega, e tinha razão (19/10/2026)
+
+O dono enviou-lhe o catálogo dos 25 ecrãs e a resposta veio no dia seguinte: *"o que me
+deste não está errado mas é mais uma overview das páginas"*, *"eu assim não desenho páginas,
+desenho apenas components, que depois irão formar as páginas"*, e — a frase que mais
+importa — *"era bom o Claude dar os nomes a isto e separar primeiro, para que depois seja
+fácil pedir-lhe para substituir"*. Mandou também o [Material 3](https://m3.material.io/components)
+como referência do que esperava.
+
+**O erro foi meu e é nomeável: entreguei o que era fácil de produzir em vez do que era
+preciso para trabalhar.** Fotografar 25 ecrãs é uma travessia da app; catalogar 43
+componentes obriga a decidir o que é um componente, a dar-lhe um nome que dure, e a
+enumerar os estados em que ele tem de funcionar. A segunda coisa é a que torna possível
+*"substituir"*, que era a palavra dele desde o início — está no email de 10/10 e eu li-a
+como "ver".
+
+A segunda versão inverte a ordem: **43 componentes, cada um com identificador, nome,
+anatomia e estados**, recortados de onde vivem na app; os ecrãs ficam no fim, só para
+mostrar onde encaixam. O identificador é a parte que faz o trabalho: `C09` é sempre a linha
+de jogo, e é por ele que ele devolve e eu substituo.
+
+### Três armadilhas de captura, cada uma com uma ronda perdida
+
+1. **`page.screenshot({ clip })` conta a partir do documento e `boundingBox()` a partir do
+   ecrã.** Enquanto o alvo estava no topo as duas coincidiam; mal era preciso rolar para lá
+   chegar, o recorte subia o tanto que a página tinha rolado, e a captura de "jogo por
+   começar" trazia o cabeçalho do bloco em vez da linha. Passou a `locator.screenshot()`,
+   que recorta o elemento e ainda espera que ele pare de se mexer.
+2. **A faixa dos dias outra vez.** O aviso está no `AGENTS.md` desde que enganou um teste e
+   o guia, e enganou-me na mesma: um selector solto no ecrã de Jogos apanha o dia vizinho,
+   que está montado fora do ecrã, e a captura do bloco de escalão saiu com o cabeçalho da
+   aplicação lá dentro.
+3. **Um estado distingue-se pelo conteúdo, não pela posição.** `.linha:has(.golos)` é um
+   jogo jogado, `.linha:has(.vivo)` é um a decorrer. Com `:first-child` a captura mudava de
+   estado de cada vez que a jornada andasse.
+
+### Os estados que os dados não têm, e como se mostram sem mentir
+
+Dois estados reais do produto não existiam nos dados do dia: **o jogo a decorrer** (não
+havia nenhum à hora da captura) e **a classificação calculada por nós** (medido a 19/10: das
+23 provas com tabela, zero estão nesse caso — todas têm a oficial). Sem eles o catálogo
+calava a cor `--vivo` e o rótulo de "não oficial", que são das peças que mais importam.
+
+A saída foi reescrever a resposta do servidor antes de a página a ler, e **marcar a captura
+como forçada**, com a razão escrita ao lado. A alternativa — mostrar sem dizer — tornava o
+catálogo inútil para medir fosse o que fosse.
+
+### Um componente que não está em uso
+
+Ao percorrer os 43, o `SeletorCompeticao.svelte` não é importado por ecrã nenhum. Fica no
+catálogo, sem captura e com a nota, porque existe no código; se voltar a ser preciso, é
+aquele o desenho. E duas afirmações do catálogo que o código desmentiu: o "dia sem jogos"
+não se alcança a usar a app — a fita só oferece dias que têm jogos — e "O Meu Clube" sem
+equipas não mostra um estado vazio, mostra a grelha de escolher clubes.
+
+### O que isto deixa decidido para quando o trabalho voltar
+
+| o que ele devolve | onde assenta | o que custa integrar |
+|---|---|---|
+| ícones (`.svg`, grelha 20×20, traço 1,8, `currentColor`) | `web/src/lib/Icone.svelte` | colar, um ramo cada |
+| crachás de escalão (`.svg`) | `web/static/escaloes/` | substituir o ficheiro |
+| ícone da aplicação | `scripts/gerar_icones.py` → `web/static/icones/` | recortar três tamanhos |
+| cores, aos pares claro/escuro | `:root` do `+layout.svelte` e `cor.svelte.ts` | medir contraste e verificar nos dois temas |
+| ecrãs redesenhados | `web/src/lib/` e `web/src/routes/` | um item de backlog cada |
+
+**O ícone da aplicação é o primeiro trabalho a sério que há aqui**, e é o mais fácil de
+fechar: o que está no ar foi desenhado por um script em Python (`scripts/gerar_icones.py`,
+um stick branco sobre amarelo torrado) e está marcado como provisório desde o W2.8. É uma
+peça só, não depende de mais nada, e não mexe em nenhum ecrã.
+
+---
+## Sugestões de utilizadores — o lote de 16 a 20/10/2026
+
+**Vinte e quatro sugestões**, vinte pela caixa "O que está mal" e quatro por email. Doze foram
+escritas no sábado 17/10, o primeiro dia de jornada com a app na mão de pessoas que não o dono
+— mais do que as três semanas anteriores juntas.
+
+As palavras de quem escreveu ficam no arquivo privado `ok4sticks-sugestoes`. **Aqui estão as
+nossas**, que é a regra do `AGENTS.md`: o registo público descreve a alteração, não cita quem a
+pediu. Esta secção nasceu a 20/10/2026, **depois de o dono perguntar se as sugestões tinham
+chegado a virar trabalho registado.** Não tinham: havia três PRs de código e zero itens de
+backlog, e um pedido que só existe numa conversa é um pedido que se perde.
+
+| | O quê | prioridade | tamanho | estado |
+|---|---|---|---|---|
+| S1 | Calendário da equipa: casa/fora saía do primeiro jogo do dia e mentia nos outros | must | S | ✅ 20/10 — a célula só afirma um local quando o dia concorda; 67 dias desta época estavam errados |
+| S2 | Lista de marcadores: o total não dizia que era de vários jogos | must | XS | ✅ 20/10 — chave antes da lista, com os jogos contados. Os dados estavam certos: 414 fichas para 414 jogos |
+| S3 | Chegar à equipa pelo emblema, e não só pelo nome | must | M | ✅ 20/10 — na ficha de jogo. **Não** na lista: ali a linha abre o jogo e um segundo alvo só faz o dedo falhar |
+| S4 | Um jogo por disputar não abria nada | must | S | ✅ 20/10 — abre a ficha, no separador de Informações, com hora e recinto |
+| S5 | Voltar na ficha de jogo leva ao ecrã de jogos e não a onde se estava | **must** | S | aberto — e **agravado pelo S4**: com todas as linhas a abrir o jogo, esta porta passa a ser muito mais usada |
+| S6 | Mostrar a jornada no calendário | should | S | aberto |
+| S7 | Notificações escolhíveis: golos, início, intervalo, resultado final | should | L | aberto — é a Fase 5, que depende da Fase 9 |
+| S8 | Escolher o idioma da aplicação | could | L | aberto |
+| S9 | Catálogo dos componentes, para entregar a um designer | should | M | 🟡 segunda entrega a 19/10, por componente e não por página — ver "O catálogo de componentes" acima. Falta o trabalho do designer voltar |
+| S10 | Ler o campeonato nacional (`hp.fpp.pt`), 1.ª à 3.ª divisão | should | L | aberto — outra fonte, outra postura a combinar |
+| S11 | O balão de sugestões tapa resultados | should | XS | aberto |
+| S12 | Agrupar os jogos do dia por hora, escalão ou clube | could | M | aberto |
+| S13 | Pontuação de forma de 0 a 100 por equipa | could | M | aberto — inventar um número que a fonte não publica pede cuidado |
+| S14 | ~~Pavilhão errado num jogo de sub-17~~ | — | — | ❌ **não é defeito nosso**: eram dois jogos do Torneio Abertura de 19/09, disputado todo no pavilhão do Alenquer, onde a equipa de fora era nominalmente "casa". Verificado contra o estado publicado às 10:20 de 17/10 |
+| S15 | Abrir a morada do pavilhão no mapa | should | S | aberto — o `recintos.json` já tem as moradas |
+| S16 | Tabela de classificação: clicar no clube **já funciona** e as pessoas não dão por isso | should | S | aberto — não é um link a faltar, é uma área de toque que não se dá a conhecer. Mede-se no telemóvel |
+
+**Cinco das vinte e quatro não pedem nada** — são agradecimentos. Um delegado há 25 anos
+escreveu *"nunca houve nada assim"*. Não entram em backlog nenhum e ficam aqui registadas
+porque são a melhor medição que este projecto tem sobre se vale a pena continuar.
+
+**A lição de processo, e é a mais cara deste lote:** o código de S1 a S4 ficou pronto antes de
+qualquer destes itens existir. Fechar o ciclo não é publicar — é o pedido ficar escrito num
+sítio onde o próximo a passar o encontre.
 
 ## Próximo incremento (revisto a 05/10/2026)
 

@@ -79,16 +79,25 @@ export function estadoDasFaltas(n: number | null | undefined): EstadoDasFaltas {
 /**
  * Se vale a pena mostrar as faltas no placar.
  *
- * **Só com o jogo a decorrer**, por decisão do dono a 17/10/2026: *"só faz sentido se for no
- * ecrã de jogo ao vivo"*. Num jogo terminado o número continua na caixa de informação, onde já
- * estava desde 04/10 — ali é um dado da ficha, aqui é uma coisa que muda enquanto se olha.
+ * ## A regra mudou, e as duas versões são decisões do dono
  *
- * E só quando há números: a fonte publica `[null, null]` nos jogos por começar.
+ * A 17/10/2026 era **só com o jogo a decorrer**: *"só faz sentido se for no ecrã de jogo ao
+ * vivo"*. A 21/10/2026 ele alargou-a, ao enumerar o que o placar deve ter: *"num jogo que ainda
+ * não começou não é colocado nada, mas num jogo a decorrer ou finalizado devem aparecer as
+ * faltas cometidas por cada equipa"*.
+ *
+ * Ou seja, o critério deixou de ser "está a decorrer" e passou a ser **"já começou"**. Num jogo
+ * terminado o número já estava na caixa de informação desde 04/10; agora está também no placar,
+ * ao pé do resultado, que é onde se olha primeiro.
+ *
+ * **Num jogo por começar continua a não aparecer nada** — e não é só porque ele o pediu: a fonte
+ * publica `[null, null]` nesses jogos, e um `0 – 0` de faltas antes do apito seria um número
+ * inventado a partir de um campo vazio.
  */
 export function mostrarNoPlacar(
-	aDecorrer: boolean,
+	jogoComecou: boolean,
 	faltas: readonly [number | null, number | null] | null | undefined
 ): boolean {
-	if (!aDecorrer || !faltas) return false;
+	if (!jogoComecou || !faltas) return false;
 	return typeof faltas[0] === 'number' && typeof faltas[1] === 'number';
 }

@@ -4,6 +4,7 @@
 	import { directoDe } from './directos';
 	import { emCurso, escalaoCurto, faseCurta } from './formato';
 	import { piscar } from './piscar';
+	import { destinoDoJogo } from './destinos';
 	import type { JogoAgenda } from './tipos';
 
 	let {
@@ -32,11 +33,12 @@
 	const directo = $derived(directoDe(jogo.id));
 	const ganhouCasa = $derived(jogado && jogo.gc! > jogo.gf!);
 	const ganhouFora = $derived(jogado && jogo.gf! > jogo.gc!);
-	// Um jogo por disputar passa a ser clicável quando já há ficha: a fonte publica a
-	// convocatória dias antes, e é isso que se quer ver na véspera.
-	const destino = $derived(
-		jogo.id && (jogado || jogo.tem_ficha) ? `/jogo/${jogo.id}` : null
-	);
+	// As saídas desta linha vivem no `lib/destinos.ts`, não aqui: a pergunta "esta linha leva a
+	// algum lado?" tem de ser testável sem montar o componente, e foi por não o ser que um jogo
+	// por disputar ficou quatro semanas sem saída nenhuma. Ver lá o porquê completo.
+	// **Um alvo por linha**, e é sempre a ficha do jogo — mesmo num jogo por disputar, que desde
+	// 09/10 abre com o recinto e a hora. A razão é do dono e está no `destinos.ts`.
+	const destino = $derived(destinoDoJogo(jogo));
 
 	const diaCurto = (iso: string) => {
 		const d = new Date(`${iso}T00:00:00`);
@@ -55,6 +57,15 @@
   É também o que a theScore e a Sofascore fazem, e por isso é que os nomes delas cabem
   sempre. O custo é a linha passar de ~44px para ~56px — exactamente a altura que medimos
   nas duas (ver docs/04-benchmarking.md).
+-->
+<!--
+  **Um alvo por linha, e é a ficha do jogo.** A linha inteira é o link; as equipas são texto.
+
+  Houve uma versão, a 20/10/2026, em que a linha tinha um link a cobri-la e as equipas
+  clicáveis por cima. O dono parou-a no site de testes: *"cada vez que quero abrir o jogo posso
+  sem querer carregar em cima do nome clube e abrir o clube ao invés do jogo"*. O pedido que
+  motivou aquilo fica resolvido na ficha de jogo, onde o emblema abre a equipa sem disputar
+  alvo com nada. Ver `destinos.ts`.
 -->
 <svelte:element this={destino ? 'a' : 'div'} href={destino} class="linha"
 	class:ligavel={destino} class:comDirecto={!!directo}>
