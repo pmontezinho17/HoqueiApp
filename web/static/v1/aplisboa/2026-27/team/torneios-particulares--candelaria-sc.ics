@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9448@hoquei.pages.dev
-DTSTAMP:20261020T000000Z
-DTSTART:20261020T140000Z
-DTEND:20261020T153000Z
-SUMMARY:🏑 Torneios Particulares 🏑 Sporting CP vs Candelaria SC
-LOCATION:Pavilhão do Sacavenense ( Hóquei Formação SCP)
-DESCRIPTION:Sporting CP 3–2 Candelaria SC\nJOGO TREINO · TORNEIOS PARTIC
- ULARES\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/9448\nDados da 
- Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9448
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-10094@hoquei.pages.dev
 DTSTAMP:20261023T000000Z
 DTSTART:20261023T130000Z
