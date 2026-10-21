@@ -151,6 +151,14 @@ export const NOVIDADES: Novidade[] = [
 			},
 			{
 				tipo: 'corrigido',
+				titulo: 'Nos Escolares e Benjamins, a ficha de jogo mostra o Mérito',
+				texto:
+					'Nesses escalões a classificação é o Mérito do Artigo 92.º, e a ficha de jogo ' +
+					'não o mostrava — não tinha sequer separador de classificação. Agora tem, com ' +
+					'as duas equipas do jogo realçadas na tabela.'
+			},
+			{
+				tipo: 'corrigido',
 				titulo: 'A seta de voltar volta para onde estavas',
 				texto:
 					'Quem abria um jogo a partir da página de uma equipa, e carregava na seta ' +

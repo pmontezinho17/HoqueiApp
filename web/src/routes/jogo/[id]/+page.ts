@@ -1,4 +1,4 @@
-import { carregarCompeticao, carregarJogo } from '$lib/dados';
+import { carregarCompeticao, carregarJogo, carregarMerito } from '$lib/dados';
 import { fichaDaAgenda } from '$lib/fichaDaAgenda';
 import { emCurso } from '$lib/formato';
 import { error } from '@sveltejs/kit';
@@ -49,8 +49,21 @@ export const load: PageLoad = async ({ params, fetch, parent }) => {
 	// A classificação da prova, para o separador homónimo. Vem num segundo pedido e **não**
 	// pode derrubar a página: há provas sem tabela publicada — todos os Escolares e
 	// Benjamins, por exemplo — e aí o separador simplesmente não aparece.
-	const competicao = ficha.competicao_id
-		? await carregarCompeticao(ficha.competicao_id, fetch).catch(() => null)
-		: null;
-	return { ficha, competicao, semFicha };
+	//
+	// **E o Mérito ao lado dela, desde 21/10/2026.** Nos Escolares e Benjamins a classificação
+	// *é* o Mérito do Artigo 92.º, e esta página não o carregava: quem abria um jogo desses
+	// escalões não via separador de classificação nenhum. É o terceiro ecrã da mesma história —
+	// a 10/10 o Mérito entrou na competição, a 14/10 apanhou-se a equipa, e a ficha de jogo
+	// ficou de fora até o dono a pedir. Medido a 21/10 nas 37 provas publicadas: 8 têm só
+	// Mérito, 23 só tabela de pontos, 6 nenhuma das duas e **zero têm as duas**.
+	//
+	// Os dois pedidos em paralelo: são dois ficheiros no nosso CDN e esperar por um para pedir
+	// o outro atrasava a página sem motivo.
+	const [competicao, merito] = ficha.competicao_id
+		? await Promise.all([
+				carregarCompeticao(ficha.competicao_id, fetch).catch(() => null),
+				carregarMerito(ficha.competicao_id, fetch).catch(() => null)
+			])
+		: [null, null];
+	return { ficha, competicao, merito, semFicha };
 };
