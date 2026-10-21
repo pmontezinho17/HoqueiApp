@@ -151,6 +151,15 @@ export const NOVIDADES: Novidade[] = [
 			},
 			{
 				tipo: 'novo',
+				titulo: 'Agrupa os jogos do dia por hora ou por pavilhão',
+				texto:
+					'Por baixo dos escalões há agora uma linha "Agrupar". Por hora mostra o dia a ' +
+					'subir com o relógio; por local junta tudo o que se joga em cada pavilhão, por ' +
+					'ordem de hora — útil para quem vai passar lá a tarde. Por escalão continua a ' +
+					'ser como era. Foi uma sugestão deixada na caixa "O que está mal".'
+			},
+			{
+				tipo: 'novo',
 				titulo: 'O placar diz em que parte vai o jogo',
 				texto:
 					'Num jogo a decorrer, por baixo do resultado passa a dizer a parte e o minuto ' +
