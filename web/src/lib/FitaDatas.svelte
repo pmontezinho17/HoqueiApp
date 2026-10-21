@@ -11,10 +11,20 @@
 	let {
 		dias,
 		escolhido = $bindable(),
-		progresso = 0
+		progresso = 0,
+		altura = $bindable(0)
 	}: {
 		dias: string[];
 		escolhido: string;
+		/**
+		 * A altura real desta fita, publicada para fora.
+		 *
+		 * Serve a quem precise de colar outra coisa **por baixo** dela — hoje é a barra dos
+		 * filtros, desde 21/10/2026. Medida e não escrita à mão, pela mesma razão que o `--topo`
+		 * do `+layout.svelte`: um número escrito aqui deixa de servir no dia em que a fita mudar
+		 * de altura, e ninguém se lembra de o vir corrigir.
+		 */
+		altura?: number;
 		/**
 		 * Fracção de página já arrastada na lista lá em baixo, de −1 a 1. É o que faz esta
 		 * fita andar **ao mesmo tempo** que os jogos em vez de saltar quando eles assentam.
@@ -88,7 +98,7 @@
 	});
 </script>
 
-<div class="fita" class:colada bind:this={fita} role="tablist" aria-label="Dia" data-guia="dias">
+<div class="fita" class:colada bind:this={fita} bind:clientHeight={altura} role="tablist" aria-label="Dia" data-guia="dias">
 	{#each dias as d (d)}
 		{@const c = celula(d)}
 		<button

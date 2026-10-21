@@ -150,6 +150,22 @@ export const NOVIDADES: Novidade[] = [
 					'jogo, para o dedo nunca fazer a coisa errada.'
 			},
 			{
+				tipo: 'corrigido',
+				titulo: 'Voltar de um jogo mantém o dia onde estavas',
+				texto:
+					'Escolhias o dia 31 na fita, abrias um jogo, carregavas na seta para trás — e ' +
+					'caías no dia de hoje. O endereço estava certo e era a app que o reescrevia a ' +
+					'seguir. Agora volta ao dia de onde vieste.'
+			},
+			{
+				tipo: 'novo',
+				titulo: 'Os filtros ficam à vista enquanto rolas',
+				texto:
+					'A linha do escalão e do agrupar cola-se por baixo do calendário, como ele já ' +
+					'faz com o cabeçalho. Num sábado de 40 jogos deixa de ser preciso subir tudo ' +
+					'para mudar de escalão.'
+			},
+			{
 				tipo: 'novo',
 				titulo: 'Agrupa os jogos do dia por hora ou por pavilhão',
 				texto:
