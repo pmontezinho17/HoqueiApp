@@ -155,31 +155,42 @@
 
 <FitaDatas {dias} bind:escolhido={dia} {progresso} />
 
+<!--
+  **Filtrar e agrupar, lado a lado, em duas listas.**
+
+  Eram duas linhas: uma fita horizontal de chips de escalão e, por baixo, três botões de
+  agrupar. O dono pediu as duas coisas no mesmo sítio a 21/10/2026 — *"do lado esquerdo o
+  filtro de escalões com um drop-down list e do lado direito o Agrupar com um drop-down list"*.
+
+  O que se perde: um toque. Um chip escolhe-se com um dedo, uma lista abre e depois escolhe-se.
+  O que se ganha: **uma linha em vez de duas** num ecrã onde a altura antes do primeiro
+  resultado já custou caro uma vez, e os escalões deixam de estar escondidos numa fita que é
+  preciso arrastar para ver que existem mais.
+
+  O `data-guia="escaloes"` fica: é o alvo de um passo do tour guiado, e sem ele o passo aponta
+  para o nada.
+-->
 {#if escaloes.length}
-	<div class="escaloes" role="group" aria-label="Filtrar por escalão" data-guia="escaloes">
-		<button class:activo={escalao === null} onclick={() => (escalao = null)}>Todos</button>
-		{#each escaloes as e (e)}
-			<button class:activo={escalao === e} onclick={() => (escalao = escalao === e ? null : e)}>
-				{e.replace('SENIORES ', 'SEN. ')}
-			</button>
-		{/each}
+	<div class="controlos" data-guia="escaloes">
+		<label>
+			<span class="sr">Filtrar por escalão</span>
+			<select bind:value={escalao}>
+				<option value={null}>Todos os escalões</option>
+				{#each escaloes as e (e)}
+					<option value={e}>{e.replace('SENIORES ', 'SEN. ')}</option>
+				{/each}
+			</select>
+		</label>
+		<label>
+			<span class="sr">Agrupar os jogos</span>
+			<select bind:value={agrupamento}>
+				{#each AGRUPAMENTOS as a (a.id)}
+					<option value={a.id}>Agrupar: {a.rotulo}</option>
+				{/each}
+			</select>
+		</label>
 	</div>
 {/if}
-
-<!--
-  **Agrupar por**, e não "ordenar por": a lista muda de blocos, não de ordem dentro deles.
-
-  Fica numa linha só, de 28 px, por baixo dos chips de escalão. Custa altura num ecrã onde já
-  se pagou uma vez o erro de ter títulos a mais antes do primeiro resultado — por isso os
-  botões são pequenos e o rótulo é curto.
--->
-<div class="agrupar" role="group" aria-label="Agrupar os jogos">
-	<span>Agrupar</span>
-	{#each AGRUPAMENTOS as a (a.id)}
-		<button class:activo={agrupamento === a.id} aria-pressed={agrupamento === a.id}
-			onclick={() => (agrupamento = a.id)}>{a.rotulo}</button>
-	{/each}
-</div>
 
 <Faixa itens={dias} bind:escolhido={dia} bind:progresso>
 	{#snippet pagina(d)}
@@ -198,66 +209,28 @@
 <style>
 	/* Um degrau visual abaixo da fita de datas: a fita é navegação, isto é filtro. Com os
 	   dois no mesmo tamanho liam-se como duas filas iguais a competir pela atenção. */
-	/* a linha do "Agrupar": mais baixa e mais discreta do que a dos escalões, porque é uma
-	   escolha de arrumação e não um filtro — quem vem ver resultados não vem decidir isto */
-	.agrupar {
+	/* **Duas listas, meia largura cada.** Nativas de propósito: num telemóvel um `<select>`
+	   abre a roda do sistema, que é maior, mais rápida e mais acessível do que qualquer lista
+	   que eu desenhe — e não traz um único byte de JavaScript. */
+	.controlos {
 		display: flex;
-		align-items: center;
-		gap: var(--e-1);
-		margin: calc(var(--e-4) * -1) 0 var(--e-4);
+		gap: var(--e-2);
+		margin-bottom: var(--e-4);
 	}
-	.agrupar > span {
-		font-size: var(--t-micro);
-		color: var(--suave);
-		margin-right: var(--e-1);
-	}
-	.agrupar button {
-		min-height: 28px;
+	.controlos label { flex: 1 1 0; min-width: 0; }
+	.controlos select {
+		width: 100%;
+		min-height: 40px;
 		padding: 0 var(--e-2);
 		font-size: var(--t-micro);
+		font-family: inherit;
 		cursor: pointer;
 		border-radius: var(--raio-pilula);
 		border: 1px solid var(--borda);
-		background: transparent;
-		color: var(--suave);
+		background: var(--cartao);
+		color: var(--texto-2);
 	}
-	.agrupar button.activo {
-		border-color: var(--acento);
-		color: var(--acento);
-		font-weight: 600;
-	}
+	.controlos select:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
 
-	.escaloes {
-		display: flex;
-		gap: var(--e-1);
-		overflow-x: auto;
-		scrollbar-width: none;
-		margin: 0 -0.9rem var(--e-4);
-		padding: 0 0.9rem var(--e-1);
-	}
-	.escaloes::-webkit-scrollbar {
-		display: none;
-	}
-	.escaloes button {
-		flex: 0 0 auto;
-		min-height: 36px;
-		padding: var(--e-1) var(--e-3);
-		font-size: var(--t-micro);
-		letter-spacing: 0.02em;
-		white-space: nowrap;
-		cursor: pointer;
-		border-radius: var(--raio-pilula);
-		border: 1px solid var(--borda);
-		background: transparent;
-		color: var(--suave);
-	}
-	/* preenchido, como o dia escolhido na fita: era o que faltava para se ver que isto
-	   filtra — ver docs/04-benchmarking.md */
-	.escaloes button.activo {
-		background: var(--acento);
-		border-color: var(--acento);
-		color: var(--cartao);
-		font-weight: 600;
-	}
 
 </style>
