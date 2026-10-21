@@ -62,8 +62,8 @@
    "hora": "21:30:00",
    "casa": "APAC TOJAL",
    "fora": "SPORTING CP",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 1,
+   "golos_fora": 3,
    "recinto": "PAV. A.P.A.C.TOJAL",
    "ao_vivo": false
   },
@@ -480,6 +480,20 @@
     },
     {
      "posicao": 2,
+     "equipa": "SPORTING CP",
+     "logo": "/intranet/logos/2.png",
+     "jogos": 2,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 9,
+     "golos_sofridos": 5,
+     "diferenca": 4,
+     "racio": 1.8,
+     "pontos": 6
+    },
+    {
+     "posicao": 3,
      "equipa": "GD SESIMBRA",
      "logo": "/intranet/logos/66.png",
      "jogos": 2,
@@ -490,20 +504,6 @@
      "golos_sofridos": 8,
      "diferenca": 2,
      "racio": 1.25,
-     "pontos": 3
-    },
-    {
-     "posicao": 3,
-     "equipa": "SPORTING CP",
-     "logo": "/intranet/logos/2.png",
-     "jogos": 1,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 6,
-     "golos_sofridos": 4,
-     "diferenca": 2,
-     "racio": 1.5,
      "pontos": 3
     },
     {
@@ -524,14 +524,14 @@
      "posicao": 5,
      "equipa": "APAC TOJAL",
      "logo": "/intranet/logos/12.png",
-     "jogos": 1,
+     "jogos": 2,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 1,
-     "golos_sofridos": 6,
-     "diferenca": -5,
-     "racio": 0.17,
+     "derrotas": 2,
+     "golos_marcados": 2,
+     "golos_sofridos": 9,
+     "diferenca": -7,
+     "racio": 0.22,
      "pontos": 0
     },
     {
