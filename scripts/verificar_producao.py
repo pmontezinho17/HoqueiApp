@@ -55,6 +55,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import ssl
 import sys
 import time
@@ -253,6 +254,41 @@ def base_de_dados_ligada(base: str) -> str | None:
 
 
 #: Pela ordem em que correm. O nome é o que aparece no `stderr` e no registo do aviso.
+def sem_codigo_de_terceiros(base: str) -> str | None:
+    """A página servida não carrega código de fora do nosso domínio.
+
+    **Esta verificação nasceu de uma promessa quebrada, encontrada a 21/10/2026.** O dono
+    perguntou se dava para saber o tipo de dispositivo de quem se liga, e disse que achava que
+    já via isso no painel da Cloudflare. Via — porque o projecto Pages tinha a *Web Analytics*
+    ligada, e a Cloudflare injecta o `beacon.min.js` em **todas** as páginas HTML que serve.
+
+    A `/privacidade` nomeia essa ferramenta pelo nome e diz que ela não existe aqui: *"Não há
+    Google Analytics, nem a Web Analytics da Cloudflare, nem qualquer ferramenta de medição de
+    terceiros"*. Estava no ar a dizer isso enquanto o beacon carregava por baixo.
+
+    **Nada no nosso código a podia apanhar**, e foi verificado: o `grep` por `cloudflareinsights`
+    dá zero no `web/src`, zero no `web/static` e zero no `web/build`. A injecção acontece na
+    borda, a partir de um interruptor do painel que ninguém commitou. É a mesma classe de avaria
+    que deu origem a este script a 13/10 — o código estava bem e a Cloudflare serviu outra coisa.
+
+    Por isso a verificação é esta e não um teste: **perguntar ao site**. Qualquer `src` de
+    script apontado para fora do nosso domínio falha, não só este beacon.
+    """
+    estado, _, corpo = _pedir(f"{base}/")
+    if estado != 200:
+        return f"a página inicial devolveu HTTP {estado}"
+    # o `_pedir` devolve bytes, e as outras verificações safam-se porque o `json.loads` os
+    # aceita; uma expressão regular não
+    html = corpo.decode("utf-8", "replace") if isinstance(corpo, bytes) else corpo
+    de_fora = [
+        u for u in re.findall(r"""<script[^>]+src=['"]([^'"]+)['"]""", html)
+        if u.startswith(("http://", "https://")) and base not in u
+    ]
+    if de_fora:
+        return "a página carrega código de terceiros: " + ", ".join(sorted(set(de_fora)))
+    return None
+
+
 VERIFICACOES = [
     ("as Functions respondem", funcoes_vivas),
     ("a consola responde", consola_viva),
@@ -260,6 +296,7 @@ VERIFICACOES = [
     ("a cache dos dados é a nossa", cache_dos_dados),
     ("o contrato /v1 está intacto", contrato_intacto),
     ("a versão é servida", versao_servida),
+    ("não há código de terceiros na página", sem_codigo_de_terceiros),
     ("a caixa de sugestões tem onde escrever", base_de_dados_ligada),
 ]
 
