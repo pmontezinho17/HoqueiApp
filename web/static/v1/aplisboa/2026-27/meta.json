@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T21:02:23+00:00",
+ "generated_at": "2026-10-21T01:48:14+00:00",
  "tenant": "aplisboa",
  "temporada_id": 5,
  "competicoes": 37,
@@ -19,13 +19,12 @@
   "competiciones": 2
  },
  "pedidos_dia": {
-  "dia": "2026-10-20",
+  "dia": "2026-10-21",
   "por_tipo": {
-   "competiciones": 6,
-   "calendario": 111,
-   "clasificacion": 6,
-   "ficha": 1
+   "competiciones": 2,
+   "calendario": 37,
+   "clasificacion": 2
   },
-  "total": 124
+  "total": 41
  }
 }
