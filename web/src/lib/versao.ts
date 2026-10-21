@@ -38,7 +38,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.8';
+export const VERSAO = '1.9';
 
 /**
  * Em que grupo é que uma novidade cai.
@@ -124,6 +124,22 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.9',
+		data: '2026-10-21',
+		pontos: [
+			{
+				tipo: 'regras',
+				titulo: 'A política de privacidade diz mais uma coisa',
+				texto:
+					'Passámos a guardar o tipo de aparelho que abre a aplicação — iPhone, Android, ' +
+					'computador ou outro —, uma contagem por dia e nada mais. Continua a não haver ' +
+					'IP, identificador nem cookie, e não guardamos a linha que o teu browser manda. ' +
+					'Está tudo escrito na página de privacidade, com os limites: um iPad conta como ' +
+					'computador, porque se anuncia como um Mac.'
+			}
+		]
+	},
 	{
 		versao: '1.8',
 		data: '2026-10-21',

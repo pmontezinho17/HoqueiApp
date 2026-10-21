@@ -77,3 +77,70 @@ describe('a política de privacidade enumera o que é guardado', () => {
 		expect(codigo).not.toMatch(/document\.cookie\s*=/);
 	});
 });
+
+describe('a política de privacidade declara os cabeçalhos que lemos', () => {
+	const pagina = readFileSync(
+		new URL('../routes/privacidade/+page.svelte', import.meta.url),
+		'utf-8'
+	);
+	const contador = readFileSync(new URL('../../functions/contar.js', import.meta.url), 'utf-8');
+
+	/**
+	 * **A regra que faltava, e custou caro a 21/10/2026.**
+	 *
+	 * Nesse dia descobriu-se que produção servia o beacon da Web Analytics da Cloudflare
+	 * enquanto a página dizia, nomeando-o, que ele não existia. Esse caso não se apanha aqui —
+	 * o script não está no nosso código, e por isso a verificação dele é perguntar ao site, no
+	 * `scripts/verificar_producao.py`.
+	 *
+	 * Este apanha o irmão: no mesmo dia o contador passou a **ler um cabeçalho**, o
+	 * `User-Agent`, para dele guardar o tipo de aparelho. Até então não lia nenhum. Se um dia
+	 * voltar a ler outro, ou deixar de ler este, a página tem de mudar no mesmo commit — e é
+	 * isso que este teste obriga.
+	 */
+	it('se o contador lê o `User-Agent`, a página di-lo', () => {
+		const le = /headers\.get\(['"]User-Agent['"]\)/i.test(contador);
+		expect(le, 'o contador deixou de ler o User-Agent — se foi de propósito, tira a frase da página').toBe(true);
+		expect(pagina).toMatch(/User-Agent/);
+	});
+
+	it('e diz o que guarda dele: um de quatro rótulos, não a cadeia', () => {
+		for (const palavra of ['ios', 'android', 'computador', 'outro'])
+			expect(pagina.toLowerCase()).toContain(palavra);
+		// a promessa que distingue isto de rastreio: a cadeia não fica
+		expect(pagina).toMatch(/não<\/strong>\s*se guarda|não.{0,20}se guarda/s);
+	});
+
+	it('não há outro cabeçalho a ser lido sem estar declarado', () => {
+		// Qualquer `headers.get('X')` nas Functions que não seja um dos conhecidos obriga a rever
+		// a página. Os conhecidos, e porque é que nenhum diz nada sobre **quem** visita:
+		//
+		//   user-agent     o único que descreve o aparelho — e é por isso que está declarado
+		//   origin         distingue um pedido vindo do site de testes
+		//   referer        rede do anterior
+		//   cookie         a porta do site de testes, que guarda a chave e mais nada
+		//   content-type   o formato do corpo de uma sugestão
+		//   sec-fetch-mode distingue abrir uma página de ir buscar dados
+		//   accept         rede do anterior, para browsers que não mandam o `Sec-Fetch-Mode`
+		//
+		// Os dois últimos apareceram quando este teste foi escrito, a 21/10/2026: eu não sabia
+		// que eram lidos. Dizem respeito ao **tipo de pedido**, não a quem o faz — ver o
+		// `_middleware.js`, onde servem para contar um ecrã aberto e para decidir se a porta do
+		// site de testes aparece.
+		const conhecidos = new Set([
+			'user-agent',
+			'origin',
+			'referer',
+			'cookie',
+			'content-type',
+			'sec-fetch-mode',
+			'accept'
+		]);
+		const lidos = [
+			...readFileSync(new URL('../../functions/_middleware.js', import.meta.url), 'utf-8')
+				.matchAll(/headers\.get\(['"]([^'"]+)['"]\)/g),
+			...contador.matchAll(/headers\.get\(['"]([^'"]+)['"]\)/g)
+		].map((m) => m[1].toLowerCase());
+		expect([...new Set(lidos)].filter((h) => !conhecidos.has(h))).toEqual([]);
+	});
+});
