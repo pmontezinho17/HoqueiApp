@@ -38,7 +38,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.7';
+export const VERSAO = '1.8';
 
 /**
  * Em que grupo é que uma novidade cai.
@@ -125,8 +125,8 @@ export type Novidade = {
  */
 export const NOVIDADES: Novidade[] = [
 	{
-		versao: '1.7',
-		data: '2026-10-20',
+		versao: '1.8',
+		data: '2026-10-21',
 		pontos: [
 			{
 				tipo: 'corrigido',
