@@ -13,6 +13,7 @@
 	import LinhaJogo from './LinhaJogo.svelte';
 	import { dataLonga, emCurso, nomeProva } from './formato';
 	import { porEscalao } from './escaloes';
+	import { agrupar, type Agrupamento } from './agrupar';
 	import type { JogoAgenda } from './tipos';
 
 	let {
@@ -21,6 +22,7 @@
 		emblemas,
 		eSeguida,
 		escalao = null,
+		agrupamento = 'escalao',
 		agora = 0
 	}: {
 		dia: string;
@@ -29,6 +31,12 @@
 		eSeguida: (cat: string) => (equipa: string) => boolean;
 		/** o escalão escolhido nos chips, ou `null` para todos */
 		escalao?: string | null;
+		/**
+		 * Como agrupar: por escalão — a árvore de três níveis que vive aqui — ou por hora ou
+		 * recinto, que são planos e vivem no `lib/agrupar.ts`. Sugestão `S12`, pedida pelo dono
+		 * a 21/10/2026. Vem de fora porque há três dias montados e a escolha vale para todos.
+		 */
+		agrupamento?: Agrupamento;
 		/**
 		 * O minuto a que vamos, dado de fora. Serve só para a secção dos jogos a decorrer
 		 * se reavaliar — e se apagar sozinha quando o último apito toca. O contador vive na
@@ -132,6 +140,30 @@
 		</section>
 	{/if}
 
+	{#if agrupamento !== 'escalao'}
+		<!--
+		  Por hora ou por recinto: blocos planos, sem a árvore prova → série. Aqui o escalão vai
+		  em cada linha (`comEscalao`), porque um bloco de "15:00" mistura escalões e sem isso
+		  não se sabe se o 11–5 é de benjamins ou de seniores.
+
+		  Sem fechar e abrir: os cabeçalhos destes são muito mais curtos — uma hora, um pavilhão
+		  — e um dia inteiro fechado era a lista de títulos sem um resultado à vista que já se
+		  pagou uma vez neste ecrã.
+		-->
+		{#each agrupar(filtrados, agrupamento) as b, i (b.chave)}
+			<section class="bloco" data-guia={i === 0 ? 'jogos' : undefined}>
+				<div class="cabecalho simples">
+					<span class="escalao">{b.titulo}</span>
+					<span class="conta">{b.jogos.length}</span>
+				</div>
+				<div class="conteudo">
+					{#each b.jogos as j (j.id ?? `${j.casa}${j.fora}`)}
+						<LinhaJogo jogo={j} {emblemas} seguida={eSeguida(j.cat)} comEscalao />
+					{/each}
+				</div>
+			</section>
+		{/each}
+	{:else}
 	{#each blocos as b, i (b.cat)}
 		<!-- `data-guia` só no primeiro: é o alvo do passo do tour que explica entrar num jogo,
 		     e um alvo tem de ser um elemento, não nove. -->
@@ -160,6 +192,7 @@
 			{/if}
 		</section>
 	{/each}
+	{/if}
 {/if}
 
 <style>
@@ -218,6 +251,8 @@
 		border: 0;
 		color: inherit;
 	}
+	/* o cabeçalho de hora e de recinto não abre nem fecha: não é botão, e não finge que é */
+	.cabecalho.simples { cursor: default; min-height: 36px; }
 	.escalao {
 		flex: 1;
 		min-width: 0;
