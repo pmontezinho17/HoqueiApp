@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { diaDeLisboa, diaDeLisboaMais } from './dia';
+import { diaDeLisboa, diaDeLisboaMais, diaInicial } from './dia';
 
 /**
  * A hora em que isto se partia: a primeira hora do dia, em hora de verão.
@@ -66,5 +66,41 @@ describe('ninguém usa a data de UTC para saber que dia é hoje', () => {
 			.filter((f) => f.nome !== 'dia.ts' && /toISOString\(\)\.slice\(0, ?10\)/.test(f.texto))
 			.map((f) => f.nome);
 		expect(maus).toEqual([]);
+	});
+});
+
+describe('que dia abrir na lista de jogos', () => {
+	const dias = ['2026-10-17', '2026-10-18', '2026-10-21', '2026-10-24', '2026-10-31'];
+	const hoje = '2026-10-21';
+
+	it('o dia pedido no endereço, quando existe na fita', () => {
+		// É o caso que estava partido: voltar de um jogo de 31/10 caía em hoje.
+		expect(diaInicial('2026-10-31', dias, hoje)).toBe('2026-10-31');
+		expect(diaInicial('2026-10-17', dias, hoje)).toBe('2026-10-17');
+	});
+
+	it('sem dia pedido, o primeiro com jogos a partir de hoje', () => {
+		expect(diaInicial(null, dias, hoje)).toBe('2026-10-21');
+		expect(diaInicial(undefined, dias, hoje)).toBe('2026-10-21');
+		expect(diaInicial('', dias, hoje)).toBe('2026-10-21');
+	});
+
+	it('hoje sem jogos salta para o próximo que tenha', () => {
+		expect(diaInicial(null, dias, '2026-10-22')).toBe('2026-10-24');
+	});
+
+	it('um dia pedido fora da fita não vale — e aí vale a regra de hoje', () => {
+		// Fora da janela de dias a fita não o tem, e abrir num dia que a fita não mostra deixava
+		// a app num estado que o utilizador não consegue desfazer.
+		expect(diaInicial('2026-12-25', dias, hoje)).toBe('2026-10-21');
+	});
+
+	it('passada a época toda, abre no último dia com jogos', () => {
+		expect(diaInicial(null, dias, '2026-11-30')).toBe('2026-10-31');
+	});
+
+	it('sem dias nenhuns devolve vazio em vez de rebentar', () => {
+		expect(diaInicial('2026-10-31', [], hoje)).toBe('');
+		expect(diaInicial(null, [], hoje)).toBe('');
 	});
 });

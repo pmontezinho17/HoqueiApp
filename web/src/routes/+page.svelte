@@ -3,10 +3,10 @@
 	import { APP_NOME } from '$lib/sitio';
 	import FitaDatas from '$lib/FitaDatas.svelte';
 	import PaginaDia from '$lib/PaginaDia.svelte';
-	import { page } from '$app/state';
 	import { afterNavigate, replaceState } from '$app/navigation';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import { porEscalao } from '$lib/escaloes';
+	import { diaInicial } from '$lib/dia';
 	import { AGRUPAMENTOS, type Agrupamento } from '$lib/agrupar';
 	import { guia } from '$lib/guia.svelte';
 	import { caminhoEquipa } from '$lib/slug';
@@ -46,11 +46,11 @@
 	let dia = $state('');
 	$effect(() => {
 		if (dia) return;
-		const pedido = page.url.searchParams.get('dia');
-		dia = (pedido && dias.includes(pedido) ? pedido : null)
-			?? dias.find((d) => d >= hoje)
-			?? dias.at(-1)
-			?? '';
+		// **`location.search` e não `page.url`.** Ao voltar de um jogo, o `page.url` do SvelteKit
+		// ainda não está actualizado no instante em que este efeito corre: sem `?dia=` à vista
+		// caía-se no dia mais próximo de hoje, e o efeito de baixo gravava esse engano por cima
+		// do endereço bom. Medido a 21/10/2026 com um ouvinte no `popstate` — ver `diaInicial`.
+		dia = diaInicial(new URLSearchParams(location.search).get('dia'), dias, hoje);
 	});
 	/**
 	 * Mantém o endereço a par do dia, sem encher o histórico.
@@ -73,6 +73,8 @@
 
 	/** quanto da página já foi arrastada: a fita de datas usa-o para acompanhar o dedo */
 	let progresso = $state(0);
+	/** a altura real da fita de datas, para a barra dos filtros colar por baixo dela */
+	let alturaFita = $state(0);
 
 	let escalao = $state<string | null>(null);
 	/**
@@ -153,7 +155,7 @@
 
 <h1 class="sr">Jogos</h1>
 
-<FitaDatas {dias} bind:escolhido={dia} {progresso} />
+<FitaDatas {dias} bind:escolhido={dia} {progresso} bind:altura={alturaFita} />
 
 <!--
   **Filtrar e agrupar, lado a lado, em duas listas.**
@@ -171,7 +173,7 @@
   para o nada.
 -->
 {#if escaloes.length}
-	<div class="controlos" data-guia="escaloes">
+	<div class="controlos" data-guia="escaloes" style="--fita: {alturaFita}px">
 		<label>
 			<span class="sr">Filtrar por escalão</span>
 			<select bind:value={escalao}>
@@ -212,10 +214,28 @@
 	/* **Duas listas, meia largura cada.** Nativas de propósito: num telemóvel um `<select>`
 	   abre a roda do sistema, que é maior, mais rápida e mais acessível do que qualquer lista
 	   que eu desenhe — e não traz um único byte de JavaScript. */
+	/* **Colada por baixo da fita de datas**, a pedido do dono a 21/10/2026: *"queria que a
+	   componente onde estão os filtros e os agrupar ficasse sempre visível quando estou a fazer
+	   scroll"*. Faz sentido pelo mesmo motivo que a fita já cola: num sábado de 40 jogos, rolar
+	   até ao fim e querer mudar de escalão obrigava a subir tudo outra vez.
+
+	   O `top` é a soma de duas alturas **medidas**: o cabeçalho (`--topo`, do layout) e a fita
+	   (`--fita`, que ela publica). Nenhum dos dois é um número escrito aqui — o comentário da
+	   própria fita explica porquê, e é a mesma razão.
+
+	   `z-index: 7` fica **abaixo** da fita (8) e do cabeçalho (10): os três têm topos
+	   diferentes e não chegam a sobrepor-se, mas se um dia chegarem, a ordem de quem tapa quem
+	   já está decidida. O fundo opaco e o `padding-bottom` existem para os jogos não
+	   aparecerem por baixo da barra enquanto passam. */
 	.controlos {
+		position: sticky;
+		top: calc(var(--topo, 60px) + var(--fita, 44px));
+		z-index: 7;
+		background: var(--fundo);
 		display: flex;
 		gap: var(--e-2);
-		margin-bottom: var(--e-4);
+		padding-bottom: var(--e-2);
+		margin-bottom: var(--e-3);
 	}
 	.controlos label { flex: 1 1 0; min-width: 0; }
 	.controlos select {
