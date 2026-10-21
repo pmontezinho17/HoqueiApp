@@ -17,6 +17,7 @@
 	import { piscar } from '$lib/piscar';
 	import { caminhoEquipa } from '$lib/slug';
 	import { estadoDasFaltas, mostrarNoPlacar } from '$lib/faltas';
+	import { estadoDoPlacar } from '$lib/placar';
 	import { destinoDeVoltar, recuarNaHistoria, veioDeDentro } from '$lib/voltar';
 	import type { EventoJogo } from '$lib/tipos';
 	import { untrack } from 'svelte';
@@ -265,11 +266,14 @@
 		return () => removeEventListener('scroll', ao);
 	});
 
+	// A parte do jogo, o resultado e as faltas: o dono enumerou a 21/10/2026 o que este placar
+	// deve ter. A decisão do texto vive no `lib/placar.ts`, onde um teste lhe chega — aqui
+	// mostrava-se o relógio e o período ficava escondido atrás dele.
 	const estado = $derived(
-		aDecorrer ? (f.relogio ?? f.periodo ?? f.situacao ?? 'Ao vivo')
-			: porComecar ? 'Por começar'
-			: 'Final'
+		estadoDoPlacar({ aDecorrer, porComecar, periodo: f.periodo, relogio: f.relogio, situacao: f.situacao })
 	);
+	/** as faltas aparecem assim que o jogo começa, e não só ao vivo — ver `faltas.ts` */
+	const jogoComecou = $derived(aDecorrer || !porComecar);
 </script>
 
 <svelte:head><title>{f.casa} {f.golos_casa}–{f.golos_fora} {f.fora}</title></svelte:head>
@@ -340,9 +344,12 @@
 				{#if aDecorrer}<i aria-hidden="true"></i>{/if}{estado}
 			</span>
 			<!--
-			  **As faltas de equipa, e só com o jogo a decorrer.** Pedido do dono a 10/10/2026 e
-			  aprovado a 17/10: *"só faz sentido se for no ecrã de jogo ao vivo"*. Num jogo
-			  terminado continuam na caixa de informação, onde já estavam.
+			  **As faltas de equipa, assim que o jogo começa.** Pedido do dono a 10/10/2026 e
+			  aprovado a 17/10 com o limite *"só faz sentido se for no ecrã de jogo ao vivo"*. A
+			  21/10 ele alargou-o, ao enumerar o que o placar deve ter: *"num jogo a decorrer ou
+			  finalizado devem aparecer as faltas cometidas por cada equipa"*. Num jogo por
+			  começar continuam a não aparecer — a fonte publica `[null, null]` nesses, e um `0`
+			  antes do apito seria um número inventado a partir de um campo vazio.
 
 			  A decisão de quando mostrar e quando avisar vive no `$lib/faltas.ts`, para poder
 			  ser testada sem montar este ecrã — é a regra que nasceu do Mérito desaparecido.
@@ -351,7 +358,7 @@
 			  página tem de saber que o número subiu, e `polite` espera que ela acabe de ler o
 			  que estava a ler.
 			-->
-			{#if mostrarNoPlacar(aDecorrer, f.faltas)}
+			{#if mostrarNoPlacar(jogoComecou, f.faltas)}
 				<span class="faltas" aria-live="polite" aria-label="Faltas de equipa: {f.faltas[0]} a {f.faltas[1]}">
 					<span class="n {estadoDasFaltas(f.faltas[0])}">{f.faltas[0]}</span>
 					<Icone nome="falta" tamanho={14} />

@@ -53,10 +53,18 @@ describe('o estado do contador de faltas', () => {
 });
 
 describe('quando é que as faltas aparecem no placar', () => {
-	it('só com o jogo a decorrer', () => {
-		// Decisão do dono a 17/10/2026. Num jogo terminado continuam na caixa de informação.
+	it('a partir do momento em que o jogo começou — a decorrer ou já terminado', () => {
+		// A 17/10/2026 a regra era "só ao vivo"; a 21/10 o dono alargou-a: "num jogo a decorrer
+		// ou finalizado devem aparecer as faltas cometidas por cada equipa". O critério deixou
+		// de ser "está a decorrer" e passou a ser "já começou".
 		expect(mostrarNoPlacar(true, [4, 3])).toBe(true);
+	});
+
+	it('mas não antes do apito inicial', () => {
+		// E não é só porque ele o pediu: a fonte publica [null, null] nesses jogos, e um 0–0 de
+		// faltas antes do apito seria um número inventado a partir de um campo vazio.
 		expect(mostrarNoPlacar(false, [4, 3])).toBe(false);
+		expect(mostrarNoPlacar(false, [null, null])).toBe(false);
 	});
 
 	it('e só quando há números dos dois lados', () => {
