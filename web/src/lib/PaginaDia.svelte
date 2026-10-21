@@ -13,7 +13,7 @@
 	import LinhaJogo from './LinhaJogo.svelte';
 	import { dataLonga, emCurso, nomeProva } from './formato';
 	import { porEscalao } from './escaloes';
-	import { agrupar, type Agrupamento } from './agrupar';
+	import { agruparPorLocal, ordenarPorHora, type Agrupamento } from './agrupar';
 	import type { JogoAgenda } from './tipos';
 
 	let {
@@ -140,27 +140,48 @@
 		</section>
 	{/if}
 
-	{#if agrupamento !== 'escalao'}
+	{#if agrupamento === 'hora'}
 		<!--
-		  Por hora ou por recinto: blocos planos, sem a árvore prova → série. Aqui o escalão vai
-		  em cada linha (`comEscalao`), porque um bloco de "15:00" mistura escalões e sem isso
-		  não se sabe se o 11–5 é de benjamins ou de seniores.
+		  **Uma caixa só, por ordem de relógio** — e não uma caixa por hora, que foi a primeira
+		  versão. O dono parou-a assim que a viu: *"a caixa das 10h tem um jogo que começa às
+		  10h, depois a caixa das 11h tens um jogo que começa às 11"*. Medido: em 24 dos 56 dias
+		  com jogos, cada caixa teria exactamente um jogo lá dentro.
 
-		  Sem fechar e abrir: os cabeçalhos destes são muito mais curtos — uma hora, um pavilhão
-		  — e um dia inteiro fechado era a lista de títulos sem um resultado à vista que já se
-		  pagou uma vez neste ecrã.
+		  Sem cabeçalho nenhum: a hora já vai em cada linha e o `comEscalao` diz o escalão. Um
+		  título por cima seria a moldura que se veio tirar.
 		-->
-		{#each agrupar(filtrados, agrupamento) as b, i (b.chave)}
+		<section class="bloco" data-guia="jogos">
+			<div class="conteudo">
+				{#each ordenarPorHora(filtrados) as j (j.id ?? `${j.casa}${j.fora}`)}
+					<LinhaJogo jogo={j} {emblemas} seguida={eSeguida(j.cat)} comEscalao />
+				{/each}
+			</div>
+		</section>
+	{:else if agrupamento === 'local'}
+		<!--
+		  Um cartão por pavilhão, por ordem alfabética, e cada um abre e fecha como os dos
+		  escalões — pedido do dono a 21/10/2026. O estado vive no mesmo `fechadas` deles: a
+		  chave é o nome do recinto em vez do escalão, e o conjunto não precisa de saber a
+		  diferença.
+		-->
+		{#each agruparPorLocal(filtrados) as b, i (b.chave)}
 			<section class="bloco" data-guia={i === 0 ? 'jogos' : undefined}>
-				<div class="cabecalho simples">
+				<button
+					class="cabecalho"
+					onclick={() => alternar(b.chave)}
+					aria-expanded={!fechadas.has(b.chave)}
+				>
 					<span class="escalao">{b.titulo}</span>
 					<span class="conta">{b.jogos.length}</span>
-				</div>
-				<div class="conteudo">
-					{#each b.jogos as j (j.id ?? `${j.casa}${j.fora}`)}
-						<LinhaJogo jogo={j} {emblemas} seguida={eSeguida(j.cat)} comEscalao />
-					{/each}
-				</div>
+					<span class="chevron" class:fechado={fechadas.has(b.chave)} aria-hidden="true">⌃</span>
+				</button>
+				{#if !fechadas.has(b.chave)}
+					<div class="conteudo">
+						{#each b.jogos as j (j.id ?? `${j.casa}${j.fora}`)}
+							<LinhaJogo jogo={j} {emblemas} seguida={eSeguida(j.cat)} comEscalao />
+						{/each}
+					</div>
+				{/if}
 			</section>
 		{/each}
 	{:else}
@@ -251,8 +272,6 @@
 		border: 0;
 		color: inherit;
 	}
-	/* o cabeçalho de hora e de recinto não abre nem fecha: não é botão, e não finge que é */
-	.cabecalho.simples { cursor: default; min-height: 36px; }
 	.escalao {
 		flex: 1;
 		min-width: 0;
