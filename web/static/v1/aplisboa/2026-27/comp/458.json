@@ -63,7 +63,7 @@
    "casa": "APAC TOJAL",
    "fora": "SPORTING CP",
    "golos_casa": 1,
-   "golos_fora": 3,
+   "golos_fora": 5,
    "recinto": "PAV. A.P.A.C.TOJAL",
    "ao_vivo": false
   },
@@ -486,10 +486,10 @@
      "vitorias": 2,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 9,
+     "golos_marcados": 11,
      "golos_sofridos": 5,
-     "diferenca": 4,
-     "racio": 1.8,
+     "diferenca": 6,
+     "racio": 2.2,
      "pontos": 6
     },
     {
@@ -529,9 +529,9 @@
      "empates": 0,
      "derrotas": 2,
      "golos_marcados": 2,
-     "golos_sofridos": 9,
-     "diferenca": -7,
-     "racio": 0.22,
+     "golos_sofridos": 11,
+     "diferenca": -9,
+     "racio": 0.18,
      "pontos": 0
     },
     {
