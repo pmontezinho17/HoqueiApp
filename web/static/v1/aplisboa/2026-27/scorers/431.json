@@ -1,6 +1,6 @@
 {
  "competicao_id": 431,
- "jogos_considerados": 11,
+ "jogos_considerados": 12,
  "jogadores": [
   {
    "nome": "RODRIGO MARTINS",
@@ -26,6 +26,19 @@
    "pontos": 4,
    "amarelos": 0,
    "azuis": 2,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PAU POCH",
+   "equipa": "SL BENFICA",
+   "jogos": 1,
+   "numero": "8",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -107,6 +120,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOÃO RODRIGUES",
+   "equipa": "SL BENFICA",
+   "jogos": 1,
+   "numero": "9",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "LUIS OLIVEIRA",
    "equipa": "AE FISICA D",
    "jogos": 1,
@@ -124,6 +150,19 @@
    "equipa": "CRIAR-T GD",
    "jogos": 1,
    "numero": "9",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARTIM COSTA",
+   "equipa": "SL BENFICA",
+   "jogos": 1,
+   "numero": "10",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -367,19 +406,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOEL CASTILLO",
-   "equipa": "CANDELARIA SC",
-   "jogos": 1,
-   "numero": "9",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "LARA PINTO",
    "equipa": "PAREDE FC (SF)",
    "jogos": 1,
@@ -436,19 +462,6 @@
    "equipa": "PAREDE FC (SM)",
    "jogos": 1,
    "numero": "74",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RUI RAMOS",
-   "equipa": "CANDELARIA SC",
-   "jogos": 1,
-   "numero": "23",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -536,6 +549,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOEL CASTILLO",
+   "equipa": "CANDELARIA SC",
+   "jogos": 2,
+   "numero": "9",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOSÉ FLORES",
    "equipa": "AA COIMBRA",
    "jogos": 2,
@@ -579,6 +605,19 @@
    "equipa": "AA COIMBRA",
    "jogos": 2,
    "numero": "97",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RUI RAMOS",
+   "equipa": "CANDELARIA SC",
+   "jogos": 2,
+   "numero": "23",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -653,6 +692,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "GONÇALO PINTO",
+   "equipa": "SL BENFICA",
+   "jogos": 1,
+   "numero": "71",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "HENRIQUE PEREIRA",
    "equipa": "SC TORRES",
    "jogos": 1,
@@ -722,6 +774,19 @@
    "equipa": "GDS CASCAIS",
    "jogos": 1,
    "numero": "6",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VITOR OLIVEIRA",
+   "equipa": "SL BENFICA",
+   "jogos": 1,
+   "numero": "4",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -952,6 +1017,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "CONSTANTINO RODRIGUEZ",
+   "equipa": "SL BENFICA",
+   "jogos": 1,
+   "numero": "97",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DAVID GODINHO",
    "equipa": "A STUART HCM",
    "jogos": 1,
@@ -1160,19 +1238,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME MAGALHÃES",
-   "equipa": "CANDELARIA SC",
-   "jogos": 1,
-   "numero": "55",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GUILHERME MARQUES",
    "equipa": "GDS CASCAIS",
    "jogos": 1,
@@ -1229,6 +1294,32 @@
    "equipa": "CANDELARIA SC",
    "jogos": 1,
    "numero": "38",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOAN GANGONELLS",
+   "equipa": "CANDELARIA SC",
+   "jogos": 1,
+   "numero": "4",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOSÉ MIRANDA",
+   "equipa": "SL BENFICA",
+   "jogos": 1,
+   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1472,10 +1563,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MIGUEL ALEXANDRE",
-   "equipa": "CANDELARIA SC",
+   "nome": "NIL SUBIRANA",
+   "equipa": "SL BENFICA",
    "jogos": 1,
-   "numero": "12",
+   "numero": "24",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1511,32 +1602,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "PAOLO DIAS",
-   "equipa": "CANDELARIA SC",
-   "jogos": 1,
-   "numero": "8",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "PAULO DURO",
-   "equipa": "CANDELARIA SC",
-   "jogos": 1,
-   "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "PEDRO ABREU",
    "equipa": "A STUART HCM",
    "jogos": 1,
@@ -1557,6 +1622,19 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 2,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PEDRO HENRIQUES",
+   "equipa": "SL BENFICA",
+   "jogos": 1,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -1667,6 +1745,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "ROBERTO BENEDETTO",
+   "equipa": "SL BENFICA",
+   "jogos": 1,
+   "numero": "6",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RODRIGO PATRÃO",
    "equipa": "GDS CASCAIS",
    "jogos": 1,
@@ -1700,19 +1791,6 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SANTINO FACCA",
-   "equipa": "CANDELARIA SC",
-   "jogos": 1,
-   "numero": "44",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -1758,19 +1836,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO ESTARREJA",
-   "equipa": "CANDELARIA SC",
-   "jogos": 1,
-   "numero": "24",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "TIAGO GOMES",
    "equipa": "APAC TOJAL",
    "jogos": 1,
@@ -1801,19 +1866,6 @@
    "equipa": "UD VILAFRANQUENSE",
    "jogos": 1,
    "numero": "27",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "VASCO DIAS",
-   "equipa": "CANDELARIA SC",
-   "jogos": 1,
-   "numero": "97",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1979,6 +2031,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "GUILHERME MAGALHÃES",
+   "equipa": "CANDELARIA SC",
+   "jogos": 2,
+   "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "INÊS FLORÊNCIO",
    "equipa": "BIBLIOTECA IR (SF)",
    "jogos": 2,
@@ -2031,10 +2096,49 @@
    "vermelhos": 0
   },
   {
+   "nome": "MIGUEL ALEXANDRE",
+   "equipa": "CANDELARIA SC",
+   "jogos": 2,
+   "numero": "3",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "NUNO COITO",
    "equipa": "HC TURQUEL",
    "jogos": 2,
    "numero": "49",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PAOLO DIAS",
+   "equipa": "CANDELARIA SC",
+   "jogos": 2,
+   "numero": "8",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PAULO DURO",
+   "equipa": "CANDELARIA SC",
+   "jogos": 2,
+   "numero": "2",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -2074,6 +2178,45 @@
    "equipa": "HC TURQUEL",
    "jogos": 2,
    "numero": "79",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SANTINO FACCA",
+   "equipa": "CANDELARIA SC",
+   "jogos": 2,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO ESTARREJA",
+   "equipa": "CANDELARIA SC",
+   "jogos": 2,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VASCO DIAS",
+   "equipa": "CANDELARIA SC",
+   "jogos": 2,
+   "numero": "97",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
