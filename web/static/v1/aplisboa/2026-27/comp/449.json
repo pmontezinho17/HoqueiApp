@@ -155,8 +155,8 @@
    "hora": "21:30:00",
    "casa": "HC LOURINHÃ",
    "fora": "SPORTING CP B",
-   "golos_casa": 0,
-   "golos_fora": 2,
+   "golos_casa": 1,
+   "golos_fora": 5,
    "recinto": "PAV. GIMNO. DA LOURINHÃ",
    "ao_vivo": false
   },
@@ -327,10 +327,10 @@
      "vitorias": 3,
      "empates": 1,
      "derrotas": 0,
-     "golos_marcados": 21,
-     "golos_sofridos": 4,
-     "diferenca": 17,
-     "racio": 5.25,
+     "golos_marcados": 24,
+     "golos_sofridos": 5,
+     "diferenca": 19,
+     "racio": 4.8,
      "pontos": 10
     },
     {
@@ -369,10 +369,10 @@
      "vitorias": 1,
      "empates": 0,
      "derrotas": 3,
-     "golos_marcados": 10,
-     "golos_sofridos": 11,
-     "diferenca": -1,
-     "racio": 0.91,
+     "golos_marcados": 11,
+     "golos_sofridos": 14,
+     "diferenca": -3,
+     "racio": 0.79,
      "pontos": 3
     },
     {
