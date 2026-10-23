@@ -155,8 +155,8 @@
    "hora": "21:30:00",
    "casa": "HC LOURINHÃ",
    "fora": "SPORTING CP B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 2,
    "recinto": "PAV. GIMNO. DA LOURINHÃ",
    "ao_vivo": false
   },
@@ -321,6 +321,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "SPORTING CP B",
+     "logo": "/intranet/logos/2.png",
+     "jogos": 4,
+     "vitorias": 3,
+     "empates": 1,
+     "derrotas": 0,
+     "golos_marcados": 21,
+     "golos_sofridos": 4,
+     "diferenca": 17,
+     "racio": 5.25,
+     "pontos": 10
+    },
+    {
+     "posicao": 2,
      "equipa": "AE FISICA D A",
      "logo": "/intranet/logos/11.png",
      "jogos": 3,
@@ -331,20 +345,6 @@
      "golos_sofridos": 3,
      "diferenca": 24,
      "racio": 9.0,
-     "pontos": 7
-    },
-    {
-     "posicao": 2,
-     "equipa": "SPORTING CP B",
-     "logo": "/intranet/logos/2.png",
-     "jogos": 3,
-     "vitorias": 2,
-     "empates": 1,
-     "derrotas": 0,
-     "golos_marcados": 19,
-     "golos_sofridos": 4,
-     "diferenca": 15,
-     "racio": 4.75,
      "pontos": 7
     },
     {
@@ -365,14 +365,14 @@
      "posicao": 4,
      "equipa": "HC LOURINHÃ",
      "logo": "/intranet/logos/21.png",
-     "jogos": 3,
+     "jogos": 4,
      "vitorias": 1,
      "empates": 0,
-     "derrotas": 2,
+     "derrotas": 3,
      "golos_marcados": 10,
-     "golos_sofridos": 9,
-     "diferenca": 1,
-     "racio": 1.11,
+     "golos_sofridos": 11,
+     "diferenca": -1,
+     "racio": 0.91,
      "pontos": 3
     },
     {

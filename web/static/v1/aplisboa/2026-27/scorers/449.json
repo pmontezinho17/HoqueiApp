@@ -1,6 +1,6 @@
 {
  "competicao_id": 449,
- "jogos_considerados": 8,
+ "jogos_considerados": 9,
  "jogadores": [
   {
    "nome": "AFONSO COSTA",
@@ -18,12 +18,12 @@
   {
    "nome": "JOÃO NEGRÃO",
    "equipa": "SPORTING CP B",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "9",
-   "golos": 7,
+   "golos": 8,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 7,
+   "pontos": 8,
    "amarelos": 3,
    "azuis": 1,
    "vermelhos": 0
@@ -57,7 +57,7 @@
   {
    "nome": "DUARTE SILVA",
    "equipa": "HC LOURINHÃ",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "14",
    "golos": 5,
    "assistencias": 0,
@@ -68,14 +68,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO LOPES",
+   "nome": "HENRIQUE DIAS",
    "equipa": "SPORTING CP B",
-   "jogos": 3,
-   "numero": "7",
+   "jogos": 4,
+   "numero": "6",
    "golos": 3,
-   "assistencias": 2,
+   "assistencias": 6,
    "defesas": 0,
-   "pontos": 5,
+   "pontos": 9,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -83,12 +83,12 @@
   {
    "nome": "SIMÃO HENRIQUES",
    "equipa": "SPORTING CP B",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "4",
    "golos": 3,
-   "assistencias": 2,
+   "assistencias": 3,
    "defesas": 0,
-   "pontos": 5,
+   "pontos": 6,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -107,6 +107,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "LOURENÇO LOPES",
+   "equipa": "SPORTING CP B",
+   "jogos": 4,
+   "numero": "7",
+   "golos": 3,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GABRIEL GONÇALVES",
    "equipa": "CACO",
    "jogos": 3,
@@ -122,25 +135,12 @@
   {
    "nome": "GONÇALO SILVA",
    "equipa": "HC LOURINHÃ",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "21",
    "golos": 3,
    "assistencias": 1,
    "defesas": 0,
    "pontos": 4,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "HENRIQUE DIAS",
-   "equipa": "SPORTING CP B",
-   "jogos": 3,
-   "numero": "6",
-   "golos": 2,
-   "assistencias": 5,
-   "defesas": 0,
-   "pontos": 7,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -200,7 +200,7 @@
   {
    "nome": "MARTIM SOUSA",
    "equipa": "SPORTING CP B",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "3",
    "golos": 2,
    "assistencias": 0,
@@ -237,8 +237,8 @@
    "vermelhos": 0
   },
   {
-   "nome": "GABRIEL INACIO",
-   "equipa": "HC LOURINHÃ",
+   "nome": "MIGUEL DOMINGOS",
+   "equipa": "CACO",
    "jogos": 3,
    "numero": "44",
    "golos": 1,
@@ -250,9 +250,9 @@
    "vermelhos": 0
   },
   {
-   "nome": "MIGUEL DOMINGOS",
-   "equipa": "CACO",
-   "jogos": 3,
+   "nome": "GABRIEL INACIO",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 4,
    "numero": "44",
    "golos": 1,
    "assistencias": 1,
@@ -291,7 +291,7 @@
   {
    "nome": "LEONOR INÁCIO",
    "equipa": "SPORTING CP B",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "2",
    "golos": 1,
    "assistencias": 0,
@@ -343,25 +343,12 @@
   {
    "nome": "SALVADOR SANTOS",
    "equipa": "HC LOURINHÃ",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "11",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
    "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ALEXANDRE ABRANTES",
-   "equipa": "SPORTING CP B",
-   "jogos": 1,
-   "numero": "8",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -384,6 +371,19 @@
    "equipa": "HC LOURINHÃ",
    "jogos": 1,
    "numero": "55",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JORGE SILVA",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 1,
+   "numero": "88",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -432,6 +432,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "ALEXANDRE ABRANTES",
+   "equipa": "SPORTING CP B",
+   "jogos": 2,
+   "numero": "8",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "ARTHUR COSTA",
    "equipa": "CACO",
    "jogos": 2,
@@ -449,45 +462,6 @@
    "equipa": "HC LOURINHÃ",
    "jogos": 2,
    "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "PEDRO BOTAS",
-   "equipa": "SPORTING CP B",
-   "jogos": 2,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "PILAR JÚLIO",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 2,
-   "numero": "13",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RAFAELA PINA",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 2,
-   "numero": "36",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -549,32 +523,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO SILVA",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 3,
-   "numero": "27",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUILHERME ALHO",
-   "equipa": "SPORTING CP B",
-   "jogos": 3,
-   "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "HENRIQUE COSTA",
    "equipa": "AE FISICA D A",
    "jogos": 3,
@@ -601,13 +549,39 @@
    "vermelhos": 0
   },
   {
-   "nome": "MANUEL GOMES",
+   "nome": "PEDRO BOTAS",
    "equipa": "SPORTING CP B",
    "jogos": 3,
-   "numero": "10",
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
-   "defesas": 1,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PILAR JÚLIO",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 3,
+   "numero": "13",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RAFAELA PINA",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 3,
+   "numero": "36",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -618,19 +592,6 @@
    "equipa": "AE FISICA D A",
    "jogos": 3,
    "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RODRIGO SILVA",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 3,
-   "numero": "61",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -653,19 +614,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "VICENTE MATOS",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 3,
-   "numero": "22",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "BRUNA STABILE",
    "equipa": "A STUART HCM B",
    "jogos": 4,
@@ -683,6 +631,32 @@
    "equipa": "A STUART HCM B",
    "jogos": 4,
    "numero": "76",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FRANCISCO SILVA",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 4,
+   "numero": "27",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME ALHO",
+   "equipa": "SPORTING CP B",
+   "jogos": 4,
+   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -718,6 +692,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "MANUEL GOMES",
+   "equipa": "SPORTING CP B",
+   "jogos": 4,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RODRIGO SILVA",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 4,
+   "numero": "61",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "SANTIAGO RODRIGUES",
    "equipa": "A STUART HCM B",
    "jogos": 4,
@@ -741,6 +741,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VICENTE MATOS",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 4,
+   "numero": "22",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   }
  ],
