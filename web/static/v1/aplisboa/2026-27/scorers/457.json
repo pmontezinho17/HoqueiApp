@@ -3,14 +3,27 @@
  "jogos_considerados": 6,
  "jogadores": [
   {
+   "nome": "VASCO MOREIRA",
+   "equipa": "SL BENFICA",
+   "jogos": 2,
+   "numero": "97",
+   "golos": 6,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 8,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "TOMÁS NEVES",
    "equipa": "SL BENFICA",
    "jogos": 2,
    "numero": "8",
-   "golos": 4,
+   "golos": 5,
    "assistencias": 3,
    "defesas": 0,
-   "pontos": 7,
+   "pontos": 8,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -42,6 +55,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "SANTIAGO PEREIRA",
+   "equipa": "SL BENFICA",
+   "jogos": 1,
+   "numero": "87",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MIGUEL TORRÃO",
    "equipa": "HC LOURINHÃ",
    "jogos": 2,
@@ -51,6 +77,19 @@
    "defesas": 0,
    "pontos": 4,
    "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VICENTE PERES",
+   "equipa": "SL BENFICA",
+   "jogos": 1,
+   "numero": "7",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -146,6 +185,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "TIAGO PEIXOTO",
+   "equipa": "SL BENFICA",
+   "jogos": 2,
+   "numero": "11",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "DIOGO HENRIQUES",
    "equipa": "BIBLIOTECA IR",
    "jogos": 1,
@@ -176,32 +228,6 @@
    "equipa": "S ALENQUER BENFICA",
    "jogos": 1,
    "numero": "12",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SANTIAGO PEREIRA",
-   "equipa": "SL BENFICA",
-   "jogos": 1,
-   "numero": "87",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "VICENTE PERES",
-   "equipa": "SL BENFICA",
-   "jogos": 1,
-   "numero": "7",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -289,29 +315,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO PEIXOTO",
-   "equipa": "SL BENFICA",
+   "nome": "PEDRO GOUVEIA",
+   "equipa": "UD VILAFRANQUENSE",
    "jogos": 2,
-   "numero": "11",
+   "numero": "28",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 1,
    "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "VASCO MOREIRA",
-   "equipa": "SL BENFICA",
-   "jogos": 2,
-   "numero": "97",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 1,
+   "azuis": 2,
    "vermelhos": 0
   },
   {
@@ -321,6 +334,19 @@
    "numero": "6",
    "golos": 1,
    "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ALEXANDRE LORY",
+   "equipa": "SL BENFICA",
+   "jogos": 1,
+   "numero": "77",
+   "golos": 0,
+   "assistencias": 1,
    "defesas": 0,
    "pontos": 1,
    "amarelos": 0,
@@ -403,19 +429,6 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ALEXANDRE LORY",
-   "equipa": "SL BENFICA",
-   "jogos": 1,
-   "numero": "77",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -910,19 +923,6 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "PEDRO GOUVEIA",
-   "equipa": "UD VILAFRANQUENSE",
-   "jogos": 2,
-   "numero": "28",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 2,
    "vermelhos": 0
   },
   {

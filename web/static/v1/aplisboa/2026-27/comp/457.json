@@ -62,8 +62,8 @@
    "hora": "21:30:00",
    "casa": "SL BENFICA",
    "fora": "UD VILAFRANQUENSE",
-   "golos_casa": 6,
-   "golos_fora": 0,
+   "golos_casa": 17,
+   "golos_fora": 1,
    "recinto": "PAV. MURCHES",
    "ao_vivo": false
   },
@@ -466,6 +466,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "SL BENFICA",
+     "logo": "/intranet/logos/1.png",
+     "jogos": 2,
+     "vitorias": 2,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 20,
+     "golos_sofridos": 2,
+     "diferenca": 18,
+     "racio": 10.0,
+     "pontos": 6
+    },
+    {
+     "posicao": 2,
      "equipa": "HC TURQUEL",
      "logo": "/intranet/logos/4.png",
      "jogos": 2,
@@ -476,20 +490,6 @@
      "golos_sofridos": 4,
      "diferenca": 12,
      "racio": 4.0,
-     "pontos": 6
-    },
-    {
-     "posicao": 2,
-     "equipa": "SL BENFICA",
-     "logo": "/intranet/logos/1.png",
-     "jogos": 2,
-     "vitorias": 2,
-     "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 9,
-     "golos_sofridos": 1,
-     "diferenca": 8,
-     "racio": 9.0,
      "pontos": 6
     },
     {
@@ -522,20 +522,6 @@
     },
     {
      "posicao": 5,
-     "equipa": "UD VILAFRANQUENSE",
-     "logo": "/intranet/logos/15.png",
-     "jogos": 2,
-     "vitorias": 0,
-     "empates": 0,
-     "derrotas": 2,
-     "golos_marcados": 1,
-     "golos_sofridos": 8,
-     "diferenca": -7,
-     "racio": 0.12,
-     "pontos": 0
-    },
-    {
-     "posicao": 6,
      "equipa": "BIBLIOTECA IR",
      "logo": "/intranet/logos/22.png",
      "jogos": 2,
@@ -546,6 +532,20 @@
      "golos_sofridos": 12,
      "diferenca": -8,
      "racio": 0.33,
+     "pontos": 0
+    },
+    {
+     "posicao": 6,
+     "equipa": "UD VILAFRANQUENSE",
+     "logo": "/intranet/logos/15.png",
+     "jogos": 2,
+     "vitorias": 0,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 2,
+     "golos_sofridos": 19,
+     "diferenca": -17,
+     "racio": 0.11,
      "pontos": 0
     }
    ]
