@@ -1,18 +1,18 @@
 {
  "competicao_id": 467,
  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE C",
- "jogos_lidos": 8,
- "jogos_sem_boletim": 1,
+ "jogos_lidos": 9,
+ "jogos_sem_boletim": 2,
  "linhas": [
   {
    "posicao": 1,
    "equipa": "PAREDE FC",
-   "jogos": 3,
-   "participantes": 30,
-   "bonificacao": 36,
+   "jogos": 4,
+   "participantes": 40,
+   "bonificacao": 47,
    "penalizacao": 0,
-   "pontos": 36,
-   "media": 12.0,
+   "pontos": 47,
+   "media": 11.75,
    "por_confirmar": 0
   },
   {
@@ -62,12 +62,12 @@
   {
    "posicao": 6,
    "equipa": "SPORTING CP",
-   "jogos": 2,
-   "participantes": 12,
-   "bonificacao": 15,
-   "penalizacao": -34,
-   "pontos": -19,
-   "media": -9.5,
+   "jogos": 3,
+   "participantes": 21,
+   "bonificacao": 27,
+   "penalizacao": -36,
+   "pontos": -9,
+   "media": -3.0,
    "por_confirmar": 0
   }
  ]

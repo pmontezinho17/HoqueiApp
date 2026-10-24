@@ -197,8 +197,8 @@
    "hora": "14:00:00",
    "casa": "SC TOMAR",
    "fora": "BIBLIOTECA IR B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 6,
+   "golos_fora": 0,
    "recinto": "PAV.JACOME RATTON",
    "ao_vivo": false
   },
@@ -321,6 +321,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "SC TOMAR",
+     "logo": "/intranet/logos/20.png",
+     "jogos": 5,
+     "vitorias": 4,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 36,
+     "golos_sofridos": 6,
+     "diferenca": 30,
+     "racio": 6.0,
+     "pontos": 12
+    },
+    {
+     "posicao": 2,
      "equipa": "HC TURQUEL",
      "logo": "/intranet/logos/4.png",
      "jogos": 4,
@@ -332,20 +346,6 @@
      "diferenca": 18,
      "racio": 4.0,
      "pontos": 12
-    },
-    {
-     "posicao": 2,
-     "equipa": "SC TOMAR",
-     "logo": "/intranet/logos/20.png",
-     "jogos": 4,
-     "vitorias": 3,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 30,
-     "golos_sofridos": 6,
-     "diferenca": 24,
-     "racio": 5.0,
-     "pontos": 9
     },
     {
      "posicao": 3,
@@ -379,14 +379,14 @@
      "posicao": 5,
      "equipa": "BIBLIOTECA IR B",
      "logo": "/intranet/logos/22.png",
-     "jogos": 4,
+     "jogos": 5,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 4,
+     "derrotas": 5,
      "golos_marcados": 6,
-     "golos_sofridos": 33,
-     "diferenca": -27,
-     "racio": 0.18,
+     "golos_sofridos": 39,
+     "diferenca": -33,
+     "racio": 0.15,
      "pontos": 0
     }
    ]

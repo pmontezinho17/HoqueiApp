@@ -108,8 +108,8 @@
    "hora": "12:00:00",
    "casa": "SPORTING CP",
    "fora": "AD OERIAS",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 6,
+   "golos_fora": 2,
    "recinto": "PAVILHÃO JOÃO ROCHA",
    "ao_vivo": false
   },

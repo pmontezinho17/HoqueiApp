@@ -1,6 +1,6 @@
 {
  "competicao_id": 456,
- "jogos_considerados": 10,
+ "jogos_considerados": 11,
  "jogadores": [
   {
    "nome": "SANTIAGO EUSÉBIO",
@@ -55,6 +55,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "LOURENÇO SILVA",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 5,
+   "numero": "11",
+   "golos": 5,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 7,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RAFAEL MATOS",
    "equipa": "CD BOLIQUEIME",
    "jogos": 4,
@@ -68,12 +81,12 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO SILVA",
+   "nome": "MARTIM RIJO",
    "equipa": "HC PORTIMÃO",
-   "jogos": 4,
-   "numero": "11",
-   "golos": 3,
-   "assistencias": 2,
+   "jogos": 5,
+   "numero": "4",
+   "golos": 4,
+   "assistencias": 1,
    "defesas": 0,
    "pontos": 5,
    "amarelos": 0,
@@ -109,7 +122,7 @@
   {
    "nome": "MUNI FERNANDES",
    "equipa": "HC PORTIMÃO",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "2",
    "golos": 3,
    "assistencias": 0,
@@ -122,20 +135,20 @@
   {
    "nome": "RAFAEL CARUJO",
    "equipa": "CF ESTREMOZ",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "7",
    "golos": 3,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 3,
-   "amarelos": 2,
+   "amarelos": 3,
    "azuis": 0,
    "vermelhos": 0
   },
   {
    "nome": "SEBASTIÃO COSTA",
    "equipa": "HC PORTIMÃO",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "77",
    "golos": 3,
    "assistencias": 0,
@@ -156,6 +169,19 @@
    "pontos": 4,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VASCO GOMES",
+   "equipa": "CF ESTREMOZ",
+   "jogos": 5,
+   "numero": "2",
+   "golos": 2,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -185,32 +211,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM RIJO",
-   "equipa": "HC PORTIMÃO",
-   "jogos": 4,
-   "numero": "4",
-   "golos": 2,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ZÉ ALVES",
-   "equipa": "CF ESTREMOZ",
-   "jogos": 2,
-   "numero": "3",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MIGUEL MESTRE",
    "equipa": "HC VASCO GAMA",
    "jogos": 3,
@@ -224,23 +224,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO MARTINS",
-   "equipa": "HC PORTIMÃO",
-   "jogos": 4,
-   "numero": "6",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "FRANCISCO MOURA",
-   "equipa": "HC PORTIMÃO",
-   "jogos": 4,
-   "numero": "5",
+   "nome": "ZÉ ALVES",
+   "equipa": "CF ESTREMOZ",
+   "jogos": 3,
+   "numero": "3",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -263,9 +250,48 @@
    "vermelhos": 0
   },
   {
+   "nome": "MARIANA LOURENÇO",
+   "equipa": "CD BOLIQUEIME",
+   "jogos": 4,
+   "numero": "7",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "AFONSO MARTINS",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 5,
+   "numero": "6",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FRANCISCO MOURA",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 5,
+   "numero": "5",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "LUCAS MONTEIRO",
    "equipa": "HC PORTIMÃO",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "9",
    "golos": 2,
    "assistencias": 0,
@@ -276,15 +302,15 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARIANA LOURENÇO",
-   "equipa": "CD BOLIQUEIME",
+   "nome": "ANTONIO CALHORDAS",
+   "equipa": "CF ESTREMOZ",
    "jogos": 4,
-   "numero": "7",
-   "golos": 2,
-   "assistencias": 0,
+   "numero": "5",
+   "golos": 1,
+   "assistencias": 2,
    "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
+   "pontos": 3,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -302,36 +328,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "VASCO GOMES",
-   "equipa": "CF ESTREMOZ",
-   "jogos": 4,
-   "numero": "2",
+   "nome": "MARIA INES GONZALEZ",
+   "equipa": "FC CASTRENSE",
+   "jogos": 1,
+   "numero": "13",
    "golos": 1,
-   "assistencias": 2,
+   "assistencias": 0,
    "defesas": 0,
-   "pontos": 3,
+   "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
   {
-   "nome": "ANTONIO CALHORDAS",
+   "nome": "JOAO MADEIRA",
    "equipa": "CF ESTREMOZ",
-   "jogos": 3,
-   "numero": "5",
-   "golos": 1,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARIA INES GONZALEZ",
-   "equipa": "FC CASTRENSE",
-   "jogos": 1,
-   "numero": "13",
+   "jogos": 4,
+   "numero": "8",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -356,7 +369,7 @@
   {
    "nome": "MIGUEL PRIMO",
    "equipa": "CF ESTREMOZ",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "9",
    "golos": 1,
    "assistencias": 0,
@@ -367,36 +380,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "CAYETANO FELISMINO",
-   "equipa": "CF ESTREMOZ",
-   "jogos": 4,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "DINIS RAPOSO",
    "equipa": "HC VASCO GAMA",
    "jogos": 4,
    "numero": "5",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LUCAS GARCIA",
-   "equipa": "HC PORTIMÃO",
-   "jogos": 4,
-   "numero": "88",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -416,6 +403,32 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "CAYETANO FELISMINO",
+   "equipa": "CF ESTREMOZ",
+   "jogos": 5,
+   "numero": "4",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LUCAS GARCIA",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 5,
+   "numero": "88",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -484,19 +497,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOAO MADEIRA",
-   "equipa": "CF ESTREMOZ",
-   "jogos": 3,
-   "numero": "8",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ALANA MACHADO",
    "equipa": "CD BOLIQUEIME",
    "jogos": 4,
@@ -527,19 +527,6 @@
    "equipa": "CD BOLIQUEIME",
    "jogos": 4,
    "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DINIS GONÇALVES",
-   "equipa": "HC PORTIMÃO",
-   "jogos": 4,
-   "numero": "69",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -588,19 +575,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "IONUT ANDERLEAN",
-   "equipa": "CF ESTREMOZ",
-   "jogos": 4,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOANA COELHO",
    "equipa": "FC CASTRENSE",
    "jogos": 4,
@@ -627,19 +601,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "PEDRO BANDOVAS",
-   "equipa": "CF ESTREMOZ",
-   "jogos": 4,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "TOMÁS COELHO",
    "equipa": "CD BOLIQUEIME",
    "jogos": 4,
@@ -653,9 +614,48 @@
    "vermelhos": 0
   },
   {
+   "nome": "DINIS GONÇALVES",
+   "equipa": "HC PORTIMÃO",
+   "jogos": 5,
+   "numero": "69",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "IONUT ANDERLEAN",
+   "equipa": "CF ESTREMOZ",
+   "jogos": 5,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PEDRO BANDOVAS",
+   "equipa": "CF ESTREMOZ",
+   "jogos": 5,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 2,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "VICENTE HIGINO",
    "equipa": "HC PORTIMÃO",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "96",
    "golos": 0,
    "assistencias": 0,

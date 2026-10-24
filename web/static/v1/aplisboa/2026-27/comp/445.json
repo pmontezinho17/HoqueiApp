@@ -286,8 +286,8 @@
    "hora": "14:30:00",
    "casa": "SPORTING CP A",
    "fora": "CD MAFRA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 0,
    "recinto": "PAV. MAFRA",
    "ao_vivo": false
   },
@@ -466,6 +466,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "SPORTING CP A",
+     "logo": "/intranet/logos/2.png",
+     "jogos": 6,
+     "vitorias": 6,
+     "empates": 0,
+     "derrotas": 0,
+     "golos_marcados": 32,
+     "golos_sofridos": 0,
+     "diferenca": 32,
+     "racio": null,
+     "pontos": 18
+    },
+    {
+     "posicao": 2,
      "equipa": "PAREDE FC A",
      "logo": "/intranet/logos/3.png",
      "jogos": 6,
@@ -476,20 +490,6 @@
      "golos_sofridos": 6,
      "diferenca": 38,
      "racio": 7.33,
-     "pontos": 15
-    },
-    {
-     "posicao": 2,
-     "equipa": "SPORTING CP A",
-     "logo": "/intranet/logos/2.png",
-     "jogos": 5,
-     "vitorias": 5,
-     "empates": 0,
-     "derrotas": 0,
-     "golos_marcados": 30,
-     "golos_sofridos": 0,
-     "diferenca": 30,
-     "racio": null,
      "pontos": 15
     },
     {
@@ -538,13 +538,13 @@
      "posicao": 6,
      "equipa": "CD MAFRA",
      "logo": "/intranet/logos/32.png",
-     "jogos": 5,
+     "jogos": 6,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 5,
+     "derrotas": 6,
      "golos_marcados": 1,
-     "golos_sofridos": 72,
-     "diferenca": -71,
+     "golos_sofridos": 74,
+     "diferenca": -73,
      "racio": 0.01,
      "pontos": 0
     }

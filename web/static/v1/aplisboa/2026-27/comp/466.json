@@ -127,8 +127,8 @@
    "hora": "12:45:00",
    "casa": "AE FISICA D B",
    "fora": "AD OEIRAS B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 5,
+   "golos_fora": 10,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
   },
@@ -141,8 +141,8 @@
    "hora": "14:30:00",
    "casa": "S ALENQUER BENFICA",
    "fora": "CRIAR-T GD",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 1,
    "recinto": "PAV.S.ALENQUER E BENFICA",
    "ao_vivo": false
   },

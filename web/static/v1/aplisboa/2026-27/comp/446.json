@@ -258,8 +258,8 @@
    "hora": "14:30:00",
    "casa": "AE FISICA D B",
    "fora": "CACO B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 1,
+   "golos_fora": 1,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
   },
@@ -524,29 +524,29 @@
      "posicao": 5,
      "equipa": "AE FISICA D B",
      "logo": "/intranet/logos/11.png",
-     "jogos": 5,
+     "jogos": 6,
      "vitorias": 1,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 4,
-     "golos_marcados": 5,
-     "golos_sofridos": 23,
+     "golos_marcados": 6,
+     "golos_sofridos": 24,
      "diferenca": -18,
-     "racio": 0.22,
-     "pontos": 3
+     "racio": 0.25,
+     "pontos": 4
     },
     {
      "posicao": 6,
      "equipa": "CACO B",
      "logo": "/intranet/logos/26.png",
-     "jogos": 5,
+     "jogos": 6,
      "vitorias": 0,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 5,
-     "golos_marcados": 6,
-     "golos_sofridos": 41,
+     "golos_marcados": 7,
+     "golos_sofridos": 42,
      "diferenca": -35,
-     "racio": 0.15,
-     "pontos": 0
+     "racio": 0.17,
+     "pontos": 1
     }
    ]
   }
