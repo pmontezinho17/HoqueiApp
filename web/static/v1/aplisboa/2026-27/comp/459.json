@@ -146,8 +146,8 @@
    "hora": "22:00:00",
    "casa": "FSE/AJ SALESIANA",
    "fora": "UF ENTRONCAMENTO",
-   "golos_casa": 0,
-   "golos_fora": 0,
+   "golos_casa": 5,
+   "golos_fora": 5,
    "recinto": "PAV. SALESIANA",
    "ao_vivo": false
   },
@@ -472,10 +472,10 @@
      "vitorias": 2,
      "empates": 1,
      "derrotas": 0,
-     "golos_marcados": 26,
-     "golos_sofridos": 6,
+     "golos_marcados": 31,
+     "golos_sofridos": 11,
      "diferenca": 20,
-     "racio": 4.33,
+     "racio": 2.82,
      "pontos": 7
     },
     {
@@ -528,10 +528,10 @@
      "vitorias": 0,
      "empates": 1,
      "derrotas": 2,
-     "golos_marcados": 4,
-     "golos_sofridos": 9,
+     "golos_marcados": 9,
+     "golos_sofridos": 14,
      "diferenca": -5,
-     "racio": 0.44,
+     "racio": 0.64,
      "pontos": 1
     },
     {

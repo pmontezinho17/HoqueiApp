@@ -7,12 +7,25 @@
    "equipa": "UF ENTRONCAMENTO",
    "jogos": 3,
    "numero": "78",
-   "golos": 7,
+   "golos": 10,
+   "assistencias": 7,
+   "defesas": 0,
+   "pontos": 17,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LOURENÇO SANTOS",
+   "equipa": "UF ENTRONCAMENTO",
+   "jogos": 3,
+   "numero": "12",
+   "golos": 4,
    "assistencias": 5,
    "defesas": 0,
-   "pontos": 12,
-   "amarelos": 0,
-   "azuis": 0,
+   "pontos": 9,
+   "amarelos": 1,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -55,15 +68,15 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO SANTOS",
+   "nome": "MARTIM LOPES",
    "equipa": "UF ENTRONCAMENTO",
    "jogos": 3,
-   "numero": "12",
-   "golos": 3,
-   "assistencias": 5,
+   "numero": "76",
+   "golos": 4,
+   "assistencias": 0,
    "defesas": 0,
-   "pontos": 8,
-   "amarelos": 0,
+   "pontos": 4,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -81,19 +94,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM LOPES",
-   "equipa": "UF ENTRONCAMENTO",
-   "jogos": 3,
-   "numero": "76",
-   "golos": 3,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "PEDRO TORRES",
    "equipa": "UF ENTRONCAMENTO",
    "jogos": 3,
@@ -102,7 +102,7 @@
    "assistencias": 0,
    "defesas": 0,
    "pontos": 3,
-   "amarelos": 0,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -198,10 +198,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "ANDRÉ CARREIRO",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 3,
+   "numero": "7",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RODRIGO SANTOS",
    "equipa": "CACO",
    "jogos": 2,
    "numero": "5",
+   "golos": 1,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DANIEL SILVA",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 3,
+   "numero": "15",
    "golos": 1,
    "assistencias": 2,
    "defesas": 0,
@@ -302,6 +328,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOSÉ PARAÍBA",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 2,
+   "numero": "33",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 1
+  },
+  {
    "nome": "JOÃO LOURENÇO",
    "equipa": "CACO",
    "jogos": 2,
@@ -354,29 +393,42 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANDRÉ CARREIRO",
+   "nome": "DANIEL AFONSO",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 3,
-   "numero": "7",
+   "numero": "17",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 1,
    "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PABLO GALLETTI",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 3,
+   "numero": "4",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
   {
-   "nome": "DANIEL SILVA",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 3,
-   "numero": "15",
+   "nome": "TOMÁS SILVA",
+   "equipa": "UF ENTRONCAMENTO",
+   "jogos": 1,
+   "numero": "09",
    "golos": 0,
-   "assistencias": 2,
+   "assistencias": 1,
    "defesas": 0,
-   "pontos": 2,
+   "pontos": 1,
    "amarelos": 0,
-   "azuis": 1,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -601,19 +653,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS SILVA",
-   "equipa": "UF ENTRONCAMENTO",
-   "jogos": 1,
-   "numero": "09",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "AFONSO MARUJO",
    "equipa": "CACO",
    "jogos": 2,
@@ -690,19 +729,6 @@
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
-  },
-  {
-   "nome": "JOSÉ PARAÍBA",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 2,
-   "numero": "33",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 1
   },
   {
    "nome": "JOÃO CASTRO",
@@ -822,19 +848,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DANIEL AFONSO",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 3,
-   "numero": "17",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "DAVID SOUSA",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 3,
@@ -854,7 +867,7 @@
    "numero": "32",
    "golos": 0,
    "assistencias": 0,
-   "defesas": 1,
+   "defesas": 2,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 1,
@@ -865,19 +878,6 @@
    "equipa": "UF ENTRONCAMENTO",
    "jogos": 3,
    "numero": "29",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "PABLO GALLETTI",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 3,
-   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

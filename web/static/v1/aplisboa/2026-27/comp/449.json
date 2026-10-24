@@ -156,7 +156,7 @@
    "casa": "HC LOURINHÃ",
    "fora": "SPORTING CP B",
    "golos_casa": 1,
-   "golos_fora": 5,
+   "golos_fora": 10,
    "recinto": "PAV. GIMNO. DA LOURINHÃ",
    "ao_vivo": false
   },
@@ -327,10 +327,10 @@
      "vitorias": 3,
      "empates": 1,
      "derrotas": 0,
-     "golos_marcados": 24,
+     "golos_marcados": 29,
      "golos_sofridos": 5,
-     "diferenca": 19,
-     "racio": 4.8,
+     "diferenca": 24,
+     "racio": 5.8,
      "pontos": 10
     },
     {
@@ -370,9 +370,9 @@
      "empates": 0,
      "derrotas": 3,
      "golos_marcados": 11,
-     "golos_sofridos": 14,
-     "diferenca": -3,
-     "racio": 0.79,
+     "golos_sofridos": 19,
+     "diferenca": -8,
+     "racio": 0.58,
      "pontos": 3
     },
     {
