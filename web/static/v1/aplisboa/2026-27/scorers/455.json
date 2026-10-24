@@ -1,6 +1,6 @@
 {
  "competicao_id": 455,
- "jogos_considerados": 17,
+ "jogos_considerados": 18,
  "jogadores": [
   {
    "nome": "MARTIM PIRES",
@@ -120,6 +120,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "RODRIGO MARTINS",
+   "equipa": "AD OEIRAS B",
+   "jogos": 6,
+   "numero": "5",
+   "golos": 5,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 6,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOÃO VIEIRA",
    "equipa": "AE FISICA D A",
    "jogos": 6,
@@ -174,8 +187,21 @@
   {
    "nome": "TIAGO PAIS",
    "equipa": "AD OEIRAS B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "9",
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANDRÉ LOPES",
+   "equipa": "AD OEIRAS B",
+   "jogos": 6,
+   "numero": "3",
    "golos": 3,
    "assistencias": 1,
    "defesas": 0,
@@ -187,21 +213,8 @@
   {
    "nome": "RAFAEL SANTOS",
    "equipa": "HC SINTRA",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "09",
-   "golos": 3,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RODRIGO MARTINS",
-   "equipa": "AD OEIRAS B",
-   "jogos": 5,
-   "numero": "5",
    "golos": 3,
    "assistencias": 1,
    "defesas": 0,
@@ -291,7 +304,7 @@
   {
    "nome": "GUILHERME FIDALGO",
    "equipa": "HC SINTRA",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "79",
    "golos": 2,
    "assistencias": 1,
@@ -304,13 +317,26 @@
   {
    "nome": "DIEGO COSTA",
    "equipa": "AD OEIRAS B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "7",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 2,
    "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GABRIEL FERREIRA",
+   "equipa": "AD OEIRAS B",
+   "jogos": 6,
+   "numero": "6",
+   "golos": 1,
+   "assistencias": 4,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -354,10 +380,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANDRÉ LOPES",
+   "nome": "GONÇALO CARVALHO",
    "equipa": "AD OEIRAS B",
    "jogos": 5,
-   "numero": "3",
+   "numero": "8",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "BERNARDO OURIVES",
+   "equipa": "HC SINTRA",
+   "jogos": 6,
+   "numero": "07",
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
@@ -393,16 +432,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "LUIS VINAGRE",
-   "equipa": "HC SINTRA",
-   "jogos": 5,
-   "numero": "77",
+   "nome": "RAFAEL ALMEIDA",
+   "equipa": "AD OEIRAS B",
+   "jogos": 4,
+   "numero": "2",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 1,
    "amarelos": 0,
-   "azuis": 1,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -416,6 +455,19 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LUIS VINAGRE",
+   "equipa": "HC SINTRA",
+   "jogos": 6,
+   "numero": "77",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -445,42 +497,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "GABRIEL FERREIRA",
-   "equipa": "AD OEIRAS B",
-   "jogos": 5,
-   "numero": "6",
-   "golos": 0,
-   "assistencias": 3,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO CARVALHO",
-   "equipa": "AD OEIRAS B",
-   "jogos": 4,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "BERNARDO OURIVES",
+   "nome": "DINIS REIS",
    "equipa": "HC SINTRA",
    "jogos": 5,
-   "numero": "07",
+   "numero": "36",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
    "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
+   "amarelos": 1,
+   "azuis": 2,
    "vermelhos": 0
   },
   {
@@ -562,6 +588,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "TOMÁS PRUDÊNCIO",
+   "equipa": "HC SINTRA",
+   "jogos": 1,
+   "numero": "14",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "AFONSO MATOS",
    "equipa": "AE FISICA D A",
    "jogos": 2,
@@ -627,19 +666,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "RAFAEL ALMEIDA",
-   "equipa": "AD OEIRAS B",
-   "jogos": 3,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "TIAGO ANDRADE",
    "equipa": "SPORTING CP A",
    "jogos": 3,
@@ -650,32 +676,6 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DIEGO REIS",
-   "equipa": "HC SINTRA",
-   "jogos": 4,
-   "numero": "22",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DINIS REIS",
-   "equipa": "HC SINTRA",
-   "jogos": 4,
-   "numero": "36",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 1,
-   "azuis": 2,
    "vermelhos": 0
   },
   {
@@ -692,68 +692,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO CARDOSO",
+   "nome": "DIEGO REIS",
    "equipa": "HC SINTRA",
    "jogos": 5,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 2,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "FRANCISCO RODRIGUES",
-   "equipa": "HC SINTRA",
-   "jogos": 5,
-   "numero": "93",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 2,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUILHERME NETO",
-   "equipa": "AD OEIRAS B",
-   "jogos": 5,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "KEVIN TIMAS",
-   "equipa": "AD OEIRAS B",
-   "jogos": 5,
-   "numero": "10",
+   "numero": "22",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MANUEL VINAGRE",
-   "equipa": "HC SINTRA",
-   "jogos": 5,
-   "numero": "68",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -783,6 +731,45 @@
    "vermelhos": 0
   },
   {
+   "nome": "DIOGO CARDOSO",
+   "equipa": "HC SINTRA",
+   "jogos": 6,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 2,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FRANCISCO RODRIGUES",
+   "equipa": "HC SINTRA",
+   "jogos": 6,
+   "numero": "93",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 2,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME NETO",
+   "equipa": "AD OEIRAS B",
+   "jogos": 6,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOÃO DIAS",
    "equipa": "CACO B",
    "jogos": 6,
@@ -793,6 +780,32 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "KEVIN TIMAS",
+   "equipa": "AD OEIRAS B",
+   "jogos": 6,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MANUEL VINAGRE",
+   "equipa": "HC SINTRA",
+   "jogos": 6,
+   "numero": "68",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {

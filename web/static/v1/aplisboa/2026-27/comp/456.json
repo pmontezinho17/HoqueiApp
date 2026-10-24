@@ -197,8 +197,8 @@
    "hora": "17:30:00",
    "casa": "CD BOLIQUEIME",
    "fora": "FC CASTRENSE",
-   "golos_casa": 8,
-   "golos_fora": 0,
+   "golos_casa": 17,
+   "golos_fora": 1,
    "recinto": "PAV. MUN. ANTONIO DOS ANJOS",
    "ao_vivo": false
   },
@@ -327,10 +327,10 @@
      "vitorias": 4,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 32,
-     "golos_sofridos": 12,
-     "diferenca": 20,
-     "racio": 2.67,
+     "golos_marcados": 41,
+     "golos_sofridos": 13,
+     "diferenca": 28,
+     "racio": 3.15,
      "pontos": 12
     },
     {
@@ -383,10 +383,10 @@
      "vitorias": 0,
      "empates": 0,
      "derrotas": 5,
-     "golos_marcados": 7,
-     "golos_sofridos": 44,
-     "diferenca": -37,
-     "racio": 0.16,
+     "golos_marcados": 8,
+     "golos_sofridos": 53,
+     "diferenca": -45,
+     "racio": 0.15,
      "pontos": 0
     }
    ]

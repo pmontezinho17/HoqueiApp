@@ -272,8 +272,8 @@
    "hora": "18:00:00",
    "casa": "APAC TOJAL",
    "fora": "AE FISICA D B",
-   "golos_casa": 1,
-   "golos_fora": 0,
+   "golos_casa": 4,
+   "golos_fora": 1,
    "recinto": "PAV. A.P.A.C.TOJAL",
    "ao_vivo": false
   },
@@ -486,10 +486,10 @@
      "vitorias": 3,
      "empates": 1,
      "derrotas": 2,
-     "golos_marcados": 16,
-     "golos_sofridos": 13,
-     "diferenca": 3,
-     "racio": 1.23,
+     "golos_marcados": 19,
+     "golos_sofridos": 14,
+     "diferenca": 5,
+     "racio": 1.36,
      "pontos": 10
     },
     {
@@ -514,10 +514,10 @@
      "vitorias": 3,
      "empates": 0,
      "derrotas": 3,
-     "golos_marcados": 10,
-     "golos_sofridos": 10,
-     "diferenca": 0,
-     "racio": 1.0,
+     "golos_marcados": 11,
+     "golos_sofridos": 13,
+     "diferenca": -2,
+     "racio": 0.85,
      "pontos": 9
     },
     {
