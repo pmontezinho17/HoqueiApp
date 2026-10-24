@@ -141,8 +141,8 @@
    "hora": "14:30:00",
    "casa": "S ALENQUER BENFICA",
    "fora": "CRIAR-T GD",
-   "golos_casa": 0,
-   "golos_fora": 1,
+   "golos_casa": 2,
+   "golos_fora": 3,
    "recinto": "PAV.S.ALENQUER E BENFICA",
    "ao_vivo": false
   },

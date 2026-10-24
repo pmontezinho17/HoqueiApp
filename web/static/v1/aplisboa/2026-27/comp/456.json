@@ -197,8 +197,8 @@
    "hora": "17:30:00",
    "casa": "CD BOLIQUEIME",
    "fora": "FC CASTRENSE",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 8,
+   "golos_fora": 0,
    "recinto": "PAV. MUN. ANTONIO DOS ANJOS",
    "ao_vivo": false
   },
@@ -321,6 +321,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "CD BOLIQUEIME",
+     "logo": "/intranet/logos/69.png",
+     "jogos": 5,
+     "vitorias": 4,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 32,
+     "golos_sofridos": 12,
+     "diferenca": 20,
+     "racio": 2.67,
+     "pontos": 12
+    },
+    {
+     "posicao": 2,
      "equipa": "HC VASCO GAMA",
      "logo": "/intranet/logos/18.png",
      "jogos": 4,
@@ -332,20 +346,6 @@
      "diferenca": 19,
      "racio": 2.73,
      "pontos": 12
-    },
-    {
-     "posicao": 2,
-     "equipa": "CD BOLIQUEIME",
-     "logo": "/intranet/logos/69.png",
-     "jogos": 4,
-     "vitorias": 3,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 24,
-     "golos_sofridos": 12,
-     "diferenca": 12,
-     "racio": 2.0,
-     "pontos": 9
     },
     {
      "posicao": 3,
@@ -379,14 +379,14 @@
      "posicao": 5,
      "equipa": "FC CASTRENSE",
      "logo": "/intranet/logos/0.png",
-     "jogos": 4,
+     "jogos": 5,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 4,
+     "derrotas": 5,
      "golos_marcados": 7,
-     "golos_sofridos": 36,
-     "diferenca": -29,
-     "racio": 0.19,
+     "golos_sofridos": 44,
+     "diferenca": -37,
+     "racio": 0.16,
      "pontos": 0
     }
    ]

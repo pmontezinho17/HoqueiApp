@@ -1,6 +1,6 @@
 {
  "competicao_id": 453,
- "jogos_considerados": 15,
+ "jogos_considerados": 17,
  "jogadores": [
   {
    "nome": "TIAGO FERREIRA",
@@ -68,16 +68,42 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO BARATA",
-   "equipa": "A STUART HCM",
-   "jogos": 5,
-   "numero": "6",
+   "nome": "MARTIM ANTUNES",
+   "equipa": "APAC TOJAL",
+   "jogos": 6,
+   "numero": "3",
+   "golos": 4,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 2,
+   "vermelhos": 0
+  },
+  {
+   "nome": "NUNO ESTANISLAU",
+   "equipa": "PAREDE FC",
+   "jogos": 6,
+   "numero": "9",
    "golos": 4,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 4,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO BARATA",
+   "equipa": "A STUART HCM",
+   "jogos": 6,
+   "numero": "6",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -96,7 +122,7 @@
   {
    "nome": "ANDRÉ COSTA",
    "equipa": "AE FISICA D B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "9",
    "golos": 3,
    "assistencias": 4,
@@ -109,7 +135,7 @@
   {
    "nome": "GUILHERME MOURÃO",
    "equipa": "APAC TOJAL",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "7",
    "golos": 3,
    "assistencias": 3,
@@ -122,8 +148,8 @@
   {
    "nome": "RODRIGO GODINHO",
    "equipa": "AE FISICA D B",
-   "jogos": 5,
-   "numero": "3",
+   "jogos": 6,
+   "numero": "7",
    "golos": 3,
    "assistencias": 2,
    "defesas": 0,
@@ -133,22 +159,35 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM ANTUNES",
-   "equipa": "APAC TOJAL",
+   "nome": "ALEXANDRE PILÃO",
+   "equipa": "PAREDE FC",
    "jogos": 5,
-   "numero": "3",
+   "numero": "5",
    "golos": 3,
-   "assistencias": 1,
+   "assistencias": 0,
    "defesas": 0,
-   "pontos": 4,
+   "pontos": 3,
    "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 1
+  },
+  {
+   "nome": "JOSÉ SANTOS",
+   "equipa": "A STUART HCM",
+   "jogos": 6,
+   "numero": "18",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 1,
    "azuis": 2,
    "vermelhos": 0
   },
   {
    "nome": "AFONSO ARCADINHO",
    "equipa": "APAC TOJAL",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "8",
    "golos": 2,
    "assistencias": 1,
@@ -161,7 +200,7 @@
   {
    "nome": "AFONSO PRATT",
    "equipa": "AE FISICA D B",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "11",
    "golos": 2,
    "assistencias": 0,
@@ -174,39 +213,13 @@
   {
    "nome": "ANTÓNIO PEREIRA",
    "equipa": "APAC TOJAL",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "5",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 2,
    "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TOMÁS SIMÃO",
-   "equipa": "APAC TOJAL",
-   "jogos": 4,
-   "numero": "6",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DAVID PINTO",
-   "equipa": "APAC TOJAL",
-   "jogos": 5,
-   "numero": "4",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -224,6 +237,45 @@
    "vermelhos": 0
   },
   {
+   "nome": "TOMÁS SIMÃO",
+   "equipa": "APAC TOJAL",
+   "jogos": 5,
+   "numero": "6",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DAVID PINTO",
+   "equipa": "APAC TOJAL",
+   "jogos": 6,
+   "numero": "4",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GONÇALO ESPADA",
+   "equipa": "A STUART HCM",
+   "jogos": 5,
+   "numero": "5",
+   "golos": 1,
+   "assistencias": 4,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 1,
+   "azuis": 2,
+   "vermelhos": 0
+  },
+  {
    "nome": "DIOGO ATAÍDE",
    "equipa": "SL BENFICA A",
    "jogos": 3,
@@ -234,19 +286,6 @@
    "pontos": 4,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO ESPADA",
-   "equipa": "A STUART HCM",
-   "jogos": 4,
-   "numero": "5",
-   "golos": 1,
-   "assistencias": 3,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 1,
-   "azuis": 2,
    "vermelhos": 0
   },
   {
@@ -265,7 +304,7 @@
   {
    "nome": "MADHAV KANTILAL",
    "equipa": "APAC TOJAL",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "9",
    "golos": 1,
    "assistencias": 1,
@@ -328,19 +367,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ALEXANDRE PILÃO",
-   "equipa": "PAREDE FC",
-   "jogos": 4,
-   "numero": "5",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 1
-  },
-  {
    "nome": "DINIS MOREIRA",
    "equipa": "SL BENFICA A",
    "jogos": 4,
@@ -351,32 +377,6 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RICARDO SILVA",
-   "equipa": "AE FISICA D B",
-   "jogos": 4,
-   "numero": "3",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "JOSÉ SANTOS",
-   "equipa": "A STUART HCM",
-   "jogos": 5,
-   "numero": "18",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 1,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -393,10 +393,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "NUNO ESTANISLAU",
-   "equipa": "PAREDE FC",
+   "nome": "RICARDO SILVA",
+   "equipa": "AE FISICA D B",
    "jogos": 5,
-   "numero": "9",
+   "numero": "3",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -408,7 +408,7 @@
   {
    "nome": "PEDRO SOARES",
    "equipa": "A STUART HCM",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "74",
    "golos": 1,
    "assistencias": 0,
@@ -421,7 +421,7 @@
   {
    "nome": "RODRIGO MARTINHO",
    "equipa": "A STUART HCM",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "37",
    "golos": 1,
    "assistencias": 0,
@@ -445,6 +445,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "RÚBEN MACHADO",
+   "equipa": "PAREDE FC",
+   "jogos": 2,
+   "numero": "8",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "BERNARDO TEIXEIRA",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 5,
@@ -458,9 +471,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "RODRIGO PINTO",
+   "equipa": "PAREDE FC",
+   "jogos": 6,
+   "numero": "3",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "SALVADOR BIZARRO",
    "equipa": "AE FISICA D B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "8",
    "golos": 0,
    "assistencias": 1,
@@ -468,6 +494,19 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "BERNARDO COSTA",
+   "equipa": "A STUART HCM",
+   "jogos": 1,
+   "numero": "61",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -627,10 +666,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "RÚBEN MACHADO",
-   "equipa": "PAREDE FC",
+   "nome": "SANTIAGO CÂNDIDO",
+   "equipa": "A STUART HCM",
    "jogos": 1,
-   "numero": "8",
+   "numero": "19",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -744,19 +783,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE ESTEVES",
-   "equipa": "AE FISICA D B",
-   "jogos": 2,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "FRANCISCO SILVA",
    "equipa": "PAREDE FC",
    "jogos": 2,
@@ -767,19 +793,6 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "FREDERICO LISBOA",
-   "equipa": "PAREDE FC",
-   "jogos": 2,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -835,36 +848,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO LEITÃO",
-   "equipa": "PAREDE FC",
-   "jogos": 2,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOÃO MARQUES",
    "equipa": "A STUART HCM",
    "jogos": 2,
    "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LEONARDO CHUVA",
-   "equipa": "A STUART HCM",
-   "jogos": 2,
-   "numero": "92",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -965,10 +952,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS ANTUNES",
-   "equipa": "AE FISICA D B",
+   "nome": "VASCO SALVADOR",
+   "equipa": "SL BENFICA A",
    "jogos": 2,
-   "numero": "1",
+   "numero": "2",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -978,10 +965,49 @@
    "vermelhos": 0
   },
   {
-   "nome": "VASCO SALVADOR",
-   "equipa": "SL BENFICA A",
-   "jogos": 2,
+   "nome": "DUARTE ESTEVES",
+   "equipa": "AE FISICA D B",
+   "jogos": 3,
    "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FREDERICO LISBOA",
+   "equipa": "PAREDE FC",
+   "jogos": 3,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO LEITÃO",
+   "equipa": "PAREDE FC",
+   "jogos": 3,
+   "numero": "4",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LEONARDO CHUVA",
+   "equipa": "A STUART HCM",
+   "jogos": 3,
+   "numero": "92",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1004,23 +1030,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "RAFAEL LOURENÇO",
-   "equipa": "APAC TOJAL",
+   "nome": "TOMÁS ANTUNES",
+   "equipa": "AE FISICA D B",
    "jogos": 3,
    "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SIMÃO FUENTES",
-   "equipa": "PAREDE FC",
-   "jogos": 3,
-   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1056,21 +1069,8 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO SEGADÃES",
+   "nome": "RAFAEL LOURENÇO",
    "equipa": "APAC TOJAL",
-   "jogos": 4,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MIGUEL ROCHA",
-   "equipa": "PAREDE FC",
    "jogos": 4,
    "numero": "1",
    "golos": 0,
@@ -1082,36 +1082,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS CAMACHO",
-   "equipa": "AE FISICA D B",
-   "jogos": 4,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ALEXANDRE FONSECA",
-   "equipa": "AE FISICA D B",
-   "jogos": 5,
-   "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 2,
-   "vermelhos": 0
-  },
-  {
-   "nome": "FILIPE PINOTE",
+   "nome": "SIMÃO FUENTES",
    "equipa": "PAREDE FC",
-   "jogos": 5,
-   "numero": "6",
+   "jogos": 4,
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1134,9 +1108,74 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOÃO SEGADÃES",
+   "equipa": "APAC TOJAL",
+   "jogos": 5,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MIGUEL ROCHA",
+   "equipa": "PAREDE FC",
+   "jogos": 5,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS CAMACHO",
+   "equipa": "AE FISICA D B",
+   "jogos": 5,
+   "numero": "4",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ALEXANDRE FONSECA",
+   "equipa": "AE FISICA D B",
+   "jogos": 6,
+   "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 2,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FILIPE PINOTE",
+   "equipa": "PAREDE FC",
+   "jogos": 6,
+   "numero": "6",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOSÉ GONÇALVES",
    "equipa": "A STUART HCM",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "10",
    "golos": 0,
    "assistencias": 0,
@@ -1149,21 +1188,8 @@
   {
    "nome": "MATEUS LEHNERT",
    "equipa": "PAREDE FC",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "7",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RODRIGO PINTO",
-   "equipa": "PAREDE FC",
-   "jogos": 5,
-   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1175,7 +1201,7 @@
   {
    "nome": "RODRIGO SANTOS",
    "equipa": "AE FISICA D B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "10",
    "golos": 0,
    "assistencias": 0,
@@ -1188,7 +1214,7 @@
   {
    "nome": "SALVADOR CARDOSO",
    "equipa": "APAC TOJAL",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "10",
    "golos": 0,
    "assistencias": 0,
@@ -1201,7 +1227,7 @@
   {
    "nome": "SANTIAGO MARQUES",
    "equipa": "A STUART HCM",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "8",
    "golos": 0,
    "assistencias": 0,

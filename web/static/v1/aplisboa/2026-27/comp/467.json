@@ -188,8 +188,8 @@
    "hora": "14:30:00",
    "casa": "UD VILAFRANQUENSE",
    "fora": "APAC TOJAL",
-   "golos_casa": 10,
-   "golos_fora": 1,
+   "golos_casa": 21,
+   "golos_fora": 5,
    "recinto": "PAV. VILAFRANQUENSE",
    "ao_vivo": false
   },
@@ -202,8 +202,8 @@
    "hora": "15:30:00",
    "casa": "CACO B",
    "fora": "HC LOURINHÃ",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 5,
+   "golos_fora": 13,
    "recinto": "PAV.C.A.C.OURIQUE",
    "ao_vivo": false
   },

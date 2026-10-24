@@ -1,8 +1,8 @@
 {
  "competicao_id": 465,
  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
- "jogos_lidos": 17,
- "jogos_sem_boletim": 1,
+ "jogos_lidos": 19,
+ "jogos_sem_boletim": 0,
  "linhas": [
   {
    "posicao": 1,
@@ -18,27 +18,38 @@
   {
    "posicao": 2,
    "equipa": "CACO A",
-   "jogos": 4,
-   "participantes": 40,
-   "bonificacao": 53,
+   "jogos": 5,
+   "participantes": 50,
+   "bonificacao": 65,
    "penalizacao": 0,
-   "pontos": 53,
-   "media": 13.25,
+   "pontos": 65,
+   "media": 13.0,
    "por_confirmar": 0
   },
   {
    "posicao": 3,
    "equipa": "HC SINTRA",
-   "jogos": 4,
-   "participantes": 38,
-   "bonificacao": 44,
+   "jogos": 5,
+   "participantes": 48,
+   "bonificacao": 55,
    "penalizacao": 0,
-   "pontos": 44,
+   "pontos": 55,
    "media": 11.0,
    "por_confirmar": 0
   },
   {
    "posicao": 4,
+   "equipa": "SC TORRES",
+   "jogos": 5,
+   "participantes": 45,
+   "bonificacao": 54,
+   "penalizacao": -5,
+   "pontos": 49,
+   "media": 9.8,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 5,
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 4,
    "participantes": 37,
@@ -46,17 +57,6 @@
    "penalizacao": -8,
    "pontos": 39,
    "media": 9.75,
-   "por_confirmar": 0
-  },
-  {
-   "posicao": 5,
-   "equipa": "SC TORRES",
-   "jogos": 4,
-   "participantes": 36,
-   "bonificacao": 42,
-   "penalizacao": -4,
-   "pontos": 38,
-   "media": 9.5,
    "por_confirmar": 0
   },
   {
@@ -72,6 +72,17 @@
   },
   {
    "posicao": 7,
+   "equipa": "A STUART HCM",
+   "jogos": 5,
+   "participantes": 40,
+   "bonificacao": 42,
+   "penalizacao": -7,
+   "pontos": 35,
+   "media": 7.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 8,
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 5,
    "participantes": 40,
@@ -79,17 +90,6 @@
    "penalizacao": -16,
    "pontos": 27,
    "media": 5.4,
-   "por_confirmar": 0
-  },
-  {
-   "posicao": 8,
-   "equipa": "A STUART HCM",
-   "jogos": 4,
-   "participantes": 31,
-   "bonificacao": 32,
-   "penalizacao": -6,
-   "pontos": 26,
-   "media": 6.5,
    "por_confirmar": 0
   }
  ]

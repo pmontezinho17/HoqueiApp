@@ -183,8 +183,8 @@
    "hora": "18:00:00",
    "casa": "BIBLIOTECA IR A",
    "fora": "UF ENTRONCAMENTO",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 1,
+   "golos_fora": 0,
    "recinto": "PAV. VALADO DE FRADES",
    "ao_vivo": false
   },
@@ -197,7 +197,7 @@
    "hora": "14:00:00",
    "casa": "SC TOMAR",
    "fora": "BIBLIOTECA IR B",
-   "golos_casa": 6,
+   "golos_casa": 12,
    "golos_fora": 0,
    "recinto": "PAV.JACOME RATTON",
    "ao_vivo": false
@@ -327,10 +327,10 @@
      "vitorias": 4,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 36,
+     "golos_marcados": 42,
      "golos_sofridos": 6,
-     "diferenca": 30,
-     "racio": 6.0,
+     "diferenca": 36,
+     "racio": 7.0,
      "pontos": 12
     },
     {
@@ -351,29 +351,29 @@
      "posicao": 3,
      "equipa": "UF ENTRONCAMENTO",
      "logo": "/intranet/logos/24.png",
-     "jogos": 4,
+     "jogos": 5,
      "vitorias": 2,
      "empates": 0,
-     "derrotas": 2,
+     "derrotas": 3,
      "golos_marcados": 15,
-     "golos_sofridos": 21,
-     "diferenca": -6,
-     "racio": 0.71,
+     "golos_sofridos": 22,
+     "diferenca": -7,
+     "racio": 0.68,
      "pontos": 6
     },
     {
      "posicao": 4,
      "equipa": "BIBLIOTECA IR A",
      "logo": "/intranet/logos/22.png",
-     "jogos": 4,
-     "vitorias": 1,
+     "jogos": 5,
+     "vitorias": 2,
      "empates": 0,
      "derrotas": 3,
-     "golos_marcados": 9,
+     "golos_marcados": 10,
      "golos_sofridos": 18,
-     "diferenca": -9,
-     "racio": 0.5,
-     "pontos": 3
+     "diferenca": -8,
+     "racio": 0.56,
+     "pontos": 6
     },
     {
      "posicao": 5,
@@ -384,9 +384,9 @@
      "empates": 0,
      "derrotas": 5,
      "golos_marcados": 6,
-     "golos_sofridos": 39,
-     "diferenca": -33,
-     "racio": 0.15,
+     "golos_sofridos": 45,
+     "diferenca": -39,
+     "racio": 0.13,
      "pontos": 0
     }
    ]

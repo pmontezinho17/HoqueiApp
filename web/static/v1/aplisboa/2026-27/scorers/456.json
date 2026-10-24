@@ -1,16 +1,16 @@
 {
  "competicao_id": 456,
- "jogos_considerados": 11,
+ "jogos_considerados": 12,
  "jogadores": [
   {
    "nome": "SANTIAGO EUSÉBIO",
    "equipa": "CD BOLIQUEIME",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "5",
-   "golos": 13,
-   "assistencias": 2,
+   "golos": 15,
+   "assistencias": 4,
    "defesas": 0,
-   "pontos": 15,
+   "pontos": 19,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -26,6 +26,19 @@
    "pontos": 13,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RAFAEL MATOS",
+   "equipa": "CD BOLIQUEIME",
+   "jogos": 5,
+   "numero": "9",
+   "golos": 7,
+   "assistencias": 4,
+   "defesas": 0,
+   "pontos": 11,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -55,6 +68,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "ALEXANDRE VIEGAS",
+   "equipa": "CD BOLIQUEIME",
+   "jogos": 5,
+   "numero": "3",
+   "golos": 5,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 7,
+   "amarelos": 0,
+   "azuis": 2,
+   "vermelhos": 0
+  },
+  {
    "nome": "LOURENÇO SILVA",
    "equipa": "HC PORTIMÃO",
    "jogos": 5,
@@ -63,19 +89,6 @@
    "assistencias": 2,
    "defesas": 0,
    "pontos": 7,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RAFAEL MATOS",
-   "equipa": "CD BOLIQUEIME",
-   "jogos": 4,
-   "numero": "9",
-   "golos": 4,
-   "assistencias": 4,
-   "defesas": 0,
-   "pontos": 8,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -94,29 +107,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "ALEXANDRE VIEGAS",
-   "equipa": "CD BOLIQUEIME",
-   "jogos": 4,
-   "numero": "3",
-   "golos": 3,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 0,
-   "azuis": 2,
-   "vermelhos": 0
-  },
-  {
    "nome": "MARTIM PEDRO",
    "equipa": "FC CASTRENSE",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "6",
    "golos": 3,
    "assistencias": 1,
    "defesas": 0,
    "pontos": 4,
    "amarelos": 2,
-   "azuis": 1,
+   "azuis": 2,
    "vermelhos": 0
   },
   {
@@ -185,19 +185,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "CAROLINA MOLHA",
-   "equipa": "CD BOLIQUEIME",
-   "jogos": 4,
-   "numero": "6",
-   "golos": 2,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOSE ZAMBUJEIRO",
    "equipa": "HC VASCO GAMA",
    "jogos": 4,
@@ -208,6 +195,19 @@
    "pontos": 3,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "CAROLINA MOLHA",
+   "equipa": "CD BOLIQUEIME",
+   "jogos": 5,
+   "numero": "6",
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -228,32 +228,6 @@
    "equipa": "CF ESTREMOZ",
    "jogos": 3,
    "numero": "3",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LEONOR SILVA",
-   "equipa": "FC CASTRENSE",
-   "jogos": 4,
-   "numero": "8",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARIANA LOURENÇO",
-   "equipa": "CD BOLIQUEIME",
-   "jogos": 4,
-   "numero": "7",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -289,10 +263,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "LEONOR SILVA",
+   "equipa": "FC CASTRENSE",
+   "jogos": 5,
+   "numero": "8",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "LUCAS MONTEIRO",
    "equipa": "HC PORTIMÃO",
    "jogos": 5,
    "numero": "9",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARIANA LOURENÇO",
+   "equipa": "CD BOLIQUEIME",
+   "jogos": 5,
+   "numero": "7",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -330,7 +330,7 @@
   {
    "nome": "MARIA INES GONZALEZ",
    "equipa": "FC CASTRENSE",
-   "jogos": 1,
+   "jogos": 2,
    "numero": "13",
    "golos": 1,
    "assistencias": 0,
@@ -354,9 +354,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "ALANA MACHADO",
+   "equipa": "CD BOLIQUEIME",
+   "jogos": 5,
+   "numero": "8",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOSÉ GUERREIRO",
    "equipa": "FC CASTRENSE",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "9",
    "golos": 1,
    "assistencias": 0,
@@ -393,19 +406,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MIGUEL BELCHIOR",
-   "equipa": "FC CASTRENSE",
-   "jogos": 4,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "CAYETANO FELISMINO",
    "equipa": "CF ESTREMOZ",
    "jogos": 5,
@@ -432,10 +432,49 @@
    "vermelhos": 0
   },
   {
+   "nome": "MIGUEL BELCHIOR",
+   "equipa": "FC CASTRENSE",
+   "jogos": 5,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RODRIGO CUSTODIO",
+   "equipa": "FC CASTRENSE",
+   "jogos": 1,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "SIMAO MARTINS",
    "equipa": "HC VASCO GAMA",
    "jogos": 1,
    "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SIMÃO PACHECO",
+   "equipa": "FC CASTRENSE",
+   "jogos": 1,
+   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -497,32 +536,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ALANA MACHADO",
-   "equipa": "CD BOLIQUEIME",
-   "jogos": 4,
-   "numero": "8",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "BEATRIZ LUZ",
-   "equipa": "FC CASTRENSE",
-   "jogos": 4,
-   "numero": "7",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DANIEL COELHO",
    "equipa": "CD BOLIQUEIME",
    "jogos": 4,
@@ -562,54 +575,15 @@
    "vermelhos": 0
   },
   {
-   "nome": "HAMID SIMÕES",
+   "nome": "BEATRIZ LUZ",
    "equipa": "FC CASTRENSE",
-   "jogos": 4,
-   "numero": "10",
+   "jogos": 5,
+   "numero": "7",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "JOANA COELHO",
-   "equipa": "FC CASTRENSE",
-   "jogos": 4,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LARA DUARTE",
-   "equipa": "CD BOLIQUEIME",
-   "jogos": 4,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TOMÁS COELHO",
-   "equipa": "CD BOLIQUEIME",
-   "jogos": 4,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -618,6 +592,19 @@
    "equipa": "HC PORTIMÃO",
    "jogos": 5,
    "numero": "69",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "HAMID SIMÕES",
+   "equipa": "FC CASTRENSE",
+   "jogos": 5,
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -640,6 +627,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOANA COELHO",
+   "equipa": "FC CASTRENSE",
+   "jogos": 5,
+   "numero": "3",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LARA DUARTE",
+   "equipa": "CD BOLIQUEIME",
+   "jogos": 5,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "PEDRO BANDOVAS",
    "equipa": "CF ESTREMOZ",
    "jogos": 5,
@@ -647,6 +660,19 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 2,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS COELHO",
+   "equipa": "CD BOLIQUEIME",
+   "jogos": 5,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
