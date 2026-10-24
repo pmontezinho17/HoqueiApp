@@ -43,6 +43,27 @@ VERSAO = json.dumps({"versao": "1.1"}).encode()
 CACHE_NOSSA = {"cache-control": "public, max-age=20, stale-while-revalidate=600"}
 
 
+PAGINA_LIMPA = (
+    b"<html><head>"
+    b"<script src='/_app/immutable/entry/start.js'></script>"
+    b"</head><body>app</body></html>"
+)
+
+#: A mesma página com o beacon que a Cloudflare injecta quando a Web Analytics está ligada.
+#: Copiado do que produção servia a 21/10/2026, com o token encurtado.
+PAGINA_COM_BEACON = PAGINA_LIMPA.replace(
+    b"</head>",
+    b"<script defer src='https://static.cloudflareinsights.com/beacon.min.js'"
+    b" data-cf-beacon='{\"token\": \"ea36\"}'></script></head>",
+)
+
+
+def base_do(url: str) -> str:
+    """O `https://anfitriao` de um endereço, sem caminho."""
+    partes = url.split("/")
+    return "/".join(partes[:3])
+
+
 def site_bom(url: str, metodo: str = "GET", corpo: bytes | None = None):
     """O que produção serve quando está tudo bem — medido a 13/10/2026, depois da correcção."""
     if url.endswith("/sugerir"):
@@ -62,6 +83,9 @@ def site_bom(url: str, metodo: str = "GET", corpo: bytes | None = None):
         return 200, CACHE_NOSSA, COMPS
     if url.endswith("/versao.json"):
         return 200, {}, VERSAO
+    if url.rstrip("/") == base_do(url):
+        # a página inicial, com os nossos scripts e mais nenhuns
+        return 200, {}, PAGINA_LIMPA
     raise AssertionError(f"a verificação pediu algo inesperado: {url}")
 
 
@@ -269,3 +293,53 @@ class TestABaseDeDados:
         correr(vp, monkeypatch, site)
         assert visto["metodo"] == "POST"
         assert b'"texto":""' in (visto["corpo"] or b"")
+
+
+class TestOBeaconDe21Outubro:
+    """A promessa de privacidade quebrada, reconstruída.
+
+    A `/privacidade` diz, nomeando a ferramenta: *"Não há Google Analytics, nem a Web Analytics
+    da Cloudflare, nem qualquer ferramenta de medição de terceiros"*. A 21/10/2026 produção
+    servia exactamente esse beacon em todas as páginas, injectado na borda por um interruptor do
+    painel que não existe em commit nenhum — `grep` por `cloudflareinsights` dá zero no `src`,
+    zero no `static` e zero no `build`.
+
+    Nenhum teste ao código podia apanhar isto. Só perguntar ao site.
+    """
+
+    def site_com_beacon(self, url, metodo="GET", corpo=None):
+        if url.rstrip("/") == base_do(url):
+            return 200, {}, PAGINA_COM_BEACON
+        return site_bom(url, metodo, corpo)
+
+    def test_apanha_o_beacon_e_diz_qual_e(self, vp, monkeypatch):
+        falhas = correr(vp, monkeypatch, self.site_com_beacon)
+        assert len(falhas) == 1
+        assert "código de terceiros" in falhas[0]
+        assert "static.cloudflareinsights.com" in falhas[0]
+
+    def test_e_o_programa_sai_a_um(self, vp, monkeypatch):
+        monkeypatch.setattr(vp, "_pedir", self.site_com_beacon)
+        assert vp.main(["--base", vp.PRODUCAO, "--tentativas", "1"]) == 1
+
+    def test_uma_pagina_so_com_os_nossos_scripts_passa(self, vp, monkeypatch):
+        assert correr(vp, monkeypatch, site_bom) == []
+
+    def test_qualquer_terceiro_falha_e_nao_so_este(self, vp, monkeypatch):
+        """A verificação é sobre *terceiros*, não sobre a Cloudflare.
+
+        Um tipo de letra do Google, um script de um painel de erros, um embed de vídeo — todos
+        quebram a mesma frase da página de privacidade, e todos têm de falhar aqui.
+        """
+
+        def com_google(url, metodo="GET", corpo=None):
+            if url.rstrip("/") == base_do(url):
+                return 200, {}, PAGINA_LIMPA.replace(
+                    b"</head>",
+                    b"<script src='https://www.googletagmanager.com/gtag/js'></script></head>",
+                )
+            return site_bom(url, metodo, corpo)
+
+        falhas = correr(vp, monkeypatch, com_google)
+        assert len(falhas) == 1
+        assert "googletagmanager" in falhas[0]
