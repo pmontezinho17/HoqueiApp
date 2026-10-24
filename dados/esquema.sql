@@ -230,3 +230,31 @@ CREATE TABLE IF NOT EXISTS porta (
   n      INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY (dia, ramo, evento)
 );
+
+
+-- Que tipo de aparelho abriu a app, por dia. Pedido pelo dono a 21/10/2026, depois de
+-- perguntar se dava para distinguir iPhone de Android e de se descobrir que o painel da
+-- Cloudflare lho mostrava **porque havia um beacon de terceiros injectado em todas as
+-- páginas** — coisa que a `/privacidade` diz pelo nome que não existe aqui. O beacon sai; a
+-- pergunta fica, e responde-se sem terceiros.
+--
+-- **É a primeira vez que este projecto guarda alguma coisa sobre o aparelho de quem visita.**
+-- Até aqui o `contar.js` não lia cabeçalho nenhum. Passa a ler **um** — o `User-Agent` — e a
+-- guardar dele **um de quatro rótulos**. A cadeia em si não se guarda: junta a um IP é quase um
+-- identificador, e sozinha ainda chega para distinguir um aparelho invulgar.
+--
+-- Tabela nova e não colunas no `aparelho`, de propósito: o `IF NOT EXISTS` passa em silêncio
+-- por uma tabela que já existe, por isso acrescentar colunas obrigava a um `ALTER TABLE` em
+-- duas bases vivas — ver o aviso no topo deste ficheiro. Uma tabela nova cria-se nas duas sem
+-- tocar em nada.
+--
+--   tipo   'ios' | 'android' | 'computador' | 'outro'   — ver `web/src/lib/aparelho.ts`
+--
+-- O `outro` não é lixo: são televisões, consolas e robôs que executem JavaScript. Se crescer, é
+-- sinal de que a lista de padrões envelheceu.
+CREATE TABLE IF NOT EXISTS aparelho_tipo (
+  dia  TEXT NOT NULL,
+  tipo TEXT NOT NULL,
+  n    INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (dia, tipo)
+);
