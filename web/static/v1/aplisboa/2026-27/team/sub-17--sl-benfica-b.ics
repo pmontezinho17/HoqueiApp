@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9688@hoquei.pages.dev
-DTSTAMP:20261024T000000Z
-DTSTART:20261024T173000Z
-DTEND:20261024T190000Z
-SUMMARY:🏑 Sub-17 🏑 SL Benfica B vs Caco A
-LOCATION:Clube Atlético de Campo de Ourique (CACO)
-DESCRIPTION:SL Benfica B 2–3 Caco A\nCAMP. REG. SUB-17 - 1ª FASE · Sér
- ie B · SUB-17\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9688\nDad
- os da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9688
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9691@hoquei.pages.dev
 DTSTAMP:20261104T000000Z
 DTSTART:20261104T214500Z

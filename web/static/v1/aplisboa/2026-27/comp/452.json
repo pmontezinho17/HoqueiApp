@@ -286,7 +286,7 @@
    "hora": "20:30:00",
    "casa": "CRIAR-T GD",
    "fora": "FSE/AJ SALESIANA B",
-   "golos_casa": 6,
+   "golos_casa": 11,
    "golos_fora": 0,
    "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
    "ao_vivo": false
@@ -528,10 +528,10 @@
      "vitorias": 2,
      "empates": 0,
      "derrotas": 4,
-     "golos_marcados": 14,
+     "golos_marcados": 19,
      "golos_sofridos": 37,
-     "diferenca": -23,
-     "racio": 0.38,
+     "diferenca": -18,
+     "racio": 0.51,
      "pontos": 6
     },
     {
@@ -543,9 +543,9 @@
      "empates": 0,
      "derrotas": 6,
      "golos_marcados": 5,
-     "golos_sofridos": 65,
-     "diferenca": -60,
-     "racio": 0.08,
+     "golos_sofridos": 70,
+     "diferenca": -65,
+     "racio": 0.07,
      "pontos": 0
     }
    ]

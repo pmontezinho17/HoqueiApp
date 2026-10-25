@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9719@hoquei.pages.dev
-DTSTAMP:20261024T000000Z
-DTSTART:20261024T170000Z
-DTEND:20261024T183000Z
-SUMMARY:🏑 Sub-17 🏑 APAC Tojal vs AE Fisica D B
-LOCATION:APAC Tojal - Associação de Patinagem Atlético Clube do Tojal
-DESCRIPTION:APAC Tojal 4–1 AE Fisica D B\nCAMP. REG. SUB-17 - 1ª FASE ·
-  Série C · SUB-17\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.pages.dev/jogo/971
- 9\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9719
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9723@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T190000Z

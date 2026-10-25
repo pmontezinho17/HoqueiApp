@@ -1,16 +1,16 @@
 {
  "competicao_id": 453,
- "jogos_considerados": 17,
+ "jogos_considerados": 18,
  "jogadores": [
   {
    "nome": "TIAGO FERREIRA",
    "equipa": "SL BENFICA A",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "5",
-   "golos": 9,
+   "golos": 10,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 9,
+   "pontos": 10,
    "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
@@ -18,12 +18,25 @@
   {
    "nome": "MANUEL SOUSA",
    "equipa": "SL BENFICA A",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "4",
-   "golos": 6,
-   "assistencias": 1,
+   "golos": 7,
+   "assistencias": 2,
    "defesas": 0,
-   "pontos": 7,
+   "pontos": 9,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RAFAEL SANTOS",
+   "equipa": "SL BENFICA A",
+   "jogos": 6,
+   "numero": "9",
+   "golos": 6,
+   "assistencias": 8,
+   "defesas": 0,
+   "pontos": 14,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -31,7 +44,7 @@
   {
    "nome": "MARTIM PAULINO",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "5",
    "golos": 6,
    "assistencias": 0,
@@ -42,22 +55,9 @@
    "vermelhos": 0
   },
   {
-   "nome": "RAFAEL SANTOS",
-   "equipa": "SL BENFICA A",
-   "jogos": 5,
-   "numero": "9",
-   "golos": 5,
-   "assistencias": 6,
-   "defesas": 0,
-   "pontos": 11,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "SANTIAGO VALENTE",
    "equipa": "SL BENFICA A",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "8",
    "golos": 5,
    "assistencias": 2,
@@ -122,7 +122,7 @@
   {
    "nome": "AFONSO ANDRÉ",
    "equipa": "SL BENFICA A",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "3",
    "golos": 3,
    "assistencias": 4,
@@ -224,6 +224,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "GUSTAVO CARVALHO",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 6,
+   "numero": "6",
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "AFONSO PRATT",
    "equipa": "AE FISICA D B",
    "jogos": 4,
@@ -237,19 +250,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS ALEIXO",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 5,
-   "numero": "2",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "TOMÁS SIMÃO",
    "equipa": "APAC TOJAL",
    "jogos": 5,
@@ -260,6 +260,19 @@
    "pontos": 2,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS ALEIXO",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 6,
+   "numero": "2",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -285,19 +298,6 @@
    "defesas": 0,
    "pontos": 4,
    "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUSTAVO CARVALHO",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 5,
-   "numero": "6",
-   "golos": 1,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -369,7 +369,7 @@
   {
    "nome": "RODRIGO MARTINHO",
    "equipa": "SL BENFICA A",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "6",
    "golos": 1,
    "assistencias": 0,
@@ -382,14 +382,14 @@
   {
    "nome": "DINIS MOREIRA",
    "equipa": "SL BENFICA A",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "7",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 1,
    "amarelos": 0,
-   "azuis": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -473,7 +473,7 @@
   {
    "nome": "BERNARDO TEIXEIRA",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "9",
    "golos": 0,
    "assistencias": 1,
@@ -601,19 +601,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOSE MATA",
-   "equipa": "SL BENFICA A",
-   "jogos": 1,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOÃO RAMOS",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 1,
@@ -696,19 +683,6 @@
    "equipa": "AE FISICA D B",
    "jogos": 1,
    "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TOMÁS CABRAL",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 1,
-   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -861,6 +835,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOSE MATA",
+   "equipa": "SL BENFICA A",
+   "jogos": 2,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOÃO MARQUES",
    "equipa": "A STUART HCM",
    "jogos": 2,
@@ -900,19 +887,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "SANTIAGO CALHEIROS",
-   "equipa": "SL BENFICA A",
-   "jogos": 2,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "SANTIAGO FERREIRA",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 2,
@@ -939,10 +913,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO FERREIRA",
-   "equipa": "CD PAÇO ARCOS B",
+   "nome": "TIAGO REIS",
+   "equipa": "A STUART HCM",
    "jogos": 2,
-   "numero": "1",
+   "numero": "12",
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
@@ -952,13 +926,13 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO REIS",
-   "equipa": "A STUART HCM",
+   "nome": "TOMÁS CABRAL",
+   "equipa": "CD PAÇO ARCOS B",
    "jogos": 2,
-   "numero": "12",
+   "numero": "4",
    "golos": 0,
    "assistencias": 0,
-   "defesas": 1,
+   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -1017,21 +991,8 @@
    "vermelhos": 0
   },
   {
-   "nome": "MÁRIO FRANCISCO",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 3,
-   "numero": "7",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TOMÁS ANTUNES",
-   "equipa": "AE FISICA D B",
+   "nome": "SANTIAGO CALHEIROS",
+   "equipa": "SL BENFICA A",
    "jogos": 3,
    "numero": "1",
    "golos": 0,
@@ -1043,10 +1004,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO ROSÁRIO",
-   "equipa": "SL BENFICA A",
-   "jogos": 4,
-   "numero": "10",
+   "nome": "TIAGO FERREIRA",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 3,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS ANTUNES",
+   "equipa": "AE FISICA D B",
+   "jogos": 3,
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1066,6 +1040,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MÁRIO FRANCISCO",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 4,
+   "numero": "7",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -1095,8 +1082,8 @@
    "vermelhos": 0
   },
   {
-   "nome": "GONÇALO HERMENEGILDO",
-   "equipa": "CD PAÇO ARCOS B",
+   "nome": "AFONSO ROSÁRIO",
+   "equipa": "SL BENFICA A",
    "jogos": 5,
    "numero": "10",
    "golos": 0,
@@ -1164,6 +1151,19 @@
    "equipa": "PAREDE FC",
    "jogos": 6,
    "numero": "6",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GONÇALO HERMENEGILDO",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 6,
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9470@hoquei.pages.dev
-DTSTAMP:20261024T000000Z
-DTSTART:20261024T130000Z
-DTEND:20261024T143000Z
-SUMMARY:🏑 Sub-13 🏑 AD Oeiras A vs SC Torres
-LOCATION:Sports Association of Oeiras
-DESCRIPTION:AD Oeiras A 17–0 SC Torres\nCAMP. REG. SUB-13 - 1ª FASE · S
- érie A · SUB-13\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9470\nDa
- dos da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9470
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9473@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T113000Z
