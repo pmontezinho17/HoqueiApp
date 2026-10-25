@@ -66,8 +66,8 @@
    "hora": "15:30:00",
    "casa": "AD OEIRAS A",
    "fora": "S ALENQUER BENFICA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 14,
+   "golos_fora": 1,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
   },
@@ -80,8 +80,8 @@
    "hora": "14:45:00",
    "casa": "SPORTING CP A",
    "fora": "FSE/AJ SALESIANA A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 7,
+   "golos_fora": 1,
    "recinto": "PAV.G.S.SACAVENENSE",
    "ao_vivo": false
   },

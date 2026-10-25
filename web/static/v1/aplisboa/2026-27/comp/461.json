@@ -155,8 +155,8 @@
    "hora": "14:30:00",
    "casa": "UD VILAFRANQUENSE A",
    "fora": "AE FISICA D A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 6,
+   "golos_fora": 7,
    "recinto": "PAV. VILAFRANQUENSE",
    "ao_vivo": false
   },
@@ -169,8 +169,8 @@
    "hora": "13:30:00",
    "casa": "CD PAÇO ARCOS A",
    "fora": "HC SINTRA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 6,
+   "golos_fora": 1,
    "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
   },

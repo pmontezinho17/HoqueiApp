@@ -155,8 +155,8 @@
    "hora": "16:15:00",
    "casa": "HC LOURINHÃ",
    "fora": "APAC TOJAL",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 8,
+   "golos_fora": 1,
    "recinto": "PAV. A.P.A.C.TOJAL",
    "ao_vivo": false
   },
@@ -169,8 +169,8 @@
    "hora": "15:00:00",
    "casa": "PAREDE FC A",
    "fora": "A STUART HCM A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 4,
+   "golos_fora": 4,
    "recinto": "PAV. PAREDE",
    "ao_vivo": false
   },

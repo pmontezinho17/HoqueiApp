@@ -155,8 +155,8 @@
    "hora": "15:45:00",
    "casa": "UD VILAFRANQUENSE B",
    "fora": "FSE/AJ SALESIANA B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 7,
+   "golos_fora": 5,
    "recinto": "PAV. VILAFRANQUENSE",
    "ao_vivo": false
   },

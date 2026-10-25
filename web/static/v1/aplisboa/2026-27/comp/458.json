@@ -132,8 +132,8 @@
    "hora": "15:00:00",
    "casa": "GD SESIMBRA",
    "fora": "AD OEIRAS",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 3,
+   "golos_fora": 7,
    "recinto": "PAV. SESIMBRA",
    "ao_vivo": false
   },
@@ -468,15 +468,15 @@
      "posicao": 1,
      "equipa": "AD OEIRAS",
      "logo": "/intranet/logos/6.png",
-     "jogos": 2,
-     "vitorias": 2,
+     "jogos": 3,
+     "vitorias": 3,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 15,
-     "golos_sofridos": 4,
-     "diferenca": 11,
-     "racio": 3.75,
-     "pontos": 6
+     "golos_marcados": 22,
+     "golos_sofridos": 7,
+     "diferenca": 15,
+     "racio": 3.14,
+     "pontos": 9
     },
     {
      "posicao": 2,
@@ -494,20 +494,6 @@
     },
     {
      "posicao": 3,
-     "equipa": "GD SESIMBRA",
-     "logo": "/intranet/logos/66.png",
-     "jogos": 2,
-     "vitorias": 1,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 10,
-     "golos_sofridos": 8,
-     "diferenca": 2,
-     "racio": 1.25,
-     "pontos": 3
-    },
-    {
-     "posicao": 4,
      "equipa": "AE FISICA D",
      "logo": "/intranet/logos/11.png",
      "jogos": 2,
@@ -518,6 +504,20 @@
      "golos_sofridos": 8,
      "diferenca": 0,
      "racio": 1.0,
+     "pontos": 3
+    },
+    {
+     "posicao": 4,
+     "equipa": "GD SESIMBRA",
+     "logo": "/intranet/logos/66.png",
+     "jogos": 3,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 13,
+     "golos_sofridos": 15,
+     "diferenca": -2,
+     "racio": 0.87,
      "pontos": 3
     },
     {

@@ -1,8 +1,8 @@
 {
  "competicao_id": 461,
  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE B",
- "jogos_lidos": 8,
- "jogos_sem_boletim": 0,
+ "jogos_lidos": 9,
+ "jogos_sem_boletim": 1,
  "linhas": [
   {
    "posicao": 1,
@@ -18,23 +18,23 @@
   {
    "posicao": 2,
    "equipa": "AE FISICA D A",
-   "jogos": 3,
-   "participantes": 30,
-   "bonificacao": 39,
-   "penalizacao": 0,
-   "pontos": 39,
-   "media": 13.0,
+   "jogos": 4,
+   "participantes": 40,
+   "bonificacao": 53,
+   "penalizacao": -3,
+   "pontos": 50,
+   "media": 12.5,
    "por_confirmar": 0
   },
   {
    "posicao": 3,
    "equipa": "UD VILAFRANQUENSE A",
-   "jogos": 3,
-   "participantes": 29,
-   "bonificacao": 37,
+   "jogos": 4,
+   "participantes": 39,
+   "bonificacao": 48,
    "penalizacao": -1,
-   "pontos": 36,
-   "media": 12.0,
+   "pontos": 47,
+   "media": 11.75,
    "por_confirmar": 0
   },
   {
