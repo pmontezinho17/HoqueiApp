@@ -1,29 +1,29 @@
 {
  "competicao_id": 464,
  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE E",
- "jogos_lidos": 7,
+ "jogos_lidos": 8,
  "jogos_sem_boletim": 1,
  "linhas": [
   {
    "posicao": 1,
    "equipa": "PAREDE FC B",
-   "jogos": 3,
-   "participantes": 30,
-   "bonificacao": 33,
+   "jogos": 4,
+   "participantes": 40,
+   "bonificacao": 44,
    "penalizacao": 0,
-   "pontos": 33,
+   "pontos": 44,
    "media": 11.0,
    "por_confirmar": 0
   },
   {
    "posicao": 2,
    "equipa": "AE FISICA D B",
-   "jogos": 3,
-   "participantes": 28,
-   "bonificacao": 32,
+   "jogos": 4,
+   "participantes": 38,
+   "bonificacao": 46,
    "penalizacao": -3,
-   "pontos": 29,
-   "media": 9.67,
+   "pontos": 43,
+   "media": 10.75,
    "por_confirmar": 0
   },
   {

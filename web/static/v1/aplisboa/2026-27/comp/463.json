@@ -155,8 +155,8 @@
    "hora": "12:00:00",
    "casa": "CD PAÇO ARCOS B",
    "fora": "A STUART HCM B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 8,
    "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
   },
@@ -169,8 +169,8 @@
    "hora": "11:00:00",
    "casa": "SPORTING CP B",
    "fora": "SC TORRES",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 5,
    "recinto": "PAV.G.S.SACAVENENSE",
    "ao_vivo": false
   },

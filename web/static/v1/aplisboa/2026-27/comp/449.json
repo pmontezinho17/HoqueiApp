@@ -169,8 +169,8 @@
    "hora": "11:15:00",
    "casa": "AE FISICA D A",
    "fora": "CACO",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 11,
+   "golos_fora": 0,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
   },
@@ -321,6 +321,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "AE FISICA D A",
+     "logo": "/intranet/logos/11.png",
+     "jogos": 4,
+     "vitorias": 3,
+     "empates": 1,
+     "derrotas": 0,
+     "golos_marcados": 38,
+     "golos_sofridos": 3,
+     "diferenca": 35,
+     "racio": 12.67,
+     "pontos": 10
+    },
+    {
+     "posicao": 2,
      "equipa": "SPORTING CP B",
      "logo": "/intranet/logos/2.png",
      "jogos": 4,
@@ -334,31 +348,17 @@
      "pontos": 10
     },
     {
-     "posicao": 2,
-     "equipa": "AE FISICA D A",
-     "logo": "/intranet/logos/11.png",
-     "jogos": 3,
-     "vitorias": 2,
-     "empates": 1,
-     "derrotas": 0,
-     "golos_marcados": 27,
-     "golos_sofridos": 3,
-     "diferenca": 24,
-     "racio": 9.0,
-     "pontos": 7
-    },
-    {
      "posicao": 3,
      "equipa": "CACO",
      "logo": "/intranet/logos/26.png",
-     "jogos": 3,
+     "jogos": 4,
      "vitorias": 2,
      "empates": 0,
-     "derrotas": 1,
+     "derrotas": 2,
      "golos_marcados": 13,
-     "golos_sofridos": 4,
-     "diferenca": 9,
-     "racio": 3.25,
+     "golos_sofridos": 15,
+     "diferenca": -2,
+     "racio": 0.87,
      "pontos": 6
     },
     {

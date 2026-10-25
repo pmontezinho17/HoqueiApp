@@ -1,8 +1,8 @@
 {
  "competicao_id": 463,
  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE D",
- "jogos_lidos": 8,
- "jogos_sem_boletim": 0,
+ "jogos_lidos": 9,
+ "jogos_sem_boletim": 1,
  "linhas": [
   {
    "posicao": 1,
@@ -18,23 +18,23 @@
   {
    "posicao": 2,
    "equipa": "SC TORRES",
-   "jogos": 3,
-   "participantes": 27,
-   "bonificacao": 33,
-   "penalizacao": -3,
-   "pontos": 30,
-   "media": 10.0,
+   "jogos": 4,
+   "participantes": 36,
+   "bonificacao": 45,
+   "penalizacao": -4,
+   "pontos": 41,
+   "media": 10.25,
    "por_confirmar": 0
   },
   {
    "posicao": 3,
    "equipa": "SPORTING CP B",
-   "jogos": 3,
-   "participantes": 24,
-   "bonificacao": 30,
-   "penalizacao": 0,
-   "pontos": 30,
-   "media": 10.0,
+   "jogos": 4,
+   "participantes": 32,
+   "bonificacao": 38,
+   "penalizacao": -1,
+   "pontos": 37,
+   "media": 9.25,
    "por_confirmar": 0
   },
   {
