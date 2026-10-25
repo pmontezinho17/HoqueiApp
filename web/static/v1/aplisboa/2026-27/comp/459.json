@@ -132,7 +132,7 @@
    "hora": "16:30:00",
    "casa": "CD PAÇO ARCOS A",
    "fora": "A STUART HCM",
-   "golos_casa": 4,
+   "golos_casa": 7,
    "golos_fora": 0,
    "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
@@ -160,8 +160,8 @@
    "hora": "16:30:00",
    "casa": "PAREDE FC",
    "fora": "CACO",
-   "golos_casa": 2,
-   "golos_fora": 3,
+   "golos_casa": 4,
+   "golos_fora": 6,
    "recinto": "PAV. PAREDE",
    "ao_vivo": false
   },
@@ -472,10 +472,10 @@
      "vitorias": 3,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 15,
+     "golos_marcados": 18,
      "golos_sofridos": 2,
-     "diferenca": 13,
-     "racio": 7.5,
+     "diferenca": 16,
+     "racio": 9.0,
      "pontos": 9
     },
     {
@@ -500,10 +500,10 @@
      "vitorias": 2,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 11,
-     "golos_sofridos": 7,
-     "diferenca": 4,
-     "racio": 1.57,
+     "golos_marcados": 14,
+     "golos_sofridos": 9,
+     "diferenca": 5,
+     "racio": 1.56,
      "pontos": 6
     },
     {
@@ -515,9 +515,9 @@
      "empates": 0,
      "derrotas": 2,
      "golos_marcados": 5,
-     "golos_sofridos": 20,
-     "diferenca": -15,
-     "racio": 0.25,
+     "golos_sofridos": 23,
+     "diferenca": -18,
+     "racio": 0.22,
      "pontos": 3
     },
     {
@@ -542,10 +542,10 @@
      "vitorias": 0,
      "empates": 0,
      "derrotas": 3,
-     "golos_marcados": 6,
-     "golos_sofridos": 23,
-     "diferenca": -17,
-     "racio": 0.26,
+     "golos_marcados": 8,
+     "golos_sofridos": 26,
+     "diferenca": -18,
+     "racio": 0.31,
      "pontos": 0
     }
    ]
