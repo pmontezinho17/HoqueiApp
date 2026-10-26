@@ -3937,14 +3937,14 @@ backlog, e um pedido que só existe numa conversa é um pedido que se perde.
 | S2 | Lista de marcadores: o total não dizia que era de vários jogos | must | XS | ✅ 20/10 — chave antes da lista, com os jogos contados. Os dados estavam certos: 414 fichas para 414 jogos |
 | S3 | Chegar à equipa pelo emblema, e não só pelo nome | must | M | ✅ 20/10 — na ficha de jogo. **Não** na lista: ali a linha abre o jogo e um segundo alvo só faz o dedo falhar |
 | S4 | Um jogo por disputar não abria nada | must | S | ✅ 20/10 — abre a ficha, no separador de Informações, com hora e recinto |
-| S5 | Voltar na ficha de jogo leva ao ecrã de jogos e não a onde se estava | **must** | S | aberto — e **agravado pelo S4**: com todas as linhas a abrir o jogo, esta porta passa a ser muito mais usada |
+| S5 | Voltar na ficha de jogo leva ao ecrã de jogos e não a onde se estava | **must** | S | ✅ 21/10, na 1.8 — a seta volta para onde se estava |
 | S6 | Mostrar a jornada no calendário | should | S | aberto |
 | S7 | Notificações escolhíveis: golos, início, intervalo, resultado final | should | L | aberto — é a Fase 5, que depende da Fase 9 |
 | S8 | Escolher o idioma da aplicação | could | L | aberto |
 | S9 | Catálogo dos componentes, para entregar a um designer | should | M | 🟡 segunda entrega a 19/10, por componente e não por página — ver "O catálogo de componentes" acima. Falta o trabalho do designer voltar |
 | S10 | Ler o campeonato nacional (`hp.fpp.pt`), 1.ª à 3.ª divisão | should | L | aberto — outra fonte, outra postura a combinar |
-| S11 | O balão de sugestões tapa resultados | should | XS | aberto |
-| S12 | Agrupar os jogos do dia por hora, escalão ou clube | could | M | aberto |
+| S11 | O balão de sugestões tapa resultados | should | XS | 🟡 26/10 no `dev` — depois de rolar, encosta-se à margem com uma ponta de 12px, que cabe inteira nos 14px de margem da página (medido a 375×812). Esconder só enquanto se rola não resolvia: parado é quando se lê |
+| S12 | Agrupar os jogos do dia por hora, escalão ou clube | could | M | ✅ 21/10, na 1.8 — por escalão, hora ou pavilhão |
 | S13 | Pontuação de forma de 0 a 100 por equipa | could | M | aberto — inventar um número que a fonte não publica pede cuidado |
 | S14 | ~~Pavilhão errado num jogo de sub-17~~ | — | — | ❌ **não é defeito nosso**: eram dois jogos do Torneio Abertura de 19/09, disputado todo no pavilhão do Alenquer, onde a equipa de fora era nominalmente "casa". Verificado contra o estado publicado às 10:20 de 17/10 |
 | S15 | Abrir a morada do pavilhão no mapa | should | S | aberto — o `recintos.json` já tem as moradas |

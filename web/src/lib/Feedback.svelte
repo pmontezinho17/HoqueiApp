@@ -30,6 +30,10 @@
 	import { VERSAO } from './versao';
 	import { linkDeEmail, type Via } from './pergunta';
 	import { MAXIMO } from '../../functions/sugerir.js';
+	import { balaoEncostado } from './balao';
+
+	/** Encostado à margem depois de rolar, para não tapar resultados — ver `balao.ts`. */
+	let encostado = $state(false);
 
 	let texto = $state('');
 	/**
@@ -134,10 +138,19 @@
 	}
 </script>
 
-<svelte:window onkeydown={(e) => e.key === 'Escape' && fecharEReiniciar()} />
+<svelte:window
+	onkeydown={(e) => e.key === 'Escape' && fecharEReiniciar()}
+	onscroll={() => (encostado = balaoEncostado(window.scrollY))}
+/>
 
 {#if !critica.aberto}
-	<button class="bolha" data-guia="feedback" onclick={() => critica.abrir()} aria-label="Dar uma opinião sobre a aplicação">
+	<button
+		class="bolha"
+		class:encostado
+		data-guia="feedback"
+		onclick={() => critica.abrir()}
+		aria-label="Dar uma opinião sobre a aplicação"
+	>
 		<Icone nome="feedback" tamanho={22} />
 	</button>
 {:else}
@@ -272,6 +285,27 @@
 		box-shadow: 0 2px 10px rgb(0 0 0 / 0.18);
 	}
 	.bolha :global(svg) { color: var(--cartao); }
+	/* **Encostado: só uma ponta de 12px à vista, na margem direita.** O resto sai do ecrã, e
+	   com ele a área de toque — por isso o que fica por baixo do sítio onde o balão estava
+	   volta a poder ler-se e a poder tocar-se. O deslocamento é a largura do balão mais a
+	   margem, menos a ponta: escrito com `46px` à mão ficavam 14px à vista, porque a margem não
+	   era a que eu supus — medido a 375×812. O ícone fica do lado de fora e não faz falta: a
+	   ponta verde é o sinal. Não cria scroll horizontal: medido, 375px de largura com ele
+	   encostado.
+
+	   **12px e não 18px, porque a margem da página tem 14.** Medido a 375×812: os resultados
+	   acabam aos 357,6px e o cartão aos 360,6px. Com 18px a ponta ainda cortava o algarismo da
+	   direita — a queixa outra vez, só que mais pequena. Com 12 cabe inteira na margem. */
+	.bolha {
+		transition: transform 0.2s ease, opacity 0.2s ease;
+	}
+	.bolha.encostado {
+		transform: translateX(calc(100% + var(--e-4) - 12px));
+		opacity: 0.85;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.bolha { transition: none; }
+	}
 
 	.veu {
 		position: fixed;
