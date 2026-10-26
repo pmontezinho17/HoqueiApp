@@ -3949,6 +3949,7 @@ backlog, e um pedido que só existe numa conversa é um pedido que se perde.
 | S14 | ~~Pavilhão errado num jogo de sub-17~~ | — | — | ❌ **não é defeito nosso**: eram dois jogos do Torneio Abertura de 19/09, disputado todo no pavilhão do Alenquer, onde a equipa de fora era nominalmente "casa". Verificado contra o estado publicado às 10:20 de 17/10 |
 | S15 | Abrir a morada do pavilhão no mapa | should | S | aberto — o `recintos.json` já tem as moradas |
 | S16 | Tabela de classificação: clicar no clube **já funciona** e as pessoas não dão por isso | should | S | aberto — não é um link a faltar, é uma área de toque que não se dá a conhecer. Mede-se no telemóvel |
+| S17 | A caixa de opinião separa a **sugestão** da **pergunta** — pedido do dono a 26/10, não de um utilizador | must | S | 🟡 26/10 no `dev` — a sugestão segue para o arquivo privado como antes; a pergunta abre o email da pessoa e não grava nada nosso. Critério: o dono recebe uma pergunta do site de testes no Gmail e responde-lhe com um "Responder" |
 
 **Cinco das vinte e quatro não pedem nada** — são agradecimentos. Um delegado há 25 anos
 escreveu *"nunca houve nada assim"*. Não entram em backlog nenhum e ficam aqui registadas

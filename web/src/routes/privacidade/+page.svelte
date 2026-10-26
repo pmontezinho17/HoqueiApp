@@ -26,7 +26,7 @@
 	 */
 	import { CONTACTO } from '$lib/contacto';
 	import { SITIO_NOME, APP_NOME } from '$lib/sitio';
-	const ACTUALIZADA = '21 de outubro de 2026';
+	const ACTUALIZADA = '26 de outubro de 2026';
 </script>
 
 <svelte:head><title>Privacidade — {APP_NOME}</title></svelte:head>
@@ -249,9 +249,13 @@
 		</dd>
 	</dl>
 	<p>
-		E o email continua a ser o caminho para falar com uma pessoa: dúvidas, pedidos, ou
-		qualquer coisa que precise de resposta. A caixa serve para nos dizeres o que está mal; o
-		email serve para conversarmos.
+		<strong>Uma pergunta é outra coisa, e vai por outro caminho.</strong> Desde 26 de outubro
+		de 2026 a caixa tem dois separadores. O da sugestão é o que está descrito acima. O da
+		pergunta <strong>não grava nada na nossa base de dados</strong>: abre o teu programa de
+		email com o texto já escrito, e és tu que o envias, do teu endereço, para
+		<a href="mailto:{CONTACTO}">{CONTACTO}</a>. Só assim ficamos a saber o teu email — porque nos
+		escreveste dele — e usamo-lo só para te responder. Fica na nossa caixa de correio como
+		qualquer email; se quiseres que o apaguemos, diz-nos.
 	</p>
 </section>
 
