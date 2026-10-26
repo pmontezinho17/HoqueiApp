@@ -66,9 +66,17 @@
  *   sempre: { entradas: number, novos: number, dias: number } | null,
  *   entradasHora: Record<string, Record<string, { novos: number, volta: number }>>,
  *   chave?: string,
- *   vista?: string
+ *   vista?: string,
+ *   periodo?: Periodo | null
  * }} Consola
+ *
+ * O período da vista de utilizadores, lido da base de dados pela Function — ver `periodo.js`.
+ * `null` quando não houve base de dados, e aí ficam os sete dias do observador.
+ * @typedef {{ de: string, ate: string, atalho: string | null, primeiro: string | null,
+ *             ent: Record<string, Record<string, number>> }} Periodo
  */
+
+import { ATALHOS, diasEntre, resumoDoPeriodo } from './periodo.js';
 
 /** Os nomes dos ecrãs como uma pessoa lhes chama, e não como o endereço os escreve. */
 /** @type {Record<string, string>} */
@@ -390,6 +398,60 @@ const painel = (etiqueta, valor, nota = '', classe = '') => `
  * e desenhar os dias anteriores como barras vazias dizia "ninguém usou a app" num dia em que
  * houve 150 aberturas. Esses aparecem sem barra e com um travessão.
  */
+/**
+ * O filtro do período: os atalhos e, ao lado, duas datas.
+ *
+ * **Um formulário `GET` e não JavaScript**, pela mesma razão dos outros filtros: o `meta
+ * refresh` recarrega o endereço actual, e com as datas no endereço a escolha sobrevive à
+ * actualização de 60 em 60 s. A chave, o dia e a vista vão em campos escondidos, senão
+ * escolher datas tirava a pessoa da consola.
+ *
+ * @param {Periodo} periodo
+ * @param {(troca: Record<string, string>) => string} ligacao
+ * @param {{ chave?: string, dia: string, vista: string }} aqui
+ */
+function filtroDoPeriodo(periodo, ligacao, aqui) {
+	const escondido = (/** @type {string} */ n, /** @type {string | undefined} */ v) =>
+		v ? `<input type="hidden" name="${n}" value="${esc(v)}">` : '';
+	return `
+  <div class="periodo">
+    <div class="grupo">
+      ${ATALHOS.map(
+			(a) =>
+				`<a href="${ligacao({ atalho: a.id })}" ${periodo.atalho === a.id ? 'aria-current="page"' : ''}>${esc(a.rotulo)}</a>`
+		).join('')}
+    </div>
+    <form method="get" class="datas">
+      ${escondido('chave', aqui.chave)}${ehHojeBase(aqui.dia) ? '' : escondido('dia', aqui.dia)}${
+			aqui.vista !== 'utilizadores' ? escondido('vista', aqui.vista) : ''
+		}
+      <label>de <input type="date" name="de" value="${esc(periodo.de)}" ${
+			periodo.primeiro ? `min="${esc(periodo.primeiro)}"` : ''
+		} max="${esc(periodo.ate)}"></label>
+      <label>a <input type="date" name="ate" value="${esc(periodo.ate)}"></label>
+      <button type="submit">ver</button>
+    </form>
+  </div>`;
+}
+
+/**
+ * O resumo do período, numa linha por cima das barras.
+ * @param {ReturnType<typeof resumoDoPeriodo>} r
+ */
+function resumoHtml(r) {
+	const tipos = r.tipos
+		? `<p class="vazio">Por aparelho, nos ${r.diasComTipo} ${r.diasComTipo === 1 ? 'dia' : 'dias'} com esse contador: ` +
+			`iPhone <b>${r.tipos.ios}</b> · Android <b>${r.tipos.android}</b> · computador <b>${r.tipos.computador}</b>` +
+			(r.tipos.outro ? ` · outro <b>${r.tipos.outro}</b>` : '') +
+			'. O iPad conta como computador.</p>'
+		: '';
+	return `
+  <p class="resumo"><b>${r.entradas}</b> entradas em ${r.dias} ${r.dias === 1 ? 'dia' : 'dias'} ·
+    <b>${r.novos}</b> pela primeira vez · média <b>${r.media}</b> por dia${
+		r.pico ? ` · o dia mais forte foi ${esc(diaCurto(r.pico.dia))}, com <b>${r.pico.aparelhos}</b>` : ''
+	}</p>${tipos}`;
+}
+
 /** @param {{ dia: string, semDados: boolean, aparelhos: number, novos: number,
  *             aberturas: number, ecras: number }[]} dias */
 function barras(dias) {
@@ -498,7 +560,8 @@ export function pagina({
 	entradasHora = {},
 	actualizado = null,
 	chave,
-	vista = 'utilizadores'
+	vista = 'utilizadores',
+	periodo = null
 }) {
 	const pulso = minutosDesdeOPulso(actualizado);
 	const horasDeLeitura = dentroDasHorasDeLeitura();
@@ -517,6 +580,14 @@ export function pagina({
 		if (troca.dia) p.set('dia', troca.dia);
 		const v = troca.vista ?? vista;
 		if (v !== 'utilizadores') p.set('vista', v);
+		// O período viaja como a vista: clicar num dia ou trocar de vista não o perde. Um
+		// atalho vence as datas, e as datas só se escrevem quando foram escolhidas à mão.
+		const atalho = 'atalho' in troca ? troca.atalho : periodo?.atalho;
+		if (atalho && atalho !== '7') p.set('periodo', atalho);
+		else if (!atalho && periodo && !('atalho' in troca)) {
+			p.set('de', periodo.de);
+			p.set('ate', periodo.ate);
+		}
 		return `?${p.toString()}`;
 	};
 	const s = estado?.saude;
@@ -552,11 +623,15 @@ export function pagina({
 		.sort((a, b) => b[1] - a[1]);
 	const totalEcras = ecrasHoje.reduce((t, [, v]) => t + v, 0);
 
-	const serie = dias.map((d) => ({
+	// **Com período, os dias e os aparelhos vêm dele; o resto continua do observador.** Os
+	// ecrãs e as aberturas só o observador os tem, e para dias fora da semana dele ficam a zero.
+	const diasDoUso = periodo ? diasEntre(periodo.de, periodo.ate) : dias;
+	const usoDe = (/** @type {string} */ d) => (periodo ? periodo.ent[d] : ent[d]);
+	const serie = diasDoUso.map((d) => ({
 		dia: d,
-		semDados: !ent[d],
-		aparelhos: ent[d]?.aparelhos ?? 0,
-		novos: ent[d]?.novos ?? 0,
+		semDados: !usoDe(d),
+		aparelhos: usoDe(d)?.aparelhos ?? 0,
+		novos: usoDe(d)?.novos ?? 0,
 		aberturas: ent[d]?.aberturas ?? 0,
 		// por inclusão, como em `ecrasHoje`: por exclusão somavam-se `aparelhos` e `novos`
 		ecras: Object.entries(ent[d] ?? {})
@@ -565,6 +640,7 @@ export function pagina({
 	}));
 	const comDados = serie.filter((d) => d.aparelhos > 0);
 	const semana = comDados.reduce((t, d) => t + d.aparelhos, 0);
+	const resumo = resumoDoPeriodo(serie, periodo?.ent ?? {});
 
 	/**
 	 * @param {string[]} linhas
@@ -730,7 +806,18 @@ export function pagina({
  .painel .segundo em { display:block; font-style:normal; font-size:.68rem; color:var(--suave) }
 
  /* uso: uma série, uma cor, extremo arredondado, rótulo directo */
- .barra { display:grid; grid-template-columns:5.5rem 1fr 3.2rem; align-items:center; gap:10px;
+ /* o período: os atalhos e as datas numa linha, que dobra num telemóvel */
+ .periodo { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:0 0 10px }
+ .periodo .datas { display:flex; align-items:center; gap:6px; flex-wrap:wrap; font-size:.76rem;
+   color:var(--texto2) }
+ .periodo input, .periodo button { font:inherit; font-size:.76rem; color:var(--texto);
+   background:var(--cartao); border:1px solid var(--borda); border-radius:7px; padding:4px 8px }
+ .periodo button { cursor:pointer }
+ .resumo { margin:0 0 4px; font-size:.84rem; color:var(--texto2) }
+ .resumo b { color:var(--texto); font-variant-numeric:tabular-nums }
+ /* A coluna do número tem de levar "822 +773" numa linha: com 3.2rem partia-se em duas a partir
+    dos três algarismos, e um período longo tem muitos dias assim. Medido a 26/10/2026. */
+ .barra { display:grid; grid-template-columns:5.5rem 1fr 5.6rem; align-items:center; gap:10px;
    padding:3px 0 }
  .barra .dia { font-size:.78rem; color:var(--texto2) }
  .barra .trilho { background:var(--borda2); border-radius:4px; height:14px; overflow:hidden;
@@ -1076,7 +1163,11 @@ export function pagina({
   </section>
 
   <section class="l12">
-    <h2>quem usa a aplicação — aparelhos distintos por dia</h2>
+    <h2>quem usa a aplicação — aparelhos distintos por dia${
+		serie.length ? `, de ${esc(diaCurto(serie[0].dia))} a ${esc(diaCurto(serie[serie.length - 1].dia))}` : ''
+	}</h2>
+    ${periodo ? filtroDoPeriodo(periodo, ligacao, { chave, dia, vista }) : ''}
+    ${resumo.dias ? resumoHtml(resumo) : ''}
     ${barras(serie)}
     <div class="legenda">
       <span><i style="background:var(--e-novos)"></i>pela primeira vez</span>
