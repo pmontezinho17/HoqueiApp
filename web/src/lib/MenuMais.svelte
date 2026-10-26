@@ -20,6 +20,7 @@
 	import { goto } from '$app/navigation';
 	import { APP_NOME } from './sitio';
 	import { VERSAO } from './versao';
+	import { version } from '$app/environment';
 	import { guia } from './guia.svelte';
 	import { critica } from './critica.svelte';
 	import { novidades, HA_NOVIDADES } from './novidades.svelte';
@@ -215,7 +216,9 @@
 			Em letra pequena e sem rótulo: quem a procura sabe o que é um número de versão, e
 			quem não a procura não precisa de saber que ela existe.
 		-->
-		<p class="versao">{APP_NOME} {VERSAO}</p>
+		<!-- `version` e não `VERSAO`: no site de testes leva a marca do commit, e é assim que se
+		     sabe, no telemóvel, se a app já tem a última fusão. Em produção é o mesmo número. -->
+		<p class="versao">{APP_NOME} {version}</p>
 	</div>
 {/if}
 

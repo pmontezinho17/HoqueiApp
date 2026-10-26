@@ -180,16 +180,18 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
   consola, no raspador ou num workflow **não sobe a versão** — e é isso que impede o aviso de
   actualização de aparecer a toda a gente por nada.
 
-  **E sobe a cada merge no `dev`, não a cada entrega em produção.** A 21/10/2026 juntei cinco
-  alterações visíveis ao `dev` ao longo do dia e deixei-as todas debaixo da `1.7`, com o
-  raciocínio de que a 1.7 ainda não tinha chegado a produção e por isso o número ainda servia.
-  Está certo para a lista de novidades de produção e **errado para o site de testes**: o
-  `actualizacao.ts` só avisa quando o número muda, por isso a app instalada do dono nunca
-  recebeu aviso nenhum e continuou a servir a cópia velha. Ele fundiu, foi ver, e disse
-  *"parece-me tudo igual"* — e tinha razão: para a app dele era tudo igual.
+  **O número sobe uma vez por entrega em produção, e não a cada merge no `dev`.** O `VERSAO` é
+  o da **próxima** entrega: sobe na primeira alteração visível depois de uma segunda-feira, e
+  as seguintes juntam-se à mesma entrada de `NOVIDADES`. Quem está em produção passa sempre
+  de uma versão para a seguinte.
 
-  No site de testes o número é o **único** sinal de que há coisa nova. Parar o número é parar o
-  aviso.
+  Esta regra já esteve ao contrário, e as duas versões custaram alguma coisa. A 21/10/2026
+  deixei cinco alterações debaixo da `1.7` e a app instalada do dono, no site de testes, nunca
+  foi avisada — *"parece-me tudo igual"*. Corrigi passando a subir a cada merge, e a 26/10 ele
+  viu no telemóvel o custo disso em produção: da `1.6` para a `1.8`, porque a `1.7` só existiu
+  no `dev`. As duas coisas pediam números diferentes. **O aviso do site de testes vem agora de
+  uma marca automática** — o `ramo.yml` passa o commit e a construção fica `1.9+40a5273` (ver
+  `versaoDaConstrucao`) —, por isso cada merge no `dev` avisa sem ninguém subir nada à mão.
 - **Guardamos texto de outras pessoas, e isso tem três obrigações.** A caixa "O que está mal"
   escreve na tabela `sugestao` da D1 desde 13/10/2026 — é a primeira vez que este projecto tem
   dados de alguém que não o próprio aparelho. Por isso: a política de privacidade enumera-a e

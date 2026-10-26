@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { aReabrir, oHistorico, agrupar, porMostrar } from './novidades.svelte';
-import { GRUPOS, NOVIDADES, type Novidade, type Ponto } from './versao';
+import { GRUPOS, NOVIDADES, VERSAO, versaoDaConstrucao, type Novidade, type Ponto } from './versao';
 
 const ponto = (titulo: string, tipo: Ponto['tipo'] = 'novo'): Ponto => ({
 	tipo,
@@ -181,5 +181,32 @@ describe('o histórico do menu', () => {
 		// Quem vinha da versão anterior vê um lote; quem abre o menu vê-os todos.
 		const anterior = NOVIDADES[1].versao;
 		expect(porMostrar(anterior).length).toBeLessThan(oHistorico().length);
+	});
+});
+
+/**
+ * A versão da construção. Pedido do dono a 26/10/2026, depois de ver produção saltar da `1.6`
+ * para a `1.8` — o porquê está em `versaoDaConstrucao`.
+ */
+describe('a versão da construção', () => {
+	it('em produção é só o número, para duas construções iguais continuarem iguais', () => {
+		expect(versaoDaConstrucao('1.9')).toBe('1.9');
+		expect(versaoDaConstrucao('1.9', '')).toBe('1.9');
+		expect(versaoDaConstrucao('1.9', null)).toBe('1.9');
+	});
+
+	it('no site de testes leva os sete primeiros caracteres do commit', () => {
+		expect(versaoDaConstrucao('1.9', '40a5273f9c1e2d3b4a5f6e7d8c9b0a1f2e3d4c5b')).toBe('1.9+40a5273');
+	});
+
+	it('duas fusões no dev dão duas versões diferentes, e é isso que faz aparecer o aviso', () => {
+		expect(versaoDaConstrucao('1.9', 'aaaaaaa1')).not.toBe(versaoDaConstrucao('1.9', 'bbbbbbb2'));
+	});
+
+	it('o número das novidades é o da próxima entrega, e não leva a marca', () => {
+		// As `NOVIDADES` agrupam-se pelo número que produção vai ver; se a marca entrasse aqui,
+		// cada fusão no `dev` abria uma entrada nova e o buraco voltava.
+		expect(NOVIDADES[0].versao).toBe(VERSAO);
+		expect(VERSAO).not.toContain('+');
 	});
 });

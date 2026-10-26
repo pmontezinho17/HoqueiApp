@@ -5,7 +5,10 @@ import { defineConfig } from 'vite';
 import { SvelteKitPWA } from '@vite-pwa/sveltekit';
 // A versão vem de um só sítio. Ver `src/lib/versao.ts` para a razão — em resumo: sem isto o
 // SvelteKit usa o relógio e cada publicação avisa todos os utilizadores.
-import { VERSAO } from './src/lib/versao';
+import { VERSAO, versaoDaConstrucao } from './src/lib/versao';
+
+/** Com a marca do commit no site de testes, e só o número em produção — ver `versaoDaConstrucao`. */
+const CONSTRUCAO = versaoDaConstrucao(VERSAO, process.env.REVISAO_DE_TESTES);
 
 /**
  * Escreve o `/versao.json` que a app lê para saber se uma actualização vale um aviso.
@@ -23,7 +26,7 @@ function versaoPublicada() {
 			this.emitFile({
 				type: 'asset',
 				fileName: 'versao.json',
-				source: JSON.stringify({ versao: VERSAO }) + '\n'
+				source: JSON.stringify({ versao: CONSTRUCAO }) + '\n'
 			});
 		}
 	};
@@ -52,7 +55,7 @@ export default defineConfig({
 			 *
 			 * Com a versão fixa, duas construções do mesmo código são iguais byte a byte.
 			 */
-			version: { name: VERSAO }
+			version: { name: CONSTRUCAO }
 		}),
 		SvelteKitPWA({
 			registerType: 'prompt',

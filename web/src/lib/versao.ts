@@ -41,6 +41,32 @@
 export const VERSAO = '1.9';
 
 /**
+ * **O número que se vê sobe uma vez por entrega; o site de testes ganha uma marca por cima.**
+ *
+ * Até 26/10/2026 a regra era subir o `VERSAO` a cada fusão no `dev` que se notasse — escrita a
+ * 21/10, depois de cinco alterações ficarem debaixo da mesma `1.7` e a app do dono nunca ser
+ * avisada. Resolvia o site de testes e estragava produção: quem lá está viu a `1.6` passar
+ * para a `1.8`, porque a `1.7` só existiu no `dev`, e o dono deu por isso no telemóvel a
+ * 26/10. E a `1.10` do pedido seguinte ia abrir outro buraco.
+ *
+ * As duas coisas pediam números diferentes, e agora têm-nos:
+ *
+ * * o **`VERSAO`** é o da **próxima entrega em produção**. Sobe na primeira alteração visível
+ *   depois de uma entrega, e as seguintes juntam-se à mesma entrada de `NOVIDADES`. Produção
+ *   passa sempre de uma para a seguinte;
+ * * no **site de testes** o `ramo.yml` passa o commit em `REVISAO_DE_TESTES`, e a versão da
+ *   construção fica `1.9+40a5273`. Cada fusão no `dev` muda a marca, e o aviso aparece — sem
+ *   ninguém se lembrar de subir nada.
+ *
+ * Produção não recebe a variável, por isso a construção de lá é o `VERSAO` sozinho e
+ * continua igual byte a byte entre duas construções do mesmo código.
+ */
+export function versaoDaConstrucao(versao: string, revisao?: string | null): string {
+	const marca = revisao?.trim().slice(0, 7);
+	return marca ? `${versao}+${marca}` : versao;
+}
+
+/**
  * Em que grupo é que uma novidade cai.
  *
  * ## A avaliação que levou a estes três, e não a outros
