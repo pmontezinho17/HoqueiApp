@@ -160,8 +160,8 @@ export const NOVIDADES: Novidade[] = [
 				texto:
 					'Antes de mais, obrigado 🙏 — por cada sugestão, cada elogio e cada aviso de ' +
 					'que alguma coisa estava mal. Foram vocês que fizeram a app crescer. Mas até ' +
-					'aqui eu lia tudo e não podia responder a nada 🤐. Agora escolhes: «Sugestão», ' +
-					'se é para melhorar a app, ou «Pergunta», se queres resposta — essa vai por ' +
+					'aqui eu lia tudo e não podia responder a nada 🤐. Agora escolhes: **Sugestão**, ' +
+					'se é para melhorar a app, ou **Pergunta**, se queres resposta — essa vai por ' +
 					'email e eu respondo-te. 💌'
 			},
 			{

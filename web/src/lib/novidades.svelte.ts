@@ -76,6 +76,22 @@ export const oHistorico = (lista = NOVIDADES): Novidade[] => lista;
 export type Grupo = { rotulo: string; pontos: Ponto[] };
 
 /**
+ * O texto de um ponto partido em pedaços, com os que vão a **negrito** marcados. Função pura.
+ *
+ * Pedido do dono a 26/10/2026: os nomes dos dois separadores da caixa de opinião a negrito, na
+ * novidade que os anuncia. O texto vive numa cadeia em `versao.ts`, e as alternativas eram
+ * piores: um `{@html}` abria a porta a HTML numa caixa que toda a gente vê, e partir cada
+ * ponto em objectos tornava a lista ilegível para quem a escreve. Por isso os `**` de sempre,
+ * e só eles — sem itálico nem ligações, porque não houve pedido.
+ */
+export function partesDoTexto(texto: string): { texto: string; negrito: boolean }[] {
+	return texto
+		.split('**')
+		.map((t, i) => ({ texto: t, negrito: i % 2 === 1 }))
+		.filter((p) => p.texto);
+}
+
+/**
  * Agrupa os pontos pelo `tipo`, na ordem do `GRUPOS`, e **deixa de fora os grupos vazios**.
  *
  * Função pura, e é aqui que vive a única regra de apresentação que vale a pena testar: um
