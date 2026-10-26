@@ -16,7 +16,7 @@
 	 * caixa ao centro com um véu por trás pára o que a pessoa ia fazer; esta deixa a lista de
 	 * jogos à vista e fecha-se com um toque.
 	 */
-	import { novidades } from './novidades.svelte';
+	import { novidades, partesDoTexto } from './novidades.svelte';
 	import { RECOLHER_FEEDBACK } from './feedback';
 	import { dataCurta } from './formato';
 
@@ -26,6 +26,11 @@
 	// no arranque e só no cliente: o `localStorage` não existe durante o build
 	$effect(() => n.arrancar());
 </script>
+
+<!-- o negrito dentro do texto de um ponto — ver `partesDoTexto` -->
+{#snippet texto(t: string)}
+	{#each partesDoTexto(t) as parte, i (i)}{#if parte.negrito}<b>{parte.texto}</b>{:else}{parte.texto}{/if}{/each}
+{/snippet}
 
 {#if n.aberta}
 	<!-- `role="status"` e não `dialog`: não há nada a decidir aqui, e um diálogo obrigaria a
@@ -56,7 +61,7 @@
 						<li>
 							<details>
 								<summary>{p.titulo}</summary>
-								<p>{p.texto}</p>
+								<p>{@render texto(p.texto)}</p>
 							</details>
 						</li>
 					{/each}
@@ -70,7 +75,7 @@
 				<h3>{g.rotulo}</h3>
 				<ul>
 					{#each g.pontos as p (p.titulo)}
-						<li><strong>{p.titulo}</strong>{p.texto}</li>
+						<li><strong>{p.titulo}</strong>{@render texto(p.texto)}</li>
 					{/each}
 				</ul>
 			{/each}
@@ -128,6 +133,7 @@
 		background: none; border: 0; cursor: pointer;
 	}
 	ul { margin: var(--e-2) 0 0; padding-left: 1.1rem; }
+	li b { color: var(--texto); font-weight: 600; }
 	li { font-size: 0.76rem; line-height: 1.5; color: var(--texto-2); margin-bottom: var(--e-2); }
 	/* **O chavão em linha própria.** É a âncora que deixa percorrer a lista aos saltos em vez
 	   de a ler toda — pedido pelo dono a 12/10/2026. A primeira versão punha-o em linha com a

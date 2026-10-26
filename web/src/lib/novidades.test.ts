@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { aReabrir, oHistorico, agrupar, porMostrar } from './novidades.svelte';
+import { aReabrir, oHistorico, agrupar, partesDoTexto, porMostrar } from './novidades.svelte';
 import { GRUPOS, NOVIDADES, VERSAO, versaoDaConstrucao, type Novidade, type Ponto } from './versao';
 
 const ponto = (titulo: string, tipo: Ponto['tipo'] = 'novo'): Ponto => ({
@@ -208,5 +208,27 @@ describe('a versão da construção', () => {
 		// cada fusão no `dev` abria uma entrada nova e o buraco voltava.
 		expect(NOVIDADES[0].versao).toBe(VERSAO);
 		expect(VERSAO).not.toContain('+');
+	});
+});
+
+describe('o negrito no texto de uma novidade', () => {
+	it('o que está entre ** vai a negrito, e o resto não', () => {
+		expect(partesDoTexto('escolhes **Sugestão** ou **Pergunta**.')).toEqual([
+			{ texto: 'escolhes ', negrito: false },
+			{ texto: 'Sugestão', negrito: true },
+			{ texto: ' ou ', negrito: false },
+			{ texto: 'Pergunta', negrito: true },
+			{ texto: '.', negrito: false }
+		]);
+	});
+
+	it('um texto sem marcas sai inteiro, como antes', () => {
+		expect(partesDoTexto('sem nada')).toEqual([{ texto: 'sem nada', negrito: false }]);
+	});
+
+	it('nenhuma novidade deixa um ** por fechar, que punha o resto do texto a negrito', () => {
+		for (const n of NOVIDADES)
+			for (const p of n.pontos)
+				expect(p.texto.split('**').length % 2, `${n.versao}: ${p.titulo}`).toBe(1);
 	});
 });
