@@ -179,6 +179,14 @@ export const NOVIDADES: Novidade[] = [
 					'Nos jogos de **quatro partes**, as Informações do jogo juntavam-nas duas a ' +
 					'duas, porque é assim que vêm no boletim oficial. Agora vês o resultado e as ' +
 					'faltas de cada parte. Obrigado ao treinador que deu por isso 🙌'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: '🙈 O balão já não tapa resultados',
+				texto:
+					'Quando rolas a lista, o balão de opinião encosta-se à margem e fica só uma ' +
+					'pontinha verde à vista — toca nela e abre na mesma. Lá em cima volta inteiro. ' +
+					'A ideia foi de quem me escreveu, obrigado! 💚'
 			}
 		]
 	},
