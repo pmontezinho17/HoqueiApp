@@ -128,9 +128,10 @@ function porta(errada) {
 }
 
 import { pagina } from '../src/lib/consola.js';
+import { periodoPedido } from '../src/lib/periodo.js';
 
 /**
- * @param {{ request: Request, env: { CHAVE_CONTAGENS?: string, OBSERVADOR?: string } }} contexto
+ * @param {{ request: Request, env: { CHAVE_CONTAGENS?: string, OBSERVADOR?: string, DADOS?: import("@cloudflare/workers-types").D1Database } }} contexto
  */
 export async function onRequestGet({ request, env }) {
 	const url = new URL(request.url);
@@ -220,10 +221,54 @@ export async function onRequestGet({ request, env }) {
 		pagina({
 			...dados,
 			chave: url.searchParams.get('chave') ?? undefined,
-			vista: pedida === 'sistema' ? 'sistema' : 'utilizadores'
+			vista: pedida === 'sistema' ? 'sistema' : 'utilizadores',
+			periodo: await lerPeriodo(env, url.searchParams)
 		}),
 		{
 			headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' }
 		}
 	);
+}
+
+/**
+ * **A série dos aparelhos para o período pedido**, lida da base de dados — ver `periodo.js`
+ * para o porquê de não vir do observador.
+ *
+ * Duas idas à base de dados, quantos dias se peçam: o primeiro dia com contador (para o
+ * atalho "tudo") e as linhas do período, numa `batch`. Se falhar, devolve `null` e a consola
+ * desenha os sete dias do observador como sempre — uma medição a menos nunca pode tirar a
+ * consola do ar.
+ *
+ * @param {{ DADOS?: import("@cloudflare/workers-types").D1Database }} env
+ * @param {URLSearchParams} params
+ */
+async function lerPeriodo(env, params) {
+	if (!env.DADOS) return null;
+	const hoje = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Lisbon' });
+	// Primeiro sem saber onde começa o "tudo": pede-se desde sempre e corta-se depois.
+	const largo = periodoPedido(params, hoje, '0000-01-01');
+	try {
+		const bd = /** @type {{ batch: (d: unknown[]) => Promise<[
+		 *   { results: { primeiro: string | null }[] },
+		 *   { results: { dia: string, total: number, novos: number }[] },
+		 *   { results: { dia: string, tipo: string, n: number }[] }
+		 * ]> }} */ (/** @type {unknown} */ (env.DADOS));
+		const [min, aparelhos, tipos] = await bd.batch([
+			env.DADOS.prepare('SELECT MIN(dia) AS primeiro FROM aparelho'),
+			env.DADOS.prepare(
+				'SELECT dia, total, novos FROM aparelho WHERE dia BETWEEN ? AND ?'
+			).bind(largo.de, largo.ate),
+			env.DADOS.prepare(
+				'SELECT dia, tipo, n FROM aparelho_tipo WHERE dia BETWEEN ? AND ?'
+			).bind(largo.de, largo.ate)
+		]);
+		const primeiro = min.results?.[0]?.primeiro ?? null;
+		/** @type {Record<string, Record<string, number>>} */
+		const ent = {};
+		for (const r of aparelhos.results ?? []) ent[r.dia] = { aparelhos: r.total, novos: r.novos };
+		for (const r of tipos.results ?? []) (ent[r.dia] ??= {})[r.tipo] = r.n;
+		return { ...periodoPedido(params, hoje, primeiro), primeiro, ent };
+	} catch {
+		return null;
+	}
 }
