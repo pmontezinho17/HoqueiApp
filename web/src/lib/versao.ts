@@ -156,22 +156,21 @@ export const NOVIDADES: Novidade[] = [
 		pontos: [
 			{
 				tipo: 'novo',
-				titulo: 'Na caixa de opinião, já podes fazer uma pergunta',
+				titulo: '🛼 A caixa de opinião ganhou voz!',
 				texto:
-					'A caixa passa a ter dois separadores. Uma sugestão fica registada para a ' +
-					'corrigirmos, sem sabermos quem és. Uma pergunta abre o teu email com ela já ' +
-					'escrita, e respondemos-te para lá — muitas das dúvidas que chegavam pela ' +
-					'caixa ficavam sem resposta porque não havia para onde a mandar.'
+					'Antes de mais, obrigado 🙏 — por cada sugestão, cada elogio e cada aviso de ' +
+					'que alguma coisa estava mal. Foram vocês que fizeram a app crescer. Mas até ' +
+					'aqui eu lia tudo e não podia responder a nada 🤐. Agora escolhes: «Sugestão», ' +
+					'se é para melhorar a app, ou «Pergunta», se queres resposta — essa vai por ' +
+					'email e eu respondo-te. 💌'
 			},
 			{
 				tipo: 'novo',
-				titulo: 'A política de privacidade diz mais uma coisa',
+				titulo: '🔒 A privacidade ganhou uma linha',
 				texto:
-					'Passámos a guardar o tipo de aparelho que abre a aplicação — iPhone, Android, ' +
-					'computador ou outro —, uma contagem por dia e nada mais. Continua a não haver ' +
-					'IP, identificador nem cookie, e não guardamos a linha que o teu browser manda. ' +
-					'Está tudo escrito na página de privacidade, com os limites: um iPad conta como ' +
-					'computador, porque se anuncia como um Mac.'
+					'Passei a contar que tipo de aparelho abre a app — iPhone, Android ou ' +
+					'computador — e só isso: uma contagem por dia. Nada de IP, nada que diga quem ' +
+					'és. Um iPad conta como computador, porque se apresenta como um Mac 🤷.'
 			}
 		]
 	},
