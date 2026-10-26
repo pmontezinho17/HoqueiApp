@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9839@hoquei.pages.dev
-DTSTAMP:20261025T000000Z
-DTSTART:20261025T150000Z
-DTEND:20261025T163000Z
-SUMMARY:🏑 Sub-19 🏑 GD Sesimbra vs AD Oeiras
-LOCATION:Pavilhão Desportivo De Sesimbra
-DESCRIPTION:GD Sesimbra 3–7 AD Oeiras\nCAMP. REG. SUB-19 - 1ª FASE · S
- érie B · SUB-19\nPAV. SESIMBRA\nhttps://hoquei.pages.dev/jogo/9839\nDado
- s da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9839
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9842@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T180000Z

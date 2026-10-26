@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9933@hoquei.pages.dev
-DTSTAMP:20261025T000000Z
-DTSTART:20261025T161500Z
-DTEND:20261025T174500Z
-SUMMARY:🏑 Escolares 🏑 HC Lourinhã vs APAC Tojal
-LOCATION:APAC Tojal - Associação de Patinagem Atlético Clube do Tojal
-DESCRIPTION:HC Lourinhã 8–1 APAC Tojal\nENCONTROS DISTRITAIS ESCOLARES -
-  1ª FASE NIVEL I · Série C · ESCOLARES\nPAV. A.P.A.C.TOJAL\nhttps://ho
- quei.pages.dev/jogo/9933\nDados da Associação de Patinagem de Lisboa. Si
- te não oficial.
-URL:https://hoquei.pages.dev/jogo/9933
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9935@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T100000Z

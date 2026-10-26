@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9914@hoquei.pages.dev
-DTSTAMP:20261025T000000Z
-DTSTART:20261025T133000Z
-DTEND:20261025T150000Z
-SUMMARY:🏑 Escolares 🏑 CD Paço Arcos A vs HC Sintra
-LOCATION:Pavilhão do Clube Desportivo de Paço de Arcos (CDPA)
-DESCRIPTION:CD Paço Arcos A 6–1 HC Sintra\nENCONTROS DISTRITAIS ESCOLARE
- S - 1ª FASE NIVEL I · Série B · ESCOLARES\nPAV. PAÇO DE ARCOS\nhttps:
- //hoquei.pages.dev/jogo/9914\nDados da Associação de Patinagem de Lisboa
- . Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9914
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9918@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T143000Z

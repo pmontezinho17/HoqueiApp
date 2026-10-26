@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9953@hoquei.pages.dev
-DTSTAMP:20261025T000000Z
-DTSTART:20261025T120000Z
-DTEND:20261025T133000Z
-SUMMARY:🏑 Escolares 🏑 CD Paço Arcos B vs A Stuart HCM B
-LOCATION:Pavilhão do Clube Desportivo de Paço de Arcos (CDPA)
-DESCRIPTION:CD Paço Arcos B 2–8 A Stuart HCM B\nENCONTROS DISTRITAIS ESC
- OLARES - 1ª FASE NIVEL II · Série D · ESCOLARES\nPAV. PAÇO DE ARCOS\n
- https://hoquei.pages.dev/jogo/9953\nDados da Associação de Patinagem de 
- Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9953
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9955@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T160000Z

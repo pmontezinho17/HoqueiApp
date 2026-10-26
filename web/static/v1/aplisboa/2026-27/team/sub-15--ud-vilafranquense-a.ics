@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9601@hoquei.pages.dev
-DTSTAMP:20261025T000000Z
-DTSTART:20261025T170000Z
-DTEND:20261025T183000Z
-SUMMARY:🏑 Sub-15 🏑 UD Vilafranquense A vs SL Benfica B
-LOCATION:Pavilhão José Mário Cerejo
-DESCRIPTION:UD Vilafranquense A 0–6 SL Benfica B\nCAMP. REG. SUB-15 - 1ª
-  FASE · Série B · SUB-15\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev
- /jogo/9601\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
-URL:https://hoquei.pages.dev/jogo/9601
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9604@hoquei.pages.dev
 DTSTAMP:20261031T000000Z
 DTSTART:20261031T154500Z

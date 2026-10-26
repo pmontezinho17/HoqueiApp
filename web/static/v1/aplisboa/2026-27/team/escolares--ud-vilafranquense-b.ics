@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9973@hoquei.pages.dev
-DTSTAMP:20261025T000000Z
-DTSTART:20261025T154500Z
-DTEND:20261025T171500Z
-SUMMARY:🏑 Escolares 🏑 UD Vilafranquense B vs FSE/AJ Salesiana B
-LOCATION:Pavilhão José Mário Cerejo
-DESCRIPTION:UD Vilafranquense B 7–5 FSE/AJ Salesiana B\nENCONTROS DISTRIT
- AIS ESCOLARES - 1ª FASE NIVEL II · Série E · ESCOLARES\nPAV. VILAFRANQ
- UENSE\nhttps://hoquei.pages.dev/jogo/9973\nDados da Associação de Patina
- gem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9973
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9976@hoquei.pages.dev
 DTSTAMP:20261101T000000Z
 DTSTART:20261101T144500Z

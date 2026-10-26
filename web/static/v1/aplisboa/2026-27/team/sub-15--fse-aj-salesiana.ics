@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9642@hoquei.pages.dev
-DTSTAMP:20261025T000000Z
-DTSTART:20261025T161500Z
-DTEND:20261025T174500Z
-SUMMARY:🏑 Sub-15 🏑 A Stuart HCM A vs FSE/AJ Salesiana
-LOCATION:Pavilhão João Campelo - A. Stuart Hóquei Clube de Massamá
-DESCRIPTION:A Stuart HCM A 6–4 FSE/AJ Salesiana\nCAMP. REG. SUB-15 - 1ª 
- FASE · Série D · SUB-15\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.d
- ev/jogo/9642\nDados da Associação de Patinagem de Lisboa. Site não ofic
- ial.
-URL:https://hoquei.pages.dev/jogo/9642
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9645@hoquei.pages.dev
 DTSTAMP:20261106T000000Z
 DTSTART:20261106T203000Z
