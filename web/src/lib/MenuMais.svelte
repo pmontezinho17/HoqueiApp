@@ -138,7 +138,7 @@
 				<Icone nome="opiniao" tamanho={18} />
 				<span class="texto">
 					<span class="rotulo">Dar uma opinião</span>
-					<span class="ajuda">O que está mal, o que falta</span>
+					<span class="ajuda">Uma sugestão, ou uma pergunta</span>
 				</span>
 			</button>
 		{/if}

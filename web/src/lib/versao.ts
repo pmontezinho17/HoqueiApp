@@ -126,10 +126,19 @@ export type Novidade = {
 export const NOVIDADES: Novidade[] = [
 	{
 		versao: '1.9',
-		data: '2026-10-21',
+		data: '2026-10-26',
 		pontos: [
 			{
-				tipo: 'regras',
+				tipo: 'novo',
+				titulo: 'Na caixa de opinião, já podes fazer uma pergunta',
+				texto:
+					'A caixa passa a ter dois separadores. Uma sugestão fica registada para a ' +
+					'corrigirmos, sem sabermos quem és. Uma pergunta abre o teu email com ela já ' +
+					'escrita, e respondemos-te para lá — muitas das dúvidas que chegavam pela ' +
+					'caixa ficavam sem resposta porque não havia para onde a mandar.'
+			},
+			{
+				tipo: 'novo',
 				titulo: 'A política de privacidade diz mais uma coisa',
 				texto:
 					'Passámos a guardar o tipo de aparelho que abre a aplicação — iPhone, Android, ' +
