@@ -101,7 +101,17 @@
 	</section>
 {/if}
 
-<p class="nota">Do boletim oficial assinado no fim do jogo.</p>
+<!-- A nota diz de onde vêm os números, porque desde 26/10/2026 nem sempre é do boletim. -->
+<p class="nota">
+	{#if b.daCronologia}
+		Contado jogada a jogada: este jogo não tem boletim oficial publicado.
+	{:else if b.partesPorMetade > 1}
+		Do boletim oficial assinado no fim do jogo. As partes, uma a uma, vêm da cronologia — o
+		boletim só as dá aos pares.
+	{:else}
+		Do boletim oficial assinado no fim do jogo.
+	{/if}
+</p>
 
 <style>
 	section { margin-bottom: 1.2rem; }

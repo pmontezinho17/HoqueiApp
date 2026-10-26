@@ -30,6 +30,8 @@ export type BoletimPorPartes = Boletim & {
 	 * para não chamar "1ª parte" ao que foram as partes 1 e 2.
 	 */
 	partesPorMetade: number;
+	/** `true` quando não houve boletim e tudo saiu da cronologia: a nota do ecrã tem de o dizer. */
+	daCronologia: boolean;
 };
 
 const FINAL = 'Resultado final';
@@ -79,7 +81,7 @@ export function boletimPorPartes(
 	casa: string,
 	fora: string
 ): BoletimPorPartes {
-	const tal = { ...boletim, partesPorMetade: 1 };
+	const tal = { ...boletim, partesPorMetade: 1, daCronologia: false };
 	const metades = boletim.parciais.filter((p) => p.nome !== FINAL);
 	const partes = partesNaCronologia(cronologia);
 	if (!metades.length || partes <= metades.length || partes % metades.length) return tal;
@@ -114,7 +116,7 @@ export function boletimPorPartes(
 	const final = boletim.parciais.find((p) => p.nome === FINAL);
 	if (final) parciais.push(final);
 
-	return { ...boletim, parciais, faltas_casa, faltas_fora, partesPorMetade: k };
+	return { ...boletim, parciais, faltas_casa, faltas_fora, partesPorMetade: k, daCronologia: false };
 }
 
 /**
@@ -128,4 +130,57 @@ export function daMetade(i: number, partesPorMetade: number): string {
 	return partesPorMetade === 2
 		? `das partes ${primeira} e ${ultima}`
 		: `das partes ${primeira} a ${ultima}`;
+}
+
+/**
+ * **Um jogo sem boletim também tem partes.** Função pura.
+ *
+ * Pergunta do dono a 26/10/2026, ao ver isto: aplica-se a todos os jogos onde acontece? Aos
+ * jogos passados aplica-se, porque a conta faz-se ao abrir a ficha e não ao raspar. Mas havia
+ * um buraco: **12 jogos terminados sem boletim** — 4 de quatro partes e 8 de duas, de 27/09 a
+ * 25/10 — não mostravam resultado parte a parte nenhum, porque a tabela só existia com
+ * boletim. Em todos os 12, os golos da cronologia somam o resultado final e as faltas de
+ * equipa somam as faltas da ficha.
+ *
+ * Por isso, sem boletim, a tabela sai da cronologia — com duas guardas, que são o que impede um
+ * número nosso de contradizer a APL: só em jogos **terminados** (com a marca de fim de jogo; um
+ * jogo a decorrer tem um "Final" que ainda não existe), e só quando a soma **bate** com o
+ * resultado. Não há horas nem oficiais: esses só o boletim os tem, e as secções não aparecem.
+ */
+export function boletimDaCronologia(f: {
+	cronologia: EventoJogo[];
+	casa: string;
+	fora: string;
+	golos_casa: number | null;
+	golos_fora: number | null;
+	faltas: [number | null, number | null];
+}): BoletimPorPartes | null {
+	const partes = partesNaCronologia(f.cronologia);
+	if (!partes || f.golos_casa === null || f.golos_fora === null) return null;
+	if (!f.cronologia.some((e) => e.tipo === 'fim_jogo')) return null;
+
+	const golos = contarPorParte(f.cronologia, 'golo', partes, f.casa, f.fora);
+	if (!golos) return null;
+	const [c, fo] = emMetades(golos, partes)[0];
+	if (c !== f.golos_casa || fo !== f.golos_fora) return null;
+
+	const faltas = contarPorParte(f.cronologia, 'falta_equipa', partes, f.casa, f.fora);
+	const somadas = faltas && emMetades(faltas, partes)[0];
+	const faltasBatem = !!somadas && somadas[0] === f.faltas[0] && somadas[1] === f.faltas[1];
+
+	return {
+		oficiais: {},
+		parciais: [
+			...golos.map(([casa, fora], i) => ({ nome: `${i + 1}ª parte`, casa, fora })),
+			{ nome: FINAL, casa: f.golos_casa, fora: f.golos_fora }
+		],
+		faltas_casa: faltasBatem ? faltas!.map((x) => x[0]) : [],
+		faltas_fora: faltasBatem ? faltas!.map((x) => x[1]) : [],
+		inicio: [],
+		termo: [],
+		capitao_casa: null,
+		capitao_fora: null,
+		partesPorMetade: 1,
+		daCronologia: true
+	};
 }

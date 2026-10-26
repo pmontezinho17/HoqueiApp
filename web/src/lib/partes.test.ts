@@ -1,6 +1,6 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { boletimPorPartes, daMetade, partesNaCronologia } from './partes';
+import { boletimDaCronologia, boletimPorPartes, daMetade, partesNaCronologia } from './partes';
 import type { Boletim, EventoJogo, FichaJogo } from './tipos';
 
 /**
@@ -127,5 +127,60 @@ describe('quando a cronologia tem quatro partes', () => {
 		expect(daMetade(1, 1)).toBe('da 2ª parte');
 		expect(daMetade(0, 2)).toBe('das partes 1 e 2');
 		expect(daMetade(1, 2)).toBe('das partes 3 e 4');
+	});
+});
+
+describe('um jogo terminado sem boletim', () => {
+	const raiz = new URL('../../static/v1/aplisboa/', import.meta.url);
+	const temporadas = existsSync(raiz) ? readdirSync(raiz).sort().reverse() : [];
+	const pasta = temporadas.length ? new URL(`${temporadas[0]}/match/`, raiz) : null;
+	const semBoletim: FichaJogo[] =
+		pasta && existsSync(pasta)
+			? readdirSync(pasta)
+					.filter((n) => n.endsWith('.json'))
+					.map((n) => JSON.parse(readFileSync(new URL(n, pasta), 'utf8')) as FichaJogo)
+					.filter((f) => !f.boletim?.parciais?.length && f.cronologia.some((e) => e.tipo === 'fim_jogo'))
+			: [];
+
+	it('mostra as partes de todos os que há, e elas somam o resultado — eram 12 a 26/10/2026', () => {
+		// guarda contra o teste passar por não ter encontrado nada: os 12 de 26/10 não desaparecem
+		if (pasta && existsSync(pasta)) expect(semBoletim.length).toBeGreaterThan(0);
+		for (const f of semBoletim) {
+			const b = boletimDaCronologia(f);
+			expect(b, `jogo ${f.id}`).not.toBeNull();
+			const partes = b!.parciais.filter((p) => p.nome !== 'Resultado final');
+			expect(partes.length, `jogo ${f.id}`).toBe(partesNaCronologia(f.cronologia));
+			expect(partes.reduce((s, p) => s + (p.casa ?? 0), 0)).toBe(f.golos_casa);
+			expect(b!.daCronologia).toBe(true);
+		}
+	});
+
+	const ficha = {
+		cronologia: [...CRONOLOGIA, { ...golo(4, CASA), tipo: 'fim_jogo' as const, equipa: null }],
+		casa: CASA,
+		fora: FORA,
+		golos_casa: 4,
+		golos_fora: 4,
+		faltas: [2, 2] as [number, number]
+	};
+
+	it('parte a parte, com as faltas quando somam as da ficha', () => {
+		const b = boletimDaCronologia(ficha)!;
+		expect(b.parciais.map((p) => [p.casa, p.fora])).toEqual([[3, 1], [0, 2], [0, 0], [1, 1], [4, 4]]);
+		expect(b.faltas_casa).toEqual([0, 0, 2, 0]);
+	});
+
+	it('sem a marca de fim de jogo não mostra nada: um jogo a decorrer não tem "Final"', () => {
+		expect(boletimDaCronologia({ ...ficha, cronologia: CRONOLOGIA })).toBeNull();
+	});
+
+	it('se os golos não somarem o resultado, não mostra nada', () => {
+		expect(boletimDaCronologia({ ...ficha, golos_casa: 5 })).toBeNull();
+	});
+
+	it('se só as faltas não baterem, mostra os golos e cala as faltas', () => {
+		const b = boletimDaCronologia({ ...ficha, faltas: [3, 2] })!;
+		expect(b.parciais).toHaveLength(5);
+		expect(b.faltas_casa).toEqual([]);
 	});
 });
