@@ -134,7 +134,11 @@
 	   descrição e não resultou: a 375px lia-se "...é o Mérito da Formação É o que o regulamento
 	   manda", uma frase corrida sem fronteira visível, que é exactamente o que isto veio
 	   resolver. Em `block` o olho tem onde parar. */
-	li strong { display: block; color: var(--texto); font-weight: 600; }
+	/* **O título maior do que o texto**, a pedido do dono a 26/10/2026 — *"letras maiores e
+	   outras menores"*. Os dois estavam no mesmo 0,76rem e o título só se distinguia pelo
+	   negrito; agora é a manchete, e o texto fica no tamanho que já tinha, porque abaixo disso
+	   deixa de se ler num telemóvel. */
+	li strong { display: block; color: var(--texto); font-weight: 600; font-size: 0.92rem; line-height: 1.35; margin-bottom: 2px; }
 
 	/* ── O histórico, do menu ──────────────────────────────────────────────────────────────
 	   Mais compacto do que a folha automática de propósito: aqui a pergunta é "o que já mudou
@@ -153,7 +157,7 @@
 	   que parecem texto e não dão sinal nenhum de que se abrem. Apanhado no browser. O alvo de
 	   toque faz-se com `padding`, que não mexe no marcador. */
 	ul.resumida summary {
-		cursor: pointer; color: var(--texto); font-weight: 600;
+		cursor: pointer; color: var(--texto); font-weight: 600; font-size: 0.86rem;
 		padding: 6px 0; /* ~32px de alvo com a linha de texto, para se tocar num telemóvel */
 	}
 	ul.resumida summary::marker { color: var(--acento); }
