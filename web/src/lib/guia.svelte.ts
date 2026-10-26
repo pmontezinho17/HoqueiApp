@@ -161,7 +161,7 @@ export const PASSOS: Passo[] = [
 		alvo: 'feedback',
 		titulo: 'Diz-nos o que está mal',
 		texto:
-			'Este botão está aqui enquanto a app estiver a ser testada. Escreve o que te incomodou ou o que falta — nada sai do teu telemóvel sem seres tu a carregar em enviar.'
+			'Escreve o que te incomodou ou o que falta, ou faz-nos uma pergunta e respondemos-te por email. Nada sai do teu telemóvel sem seres tu a carregar em enviar.'
 	}
 ];
 

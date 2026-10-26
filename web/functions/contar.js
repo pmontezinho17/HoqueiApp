@@ -1,9 +1,15 @@
+import { tipoDeAparelho } from '../src/lib/aparelho.js';
+
 /**
  * O contador de aparelhos distintos por dia.
  *
  * Recebe **um toque por aparelho e por dia** — é o cliente que decide, com uma data guardada
- * no próprio aparelho; ver `src/lib/presenca.ts`. Aqui não se lê nem se guarda nada sobre
- * quem tocou: nem IP, nem cabeçalhos, nem identificador. Só se soma um.
+ * no próprio aparelho; ver `src/lib/presenca.ts`.
+ *
+ * **Desde 21/10/2026 lê um cabeçalho: o `User-Agent`**, e só para dele tirar um de quatro
+ * rótulos — iOS, Android, computador, outro. A cadeia não se guarda, nem o IP, nem
+ * identificador nenhum. A decisão de atravessar essa linha é do dono, e a `/privacidade` foi
+ * reescrita no mesmo commit; ver `src/lib/aparelho.ts` para o porquê e para os limites.
  *
  Uma linha por dia na tabela `aparelho`, e uma por hora na `entrada_hora`:
  *
@@ -82,7 +88,8 @@ export async function onRequestGet({ request, env, waitUntil }) {
 
 	// **204 e não conta.** A sonda precisa do 204 para saber que a Function corre; o que não
 	// pode é ficar registada como gente. Ver o `NOSSO` acima.
-	if (NOSSO.test(request.headers.get('User-Agent') ?? '')) return resposta;
+	const agente = request.headers.get('User-Agent') ?? '';
+	if (NOSSO.test(agente)) return resposta;
 
 	const parametros = new URL(request.url).searchParams;
 
@@ -130,7 +137,16 @@ export async function onRequestGet({ request, env, waitUntil }) {
 							 ON CONFLICT (dia, hora) DO UPDATE
 							   SET novos = novos + excluded.novos, volta = volta + excluded.volta`
 						)
-						.bind(dia, hora, novo, novo ? 0 : 1)
+						.bind(dia, hora, novo, novo ? 0 : 1),
+					// o tipo de aparelho entra na mesma `batch` pela mesma razão que a hora: ou
+					// entram todas ou não entra nenhuma, e assim a soma dos tipos de um dia é por
+					// construção o total desse dia
+					bd
+						.prepare(
+							`INSERT INTO aparelho_tipo (dia, tipo, n) VALUES (?, ?, 1)
+							 ON CONFLICT (dia, tipo) DO UPDATE SET n = n + 1`
+						)
+						.bind(dia, tipoDeAparelho(agente))
 				]);
 			} catch {
 				// uma contagem perdida não é motivo para nada

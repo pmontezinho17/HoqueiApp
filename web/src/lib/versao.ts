@@ -38,7 +38,33 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.8';
+export const VERSAO = '1.9';
+
+/**
+ * **O número que se vê sobe uma vez por entrega; o site de testes ganha uma marca por cima.**
+ *
+ * Até 26/10/2026 a regra era subir o `VERSAO` a cada fusão no `dev` que se notasse — escrita a
+ * 21/10, depois de cinco alterações ficarem debaixo da mesma `1.7` e a app do dono nunca ser
+ * avisada. Resolvia o site de testes e estragava produção: quem lá está viu a `1.6` passar
+ * para a `1.8`, porque a `1.7` só existiu no `dev`, e o dono deu por isso no telemóvel a
+ * 26/10. E a `1.10` do pedido seguinte ia abrir outro buraco.
+ *
+ * As duas coisas pediam números diferentes, e agora têm-nos:
+ *
+ * * o **`VERSAO`** é o da **próxima entrega em produção**. Sobe na primeira alteração visível
+ *   depois de uma entrega, e as seguintes juntam-se à mesma entrada de `NOVIDADES`. Produção
+ *   passa sempre de uma para a seguinte;
+ * * no **site de testes** o `ramo.yml` passa o commit em `REVISAO_DE_TESTES`, e a versão da
+ *   construção fica `1.9+40a5273`. Cada fusão no `dev` muda a marca, e o aviso aparece — sem
+ *   ninguém se lembrar de subir nada.
+ *
+ * Produção não recebe a variável, por isso a construção de lá é o `VERSAO` sozinho e
+ * continua igual byte a byte entre duas construções do mesmo código.
+ */
+export function versaoDaConstrucao(versao: string, revisao?: string | null): string {
+	const marca = revisao?.trim().slice(0, 7);
+	return marca ? `${versao}+${marca}` : versao;
+}
 
 /**
  * Em que grupo é que uma novidade cai.
@@ -124,6 +150,46 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.9',
+		data: '2026-10-26',
+		pontos: [
+			{
+				tipo: 'novo',
+				titulo: '🛼 A caixa de opinião ganhou voz!',
+				texto:
+					'Antes de mais, obrigado 🙏 — por cada sugestão, cada elogio e cada aviso de ' +
+					'que alguma coisa estava mal. Foram vocês que fizeram a app crescer. Mas até ' +
+					'aqui eu lia tudo e não podia responder a nada 🤐. Agora escolhes: **Sugestão**, ' +
+					'se é para melhorar a app, ou **Pergunta**, se queres resposta — essa vai por ' +
+					'email e eu respondo-te. 💌'
+			},
+			{
+				tipo: 'novo',
+				titulo: '🔒 A privacidade ganhou uma linha',
+				texto:
+					'Passei a contar que tipo de aparelho abre a app — iPhone, Android ou ' +
+					'computador — e só isso: uma contagem por dia. Nada de IP, nada que diga quem ' +
+					'és. Um iPad conta como computador, porque se apresenta como um Mac 🤷.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: '⏱️ Benjamins e Escolares: as quatro partes, uma a uma',
+				texto:
+					'Nos jogos de **quatro partes**, as Informações do jogo juntavam-nas duas a ' +
+					'duas, porque é assim que vêm no boletim oficial. Agora vês o resultado e as ' +
+					'faltas de cada parte. Obrigado ao treinador que deu por isso 🙌'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: '🙈 O balão já não tapa resultados',
+				texto:
+					'Quando rolas a lista, o balão de opinião encosta-se à margem e fica só uma ' +
+					'pontinha verde à vista — toca nela e abre na mesma. Lá em cima volta inteiro. ' +
+					'A ideia foi de quem me escreveu, obrigado! 💚'
+			}
+		]
+	},
 	{
 		versao: '1.8',
 		data: '2026-10-21',

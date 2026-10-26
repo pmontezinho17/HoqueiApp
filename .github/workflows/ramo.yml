@@ -93,6 +93,10 @@ jobs:
         working-directory: web
         env:
           VITE_APP_NOME: OK4Sticks.DEV
+          # A marca do commit por cima da versão, para o aviso de actualização aparecer a
+          # cada fusão no `dev` sem ninguém subir o número — ver `versaoDaConstrucao` no
+          # `web/src/lib/versao.ts`. Produção não a recebe, e por isso fica só com o número.
+          REVISAO_DE_TESTES: ${{ github.sha }}
         run: npm run build
 
       # `workingDirectory: web` pela mesma razão do `dados.yml`: as Pages Functions são lidas

@@ -12,9 +12,12 @@
 	 * Agora grava na nossa base de dados — ver `functions/sugerir.js` — e um processo diário
 	 * arquiva-a num repositório **privado**. O texto não vai para lado nenhum público.
 	 *
-	 * **E o email continua lá, para o que é outra coisa.** Uma sugestão não precisa de resposta,
-	 * precisa de ser registada; uma dúvida precisa de resposta. O `mailto:` fica como segunda
-	 * via para quando o envio falhar, e como caminho de quem quer falar com uma pessoa.
+	 * **E a pergunta é a outra via, desde 26/10/2026.** Uma sugestão não precisa de resposta,
+	 * precisa de ser registada; uma dúvida precisa de resposta. O email estava aqui como uma
+	 * ligação na letra mais pequena do painel, e o dono continuava a receber dúvidas pela caixa
+	 * — para onde não há como responder. Agora são dois separadores no topo e o porquê de a
+	 * pergunta ir pelo email da pessoa está no `pergunta.ts`. O `mailto:` da sugestão continua
+	 * como segunda via para quando o envio falhar.
 	 *
 	 * O ecrã onde a pessoa está vai junto, porque uma crítica sem saber onde aconteceu
 	 * obriga a uma segunda troca de mensagens. Vai escrito à vista no corpo, e não
@@ -23,22 +26,28 @@
 	import Icone from './Icone.svelte';
 	import { page } from '$app/state';
 	import { CONTACTO } from './contacto';
-	import { APP_NOME } from './sitio';
 	import { critica } from './critica.svelte';
 	import { VERSAO } from './versao';
+	import { linkDeEmail, type Via } from './pergunta';
 	import { MAXIMO } from '../../functions/sugerir.js';
+	import { balaoEncostado } from './balao';
+
+	/** Encostado à margem depois de rolar, para não tapar resultados — ver `balao.ts`. */
+	let encostado = $state(false);
 
 	let texto = $state('');
+	/**
+	 * O texto é um só para as duas vias, de propósito: quem escreveu uma dúvida no separador
+	 * da sugestão e só depois deu pelo outro não tem de a escrever outra vez.
+	 */
+	let via = $state<Via>('sugestao');
 	let copiado = $state(false);
 	let caixa = $state<HTMLTextAreaElement | null>(null);
 
 	const ecra = $derived(`${page.url.pathname}${page.url.search}`);
 	const contexto = $derived(`ecrã: ${ecra} · versão: ${VERSAO}`);
 	const corpo = $derived(`${texto}\n\n—\n${contexto}`);
-	const link = $derived(
-		`mailto:${CONTACTO}?subject=${encodeURIComponent(`${APP_NOME} — crítica`)}` +
-			`&body=${encodeURIComponent(corpo)}`
-	);
+	const link = $derived(linkDeEmail(via, texto, contexto));
 
 	/**
 	 * O foco tem de ir para a caixa, senão quem usa teclado abre e fica sem saber onde está.
@@ -129,10 +138,19 @@
 	}
 </script>
 
-<svelte:window onkeydown={(e) => e.key === 'Escape' && fecharEReiniciar()} />
+<svelte:window
+	onkeydown={(e) => e.key === 'Escape' && fecharEReiniciar()}
+	onscroll={() => (encostado = balaoEncostado(window.scrollY))}
+/>
 
 {#if !critica.aberto}
-	<button class="bolha" data-guia="feedback" onclick={() => critica.abrir()} aria-label="Dar uma opinião sobre a aplicação">
+	<button
+		class="bolha"
+		class:encostado
+		data-guia="feedback"
+		onclick={() => critica.abrir()}
+		aria-label="Dar uma opinião sobre a aplicação"
+	>
 		<Icone nome="feedback" tamanho={22} />
 	</button>
 {:else}
@@ -140,7 +158,13 @@
 	<div class="veu" onclick={fecharEReiniciar}></div>
 	<div class="painel" role="dialog" aria-label="Dar uma opinião" aria-modal="true">
 		<div class="cabeca">
-			<strong>{estado === 'enviado' ? 'Mensagem enviada' : 'O que está mal?'}</strong>
+			<strong
+				>{estado === 'enviado'
+					? 'Mensagem enviada'
+					: via === 'sugestao'
+						? 'O que está mal?'
+						: 'Uma pergunta'}</strong
+			>
 			<button class="fechar" onclick={fecharEReiniciar} aria-label="Fechar">×</button>
 		</div>
 		{#if estado === 'enviado'}
@@ -161,30 +185,67 @@
 				<button class="fechar-grande" onclick={fecharEReiniciar}>Fechar</button>
 			</div>
 		{:else}
+			<!--
+			  **Dois separadores e não duas caixas.** O ecrã é o mesmo — escrever um texto — e o que
+			  muda é para onde ele vai. Cada um diz isso na primeira linha, antes de se escrever,
+			  que é a regra desta caixa desde que deixou de ser um `mailto:`.
+			-->
+			<div class="vias" role="tablist" aria-label="O que queres enviar">
+				<button
+					role="tab"
+					aria-selected={via === 'sugestao'}
+					class:activa={via === 'sugestao'}
+					onclick={() => (via = 'sugestao')}>Sugestão</button
+				>
+				<button
+					role="tab"
+					aria-selected={via === 'pergunta'}
+					class:activa={via === 'pergunta'}
+					onclick={() => (via = 'pergunta')}>Pergunta</button
+				>
+			</div>
 			<p class="ajuda">
-				Diz o que te incomodou, o que falta ou o que não percebeste. Quanto mais directo,
-				melhor.
+				{#if via === 'sugestao'}
+					Diz o que te incomodou ou o que falta. Fica registado para o corrigirmos, mas não
+					sabemos quem és — por isso não te podemos responder.
+				{:else}
+					Tens uma dúvida? Abrimos o teu email com ela já escrita, e respondemos para o
+					endereço de onde a enviares.
+				{/if}
 			</p>
 			<textarea
 				bind:this={caixa}
 				bind:value={texto}
 				rows="5"
 				maxlength={MAXIMO}
-				placeholder="Por exemplo: no jogo dos sub-15 os nomes aparecem cortados…"
+				placeholder={via === 'sugestao'
+					? 'Por exemplo: no jogo dos sub-15 os nomes aparecem cortados…'
+					: 'Por exemplo: porque é que a minha equipa não aparece na classificação?'}
 			></textarea>
 			<p class="junto">Vai junto: {contexto}</p>
 			<div class="accoes">
 				<button class="copiar" onclick={copiar} disabled={!texto.trim()}>
 					{copiado ? 'copiado' : 'copiar'}
 				</button>
-				<button
-					class="enviar"
-					class:inactivo={!texto.trim() || estado === 'a-enviar'}
-					disabled={!texto.trim() || estado === 'a-enviar'}
-					onclick={enviar}>{estado === 'a-enviar' ? 'a enviar…' : 'Enviar'}</button
-				>
+				{#if via === 'pergunta'}
+					<!-- Um `<a>` e não um botão com `fetch`: aqui não há envio nosso, há uma ligação
+					     que o telemóvel entrega ao programa de email, como entrega qualquer outra. -->
+					<a class="enviar" href={link}>Abrir o email</a>
+				{:else}
+					<button
+						class="enviar"
+						class:inactivo={!texto.trim() || estado === 'a-enviar'}
+						disabled={!texto.trim() || estado === 'a-enviar'}
+						onclick={enviar}>{estado === 'a-enviar' ? 'a enviar…' : 'Enviar'}</button
+					>
+				{/if}
 			</div>
-			{#if estado === 'falhou'}
+			{#if via === 'pergunta'}
+				<p class="nota">
+					Não passa pela nossa base de dados: vai do teu email para o nosso. Se o email não
+					abrir, escreve para <strong>{CONTACTO}</strong> — o botão copiar leva o texto.
+				</p>
+			{:else if estado === 'falhou'}
 				<!-- **A segunda via.** Se o envio falhar, a sugestão não se perde: abre-se o email
 				     com o texto já escrito, que é exactamente o que esta caixa fazia antes. -->
 				<p class="nota falhou">
@@ -194,8 +255,8 @@
 			{:else}
 				<p class="nota">
 					Guardamos o que escreveres, com o ecrã e a versão, para o podermos corrigir. Não
-					guardamos quem és. Se preferires falar com uma pessoa,
-					<a href="mailto:{CONTACTO}">escreve-nos</a>.
+					guardamos quem és. Se queres resposta,
+					<button class="ligacao" onclick={() => (via = 'pergunta')}>faz uma pergunta</button>.
 				</p>
 			{/if}
 		{/if}
@@ -224,6 +285,27 @@
 		box-shadow: 0 2px 10px rgb(0 0 0 / 0.18);
 	}
 	.bolha :global(svg) { color: var(--cartao); }
+	/* **Encostado: só uma ponta de 12px à vista, na margem direita.** O resto sai do ecrã, e
+	   com ele a área de toque — por isso o que fica por baixo do sítio onde o balão estava
+	   volta a poder ler-se e a poder tocar-se. O deslocamento é a largura do balão mais a
+	   margem, menos a ponta: escrito com `46px` à mão ficavam 14px à vista, porque a margem não
+	   era a que eu supus — medido a 375×812. O ícone fica do lado de fora e não faz falta: a
+	   ponta verde é o sinal. Não cria scroll horizontal: medido, 375px de largura com ele
+	   encostado.
+
+	   **12px e não 18px, porque a margem da página tem 14.** Medido a 375×812: os resultados
+	   acabam aos 357,6px e o cartão aos 360,6px. Com 18px a ponta ainda cortava o algarismo da
+	   direita — a queixa outra vez, só que mais pequena. Com 12 cabe inteira na margem. */
+	.bolha {
+		transition: transform 0.2s ease, opacity 0.2s ease;
+	}
+	.bolha.encostado {
+		transform: translateX(calc(100% + var(--e-4) - 12px));
+		opacity: 0.85;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.bolha { transition: none; }
+	}
 
 	.veu {
 		position: fixed;
@@ -285,6 +367,39 @@
 		font-size: var(--t-micro);
 		color: var(--suave);
 		word-break: break-word;
+	}
+	/* Os separadores no mesmo desenho dos controlos da lista de jogos: uma pílula com duas
+	   metades, a escolhida a cheio. */
+	.vias {
+		display: flex;
+		margin: var(--e-3) 0 0;
+		border: 1px solid var(--borda);
+		border-radius: var(--raio-pilula);
+		overflow: hidden;
+	}
+	.vias button {
+		flex: 1;
+		min-height: 40px;
+		border: 0;
+		background: var(--cartao);
+		color: var(--texto-2);
+		font: inherit;
+		font-size: var(--t-pequeno);
+		cursor: pointer;
+	}
+	.vias button.activa {
+		background: var(--acento);
+		color: var(--cartao);
+		font-weight: 600;
+	}
+	.ligacao {
+		border: 0;
+		padding: 0;
+		background: none;
+		font: inherit;
+		color: inherit;
+		text-decoration: underline;
+		cursor: pointer;
 	}
 	.accoes { display: flex; gap: var(--e-2); }
 	.accoes > * {

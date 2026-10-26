@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { useRegisterSW } from 'virtual:pwa-register/svelte';
 	import { decidirAviso, versaoPublicada, type Decisao } from './actualizacao';
-	import { VERSAO } from './versao';
+	// A versão **desta construção**, com a marca do site de testes quando a há — é a mesma
+	// cadeia que o `/versao.json` serve. Ver `versaoDaConstrucao` em `versao.ts`.
+	import { version } from '$app/environment';
 
 	/**
 	 * Regista o service worker **e** mostra o aviso de versão nova.
@@ -29,7 +31,7 @@
 		if (!$needRefresh) return void (decidido = null);
 		if (decidido !== null) return;
 		void (async () => {
-			const d = decidirAviso(VERSAO, await versaoPublicada());
+			const d = decidirAviso(version, await versaoPublicada());
 			decidido = d;
 			if (d !== 'calar') return;
 			// **Aplica-se sem recarregar.** A pessoa pode estar a ler uma ficha a meio de um jogo,

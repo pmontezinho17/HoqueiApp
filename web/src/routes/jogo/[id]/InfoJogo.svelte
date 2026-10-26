@@ -4,6 +4,7 @@
 	import BoletimOficial from '$lib/BoletimOficial.svelte';
 	import Icone from '$lib/Icone.svelte';
 	import { dataLonga, horaCurta, nomeProprio } from '$lib/formato';
+	import { boletimDaCronologia, boletimPorPartes } from '$lib/partes';
 	import type { FichaJogo } from '$lib/tipos';
 
 	let { f, morada, linkMapa }: {
@@ -11,6 +12,13 @@
 		morada: string | null;
 		linkMapa: string | null;
 	} = $props();
+
+	/** O boletim com as partes todas; sem boletim, o que a cronologia dá — ver `partes.ts`. */
+	const boletim = $derived(
+		f.boletim?.parciais?.length
+			? boletimPorPartes(f.boletim, f.cronologia, f.casa, f.fora)
+			: boletimDaCronologia(f)
+	);
 </script>
 
 <ul class="info">
@@ -44,8 +52,8 @@
 	{/if}
 </ul>
 
-{#if f.boletim?.parciais?.length}
-	<BoletimOficial boletim={f.boletim} casa={f.casa} fora={f.fora} />
+{#if boletim}
+	<BoletimOficial {boletim} casa={f.casa} fora={f.fora} />
 {/if}
 
 <style>

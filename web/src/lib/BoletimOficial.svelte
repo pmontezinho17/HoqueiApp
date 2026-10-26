@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { nomeProprio } from '$lib/formato';
-	import type { Boletim } from '$lib/tipos';
+	import { daMetade, type BoletimPorPartes } from '$lib/partes';
 
-	let { boletim, casa, fora }: { boletim: Boletim; casa: string; fora: string } = $props();
+	/** Já com as partes contadas na cronologia quando o jogo teve quatro — ver `partes.ts`. */
+	let { boletim, casa, fora }: { boletim: BoletimPorPartes; casa: string; fora: string } =
+		$props();
 
 	const b = $derived(boletim);
 	const partes = $derived(b.parciais.filter((p) => p.nome !== 'Resultado final'));
@@ -92,13 +94,24 @@
 	<section>
 		<h3>Horas</h3>
 		<dl>
-			{#each b.inicio as h, i}<dt>Início da {i + 1}ª parte</dt><dd>{h}</dd>{/each}
-			{#each b.termo as h, i}<dt>Fim da {i + 1}ª parte</dt><dd>{h}</dd>{/each}
+			<!-- As horas são por metade do boletim, mesmo num jogo de quatro partes. -->
+			{#each b.inicio as h, i}<dt>Início {daMetade(i, b.partesPorMetade)}</dt><dd>{h}</dd>{/each}
+			{#each b.termo as h, i}<dt>Fim {daMetade(i, b.partesPorMetade)}</dt><dd>{h}</dd>{/each}
 		</dl>
 	</section>
 {/if}
 
-<p class="nota">Do boletim oficial assinado no fim do jogo.</p>
+<!-- A nota diz de onde vêm os números, porque desde 26/10/2026 nem sempre é do boletim. -->
+<p class="nota">
+	{#if b.daCronologia}
+		Contado jogada a jogada: este jogo não tem boletim oficial publicado.
+	{:else if b.partesPorMetade > 1}
+		Do boletim oficial assinado no fim do jogo. As partes, uma a uma, vêm da cronologia — o
+		boletim só as dá aos pares.
+	{:else}
+		Do boletim oficial assinado no fim do jogo.
+	{/if}
+</p>
 
 <style>
 	section { margin-bottom: 1.2rem; }
