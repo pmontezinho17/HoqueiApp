@@ -129,7 +129,8 @@ describe('o contador de aparelhos escreve na tabela aparelho', () => {
 		await contar(pedido);
 		await acabar();
 
-		expect(bd.escritas).toHaveLength(2);
+		// três desde 21/10/2026: o dia, a hora e o tipo de aparelho, todas na mesma `batch`
+		expect(bd.escritas).toHaveLength(3);
 		expect(bd.escritas[1].sql).toMatch(/INSERT INTO entrada_hora/);
 		const [dia, hora, novos, volta] = bd.escritas[1].valores as [string, number, number, number];
 		expect(dia).toBe(bd.escritas[0].valores[0]); // o mesmo dia nas duas linhas
@@ -159,10 +160,11 @@ describe('o contador de aparelhos escreve na tabela aparelho', () => {
 
 describe('o endereço de leitura das contagens', () => {
 	/** Um D1 de mentira que responde a um `batch` com as linhas que lhe dermos. */
-	const d1Lido = (visitas: unknown[], aparelhos: unknown[]) =>
+	// três consultas desde 21/10/2026: visitas, aparelhos e tipos de aparelho
+	const d1Lido = (visitas: unknown[], aparelhos: unknown[], tipos: unknown[] = []) =>
 		({
 			prepare: () => ({ bind: () => ({}) }),
-			batch: async () => [{ results: visitas }, { results: aparelhos }]
+			batch: async () => [{ results: visitas }, { results: aparelhos }, { results: tipos }]
 		}) as unknown as import('@cloudflare/workers-types').D1Database;
 
 	it('sem chave não admite que existe', async () => {
@@ -184,7 +186,12 @@ describe('o endereço de leitura das contagens', () => {
 						{ dia: '2026-10-08', ecra: 'aberturas', n: 69 },
 						{ dia: '2026-10-08', ecra: '/clube', n: 18 }
 					],
-					[{ dia: '2026-10-08', total: 14, novos: 12 }]
+					[{ dia: '2026-10-08', total: 14, novos: 12 }],
+					[
+						{ dia: '2026-10-08', tipo: 'ios', n: 9 },
+						{ dia: '2026-10-08', tipo: 'android', n: 4 },
+						{ dia: '2026-10-08', tipo: 'computador', n: 1 }
+					]
 				)
 			}
 		});
@@ -196,5 +203,42 @@ describe('o endereço de leitura das contagens', () => {
 		expect(d.dias['2026-10-08']['/clube']).toBe(18);
 		expect(d.dias['2026-10-08'].aparelhos).toBe(14);
 		expect(d.dias['2026-10-08'].novos).toBe(12);
+		// e os tipos, cuja soma bate com o total porque entram na mesma escrita
+		expect(d.dias['2026-10-08'].ios).toBe(9);
+		expect(d.dias['2026-10-08'].android).toBe(4);
+		expect(d.dias['2026-10-08'].computador).toBe(1);
+		expect(9 + 4 + 1).toBe(d.dias['2026-10-08'].aparelhos);
+	});
+});
+
+describe('o tipo de aparelho entra na mesma escrita', () => {
+	/**
+	 * Pedido do dono a 21/10/2026. Entra na mesma `batch` que o total pela mesma razão que a
+	 * hora: assim a soma dos quatro rótulos de um dia é, por construção, o total desse dia.
+	 */
+	it('grava o rótulo do User-Agent, e não a cadeia', async () => {
+		const bd = d1Falso();
+		const { pedido, acabar } = contexto('/contar?novo=1', { DADOS: bd }, {
+			'User-Agent':
+				'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 Safari/604.1'
+		});
+		await contar(pedido);
+		await acabar();
+
+		const linha = bd.escritas.find((e) => /INSERT INTO aparelho_tipo/.test(e.sql));
+		expect(linha, 'o tipo de aparelho não foi gravado').toBeTruthy();
+		expect(linha!.valores[1]).toBe('ios');
+		// a cadeia do User-Agent não pode aparecer em escrita nenhuma
+		for (const e of bd.escritas)
+			for (const v of e.valores) expect(String(v)).not.toContain('AppleWebKit');
+	});
+
+	it('sem User-Agent grava `outro` em vez de falhar', async () => {
+		const bd = d1Falso();
+		const { pedido, acabar } = contexto('/contar?novo=0', { DADOS: bd });
+		await contar(pedido);
+		await acabar();
+		const linha = bd.escritas.find((e) => /INSERT INTO aparelho_tipo/.test(e.sql));
+		expect(linha!.valores[1]).toBe('outro');
 	});
 });

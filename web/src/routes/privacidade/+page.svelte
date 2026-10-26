@@ -8,14 +8,25 @@
 	 * alguma destas coisas mudar, esta página tem de mudar no mesmo commit — é a única forma
 	 * de continuar verdadeira.
 	 *
-	 * Ela já esteve errada: dizia "uma única chave" e eram duas. O guia passou a guardar
+	 * **E a 21/10/2026 esteve errada de uma maneira pior.** Dizia, nomeando a ferramenta, que
+	 * não há "a Web Analytics da Cloudflare" — e produção servia o `beacon.min.js` dela em todas
+	 * as páginas, injectado na borda por um interruptor do painel que não existe em commit
+	 * nenhum. Nenhum teste ao código o podia ver, porque o script não estava no código. Ficou
+	 * uma verificação no `scripts/verificar_producao.py` a perguntar isso ao site depois de cada
+	 * publicação, e a frase acima só volta a ser verdade quando o interruptor for desligado.
+	 *
+	 * No mesmo dia, e por decisão do dono, esta página passou a declarar o **tipo de aparelho**:
+	 * é a primeira coisa que o projecto guarda sobre o aparelho de quem visita, e foi escrita
+	 * aqui no mesmo commit em que passou a ser recolhida.
+	 *
+	 * Ela já esteve errada antes: dizia "uma única chave" e eram duas. O guia passou a guardar
 	 * `guia-visto` a 06/10/2026 e esta página não foi corrigida no mesmo commit, que é
 	 * exactamente o que esta regra existe para impedir. Corrigido a 06/10/2026, com a
 	 * terceira chave — a do tema — no mesmo commit em que ela nasceu.
 	 */
 	import { CONTACTO } from '$lib/contacto';
 	import { SITIO_NOME, APP_NOME } from '$lib/sitio';
-	const ACTUALIZADA = '16 de outubro de 2026';
+	const ACTUALIZADA = '21 de outubro de 2026';
 </script>
 
 <svelte:head><title>Privacidade — {APP_NOME}</title></svelte:head>
@@ -114,8 +125,7 @@
 		<li>Não usamos <em>cookies</em>.</li>
 		<li>
 			Não há Google Analytics, nem a Web Analytics da Cloudflare, nem qualquer ferramenta
-			de medição de terceiros. A única contagem que existe é nossa, não corre no teu
-			telemóvel, e está descrita a seguir.
+			de medição de terceiros. A única contagem que existe é nossa e está descrita a seguir.
 		</li>
 		<li>
 			Não carregamos tipos de letra nem código de terceiros — usamos as letras do teu
@@ -173,9 +183,24 @@
 		O que isto <strong>não</strong> inclui, e não é por acaso: nenhum endereço IP, nenhum
 		identificador, nenhum cookie, nenhuma sessão, nada que ligue duas visitas à mesma
 		pessoa ou ao mesmo telemóvel. Se abrires a aplicação cinco vezes, o contador diz cinco
-		e não tem forma de saber que foste tu. Também não corre nada no teu telemóvel para isto
-		acontecer: é um contador do lado de quem serve as páginas, e é por isso que continua a
-		ser verdade que não carregamos código de terceiros.
+		e não tem forma de saber que foste tu. E não carregamos código de terceiros para isto
+		acontecer: quem conta somos nós.
+	</p>
+	<p>
+		<strong>Desde 21 de outubro de 2026 guardamos mais uma coisa: o tipo de aparelho.</strong>
+		Quando o teu telemóvel avisa que abriu a aplicação, lemos o <em>User-Agent</em> — o
+		cabeçalho que todos os browsers mandam a dizer em que sistema correm — e guardamos dele
+		<strong>uma de quatro palavras</strong>: <code>ios</code>, <code>android</code>,
+		<code>computador</code> ou <code>outro</code>. O que fica guardado é uma contagem por dia:
+		<em>"a 21 de outubro, 47 iPhones"</em>. A cadeia do <em>User-Agent</em> em si
+		<strong>não</strong> se guarda, e continua a não haver IP nem identificador nenhum — nada
+		disto liga uma visita a outra.
+	</p>
+	<p class="nota">
+		Dois avisos sobre esse número, porque um número mal explicado é pior do que nenhum. O
+		<strong>iPad conta como computador</strong>: desde o iPadOS 13 o Safari do iPad
+		anuncia-se como um Mac, e não temos como os distinguir. E <code>outro</code> são
+		televisões, consolas e tudo o que não reconhecemos — não é uma categoria de pessoas.
 	</p>
 	<p class="nota">
 		Os números ficam guardados <strong>120 dias</strong> e apagam-se sozinhos. São

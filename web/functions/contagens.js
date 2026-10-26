@@ -40,11 +40,13 @@ export async function onRequestGet({ request, env }) {
 	/** As duas formas de linha que as consultas devolvem. */
 	const bd = /** @type {{ batch: (d: unknown[]) => Promise<[
 	 *   { results: { dia: string, ecra: string, n: number }[] },
-	 *   { results: { dia: string, total: number, novos: number }[] }
+	 *   { results: { dia: string, total: number, novos: number }[] },
+	 *   { results: { dia: string, tipo: string, n: number }[] }
 	 * ]> }} */ (/** @type {unknown} */ (env.DADOS));
-	const [visitas, aparelhos] = await bd.batch([
+	const [visitas, aparelhos, tipos] = await bd.batch([
 		env.DADOS.prepare('SELECT dia, ecra, n FROM visita WHERE dia >= ? ORDER BY dia').bind(desde),
-		env.DADOS.prepare('SELECT dia, total, novos FROM aparelho WHERE dia >= ?').bind(desde)
+		env.DADOS.prepare('SELECT dia, total, novos FROM aparelho WHERE dia >= ?').bind(desde),
+		env.DADOS.prepare('SELECT dia, tipo, n FROM aparelho_tipo WHERE dia >= ?').bind(desde)
 	]);
 
 	/** @type {Record<string, Record<string, number>>} */
@@ -53,6 +55,10 @@ export async function onRequestGet({ request, env }) {
 		(dias[r.dia] ??= {}).aparelhos = r.total;
 		dias[r.dia].novos = r.novos;
 	}
+	// O tipo de aparelho, desde 21/10/2026. Vem como `ios`, `android`, `computador` e `outro` —
+	// a soma dos quatro é, por construção, o total desse dia, porque entram na mesma `batch` que
+	// o total. Se divergirem é porque uma escrita falhou, e isso é informação.
+	for (const r of tipos.results ?? []) (dias[r.dia] ??= {})[r.tipo] = r.n;
 	for (const r of visitas.results ?? []) {
 		// `aberturas` é amostrado 1 em 10: o que se guarda é a amostra, o que se mostra é a
 		// estimativa. Dizer "12" quando se contaram 12 de ~120 seria mentir por omissão.
@@ -74,6 +80,14 @@ export async function onRequestGet({ request, env }) {
 						'das Functions, para os pedidos de dados deixarem de gastar a quota diária ' +
 						'da conta e de derrubar o site. Os dias seguintes não têm este ' +
 						'número — têm `sessao`, que não é o mesmo e não se soma a este.',
+					tipo_de_aparelho:
+						'`ios`, `android`, `computador` e `outro` — quantos aparelhos de cada tipo ' +
+						'abriram a app nesse dia. A soma dos quatro é o total desse dia, por ' +
+						'construção: entram na mesma escrita. Sai do `User-Agent`, que é lido e ' +
+						'deitado fora — a cadeia não se guarda, e não há identificador nenhum. ' +
+						'**O iPad conta como computador**: desde o iPadOS 13 anuncia-se como ' +
+						'Macintosh e o servidor não tem como distingui-los. Existe desde ' +
+						'21/10/2026; os dias anteriores não têm este número.',
 					sessao:
 						'contagem exacta, a partir do dia em que esta alteração for publicada: '
 						+ 'quantas vezes a app foi aberta ou ' +
