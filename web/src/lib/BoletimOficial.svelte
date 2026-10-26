@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { nomeProprio } from '$lib/formato';
-	import type { Boletim } from '$lib/tipos';
+	import { daMetade, type BoletimPorPartes } from '$lib/partes';
 
-	let { boletim, casa, fora }: { boletim: Boletim; casa: string; fora: string } = $props();
+	/** Já com as partes contadas na cronologia quando o jogo teve quatro — ver `partes.ts`. */
+	let { boletim, casa, fora }: { boletim: BoletimPorPartes; casa: string; fora: string } =
+		$props();
 
 	const b = $derived(boletim);
 	const partes = $derived(b.parciais.filter((p) => p.nome !== 'Resultado final'));
@@ -92,8 +94,9 @@
 	<section>
 		<h3>Horas</h3>
 		<dl>
-			{#each b.inicio as h, i}<dt>Início da {i + 1}ª parte</dt><dd>{h}</dd>{/each}
-			{#each b.termo as h, i}<dt>Fim da {i + 1}ª parte</dt><dd>{h}</dd>{/each}
+			<!-- As horas são por metade do boletim, mesmo num jogo de quatro partes. -->
+			{#each b.inicio as h, i}<dt>Início {daMetade(i, b.partesPorMetade)}</dt><dd>{h}</dd>{/each}
+			{#each b.termo as h, i}<dt>Fim {daMetade(i, b.partesPorMetade)}</dt><dd>{h}</dd>{/each}
 		</dl>
 	</section>
 {/if}

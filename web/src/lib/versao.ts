@@ -171,6 +171,14 @@ export const NOVIDADES: Novidade[] = [
 					'Passei a contar que tipo de aparelho abre a app — iPhone, Android ou ' +
 					'computador — e só isso: uma contagem por dia. Nada de IP, nada que diga quem ' +
 					'és. Um iPad conta como computador, porque se apresenta como um Mac 🤷.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: '⏱️ Benjamins e Escolares: as quatro partes, uma a uma',
+				texto:
+					'Nos jogos de **quatro partes**, as Informações do jogo juntavam-nas duas a ' +
+					'duas, porque é assim que vêm no boletim oficial. Agora vês o resultado e as ' +
+					'faltas de cada parte. Obrigado ao treinador que deu por isso 🙌'
 			}
 		]
 	},

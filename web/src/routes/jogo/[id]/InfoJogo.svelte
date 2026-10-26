@@ -4,6 +4,7 @@
 	import BoletimOficial from '$lib/BoletimOficial.svelte';
 	import Icone from '$lib/Icone.svelte';
 	import { dataLonga, horaCurta, nomeProprio } from '$lib/formato';
+	import { boletimPorPartes } from '$lib/partes';
 	import type { FichaJogo } from '$lib/tipos';
 
 	let { f, morada, linkMapa }: {
@@ -45,7 +46,11 @@
 </ul>
 
 {#if f.boletim?.parciais?.length}
-	<BoletimOficial boletim={f.boletim} casa={f.casa} fora={f.fora} />
+	<BoletimOficial
+		boletim={boletimPorPartes(f.boletim, f.cronologia, f.casa, f.fora)}
+		casa={f.casa}
+		fora={f.fora}
+	/>
 {/if}
 
 <style>
