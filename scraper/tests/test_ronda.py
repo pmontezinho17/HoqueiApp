@@ -207,3 +207,26 @@ class TestComOInterruptorLigado:
         provas = len(json.loads((destino / "competitions.json").read_text())["competicoes"])
         assert fonte.por_tipo["clasificacion"] == provas
         assert json.loads((destino / "meta.json").read_text())["tabelas_saltadas"] == 0
+
+
+class TestOMeritoNaAgenda:
+    """O resumo do Mérito que as listas da app desenham — ver `_resumo_do_merito`."""
+
+    FICHA = {"id": 1, "casa": "A", "fora": "B", "merito": [
+        {"equipa": "A", "bonificacao": 9, "penalizacao": -8, "avisos": []},
+        {"equipa": "B", "bonificacao": 11, "penalizacao": 0, "avisos": []}]}
+
+    def test_cada_conta_fica_com_a_sua_equipa(self):
+        assert cli._resumo_do_merito(self.FICHA) == {"casa": [9, -8], "fora": [11, 0]}
+
+    def test_pelo_nome_e_nao_pela_ordem(self):
+        trocada = {**self.FICHA, "merito": self.FICHA["merito"][::-1]}
+        assert cli._resumo_do_merito(trocada) == {"casa": [9, -8], "fora": [11, 0]}
+
+    def test_uma_penalizacao_em_aberto_vai_marcada(self):
+        com_aviso = {**self.FICHA, "merito": [
+            {**self.FICHA["merito"][0], "avisos": ["4.1.7 por confirmar"]}, self.FICHA["merito"][1]]}
+        assert cli._resumo_do_merito(com_aviso)["por_confirmar"] is True
+
+    def test_sem_merito_nao_ha_resumo(self):
+        assert cli._resumo_do_merito({**self.FICHA, "merito": None}) is None

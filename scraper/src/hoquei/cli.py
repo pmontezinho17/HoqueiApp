@@ -218,6 +218,37 @@ def _merito_da_ficha(html: str, dados: dict) -> list[dict] | None:
         dados.get("golos_casa"), dados.get("golos_fora"), banco)]
 
 
+def _resumo_do_merito(ficha: dict) -> dict | None:
+    """O Mérito de um jogo em duas contas, para a linha do jogo nas listas da app.
+
+    Pedido do dono a 27/10/2026: ver o Mérito por baixo de cada jogo já disputado, numa linha
+    só, sem abrir a ficha. As listas lêem a `agenda.json` e não as fichas — abrir 79 fichas
+    para desenhar uma lista estava fora de questão —, por isso o resumo tem de viver na agenda.
+
+    **Zero pedidos novos:** sai da ficha que já está em disco. Fica ao mínimo, `[bonificação,
+    penalização]` por equipa, porque a agenda traz ~800 jogos numa só resposta: medido no mesmo
+    dia, são 79 jogos com Mérito e 3,8 KB a mais nos 291 KB da agenda. O total é a soma, e o
+    pormenor regra a regra fica na ficha, que é onde se lê.
+
+    A ordem do `merito` da ficha é casa e fora, mas procura-se pelo nome primeiro: é o nome
+    que diz de quem é a conta, e uma ordem trocada punha os pontos de uma equipa na outra.
+    Nos 79, o nome bate sempre; a ordem fica só de recurso.
+    """
+    contas = ficha.get("merito") or []
+    por_nome = {m.get("equipa"): m for m in contas}
+    casa, fora = por_nome.get(ficha.get("casa")), por_nome.get(ficha.get("fora"))
+    if (casa is None or fora is None) and len(contas) == 2:
+        casa, fora = contas
+    if casa is None or fora is None:
+        return None
+    resumo: dict = {"casa": [casa["bonificacao"], casa["penalizacao"]],
+                    "fora": [fora["bonificacao"], fora["penalizacao"]]}
+    # sem isto, a linha mostrava como certo um total que tem uma penalização em aberto
+    if casa.get("avisos") or fora.get("avisos"):
+        resumo["por_confirmar"] = True
+    return resumo
+
+
 def _resultado_conhecido(caminho: pathlib.Path) -> tuple | None:
     """Resultado já publicado para este jogo, ou None se ainda não existe ficheiro."""
     try:
@@ -762,6 +793,10 @@ def comando_publicar(args) -> int:
             # `/v1` que os telemóveis têm em cache. É a mesma escolha do `scorers/`.
             if vale_merito(prova.nome):
                 com_merito = [f for f in fichas_da_prova if f.get("merito")]
+                for f in com_merito:
+                    resumo = _resumo_do_merito(f)
+                    if resumo and f.get("id") in agenda_por_id:
+                        agenda_por_id[f["id"]]["merito"] = resumo
                 (destino / "merito" / f"{prova.id}.json").write_text(json.dumps({
                     "competicao_id": prova.id,
                     "nome": prova.nome,
