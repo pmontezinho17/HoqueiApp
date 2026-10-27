@@ -252,6 +252,10 @@
 		/* a estrela do favorito: amarela nos dois temas, mais funda no claro para não
 		   desaparecer contra o branco do cartão */
 		--estrela: #d99e00;
+		/* **O verde e o vermelho do Mérito, fixos e fora do acento.** O acento é a cor que cada
+		   pessoa escolhe, e com um acento vermelho as bonificações apareciam a vermelho. Estes
+		   dois só querem dizer "pontos ganhos" e "pontos perdidos", e só no Mérito. */
+		--ganha: #0a7d54; --perde: #b42318;
 		/* O herói do ecrã de jogo.
 		 * Era quase preto, e os emblemas de contorno escuro — que são muitos: Lourinhã,
 		 * Stuart, Sintra — desapareciam lá dentro. Passa a seguir o tema: claro no claro,
@@ -281,6 +285,7 @@
 			--terminado: #f2b8b5;
 			--directo: #f87171;
 			--estrela: #fbbf24;
+			--ganha: #34d399; --perde: #f97066;
 			--heroi: #1b2027; --heroi-texto: #eef1f4; --heroi-suave: #949ca6;
 			--heroi-borda: #2a313a;
 		}
@@ -294,6 +299,7 @@
 			--terminado: #f2b8b5;
 			--directo: #f87171;
 			--estrela: #fbbf24;
+			--ganha: #34d399; --perde: #f97066;
 			--heroi: #1b2027; --heroi-texto: #eef1f4; --heroi-suave: #949ca6;
 			--heroi-borda: #2a313a;
 	}

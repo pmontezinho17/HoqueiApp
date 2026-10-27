@@ -16,7 +16,8 @@
 	import { nomeProprio, porQuando } from '$lib/formato';
 	import { provaActual } from '$lib/provas';
 	import { caminhoEquipa } from '$lib/slug';
-	import { disputado, type Jogo, type TotaisJogador } from '$lib/tipos';
+	import { disputado, type Jogo, type JogoAgenda, type TotaisJogador } from '$lib/tipos';
+	import { meritoPorJogo } from '$lib/meritoDoJogo';
 	import { afterNavigate, replaceState } from '$app/navigation';
 	import { page } from '$app/state';
 	import { diaDeLisboa } from '$lib/dia';
@@ -248,10 +249,12 @@
 		return { jogos: d.length, gm, gs, assistencias: plantelEpoca.reduce((n, p) => n + p.assistencias, 0) };
 	});
 
+	const meritoDosJogos = $derived(meritoPorJogo(data.agenda as JogoAgenda[]));
 	const paraAgenda = (j: Jogo) => ({
 		id: j.id, data: j.data ?? '', hora: j.hora ? j.hora.slice(0, 5) : null,
 		casa: j.casa, fora: j.fora, gc: j.golos_casa, gf: j.golos_fora,
-		recinto: j.recinto, comp: data.provas[0]?.id ?? 0, prova: '', cat: data.categoria
+		recinto: j.recinto, comp: data.provas[0]?.id ?? 0, prova: '', cat: data.categoria,
+		merito: j.id !== null ? meritoDosJogos.get(j.id) : undefined
 	});
 	const destaque = (e: string) => e === data.equipa;
 </script>

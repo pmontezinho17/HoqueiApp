@@ -10,6 +10,8 @@
 	import LegendaMerito from '$lib/LegendaMerito.svelte';
 	import Faixa from '$lib/Faixa.svelte';
 	import InfoJogo from './InfoJogo.svelte';
+	import MeritoDoJogo from './MeritoDoJogo.svelte';
+	import { contasDoJogo } from '$lib/meritoDoJogo';
 	import Icone from '$lib/Icone.svelte';
 	import Directo from '$lib/Directo.svelte';
 	import { directoDe } from '$lib/directos';
@@ -95,11 +97,13 @@
 	const grupos = $derived(tabela.grupos);
 	const merito = $derived(data.merito);
 	const temTabela = $derived(oQueMostrar !== 'nenhuma');
+	/** as duas contas do Mérito deste jogo — só nos Encontros Distritais e com boletim */
+	const contas = $derived(contasDoJogo(f.merito, f.casa, f.fora));
 	/** o que a legenda do Mérito precisa de saber sobre o que ainda não está confirmado */
 	const meritoPorConfirmar = $derived(
 		(merito?.linhas ?? []).reduce((n, l) => n + l.por_confirmar, 0)
 	);
-	const temSeparadores = $derived(temEventos || temTabela || temEquipas || temInfo);
+	const temSeparadores = $derived(temEventos || !!contas || temTabela || temEquipas || temInfo);
 
 	/**
 	 * A transmissão deste jogo, se houver — ver `directos.ts` para o porquê de ser uma lista
@@ -107,7 +111,7 @@
 	 */
 	const directo = $derived(directoDe(f.id));
 
-	type Tab = 'directo' | 'eventos' | 'tabela' | 'equipas' | 'info';
+	type Tab = 'directo' | 'eventos' | 'merito' | 'tabela' | 'equipas' | 'info';
 	let tab = $state<string>('eventos');
 	/** os separadores que existem neste jogo, pela ordem em que aparecem na barra */
 	const abas = $derived(
@@ -116,6 +120,8 @@
 				// primeiro de todos: quem tem onde ver o jogo não quer começar pela cronologia
 				['directo', !!directo],
 				['eventos', temEventos],
+				// ao lado da classificação, e antes dela: é deste jogo, e a tabela é da série
+				['merito', !!contas],
 				['tabela', temTabela],
 				['equipas', temEquipas],
 				['info', temInfo]
@@ -418,6 +424,10 @@
 			<button role="tab" aria-selected={tab === 'eventos'} aria-label="Eventos do jogo"
 				onclick={() => (tab = 'eventos')}><Icone nome="eventos" tamanho={22} /></button>
 		{/if}
+		{#if contas}
+			<button role="tab" aria-selected={tab === 'merito'} aria-label="Mérito deste jogo"
+				onclick={() => (tab = 'merito')}><Icone nome="merito" tamanho={22} /></button>
+		{/if}
 		{#if temTabela}
 			<button role="tab" aria-selected={tab === 'tabela'} aria-label="Classificação"
 				onclick={() => (tab = 'tabela')}><Icone nome="tabela" tamanho={22} /></button>
@@ -466,6 +476,11 @@
 			{:else if aba === 'eventos'}
 				<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
 					omitidos={f.individuais_omitidos ?? false} />
+			{:else if aba === 'merito'}
+				{#if contas}
+					<MeritoDoJogo casa={contas.casa} fora={contas.fora} golosCasa={f.golos_casa}
+						golosFora={f.golos_fora} emblemas={data.emblemas} />
+				{/if}
 			{:else if aba === 'tabela'}
 				<!-- Nos Escolares e nos Benjamins a classificação **é** o Mérito do Artigo 92.º,
 				     e não uma tabela de pontos. Medido a 21/10/2026: das 37 provas publicadas, 8

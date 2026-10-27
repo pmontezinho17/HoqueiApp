@@ -12,7 +12,8 @@
 	import { favoritos } from '$lib/favoritos.svelte';
 	import { jornadaAtual, porQuando, nomeProprio } from '$lib/formato';
 	import { caminhoEquipa } from '$lib/slug';
-	import type { Jogo, TotaisJogador } from '$lib/tipos';
+	import type { Jogo, JogoAgenda, TotaisJogador } from '$lib/tipos';
+	import { meritoPorJogo } from '$lib/meritoDoJogo';
 
 	let { data } = $props();
 
@@ -96,10 +97,12 @@
 		return { atual, jornadas: [...m] };
 	};
 
+	const meritoDosJogos = $derived(meritoPorJogo(data.agenda as JogoAgenda[]));
 	const paraAgenda = (j: Jogo, comp: number, cat: string) => ({
 		id: j.id, data: j.data ?? '', hora: j.hora ? j.hora.slice(0, 5) : null,
 		casa: j.casa, fora: j.fora, gc: j.golos_casa, gf: j.golos_fora,
-		recinto: j.recinto, comp, prova: '', cat
+		recinto: j.recinto, comp, prova: '', cat,
+		merito: j.id !== null ? meritoDosJogos.get(j.id) : undefined
 	});
 </script>
 

@@ -97,6 +97,10 @@
 		     aqui punha o 2 e o 3 em cima um do outro a 22px. -->
 		<path d="M8 4.4h4v13H8z" />
 		<path d="M3 9.2h5v8.2H3zM12 11.6h5v5.8h-5z" />
+	{:else if nome === 'merito'}
+		<!-- mais e menos numa placa: a conta do jogo, o que se ganhou e o que se perdeu -->
+		<rect x="3" y="3.4" width="14" height="13.2" rx="2.4" />
+		<path d="M6.2 7.6h3.6M8 5.8v3.6M10.4 13.2h3.6" />
 	{:else if nome === 'equipas'}
 		<!-- duas pessoas: os convocados -->
 		<circle cx="7.6" cy="7" r="2.6" />
