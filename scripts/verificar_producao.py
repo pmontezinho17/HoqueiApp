@@ -204,6 +204,27 @@ def contrato_intacto(base: str) -> str | None:
         faltam = [c for c in chaves if c not in d]
         if faltam:
             return f"{V1}/{nome} não tem {', '.join(faltam)} — o contrato mudou"
+        if nome == "agenda.json" and (mal := _merito_mal_formado(d.get("jogos") or [])):
+            return f"{V1}/agenda.json: {mal} — o contrato mudou"
+    return None
+
+
+def _merito_mal_formado(jogos: list) -> str | None:
+    """O `merito` de cada jogo, desde 27/10/2026, tem a forma que a linha do jogo desenha.
+
+    Não se exige que exista — no início da época não há Mérito nenhum, e um campo opcional
+    a faltar não é avaria. Exige-se que, **quando existe**, seja `[bonificação, penalização]`
+    em números para as duas equipas: é o que a app soma, e outra forma dava `NaN` na lista.
+    """
+    for j in jogos:
+        m = j.get("merito") if isinstance(j, dict) else None
+        if m is None:
+            continue
+        for lado in ("casa", "fora"):
+            conta = m.get(lado) if isinstance(m, dict) else None
+            if not (isinstance(conta, list) and len(conta) == 2
+                    and all(isinstance(x, int) for x in conta)):
+                return f"o Mérito do jogo {j.get('id')} não tem [bonificação, penalização] na {lado}"
     return None
 
 
