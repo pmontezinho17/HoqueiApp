@@ -119,6 +119,12 @@ class TestPenalizacoes:
         atletas = equipa_regular()
         atletas[4] = atleta(True, True, True, False)         # três, seguidas
         atletas[5] = atleta(True, True, False, True)         # três, não seguidas
+        # **E dois ficam com uma só, senão a grelha não existe.** São 20 lugares — cinco em
+        # pista em cada uma das quatro —, e quem ganha uma meia parte tira-a a alguém. Até
+        # 27/10/2026 este teste dava as meias partes a mais sem as tirar a ninguém, e as
+        # colunas ficavam com seis marcas: o caso da troca a meio, que agora é outra regra.
+        atletas[3] = atleta(False, False, False, True)       # deu a 2ª ao [4]
+        atletas[6] = atleta(False, False, True, False)       # deu a 1ª ao [5]
         p = parcelas(uma(atletas))
         assert p["4.1.4"] == -2     # os dois têm três meias partes
         assert p["4.1.5"] == -2     # só um as tem seguidas
@@ -127,6 +133,9 @@ class TestPenalizacoes:
         """92.4.1.6 e 87.º 7.4.1 — fazer as quatro é proibido."""
         atletas = equipa_regular()
         atletas[4] = atleta(True, True, True, True)
+        # as duas meias partes a mais saem a alguém, pela razão do teste de cima
+        atletas[3] = atleta(False, False, False, True)       # deu a 2ª
+        atletas[5] = atleta(False, True, False, False)       # deu a 4ª
         p = parcelas(uma(atletas))
         assert p["4.1.6"] == -4
         # e não se soma o 4.1.5 em cima: as quatro têm a sua própria regra
@@ -350,3 +359,89 @@ class TestOCartaoRealAoBanco:
         """Dito aqui para ninguém se enganar a reutilizar esta amostra para o resto do
         Mérito: ela só serve para o 4.2."""
         assert participacao(ficha_com_cartao_ao_banco) is None
+
+
+class TestTrocaAMeio:
+    """Uma meia parte com mais de cinco marcas teve uma troca a meio, e o boletim não diz quem
+    saiu. Apanhado por um pai a 26/10/2026 — ver `_sem_as_duvidosas` no `merito.py`."""
+
+    def jogo_9913(self):
+        """A grelha da AE Física no jogo 9913 de 25/10/2026, Escolares, tal como o boletim a
+        publica — **sem os nomes**, que são de crianças e não saem do boletim. A 4.ª meia
+        parte tem seis marcas: os dois guarda-redes."""
+        gr = [atleta(True, False, False, True, posicao="GR"),
+              atleta(False, True, True, True, posicao="GR")]
+        campo = [atleta(*p) for p in [
+            (False, True, False, True), (False, True, False, True),
+            (False, True, True, False), (False, True, True, False),
+            (True, False, False, True), (True, False, False, True),
+            (True, False, True, False), (True, False, True, False)]]
+        return gr + campo
+
+    def test_a_grelha_e_mesmo_a_do_jogo(self):
+        marcas = [sum(a.periodos[i] for a in self.jogo_9913()) for i in range(4)]
+        assert marcas == [5, 5, 5, 6]
+
+    def test_a_ae_fisica_deixa_de_ter_os_menos_tres(self):
+        m = uma(self.jogo_9913())
+        p = parcelas(m)
+        assert "4.1.4" not in p and "4.1.5" not in p
+        assert m.penalizacao == 0
+        assert m.meias_partes_em_duvida == 1
+
+    def test_e_fica_por_confirmar_em_vez_de_desaparecer(self):
+        m = uma(self.jogo_9913())
+        assert any("troca a meio" in a for a in m.avisos)
+
+    def test_as_bonificacoes_contam_as_marcas_todas(self):
+        # quem entrou a meio participou, e o 3.1 conta-o
+        assert parcelas(uma(self.jogo_9913()))["3.1"] == 10
+
+    def test_quem_passa_da_conta_sem_a_meia_parte_da_troca_continua_penalizado(self):
+        atletas = self.jogo_9913()
+        # Um jogador de campo marcado nas quatro. Sem a 4.ª, a da troca, ainda tem a 1.ª, a 2.ª
+        # e a 3.ª seguidas — e isso é penalização sem dúvida nenhuma. Os dois que lhe cederam
+        # a 1.ª e a 3.ª mantêm as colunas em 5, 5, 5 e 6.
+        atletas[2] = atleta(True, True, True, True)
+        atletas[6] = atleta(False, False, False, True)   # cedeu a 1.ª
+        atletas[4] = atleta(False, True, False, False)   # cedeu a 3.ª
+        assert [sum(a.periodos[i] for a in atletas) for i in range(4)] == [5, 5, 5, 6]
+        p = parcelas(uma(atletas))
+        assert p["4.1.4"] == -1 and p["4.1.5"] == -2
+        # e não leva o 4.1.6: as quatro só as tem contando a da troca
+        assert "4.1.6" not in p
+
+    def test_sem_troca_a_meio_nada_muda(self):
+        assert uma(equipa_regular()).meias_partes_em_duvida == 0
+
+
+class TestRevisitaDasFichasAntigas:
+    """A correcção de 27/10/2026 tem de chegar às penalizações já publicadas — ver
+    `_merito_por_rever` no `cli.py`. Só as que podem mudar custam um pedido."""
+
+    def ficha(self, tmp_path, merito):
+        import json
+        alvo = tmp_path / "1.json"
+        alvo.write_text(json.dumps({"merito": merito}))
+        return alvo
+
+    def test_penalizacao_por_meias_partes_sem_o_campo_novo_e_revista(self, tmp_path):
+        from hoquei.cli import _merito_por_rever
+        alvo = self.ficha(tmp_path, [{"parcelas": [{"regra": "4.1.5", "pontos": -2}]}])
+        assert _merito_por_rever(alvo)
+
+    def test_uma_vez_revista_nao_se_pede_outra_vez(self, tmp_path):
+        from hoquei.cli import _merito_por_rever
+        alvo = self.ficha(tmp_path, [{"parcelas": [{"regra": "4.1.5", "pontos": -2}],
+                                      "meias_partes_em_duvida": 0}])
+        assert not _merito_por_rever(alvo)
+
+    def test_sem_penalizacao_por_meias_partes_nao_custa_um_pedido(self, tmp_path):
+        from hoquei.cli import _merito_por_rever
+        alvo = self.ficha(tmp_path, [{"parcelas": [{"regra": "4.1.2", "pontos": -1}]}])
+        assert not _merito_por_rever(alvo)
+        assert not _merito_por_rever(self.ficha(tmp_path, None))
+
+    def test_a_conta_nova_escreve_sempre_o_sinal(self):
+        from hoquei.modelos import para_dicionario
+        assert "meias_partes_em_duvida" in para_dicionario(uma(equipa_regular()))

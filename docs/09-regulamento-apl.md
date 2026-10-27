@@ -125,6 +125,13 @@ Duas leituras literais que o `merito.py` toma e que valem a pena saber:
    outra.
 2. **Quem faz as quatro fica fora do 4.1.3/4.1.5**: tem regra própria, mais pesada, no 4.1.6.
    Somar as duas castigava duas vezes a mesma falha.
+3. **Uma meia parte com mais de cinco marcas não entra nas penalizações por excesso.** Desde
+   27/10/2026. A grelha marca quem *entrou*, e numa troca a meio ficam marcados os dois: o
+   7.4.3 diz que quem saiu não fez a meia parte, o 7.6 que quem entrou a fez, e o boletim não
+   diz qual é qual. Apanhado por um pai na AE Física, Escolares, jogo 9913: seis marcas na
+   4.ª — os dois guarda-redes — e -3 a um guarda-redes que pode ter saído a meio. Quem só
+   passa da conta com essa meia parte fica **por confirmar**, como no 4.1.7; as bonificações
+   continuam a contar todas as marcas. Ver `_sem_as_duvidosas` no `merito.py`.
 
 ## Artigo 93.º ponto 4.1 — porque é que a nossa tabela nunca é oficial
 

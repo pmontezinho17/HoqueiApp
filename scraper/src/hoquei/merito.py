@@ -80,12 +80,15 @@ from __future__ import annotations
 
 import re
 from collections.abc import Iterable
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 
 from .parsers.participacao import AtletaBoletim, NaoAtletaBoletim
 
 #: Em quantas meias partes se parte um jogo destes escalões — Artigo 87.º ponto 7.1.
 MEIAS_PARTES = 4
+
+#: Quantos atletas de uma equipa estão em pista ao mesmo tempo.
+EM_PISTA = 5
 
 #: Uma equipa completa, pelo 92.3.4 e pelo 87.º 7.4.2.
 GUARDAS_REDES_COMPLETA = 2
@@ -120,6 +123,41 @@ class MeritoEquipa:
     parcelas: list[Parcela] = field(default_factory=list)
     #: o que ficou por confirmar neste jogo, em português e para ser mostrado
     avisos: list[str] = field(default_factory=list)
+    #: em quantas meias partes houve uma troca a meio — mais de cinco marcas na coluna. Ver
+    #: `_sem_as_duvidosas`. É também o sinal, no ficheiro publicado, de que a ficha já foi
+    #: lida com esta regra: um jogo antigo sem ele é revisitado uma vez (ver o `cli.py`).
+    meias_partes_em_duvida: int = 0
+
+
+def _sem_as_duvidosas(atletas: list[AtletaBoletim]) -> tuple[list[AtletaBoletim], int]:
+    """Os atletas com as meias partes em dúvida apagadas, e quantas são essas.
+
+    **A grelha marca quem entrou numa meia parte, e não quem a jogou inteira.** Até
+    27/10/2026 contávamos cada marca como uma meia parte feita, com o 7.4.3 e o 7.6 do Artigo
+    87.º a dizerem que isso era o mesmo: quem entra faz a meia parte toda, e quem substitui
+    conta como se a tivesse feito.
+
+    Deixa de ser o mesmo quando há uma troca a meio. Apanhado por um pai a 26/10/2026, numa
+    penalização de -3 à AE Física nos Escolares: no jogo 9913 a 4.ª meia parte da equipa tinha
+    **seis** marcas — os dois guarda-redes —, e o guarda-redes marcado na 2.ª, 3.ª e 4.ª
+    contava como "três meias partes seguidas". Se foi ele quem saiu a meio da 4.ª, pelo 7.4.3
+    não a fez e não há penalização nenhuma; se foi ele quem entrou, pelo 7.6 fê-la e a
+    penalização é devida. **O boletim publicado não diz qual dos dois**, e escolher um seria
+    inventar um castigo ou perdoá-lo.
+
+    Por isso uma coluna com mais de cinco marcas fica fora da conta das penalizações por
+    excesso de meias partes, e quem só chegue às três ou às quatro com ela fica **por
+    confirmar** — o mesmo tratamento do 4.1.7, pela mesma razão: o que decide está no papel do
+    árbitro e não no boletim que a fonte publica. As bonificações e o 4.1.7 continuam a ler
+    as marcas todas: uma marca diz sempre que o atleta participou.
+    """
+    marcas = [sum(a.periodos[i] for a in atletas) for i in range(MEIAS_PARTES)]
+    duvidosas = {i for i, n in enumerate(marcas) if n > EM_PISTA}
+    if not duvidosas:
+        return atletas, 0
+    certos = [replace(a, periodos=tuple(  # type: ignore[arg-type]
+        p and i not in duvidosas for i, p in enumerate(a.periodos))) for a in atletas]
+    return certos, len(duvidosas)
 
 
 def _conta(equipa: str, atletas: list[AtletaBoletim],
@@ -157,11 +195,14 @@ def _conta(equipa: str, atletas: list[AtletaBoletim],
         avisos.append("sem guarda-redes no boletim — o 4.1.2 não prevê este caso")
 
     ate_oito = len(atletas) <= JOGADORES_DE_CAMPO_COMPLETA
+    # As penalizações por excesso contam-se só nas meias partes sem troca a meio — ver
+    # `_sem_as_duvidosas`. Quem só passa da conta com uma delas fica por confirmar, abaixo.
+    certos, em_duvida = _sem_as_duvidosas(atletas)
     # Quem faz as quatro meias partes também fez três seguidas, e fica de fora do 4.1.3/4.1.5
     # de propósito: tem a sua própria regra, o 4.1.6, que é mais pesada (-4) e mais
     # específica. Somar as duas castigava duas vezes a mesma falha.
-    seguidas = [a for a in atletas if a.tres_seguidas and not a.todas]
-    tres = [a for a in atletas if a.meias_partes == 3]
+    seguidas = [a for a in certos if a.tres_seguidas and not a.todas]
+    tres = [a for a in certos if a.meias_partes == 3]
     if ate_oito:
         if seguidas:
             pena.append(Parcela("4.1.3", f"{len(seguidas)} com 3 meias partes seguidas",
@@ -177,11 +218,25 @@ def _conta(equipa: str, atletas: list[AtletaBoletim],
     # só leve um**. É a mesma excepção que o 92.4.1.6 cita, e sem ela penalizávamos a
     # equipa duas vezes pela mesma falha de efectivo.
     so_um_gr = len(guarda_redes) == 1
-    todas = [a for a in atletas
+    todas = [a for a in certos
              if a.todas and not (so_um_gr and a.posicao == "GR")]
     if todas:
         pena.append(Parcela("4.1.6", f"{len(todas)} fizeram as quatro meias partes",
                             -4 * len(todas)))
+
+    # Quem passaria da conta se a meia parte da troca contasse: não se desconta, diz-se.
+    if em_duvida:
+        def excede(a: AtletaBoletim) -> bool:
+            return a.meias_partes >= 3 and not (
+                a.todas and so_um_gr and a.posicao == "GR")
+        por_confirmar = sum(1 for bruto, certo in zip(atletas, certos)
+                            if excede(bruto) and not excede(certo))
+        if por_confirmar:
+            avisos.append(
+                f"{por_confirmar} atleta(s) só chegam às 3 ou 4 meias partes contando uma em "
+                "que houve troca a meio — o boletim marca quem entrou e não diz quem saiu. "
+                "Fica por confirmar e não está descontado."
+            )
 
     # 4.1.7 — o único que **não** aplicamos sozinhos. Ver o ponto 2 do cabeçalho.
     um_so = [a for a in atletas if a.meias_partes == 1]
@@ -207,6 +262,7 @@ def _conta(equipa: str, atletas: list[AtletaBoletim],
         total=bonificacao + penalizacao,
         parcelas=boni + pena,
         avisos=avisos,
+        meias_partes_em_duvida=em_duvida,
     )
 
 

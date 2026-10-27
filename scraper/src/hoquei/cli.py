@@ -175,6 +175,35 @@ def _sem_chave(caminho: pathlib.Path, chave: str) -> bool:
         return True
 
 
+#: As regras do Artigo 92.º que dependem de quantas meias partes cada atleta fez.
+_REGRAS_DE_MEIAS_PARTES = {"4.1.3", "4.1.4", "4.1.5", "4.1.6"}
+
+
+def _merito_por_rever(caminho: pathlib.Path) -> bool:
+    """Uma ficha publicada com uma penalização por meias partes, contada antes de 27/10/2026.
+
+    Nesse dia o Mérito passou a pôr de fora as meias partes com troca a meio — ver
+    `_sem_as_duvidosas` no `merito.py`. Uma ficha já guardada não se volta a pedir à fonte, e
+    por isso a correcção só chegava aos jogos novos: a penalização de -3 que um pai contestou
+    continuava publicada.
+
+    **Só se revisitam as que podem mudar.** A regra nova só tira penalizações, nunca as
+    acrescenta, logo um jogo sem penalização por meias partes fica igual e não custa um pedido.
+    Medido a 27/10/2026: 35 equipas em 29 jogos, logo 29 pedidos uma vez só, na ronda das
+    00:30 — que corre sempre. Revisitar todos os jogos com Mérito custaria cerca de 90. O sinal de "já revista" é o campo
+    `meias_partes_em_duvida`, que a conta nova escreve sempre — mesmo a zero.
+    """
+    try:
+        dados = json.loads(caminho.read_text())
+    except (OSError, ValueError):
+        return False
+    return any(
+        "meias_partes_em_duvida" not in m
+        and any(p.get("regra") in _REGRAS_DE_MEIAS_PARTES for p in m.get("parcelas", []))
+        for m in dados.get("merito") or []
+    )
+
+
 def _temporada_em_disco(destino: pathlib.Path) -> int | None:
     """O id da época lido do `competitions.json` que já publicámos. `None` se não der.
 
@@ -721,7 +750,8 @@ def comando_publicar(args) -> int:
                 # só. Pedir o campo em todas as provas custaria 260, para nada: o Artigo 92.º
                 # não se aplica aos outros escalões.
                 falta_campo_novo = _sem_chave(alvo, "boletim") or (
-                    vale_merito(prova.nome) and _sem_chave(alvo, "merito"))
+                    vale_merito(prova.nome) and (
+                        _sem_chave(alvo, "merito") or _merito_por_rever(alvo)))
                 if not falta_campo_novo and _resultado_conhecido(alvo) == (
                         jogo.golos_casa, jogo.golos_fora, "Jogo Terminado"):
                     saltadas += 1
