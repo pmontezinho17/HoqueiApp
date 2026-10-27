@@ -200,6 +200,17 @@ class TestCadaVerificacaoSozinha:
             if u.endswith("/agenda.json") else None))
         assert len(falhas) == 1 and "contrato mudou" in falhas[0]
 
+    def test_o_merito_da_agenda_com_outra_forma(self, vp, monkeypatch):
+        """Um campo opcional: a faltar passa, com a forma errada falha."""
+        def agenda(merito):
+            jogo = {"id": 1, **({"merito": merito} if merito is not None else {})}
+            return lambda u: ((200, CACHE_NOSSA, json.dumps({"jogos": [jogo]}).encode())
+                              if u.endswith("/agenda.json") else None)
+        assert self._com(vp, monkeypatch, agenda(None)) == []
+        assert self._com(vp, monkeypatch, agenda({"casa": [9, -8], "fora": [11, 0]})) == []
+        falhas = self._com(vp, monkeypatch, agenda({"casa": {"total": 1}, "fora": [11, 0]}))
+        assert len(falhas) == 1 and "Mérito do jogo 1" in falhas[0]
+
     def test_um_json_truncado(self, vp, monkeypatch):
         falhas = self._com(vp, monkeypatch, lambda u: (
             (200, CACHE_NOSSA, b'{"jogos": [') if u.endswith("/agenda.json") else None))
