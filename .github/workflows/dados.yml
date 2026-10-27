@@ -197,7 +197,13 @@ jobs:
       - name: Regenerar /v1
         if: steps.vale.outputs.correr == 'true'
         working-directory: scraper
-        run: uv run python -m hoquei.cli publicar --tenant aplisboa --destino ../web/static/v1/aplisboa/2026-27
+        # O `--rever-boletins` só na ronda das 00:30: volta a pedir, uma vez por dia, os jogos
+        # terminados que guardámos antes de a mesa anexar o boletim. Ver `_boletim_por_chegar`
+        # no `cli.py` — eram 12 a 27/10/2026, e 11 já o tinham.
+        run: >-
+          uv run python -m hoquei.cli publicar --tenant aplisboa
+          --destino ../web/static/v1/aplisboa/2026-27
+          ${{ github.event.schedule == '30 23 * * *' && '--rever-boletins' || '' }}
 
       - name: Comitar se houver novidade
         id: commit
