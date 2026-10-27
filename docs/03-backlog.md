@@ -2355,6 +2355,20 @@ não se aplica aos outros escalões, e o `vale_merito` é quem evita isso.
 Das 27 fichas, 26 tinham boletim. A que falta (FSE/AJ SALESIANA B–CACO B) aparece contada no
 ficheiro da prova como `jogos_sem_boletim`, e a app di-lo por extenso em vez de calar.
 
+**"Sem boletim" era muitas vezes "ainda sem boletim", e nós só olhávamos uma vez.** Apanhado
+pelo dono a 27/10/2026: a app dizia que o APAC Tojal–Sporting de Benjamins (jogo 10067, 17/10)
+não tinha boletim, e a APL tinha-o. A ficha guardou-se às 16:19 UTC, minutos depois do fim e
+antes de a mesa o anexar, e o crawl incremental não a voltou a pedir: a chave existia e o
+resultado batia. Medido no mesmo dia: dos 479 jogos terminados, 12 estavam assim, e **11 já
+tinham boletim** na APL — três deles com Mérito, que faltava nas tabelas. Os outros campos
+batem todos nos 479 (golos da cronologia contra o resultado, fim de jogo, jogadores,
+resultado final do boletim), por isso o buraco era só este.
+
+Desde então a ronda das 00:30 volta a pedir, uma vez por dia e durante 30 dias, os jogos
+terminados guardados sem boletim — o `--rever-boletins`, ver `_boletim_por_chegar` no
+`cli.py`. Custa um pedido por jogo destes por dia; o que nunca chega (o 9965, de 27/09) custa
+30 e depois deixa-se.
+
 ### Porque é que a grelha por criança nunca é publicada
 
 Ela diz que período é que o filho de alguém jogou. O `parsers/participacao.py` lê-a, o

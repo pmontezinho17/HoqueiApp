@@ -101,10 +101,12 @@
 	</section>
 {/if}
 
-<!-- A nota diz de onde vêm os números, porque desde 26/10/2026 nem sempre é do boletim. -->
+<!-- A nota diz de onde vêm os números, porque desde 26/10/2026 nem sempre é do boletim. E diz
+     "ainda não está na app" e não "não foi publicado": a 27/10/2026, 11 dos 12 jogos que diziam
+     isto já tinham boletim na APL — nós é que não o tínhamos ido buscar. Ver `_boletim_por_chegar`. -->
 <p class="nota">
 	{#if b.daCronologia}
-		Contado jogada a jogada: este jogo não tem boletim oficial publicado.
+		Contado jogada a jogada: o boletim oficial deste jogo ainda não está na app.
 	{:else if b.partesPorMetade > 1}
 		Do boletim oficial assinado no fim do jogo. As partes, uma a uma, vêm da cronologia — o
 		boletim só as dá aos pares.
