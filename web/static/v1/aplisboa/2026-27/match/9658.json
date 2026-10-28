@@ -803,7 +803,49 @@
    "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "DAVID BARROS",
+   "Árbitro Auxiliar": "LUIS SILVA",
+   "Cronometrista": "LILIANA GENS",
+   "Diretor de campo": "RUBINA GUERRA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 5,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 5,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 10,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   2,
+   4
+  ],
+  "faltas_fora": [
+   2,
+   2
+  ],
+  "inicio": [
+   "18:00",
+   "18:36"
+  ],
+  "termo": [
+   "18:26",
+   "19:06"
+  ],
+  "capitao_casa": "MANUEL CLEMENTE",
+  "capitao_fora": "TOMÁS SILVA"
+ },
  "competicao_id": 451,
  "categoria": "SUB-17",
  "jornada": "3ª JORNADA",

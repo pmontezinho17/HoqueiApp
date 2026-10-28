@@ -1,8 +1,8 @@
 {
  "competicao_id": 461,
  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE B",
- "jogos_lidos": 9,
- "jogos_sem_boletim": 1,
+ "jogos_lidos": 10,
+ "jogos_sem_boletim": 0,
  "linhas": [
   {
    "posicao": 1,
@@ -40,23 +40,23 @@
   {
    "posicao": 4,
    "equipa": "HC SINTRA",
-   "jogos": 3,
-   "participantes": 28,
-   "bonificacao": 29,
-   "penalizacao": -2,
-   "pontos": 27,
-   "media": 9.0,
+   "jogos": 4,
+   "participantes": 37,
+   "bonificacao": 38,
+   "penalizacao": -3,
+   "pontos": 35,
+   "media": 8.75,
    "por_confirmar": 0
   },
   {
    "posicao": 5,
    "equipa": "CD PAÇO ARCOS A",
-   "jogos": 3,
-   "participantes": 22,
-   "bonificacao": 22,
-   "penalizacao": -13,
-   "pontos": 9,
-   "media": 3.0,
+   "jogos": 4,
+   "participantes": 28,
+   "bonificacao": 31,
+   "penalizacao": -21,
+   "pontos": 10,
+   "media": 2.5,
    "por_confirmar": 0
   }
  ]

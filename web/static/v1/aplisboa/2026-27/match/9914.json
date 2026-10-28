@@ -155,9 +155,23 @@
    "nome": "HC SINTRA",
    "jogadores": [
     {
+     "numero": "10",
+     "nome": "DAVID CRUZ",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
      "numero": "02",
      "nome": "RODRIGO MESTRE",
-     "titular": true,
+     "titular": false,
      "golos": 0,
      "assistencias": 1,
      "defesas": 0,
@@ -199,7 +213,7 @@
     {
      "numero": "05",
      "nome": "DUARTE GASPAR",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -255,20 +269,6 @@
     {
      "numero": "09",
      "nome": "SEBASTIAN PORFIRIO",
-     "titular": true,
-     "golos": 0,
-     "assistencias": 0,
-     "defesas": 0,
-     "penalidades": "0/0",
-     "livres_diretos": "0/0",
-     "cartoes_amarelos": 0,
-     "cartoes_azuis": 0,
-     "cartoes_vermelhos": 0,
-     "papel": null
-    },
-    {
-     "numero": "10",
-     "nome": "DAVID CRUZ",
      "titular": false,
      "golos": 0,
      "assistencias": 0,
@@ -628,8 +628,117 @@
    "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
- "merito": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE BENEDI",
+   "Árbitro Auxiliar": "luis simão",
+   "Cronometrista": "ALVARO PELIZ",
+   "Diretor de campo": "CARLA RAMOS"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 5,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 6,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   2,
+   2
+  ],
+  "faltas_fora": [
+   1,
+   1
+  ],
+  "inicio": [
+   "13:30",
+   "13:55"
+  ],
+  "termo": [
+   "13:50",
+   "14:17"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
+ "merito": [
+  {
+   "equipa": "CD PAÇO ARCOS A",
+   "atletas": 6,
+   "guardas_redes": 1,
+   "participantes": 6,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -8,
+   "total": 1,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "6 atletas participantes",
+     "pontos": 6
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "4.1.1",
+     "texto": "apresentou 6 atletas",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.3",
+     "texto": "2 com 3 meias partes seguidas",
+     "pontos": -2
+    },
+    {
+     "regra": "4.1.6",
+     "texto": "1 fizeram as quatro meias partes",
+     "pontos": -4
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "HC SINTRA",
+   "atletas": 9,
+   "guardas_redes": 1,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -1,
+   "total": 8,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 461,
  "categoria": "ESCOLARES",
  "jornada": "5ª JORNADA",

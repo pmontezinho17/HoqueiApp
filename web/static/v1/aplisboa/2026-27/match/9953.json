@@ -111,7 +111,7 @@
      "numero": "8",
      "nome": "HENRIQUE SERRO",
      "titular": true,
-     "golos": 1,
+     "golos": 0,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -125,7 +125,7 @@
      "numero": "9",
      "nome": "TOMAS TRINDADE",
      "titular": true,
-     "golos": 1,
+     "golos": 2,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -556,13 +556,13 @@
    "parte": 3,
    "minuto": 16,
    "equipa": "CD PAÇO ARCOS B",
-   "jogador": "HENRIQUE SERRO",
+   "jogador": "TOMAS TRINDADE",
    "assistencia": null,
    "variante": null,
    "numero": null,
    "golos_casa": 2,
    "golos_fora": 4,
-   "texto": "Golo para CD PAÇO ARCOS B | HENRIQUE SERRO"
+   "texto": "Golo para CD PAÇO ARCOS B | TOMAS TRINDADE"
   },
   {
    "ordem": 14,
@@ -700,8 +700,103 @@
    "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
- "merito": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE BENEDI",
+   "Árbitro Auxiliar": "NUNO COSTA",
+   "Cronometrista": "RUI MONTEIRO",
+   "Diretor de campo": "CARLA RAMOS",
+   "Gestor de segurança": "LUIS PAULINO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 4
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 4
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 8
+   }
+  ],
+  "faltas_casa": [
+   2,
+   2
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "12:00",
+   "12:25"
+  ],
+  "termo": [
+   "12:20",
+   "12:50"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
+ "merito": [
+  {
+   "equipa": "CD PAÇO ARCOS B",
+   "atletas": 9,
+   "guardas_redes": 2,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -2,
+   "total": 7,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "4.1.4",
+     "texto": "2 com 3 meias partes",
+     "pontos": -2
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "A STUART HCM B",
+   "atletas": 9,
+   "guardas_redes": 2,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 12,
+   "penalizacao": -2,
+   "total": 10,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "4.1.4",
+     "texto": "2 com 3 meias partes",
+     "pontos": -2
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 463,
  "categoria": "ESCOLARES",
  "jornada": "5ª JORNADA",

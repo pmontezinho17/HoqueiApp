@@ -116,7 +116,7 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
-     "cartoes_amarelos": 0,
+     "cartoes_amarelos": 1,
      "cartoes_azuis": 0,
      "cartoes_vermelhos": 0,
      "papel": null
@@ -144,7 +144,7 @@
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "1/1",
-     "cartoes_amarelos": 2,
+     "cartoes_amarelos": 1,
      "cartoes_azuis": 0,
      "cartoes_vermelhos": 0,
      "papel": null
@@ -928,13 +928,13 @@
    "parte": 2,
    "minuto": 38,
    "equipa": "SPORTING CP A",
-   "jogador": "MARTIM PIRES",
+   "jogador": "DINIS TRIÃES",
    "assistencia": null,
    "variante": "amarelo",
-   "numero": 2,
+   "numero": 1,
    "golos_casa": null,
    "golos_fora": null,
-   "texto": "2º Cartão Amarelo - SPORTING CP A | MARTIM PIRES"
+   "texto": "1º Cartão Amarelo - SPORTING CP A | DINIS TRIÃES"
   },
   {
    "ordem": 36,
@@ -1072,7 +1072,50 @@
    "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RODRIGO REIS",
+   "Árbitro Auxiliar": "FRANCISCO CANDIDO",
+   "Cronometrista": "SANDRA BOLOGAN",
+   "Diretor de campo": "OLGA PAULO",
+   "Gestor de segurança": "AFONSO FALCAO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   5,
+   8
+  ],
+  "faltas_fora": [
+   5,
+   5
+  ],
+  "inicio": [
+   "17:00",
+   "17:34"
+  ],
+  "termo": [
+   "17:24",
+   "18:14"
+  ],
+  "capitao_casa": "MARTIM PIRES",
+  "capitao_fora": "TIAGO VIEIRA"
+ },
  "competicao_id": 455,
  "categoria": "SUB-17",
  "jornada": "6ª JORNADA",

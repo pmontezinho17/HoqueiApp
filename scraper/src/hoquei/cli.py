@@ -174,6 +174,41 @@ def _sem_chave(caminho: pathlib.Path, chave: str) -> bool:
     except (OSError, json.JSONDecodeError):
         return True
 
+#: Quantos dias depois do jogo se continua a perguntar pelo boletim que faltava.
+DIAS_DO_BOLETIM = 30
+
+
+def _boletim_por_chegar(caminho: pathlib.Path, hoje: date) -> bool:
+    """Um jogo terminado que guardámos sem boletim, e que ainda pode vir a tê-lo.
+
+    **O boletim chega depois do jogo, e nós só olhávamos uma vez.** A ficha de um jogo
+    terminado guarda-se na primeira ronda a seguir ao apito, muitas vezes antes de a mesa
+    anexar o boletim; fica `boletim: null`, a chave existe, o resultado bate, e o jogo nunca
+    mais se pedia. Sem boletim não há Mérito, e a tabela mostrava a equipa com um jogo a
+    menos. Apanhado pelo dono a 27/10/2026 no APAC Tojal–Sporting de Benjamins (jogo 10067,
+    17/10), guardado às 16:19 UTC, minutos depois do fim.
+
+    Medido no mesmo dia: dos 479 jogos terminados, 12 estavam guardados sem boletim, e
+    pedidos outra vez **11 já o tinham** — 3 deles com Mérito. O 12.º, de 27/09, continua
+    sem ele um mês depois.
+
+    O custo: um pedido por jogo destes, uma vez por dia, só na ronda das 00:30 (o
+    `--rever-boletins`), e só durante `DIAS_DO_BOLETIM` dias depois do jogo. No pico são os
+    jogos do fim-de-semana que acabaram antes do boletim — uma mão-cheia. Um jogo cujo
+    boletim nunca chega custa 30 pedidos num mês e depois deixa-se em paz.
+    """
+    try:
+        dados = json.loads(caminho.read_text())
+    except (OSError, ValueError):
+        return False
+    if dados.get("boletim") or dados.get("estado") != "Jogo Terminado":
+        return False
+    try:
+        dia = date.fromisoformat(dados.get("data") or "")
+    except ValueError:
+        return False
+    return timedelta(0) <= hoje - dia <= timedelta(days=DIAS_DO_BOLETIM)
+
 
 def _temporada_em_disco(destino: pathlib.Path) -> int | None:
     """O id da época lido do `competitions.json` que já publicámos. `None` se não der.
@@ -216,6 +251,37 @@ def _merito_da_ficha(html: str, dados: dict) -> list[dict] | None:
     return [para_dicionario(m) for m in merito_do_jogo(
         dados.get("casa"), dados.get("fora"), lido,
         dados.get("golos_casa"), dados.get("golos_fora"), banco)]
+
+
+def _resumo_do_merito(ficha: dict) -> dict | None:
+    """O Mérito de um jogo em duas contas, para a linha do jogo nas listas da app.
+
+    Pedido do dono a 27/10/2026: ver o Mérito por baixo de cada jogo já disputado, numa linha
+    só, sem abrir a ficha. As listas lêem a `agenda.json` e não as fichas — abrir 79 fichas
+    para desenhar uma lista estava fora de questão —, por isso o resumo tem de viver na agenda.
+
+    **Zero pedidos novos:** sai da ficha que já está em disco. Fica ao mínimo, `[bonificação,
+    penalização]` por equipa, porque a agenda traz ~800 jogos numa só resposta: medido no mesmo
+    dia, são 79 jogos com Mérito e 3,8 KB a mais nos 291 KB da agenda. O total é a soma, e o
+    pormenor regra a regra fica na ficha, que é onde se lê.
+
+    A ordem do `merito` da ficha é casa e fora, mas procura-se pelo nome primeiro: é o nome
+    que diz de quem é a conta, e uma ordem trocada punha os pontos de uma equipa na outra.
+    Nos 79, o nome bate sempre; a ordem fica só de recurso.
+    """
+    contas = ficha.get("merito") or []
+    por_nome = {m.get("equipa"): m for m in contas}
+    casa, fora = por_nome.get(ficha.get("casa")), por_nome.get(ficha.get("fora"))
+    if (casa is None or fora is None) and len(contas) == 2:
+        casa, fora = contas
+    if casa is None or fora is None:
+        return None
+    resumo: dict = {"casa": [casa["bonificacao"], casa["penalizacao"]],
+                    "fora": [fora["bonificacao"], fora["penalizacao"]]}
+    # sem isto, a linha mostrava como certo um total que tem uma penalização em aberto
+    if casa.get("avisos") or fora.get("avisos"):
+        resumo["por_confirmar"] = True
+    return resumo
 
 
 def _resultado_conhecido(caminho: pathlib.Path) -> tuple | None:
@@ -596,6 +662,7 @@ def comando_publicar(args) -> int:
     uma federação.
     """
     destino = pathlib.Path(args.destino)
+    hoje = _agora().date()
     for pasta in ("comp", "match", "merito", "scorers"):
         (destino / pasta).mkdir(parents=True, exist_ok=True)
 
@@ -720,8 +787,11 @@ def comando_publicar(args) -> int:
                 # 27 jogos disputados nos oito Encontros Distritais, logo 27 pedidos uma vez
                 # só. Pedir o campo em todas as provas custaria 260, para nada: o Artigo 92.º
                 # não se aplica aos outros escalões.
+                #
+                # E um boletim que faltava pode ter chegado entretanto — ver `_boletim_por_chegar`.
                 falta_campo_novo = _sem_chave(alvo, "boletim") or (
-                    vale_merito(prova.nome) and _sem_chave(alvo, "merito"))
+                    vale_merito(prova.nome) and _sem_chave(alvo, "merito")) or (
+                    args.rever_boletins and _boletim_por_chegar(alvo, hoje))
                 if not falta_campo_novo and _resultado_conhecido(alvo) == (
                         jogo.golos_casa, jogo.golos_fora, "Jogo Terminado"):
                     saltadas += 1
@@ -762,6 +832,10 @@ def comando_publicar(args) -> int:
             # `/v1` que os telemóveis têm em cache. É a mesma escolha do `scorers/`.
             if vale_merito(prova.nome):
                 com_merito = [f for f in fichas_da_prova if f.get("merito")]
+                for f in com_merito:
+                    resumo = _resumo_do_merito(f)
+                    if resumo and f.get("id") in agenda_por_id:
+                        agenda_por_id[f["id"]]["merito"] = resumo
                 (destino / "merito" / f"{prova.id}.json").write_text(json.dumps({
                     "competicao_id": prova.id,
                     "nome": prova.nome,
@@ -920,6 +994,9 @@ def main(argv=None) -> int:
                    help=f"queda relativa aceitável numa contagem (default {TOLERANCIA})")
     b.add_argument("--sem-guarda", action="store_true",
                    help="publicar mesmo com contagens a cair — usar quando a queda é real")
+    b.add_argument("--rever-boletins", action="store_true",
+                   help="voltar a pedir os jogos terminados que guardámos sem boletim, até "
+                        f"{DIAS_DO_BOLETIM} dias depois do jogo — uma vez por dia, na ronda das 00:30")
     b.add_argument("--anonimizar-formacao", action="store_true",
                    help="omitir nomes de atletas, árbitros e equipa técnica abaixo de sub-17")
     b.set_defaults(func=comando_publicar)

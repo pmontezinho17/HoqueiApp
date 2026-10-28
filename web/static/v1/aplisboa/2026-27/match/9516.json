@@ -179,7 +179,7 @@
     },
     {
      "numero": null,
-     "nome": "JOSE BARROS",
+     "nome": "EDGAR MORAIS",
      "titular": false,
      "golos": null,
      "assistencias": null,
@@ -788,7 +788,50 @@
    "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RICARDO GOMES",
+   "Árbitro Auxiliar": "JOSE BARROS",
+   "Cronometrista": "FILIPE MARQUES",
+   "Diretor de campo": "JOAO POTRA",
+   "Gestor de segurança": "JOANA MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 0,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   2,
+   4
+  ],
+  "faltas_fora": [
+   3,
+   3
+  ],
+  "inicio": [
+   "16:15",
+   "16:55"
+  ],
+  "termo": [
+   "16:45",
+   "17:20"
+  ],
+  "capitao_casa": "ANA RODRIGUES",
+  "capitao_fora": "MANUEL ALVES"
+ },
  "competicao_id": 445,
  "categoria": "SUB-13",
  "jornada": "5ª JORNADA",

@@ -614,19 +614,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOSÉ SIMÕES",
-   "equipa": "SL BENFICA B",
-   "jogos": 3,
-   "numero": "7",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "RAFAEL CARAPINHA",
    "equipa": "CRIAR-T GD",
    "jogos": 3,
@@ -683,6 +670,19 @@
    "equipa": "SL BENFICA B",
    "jogos": 4,
    "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOSÉ SIMÕES",
+   "equipa": "SL BENFICA B",
+   "jogos": 4,
+   "numero": "7",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

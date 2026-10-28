@@ -759,7 +759,50 @@
    "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MATEUS LEHNERT",
+   "Árbitro Auxiliar": "JOSE LOPES",
+   "Cronometrista": "BRUNO AFONSO",
+   "Diretor de campo": "RUI ESPADA",
+   "Gestor de segurança": "JOANA MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 4,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 6,
+    "fora": 4
+   }
+  ],
+  "faltas_casa": [
+   1,
+   2
+  ],
+  "faltas_fora": [
+   2,
+   1
+  ],
+  "inicio": [
+   "16:15",
+   "16:53"
+  ],
+  "termo": [
+   "16:43",
+   "17:23"
+  ],
+  "capitao_casa": "SIMÃO RÉQUIO",
+  "capitao_fora": "LOURENÇO OLIVEIRA"
+ },
  "competicao_id": 450,
  "categoria": "SUB-15",
  "jornada": "5ª JORNADA",

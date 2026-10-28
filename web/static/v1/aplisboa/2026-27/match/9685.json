@@ -225,6 +225,20 @@
      "papel": null
     },
     {
+     "numero": "3",
+     "nome": "JOSÉ SIMÕES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
      "numero": "4",
      "nome": "VICENTE PERES",
      "titular": true,
@@ -970,7 +984,50 @@
    "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOAQUIM SEQUEIRA",
+   "Árbitro Auxiliar": "NUNO LOPES",
+   "Cronometrista": "DÉBORA OLIVEIRA",
+   "Diretor de campo": "BRUNO MARCELO",
+   "Gestor de segurança": "FERNANDO MARQUES"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 4
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 6
+   }
+  ],
+  "faltas_casa": [
+   3,
+   5
+  ],
+  "faltas_fora": [
+   7,
+   4
+  ],
+  "inicio": [
+   "18:00",
+   "18:42"
+  ],
+  "termo": [
+   "18:32",
+   "19:14"
+  ],
+  "capitao_casa": "FÁBIO DUARTE",
+  "capitao_fora": "PEDRO FONSECA"
+ },
  "competicao_id": 452,
  "categoria": "SUB-17",
  "jornada": "5ª JORNADA",

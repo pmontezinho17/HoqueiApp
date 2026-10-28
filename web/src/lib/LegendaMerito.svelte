@@ -20,7 +20,7 @@
 <details class="legenda">
 	<summary>Como estes pontos são calculados</summary>
 	<dl>
-		<dt>J</dt><dd>Jogos com boletim oficial publicado — não necessariamente todos os que a equipa jogou.</dd>
+		<dt>J</dt><dd>Jogos com o boletim oficial na app — não necessariamente todos os que a equipa jogou.</dd>
 		<dt>B</dt><dd>Bonificações: 1 por cada atleta que entrou em jogo, 3 a quem marcou mais golos (1 a cada uma no empate) e 1 pela equipa completa, com 2 guarda-redes e 8 jogadores de campo.</dd>
 		<dt>Pen</dt><dd>Penalizações: menos de 8 atletas, um só guarda-redes, e atletas a fazer três meias partes ou as quatro. O regulamento parte estes jogos em quatro meias partes e obriga a que cada atleta faça uma inteira de cada parte.</dd>
 		<dt>Méd</dt><dd>Pontos por jogo. As equipas não jogam todas o mesmo número de jogos, e a soma sozinha enganaria.</dd>
@@ -43,9 +43,9 @@
 	{#if semBoletim > 0}
 		<p>
 			{semBoletim}
-			{semBoletim === 1 ? 'jogo disputado não tem' : 'jogos disputados não têm'} boletim
-			publicado pela associação, e por isso {semBoletim === 1 ? 'não conta' : 'não contam'}
-			nesta tabela.
+			{semBoletim === 1 ? 'jogo disputado ainda não tem' : 'jogos disputados ainda não têm'} o
+			boletim oficial na app, e por isso {semBoletim === 1 ? 'não conta' : 'não contam'} nesta
+			tabela.
 		</p>
 	{/if}
 </details>

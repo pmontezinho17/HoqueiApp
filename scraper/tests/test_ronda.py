@@ -76,13 +76,13 @@ class FonteFalsa:
         return type("R", (), {"html": _ler("apl-ficha-seniores-terminado.html", "cp1252")})()
 
 
-def _args(destino: pathlib.Path) -> argparse.Namespace:
+def _args(destino: pathlib.Path, rever: bool = False) -> argparse.Namespace:
     """Os mesmos valores que o `dados.yml` passa, menos os emblemas (que iriam à rede)."""
     from hoquei.rondas import TOLERANCIA
     return argparse.Namespace(
         tenant="aplisboa", destino=str(destino), id_temp=5,
         emblemas=None, anonimizar_formacao=False,
-        rondas=None, tolerancia=TOLERANCIA, sem_guarda=True)
+        rondas=None, tolerancia=TOLERANCIA, sem_guarda=True, rever_boletins=rever)
 
 
 #: Quantas provas a ronda vê neste teste, de 37 que a amostra tem.
@@ -100,7 +100,8 @@ def correr(tmp_path, monkeypatch):
     """Corre a ronda numa pasta vazia e devolve `(fonte, destino)`."""
     competicoes_reais = cli.competicoes
 
-    def _correr(*, filtrar: bool, hoje: dt.date, destino: pathlib.Path | None = None):
+    def _correr(*, filtrar: bool, hoje: dt.date, destino: pathlib.Path | None = None,
+                rever: bool = False):
         destino = destino or tmp_path / "v1"
         fonte = FonteFalsa()
         monkeypatch.setattr(cli, "Fonte", lambda *a, **k: fonte)
@@ -113,7 +114,7 @@ def correr(tmp_path, monkeypatch):
             lambda: dt.datetime.combine(hoje, dt.time(14, 0), tzinfo=dt.timezone.utc))
         with open("/dev/null", "w") as mudo:
             monkeypatch.setattr(cli.sys, "stderr", mudo)
-            cli.comando_publicar(_args(destino))
+            cli.comando_publicar(_args(destino, rever))
         return fonte, destino
     return _correr
 
@@ -207,3 +208,97 @@ class TestComOInterruptorLigado:
         provas = len(json.loads((destino / "competitions.json").read_text())["competicoes"])
         assert fonte.por_tipo["clasificacion"] == provas
         assert json.loads((destino / "meta.json").read_text())["tabelas_saltadas"] == 0
+
+
+class TestOMeritoNaAgenda:
+    """O resumo do Mérito que as listas da app desenham — ver `_resumo_do_merito`."""
+
+    FICHA = {"id": 1, "casa": "A", "fora": "B", "merito": [
+        {"equipa": "A", "bonificacao": 9, "penalizacao": -8, "avisos": []},
+        {"equipa": "B", "bonificacao": 11, "penalizacao": 0, "avisos": []}]}
+
+    def test_cada_conta_fica_com_a_sua_equipa(self):
+        assert cli._resumo_do_merito(self.FICHA) == {"casa": [9, -8], "fora": [11, 0]}
+
+    def test_pelo_nome_e_nao_pela_ordem(self):
+        trocada = {**self.FICHA, "merito": self.FICHA["merito"][::-1]}
+        assert cli._resumo_do_merito(trocada) == {"casa": [9, -8], "fora": [11, 0]}
+
+    def test_uma_penalizacao_em_aberto_vai_marcada(self):
+        com_aviso = {**self.FICHA, "merito": [
+            {**self.FICHA["merito"][0], "avisos": ["4.1.7 por confirmar"]}, self.FICHA["merito"][1]]}
+        assert cli._resumo_do_merito(com_aviso)["por_confirmar"] is True
+
+    def test_sem_merito_nao_ha_resumo(self):
+        assert cli._resumo_do_merito({**self.FICHA, "merito": None}) is None
+
+
+class TestOBoletimQueChegaDepois:
+    """Um jogo guardado sem boletim volta a pedir-se na ronda das 00:30 — ver
+    `_boletim_por_chegar` no `cli.py`. O jogo 10067 esteve dez dias sem ele, e sem Mérito.
+
+    A `FonteFalsa` serve a mesma ficha a todos os jogos, por isso os jogos cujo resultado não
+    bate com o dela pedem-se em todas as rondas, como pediria a ronda verdadeira. O que se
+    mede é **a diferença**: os jogos que a ronda dava por actuais e que o interruptor manda
+    pedir outra vez.
+    """
+
+    def _sem_boletim(self, destino: pathlib.Path, data: dt.date | None = None) -> list[str]:
+        """Põe as fichas como a primeira ronda depois do apito as deixava, ou só as conta."""
+        nulos = []
+        for f in sorted((destino / "match").glob("*.json")):
+            d = json.loads(f.read_text())
+            if data is not None:
+                d["boletim"], d["data"] = None, data.isoformat()
+                f.write_text(json.dumps(d))
+            if d["boletim"] is None:
+                nulos.append(f.name)
+        return nulos
+
+    def _preparar(self, correr, destino, data):
+        correr(filtrar=True, hoje=QUARTA_SEM_JOGOS, destino=destino)
+        self._sem_boletim(destino, data)
+        base, _ = correr(filtrar=True, hoje=QUARTA_SEM_JOGOS, destino=destino)
+        # o que sobra sem boletim são os jogos que a ronda dá por actuais e não pede
+        actuais = self._sem_boletim(destino)
+        assert actuais, "nenhum jogo dado por actual — o teste não diria nada"
+        return base.por_tipo["ficha"], actuais
+
+    def test_sem_o_interruptor_ficam_como_estao(self, correr, tmp_path):
+        """As outras rondas do dia não pagam isto: só a das 00:30 passa o `--rever-boletins`."""
+        destino = tmp_path / "v1"
+        base, actuais = self._preparar(correr, destino, QUARTA_SEM_JOGOS - dt.timedelta(days=5))
+        fonte, _ = correr(filtrar=True, hoje=QUARTA_SEM_JOGOS, destino=destino)
+        assert fonte.por_tipo["ficha"] == base
+        assert self._sem_boletim(destino) == actuais
+
+    def test_na_ronda_das_00_30_pede_se_e_o_boletim_fica(self, correr, tmp_path):
+        destino = tmp_path / "v1"
+        base, actuais = self._preparar(correr, destino, QUARTA_SEM_JOGOS - dt.timedelta(days=5))
+        fonte, _ = correr(filtrar=True, hoje=QUARTA_SEM_JOGOS, destino=destino, rever=True)
+        assert fonte.por_tipo["ficha"] == base + len(actuais)
+        assert self._sem_boletim(destino) == []
+        # com o boletim lá, a ronda das 00:30 seguinte já não paga nada a mais
+        fonte, _ = correr(filtrar=True, hoje=QUARTA_SEM_JOGOS, destino=destino, rever=True)
+        assert fonte.por_tipo["ficha"] == base
+
+    def test_passado_o_prazo_desiste_se(self, correr, tmp_path):
+        """Um boletim que não chegou num mês não se pede para sempre — o 9965, de 27/09."""
+        destino = tmp_path / "v1"
+        base, actuais = self._preparar(
+            correr, destino, QUARTA_SEM_JOGOS - dt.timedelta(days=cli.DIAS_DO_BOLETIM + 1))
+        fonte, _ = correr(filtrar=True, hoje=QUARTA_SEM_JOGOS, destino=destino, rever=True)
+        assert fonte.por_tipo["ficha"] == base
+        assert self._sem_boletim(destino) == actuais
+
+    def test_um_jogo_de_hoje_tambem_conta(self, tmp_path):
+        """A ronda das 00:30 corre às 23:30 de Lisboa no Inverno: o jogo é ainda de hoje."""
+        f = tmp_path / "1.json"
+        f.write_text(json.dumps({"estado": "Jogo Terminado", "boletim": None,
+                                 "data": QUARTA_SEM_JOGOS.isoformat()}))
+        assert cli._boletim_por_chegar(f, QUARTA_SEM_JOGOS)
+        f.write_text(json.dumps({"estado": "Jogo Terminado", "boletim": None, "data": "2026-10-08"}))
+        assert not cli._boletim_por_chegar(f, QUARTA_SEM_JOGOS), "um jogo de amanhã não"
+        f.write_text(json.dumps({"estado": "Em Jogo", "boletim": None,
+                                 "data": QUARTA_SEM_JOGOS.isoformat()}))
+        assert not cli._boletim_por_chegar(f, QUARTA_SEM_JOGOS), "nem um jogo a decorrer"
