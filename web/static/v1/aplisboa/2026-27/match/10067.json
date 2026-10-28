@@ -716,8 +716,108 @@
    "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
- "merito": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "RICARDO GOMES",
+   "Árbitro Auxiliar": "ALVARO MATOS",
+   "Cronometrista": "JORGE GOMES",
+   "Diretor de campo": "LUIS SEGADÃES",
+   "Gestor de segurança": "ARMANDO FONSECA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 6
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 4,
+    "fora": 8
+   }
+  ],
+  "faltas_casa": [
+   2,
+   1
+  ],
+  "faltas_fora": [
+   0,
+   2
+  ],
+  "inicio": [
+   "16:15",
+   "16:50"
+  ],
+  "termo": [
+   "16:45",
+   "17:16"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
+ "merito": [
+  {
+   "equipa": "APAC TOJAL",
+   "atletas": 10,
+   "guardas_redes": 2,
+   "participantes": 10,
+   "completa": true,
+   "bonificacao": 11,
+   "penalizacao": 0,
+   "total": 11,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "10 atletas participantes",
+     "pontos": 10
+    },
+    {
+     "regra": "3.4",
+     "texto": "equipa completa (2 GR e 8 JC)",
+     "pontos": 1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "SPORTING CP",
+   "atletas": 6,
+   "guardas_redes": 2,
+   "participantes": 6,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -17,
+   "total": -8,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "6 atletas participantes",
+     "pontos": 6
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "4.1.1",
+     "texto": "apresentou 6 atletas",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.6",
+     "texto": "4 fizeram as quatro meias partes",
+     "pontos": -16
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 467,
  "categoria": "BENJAMINS",
  "jornada": "3ª JORNADA",

@@ -727,7 +727,50 @@
    "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARCO LOPES",
+   "Árbitro Auxiliar": "JOSE BARROS",
+   "Cronometrista": "ARTUR ROLDAO",
+   "Diretor de campo": "RUI QUADRADO",
+   "Gestor de segurança": "RITA VENTURA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   4,
+   1
+  ],
+  "faltas_fora": [
+   3,
+   2
+  ],
+  "inicio": [
+   "16:15",
+   "16:47"
+  ],
+  "termo": [
+   "16:37",
+   "17:12"
+  ],
+  "capitao_casa": "GUSTAVO FAVINHA",
+  "capitao_fora": "ANA RODRIGUES"
+ },
  "competicao_id": 445,
  "categoria": "SUB-13",
  "jornada": "4ª JORNADA",

@@ -683,7 +683,50 @@
    "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
+   "Árbitro Auxiliar": "LUIS SEGADAES",
+   "Cronometrista": "CARLOS PINOTE",
+   "Diretor de campo": "RICARDO ROCHA",
+   "Gestor de segurança": "DAVID PINTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 1,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   2,
+   1
+  ],
+  "inicio": [
+   "20:15",
+   "20:54"
+  ],
+  "termo": [
+   "20:44",
+   "21:22"
+  ],
+  "capitao_casa": "NUNO ESTANISLAU",
+  "capitao_fora": "ANTÓNIO PEREIRA"
+ },
  "competicao_id": 453,
  "categoria": "SUB-17",
  "jornada": "3ª JORNADA",
