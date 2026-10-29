@@ -13,12 +13,10 @@
 	import type { MeritoDaEquipa } from '$lib/tipos';
 
 	let {
-		casa, fora, golosCasa, golosFora, emblemas
+		casa, fora, emblemas
 	}: {
 		casa: MeritoDaEquipa;
 		fora: MeritoDaEquipa;
-		golosCasa: number | null;
-		golosFora: number | null;
 		emblemas: Record<string, string>;
 	} = $props();
 
@@ -34,15 +32,13 @@
 
 <section>
 	<h3>Mérito deste jogo</h3>
-	<!-- O placar do Mérito primeiro, e o resultado do jogo pequeno por baixo: aqui o que é novo é
-	     o Mérito, e o resultado só conta para os +3 de quem marca mais. -->
+	<!-- Só o placar do Mérito. Tinha por baixo "resultado do jogo 3–5 · só conta para os +3 de
+	     quem marca mais"; o dono tirou-o a 29/10/2026 porque a tabela já o diz, na linha "Marcou
+	     mais golos", e o resultado do jogo está no topo do ecrã. -->
 	<div class="placar">
 		<span class="eq">{casa.equipa}</span>
 		<span class="pts">{numero(casa.total)} – {numero(fora.total)}</span>
 		<span class="eq dir">{fora.equipa}</span>
-		{#if golosCasa !== null && golosFora !== null}
-			<span class="sub">resultado do jogo {golosCasa}–{golosFora} · só conta para os +3 de quem marca mais</span>
-		{/if}
 	</div>
 
 	<table>
@@ -99,8 +95,6 @@
 	.placar .dir { text-align: right; }
 	.placar .pts { font-size: var(--t-placar); font-weight: 700; white-space: nowrap;
 		font-variant-numeric: tabular-nums; }
-	.placar .sub { grid-column: 1 / -1; text-align: center; font-size: var(--t-micro);
-		color: var(--heroi-suave); }
 
 	table { width: 100%; border-collapse: collapse; font-size: 0.78rem;
 		font-variant-numeric: tabular-nums; }

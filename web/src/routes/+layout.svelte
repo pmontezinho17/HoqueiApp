@@ -256,6 +256,9 @@
 		   pessoa escolhe, e com um acento vermelho as bonificações apareciam a vermelho. Estes
 		   dois só querem dizer "pontos ganhos" e "pontos perdidos", e só no Mérito. */
 		--ganha: #0a7d54; --perde: #b42318;
+		/* as mesmas duas coisas nas barras das listas, mais claras: uma barra por jogo numa lista
+		   de vinte é muita tinta, e o dono achou-as fortes de mais a 29/10/2026 */
+		--ganha-barra: #8ccfae; --perde-barra: #f0a59b;
 		/* O herói do ecrã de jogo.
 		 * Era quase preto, e os emblemas de contorno escuro — que são muitos: Lourinhã,
 		 * Stuart, Sintra — desapareciam lá dentro. Passa a seguir o tema: claro no claro,
@@ -286,6 +289,7 @@
 			--directo: #f87171;
 			--estrela: #fbbf24;
 			--ganha: #34d399; --perde: #f97066;
+			--ganha-barra: #2f7d61; --perde-barra: #9a4b44;
 			--heroi: #1b2027; --heroi-texto: #eef1f4; --heroi-suave: #949ca6;
 			--heroi-borda: #2a313a;
 		}
@@ -300,6 +304,7 @@
 			--directo: #f87171;
 			--estrela: #fbbf24;
 			--ganha: #34d399; --perde: #f97066;
+			--ganha-barra: #2f7d61; --perde-barra: #9a4b44;
 			--heroi: #1b2027; --heroi-texto: #eef1f4; --heroi-suave: #949ca6;
 			--heroi-borda: #2a313a;
 	}
