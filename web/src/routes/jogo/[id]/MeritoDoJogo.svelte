@@ -28,6 +28,9 @@
 	);
 	const ponto = (n: number | null) => (n === null ? '·' : n > 0 ? `+${n}` : `${n}`.replace('-', '−'));
 	const numero = (n: number) => `${n}`.replace('-', '−');
+	// o que o placar tem de caber numa linha — ver o `.placar .eq`
+	const letras = $derived(Math.max(casa.equipa.length, fora.equipa.length));
+	const algarismos = $derived(numero(casa.total).length + numero(fora.total).length);
 </script>
 
 <section>
@@ -35,21 +38,22 @@
 	<!-- Só o placar do Mérito. Tinha por baixo "resultado do jogo 3–5 · só conta para os +3 de
 	     quem marca mais"; o dono tirou-o a 29/10/2026 porque a tabela já o diz, na linha "Marcou
 	     mais golos", e o resultado do jogo está no topo do ecrã. -->
-	<!-- **Os números em cima e cada nome por baixo do seu**, como no topo do ecrã de jogo. Com
-	     os nomes ao lado dos números, a 375 px o UD VILAFRANQUENSE A partia-se a meio da palavra
-	     ("VILAFRANQUENS / E A") — visto a 29/10/2026, com 7 px de folga mesmo apertando tudo, o
-	     que num telemóvel de 360 px voltava a partir. Por baixo, cada nome tem meia largura:
-	     das 29 equipas dos Encontros, a palavra mais comprida mede 111 px e a coluna 145 a 360. -->
-	<div class="placar" role="group" aria-label="{casa.equipa} {numero(casa.total)}, {fora.equipa} {numero(fora.total)}">
+	<!-- **Tudo numa linha, e a letra dos nomes só diminui quando o nome é comprido**, por
+	     decisão do dono a 29/10/2026. Com 12 px o UD VILAFRANQUENSE A partia-se a meio da
+	     palavra ("VILAFRANQUENS / E A"); passar os nomes para baixo dos números resolvia, mas o
+	     dono preferiu a linha única. Um tamanho fixo pequeno o bastante para o nome mais comprido
+	     dos Encontros caber a 360 px dava 9 px a **todos** os jogos, por isso o tamanho é
+	     calculado por jogo, a partir do nome mais comprido dos dois e da largura do ecrã. -->
+	<div class="placar" style:--letras={letras} style:--algarismos={algarismos} role="group" aria-label="{casa.equipa} {numero(casa.total)}, {fora.equipa} {numero(fora.total)}">
+		<span class="eq casa">{casa.equipa}</span>
 		<!-- **Uma linha fina entre os dois números, e não um traço.** Com um total negativo o
 		     "14 – −1" lia-se "14 − −1": o traço do placar e o sinal de menos são quase o mesmo
 		     desenho. O dono apanhou-o a 29/10/2026 no AD Oeiras A–S Alenquer Benfica. A linha é
 		     desenhada e não um "|", que em cada tipo de letra tem outra altura, e um negativo
 		     vai a vermelho, como na linha das listas. -->
-		<b class="pts casa" class:neg={casa.total < 0}>{numero(casa.total)}</b>
+		<b class="pts" class:neg={casa.total < 0}>{numero(casa.total)}</b>
 		<i class="divisor" aria-hidden="true"></i>
-		<b class="pts fora" class:neg={fora.total < 0}>{numero(fora.total)}</b>
-		<span class="eq casa">{casa.equipa}</span>
+		<b class="pts" class:neg={fora.total < 0}>{numero(fora.total)}</b>
 		<span class="eq fora">{fora.equipa}</span>
 	</div>
 
@@ -104,21 +108,24 @@
 	h3 { font-size: 0.68rem; margin: 0 0 0.4rem; color: var(--suave);
 		letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; }
 
-	.placar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-		column-gap: var(--e-4); row-gap: var(--e-1); background: var(--heroi);
-		color: var(--heroi-texto); border-radius: var(--raio); padding: var(--e-4) var(--e-3);
-		margin-bottom: var(--e-4); }
-	.placar .pts { grid-row: 1; font-size: var(--t-placar); font-weight: 700; line-height: 1.1;
+	.placar { display: grid; grid-template-columns: 1fr auto auto auto 1fr; align-items: center;
+		column-gap: var(--e-2); background: var(--heroi); color: var(--heroi-texto);
+		border-radius: var(--raio); padding: var(--e-4) var(--e-3); margin-bottom: var(--e-4); }
+	.placar .pts { font-size: var(--t-placar); font-weight: 700; line-height: 1.1;
 		font-variant-numeric: tabular-nums; white-space: nowrap; }
-	.placar .pts.casa { grid-column: 1; justify-self: end; }
-	.placar .pts.fora { grid-column: 3; justify-self: start; }
 	.placar .neg { color: var(--perde); }
-	.placar .divisor { grid-row: 1; grid-column: 2; width: 2px; height: 1.6rem; border-radius: 1px;
-		background: var(--heroi-borda); }
-	.placar .eq { grid-row: 2; font-size: var(--t-pequeno); font-weight: 600; line-height: 1.25;
-		min-width: 0; overflow-wrap: break-word; }
-	.placar .eq.casa { grid-column: 1; text-align: right; }
-	.placar .eq.fora { grid-column: 3; text-align: left; }
+	.placar .divisor { width: 2px; height: 1.6rem; border-radius: 1px; background: var(--heroi-borda); }
+	/* A largura que sobra a cada nome, dividida pela largura de uma letra. Medido a 29/10/2026,
+	   no browser e não num canvas: o system-ui da Apple alarga as letras nos tamanhos pequenos,
+	   e o canvas a 100 px dava 0,60 por letra quando a 10 px eram 0,66. Dos 29 nomes dos
+	   Encontros, a média mais larga é 0,67 do tamanho (CACO A, a 8 px); cada algarismo ou sinal
+	   do placar a 28 px ocupa 18,5 px. O 0,7 e os 19 px são isso com folga. Os 26 px são o
+	   divisor e as quatro distâncias. Verificado com os 82 jogos publicados a 360 e a 375 px. */
+	.placar { container-type: inline-size; }
+	.placar .eq { font-weight: 600; line-height: 1.25; min-width: 0; white-space: nowrap;
+		font-size: min(var(--t-pequeno),
+			calc((100cqi - var(--algarismos) * 19px - 26px) / (2 * var(--letras) * 0.7))); }
+	.placar .eq.fora { text-align: right; }
 
 	table { width: 100%; border-collapse: collapse; font-size: 0.78rem;
 		font-variant-numeric: tabular-nums; }
