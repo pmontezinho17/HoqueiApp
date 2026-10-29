@@ -478,8 +478,7 @@
 					omitidos={f.individuais_omitidos ?? false} />
 			{:else if aba === 'merito'}
 				{#if contas}
-					<MeritoDoJogo casa={contas.casa} fora={contas.fora} golosCasa={f.golos_casa}
-						golosFora={f.golos_fora} emblemas={data.emblemas} />
+					<MeritoDoJogo casa={contas.casa} fora={contas.fora} emblemas={data.emblemas} />
 				{/if}
 			{:else if aba === 'tabela'}
 				<!-- Nos Escolares e nos Benjamins a classificação **é** o Mérito do Artigo 92.º,

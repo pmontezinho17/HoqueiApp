@@ -262,9 +262,8 @@
 	.conta b.abaixo { color: var(--perde); }
 	.barra { flex: 1; display: flex; height: 6px; border-radius: 3px; overflow: hidden;
 		background: var(--borda-fraca); }
-	.barra .ficou { background: var(--ganha); }
-	.barra .perdeu { background: var(--perde); opacity: 0.7; }
-	.barra.abaixo .perdeu { opacity: 1; }
+	.barra .ficou { background: var(--ganha-barra); }
+	.barra .perdeu { background: var(--perde-barra); }
 	.duvida { grid-column: -2 / -1; justify-self: end; font-style: normal; font-weight: 700;
 		font-size: var(--t-pequeno); color: var(--aviso); }
 </style>

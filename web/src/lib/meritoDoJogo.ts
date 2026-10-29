@@ -126,13 +126,6 @@ export function linhasDoMerito(casa: MeritoDaEquipa, fora: MeritoDaEquipa): Linh
 	return [...linhas.filter((l) => l.grupo === 'ganha'), ...linhas.filter((l) => l.grupo === 'perde')];
 }
 
-/**
- * **A escala das barras é fixa, e é o máximo que uma equipa pode ganhar num jogo:** 10 atletas
- * em jogo, mais 3 por marcar mais golos, mais 1 pela equipa completa. Com uma escala por jogo,
- * um 6 e um 14 desenhavam barras do mesmo tamanho em linhas diferentes da mesma lista.
- */
-export const ESCALA_DA_BARRA = 14;
-
 export interface Barra {
 	total: number;
 	/** fracções da barra, de 0 a 1 */
@@ -143,19 +136,27 @@ export interface Barra {
 }
 
 /**
- * Uma barra por equipa: o verde é o que **ficou**, o vermelho o que as penalizações levaram.
- * O comprimento das duas juntas é o que a equipa ganhou, por isso o verde mede o total — e
- * quando as penalizações passam as bonificações (o Sporting CP no 10061: 6 − 17 = −11) a barra
- * fica toda vermelha e é o número que diz quanto abaixo de zero.
+ * **Uma barra por equipa, e a barra é uma percentagem do que ela ganhou.** O verde é a parte
+ * das bonificações que **ficou**, o vermelho a que as penalizações levaram, e os dois enchem a
+ * barra toda. O total, ao lado, é o número.
+ *
+ * Até 29/10/2026 a barra media pontos numa escala fixa de 14 (o máximo de um jogo), e o resto
+ * da barra ficava cinzento. O dono viu-o no telemóvel e perguntou para que era o cinzento: *"no
+ * meu ponto de vista a barra seria como uma percentagem"*. Tinha razão — o cinzento não dizia
+ * nada a quem lê, e uma equipa com 7 de 9 parecia "meio vazia" sem ter perdido metade.
+ *
+ * Quando as penalizações passam as bonificações (o Sporting CP no 10061: 6 − 17 = −11) a barra
+ * fica toda vermelha, e é o número que diz quanto abaixo de zero.
  */
 export function barraDoMerito([bonificacao, penalizacao]: [number, number]): Barra {
-	const escala = Math.max(ESCALA_DA_BARRA, bonificacao);
 	const total = bonificacao + penalizacao;
 	const ficou = Math.max(total, 0);
+	// sem bonificação nenhuma não há percentagem a desenhar; com uma penalização, é tudo perda
+	if (bonificacao <= 0) return { total, ficou: 0, perdeu: penalizacao < 0 ? 1 : 0, abaixoDeZero: total < 0 };
 	return {
 		total,
-		ficou: ficou / escala,
-		perdeu: (bonificacao - ficou) / escala,
+		ficou: ficou / bonificacao,
+		perdeu: (bonificacao - ficou) / bonificacao,
 		abaixoDeZero: total < 0
 	};
 }

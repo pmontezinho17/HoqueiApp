@@ -81,22 +81,33 @@ describe('uma regra que o catálogo não conhece', () => {
 });
 
 describe('a barra de cada equipa', () => {
-	it('o verde é o que ficou, o vermelho o que as penalizações levaram', () => {
+	it('é uma percentagem do que a equipa ganhou: verde o que ficou, vermelho o que perdeu', () => {
 		const b = barraDoMerito([9, -8]);
 		expect(b.total).toBe(1);
-		expect(b.ficou).toBeCloseTo(1 / 14);
-		expect(b.perdeu).toBeCloseTo(8 / 14);
+		expect(b.ficou).toBeCloseTo(1 / 9);
+		expect(b.perdeu).toBeCloseTo(8 / 9);
 	});
 
-	it('a escala é fixa: um 6 e um 14 não desenham barras iguais', () => {
-		expect(barraDoMerito([6, 0]).ficou).toBeCloseTo(6 / 14);
-		expect(barraDoMerito([14, 0]).ficou).toBe(1);
+	it('sem cinzento: as duas partes enchem sempre a barra toda', () => {
+		for (const conta of [[6, 0], [14, 0], [9, -2], [6, -17], [11, -1]] as [number, number][]) {
+			const b = barraDoMerito(conta);
+			expect(b.ficou + b.perdeu, conta.join(' ')).toBeCloseTo(1);
+		}
+		expect(barraDoMerito([6, 0]).ficou).toBe(1);
 	});
 
 	it('abaixo de zero a barra fica toda vermelha — o Sporting CP no 10061, 6 − 17', () => {
-		const b = barraDoMerito([6, -17]);
-		expect(b).toMatchObject({ total: -11, ficou: 0, abaixoDeZero: true });
-		expect(b.perdeu).toBeCloseTo(6 / 14);
+		expect(barraDoMerito([6, -17])).toMatchObject({ total: -11, ficou: 0, perdeu: 1, abaixoDeZero: true });
+	});
+
+	it('e nos jogos publicados também enche sempre', () => {
+		for (const f of comMerito) {
+			const { casa, fora } = contasDoJogo(f.merito, f.casa, f.fora)!;
+			for (const m of [casa, fora]) {
+				const b = barraDoMerito([m.bonificacao, m.penalizacao]);
+				expect(b.ficou + b.perdeu, `jogo ${f.id}`).toBeCloseTo(1);
+			}
+		}
 	});
 
 	it('quem lê por voz ouve a conta, e o por confirmar', () => {
