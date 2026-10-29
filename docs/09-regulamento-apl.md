@@ -126,6 +126,18 @@ Duas leituras literais que o `merito.py` toma e que valem a pena saber:
 2. **Quem faz as quatro fica fora do 4.1.3/4.1.5**: tem regra própria, mais pesada, no 4.1.6.
    Somar as duas castigava duas vezes a mesma falha.
 
+**Uma meia parte com mais de cinco marcas lê-se como está.** Decisão do dono a 29/10/2026,
+depois de o ter discutido com quem conhece o regulamento. Um pai contestou um -3 à AE Física
+(Escolares, jogo 9913): a 4.ª meia parte tinha seis marcas, as dos dois guarda-redes. Propus
+deixar o caso "por confirmar", porque o boletim não diz qual dos dois saiu (PR #116). A resposta
+foi outra, e é a que vale: *"a APL faz as contas baseando-se nas fichas de jogo, como a app"* —
+se a ficha está mal preenchida, **é o clube que pede a correcção à APL**, e a app não decide o
+que a ficha não diz. O #116 foi fechado.
+
+O que ficou foi a outra metade da pergunta: se a ficha for corrigida, a app acompanha? Desde
+29/10/2026 relê cada ficha com Mérito uma vez, uma semana depois do jogo — ver
+`_merito_por_rever` no `cli.py`.
+
 ## Artigo 93.º ponto 4.1 — porque é que a nossa tabela nunca é oficial
 
 A pontuação que conta é preenchida pelos delegados das equipas na Folha de Controlo de Jogo,

@@ -210,6 +210,46 @@ def _boletim_por_chegar(caminho: pathlib.Path, hoje: date) -> bool:
     return timedelta(0) <= hoje - dia <= timedelta(days=DIAS_DO_BOLETIM)
 
 
+#: Quantos dias depois do jogo se relê a ficha para apanhar uma correcção ao boletim.
+DIAS_ATE_REVER_O_MERITO = 7
+
+
+def _merito_por_rever(caminho: pathlib.Path, hoje: date) -> bool:
+    """Um jogo com Mérito que já leva uma semana e ainda não foi relido.
+
+    **Uma ficha corrigida pela APL não chegava à app.** A ficha de um jogo terminado só se
+    volta a pedir se o resultado mudar, e uma correcção às marcas das meias partes não muda o
+    resultado. Decisão do dono a 29/10/2026, depois de ouvir quem conhece o regulamento sobre o
+    -3 da AE Física (jogo 9913): *"a APL faz as contas baseando-se nas fichas de jogo, como a
+    app [...] se a pontuação não está correcta, o clube terá que pedir uma correcção à ficha"*.
+    E a pergunta seguinte foi a desta função: se a ficha for corrigida, a app acompanha?
+
+    Relê-se **uma vez**, sete dias depois do jogo, na ronda das 00:30 (`--rever-merito`). O
+    custo, contado na agenda a 29/10/2026: 11 a 23 jogos de Mérito por semana, 18 em média, logo
+    ~18 pedidos por semana. Na primeira ronda depois de isto entrar, os jogos já com mais de uma
+    semana relêem-se todos de uma vez — 64 dos 82 com Mérito a 29/10/2026, uma só vez, e é também
+    a primeira medição: diz logo se alguma ficha antiga foi corrigida.
+
+    **Não se sabe se vale a pena, e é por isso que se conta.** A ronda escreve no `meta.json`
+    quantas fichas releu e em quantas o Mérito mudou. Se ao fim de um mês forem zero, isto
+    desliga-se: ninguém corrige fichas uma semana depois, e 18 pedidos por semana para nada são
+    18 pedidos a mais no servidor de uma associação.
+
+    O sinal de "já relida" é o campo `merito_revisto`, com a data da releitura.
+    """
+    try:
+        dados = json.loads(caminho.read_text())
+    except (OSError, ValueError):
+        return False
+    if not dados.get("merito") or dados.get("merito_revisto"):
+        return False
+    try:
+        dia = date.fromisoformat(dados.get("data") or "")
+    except ValueError:
+        return False
+    return hoje - dia >= timedelta(days=DIAS_ATE_REVER_O_MERITO)
+
+
 def _temporada_em_disco(destino: pathlib.Path) -> int | None:
     """O id da época lido do `competitions.json` que já publicámos. `None` se não der.
 
@@ -669,6 +709,8 @@ def comando_publicar(args) -> int:
     with Fonte(args.tenant) as fonte:
         id_temp = args.id_temp or _temporada_corrente(fonte)
         provas, total, buscadas, saltadas, restritas = [], 0, 0, 0, 0
+        #: as releituras do Mérito desta ronda, e em quantas ele mudou — ver `_merito_por_rever`
+        merito_relido, merito_mudou = 0, 0
         #: id da prova → a razão por que não se pediu a tabela dela. Vai no `meta.json`:
         #: sem isto o gráfico da consola mostrava menos pedidos sem ninguém saber se foi
         #: poupança ou avaria, que é o defeito do B9.31 outra vez.
@@ -789,9 +831,11 @@ def comando_publicar(args) -> int:
                 # não se aplica aos outros escalões.
                 #
                 # E um boletim que faltava pode ter chegado entretanto — ver `_boletim_por_chegar`.
+                reler_merito = (args.rever_merito and vale_merito(prova.nome)
+                                and _merito_por_rever(alvo, hoje))
                 falta_campo_novo = _sem_chave(alvo, "boletim") or (
                     vale_merito(prova.nome) and _sem_chave(alvo, "merito")) or (
-                    args.rever_boletins and _boletim_por_chegar(alvo, hoje))
+                    args.rever_boletins and _boletim_por_chegar(alvo, hoje)) or reler_merito
                 if not falta_campo_novo and _resultado_conhecido(alvo) == (
                         jogo.golos_casa, jogo.golos_fora, "Jogo Terminado"):
                     saltadas += 1
@@ -810,6 +854,18 @@ def comando_publicar(args) -> int:
                 dados = para_dicionario(ficha(pagina, jogo.id))
                 if vale_merito(prova.nome):
                     dados["merito"] = _merito_da_ficha(pagina, dados)
+                    antigo = json.loads(alvo.read_text()) if alvo.exists() else {}
+                    if reler_merito:
+                        merito_relido += 1
+                        if antigo.get("merito") != dados["merito"]:
+                            merito_mudou += 1
+                            print(f"Mérito do jogo {jogo.id} mudou na releitura de uma semana depois",
+                                  file=sys.stderr)
+                        dados["merito_revisto"] = hoje.isoformat()
+                    elif antigo.get("merito_revisto"):
+                        # uma ficha relida por outra razão (um resultado corrigido) não volta
+                        # a contar como por reler
+                        dados["merito_revisto"] = antigo["merito_revisto"]
                 # contexto para as migalhas no detalhe de jogo (W7.3): a ficha da fonte
                 # não sabe em que jornada nem em que série o jogo está
                 dados["competicao_id"] = prova.id
@@ -930,6 +986,10 @@ def comando_publicar(args) -> int:
         "pedidos_falhados": fonte.falhados,
         "pedidos_por_tipo": dict(sorted(fonte.por_tipo.items())),
         "pedidos_dia": acumular_pedidos(meta_anterior, fonte, _agora().date().isoformat()),
+        # a medição que decide se a releitura de uma semana fica — ver `_merito_por_rever`;
+        # o `meta.json` vai para o git a cada ronda, por isso o histórico conta-se depois
+        "merito_relido": merito_relido,
+        "merito_mudou": merito_mudou,
     }, ensure_ascii=False, indent=1))
 
     # B9.2 + B9.6 — a guarda contra uma perda silenciosa. Corre **depois** de escrever:
@@ -997,6 +1057,9 @@ def main(argv=None) -> int:
     b.add_argument("--rever-boletins", action="store_true",
                    help="voltar a pedir os jogos terminados que guardámos sem boletim, até "
                         f"{DIAS_DO_BOLETIM} dias depois do jogo — uma vez por dia, na ronda das 00:30")
+    b.add_argument("--rever-merito", action="store_true",
+                   help=f"reler uma vez as fichas com Mérito {DIAS_ATE_REVER_O_MERITO} dias depois do "
+                        "jogo, para apanhar uma correcção da APL — na ronda das 00:30")
     b.add_argument("--anonimizar-formacao", action="store_true",
                    help="omitir nomes de atletas, árbitros e equipa técnica abaixo de sub-17")
     b.set_defaults(func=comando_publicar)
