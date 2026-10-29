@@ -18,6 +18,10 @@ e não publica a conta. Nós fazemos a conta, com dois avisos que não se escond
    marcamo-lo como **a confirmar**, em vez de penalizar uma equipa que levou um miúdo ao
    hospital.
 
+Há um terceiro caso por confirmar, que não vive aqui por depender da letra que a mesa escreveu
+e não só de haver marca: uma grelha com um `J` em vez do `X` — ver `_aviso_das_letras` no
+`cli.py` e o `docs/09-regulamento-apl.md`.
+
 ### A conta, artigo a artigo
 
 Bonificações (92.3), por jogo e por equipa:

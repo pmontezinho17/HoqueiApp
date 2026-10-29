@@ -297,14 +297,41 @@ def _merito_da_ficha(html: str, dados: dict) -> list[dict] | None:
         fora_do_x = {k: v for k, v in sorted(letras.items()) if k != "X"}
         if fora_do_x:
             conta["marcas_fora_do_x"] = fora_do_x
+            conta["avisos"] = [*conta.get("avisos", []), _aviso_das_letras(fora_do_x)]
     return contas
 
 
+def _aviso_das_letras(fora_do_x: dict[str, int]) -> str:
+    """O aviso de uma equipa com marcas que não são o `X`, que deixa a conta **por confirmar**.
+
+    Pedido do dono a 29/10/2026, enquanto espera que quem conhece o regulamento lhe diga o que
+    o `J` quer dizer. Medido no mesmo dia, nas 82 fichas com Mérito: 13 `J` em 5 equipas de 4
+    jogos, sempre como sexta marca ou mais numa meia parte que já tinha os cinco `X`, e 22 dos
+    32 pontos perdidos dessas equipas vêm deles. A conta continua a contar o `J` como meia
+    parte jogada — é o que a ficha diz —, mas deixa de o mostrar como certo.
+    """
+    partes = " e ".join(
+        f"{n} meia parte marcada com {letra}" if n == 1 else f"{n} meias partes marcadas com {letra}"
+        for letra, n in fora_do_x.items())
+    return (f"o boletim tem {partes}, e não com o X habitual. Contámo-las como jogadas, mas a "
+            "letra pode ter várias causas, entre elas um erro no preenchimento que obrigue a "
+            "corrigir o boletim, e não é claro como se cruza com o regulamento. Os pontos "
+            "perdidos podem mudar.")
+
+
 def _sem_marcas(merito: list[dict] | None) -> list[dict] | None:
-    """O Mérito sem a contagem das letras, para a releitura comparar só a conta."""
+    """O Mérito sem a contagem das letras nem o aviso dela, para a releitura comparar só a
+    conta: sem isto, a primeira releitura de cada jogo com um `J` contava como ficha corrigida."""
     if merito is None:
         return None
-    return [{k: v for k, v in m.items() if k != "marcas_fora_do_x"} for m in merito]
+    saida = []
+    for m in merito:
+        limpo = {k: v for k, v in m.items() if k != "marcas_fora_do_x"}
+        if m.get("marcas_fora_do_x") and "avisos" in limpo:
+            limpo["avisos"] = [a for a in limpo["avisos"]
+                               if a != _aviso_das_letras(m["marcas_fora_do_x"])]
+        saida.append(limpo)
+    return saida
 
 
 def _resumo_do_merito(ficha: dict) -> dict | None:

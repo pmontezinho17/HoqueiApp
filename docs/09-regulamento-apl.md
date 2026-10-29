@@ -138,6 +138,15 @@ O que ficou foi a outra metade da pergunta: se a ficha for corrigida, a app acom
 29/10/2026 relê cada ficha com Mérito uma vez, uma semana depois do jogo — ver
 `_merito_por_rever` no `cli.py`.
 
+**Mas uma marca que não é o X deixa a conta da equipa por confirmar.** Lida a grelha das 82
+fichas com Mérito a 29/10/2026, a sexta marca do 9913 era um `J`, e não era a única: 13 `J` em
+5 equipas de 4 jogos (9988, 9989, 9913, 9895), sempre como marca a mais numa meia parte que já
+tinha os cinco `X`. Pesam muito: refeita a conta sem eles, 22 dos 32 pontos perdidos dessas
+equipas desaparecem (o CD Paço Arcos A passava de −12 a −1). Enquanto o dono espera que lhe
+digam o que o `J` quer dizer, a conta continua a contá-lo como meia parte jogada — é o que a
+ficha diz —, mas leva um aviso e fica **por confirmar**, como o 4.1.7. Ver `_aviso_das_letras`
+no `cli.py`.
+
 ## Artigo 93.º ponto 4.1 — porque é que a nossa tabela nunca é oficial
 
 A pontuação que conta é preenchida pelos delegados das equipas na Folha de Controlo de Jogo,
