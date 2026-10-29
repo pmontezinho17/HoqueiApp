@@ -18,7 +18,7 @@ from .fonte import UA, Fonte
 from .merito import escalonar, merito_do_jogo, vale_merito
 from .modelos import em_curso, para_dicionario
 from .parsers.calendario import calendario
-from .parsers.participacao import nao_atletas, participacao
+from .parsers.participacao import marcas_da_grelha, nao_atletas, participacao
 from .parsers.classificacao import classificacao
 from .tabela import calcular, calcular_de_json, vale_calcular
 from .parsers.competicoes import competicoes, temporadas
@@ -288,9 +288,23 @@ def _merito_da_ficha(html: str, dados: dict) -> list[dict] | None:
     # boletim. `None` aqui não é motivo para desistir do mérito: só quer dizer que não há
     # banco para ler, e o `merito_do_jogo` faz a conta sem o 4.2
     banco = nao_atletas(html)
-    return [para_dicionario(m) for m in merito_do_jogo(
+    contas = [para_dicionario(m) for m in merito_do_jogo(
         dados.get("casa"), dados.get("fora"), lido,
         dados.get("golos_casa"), dados.get("golos_fora"), banco)]
+    # as letras que não são o `X` normal, por equipa e sem dizer de quem — ver
+    # `marcas_da_grelha`. Só quando as há: um jogo normal fica exactamente como era.
+    for conta, letras in zip(contas, marcas_da_grelha(html) or ()):
+        fora_do_x = {k: v for k, v in sorted(letras.items()) if k != "X"}
+        if fora_do_x:
+            conta["marcas_fora_do_x"] = fora_do_x
+    return contas
+
+
+def _sem_marcas(merito: list[dict] | None) -> list[dict] | None:
+    """O Mérito sem a contagem das letras, para a releitura comparar só a conta."""
+    if merito is None:
+        return None
+    return [{k: v for k, v in m.items() if k != "marcas_fora_do_x"} for m in merito]
 
 
 def _resumo_do_merito(ficha: dict) -> dict | None:
@@ -857,7 +871,9 @@ def comando_publicar(args) -> int:
                     antigo = json.loads(alvo.read_text()) if alvo.exists() else {}
                     if reler_merito:
                         merito_relido += 1
-                        if antigo.get("merito") != dados["merito"]:
+                        # sem a contagem das letras, que as fichas antigas não tinham: senão
+                        # cada releitura contava como "mudou"
+                        if _sem_marcas(antigo.get("merito")) != _sem_marcas(dados["merito"]):
                             merito_mudou += 1
                             print(f"Mérito do jogo {jogo.id} mudou na releitura de uma semana depois",
                                   file=sys.stderr)
@@ -990,6 +1006,11 @@ def comando_publicar(args) -> int:
         # o `meta.json` vai para o git a cada ronda, por isso o histórico conta-se depois
         "merito_relido": merito_relido,
         "merito_mudou": merito_mudou,
+        # os jogos cuja grelha tem letras que não são o `X` — a pergunta do dono a 29/10/2026,
+        # contada sobre todas as fichas em disco e não só as desta ronda
+        "merito_marcas_fora_do_x": sorted(
+            d["id"] for d in (json.loads(f.read_text()) for f in (destino / "match").glob("*.json"))
+            if any(m.get("marcas_fora_do_x") for m in d.get("merito") or [])),
     }, ensure_ascii=False, indent=1))
 
     # B9.2 + B9.6 — a guarda contra uma perda silenciosa. Corre **depois** de escrever:
