@@ -19,8 +19,9 @@ e não publica a conta. Nós fazemos a conta, com dois avisos que não se escond
    hospital.
 
 Há um terceiro caso por confirmar, que não vive aqui por depender da letra que a mesa escreveu
-e não só de haver marca: uma grelha com um `J` em vez do `X` — ver `_aviso_das_letras` no
-`cli.py` e o `docs/09-regulamento-apl.md`.
+e não só de haver marca: uma grelha com um `J` em vez do `X`. Fica no campo `marcas_fora_do_x`
+de cada equipa, e não nos avisos — ver `_merito_da_ficha` no `cli.py` e o
+`docs/09-regulamento-apl.md`.
 
 ### A conta, artigo a artigo
 

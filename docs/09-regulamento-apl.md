@@ -144,8 +144,17 @@ fichas com Mérito a 29/10/2026, a sexta marca do 9913 era um `J`, e não era a 
 tinha os cinco `X`. Pesam muito: refeita a conta sem eles, 22 dos 32 pontos perdidos dessas
 equipas desaparecem (o CD Paço Arcos A passava de −12 a −1). Enquanto o dono espera que lhe
 digam o que o `J` quer dizer, a conta continua a contá-lo como meia parte jogada — é o que a
-ficha diz —, mas leva um aviso e fica **por confirmar**, como o 4.1.7. Ver `_aviso_das_letras`
-no `cli.py`.
+ficha diz —, mas o jogo fica **por confirmar**: o `?` na linha das listas e, no separador do
+Mérito, **uma** nota amarela por jogo, e não uma por equipa. O texto é do dono: a ficha tem
+elementos que não são claros, e por isso não se pode determinar os pontos com exactidão. Não diz
+a letra nem a causa, de propósito — pode ser um erro de preenchimento que obrigue a corrigir a
+ficha, e não é fácil de cruzar com o regulamento.
+
+A letra **não** entra nos `avisos` da equipa, e isso não é arrumação. O `por_confirmar` da
+tabela da série conta os avisos, e a nota que o explica em produção diz que "um atleta fez um só
+período" — com o `J` lá dentro, diria isso de quatro jogos onde não é verdade. Fica no campo
+`marcas_fora_do_x` de cada equipa, que só o `dev` lê. Ver `_merito_da_ficha` e
+`_resumo_do_merito` no `cli.py`.
 
 ## Artigo 93.º ponto 4.1 — porque é que a nossa tabela nunca é oficial
 

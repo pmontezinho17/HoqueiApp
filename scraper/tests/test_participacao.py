@@ -218,13 +218,13 @@ class TestAsLetrasDaGrelha:
     def test_a_releitura_nao_conta_a_letra_como_mudanca(self):
         from hoquei import cli
         antes = [{"total": 11, "avisos": []}]
-        depois = [{"total": 11, "marcas_fora_do_x": {"J": 1},
-                   "avisos": [cli._aviso_das_letras({"J": 1})]}]
+        depois = [{"total": 11, "marcas_fora_do_x": {"J": 1}, "avisos": []}]
         assert cli._sem_marcas(antes) == cli._sem_marcas(depois)
 
-    def test_uma_equipa_com_j_fica_por_confirmar(self, ficha_escolares_com_boletim):
-        """Pedido do dono a 29/10/2026: até se saber o que o `J` quer dizer, a conta da equipa
-        mostra-se com o aviso amarelo, e a linha do jogo nas listas com o `?`."""
+    def test_um_jogo_com_j_fica_por_confirmar(self, ficha_escolares_com_boletim):
+        """Pedido do dono a 29/10/2026: até se saber o que o `J` quer dizer, a linha do jogo nas
+        listas leva o `?`. Mas a equipa **não** ganha um aviso: a nota da tabela da série, em
+        produção, explica os avisos como um atleta com um só período."""
         from hoquei import cli
         i = ficha_escolares_com_boletim.index('id="acta"')
         alvo = '"text-align:center;">X</td>'
@@ -234,14 +234,12 @@ class TestAsLetrasDaGrelha:
         contas = cli._merito_da_ficha(html, {"casa": "A", "fora": "B", "golos_casa": 0, "golos_fora": 5})
         com_j = [c for c in contas if c.get("marcas_fora_do_x")]
         assert len(com_j) == 1
-        assert "1 meia parte marcada com J" in com_j[0]["avisos"][-1]
-        resumo = cli._resumo_do_merito({"casa": "A", "fora": "B", "merito": contas})
-        assert resumo["por_confirmar"] is True
-        # e o jogo sem letras nenhumas fica como era, sem aviso
         normais = cli._merito_da_ficha(ficha_escolares_com_boletim,
                                        {"casa": "A", "fora": "B", "golos_casa": 0, "golos_fora": 5})
-        assert not any("X habitual" in a for c in normais for a in c.get("avisos", []))
-
-    def test_o_aviso_fala_no_plural_quando_ha_varias(self):
-        from hoquei import cli
-        assert "7 meias partes marcadas com J" in cli._aviso_das_letras({"J": 7})
+        assert [c["avisos"] for c in contas] == [c["avisos"] for c in normais]
+        resumo = cli._resumo_do_merito({"casa": "A", "fora": "B", "merito": contas})
+        assert resumo["por_confirmar"] is True
+        # e o jogo sem letras nenhumas fica como era
+        if not any(c["avisos"] for c in normais):
+            assert "por_confirmar" not in cli._resumo_do_merito(
+                {"casa": "A", "fora": "B", "merito": normais})
