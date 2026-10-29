@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T22:02:24+00:00",
+ "generated_at": "2026-10-29T02:36:37+00:00",
  "tenant": "aplisboa",
  "temporada_id": 5,
  "competicoes": 37,
@@ -11,22 +11,20 @@
  "tabelas_saltadas_porque": {
   "sem jogos no dia": 36
  },
- "pedidos_fonte": 41,
+ "pedidos_fonte": 40,
  "pedidos_falhados": 0,
  "pedidos_por_tipo": {
   "calendario": 37,
   "clasificacion": 1,
-  "competiciones": 2,
-  "ficha": 1
+  "competiciones": 2
  },
  "pedidos_dia": {
-  "dia": "2026-10-28",
+  "dia": "2026-10-29",
   "por_tipo": {
-   "competiciones": 4,
-   "calendario": 74,
-   "clasificacion": 2,
-   "ficha": 12
+   "competiciones": 2,
+   "calendario": 37,
+   "clasificacion": 1
   },
-  "total": 92
+  "total": 40
  }
 }
