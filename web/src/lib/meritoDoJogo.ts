@@ -85,6 +85,18 @@ export function contasDoJogo(
 }
 
 /**
+ * Se o boletim deste jogo tem letras que ninguém sabe ler, e por isso os pontos não são certos.
+ *
+ * Lidas as 82 fichas com Mérito a 29/10/2026, havia 13 `J` em 4 jogos, sempre como marca a mais
+ * numa meia parte que já tinha os cinco `X`, e pesam: sem eles, 22 dos 32 pontos perdidos dessas
+ * equipas desapareciam. **Uma nota por jogo, e não uma por equipa**, por decisão do dono no mesmo
+ * dia, enquanto espera que lhe digam o que a letra quer dizer — ver `docs/09-regulamento-apl.md`.
+ */
+export function fichaPorEsclarecer(casa: MeritoDaEquipa, fora: MeritoDaEquipa): boolean {
+	return [casa, fora].some((m) => Object.keys(m.marcas_fora_do_x ?? {}).length > 0);
+}
+
+/**
  * As linhas da tabela A: **só as regras que deram pontos a pelo menos uma das equipas**, pela
  * ordem do regulamento, com "ganha" antes de "perde".
  */
@@ -172,7 +184,7 @@ export function descricaoDoMerito(r: ResumoMerito, casa: string, fora: string): 
 	const uma = (nome: string, [b, p]: [number, number]) =>
 		`${nome} ${b + p}${p ? ` (ganhou ${b}, perdeu ${-p})` : ''}`;
 	return `Mérito: ${uma(casa, r.casa)}, ${uma(fora, r.fora)}` +
-		(r.por_confirmar ? ', com uma penalização por confirmar' : '');
+		(r.por_confirmar ? ', com pontos por confirmar' : '');
 }
 
 /**

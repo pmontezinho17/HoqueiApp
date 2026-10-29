@@ -145,7 +145,7 @@
 				{/each}
 			</span>
 			{#if merito.por_confirmar}
-				<i class="duvida" aria-hidden="true" title="com uma penalização por confirmar">?</i>
+				<i class="duvida" aria-hidden="true" title="com pontos por confirmar">?</i>
 			{/if}
 		</span>
 	{/if}
