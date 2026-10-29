@@ -81,11 +81,18 @@ describe('uma regra que o catálogo não conhece', () => {
 });
 
 describe('a barra de cada equipa', () => {
-	it('é uma percentagem do que a equipa ganhou: verde o que ficou, vermelho o que perdeu', () => {
-		const b = barraDoMerito([9, -8]);
-		expect(b.total).toBe(1);
-		expect(b.ficou).toBeCloseTo(1 / 9);
-		expect(b.perdeu).toBeCloseTo(8 / 9);
+	it('é a proporção dos pontos positivos e negativos — a FSE/AJ Salesiana A, 8 e −1', () => {
+		const b = barraDoMerito([8, -1]);
+		expect(b.total).toBe(7);
+		expect(b.ficou).toBeCloseTo(8 / 9);
+		expect(b.perdeu).toBeCloseTo(1 / 9);
+	});
+
+	it('com mais negativos do que positivos, quase meio a meio — o S Alenquer Benfica, 9 e −10', () => {
+		const b = barraDoMerito([9, -10]);
+		expect(b.total).toBe(-1);
+		expect(b.ficou).toBeCloseTo(9 / 19);
+		expect(b.perdeu).toBeCloseTo(10 / 19);
 	});
 
 	it('sem cinzento: as duas partes enchem sempre a barra toda', () => {
@@ -96,8 +103,14 @@ describe('a barra de cada equipa', () => {
 		expect(barraDoMerito([6, 0]).ficou).toBe(1);
 	});
 
-	it('abaixo de zero a barra fica toda vermelha — o Sporting CP no 10061, 6 − 17', () => {
-		expect(barraDoMerito([6, -17])).toMatchObject({ total: -11, ficou: 0, perdeu: 1, abaixoDeZero: true });
+	it('abaixo de zero continua a haver verde — o Sporting CP no 10061, 6 e −17', () => {
+		const b = barraDoMerito([6, -17]);
+		expect(b).toMatchObject({ total: -11, abaixoDeZero: true });
+		expect(b.ficou).toBeCloseTo(6 / 23);
+	});
+
+	it('só fica toda vermelha quando não houve ponto positivo nenhum', () => {
+		expect(barraDoMerito([0, -10])).toMatchObject({ ficou: 0, perdeu: 1 });
 	});
 
 	it('e nos jogos publicados também enche sempre', () => {

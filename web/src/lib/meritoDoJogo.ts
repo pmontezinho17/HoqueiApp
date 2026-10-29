@@ -128,7 +128,7 @@ export function linhasDoMerito(casa: MeritoDaEquipa, fora: MeritoDaEquipa): Linh
 
 export interface Barra {
 	total: number;
-	/** fracções da barra, de 0 a 1 */
+	/** fracções da barra, de 0 a 1: a dos pontos positivos e a dos negativos */
 	ficou: number;
 	perdeu: number;
 	/** as penalizações passaram as bonificações: o total é negativo */
@@ -136,27 +136,33 @@ export interface Barra {
 }
 
 /**
- * **Uma barra por equipa, e a barra é uma percentagem do que ela ganhou.** O verde é a parte
- * das bonificações que **ficou**, o vermelho a que as penalizações levaram, e os dois enchem a
- * barra toda. O total, ao lado, é o número.
+ * **Uma barra por equipa: a proporção entre os pontos positivos e os negativos do jogo.** O
+ * verde é `bonificação ÷ (bonificação + |penalização|)`, o vermelho o resto, e os dois enchem
+ * sempre a barra. O total, ao lado, é o número.
  *
- * Até 29/10/2026 a barra media pontos numa escala fixa de 14 (o máximo de um jogo), e o resto
- * da barra ficava cinzento. O dono viu-o no telemóvel e perguntou para que era o cinzento: *"no
- * meu ponto de vista a barra seria como uma percentagem"*. Tinha razão — o cinzento não dizia
- * nada a quem lê, e uma equipa com 7 de 9 parecia "meio vazia" sem ter perdido metade.
+ * A regra é do dono, e chegou em duas voltas a 29/10/2026:
  *
- * Quando as penalizações passam as bonificações (o Sporting CP no 10061: 6 − 17 = −11) a barra
- * fica toda vermelha, e é o número que diz quanto abaixo de zero.
+ * * de manhã, a barra media pontos numa escala fixa de 14 e o resto ficava cinzento. *"A barra
+ *   seria como uma percentagem"* — passou a percentagem, mas **do que a equipa ganhou**: o
+ *   verde era o que ficava das bonificações, o vermelho o que as penalizações levavam;
+ * * à tarde viu o S Alenquer Benfica com a barra toda vermelha: 9 positivos e 10 negativos, e
+ *   na regra da manhã as penalizações "levavam" mais do que havia. *"No total de pontos, esta
+ *   equipa fez 19 pontos, sendo que 10 foram negativos, o que equivale a 52%"* — e é isso que a
+ *   barra tem de mostrar, quase meio a meio.
+ *
+ * Medido nesse dia nos 82 jogos publicados: das 164 barras, **87 estavam com a proporção
+ * errada** (todas as que tinham penalizações), 24 por mais de 10 pontos percentuais, e as 12 de
+ * total negativo apareciam inteiras a vermelho.
  */
 export function barraDoMerito([bonificacao, penalizacao]: [number, number]): Barra {
 	const total = bonificacao + penalizacao;
-	const ficou = Math.max(total, 0);
-	// sem bonificação nenhuma não há percentagem a desenhar; com uma penalização, é tudo perda
-	if (bonificacao <= 0) return { total, ficou: 0, perdeu: penalizacao < 0 ? 1 : 0, abaixoDeZero: total < 0 };
+	const movimentados = bonificacao - penalizacao;
+	// um jogo sem pontos nenhuns não tem proporção a desenhar
+	if (movimentados <= 0) return { total, ficou: 0, perdeu: 0, abaixoDeZero: total < 0 };
 	return {
 		total,
-		ficou: ficou / bonificacao,
-		perdeu: (bonificacao - ficou) / bonificacao,
+		ficou: bonificacao / movimentados,
+		perdeu: -penalizacao / movimentados,
 		abaixoDeZero: total < 0
 	};
 }
