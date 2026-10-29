@@ -37,7 +37,15 @@
 	     mais golos", e o resultado do jogo está no topo do ecrã. -->
 	<div class="placar">
 		<span class="eq">{casa.equipa}</span>
-		<span class="pts">{numero(casa.total)} – {numero(fora.total)}</span>
+		<!-- **Uma linha fina entre os dois números, e não um traço.** Com um total negativo o
+		     "14 – −1" lia-se "14 − −1": o traço do placar e o sinal de menos são quase o mesmo
+		     desenho. O dono apanhou-o a 29/10/2026 no AD Oeiras A–S Alenquer Benfica. A linha é
+		     desenhada e não um "|", que em cada tipo de letra tem outra altura, e um negativo
+		     vai a vermelho, como na linha das listas. -->
+		<span class="pts" aria-label="{numero(casa.total)} a {numero(fora.total)}">
+			<b class:neg={casa.total < 0}>{numero(casa.total)}</b><i class="divisor" aria-hidden="true"
+			></i><b class:neg={fora.total < 0}>{numero(fora.total)}</b>
+		</span>
 		<span class="eq dir">{fora.equipa}</span>
 	</div>
 
@@ -93,7 +101,11 @@
 	.placar .eq { font-size: var(--t-pequeno); font-weight: 600; line-height: 1.25; min-width: 0;
 		overflow-wrap: anywhere; }
 	.placar .dir { text-align: right; }
-	.placar .pts { font-size: var(--t-placar); font-weight: 700; white-space: nowrap;
+	.placar .pts b { font-weight: inherit; min-width: 1.4ch; text-align: center; }
+	.placar .pts .neg { color: var(--perde); }
+	.placar .divisor { width: 2px; height: 1.6rem; border-radius: 1px; background: var(--heroi-borda); }
+	.placar .pts { display: flex; align-items: center; gap: var(--e-4);
+		font-size: var(--t-placar); font-weight: 700; white-space: nowrap;
 		font-variant-numeric: tabular-nums; }
 
 	table { width: 100%; border-collapse: collapse; font-size: 0.78rem;
