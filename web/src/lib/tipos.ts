@@ -153,6 +153,11 @@ export interface MeritoDaEquipa {
 	parcelas: ParcelaMerito[];
 	/** o que o boletim não deixa confirmar, e por isso não está descontado */
 	avisos: string[];
+	/**
+	 * As letras da grelha que não são o `X`, por letra — `{"J": 7}`. Só existe quando as há, e
+	 * só nas fichas lidas depois de 29/10/2026. Ver `fichaPorEsclarecer`.
+	 */
+	marcas_fora_do_x?: Record<string, number>;
 }
 
 /**

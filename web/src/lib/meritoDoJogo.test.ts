@@ -1,7 +1,9 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { barraDoMerito, contasDoJogo, descricaoDoMerito, linhasDoMerito } from './meritoDoJogo';
-import type { FichaJogo } from './tipos';
+import {
+	barraDoMerito, contasDoJogo, descricaoDoMerito, fichaPorEsclarecer, linhasDoMerito
+} from './meritoDoJogo';
+import type { FichaJogo, MeritoDaEquipa } from './tipos';
 
 /**
  * A tabela do separador do Mérito, contra **todos** os jogos publicados — ver `meritoDoJogo.ts`.
@@ -125,6 +127,33 @@ describe('a barra de cada equipa', () => {
 
 	it('quem lê por voz ouve a conta, e o por confirmar', () => {
 		expect(descricaoDoMerito({ casa: [9, -8], fora: [11, 0], por_confirmar: true }, 'VIL', 'TOJ'))
-			.toBe('Mérito: VIL 1 (ganhou 9, perdeu 8), TOJ 11, com uma penalização por confirmar');
+			.toBe('Mérito: VIL 1 (ganhou 9, perdeu 8), TOJ 11, com pontos por confirmar');
+	});
+});
+
+describe('a ficha com letras que não são o X', () => {
+	const equipa = (extra: Partial<MeritoDaEquipa> = {}): MeritoDaEquipa => ({
+		equipa: 'A', atletas: 8, guardas_redes: 2, participantes: 8, completa: false,
+		bonificacao: 8, penalizacao: 0, total: 8, parcelas: [], avisos: [], ...extra
+	});
+
+	it('uma só equipa com um J chega para o jogo inteiro ficar por esclarecer', () => {
+		expect(fichaPorEsclarecer(equipa({ marcas_fora_do_x: { J: 1 } }), equipa())).toBe(true);
+		expect(fichaPorEsclarecer(equipa(), equipa({ marcas_fora_do_x: { J: 7 } }))).toBe(true);
+	});
+
+	it('um aviso do 4.1.7 não é isto, e uma ficha de antes de 29/10 também não', () => {
+		expect(fichaPorEsclarecer(equipa({ avisos: ['1 atleta(s) com um só período'] }), equipa())).toBe(false);
+		expect(fichaPorEsclarecer(equipa({ marcas_fora_do_x: {} }), equipa())).toBe(false);
+	});
+
+	// os quatro jogos com J ainda não foram relidos com o campo novo; quando forem, este número
+	// passa de 0 a 4, e um jogo com a nota em que nenhuma das equipas tem a letra seria um defeito
+	it.skipIf(!comMerito.length)('nos jogos publicados, a nota só aparece onde há a letra', () => {
+		for (const f of comMerito) {
+			const [casa, fora] = f.merito!;
+			const letras = f.merito!.some((m) => Object.keys(m.marcas_fora_do_x ?? {}).length);
+			expect(fichaPorEsclarecer(casa, fora)).toBe(letras);
+		}
 	});
 });
