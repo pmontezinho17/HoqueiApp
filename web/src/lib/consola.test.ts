@@ -185,3 +185,47 @@ describe('o pulso do observador', () => {
 		expect(html).not.toContain('o observador está calado');
 	});
 });
+
+/**
+ * As idas à APL e as actualizações, separadas — pedido do dono a 30/10/2026 (B9.31). A ronda
+ * das 00:30 desse dia pediu 39 páginas, não publicou, e a consola deu zero.
+ */
+describe('as idas à APL e as actualizações, em dois gráficos', () => {
+	const madrugada = {
+		...minimo,
+		vista: 'sistema' as const,
+		contagem: 'rondas' as const,
+		horas: { 2: { calendario: 37, competiciones: 2 } },
+		idas: { rondas: 1, por_origem: { producao: { rondas: 1, pedidos: 39 } } },
+		ultima: { dia: hoje, hora: '02:44:51', origem: 'producao', total: 39, falhados: 0 }
+	};
+
+	it('a ronda que não publicou aparece nas idas, e as actualizações ficam a zero', () => {
+		const html = pagina(madrugada);
+		expect(html).toContain('<b>39</b> no total');
+		expect(html).toContain('Todas as idas à APL');
+		expect(html).toContain('Os dados da app não mudaram neste dia.');
+		expect(html).toContain('1 ronda de produção, e os dados da app mudaram 0 vezes.');
+	});
+
+	it('o "agora" é a última ida, com a hora e quem a fez, e não a última que publicou', () => {
+		const html = pagina({ ...madrugada, estado: { pedidos_fonte: 40 } });
+		expect(html).toContain('na última ronda, às 02:44 · rondas de dados');
+		expect(html).not.toContain('na última ronda que publicou');
+	});
+
+	it('um dia anterior ao registo diz que só via as rondas que publicavam', () => {
+		const html = pagina({ ...minimo, vista: 'sistema', horas: { 2: { calendario: 37 } } });
+		expect(html).toContain('Só as rondas que publicaram');
+		expect(html).toContain('Sem registo de rondas neste dia');
+	});
+
+	it('as actualizações contam-se por hora', () => {
+		const html = pagina({
+			...madrugada,
+			rel: { ...minimo.rel, publicacoes: 3, publicacoes_hora: { 21: 3 } }
+		});
+		expect(html).toContain('21h: 3 actualizações');
+		expect(html).toContain('<b>3</b> vezes que os dados da app mudaram.');
+	});
+});

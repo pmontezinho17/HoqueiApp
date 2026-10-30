@@ -105,6 +105,36 @@ CREATE TABLE IF NOT EXISTS pedido_fonte (
   PRIMARY KEY (dia, hora, tipo)
 );
 
+-- Cada ida à APL, uma linha por processo que pediu, publicasse ou não. Desde 30/10/2026 (B9.31).
+--
+-- A `pedido_fonte` acima só via as rondas que publicavam, porque contava pela diferença entre
+-- dois `meta.json`. Nessa madrugada a ronda das 00:30 pediu 39 páginas, não publicou, e a
+-- consola deu zero. Esta conta quem pede: o raspador envia-a ao `POST /ronda` do observador
+-- no fim de cada processo — ver `scraper/src/hoquei/registo.py`.
+--
+-- **Onde um dia tem linhas aqui, é esta a conta que vale**, e nunca as duas somadas: seria
+-- contar duas vezes cada ronda que publicou. A `pedido_fonte` fica a ser escrita como antes —
+-- é a conta dos dias anteriores, e a diferença entre as duas, num dia, é o que as rondas sem
+-- novidade pediram.
+--
+-- **É criada pelo próprio Worker**, antes da primeira escrita, como a `sugestao` pela sua
+-- Function — criar tabelas de fora exige um token com âmbito de D1. Está aqui para se saber
+-- que existe.
+--
+-- Não se apaga: ~600 linhas num sábado de ciclo ao vivo, ~100 bytes cada, uns 20 MB por ano
+-- contra os 5 GB do plano — e é o histórico de quanto pesamos na fonte.
+CREATE TABLE IF NOT EXISTS ronda_fonte (
+  id       INTEGER PRIMARY KEY AUTOINCREMENT,
+  dia      TEXT NOT NULL,                -- data de Lisboa do fim da ronda
+  hora     TEXT NOT NULL,                -- 'HH:MM:SS' de Lisboa do fim da ronda
+  origem   TEXT NOT NULL,                -- producao | aovivo | testes | sonda
+  total    INTEGER NOT NULL,
+  falhados INTEGER NOT NULL DEFAULT 0,
+  por_tipo TEXT NOT NULL,                -- '{"calendario":37,"competiciones":2}'
+  corrida  TEXT                          -- o id da corrida das Actions, para se poder ir ver
+);
+CREATE INDEX IF NOT EXISTS idx_ronda_fonte_dia ON ronda_fonte (dia);
+
 -- O estado mais recente do observador: um registo só, para a consola saber "agora" sem
 -- varrer a tabela de observações.
 CREATE TABLE IF NOT EXISTS estado (
