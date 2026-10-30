@@ -189,7 +189,9 @@ com o pacote todo. A versão sobe e as novidades ganham as linhas da semana.
 era sexta, e isso corrigiu-se e publicou-se na mesma noite. A regra é: *o que repara, a qualquer
 dia; o que acrescenta, à segunda*.
 
-**A segunda excepção: um campo novo nos dados, que produção não mostra.** O site de testes lê os
+**A segunda excepção, e é provisória: um campo novo nos dados, que produção não mostra.** Existe
+só enquanto o site de testes depender dos dados de produção, e o dono não a quer: a 30/10/2026
+pediu que cada ambiente seja autónomo — é o C9 do backlog. Até lá: o site de testes lê os
 dados de produção, por isso um ecrã novo que precisa de um campo novo só se valida em testes
 depois de o raspador o escrever no `main`. Foi assim com o resumo do Mérito na agenda (#118) e com
 as letras da grelha (#125). Vale só quando a app de produção fica **igual**, e o PR tem de dizer
@@ -198,10 +200,18 @@ porquê. Se o mesmo PR mudar números que produção já mostra, como a releitur
 devia ir tudo pelo PR semanal, e tinha razão sobre o #125: a releitura foi com o campo novo, sem
 ninguém o assinalar.
 
-**O PR da semana abre-se em rascunho logo depois da entrega de segunda**, do `dev` para o `main`.
-Cada merge no `dev` entra nele sozinho, por isso o pacote está sempre à vista no GitHub e não
-depende de ninguém se lembrar. Na segunda passa a pronto, com a lista revista, e o dono funde. A
-30/10/2026 o dono perguntou se o pacote não ficava só no meu conhecimento; ficava, e não devia.
+**O PR da semana abre-se em rascunho com o primeiro merge no `dev` depois de uma entrega**, do
+`dev` para o `main`. Cada merge seguinte entra nele sozinho, por isso o pacote está sempre à vista
+no GitHub e não depende de ninguém se lembrar. Na segunda passa a pronto, com a lista revista, e o
+dono funde. A 30/10/2026 o dono perguntou se o pacote não ficava só no meu conhecimento; ficava, e
+não devia.
+
+* **O nome começa pela versão que vai para produção**, e só depois o dia: `Versão 1.10 — entrega
+  de 2/11/2026`. Pedido do dono a 30/10/2026: é a versão que se vê no telemóvel, e é por ela que
+  se procura uma entrega.
+* **Uma semana sem nada no `dev` não tem PR nem entrega.** Os dados que o robô leva ao `dev` não
+  contam, porque não são uma alteração ao site de testes. Uma semana só com coisas sem anúncio
+  (dependências, consola) entrega na mesma, e a versão não sobe — ver o `versao.ts`.
 
 Os PRs de segurança do Dependabot apontam sempre ao `main`, e isso não se configura: o
 `target-branch` só vale para as subidas de versão. Os que corrigem alertas críticos vão directos,
