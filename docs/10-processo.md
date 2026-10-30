@@ -64,7 +64,7 @@ o pacote da semana vai sendo validado ao longo dela em vez de tudo na segunda �
 um lançamento semanal aceitável em vez de temerário.
 
 **`main` é produção, e só lá chegam duas coisas:** os dados do robô, todos os dias, e **um PR por
-semana** vindo do `dev`. Mais as duas excepções do passo 6, e só essas.
+semana** vindo do `dev`. Mais a excepção do passo 6 — o que repara —, e só essa.
 
 ### Porque é que os dados não podem esperar pela segunda
 
@@ -191,16 +191,14 @@ com o pacote todo. A versão sobe e as novidades ganham as linhas da semana.
 era sexta, e isso corrigiu-se e publicou-se na mesma noite. A regra é: *o que repara, a qualquer
 dia; o que acrescenta, à segunda*.
 
-**A segunda excepção, e é provisória: um campo novo nos dados, que produção não mostra.** Existe
-só enquanto o site de testes depender dos dados de produção, e o dono não a quer: a 30/10/2026
-pediu que cada ambiente seja autónomo — é o C9 do backlog. Até lá: o site de testes lê os
-dados de produção, por isso um ecrã novo que precisa de um campo novo só se valida em testes
-depois de o raspador o escrever no `main`. Foi assim com o resumo do Mérito na agenda (#118) e com
-as letras da grelha (#125). Vale só quando a app de produção fica **igual**, e o PR tem de dizer
-porquê. Se o mesmo PR mudar números que produção já mostra, como a releitura de uma semana do
-#125, essa parte é uma alteração e espera pela segunda. A 30/10/2026, o dono perguntou se não
-devia ir tudo pelo PR semanal, e tinha razão sobre o #125: a releitura foi com o campo novo, sem
-ninguém o assinalar.
+**O raspador vai pelo mesmo caminho.** Até 30/10/2026 havia uma segunda excepção: um campo novo
+nos dados ia ao `main` antes da segunda, porque o site de testes lia os dados de produção e um
+ecrã que precisasse dele só se validava depois disso — foi assim com o resumo do Mérito na agenda
+(#118) e com as letras da grelha (#125). O #125 levou, além do campo, a releitura de uma semana,
+que muda números já à vista, sem ninguém o assinalar; o dono perguntou nesse dia se não devia ir
+tudo pelo PR semanal, e tinha razão. Desde o C9 o site de testes tem dados seus, lidos pelo
+raspador do `dev` — ver o passo 4 —, e a excepção acabou: uma alteração ao raspador testa-se no
+`dev` e vai a produção à segunda, como as outras.
 
 **O PR da semana abre-se em rascunho com o primeiro merge no `dev` depois de uma entrega**, do
 `dev` para o `main`. Cada merge seguinte entra nele sozinho, por isso o pacote está sempre à vista

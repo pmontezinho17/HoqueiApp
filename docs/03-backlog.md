@@ -60,7 +60,7 @@
 | C6 | Confirmar em produção que o aviso de actualização aparece | should | XS | aberto — provado em localhost a 17/10, não no ar |
 | C7 | Decidir o que fazer aos totais de "entradas" inflacionados de 13 a 15/10 | could | XS | aberto — os `novos` estão limpos; os totais não se separam |
 | C8 | Botão para arquivar sugestões sem esperar pelas 07:20 | could | XS | aberto — hoje é `gh workflow run sugestoes.yml` |
-| C9 | O site de testes com dados seus, lidos pelo raspador do `dev`, sem depender do `main` — pedido do dono a 30/10 | must | M | aberto — hoje o site de testes lê os dados de produção, e um ecrã que precisa de um campo novo só se testa depois de o raspador ir ao `main`. Desenho por decidir com o dono: botões com finalidades diferentes, e o custo à APL de cada um contado antes (ronda normal ~40 pedidos, tudo do zero ~560) |
+| C9 | O site de testes com dados seus, lidos pelo raspador do `dev`, sem depender do `main` — pedido do dono a 30/10 | must | M | 🟡 30/10 no `dev` — os dados do site de testes vivem no R2 e só mudam no botão do `ramo.yml`, com o raspador do `dev`: seis finalidades, cada uma com o custo à APL (ronda ~40, Mérito ~120, tudo do zero ~560). Só no botão e arranque por cópia de produção, uma vez, por escolha do dono. Critério: o dono testa um campo novo dos dados no site de testes sem nada ir ao `main` |
 | R1 | Fechar o `workers.dev` do observador com ligação de serviço (fecha a B9.27) | must | S | aberto — ver "Um review externo" |
 | R2 | `ruff check` no CI, e corrigir os 5 nomes indefinidos do `comando_despejar` | must | S | aberto |
 | R3 | `diaDeLisboa()` partilhado, em vez de `toISOString()` em 7 ficheiros da interface | should | S | ✅ **17/10** — e eu tinha-o despriorizado por "adormecido"; o dono apanhou-o às 00:48 |
