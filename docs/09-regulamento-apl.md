@@ -126,6 +126,36 @@ Duas leituras literais que o `merito.py` toma e que valem a pena saber:
 2. **Quem faz as quatro fica fora do 4.1.3/4.1.5**: tem regra própria, mais pesada, no 4.1.6.
    Somar as duas castigava duas vezes a mesma falha.
 
+**Uma meia parte com mais de cinco marcas lê-se como está.** Decisão do dono a 29/10/2026,
+depois de o ter discutido com quem conhece o regulamento. Um pai contestou um -3 à AE Física
+(Escolares, jogo 9913): a 4.ª meia parte tinha seis marcas, as dos dois guarda-redes. Propus
+deixar o caso "por confirmar", porque o boletim não diz qual dos dois saiu (PR #116). A resposta
+foi outra, e é a que vale: *"a APL faz as contas baseando-se nas fichas de jogo, como a app"* —
+se a ficha está mal preenchida, **é o clube que pede a correcção à APL**, e a app não decide o
+que a ficha não diz. O #116 foi fechado.
+
+O que ficou foi a outra metade da pergunta: se a ficha for corrigida, a app acompanha? Desde
+29/10/2026 relê cada ficha com Mérito uma vez, uma semana depois do jogo — ver
+`_merito_por_rever` no `cli.py`.
+
+**Mas uma marca que não é o X deixa a conta da equipa por confirmar.** Lida a grelha das 82
+fichas com Mérito a 29/10/2026, a sexta marca do 9913 era um `J`, e não era a única: 13 `J` em
+5 equipas de 4 jogos (9988, 9989, 9913, 9895), sempre como marca a mais numa meia parte que já
+tinha os cinco `X`. Pesam muito: refeita a conta sem eles, 22 dos 32 pontos perdidos dessas
+equipas desaparecem (o CD Paço Arcos A passava de −12 a −1). Enquanto o dono espera que lhe
+digam o que o `J` quer dizer, a conta continua a contá-lo como meia parte jogada — é o que a
+ficha diz —, mas o jogo fica **por confirmar**: o `?` na linha das listas e, no separador do
+Mérito, **uma** nota amarela por jogo, e não uma por equipa. O texto é do dono: a ficha tem
+elementos que não são claros, e por isso não se pode determinar os pontos com exactidão. Não diz
+a letra nem a causa, de propósito — pode ser um erro de preenchimento que obrigue a corrigir a
+ficha, e não é fácil de cruzar com o regulamento.
+
+A letra **não** entra nos `avisos` da equipa, e isso não é arrumação. O `por_confirmar` da
+tabela da série conta os avisos, e a nota que o explica em produção diz que "um atleta fez um só
+período" — com o `J` lá dentro, diria isso de quatro jogos onde não é verdade. Fica no campo
+`marcas_fora_do_x` de cada equipa, que só o `dev` lê. Ver `_merito_da_ficha` e
+`_resumo_do_merito` no `cli.py`.
+
 ## Artigo 93.º ponto 4.1 — porque é que a nossa tabela nunca é oficial
 
 A pontuação que conta é preenchida pelos delegados das equipas na Folha de Controlo de Jogo,

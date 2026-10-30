@@ -177,3 +177,69 @@ class TestOBanco:
         lido = nao_atletas(ficha_escolares_com_boletim)
         assert lido is not None
         assert all(x.azuis == 0 and not x.vermelho_directo for lado in lido for x in lado)
+
+
+class TestAsLetrasDaGrelha:
+    """Uma marca que não é o `X` conta-se, por equipa e sem dizer de quem — ver
+    `marcas_da_grelha`. A pergunta do dono a 29/10/2026, sobre o `J` do jogo 9913."""
+
+    def test_na_amostra_so_ha_x(self, ficha_escolares_com_boletim):
+        from hoquei.parsers.participacao import marcas_da_grelha
+        casa, fora = marcas_da_grelha(ficha_escolares_com_boletim)
+        assert set(casa) == {"X"} and set(fora) == {"X"}
+        assert sum(casa.values()) + sum(fora.values()) == 40
+
+    def test_um_j_aparece_contado(self, ficha_escolares_com_boletim):
+        from hoquei.parsers.participacao import marcas_da_grelha
+        i = ficha_escolares_com_boletim.index('id="acta"')
+        alvo = '"text-align:center;">X</td>'
+        j = ficha_escolares_com_boletim.index(alvo, i)
+        html = (ficha_escolares_com_boletim[:j] + alvo.replace(">X<", ">J<")
+                + ficha_escolares_com_boletim[j + len(alvo):])
+        casa, fora = marcas_da_grelha(html)
+        assert casa.get("J", 0) + fora.get("J", 0) == 1
+        assert casa.get("X", 0) + fora.get("X", 0) == 39
+
+    def test_o_merito_publicado_leva_a_contagem_e_nenhum_nome(self, ficha_escolares_com_boletim):
+        import json
+        from hoquei import cli
+        from hoquei.parsers.participacao import participacao
+        i = ficha_escolares_com_boletim.index('id="acta"')
+        alvo = '"text-align:center;">X</td>'
+        j = ficha_escolares_com_boletim.index(alvo, i)
+        html = (ficha_escolares_com_boletim[:j] + alvo.replace(">X<", ">J<")
+                + ficha_escolares_com_boletim[j + len(alvo):])
+        contas = cli._merito_da_ficha(html, {"casa": "A", "fora": "B", "golos_casa": 0, "golos_fora": 5})
+        assert [c.get("marcas_fora_do_x") for c in contas].count({"J": 1}) == 1
+        publicado = json.dumps(contas, ensure_ascii=False)
+        for nome in (a.nome for lado in participacao(html) for a in lado):
+            assert nome not in publicado
+
+    def test_a_releitura_nao_conta_a_letra_como_mudanca(self):
+        from hoquei import cli
+        antes = [{"total": 11, "avisos": []}]
+        depois = [{"total": 11, "marcas_fora_do_x": {"J": 1}, "avisos": []}]
+        assert cli._sem_marcas(antes) == cli._sem_marcas(depois)
+
+    def test_um_jogo_com_j_fica_por_confirmar(self, ficha_escolares_com_boletim):
+        """Pedido do dono a 29/10/2026: até se saber o que o `J` quer dizer, a linha do jogo nas
+        listas leva o `?`. Mas a equipa **não** ganha um aviso: a nota da tabela da série, em
+        produção, explica os avisos como um atleta com um só período."""
+        from hoquei import cli
+        i = ficha_escolares_com_boletim.index('id="acta"')
+        alvo = '"text-align:center;">X</td>'
+        j = ficha_escolares_com_boletim.index(alvo, i)
+        html = (ficha_escolares_com_boletim[:j] + alvo.replace(">X<", ">J<")
+                + ficha_escolares_com_boletim[j + len(alvo):])
+        contas = cli._merito_da_ficha(html, {"casa": "A", "fora": "B", "golos_casa": 0, "golos_fora": 5})
+        com_j = [c for c in contas if c.get("marcas_fora_do_x")]
+        assert len(com_j) == 1
+        normais = cli._merito_da_ficha(ficha_escolares_com_boletim,
+                                       {"casa": "A", "fora": "B", "golos_casa": 0, "golos_fora": 5})
+        assert [c["avisos"] for c in contas] == [c["avisos"] for c in normais]
+        resumo = cli._resumo_do_merito({"casa": "A", "fora": "B", "merito": contas})
+        assert resumo["por_confirmar"] is True
+        # e o jogo sem letras nenhumas fica como era
+        if not any(c["avisos"] for c in normais):
+            assert "por_confirmar" not in cli._resumo_do_merito(
+                {"casa": "A", "fora": "B", "merito": normais})
