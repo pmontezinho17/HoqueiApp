@@ -1,4 +1,4 @@
-name: Actualizar dados
+name: PRODUÇÃO · Dados e publicação
 
 # Porquê esta cadência e não mais: cada execução custa ~75 pedidos à fonte (a lista de
 # competições e um calendário + classificação por prova), e a fonte é um IIS partilhado de

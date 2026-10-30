@@ -175,6 +175,32 @@ PR para o `dev`, CI verde, merge. O `ramo.yml` publica em `testes.hoquei.pages.d
 **seus próprios dados**: ficam no R2 e só mudam quando se carrega no botão do `ramo.yml`, com o
 raspador do `dev`. Um ecrã que precisa de um campo novo testa-se sem nada ir ao `main`.
 
+**Na lista das Actions, cada workflow diz o ambiente à frente do nome**, desde 30/10/2026, a
+pedido do dono: não se distinguia o que mexe no site de testes do que mexe em produção. A ordem
+alfabética agrupa-os.
+
+| Nome nas Actions | Ficheiro | O que faz |
+|---|---|---|
+| **DEV** · Site de testes | `ramo.yml` | publica o `dev` em `testes.hoquei.pages.dev`, e tem o botão dos dados do site de testes |
+| **DEV e PRODUÇÃO** · Testes de cada PR | `ci.yml` | corre os testes em cada PR, para o `dev` e para o `main`; não publica nada |
+| **PRODUÇÃO** · Dados e publicação | `dados.yml` | lê a APL, comita os dados no `main` e publica `hoquei.pages.dev` |
+| **PRODUÇÃO** · Jogos ao vivo | `aovivo.yml` | o ciclo ao vivo nos dias de jogos |
+| **PRODUÇÃO** · Publicar o relógio | `relogio.yml` | publica o Worker que dispara e vigia as Actions |
+| **PRODUÇÃO** · Vigiar o site | `saude.yml` | pergunta ao site no ar se está a servir bem |
+| **PRODUÇÃO** · Vigia do observador | `vigia.yml` | confirma que o observador do ciclo ao vivo continua vivo |
+| **PRODUÇÃO** · Aviso da cadeia | `aviso.yml` | abre e fecha a issue de aviso quando alguma coisa pára |
+| **PRODUÇÃO** · Sondar a fonte durante os jogos | `sonda.yml` | mede a APL durante os jogos |
+| **PRODUÇÃO** · Arquivar as sugestões | `sugestoes.yml` | arquiva as sugestões de produção; as do site de testes ficam de fora |
+
+O nome muda; o ficheiro não. É pelo ficheiro que os Workers e os outros workflows os chamam, e os
+testes obrigatórios do `main` contam pelo nome do job (`scraper` e `web`), por isso mudar o nome
+não parte nada.
+
+**Os nomes novos só se vêem na lista quando chegarem ao `main`**, porque o GitHub mostra os
+workflows do ramo por omissão. Até lá, cada corrida do site de testes já se identifica: o título
+começa por `DEV ·` e diz a finalidade escolhida.
+
+
 ### 5 · UAT
 
 O dono usa e responde uma de três coisas: **validado**, **corrige isto**, ou **repensa**. Nada sai

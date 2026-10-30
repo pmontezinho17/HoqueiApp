@@ -35,7 +35,7 @@
 # E o `CLOUDFLARE_API_TOKEN` que já existe precisa de âmbito **D1 read/write**, porque até hoje
 # só era usado para publicar no Pages. Se faltar algum dos três, a corrida diz qual e não falha
 # em silêncio — as sugestões ficam na D1 à espera e **nada se perde** entretanto.
-name: Arquivar as sugestões
+name: PRODUÇÃO · Arquivar as sugestões
 
 on:
   schedule:

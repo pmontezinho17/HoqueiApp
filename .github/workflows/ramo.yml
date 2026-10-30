@@ -1,4 +1,8 @@
-name: Site de um ramo
+name: DEV · Site de testes
+# **O ambiente à frente do nome, em todos os workflows.** Pedido do dono a 30/10/2026: na lista
+# das Actions não se distinguia o que mexe no site de testes do que mexe em produção. `DEV`, `PRODUÇÃO`
+# ou os dois, e a lista fica agrupada por ordem alfabética. Ver o `docs/10-processo.md`.
+run-name: "DEV · ${{ github.event_name == 'push' && 'merge no dev' || inputs.finalidade }}"
 
 # **Um** site de testes, e só um: `https://testes.hoquei.pages.dev`.
 #
@@ -278,14 +282,15 @@ jobs:
           # da mesma maneira.
           command: pages deploy build --project-name hoquei --branch testes
 
+      # **O endereço fixo, e não o nome do ramo.** Era calculado a partir do ramo e dizia
+      # `dev.hoquei.pages.dev`, que não é onde isto publica: a flag `--branch testes` acima é que
+      # escolhe o endereço.
       - name: Onde ficou
         run: |
-          # o subdomínio não aceita `/` nem `_`; a Cloudflare troca-os por `-`
-          sub=$(echo "${{ github.ref_name }}" | tr '/_' '-' | tr '[:upper:]' '[:lower:]')
           {
-            echo "### Este ramo está em"
+            echo "### O site de testes está em"
             echo ""
-            echo "https://$sub.hoquei.pages.dev"
+            echo "https://testes.hoquei.pages.dev"
             echo ""
-            echo "O \`main\` continua em https://hoquei.pages.dev e não foi tocado."
+            echo "Produção, em https://hoquei.pages.dev, não foi tocada."
           } >> "$GITHUB_STEP_SUMMARY"
