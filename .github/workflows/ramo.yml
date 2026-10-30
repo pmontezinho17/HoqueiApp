@@ -24,11 +24,24 @@ name: Site de um ramo
 # Trabalho não aprovado vive **num ramo**, e o ramo tem o seu próprio endereço. O `main` só
 # recebe o que já foi visto.
 #
-# **Isto não raspa nada.** Publica os dados que já estão commitados, e é de propósito: a regra
-# do projecto é uma raspagem central, nunca uma por ambiente — o servidor da associação não
-# tem de pagar o nosso ambiente de testes. Em troca, os dados do site de testes são os do
-# último commit de dados, que pode estar algumas horas atrás. Para experimentar interface é o
-# que se quer; para ver resultados ao vivo, o site a sério é o outro.
+# **O site de testes tem dados seus, e lê-os com o raspador do `dev`.** Decisão do dono a
+# 30/10/2026: *"não quero dependência entre ambientes"*. Até então este workflow publicava a cópia
+# commitada e a app do site de testes lia os dados de produção — e um ecrã que precisasse de um
+# campo novo só se testava depois de o raspador ir ao `main`. Agora:
+#
+# * os dados do site de testes vivem no R2, em `ok4sticks-historico/testes/v1.tar.gz`, e não no
+#   git, para não chocarem com os que o robô comita no `main`;
+# * **um merge no `dev` não pede nada à APL**: publica o código novo com os dados do R2;
+# * quem quer dados novos carrega em **Run workflow**, escolhe o ramo `dev` e uma finalidade. Cada
+#   uma diz o que custa ao servidor da associação, contado a 30/10/2026 — uma ronda normal de
+#   produção são 40 pedidos, e ler tudo de raiz são 480 fichas mais 76 páginas de calendários,
+#   tabelas e competições.
+#
+# **Só no botão, por escolha do dono**: zero pedidos quando ninguém está a testar, e a idade dos
+# dados é a do último clique. O ciclo ao vivo não corre aqui. E o botão **recusa** pedir enquanto
+# o ciclo ao vivo de produção estiver a correr, e espera que acabe uma ronda de produção — dois
+# raspadores ao mesmo tempo eram dois pedidos por segundo à APL. Fica uma janela: uma ronda
+# agendada de produção que arranque a meio de uma destas. É curta e rara, e está dita aqui.
 #
 # O contador de utilização fica **calado** aqui, e também é de propósito. Durante uns dias a
 # garantia era não haver ligação nenhuma à base de dados neste ambiente — o middleware é um
@@ -63,15 +76,51 @@ on:
     # nenhum, de propósito — ver o comentário acima.
     branches: [dev]
   workflow_dispatch:
+    inputs:
+      finalidade:
+        description: O que fazer aos dados do site de testes antes de o publicar
+        type: choice
+        default: só publicar o código — 0 pedidos à APL
+        options:
+          - só publicar o código — 0 pedidos à APL
+          - ronda normal, o que mudou — ~40 pedidos
+          - reler as fichas com Mérito — ~120 pedidos (a ronda e mais 82 fichas)
+          - reler os jogos indicados abaixo — ~40 pedidos e mais 1 por jogo
+          - copiar os dados de produção — 0 pedidos à APL
+          - tudo do zero — ~560 pedidos, ~10 minutos
+      jogos:
+        description: Só para "reler os jogos" — ids separados por vírgulas, por exemplo 9988,9989
+        type: string
+        default: ''
 
+# **Sem cancelar a corrida em curso.** Era `cancel-in-progress: true`, que servia enquanto isto só
+# publicava; agora um merge a meio de uma leitura de dez minutos deitava fora os pedidos já
+# feitos à APL. Fica em fila.
 concurrency:
   group: ramo-${{ github.ref_name }}
-  cancel-in-progress: true
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  # para ver se o ciclo ao vivo ou uma ronda de produção estão a correr
+  actions: read
 
 jobs:
   publicar:
     runs-on: ubuntu-latest
+    env:
+      FINALIDADE: ${{ inputs.finalidade || 'só publicar o código — 0 pedidos à APL' }}
+      JOGOS: ${{ inputs.jogos }}
+      DADOS: web/static/v1/aplisboa/2026-27
     steps:
+      # O botão abre no `main`, que é o ramo por omissão do GitHub; publicar o `main` no site de
+      # testes era pôr produção lá e chamar-lhe testes.
+      - name: Só a partir do dev
+        if: github.ref_name != 'dev'
+        run: |
+          echo "::error::No Run workflow, escolhe o ramo dev — este site publica o dev e mais nenhum."
+          exit 1
+
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
@@ -80,8 +129,109 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
 
-      # Os mesmos testes do `ci.yml`: um site de testes com código que não passa os testes
-      # serve para enganar quem o abre.
+      - name: Os dados do site de testes, do R2
+        id: r2
+        continue-on-error: true
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4.149.0'
+          command: >-
+            r2 object get ok4sticks-historico/testes/v1.tar.gz
+            --file=testes-v1.tar.gz
+            --remote
+
+      # **Um R2 que não responde nunca apaga os dados do site de testes.** Não se distingue aqui
+      # "ainda não há" de "não respondeu", por isso nenhum dos dois leva a escrever no R2: um
+      # merge publica com a cópia que o ramo tem e avisa, e uma leitura recusa, porque ler a APL
+      # por cima de dados que não são os do site de testes era trabalho deitado fora.
+      - name: Por onde começam os dados
+        id: origem
+        run: |
+          set -euo pipefail
+          tem_r2=false
+          [ "${{ steps.r2.outcome }}" = success ] && [ -s testes-v1.tar.gz ] && tem_r2=true
+          pede=false; guardar=false
+          case "$FINALIDADE" in
+            copiar*) origem=producao; guardar=true ;;
+            tudo*)   origem=vazio; pede=true; guardar=true ;;
+            só*)     origem=$($tem_r2 && echo r2 || echo ramo) ;;
+            *)       $tem_r2 || { echo "::error::Não há dados do site de testes no R2, ou o R2 não respondeu. Corre primeiro com \"copiar os dados de produção\"."; exit 1; }
+                     origem=r2; pede=true; guardar=true ;;
+          esac
+          case $origem in
+            r2)       rm -rf web/static/v1 && tar -xzf testes-v1.tar.gz -C web/static ;;
+            producao) git fetch -q --depth=1 origin main && rm -rf web/static/v1 && git checkout FETCH_HEAD -- web/static/v1 ;;
+            vazio)    rm -rf web/static/v1 && mkdir -p "$DADOS" ;;
+            ramo)     echo "::warning::Sem dados do site de testes no R2: publica-se a cópia que o ramo tem. Carrega no botão com \"copiar os dados de produção\" para o site de testes passar a ter os seus." ;;
+          esac
+          echo "pede=$pede" >> "$GITHUB_OUTPUT"
+          echo "guardar=$guardar" >> "$GITHUB_OUTPUT"
+          echo "### Dados: $origem — $FINALIDADE" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Ninguém mais a pedir à APL
+        if: steps.origem.outputs.pede == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          a_correr() { gh run list --repo "$GITHUB_REPOSITORY" --workflow "$1" --status in_progress --json databaseId --jq length; }
+          for _ in $(seq 1 20); do
+            if [ "$(a_correr aovivo.yml)" != 0 ]; then
+              echo "::error::O ciclo ao vivo está a correr: há jogos a decorrer e ele já está a pedir à APL. Tenta quando acabarem."
+              exit 1
+            fi
+            [ "$(a_correr dados.yml)" = 0 ] && exit 0
+            echo "uma ronda de produção está a correr; espero 30 s"
+            sleep 30
+          done
+          echo "::error::A ronda de produção não acabou em 10 minutos."
+          exit 1
+
+      - uses: astral-sh/setup-uv@v5
+        if: steps.origem.outputs.pede == 'true'
+        with:
+          enable-cache: true
+
+      # O diário das contagens vai para uma pasta temporária: o do git é o de produção, e a guarda
+      # contra quedas compararia os dados do site de testes com os de outro ambiente.
+      - name: Ler a APL com o raspador do dev
+        if: steps.origem.outputs.pede == 'true'
+        working-directory: scraper
+        run: |
+          set -euo pipefail
+          extra=()
+          case "$FINALIDADE" in
+            reler\ as*) extra=(--reler merito) ;;
+            reler\ os*)
+              [[ "$JOGOS" =~ ^[0-9]+(,[0-9]+)*$ ]] || { echo "::error::Escreve os ids dos jogos separados por vírgulas, por exemplo 9988,9989."; exit 1; }
+              extra=(--reler "$JOGOS") ;;
+          esac
+          uv run python -m hoquei.cli publicar --tenant aplisboa --destino "../$DADOS" \
+            --rondas "$RUNNER_TEMP/rondas.jsonl" "${extra[@]}"
+
+      - name: Guardar os dados do site de testes no R2
+        id: guardar
+        if: steps.origem.outputs.guardar == 'true'
+        run: tar -czf testes-v1.tar.gz -C web/static v1 && du -h testes-v1.tar.gz
+
+      - name: Enviar para o R2
+        if: steps.guardar.outcome == 'success'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4.149.0'
+          command: >-
+            r2 object put ok4sticks-historico/testes/v1.tar.gz
+            --file=testes-v1.tar.gz
+            --content-type=application/gzip
+            --remote
+
+      # Os mesmos testes do `ci.yml`, e **depois** dos dados: vários lêem o `/v1` publicado, e
+      # assim verificam os dados que vão mesmo para o site de testes. Um site de testes com
+      # código que não passa os testes serve para enganar quem o abre.
       - name: Testes da PWA
         working-directory: web
         run: npm ci && npm run check && npx vitest run

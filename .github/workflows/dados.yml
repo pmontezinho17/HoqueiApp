@@ -265,6 +265,11 @@ jobs:
       # isto, o `dev` ficaria uma semana com os dados da segunda anterior e os testes que lêem
       # `web/static/v1` passariam a medir o passado.
       #
+      # **Esta cópia já não é a do site de testes.** Desde 30/10/2026 o site de testes tem dados
+      # seus, no R2, lidos pelo raspador do `dev` — ver o `ramo.yml`. O que aqui se leva é a cópia
+      # do git, que é o que os testes do CI lêem nos PRs para o `dev`, e o que o `ramo.yml` usa
+      # se o R2 ainda não tiver nada.
+      #
       # **Não há conflito possível** em condições normais: só este workflow e o `aovivo.sh`
       # escrevem em `web/static/v1`, e o `dev` nunca lá toca. Se ainda assim houver, **aborta e
       # avisa** em vez de resolver sozinho — um merge automático num ramo de trabalho é a

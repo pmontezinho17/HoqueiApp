@@ -62,14 +62,11 @@ describe('partilhar a aplicação', () => {
 
 describe('de onde vêm os dados', () => {
 	/**
-	 * O defeito de 10/10/2026, e porque é que merece teste próprio.
-	 *
-	 * O site de testes passou a ler os dados de produção, para ser fresco. Mas o site de
-	 * testes leva **código novo**, e código novo traz ficheiros novos: os do Mérito da
-	 * Formação existiram lá dias antes de existirem em produção. Sem a segunda tentativa, o
-	 * separador da classificação dos Escolares ficou vazio — produção devolvia a página de
-	 * fallback para um ficheiro que não tinha, e a tabela de vitórias que antes preenchia
-	 * aquele espaço tinha sido removida no mesmo dia.
+	 * **O site de testes nunca pede a produção**, desde 30/10/2026 — o dono não quer dependência
+	 * entre ambientes, e os dados de cada um são seus. Ver o comentário do `CAMINHO` no
+	 * `dados.ts`. Antes disso o site de testes lia produção e caía para a cópia local quando o
+	 * ficheiro não existia; este teste é o que impede essa ponte de voltar sem ninguém dar por
+	 * ela.
 	 */
 	const semLocation = () => {
 		const antes = (globalThis as { location?: unknown }).location;
@@ -105,19 +102,16 @@ describe('de onde vêm os dados', () => {
 	const EM_PRODUCAO = `https://hoquei.pages.dev${CAMINHO}`;
 	const CORPO = JSON.stringify({ competicao_id: 461, linhas: [] });
 
-	it('num site de ramo pede primeiro a produção', async () => {
-		const r = await carregar('testes.hoquei.pages.dev', { [EM_PRODUCAO]: CORPO });
-		expect(r.pedidos[0]).toBe(EM_PRODUCAO);
+	it('o site de testes lê os seus próprios dados, e nunca os de produção', async () => {
+		const r = await carregar('testes.hoquei.pages.dev', { [EM_PRODUCAO]: CORPO, [CAMINHO]: CORPO });
+		expect(r.pedidos).toEqual([CAMINHO]);
 		expect(r.dados?.competicao_id).toBe(461);
 	});
 
-	it('e cai para a cópia local quando produção não tem o ficheiro', async () => {
-		const r = await carregar('testes.hoquei.pages.dev', {
-			[EM_PRODUCAO]: null,
-			[CAMINHO]: CORPO
-		});
-		expect(r.pedidos).toEqual([EM_PRODUCAO, CAMINHO]);
-		expect(r.dados?.competicao_id).toBe(461);
+	it('nem quando um ficheiro lhe falta', async () => {
+		const r = await carregar('testes.hoquei.pages.dev', { [EM_PRODUCAO]: CORPO, [CAMINHO]: null });
+		expect(r.pedidos).toEqual([CAMINHO]);
+		expect(r.erro).toBeInstanceOf(Error);
 	});
 
 	it('em produção não há segunda tentativa — seria pedir o mesmo duas vezes', async () => {

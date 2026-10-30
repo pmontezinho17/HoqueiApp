@@ -13,7 +13,7 @@ escrito em código em vez de na memória de alguém.
 |---|---|
 | Repositório | `pmontezinho17/HoqueiApp`, público |
 | Ambientes | **produção** `hoquei.pages.dev` · **testes** `testes.hoquei.pages.dev` |
-| O que separa os dois | **só o código.** O site de testes lê os dados de produção desde 10/10, e tem base de dados própria desde 15/10 |
+| O que separa os dois | **tudo.** O site de testes tem base de dados própria desde 15/10 e dados seus desde 30/10, lidos pelo raspador do `dev` quando se carrega no botão do `ramo.yml` |
 | Testes automáticos | 316 no raspador, 388 no `web/` — bloqueantes no CI, excepto os marcados `fonte` |
 | Depois de publicar | `scripts/verificar_producao.py` pergunta ao site 7 coisas, nos dois publicadores |
 | Vigia | o relógio da Cloudflare sonda produção de 10 em 10 minutos, 24 h por dia |
@@ -79,7 +79,8 @@ plataforma que o impôs, não o processo.
 
 O publicador, depois de comitar os dados no `main`, leva-os também ao `dev`. Conflito não há em
 condições normais, porque só ele escreve em `web/static/v1` e o `dev` nunca lá toca; se houver,
-**aborta e avisa** em vez de resolver sozinho.
+**aborta e avisa** em vez de resolver sozinho. Essa cópia serve os testes do CI; o site de testes
+tem a sua, no R2, desde 30/10/2026 — ver o passo 4.
 
 ### Como é que o `main` ficou fechado, e porque é que demorou duas tentativas
 
@@ -171,7 +172,8 @@ testes correm antes de o trabalho se dar por feito, e o que é visível confirma
 ### 4 · DEV — o site de testes
 
 PR para o `dev`, CI verde, merge. O `ramo.yml` publica em `testes.hoquei.pages.dev`, que lê os
-**dados de produção** e difere de produção só no código.
+**seus próprios dados**: ficam no R2 e só mudam quando se carrega no botão do `ramo.yml`, com o
+raspador do `dev`. Um ecrã que precisa de um campo novo testa-se sem nada ir ao `main`.
 
 ### 5 · UAT
 
@@ -225,7 +227,7 @@ E o que **não** se adopta, com a razão:
   monólito Java; aqui o desacoplamento é outro e mais forte — um raspador em Python, um contrato
   de JSON estático, e um cliente que só lê.
 * **Staging a imitar produção, blue-green, canary.** O Cloudflare Pages publica atomicamente e
-  o site de testes já lê os dados de produção. Uma terceira cópia seria mais uma a envelhecer.
+  o site de testes tem os seus dados. Uma terceira cópia seria mais uma a envelhecer.
 * **SAST, testes de carga, soak, penetração.** Não há servidor nosso a atacar nem sessões a
   roubar: o cliente é estático e não há conta nenhuma. O risco real deste projecto é outro — a
   quota das Functions, a fonte a mentir, e um deploy que serve ficheiros a menos. É contra esses
