@@ -64,7 +64,7 @@ o pacote da semana vai sendo validado ao longo dela em vez de tudo na segunda �
 um lançamento semanal aceitável em vez de temerário.
 
 **`main` é produção, e só lá chegam duas coisas:** os dados do robô, todos os dias, e **um PR por
-semana** vindo do `dev`.
+semana** vindo do `dev`. Mais as duas excepções do passo 6, e só essas.
 
 ### Porque é que os dados não podem esperar pela segunda
 
@@ -188,6 +188,24 @@ com o pacote todo. A versão sobe e as novidades ganham as linhas da semana.
 **directo ao `main`**, em qualquer dia, e é depois levada ao `dev`. A 17/10 a app dizia que sábado
 era sexta, e isso corrigiu-se e publicou-se na mesma noite. A regra é: *o que repara, a qualquer
 dia; o que acrescenta, à segunda*.
+
+**A segunda excepção: um campo novo nos dados, que produção não mostra.** O site de testes lê os
+dados de produção, por isso um ecrã novo que precisa de um campo novo só se valida em testes
+depois de o raspador o escrever no `main`. Foi assim com o resumo do Mérito na agenda (#118) e com
+as letras da grelha (#125). Vale só quando a app de produção fica **igual**, e o PR tem de dizer
+porquê. Se o mesmo PR mudar números que produção já mostra, como a releitura de uma semana do
+#125, essa parte é uma alteração e espera pela segunda. A 30/10/2026, o dono perguntou se não
+devia ir tudo pelo PR semanal, e tinha razão sobre o #125: a releitura foi com o campo novo, sem
+ninguém o assinalar.
+
+**O PR da semana abre-se em rascunho logo depois da entrega de segunda**, do `dev` para o `main`.
+Cada merge no `dev` entra nele sozinho, por isso o pacote está sempre à vista no GitHub e não
+depende de ninguém se lembrar. Na segunda passa a pronto, com a lista revista, e o dono funde. A
+30/10/2026 o dono perguntou se o pacote não ficava só no meu conhecimento; ficava, e não devia.
+
+Os PRs de segurança do Dependabot apontam sempre ao `main`, e isso não se configura: o
+`target-branch` só vale para as subidas de versão. Os que corrigem alertas críticos vão directos,
+como correcção. Os outros juntam-se num PR para o `dev` e entram no pacote, como o #127.
 
 ### 7 · Depois de publicar
 
