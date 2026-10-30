@@ -18,7 +18,10 @@
 	import { caminhoEquipa } from '$lib/slug';
 	import { disputado, type Jogo, type JogoAgenda, type TotaisJogador } from '$lib/tipos';
 	import { meritoPorJogo } from '$lib/meritoDoJogo';
-	import { afterNavigate, replaceState } from '$app/navigation';
+	import { afterNavigate } from '$app/navigation';
+	import { guardarNoEndereco } from '$lib/endereco';
+	import Separadores from '$lib/Separadores.svelte';
+	import { untrack } from 'svelte';
 	import { page } from '$app/state';
 	import { diaDeLisboa } from '$lib/dia';
 
@@ -38,17 +41,22 @@
 	let aba = $state<Aba>('resumo');
 	let vistaJogos = $state<'lista' | 'calendario'>('lista');
 
+	// **Só o endereço manda aqui**, e a aba lê-se sem dependência. Desde que o endereço passou a
+	// guardar a aba com um `goto` (ver `lib/endereco.ts`), o `page.url` traz a aba anterior até
+	// a navegação acabar — e com a `aba` lida também, um toque em Jogos voltava a Resumo.
 	$effect(() => {
 		const a = page.url.searchParams.get('aba');
-		if (a && ABAS.includes(a as Aba) && a !== aba) aba = a as Aba;
 		const v = page.url.searchParams.get('vista');
-		if ((v === 'lista' || v === 'calendario') && v !== vistaJogos) vistaJogos = v;
+		untrack(() => {
+			if (a && ABAS.includes(a as Aba) && a !== aba) aba = a as Aba;
+			if ((v === 'lista' || v === 'calendario') && v !== vistaJogos) vistaJogos = v;
+		});
 	});
 
 	/**
 	 * O endereço acompanha a aba, mas só depois de o router estar pronto.
 	 *
-	 * O `replaceState` antes disso atira "Cannot call replaceState(...) before router is
+	 * Mexer no endereço antes disso atira "Cannot call replaceState(...) before router is
 	 * initialized" e parte a página inteira — já aconteceu na lista de jogos, e a defesa é
 	 * a mesma: esperar pelo `afterNavigate`.
 	 */
@@ -62,7 +70,7 @@
 		u.searchParams.set('aba', aba);
 		if (vistaAlvo) u.searchParams.set('vista', vistaAlvo);
 		else u.searchParams.delete('vista');
-		replaceState(u, {});
+		void guardarNoEndereco(u);
 	});
 	/** '' = todas. A lista de jogos e o plantel permitem todas; a classificação não. */
 	let provaJogos = $state('');
@@ -273,10 +281,13 @@
 	>{segue ? '✓ A seguir' : '+ Seguir'}</button>
 </header>
 
-<div class="abas" role="tablist" data-guia="equipa-abas">
-	{#each [['resumo', 'Resumo'], ['jogos', 'Jogos'], ['classificacao', 'Classificação'], ['plantel', 'Plantel']] as const as [k, r] (k)}
-		<button role="tab" aria-selected={aba === k} onclick={() => (aba = k as Aba)}>{r}</button>
-	{/each}
+<div class="barra">
+	<Separadores activo={aba} escolher={(v) => (aba = v)} guia="equipa-abas" separadores={[
+		{ valor: 'resumo', rotulo: 'Resumo', icone: 'clube' },
+		{ valor: 'jogos', rotulo: 'Jogos', icone: 'jogos' },
+		{ valor: 'classificacao', rotulo: 'Classificação', icone: 'tabela' },
+		{ valor: 'plantel', rotulo: 'Plantel', icone: 'equipas' }
+	]} />
 </div>
 
 {#if aba === 'resumo'}
@@ -440,13 +451,7 @@
 		background: none; color: var(--suave); }
 	.seguir.activo { border-color: var(--acento); color: var(--acento); font-weight: 600; }
 
-	.abas { display: flex; gap: 0.2rem; margin-bottom: 0.9rem; overflow-x: auto;
-		scrollbar-width: none; }
-	.abas::-webkit-scrollbar { display: none; }
-	.abas button { flex: 1 0 auto; min-height: 44px; padding: 0 0.6rem; font-size: 0.76rem;
-		cursor: pointer; white-space: nowrap; border-radius: 8px;
-		border: 1px solid var(--borda); background: var(--cartao); color: var(--suave); }
-	.abas button[aria-selected='true'] { color: var(--acento); border-color: var(--acento); font-weight: 600; }
+	.barra { margin-bottom: 0.9rem; }
 
 	.subscrever { display: flex; justify-content: center; margin-top: 0.9rem; }
 

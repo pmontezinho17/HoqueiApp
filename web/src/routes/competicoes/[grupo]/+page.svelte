@@ -14,6 +14,13 @@
 	import { caminhoEquipa } from '$lib/slug';
 	import type { Jogo, JogoAgenda, TotaisJogador } from '$lib/tipos';
 	import { meritoPorJogo } from '$lib/meritoDoJogo';
+	import { opcoesDeSerie, seriesVisiveis } from '$lib/series';
+	import Separadores from '$lib/Separadores.svelte';
+	import Icone from '$lib/Icone.svelte';
+	import { afterNavigate } from '$app/navigation';
+	import { guardarNoEndereco } from '$lib/endereco';
+	import { page } from '$app/state';
+	import { untrack } from 'svelte';
 
 	let { data } = $props();
 
@@ -30,21 +37,47 @@
 	 */
 	const temMerito = $derived(data.provas.some((p) => p.merito?.linhas.length));
 
-	// modo de vista ao estilo dos modos da NHL: os mesmos dados reagrupados.
-	// `Escalão` empilha as séries — nunca as funde, porque não se enfrentam.
-	let soMinhaSerie = $state(false);
+	// As séries empilham-se — nunca se fundem, porque não se enfrentam. Escolhe-se qualquer
+	// uma, ou todas: ver `lib/series.ts` e a sugestão de 29/10/2026 que o pediu.
+	let serie = $state('');
 	let completa = $state(false);
 	const temSeries = $derived(data.provas.length > 1);
 
 	const minhasEquipas = $derived(new Set(favoritos.lista.map((f) => f.equipa)));
-	const minhaSerie = $derived(
-		data.provas.find((p) =>
-			p.dados.equipas.some((e: { nome: string }) => minhasEquipas.has(e.nome))
-		)
-	);
-	const visiveis = $derived(
-		soMinhaSerie && minhaSerie ? [minhaSerie] : data.provas
-	);
+	const opcoes = $derived(opcoesDeSerie(data.provas, minhasEquipas));
+	const visiveis = $derived(seriesVisiveis(data.provas, serie));
+
+	/**
+	 * A série e a aba vivem no endereço, como na página da equipa: abrir um jogo do calendário
+	 * da série B e voltar com a seta devolve o calendário da série B, e um link partilhado
+	 * abre-o — ver `lib/endereco.ts`. Espera pelo router: antes dele parte a página inteira, já
+	 * aconteceu na lista de jogos. A Classificação é a aba por omissão e não se escreve.
+	 */
+	const ABAS: Aba[] = ['classificacao', 'calendario', 'marcadores'];
+	// só o endereço manda aqui: com o `serie` lido também, um toque em "B" voltava a "Todas"
+	// antes de a navegação chegar ao endereço
+	$effect(() => {
+		const s = page.url.searchParams.get('serie') ?? '';
+		const a = page.url.searchParams.get('aba');
+		untrack(() => {
+			if (s !== serie) serie = s;
+			const alvo = a && ABAS.includes(a as Aba) ? (a as Aba) : 'classificacao';
+			if (alvo !== aba) aba = alvo;
+		});
+	});
+	let routerPronto = $state(false);
+	afterNavigate(() => (routerPronto = true));
+	$effect(() => {
+		if (!routerPronto) return;
+		const u = new URL(location.href);
+		const abaAlvo = aba === 'classificacao' ? null : aba;
+		if ((u.searchParams.get('serie') ?? '') === serie && u.searchParams.get('aba') === abaAlvo) return;
+		if (serie) u.searchParams.set('serie', serie);
+		else u.searchParams.delete('serie');
+		if (abaAlvo) u.searchParams.set('aba', abaAlvo);
+		else u.searchParams.delete('aba');
+		void guardarNoEndereco(u);
+	});
 
 	const destaque = (equipa: string) => minhasEquipas.has(equipa);
 	// somados entre as séries do ecrã, porque as notas aparecem uma só vez lá em baixo
@@ -116,18 +149,23 @@
 	{/if}
 </header>
 
-<div class="abas" role="tablist">
-	<button role="tab" aria-selected={aba === 'classificacao'} onclick={() => (aba = 'classificacao')}>Classificação</button>
-	<button role="tab" aria-selected={aba === 'calendario'} onclick={() => (aba = 'calendario')}>Calendário</button>
-	<button role="tab" aria-selected={aba === 'marcadores'} onclick={() => (aba = 'marcadores')}>Marcadores</button>
+<div class="barra">
+	<Separadores activo={aba} escolher={(v) => (aba = v)} separadores={[
+		{ valor: 'classificacao', rotulo: 'Classificação', icone: 'tabela' },
+		{ valor: 'calendario', rotulo: 'Calendário', icone: 'data' },
+		{ valor: 'marcadores', rotulo: 'Marcadores', icone: 'marcadores' }
+	]} />
 </div>
 
-{#if temSeries && minhaSerie}
-	<div class="modos" role="group" aria-label="Vista">
-		<button class:activo={!soMinhaSerie} onclick={() => (soMinhaSerie = false)}>Todas as séries</button>
-		<button class:activo={soMinhaSerie} onclick={() => (soMinhaSerie = true)}>
-			Só a série {minhaSerie.competicao.serie}
-		</button>
+{#if opcoes.length}
+	<div class="series" role="group" aria-label="Séries">
+		{#each opcoes as o (o.valor)}
+			<button class:activo={serie === o.valor} aria-pressed={serie === o.valor}
+				aria-label={o.valor ? `Série ${o.rotulo}${o.minha ? ', a da tua equipa' : ''}` : 'Todas as séries'}
+				onclick={() => (serie = o.valor)}>
+				{o.rotulo}{#if o.minha}<span class="tua" aria-hidden="true"><Icone nome="estrela-contorno" tamanho={11} /></span>{/if}
+			</button>
+		{/each}
 	</div>
 {/if}
 
@@ -208,7 +246,7 @@
 				</li>
 			{/each}
 		</ol>
-		{#if temSeries && !soMinhaSerie}
+		{#if temSeries && !serie}
 			<p class="nota">
 				Somado entre séries. Como as séries não se enfrentam, os totais não são
 				directamente comparáveis — a série de cada jogador está indicada.
@@ -223,11 +261,19 @@
 	h1 { font-size: 1rem; margin: 0.1rem 0 0; }
 	.quantas { font-size: 0.7rem; color: var(--suave); margin: 0.15rem 0 0; }
 
-	.abas { display: flex; gap: 0.25rem; margin-bottom: 0.7rem; }
-	.abas button { flex: 1; min-height: 40px; font-size: 0.78rem; cursor: pointer;
-		border-radius: 8px; border: 1px solid var(--borda);
-		background: var(--cartao); color: var(--suave); }
-	.abas button[aria-selected='true'] { color: var(--acento); border-color: var(--acento); font-weight: 600; }
+	.barra { margin-bottom: 0.8rem; }
+
+	/* Uma fila de letras, e não "Só a série C": são até seis séries (Sub-17, A a F) e
+	   sete botões com frases não cabem a 375px. A estrela vazia no canto é a mesma da escolha
+	   de clubes, e quer dizer o mesmo: "aqui dentro está uma equipa que segues". */
+	.series { display: flex; gap: 0.25rem; margin-bottom: 0.8rem; }
+	.series button { flex: 1; min-width: 0; min-height: 44px; font-size: 0.78rem; cursor: pointer;
+		position: relative; border-radius: 999px; border: 1px solid var(--borda);
+		background: none; color: var(--suave); }
+	.series button:first-child { flex: 1.8; }
+	.series button.activo { border-color: var(--acento); color: var(--acento); font-weight: 600; }
+	.tua { position: absolute; top: 3px; right: 5px; display: flex; }
+	.tua :global(svg) { color: var(--estrela); }
 
 	.modos { display: flex; gap: 0.25rem; margin-bottom: 0.8rem; }
 	.modos button { flex: 1; min-height: 44px; font-size: 0.72rem; cursor: pointer;

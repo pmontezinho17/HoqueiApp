@@ -159,6 +159,18 @@ export const NOVIDADES: Novidade[] = [
 				titulo: '🧮 Benjamins e Escolares: o Mérito de cada jogo, conta a conta',
 				texto:
 					'Ganhar 21–5 e ficar 1–11 no Mérito? Acontece! Na ficha do jogo há um separador novo que mostra, regra a regra, os pontos que cada equipa ganhou e perdeu. E nas listas, por baixo de cada jogo, uma linha com duas barrinhas e o resultado do Mérito.'
+			},
+			{
+				tipo: 'novo',
+				titulo: '🔤 Escolhe a série que queres ver',
+				texto:
+					'Nas competições com várias séries já não tens de percorrer as seis: há uma fila com Todas, A, B, C… e escolhes a que te interessa. A série da tua equipa leva uma estrelinha ⭐. Foi uma sugestão vossa — obrigado! E os separadores da competição e da equipa passaram a ter ícones, como os da ficha de jogo: a app fica toda igual.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: '↩️ Voltar já te deixa onde estavas',
+				texto:
+					'Abrias um jogo a partir dos Jogos de uma equipa, carregavas na seta e aparecias no Resumo. Agora voltas ao separador e à série onde estavas.'
 			}
 		]
 	},
