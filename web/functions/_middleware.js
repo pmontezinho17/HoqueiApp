@@ -116,9 +116,13 @@ const NOSSO = /^hoqueiAPP/i;
  * Este pedido vem de um site de ramo?
  *
  * Passou a ser preciso a 10/10/2026, quando os sites de ramo deixaram de servir a sua cópia
- * de dados e passaram a ler os de produção — ver `base()` no `dados.ts`. Sem isto, abrir o
- * site de testes somava `aberturas` e navegações aos números reais, e a promessa do
- * `ramo.yml` deixava de ser verdade por uma porta que ninguém tinha visto.
+ * de dados e passaram a ler os de produção. Sem isto, abrir o site de testes somava
+ * `aberturas` e navegações aos números reais, e a promessa do `ramo.yml` deixava de ser
+ * verdade por uma porta que ninguém tinha visto.
+ *
+ * Desde 30/10/2026 o site de testes lê os seus próprios dados — ver o `dados.ts` —, e isto
+ * fica pelas apps do site de testes ainda em cache com o código antigo, que continuam a pedir
+ * a produção até se actualizarem.
  *
  * Lê-se no `Origin` — que o browser põe em qualquer pedido entre origens — e no `Referer`
  * como rede. Um pedido vindo de um site de ramo chega aqui sempre com um dos dois: é, por

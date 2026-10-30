@@ -156,13 +156,14 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
   conta no dia do jogo**, e por isso a lista vale vazia em qualquer outro dia sem ninguém a
   esvaziar à mão.
 
-  **E o site de testes lê os dados de produção, não uma cópia sua.** Desde 10/10/2026 — ver
-  `base()` no `dados.ts`. Uma cópia commitada envelhece em horas e mente: nesse sábado o site
-  de testes dizia que um jogo ainda não tinha começado enquanto ele ia 2-0 ao intervalo.
-  Custa zero pedidos à APL, porque é o nosso próprio CDN, e deixa o site de testes a diferir
-  de produção **só no código** — que é o que um ambiente de testes devia ser. O contador de
-  produção ignora esses pedidos pelo `Origin`, senão o tráfego de testes entrava nos números
-  reais.
+  **E o site de testes tem dados seus, e não depende de produção para nada.** Decisão do dono a
+  30/10/2026: *"não quero dependência entre ambientes"*. De 10/10 a 30/10 o site de testes lia
+  os dados de produção, e isso obrigava um ecrã novo que precisasse de um campo novo a esperar
+  que o raspador fosse ao `main`. Agora os dados do site de testes vivem no R2
+  (`ok4sticks-historico/testes/v1.tar.gz`) e só mudam quando se carrega no botão do `ramo.yml`,
+  com o raspador do `dev`. **Cada finalidade do botão diz o que custa à APL**, e o botão recusa
+  correr enquanto o ciclo ao vivo estiver a pedir. A idade dos dados é a do último clique, e isso
+  foi escolhido: zero pedidos quando ninguém está a testar. O ciclo ao vivo não corre lá.
 
   Isto não é arrumação: a 09/10/2026 comitei para `main` um redesenho que ele queria ver em
   testes primeiro, e as **sete** publicações seguintes — todas para outras coisas — levaram-no

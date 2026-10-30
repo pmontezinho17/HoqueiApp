@@ -13,7 +13,7 @@ escrito em código em vez de na memória de alguém.
 |---|---|
 | Repositório | `pmontezinho17/HoqueiApp`, público |
 | Ambientes | **produção** `hoquei.pages.dev` · **testes** `testes.hoquei.pages.dev` |
-| O que separa os dois | **só o código.** O site de testes lê os dados de produção desde 10/10, e tem base de dados própria desde 15/10 |
+| O que separa os dois | **tudo.** O site de testes tem base de dados própria desde 15/10 e dados seus desde 30/10, lidos pelo raspador do `dev` quando se carrega no botão do `ramo.yml` |
 | Testes automáticos | 316 no raspador, 388 no `web/` — bloqueantes no CI, excepto os marcados `fonte` |
 | Depois de publicar | `scripts/verificar_producao.py` pergunta ao site 7 coisas, nos dois publicadores |
 | Vigia | o relógio da Cloudflare sonda produção de 10 em 10 minutos, 24 h por dia |
@@ -64,7 +64,7 @@ o pacote da semana vai sendo validado ao longo dela em vez de tudo na segunda �
 um lançamento semanal aceitável em vez de temerário.
 
 **`main` é produção, e só lá chegam duas coisas:** os dados do robô, todos os dias, e **um PR por
-semana** vindo do `dev`. Mais as duas excepções do passo 6, e só essas.
+semana** vindo do `dev`. Mais a excepção do passo 6 — o que repara —, e só essa.
 
 ### Porque é que os dados não podem esperar pela segunda
 
@@ -79,7 +79,8 @@ plataforma que o impôs, não o processo.
 
 O publicador, depois de comitar os dados no `main`, leva-os também ao `dev`. Conflito não há em
 condições normais, porque só ele escreve em `web/static/v1` e o `dev` nunca lá toca; se houver,
-**aborta e avisa** em vez de resolver sozinho.
+**aborta e avisa** em vez de resolver sozinho. Essa cópia serve os testes do CI; o site de testes
+tem a sua, no R2, desde 30/10/2026 — ver o passo 4.
 
 ### Como é que o `main` ficou fechado, e porque é que demorou duas tentativas
 
@@ -171,7 +172,34 @@ testes correm antes de o trabalho se dar por feito, e o que é visível confirma
 ### 4 · DEV — o site de testes
 
 PR para o `dev`, CI verde, merge. O `ramo.yml` publica em `testes.hoquei.pages.dev`, que lê os
-**dados de produção** e difere de produção só no código.
+**seus próprios dados**: ficam no R2 e só mudam quando se carrega no botão do `ramo.yml`, com o
+raspador do `dev`. Um ecrã que precisa de um campo novo testa-se sem nada ir ao `main`.
+
+**Na lista das Actions, cada workflow diz o ambiente à frente do nome**, desde 30/10/2026, a
+pedido do dono: não se distinguia o que mexe no site de testes do que mexe em produção. A ordem
+alfabética agrupa-os.
+
+| Nome nas Actions | Ficheiro | O que faz |
+|---|---|---|
+| **DEV** · Site de testes | `ramo.yml` | publica o `dev` em `testes.hoquei.pages.dev`, e tem o botão dos dados do site de testes |
+| **DEV e PRODUÇÃO** · Testes de cada PR | `ci.yml` | corre os testes em cada PR, para o `dev` e para o `main`; não publica nada |
+| **PRODUÇÃO** · Dados e publicação | `dados.yml` | lê a APL, comita os dados no `main` e publica `hoquei.pages.dev` |
+| **PRODUÇÃO** · Jogos ao vivo | `aovivo.yml` | o ciclo ao vivo nos dias de jogos |
+| **PRODUÇÃO** · Publicar o relógio | `relogio.yml` | publica o Worker que dispara e vigia as Actions |
+| **PRODUÇÃO** · Vigiar o site | `saude.yml` | pergunta ao site no ar se está a servir bem |
+| **PRODUÇÃO** · Vigia do observador | `vigia.yml` | confirma que o observador do ciclo ao vivo continua vivo |
+| **PRODUÇÃO** · Aviso da cadeia | `aviso.yml` | abre e fecha a issue de aviso quando alguma coisa pára |
+| **PRODUÇÃO** · Sondar a fonte durante os jogos | `sonda.yml` | mede a APL durante os jogos |
+| **PRODUÇÃO** · Arquivar as sugestões | `sugestoes.yml` | arquiva as sugestões de produção; as do site de testes ficam de fora |
+
+O nome muda; o ficheiro não. É pelo ficheiro que os Workers e os outros workflows os chamam, e os
+testes obrigatórios do `main` contam pelo nome do job (`scraper` e `web`), por isso mudar o nome
+não parte nada.
+
+**Os nomes novos só se vêem na lista quando chegarem ao `main`**, porque o GitHub mostra os
+workflows do ramo por omissão. Até lá, cada corrida do site de testes já se identifica: o título
+começa por `DEV ·` e diz a finalidade escolhida.
+
 
 ### 5 · UAT
 
@@ -189,16 +217,14 @@ com o pacote todo. A versão sobe e as novidades ganham as linhas da semana.
 era sexta, e isso corrigiu-se e publicou-se na mesma noite. A regra é: *o que repara, a qualquer
 dia; o que acrescenta, à segunda*.
 
-**A segunda excepção, e é provisória: um campo novo nos dados, que produção não mostra.** Existe
-só enquanto o site de testes depender dos dados de produção, e o dono não a quer: a 30/10/2026
-pediu que cada ambiente seja autónomo — é o C9 do backlog. Até lá: o site de testes lê os
-dados de produção, por isso um ecrã novo que precisa de um campo novo só se valida em testes
-depois de o raspador o escrever no `main`. Foi assim com o resumo do Mérito na agenda (#118) e com
-as letras da grelha (#125). Vale só quando a app de produção fica **igual**, e o PR tem de dizer
-porquê. Se o mesmo PR mudar números que produção já mostra, como a releitura de uma semana do
-#125, essa parte é uma alteração e espera pela segunda. A 30/10/2026, o dono perguntou se não
-devia ir tudo pelo PR semanal, e tinha razão sobre o #125: a releitura foi com o campo novo, sem
-ninguém o assinalar.
+**O raspador vai pelo mesmo caminho.** Até 30/10/2026 havia uma segunda excepção: um campo novo
+nos dados ia ao `main` antes da segunda, porque o site de testes lia os dados de produção e um
+ecrã que precisasse dele só se validava depois disso — foi assim com o resumo do Mérito na agenda
+(#118) e com as letras da grelha (#125). O #125 levou, além do campo, a releitura de uma semana,
+que muda números já à vista, sem ninguém o assinalar; o dono perguntou nesse dia se não devia ir
+tudo pelo PR semanal, e tinha razão. Desde o C9 o site de testes tem dados seus, lidos pelo
+raspador do `dev` — ver o passo 4 —, e a excepção acabou: uma alteração ao raspador testa-se no
+`dev` e vai a produção à segunda, como as outras.
 
 **O PR da semana abre-se em rascunho com o primeiro merge no `dev` depois de uma entrega**, do
 `dev` para o `main`. Cada merge seguinte entra nele sozinho, por isso o pacote está sempre à vista
@@ -253,7 +279,7 @@ E o que **não** se adopta, com a razão:
   monólito Java; aqui o desacoplamento é outro e mais forte — um raspador em Python, um contrato
   de JSON estático, e um cliente que só lê.
 * **Staging a imitar produção, blue-green, canary.** O Cloudflare Pages publica atomicamente e
-  o site de testes já lê os dados de produção. Uma terceira cópia seria mais uma a envelhecer.
+  o site de testes tem os seus dados. Uma terceira cópia seria mais uma a envelhecer.
 * **SAST, testes de carga, soak, penetração.** Não há servidor nosso a atacar nem sessões a
   roubar: o cliente é estático e não há conta nenhuma. O risco real deste projecto é outro — a
   quota das Functions, a fonte a mentir, e um deploy que serve ficheiros a menos. É contra esses

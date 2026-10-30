@@ -250,6 +250,22 @@ def _merito_por_rever(caminho: pathlib.Path, hoje: date) -> bool:
     return hoje - dia >= timedelta(days=DIAS_ATE_REVER_O_MERITO)
 
 
+def _pedido_a_reler(reler: str | None, jogo_id: int, com_merito: bool) -> bool:
+    """Se o botão do site de testes mandou reler este jogo, mesmo que nada tenha mudado.
+
+    Existe para o site de testes ter dados seus, por decisão do dono a 30/10/2026: *"não quero
+    dependência entre ambientes"*. Uma alteração ao que se lê de uma ficha só se testa relendo
+    fichas, e o `publicar` normal salta as que já tem. `merito` relê as fichas das provas com
+    Mérito; uma lista de ids (`9988,9989`) relê esses. Só corre a partir do botão do `ramo.yml`,
+    e o custo de cada escolha está escrito lá.
+    """
+    if not reler:
+        return False
+    if reler == "merito":
+        return com_merito
+    return str(jogo_id) in {i.strip() for i in reler.split(",")}
+
+
 def _temporada_em_disco(destino: pathlib.Path) -> int | None:
     """O id da época lido do `competitions.json` que já publicámos. `None` se não der.
 
@@ -853,7 +869,8 @@ def comando_publicar(args) -> int:
                                 and _merito_por_rever(alvo, hoje))
                 falta_campo_novo = _sem_chave(alvo, "boletim") or (
                     vale_merito(prova.nome) and _sem_chave(alvo, "merito")) or (
-                    args.rever_boletins and _boletim_por_chegar(alvo, hoje)) or reler_merito
+                    args.rever_boletins and _boletim_por_chegar(alvo, hoje)) or reler_merito or (
+                    _pedido_a_reler(args.reler, jogo.id, vale_merito(prova.nome)))
                 if not falta_campo_novo and _resultado_conhecido(alvo) == (
                         jogo.golos_casa, jogo.golos_fora, "Jogo Terminado"):
                     saltadas += 1
@@ -1085,6 +1102,9 @@ def main(argv=None) -> int:
     b.add_argument("--rever-merito", action="store_true",
                    help=f"reler uma vez as fichas com Mérito {DIAS_ATE_REVER_O_MERITO} dias depois do "
                         "jogo, para apanhar uma correcção da APL — na ronda das 00:30")
+    b.add_argument("--reler", default=None, metavar="merito|ID,ID",
+                   help="voltar a pedir estas fichas mesmo sem mudanças: `merito` para as das provas "
+                        "com Mérito, ou ids separados por vírgulas — só no site de testes")
     b.add_argument("--anonimizar-formacao", action="store_true",
                    help="omitir nomes de atletas, árbitros e equipa técnica abaixo de sub-17")
     b.set_defaults(func=comando_publicar)

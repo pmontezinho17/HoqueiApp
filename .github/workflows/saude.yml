@@ -41,7 +41,7 @@
 # Sabemos que uma publicação nova resolve, e é tentador mandá-la daqui. **Não o faz de
 # propósito:** a regra deste projecto é que nada se publica sem o dono pedir, e uma vigia a
 # publicar sozinha é exactamente isso. Abre o registo, com a etiqueta `ronda`, e o dono decide.
-name: Vigiar o site publicado
+name: PRODUÇÃO · Vigiar o site
 
 on:
   schedule:

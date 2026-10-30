@@ -417,8 +417,11 @@ describe('a marca que impede o aviso de tapar quem tem a chave', () => {
 	});
 });
 
-describe('o site de testes lê os dados de produção', () => {
+describe('o tráfego do site de testes não conta em produção', () => {
 	/**
+	 * Desde 30/10/2026 o site de testes lê os seus próprios dados, mas uma app dele ainda em
+	 * cache com o código antigo continua a pedir a produção. A história:
+	 *
 	 * Mudou a 10/10/2026 e foi a correcção de um problema que mordeu duas vezes no mesmo
 	 * dia: às 18:16 o site de testes dizia que o CD PAÇO ARCOS B – AE FISICA D B ainda não
 	 * tinha começado enquanto o jogo ia 2-0 ao intervalo. Um site de ramo publicava os dados

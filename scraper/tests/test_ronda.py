@@ -82,7 +82,7 @@ def _args(destino: pathlib.Path, rever: bool = False) -> argparse.Namespace:
     return argparse.Namespace(
         tenant="aplisboa", destino=str(destino), id_temp=5,
         emblemas=None, anonimizar_formacao=False,
-        rondas=None, tolerancia=TOLERANCIA, sem_guarda=True, rever_boletins=rever, rever_merito=False)
+        rondas=None, tolerancia=TOLERANCIA, sem_guarda=True, rever_boletins=rever, rever_merito=False, reler=None)
 
 
 #: Quantas provas a ronda vê neste teste, de 37 que a amostra tem.
@@ -326,3 +326,13 @@ class TestOMeritoRelidoUmaSemanaDepois:
 
     def test_sem_merito_nao_ha_nada_a_reler(self, tmp_path):
         assert not cli._merito_por_rever(self._ficha(tmp_path, data="2026-10-01", merito=None), self.HOJE)
+
+
+def test_o_botao_do_site_de_testes_rele_so_o_que_se_pediu():
+    """O `--reler` do site de testes — ver `_pedido_a_reler`. Sem ele a ronda é a de sempre."""
+    from hoquei.cli import _pedido_a_reler
+    assert not _pedido_a_reler(None, 9988, True)
+    assert _pedido_a_reler("merito", 9988, True)
+    assert not _pedido_a_reler("merito", 9988, False)
+    assert _pedido_a_reler("9988, 9989", 9989, False)
+    assert not _pedido_a_reler("9988", 99880, True)
