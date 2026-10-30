@@ -203,6 +203,40 @@ def participacao(html: str) -> tuple[list[AtletaBoletim], list[AtletaBoletim]] |
     return casa, fora
 
 
+def marcas_da_grelha(html: str) -> tuple[dict[str, int], dict[str, int]] | None:
+    """(visitada, visitante): quantas vezes aparece cada **letra** na grelha das meias partes.
+
+    O `_atletas` conta qualquer marca como meia parte jogada, e isso fica. Mas a marca não é
+    sempre um `X`: a 29/10/2026, ao falar do -3 da AE Física (jogo 9913), quem conhece o
+    regulamento disse ao dono que ali *"surgiu um J"* por o atleta ter jogado mais tempo do
+    que devia. Uma letra fora do normal é um sinal de que a mesa quis dizer outra coisa, e o
+    dono pediu para saber em quantos jogos isto acontece.
+
+    **Só a contagem por equipa**, e nunca de quem: `{"X": 20, "J": 1}` não diz que criança
+    teve o `J`, e é isso que permite guardá-la.
+    """
+    acta = HTMLParser(html).css_first("#acta")
+    if acta is None:
+        return None
+    tabelas = acta.css("table")
+    if len(tabelas) < 4:
+        return None
+
+    def contar(tabela: Node) -> dict[str, int]:
+        letras: dict[str, int] = {}
+        for tr in tabela.css("tr"):
+            c = _celulas(tr)
+            if len(c) < _CELULAS_MINIMAS or c[2] not in POSICOES or not c[1]:
+                continue
+            for i in _PERIODOS:
+                if c[i]:
+                    letra = c[i].strip().upper()
+                    letras[letra] = letras.get(letra, 0) + 1
+        return letras
+
+    return contar(tabelas[2]), contar(tabelas[3])
+
+
 def nao_atletas(html: str) -> tuple[list[NaoAtletaBoletim], list[NaoAtletaBoletim]] | None:
     """(visitada, visitante) do banco, ou `None` quando o boletim não está lá.
 

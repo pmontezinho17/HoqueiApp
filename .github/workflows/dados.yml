@@ -199,11 +199,13 @@ jobs:
         working-directory: scraper
         # O `--rever-boletins` só na ronda das 00:30: volta a pedir, uma vez por dia, os jogos
         # terminados que guardámos antes de a mesa anexar o boletim. Ver `_boletim_por_chegar`
-        # no `cli.py` — eram 12 a 27/10/2026, e 11 já o tinham.
+        # no `cli.py` — eram 12 a 27/10/2026, e 11 já o tinham. O `--rever-merito` relê uma vez,
+        # uma semana depois, as fichas com Mérito, para apanhar uma correcção da APL — ver
+        # `_merito_por_rever`.
         run: >-
           uv run python -m hoquei.cli publicar --tenant aplisboa
           --destino ../web/static/v1/aplisboa/2026-27
-          ${{ github.event.schedule == '30 23 * * *' && '--rever-boletins' || '' }}
+          ${{ github.event.schedule == '30 23 * * *' && '--rever-boletins --rever-merito' || '' }}
 
       - name: Comitar se houver novidade
         id: commit
