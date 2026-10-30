@@ -82,7 +82,7 @@ def _args(destino: pathlib.Path, rever: bool = False) -> argparse.Namespace:
     return argparse.Namespace(
         tenant="aplisboa", destino=str(destino), id_temp=5,
         emblemas=None, anonimizar_formacao=False,
-        rondas=None, tolerancia=TOLERANCIA, sem_guarda=True, rever_boletins=rever)
+        rondas=None, tolerancia=TOLERANCIA, sem_guarda=True, rever_boletins=rever, rever_merito=False)
 
 
 #: Quantas provas a ronda vê neste teste, de 37 que a amostra tem.
@@ -302,3 +302,27 @@ class TestOBoletimQueChegaDepois:
         f.write_text(json.dumps({"estado": "Em Jogo", "boletim": None,
                                  "data": QUARTA_SEM_JOGOS.isoformat()}))
         assert not cli._boletim_por_chegar(f, QUARTA_SEM_JOGOS), "nem um jogo a decorrer"
+
+
+class TestOMeritoRelidoUmaSemanaDepois:
+    """Uma ficha corrigida pela APL chega à app — ver `_merito_por_rever`."""
+
+    HOJE = dt.date(2026, 11, 2)
+
+    def _ficha(self, tmp_path, **campos):
+        f = tmp_path / "1.json"
+        f.write_text(json.dumps({"estado": "Jogo Terminado", "merito": [{"total": 11}], **campos}))
+        return f
+
+    def test_com_uma_semana_rele_se(self, tmp_path):
+        assert cli._merito_por_rever(self._ficha(tmp_path, data="2026-10-26"), self.HOJE)
+
+    def test_antes_da_semana_ainda_nao(self, tmp_path):
+        assert not cli._merito_por_rever(self._ficha(tmp_path, data="2026-10-27"), self.HOJE)
+
+    def test_relida_uma_vez_nao_se_rele_outra(self, tmp_path):
+        f = self._ficha(tmp_path, data="2026-10-01", merito_revisto="2026-10-08")
+        assert not cli._merito_por_rever(f, self.HOJE)
+
+    def test_sem_merito_nao_ha_nada_a_reler(self, tmp_path):
+        assert not cli._merito_por_rever(self._ficha(tmp_path, data="2026-10-01", merito=None), self.HOJE)
