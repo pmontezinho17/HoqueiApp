@@ -166,6 +166,14 @@ export const NOVIDADES: Novidade[] = [
 					'tocar num deles dava "página não encontrada". Acontecia quando a ficha oficial ' +
 					'ainda não tinha as equipas lá dentro. Agora os nomes e os emblemas aparecem ' +
 					'sempre, e tocar abre a equipa. 🙌'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: '🔴 Um jogo acabado já não fica "ao vivo"',
+				texto:
+					'Quando a ficha oficial diz que um jogo terminou com uma nota a seguir — como ' +
+					'"suspendido" —, a app continuava a mostrá-lo ao vivo, horas depois do fim. ' +
+					'Agora passa a terminado, com o resultado final.'
 			}
 		]
 	},
