@@ -17,7 +17,7 @@
 	import Separadores from '$lib/Separadores.svelte';
 	import Directo from '$lib/Directo.svelte';
 	import { directoDe } from '$lib/directos';
-	import { nomeProprio, nomeProva } from '$lib/formato';
+	import { nomeProprio, nomeProva, situacaoADecorrer } from '$lib/formato';
 	import { piscar } from '$lib/piscar';
 	import { caminhoEquipa } from '$lib/slug';
 	import { estadoDasFaltas, mostrarNoPlacar } from '$lib/faltas';
@@ -65,10 +65,7 @@
 	 *  A regra era "tem período", e o período vinha de um padrão que só reconhecia
 	 *  "Nª Parte (relógio)". Ao intervalo a app ficava **sem sinal nenhum** de que o jogo
 	 *  estava a decorrer — foi o que o utilizador viu. A fonte diz-o num campo próprio. */
-	const FECHADO = new Set(['Jogo Terminado', 'Jogo Suspendido', 'Jogo Adiado']);
-	const aDecorrer = $derived(
-		!!f.situacao && !FECHADO.has(f.situacao) && !/come[çc]ar/i.test(f.situacao)
-	);
+	const aDecorrer = $derived(situacaoADecorrer(f.situacao));
 	/** Nem começou: a ficha que existe é a convocatória, e as colunas estão todas a zero. */
 	const porComecar = $derived(!aDecorrer && /come[çc]ar/i.test(f.situacao ?? ''));
 
