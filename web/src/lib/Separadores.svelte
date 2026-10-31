@@ -1,7 +1,6 @@
 <script lang="ts" generics="T extends string">
 	/**
-	 * A barra de separadores da app: ícones, um sublinhado no escolhido, o nome para quem lê
-	 * por voz.
+	 * A barra de separadores da app: ícone, o nome por baixo, um sublinhado no escolhido.
 	 *
 	 * **Uma barra só, e não uma por ecrã.** Nasceu na ficha de jogo; a competição e a equipa
 	 * tinham botões com texto, cada uma com o seu desenho. O dono pediu-o a 31/10/2026: *"Temos
@@ -9,14 +8,21 @@
 	 * utilizador não é a melhor"*. Três desenhos para a mesma coisa obrigavam a reaprender cada
 	 * ecrã, e um componente é o que impede que voltem a divergir à próxima alteração.
 	 *
-	 * Ícones e não texto, como na ficha: cabem de ponta a ponta sem apertar a 375px, e o rótulo
-	 * continua a existir no `aria-label` e no `title`.
+	 * **O nome por baixo do ícone**, como na barra de baixo da app, desde 31/10/2026: até aí era
+	 * só o ícone, com o nome no `aria-label`, e o dono, ao ver a barra na equipa, não percebeu o
+	 * dos jogos. Um ícone sozinho obriga a adivinhar; com o nome não há o que adivinhar.
+	 *
+	 * **De ponta a ponta do ecrã** — quem a usa tira-lhe a margem do `main`: ver a `.barra` na
+	 * competição e na equipa, e a `.reserva` na ficha de jogo.
 	 */
 	import Icone from './Icone.svelte';
 
 	type Separador = {
 		valor: T;
+		/** o nome completo, que se ouve por voz */
 		rotulo: string;
+		/** o que se lê por baixo do ícone, quando o `rotulo` não cabe; por omissão é o `rotulo` */
+		curto?: string;
 		icone: string;
 		/** `aoVivo` pinta a câmara de vermelho, escolhida ou não — ver a ficha de jogo */
 		classe?: string;
@@ -38,8 +44,8 @@
 <div class="tabs" role="tablist" data-guia={guia}>
 	{#each separadores as s (s.valor)}
 		<button class={s.classe} role="tab" aria-selected={activo === s.valor}
-			aria-label={s.rotulo} title={s.rotulo} onclick={() => escolher(s.valor)}
-		><Icone nome={s.icone} tamanho={22} /></button>
+			aria-label={s.curto ? s.rotulo : undefined} onclick={() => escolher(s.valor)}
+		><Icone nome={s.icone} tamanho={21} /><span>{s.curto ?? s.rotulo}</span></button>
 	{/each}
 </div>
 
@@ -49,15 +55,21 @@
 		background: var(--cartao);
 		border-bottom: 1px solid var(--borda);
 	}
+	/* O ícone e o nome no mesmo tamanho da barra de baixo (21px e `--t-micro`): são a mesma
+	   ideia, um nível acima e outro abaixo. Só 2px de lado: medido a 31/10/2026, o nome mais
+	   comprido, "Classificação", tem 69px, e com cinco separadores na ficha de jogo cada um tem
+	   75px a 375px — com 4px de cada lado já saía cortado. */
 	.tabs button {
-		flex: 1 1 0; min-height: 46px; padding: var(--e-2) 0;
-		display: flex; align-items: center; justify-content: center;
+		flex: 1 1 0; min-width: 0; min-height: 52px; padding: var(--e-2) var(--e-0);
+		display: flex; flex-direction: column; align-items: center; justify-content: center;
+		gap: 2px; font: inherit; font-size: var(--t-micro);
 		cursor: pointer; background: none; border: 0;
 		border-bottom: 2px solid transparent;
 		color: var(--suave);
 	}
+	.tabs span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 	.tabs button[aria-selected='true'] {
-		color: var(--acento);
+		color: var(--acento); font-weight: 600;
 		border-bottom-color: var(--acento);
 	}
 	.tabs button[aria-selected='true'] :global(svg) { color: var(--acento); }

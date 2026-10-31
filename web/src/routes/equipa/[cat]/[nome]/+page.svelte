@@ -451,7 +451,8 @@
 		background: none; color: var(--suave); }
 	.seguir.activo { border-color: var(--acento); color: var(--acento); font-weight: 600; }
 
-	.barra { margin-bottom: 0.9rem; }
+	/* de ponta a ponta, como na ficha de jogo e na competição — ver o `lib/Separadores.svelte` */
+	.barra { margin: 0 -0.9rem 0.9rem; }
 
 	.subscrever { display: flex; justify-content: center; margin-top: 0.9rem; }
 

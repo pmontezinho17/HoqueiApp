@@ -80,9 +80,13 @@
 		<path d="M3 9.2h6.4l5.4-2.1v7l-5.4-2.1H3Z" />
 		<path d="M5.6 12v2.6a1.9 1.9 0 0 0 3.8 0V12" />
 	{:else if nome === 'jogos'}
-		<!-- placar: duas equipas e um resultado -->
-		<rect x="2.6" y="5.2" width="14.8" height="9.6" rx="2" />
-		<path d="M10 7.4v5.2M5.6 10h1.8M12.6 10h1.8" />
+		<!-- O rinque visto de cima: a linha do meio, o círculo central e as duas áreas. Até
+		     31/10/2026 era um placar — um rectângulo com um traço e dois hífenes — e o dono,
+		     ao vê-lo no separador da equipa, não o percebeu. Um campo visto de cima é o sinal
+		     de "jogo" que as aplicações de desporto já ensinaram a ler. -->
+		<rect x="1.9" y="4.4" width="16.2" height="11.2" rx="3" />
+		<path d="M10 4.4v11.2M1.9 7.9h1.7a2.1 2.1 0 0 1 0 4.2H1.9M18.1 7.9h-1.7a2.1 2.1 0 0 0 0 4.2h1.7" />
+		<circle cx="10" cy="10" r="1.9" />
 	{:else if nome === 'clube'}
 		<path d="M10 3.1l5.6 1.9v5.1c0 3-2.3 5.4-5.6 6.8-3.3-1.4-5.6-3.8-5.6-6.8V5Z" />
 	{:else if nome === 'eventos'}

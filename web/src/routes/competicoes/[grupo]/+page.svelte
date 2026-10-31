@@ -16,7 +16,8 @@
 	import { meritoPorJogo } from '$lib/meritoDoJogo';
 	import { opcoesDeSerie, seriesVisiveis } from '$lib/series';
 	import Separadores from '$lib/Separadores.svelte';
-	import Icone from '$lib/Icone.svelte';
+	import Escolha from '$lib/Escolha.svelte';
+	import LegendaClassificacao from '$lib/LegendaClassificacao.svelte';
 	import { afterNavigate } from '$app/navigation';
 	import { guardarNoEndereco } from '$lib/endereco';
 	import { page } from '$app/state';
@@ -42,6 +43,12 @@
 	let serie = $state('');
 	let completa = $state(false);
 	const temSeries = $derived(data.provas.length > 1);
+	// no Mérito não há colunas a escolher: a tabela é a do regulamento
+	const escolheColunas = $derived(aba === 'classificacao' && !temMerito);
+	const COLUNAS = [
+		{ valor: false, rotulo: 'Tabela simples' },
+		{ valor: true, rotulo: 'Tabela completa' }
+	];
 
 	const minhasEquipas = $derived(new Set(favoritos.lista.map((f) => f.equipa)));
 	const opcoes = $derived(opcoesDeSerie(data.provas, minhasEquipas));
@@ -157,15 +164,16 @@
 	]} />
 </div>
 
-{#if opcoes.length}
-	<div class="series" role="group" aria-label="Séries">
-		{#each opcoes as o (o.valor)}
-			<button class:activo={serie === o.valor} aria-pressed={serie === o.valor}
-				aria-label={o.valor ? `Série ${o.rotulo}${o.minha ? ', a da tua equipa' : ''}` : 'Todas as séries'}
-				onclick={() => (serie = o.valor)}>
-				{o.rotulo}{#if o.minha}<span class="tua" aria-hidden="true"><Icone nome="estrela-contorno" tamanho={11} /></span>{/if}
-			</button>
-		{/each}
+<!-- A série e as colunas lado a lado, como o escalão e o agrupar na lista de jogos: a fila
+     de letras e a dos dois modos eram duas linhas inteiras de botões por cima das tabelas. -->
+{#if opcoes.length || escolheColunas}
+	<div class="controlos">
+		{#if opcoes.length}
+			<Escolha rotulo="Série" bind:valor={serie} {opcoes} />
+		{/if}
+		{#if escolheColunas}
+			<Escolha rotulo="Colunas da tabela" bind:valor={completa} opcoes={COLUNAS} />
+		{/if}
 	</div>
 {/if}
 
@@ -184,10 +192,6 @@
 	<RegrasMerito />
 	<LegendaMerito porConfirmar={meritoPorConfirmar} semBoletim={meritoSemBoletim} />
 {:else if aba === 'classificacao'}
-	<div class="modos" role="group" aria-label="Colunas">
-		<button class:activo={!completa} onclick={() => (completa = false)}>Simples</button>
-		<button class:activo={completa} onclick={() => (completa = true)}>Completa</button>
-	</div>
 	<!-- Uma nota no fundo, e não uma por série: nas três séries dos Escolares eram três avisos
 	     iguais empilhados. Vale para o ecrã, e por isso vive com as outras notas, lá em baixo. -->
 	{@const algumaCalculada = visiveis.some((p) => tabelasDe(p.dados).calculada)}
@@ -199,10 +203,11 @@
 				<TabelaClassificacao
 					linhas={grupo.linhas} emblemas={data.emblemas}
 					categoria={p.competicao.categoria} {completa} {destaque}
-					assistencias={assistencias(p.quadro)} />
+					assistencias={assistencias(p.quadro)} legenda={false} />
 			</section>
 		{/each}
 	{/each}
+	<LegendaClassificacao {completa} />
 	<p class="nota">Vitória 3 pontos, empate 1. As séries não se enfrentam, por isso não há tabela única.</p>
 	{#if algumaCalculada}<RotuloCalculada />{/if}
 {:else if aba === 'calendario'}
@@ -261,25 +266,14 @@
 	h1 { font-size: 1rem; margin: 0.1rem 0 0; }
 	.quantas { font-size: 0.7rem; color: var(--suave); margin: 0.15rem 0 0; }
 
-	.barra { margin-bottom: 0.8rem; }
+	/* De ponta a ponta do ecrã, como na ficha de jogo: o `main` tem 0.9rem de cada lado, e a
+	   barra encolhida dentro dele lia-se como um cartão e não como a navegação do ecrã. */
+	.barra { margin: 0 -0.9rem 0.8rem; }
 
-	/* Uma fila de letras, e não "Só a série C": são até seis séries (Sub-17, A a F) e
-	   sete botões com frases não cabem a 375px. A estrela vazia no canto é a mesma da escolha
-	   de clubes, e quer dizer o mesmo: "aqui dentro está uma equipa que segues". */
-	.series { display: flex; gap: 0.25rem; margin-bottom: 0.8rem; }
-	.series button { flex: 1; min-width: 0; min-height: 44px; font-size: 0.78rem; cursor: pointer;
-		position: relative; border-radius: 999px; border: 1px solid var(--borda);
-		background: none; color: var(--suave); }
-	.series button:first-child { flex: 1.8; }
-	.series button.activo { border-color: var(--acento); color: var(--acento); font-weight: 600; }
-	.tua { position: absolute; top: 3px; right: 5px; display: flex; }
-	.tua :global(svg) { color: var(--estrela); }
-
-	.modos { display: flex; gap: 0.25rem; margin-bottom: 0.8rem; }
-	.modos button { flex: 1; min-height: 44px; font-size: 0.72rem; cursor: pointer;
-		border-radius: 999px; border: 1px solid var(--borda);
-		background: none; color: var(--suave); }
-	.modos button.activo { border-color: var(--acento); color: var(--acento); font-weight: 600; }
+	/* Meia largura cada, mesmo quando só há uma: mudar de separador não faz a série esticar e
+	   encolher. O desenho de cada lista vive no `lib/Escolha.svelte`. */
+	.controlos { display: flex; gap: var(--e-2); margin-bottom: 0.8rem; }
+	.controlos > :global(label) { max-width: calc(50% - var(--e-2) / 2); }
 
 	section { margin-bottom: 1.2rem; }
 	h2 { font-size: 0.7rem; color: var(--suave); margin: 0 0 0.3rem; font-weight: 600; }

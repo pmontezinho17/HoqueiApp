@@ -164,7 +164,7 @@ export const NOVIDADES: Novidade[] = [
 				tipo: 'novo',
 				titulo: '🔤 Escolhe a série que queres ver',
 				texto:
-					'Nas competições com várias séries já não tens de percorrer as seis: há uma fila com Todas, A, B, C… e escolhes a que te interessa. A série da tua equipa leva uma estrelinha ⭐. Foi uma sugestão vossa — obrigado! E os separadores da competição e da equipa passaram a ter ícones, como os da ficha de jogo: a app fica toda igual.'
+					'Nas competições com várias séries já não tens de percorrer as seis: escolhes a que te interessa numa lista, ao lado da escolha entre tabela simples e completa. A série da tua equipa leva uma estrela ★. Foi uma sugestão vossa — obrigado! E os separadores da competição, da equipa e do jogo passaram a ser iguais, de ponta a ponta do ecrã, com o nome por baixo de cada ícone. O ícone dos Jogos é agora um rinque.'
 			},
 			{
 				tipo: 'corrigido',
