@@ -338,8 +338,8 @@
    "hora": "14:00:00",
    "casa": "FSE/AJ SALESIANA",
    "fora": "CACO A",
-   "golos_casa": 2,
-   "golos_fora": 1,
+   "golos_casa": 5,
+   "golos_fora": 4,
    "recinto": "PAV. SALESIANA",
    "ao_vivo": false
   },
@@ -352,8 +352,8 @@
    "hora": "15:00:00",
    "casa": "AD OEIRAS A",
    "fora": "AE FISICA D A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 19,
+   "golos_fora": 0,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
   },
@@ -380,8 +380,8 @@
    "hora": "15:00:00",
    "casa": "HC SINTRA",
    "fora": "A STUART HCM",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 3,
+   "golos_fora": 8,
    "recinto": "PAV. HC SINTRA",
    "ao_vivo": false
   },

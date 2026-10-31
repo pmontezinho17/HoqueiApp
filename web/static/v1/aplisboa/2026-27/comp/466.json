@@ -169,8 +169,8 @@
    "hora": "16:30:00",
    "casa": "AD OEIRAS B",
    "fora": "S ALENQUER BENFICA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 1,
+   "golos_fora": 5,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
   },

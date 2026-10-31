@@ -216,8 +216,8 @@
    "hora": "15:00:00",
    "casa": "HC LOURINHÃ",
    "fora": "SPORTING CP",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 4,
+   "golos_fora": 8,
    "recinto": "PAV. GIMNO. DA LOURINHÃ",
    "ao_vivo": false
   },
@@ -230,8 +230,8 @@
    "hora": "14:30:00",
    "casa": "PAREDE FC",
    "fora": "UD VILAFRANQUENSE",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 1,
+   "golos_fora": 9,
    "recinto": "PAV. PAREDE",
    "ao_vivo": false
   },
@@ -244,8 +244,8 @@
    "hora": "15:00:00",
    "casa": "APAC TOJAL",
    "fora": "CACO B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 21,
+   "golos_fora": 0,
    "recinto": "PAV. A.P.A.C.TOJAL",
    "ao_vivo": false
   },
