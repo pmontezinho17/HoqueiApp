@@ -195,6 +195,12 @@ export const NOVIDADES: Novidade[] = [
 				titulo: '🗓️ A jornada da semana que vem já não está "em curso"',
 				texto:
 					'Acabava a jornada ao sábado e, no calendário da competição, a seguinte passava logo a dizer "em curso", uma semana antes do primeiro jogo. Agora diz "próxima" até ao dia do primeiro jogo.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: '🌍 Fora de Portugal continental, os jogos à hora certa',
+				texto:
+					'As horas dos jogos são as de Lisboa, mas a app lia-as na hora do teu telemóvel. Nos Açores, ou em viagem, os jogos a decorrer podiam não aparecer — ou ficar "ao vivo" horas depois do fim — e o botão do Google Calendar marcava o jogo à hora errada. Agora contam sempre a partir da hora de Lisboa.'
 			}
 		]
 	},

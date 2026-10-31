@@ -78,3 +78,40 @@ export function diaInicial(
 	if (pedido && dias.includes(pedido)) return pedido;
 	return dias.find((d) => d >= hoje) ?? dias.at(-1) ?? '';
 }
+
+// formatar é caro de montar e barato de usar; o mesmo serve todas as horas da agenda
+const LISBOA = new Intl.DateTimeFormat('en-GB', {
+	timeZone: 'Europe/Lisbon',
+	hourCycle: 'h23',
+	year: 'numeric',
+	month: 'numeric',
+	day: 'numeric',
+	hour: 'numeric',
+	minute: 'numeric'
+});
+
+/**
+ * O instante em que começa um jogo marcado para `data` às `hora` **de Lisboa**.
+ *
+ * As horas da agenda são de Lisboa, e `new Date('2026-10-31T14:30:00')` lê-as no fuso **do
+ * aparelho**. Em Portugal dá o mesmo; fora dá horas de diferença. Apanhado pelo dono a
+ * 31/10/2026, com o telemóvel a marcar 09:33 quando em Lisboa eram 14:33: a agenda publicada
+ * tinha seis jogos com a marca `ao_vivo` e a secção "A decorrer agora" não aparecia. Para o
+ * telemóvel, os jogos das 14:30 começavam às 19:30 de Lisboa.
+ *
+ * O desvio de Lisboa tira-se do `Intl` e não se escreve à mão, porque muda duas vezes por ano.
+ * Mede-se duas vezes: a primeira estimativa pode cair do outro lado da mudança de hora.
+ */
+export function instanteDeLisboa(data: string, hora: string): number {
+	const [a, m, d] = data.split('-').map(Number);
+	const [h, mi] = hora.split(':').map(Number);
+	const comoUtc = Date.UTC(a, m - 1, d, h, mi);
+	const desvio = (t: number) => {
+		const p = Object.fromEntries(
+			LISBOA.formatToParts(new Date(t)).map((x) => [x.type, Number(x.value)])
+		);
+		return Date.UTC(p.year, p.month - 1, p.day, p.hour % 24, p.minute) - t;
+	};
+	const primeiro = comoUtc - desvio(comoUtc);
+	return comoUtc - desvio(primeiro);
+}
