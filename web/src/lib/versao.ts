@@ -168,6 +168,12 @@ export const NOVIDADES: Novidade[] = [
 			},
 			{
 				tipo: 'novo',
+				titulo: '📅 O calendário da equipa tem separador próprio',
+				texto:
+					'O mês inteiro da tua equipa, com os resultados e os próximos jogos, deixou de estar escondido dentro dos Jogos: tem agora o seu separador, entre os Jogos e a Classificação. E é lá que podes pôr os jogos no calendário do telemóvel.'
+			},
+			{
+				tipo: 'novo',
 				titulo: '👉 Desliza para mudar de separador',
 				texto:
 					'Na competição e na equipa já podes passar de um separador para o outro a deslizar o dedo, como na ficha de jogo. Em qualquer sítio do ecrã, e não só por cima dos jogos — também por cima das tabelas, que já não rolam para o lado quando cabem no ecrã.'
