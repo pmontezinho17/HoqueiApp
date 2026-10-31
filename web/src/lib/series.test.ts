@@ -12,13 +12,16 @@ const sub17 = ['A', 'B', 'C', 'D', 'E', 'F'].map((s, i) => prova(451 + i, s, [`E
 describe('a escolha de série', () => {
 	it('quem não segue ninguém pode escolher qualquer série — era o que faltava', () => {
 		const opcoes = opcoesDeSerie(sub17, new Set());
-		expect(opcoes.map((o) => o.rotulo)).toEqual(['Todas', 'A', 'B', 'C', 'D', 'E', 'F']);
+		expect(opcoes.map((o) => o.rotulo)).toEqual([
+			'Todas as séries', 'Série A', 'Série B', 'Série C', 'Série D', 'Série E', 'Série F'
+		]);
 		expect(opcoes.some((o) => o.minha)).toBe(false);
 	});
 
 	it('a série da favorita fica marcada, mas não escolhida', () => {
 		const opcoes = opcoesDeSerie(sub17, new Set(['EQUIPA C2']));
 		expect(opcoes.filter((o) => o.minha).map((o) => o.valor)).toEqual(['C']);
+		expect(opcoes.find((o) => o.valor === 'C')?.rotulo).toBe('Série C ★');
 		expect(seriesVisiveis(sub17, '')).toHaveLength(6);
 	});
 
@@ -30,7 +33,7 @@ describe('a escolha de série', () => {
 		expect(seriesVisiveis(sub17, 'Z')).toHaveLength(6);
 	});
 
-	it('sem nada a escolher não há fila de botões', () => {
+	it('sem nada a escolher não há lista', () => {
 		expect(opcoesDeSerie([prova(1, 'A', ['X'])], new Set())).toEqual([]);
 		expect(opcoesDeSerie([prova(1, null, ['X']), prova(2, null, ['Y'])], new Set())).toEqual([]);
 	});

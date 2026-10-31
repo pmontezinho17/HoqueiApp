@@ -33,7 +33,11 @@ const letra = (p: ProvaComSerie) => p.competicao.serie?.trim() || null;
  * As escolhas, pela ordem em que a APL as numera: *Todas* primeiro e depois cada série.
  *
  * **Vazio quando não há escolha a fazer** — uma prova de série única, ou provas sem letra —,
- * e o ecrã não desenha a fila. Botões que não mudam nada são ruído.
+ * e o ecrã não desenha a lista. Uma lista que não muda nada é ruído.
+ *
+ * Uma lista nativa e não uma fila de botões desde 31/10/2026: a fila de letras ocupava uma
+ * linha inteira por cima das tabelas, e o dono pediu-a ao lado da escolha das colunas, como os
+ * filtros da lista de jogos.
  *
  * A série da favorita fica marcada e não escolhida: abrir a competição continua a mostrar
  * todas, como até aqui, e a marca diz onde está a equipa sem decidir por quem lê.
@@ -42,13 +46,13 @@ export function opcoesDeSerie(provas: ProvaComSerie[], minhas: Set<string>): Opc
 	const comLetra = provas.filter((p) => letra(p));
 	if (provas.length < 2 || comLetra.length !== provas.length) return [];
 	const series = comLetra
-		.map((p) => ({
-			valor: letra(p)!,
-			rotulo: letra(p)!,
-			minha: p.dados.equipas.some((e) => minhas.has(e.nome))
-		}))
+		.map((p) => {
+			const minha = p.dados.equipas.some((e) => minhas.has(e.nome));
+			// a estrela é a mesma da escolha de clubes; numa lista nativa só cabe em texto
+			return { valor: letra(p)!, rotulo: `Série ${letra(p)}${minha ? ' ★' : ''}`, minha };
+		})
 		.sort((a, b) => a.valor.localeCompare(b.valor, 'pt'));
-	return [{ valor: '', rotulo: 'Todas', minha: false }, ...series];
+	return [{ valor: '', rotulo: 'Todas as séries', minha: false }, ...series];
 }
 
 /**

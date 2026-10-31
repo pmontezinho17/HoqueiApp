@@ -8,6 +8,7 @@
 	import { porEscalao } from '$lib/escaloes';
 	import { diaInicial } from '$lib/dia';
 	import { AGRUPAMENTOS, type Agrupamento } from '$lib/agrupar';
+	import Escolha from '$lib/Escolha.svelte';
 	import { guia } from '$lib/guia.svelte';
 	import { caminhoEquipa } from '$lib/slug';
 	import type { JogoAgenda } from '$lib/tipos';
@@ -174,23 +175,12 @@
 -->
 {#if escaloes.length}
 	<div class="controlos" data-guia="escaloes" style="--fita: {alturaFita}px">
-		<label>
-			<span class="sr">Filtrar por escalão</span>
-			<select bind:value={escalao}>
-				<option value={null}>Todos os escalões</option>
-				{#each escaloes as e (e)}
-					<option value={e}>{e.replace('SENIORES ', 'SEN. ')}</option>
-				{/each}
-			</select>
-		</label>
-		<label>
-			<span class="sr">Agrupar os jogos</span>
-			<select bind:value={agrupamento}>
-				{#each AGRUPAMENTOS as a (a.id)}
-					<option value={a.id}>Agrupar: {a.rotulo}</option>
-				{/each}
-			</select>
-		</label>
+		<Escolha rotulo="Filtrar por escalão" bind:valor={escalao} opcoes={[
+			{ valor: null, rotulo: 'Todos os escalões' },
+			...escaloes.map((e) => ({ valor: e, rotulo: e.replace('SENIORES ', 'SEN. ') }))
+		]} />
+		<Escolha rotulo="Agrupar os jogos" bind:valor={agrupamento}
+			opcoes={AGRUPAMENTOS.map((a) => ({ valor: a.id, rotulo: `Agrupar: ${a.rotulo}` }))} />
 	</div>
 {/if}
 
@@ -211,9 +201,8 @@
 <style>
 	/* Um degrau visual abaixo da fita de datas: a fita é navegação, isto é filtro. Com os
 	   dois no mesmo tamanho liam-se como duas filas iguais a competir pela atenção. */
-	/* **Duas listas, meia largura cada.** Nativas de propósito: num telemóvel um `<select>`
-	   abre a roda do sistema, que é maior, mais rápida e mais acessível do que qualquer lista
-	   que eu desenhe — e não traz um único byte de JavaScript. */
+	/* **Duas listas, meia largura cada** — o desenho delas vive no `lib/Escolha.svelte`, que a
+	   classificação de uma competição também usa. */
 	/* **Colada por baixo da fita de datas**, a pedido do dono a 21/10/2026: *"queria que a
 	   componente onde estão os filtros e os agrupar ficasse sempre visível quando estou a fazer
 	   scroll"*. Faz sentido pelo mesmo motivo que a fita já cola: num sábado de 40 jogos, rolar
@@ -237,20 +226,6 @@
 		padding-bottom: var(--e-2);
 		margin-bottom: var(--e-3);
 	}
-	.controlos label { flex: 1 1 0; min-width: 0; }
-	.controlos select {
-		width: 100%;
-		min-height: 40px;
-		padding: 0 var(--e-2);
-		font-size: var(--t-micro);
-		font-family: inherit;
-		cursor: pointer;
-		border-radius: var(--raio-pilula);
-		border: 1px solid var(--borda);
-		background: var(--cartao);
-		color: var(--texto-2);
-	}
-	.controlos select:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
 
 
 </style>

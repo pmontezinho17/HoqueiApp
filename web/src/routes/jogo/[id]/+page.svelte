@@ -6,6 +6,7 @@
 	import Emblema from '$lib/Emblema.svelte';
 	import FichaEquipas from '$lib/FichaEquipas.svelte';
 	import TabelaClassificacao from '$lib/TabelaClassificacao.svelte';
+	import LegendaClassificacao from '$lib/LegendaClassificacao.svelte';
 	import TabelaMerito from '$lib/TabelaMerito.svelte';
 	import LegendaMerito from '$lib/LegendaMerito.svelte';
 	import Faixa from '$lib/Faixa.svelte';
@@ -131,15 +132,18 @@
 			.filter(([, ha]) => ha)
 			.map(([id]) => id)
 	);
-	/** o que cada separador mostra na barra — o nome é o que se ouve por voz */
-	const NA_BARRA: Record<Tab, { rotulo: string; icone: string; classe?: string }> = {
-		directo: { rotulo: 'Ver em directo', icone: 'directo', classe: 'aoVivo' },
-		eventos: { rotulo: 'Eventos do jogo', icone: 'eventos' },
-		merito: { rotulo: 'Mérito deste jogo', icone: 'merito' },
+	/**
+	 * O que cada separador mostra na barra: o `curto` por baixo do ícone, o `rotulo` para quem
+	 * ouve por voz. Curtos porque aqui podem ser seis — a 375px são 62px cada.
+	 */
+	const NA_BARRA: Record<Tab, { rotulo: string; curto?: string; icone: string; classe?: string }> = {
+		directo: { rotulo: 'Ver em directo', curto: 'Directo', icone: 'directo', classe: 'aoVivo' },
+		eventos: { rotulo: 'Eventos do jogo', curto: 'Eventos', icone: 'eventos' },
+		merito: { rotulo: 'Mérito deste jogo', curto: 'Mérito', icone: 'merito' },
 		tabela: { rotulo: 'Classificação', icone: 'tabela' },
 		// num jogo por começar isto é a convocatória, não a ficha
 		equipas: { rotulo: 'Equipas', icone: 'equipas' },
-		info: { rotulo: 'Informações', icone: 'informacoes' }
+		info: { rotulo: 'Informações', curto: 'Info', icone: 'informacoes' }
 	};
 	const separadores = $derived(
 		abas.map((valor) => ({
@@ -432,9 +436,8 @@
 </article>
 
 {#if temSeparadores}
-	<!-- Ícones e não texto: cabem os quatro de ponta a ponta sem apertar, e o rótulo
-	     continua a existir para quem lê por voz. Dentro do cromado, para ficarem sempre
-	     agarrados ao herói e nunca passarem por baixo dele. -->
+	<!-- Dentro do cromado, para ficarem sempre agarrados ao herói e nunca passarem por baixo
+	     dele. -->
 	<Separadores {separadores} activo={tab} escolher={(v) => (tab = v)} />
 {/if}
 </div>
@@ -488,10 +491,11 @@
 						{#if g.linhas.length}
 							{#if g.nome}<h2 class="serie">{g.nome}</h2>{/if}
 							<TabelaClassificacao linhas={g.linhas} emblemas={data.emblemas}
-								categoria={f.categoria ?? ''}
+								categoria={f.categoria ?? ''} legenda={false}
 								destaque={(e) => e === f.casa || e === f.fora} />
 						{/if}
 					{/each}
+					<LegendaClassificacao />
 					{#if tabela.calculada}<RotuloCalculada />{/if}
 				{/if}
 			{:else if aba === 'equipas'}
