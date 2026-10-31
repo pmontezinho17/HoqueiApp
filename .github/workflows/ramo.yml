@@ -203,6 +203,13 @@ jobs:
       - name: Ler a APL com o raspador do dev
         if: steps.origem.outputs.pede == 'true'
         working-directory: scraper
+        # **Conta na consola de produção, e de propósito**: o servidor da APL é um só, e os
+        # pedidos do botão pesam-lhe tanto como os outros. Aparecem à parte, como "botão do
+        # site de testes" — ver `registo.py`.
+        env:
+          OBSERVADOR: https://hoquei-observador.torneiopa.workers.dev
+          CHAVE_RONDAS: ${{ secrets.CHAVE_RONDAS }}
+          ORIGEM_RONDA: testes
         run: |
           set -euo pipefail
           extra=()

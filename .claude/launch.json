@@ -43,6 +43,22 @@
         "5174"
       ],
       "port": 5174
+    },
+    {
+      "name": "observador-local",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "--yes",
+        "wrangler@4.150.0",
+        "dev",
+        "--config",
+        "worker/observador/wrangler.toml",
+        "--port",
+        "8787",
+        "--var",
+        "CHAVE_RONDAS:ensaio-local"
+      ],
+      "port": 8787
     }
   ]
 }

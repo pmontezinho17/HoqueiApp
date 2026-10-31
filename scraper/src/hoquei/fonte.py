@@ -64,6 +64,11 @@ class Fonte:
 
     def __exit__(self, *_):
         self._cliente.close()
+        # **Aqui, e não no fim de cada comando**: todos os comandos abrem a fonte com `with`,
+        # e o `__exit__` corre também quando a ronda rebenta a meio — os pedidos que ela já
+        # fez contam na mesma, porque do lado da APL foram feitos. Ver `registo.py`.
+        from .registo import registar
+        registar(self.por_tipo, self.falhados)
 
     def _esperar(self) -> None:
         falta = self.intervalo - (time.monotonic() - self._ultimo)

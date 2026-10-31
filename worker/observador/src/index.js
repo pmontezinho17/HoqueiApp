@@ -462,6 +462,118 @@ async function observar(env) {
 
 
 /**
+ * Quem pede à APL, e com que nome aparece na consola. É a lista do `scraper/src/hoquei/
+ * registo.py`: uma origem que não esteja aqui é recusada, porque um processo novo a pedir à
+ * fonte tem de ter sido pensado e contado antes.
+ */
+export const ORIGENS = ['producao', 'aovivo', 'testes', 'sonda'];
+
+/**
+ * Uma contagem de ronda, validada, ou `null`.
+ *
+ * Função pura, para o `teste.mjs`. **O que entra aqui vem de fora** — de um runner da GitHub,
+ * com uma chave, mas de fora —, e por isso só passa o que tem a forma de uma ronda: uma origem
+ * conhecida, pedidos inteiros e pequenos, e uma hora de há menos de dois dias. Um erro nosso
+ * num workflow não pode encher a base de lixo.
+ *
+ * @param {any} corpo
+ * @param {number} agoraMs
+ */
+export function validarRonda(corpo, agoraMs = Date.now()) {
+	if (!corpo || typeof corpo !== 'object' || !ORIGENS.includes(corpo.origem)) return null;
+	const quando = Date.parse(corpo.quando);
+	if (!Number.isFinite(quando) || Math.abs(agoraMs - quando) > 2 * 86400000) return null;
+	const por = corpo.por_tipo;
+	if (!por || typeof por !== 'object' || Array.isArray(por)) return null;
+	const entradas = Object.entries(por);
+	if (!entradas.length || entradas.length > 8) return null;
+	/** @type {Record<string, number>} */
+	const por_tipo = {};
+	for (const [tipo, n] of entradas) {
+		if (!/^[a-z_]{1,20}$/.test(tipo) || !Number.isInteger(n) || n < 0 || n > 5000) return null;
+		if (n) por_tipo[tipo] = n;
+	}
+	const total = Object.values(por_tipo).reduce((a, b) => a + b, 0);
+	if (!total) return null;
+	const falhados = Number.isInteger(corpo.falhados) && corpo.falhados >= 0 ? corpo.falhados : 0;
+	const corrida = typeof corpo.corrida === 'string' ? corpo.corrida.slice(0, 40) : null;
+	const { dia, hora } = emLisboa(new Date(quando));
+	return { dia, hora, origem: corpo.origem, total, falhados, por_tipo, corrida };
+}
+
+/** Comparação em tempo constante: uma comparação de texto diria, pela demora, quanto acertou. */
+async function chaveCerta(dada, certa) {
+	const c = new TextEncoder();
+	const a = c.encode(dada);
+	const b = c.encode(certa);
+	// com tamanhos diferentes compara-se a certa consigo própria, para a demora não o denunciar
+	return a.byteLength === b.byteLength
+		? crypto.subtle.timingSafeEqual(a, b)
+		: !crypto.subtle.timingSafeEqual(b, b);
+}
+
+/**
+ * `POST /ronda` — uma ronda diz o que pediu à APL, tenha ou não publicado (B9.31).
+ *
+ * **Porque é que isto existe.** O observador só sabia dos pedidos pelo `meta.json` publicado,
+ * e uma ronda sem novidade não publica. A 30/10/2026 a ronda das 00:30 pediu ~40 páginas e a
+ * consola deu zero no dia. O dono pediu dois gráficos separados — as idas à APL e as
+ * actualizações — e este é o lado das idas: quem conta é quem pediu.
+ *
+ * **Com chave**, ao contrário do resto deste Worker, porque é o único sítio que escreve o que
+ * outro lhe manda. Sem ela qualquer pessoa podia inventar pedidos à APL na nossa consola. A
+ * chave é o segredo `CHAVE_RONDAS`, igual dos dois lados — no Worker e nas Actions — e sem ele
+ * configurado isto recusa tudo, em vez de aceitar tudo.
+ *
+ * Custa uma linha por ronda: ~600 num sábado de ciclo ao vivo, contra as 100 000 do plano.
+ *
+ * @param {Request} pedido
+ * @param {{ DADOS?: D1Database, CHAVE_RONDAS?: string }} env
+ */
+async function receberRonda(pedido, env) {
+	if (pedido.method !== 'POST') return new Response('só POST', { status: 405 });
+	const dada = (pedido.headers.get('Authorization') ?? '').replace(/^Bearer /, '');
+	if (!env.CHAVE_RONDAS || !dada || !(await chaveCerta(dada, env.CHAVE_RONDAS))) {
+		return new Response('chave errada', { status: 401 });
+	}
+	if (!env.DADOS) return new Response('sem base de dados', { status: 503 });
+	const texto = await pedido.text();
+	if (texto.length > 2000) return new Response('grande de mais', { status: 413 });
+	let ronda;
+	try {
+		ronda = validarRonda(JSON.parse(texto));
+	} catch {
+		ronda = null;
+	}
+	if (!ronda) return new Response('não tem a forma de uma ronda', { status: 400 });
+	// **A tabela cria-se aqui**, como a `sugestao` no site: criar tabelas de fora exige um token
+	// da Cloudflare com âmbito de D1, e a ligação do Worker é o único caminho garantido. Está
+	// escrita no `dados/esquema.sql`, que é onde se vem ver o que existe.
+	await env.DADOS.batch([
+		env.DADOS.prepare(
+			`CREATE TABLE IF NOT EXISTS ronda_fonte (
+			   id INTEGER PRIMARY KEY AUTOINCREMENT, dia TEXT NOT NULL, hora TEXT NOT NULL,
+			   origem TEXT NOT NULL, total INTEGER NOT NULL, falhados INTEGER NOT NULL DEFAULT 0,
+			   por_tipo TEXT NOT NULL, corrida TEXT)`
+		),
+		env.DADOS.prepare('CREATE INDEX IF NOT EXISTS idx_ronda_fonte_dia ON ronda_fonte (dia)'),
+		env.DADOS.prepare(
+			`INSERT INTO ronda_fonte (dia, hora, origem, total, falhados, por_tipo, corrida)
+			 VALUES (?, ?, ?, ?, ?, ?, ?)`
+		).bind(
+			ronda.dia,
+			ronda.hora,
+			ronda.origem,
+			ronda.total,
+			ronda.falhados,
+			JSON.stringify(ronda.por_tipo),
+			ronda.corrida
+		)
+	]);
+	return new Response(null, { status: 204 });
+}
+
+/**
  * Provar que o aviso funciona, sem esperar que algo corra mal.
  *
  * **Porque é que isto existe:** a cadeia de aviso — saúde a vermelho → issue → email — esteve
@@ -542,10 +654,27 @@ async function relatorio(env, dia) {
 		.map((p, i) => ({ s: seg(p.t) - seg(pubs[i].t), v: p.v }))
 		.filter((g) => g.s > 180 && (g.v ?? 0) > 0)
 		.map((g) => `${Math.round(g.s / 60)}min`);
+	// **As actualizações por hora, à hora em que a ronda as fez** — o `generated_at` que a
+	// publicação trouxe — e não à hora em que o observador reparou nelas. Fora do ciclo ao vivo
+	// o observador lê de 10 em 10 ou de 30 em 30 minutos, e a ronda das 02:44 aparecia às 03h.
+	/** @type {Record<number, number>} */
+	const publicacoes_hora = {};
+	for (const p of pubs) {
+		let quando = null;
+		try {
+			quando = JSON.parse(p.detalhe ?? '{}').generated_at ?? null;
+		} catch {
+			quando = null;
+		}
+		const daRonda = quando ? emLisboa(new Date(quando)) : null;
+		const h = Number((daRonda?.dia === dia ? daRonda.hora : p.t).slice(0, 2));
+		publicacoes_hora[h] = (publicacoes_hora[h] ?? 0) + 1;
+	}
 	return {
 		dia,
 		eventos: registo.length,
 		publicacoes: pubs.length,
+		publicacoes_hora,
 		cadencia_s: { mediana, minimo: gaps[0] ?? null, maximo: gaps[gaps.length - 1] ?? null },
 		buracos_acima_de_3min: buracos,
 		intervalos_longos_sem_jogos: gaps.filter((g) => g > 180).length - buracos.length,
@@ -564,6 +693,7 @@ function vazio(dia, porque) {
 		dia,
 		eventos: 0,
 		publicacoes: 0,
+		publicacoes_hora: {},
 		cadencia_s: { mediana: null, minimo: null, maximo: null },
 		buracos_acima_de_3min: [],
 		intervalos_longos_sem_jogos: 0,
@@ -593,6 +723,64 @@ async function horasDoDia(env, dia) {
 		return horas;
 	} catch {
 		return {};
+	}
+}
+
+/**
+ * As idas à APL de um dia, juntas por hora e por quem as fez. Função pura, para o `teste.mjs`.
+ *
+ * @param {{ hora: string, origem: string, total: number, por_tipo: string | Record<string, number> }[]} linhas
+ */
+export function agruparIdas(linhas) {
+	/** @type {Record<number, Record<string, number>>} */
+	const horas = {};
+	/** @type {Record<string, { rondas: number, pedidos: number }>} */
+	const por_origem = {};
+	for (const l of linhas) {
+		const h = Number(l.hora.slice(0, 2));
+		const por = typeof l.por_tipo === 'string' ? JSON.parse(l.por_tipo) : l.por_tipo;
+		for (const [tipo, n] of Object.entries(por)) {
+			(horas[h] ??= {})[tipo] = (horas[h][tipo] ?? 0) + n;
+		}
+		const o = (por_origem[l.origem] ??= { rondas: 0, pedidos: 0 });
+		o.rondas += 1;
+		o.pedidos += l.total;
+	}
+	return { horas, rondas: linhas.length, por_origem };
+}
+
+/**
+ * As idas à APL de um dia, contadas por quem as fez — ver `receberRonda`.
+ *
+ * **`null` quer dizer "não estávamos a contar assim"**, e não zero: o registo nasceu a
+ * 30/10/2026, e um dia anterior continua a desenhar-se com o `pedido_fonte`, que só via as
+ * rondas que publicaram. Quem desenha diz qual das duas contas está a mostrar.
+ */
+async function idasDoDia(env, dia) {
+	if (!env.DADOS) return null;
+	try {
+		const { results } = await env.DADOS.prepare(
+			'SELECT hora, origem, total, por_tipo FROM ronda_fonte WHERE dia = ?'
+		)
+			.bind(dia)
+			.all();
+		return results?.length ? agruparIdas(results) : null;
+	} catch {
+		// a tabela só existe depois da primeira ronda registada
+		return null;
+	}
+}
+
+/** A última ida à APL, seja de que dia e de quem for: é o "agora" da consola. */
+async function ultimaIda(env) {
+	try {
+		return (
+			(await env.DADOS?.prepare(
+				'SELECT dia, hora, origem, total, falhados FROM ronda_fonte ORDER BY id DESC LIMIT 1'
+			).first()) ?? null
+		);
+	} catch {
+		return null;
 	}
 }
 
@@ -715,19 +903,41 @@ async function desdeSempre(env) {
  */
 async function pedidosPorDia(env, dias) {
 	if (!env.DADOS) return {};
+	const marcas = dias.map(() => '?').join(',');
+	/** @type {Record<string, Record<string, number>>} */
+	const saida = {};
+	// **Duas consultas independentes**, cada uma com a sua rede: a primeira versão tinha a nova
+	// dentro do `try` da antiga, e numa base sem `pedido_fonte` — a local, no ensaio de
+	// 30/10/2026 — a falha da antiga levava a nova com ela e o gráfico dos dias saía vazio.
 	try {
 		const { results } = await env.DADOS.prepare(
-			`SELECT dia, tipo, SUM(n) AS n FROM pedido_fonte
-			 WHERE dia IN (${dias.map(() => '?').join(',')}) GROUP BY dia, tipo`
+			`SELECT dia, tipo, SUM(n) AS n FROM pedido_fonte WHERE dia IN (${marcas}) GROUP BY dia, tipo`
 		)
 			.bind(...dias)
 			.all();
-		const saida = {};
 		for (const r of results ?? []) (saida[r.dia] ??= {})[r.tipo] = r.n;
-		return saida;
 	} catch {
-		return {};
+		// sem a conta antiga, fica só a nova
 	}
+	// **Onde há registo de rondas, é ele que vale** — conta também as que não publicaram.
+	// Um dia inteiro de uma conta ou da outra, e nunca as duas somadas: seria contar duas
+	// vezes cada ronda que publicou.
+	try {
+		const { results } = await env.DADOS.prepare(
+			`SELECT r.dia AS dia, j.key AS tipo, SUM(j.value) AS n
+			 FROM ronda_fonte r, json_each(r.por_tipo) j
+			 WHERE r.dia IN (${marcas}) GROUP BY r.dia, j.key`
+		)
+			.bind(...dias)
+			.all();
+		/** @type {Record<string, Record<string, number>>} */
+		const porRondas = {};
+		for (const r of results ?? []) (porRondas[r.dia] ??= {})[r.tipo] = r.n;
+		Object.assign(saida, porRondas);
+	} catch {
+		// sem a tabela ainda, fica a conta antiga
+	}
+	return saida;
 }
 
 /**
@@ -813,6 +1023,7 @@ export default {
 	 */
 	async fetch(pedido, env) {
 		const url = new URL(pedido.url);
+		if (url.pathname === '/ronda') return receberRonda(pedido, env);
 		if (url.pathname === '/observar') {
 			return Response.json(await observar(env));
 		}
@@ -856,19 +1067,29 @@ export default {
 			estado = null;
 		}
 
-		const [rel, runs, diario, ent, horas, porDia, sempre, entradasHora] = await Promise.all([
-			relatorio(env, dia),
-			corridas(env),
-			rondas(env),
-			entradas(env, dias, dia),
-			horasDoDia(env, dia),
-			pedidosPorDia(env, dias),
-			desdeSempre(env),
-			entradasPorHora(env, dias)
-		]);
+		const [rel, runs, diario, ent, horasPublicadas, porDia, sempre, entradasHora, idas, ultima] =
+			await Promise.all([
+				relatorio(env, dia),
+				corridas(env),
+				rondas(env),
+				entradas(env, dias, dia),
+				horasDoDia(env, dia),
+				pedidosPorDia(env, dias),
+				desdeSempre(env),
+				entradasPorHora(env, dias),
+				idasDoDia(env, dia),
+				ultimaIda(env)
+			]);
+		// o gráfico das idas usa o registo de rondas quando o dia o tem, e diz qual usou
+		const horas = idas?.horas ?? horasPublicadas;
+		const contagem = idas ? 'rondas' : 'publicado';
 
 		return Response.json(
-			{ dia, dias, estado, actualizado, rel, runs, diario, ent, horas, porDia, sempre, entradasHora },
+			{
+				dia, dias, estado, actualizado, rel, runs, diario, ent, horas, porDia, sempre,
+				entradasHora, contagem, idas: idas && { rondas: idas.rondas, por_origem: idas.por_origem },
+				ultima
+			},
 			{
 				headers: {
 					'Cache-Control': 'no-store',

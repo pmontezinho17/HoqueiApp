@@ -107,6 +107,33 @@ Sem o segredo, o Worker continua a medir e a consola continua a funcionar — s�
 dizia `HTTP 403`. É a GitHub a recusar o pedido sem autenticação — 60 por hora e por IP, e os
 IPs de saída da Cloudflare vêm com o balde gasto. Com token são 5 000 por hora na nossa conta.
 
+## A contagem de cada ida à APL (`POST /ronda`)
+
+Desde 30/10/2026 cada processo que pede à APL — as rondas de dados, o ciclo ao vivo, a sonda e o
+botão do site de testes — diz aqui o que pediu, publique ou não. Antes o observador só sabia
+dos pedidos pelo `meta.json` publicado, e uma ronda sem novidade não existia (B9.31).
+
+É o único endereço deste Worker que escreve o que outro lhe manda, e por isso é o único com
+chave. O segredo `CHAVE_RONDAS` tem de ser **o mesmo** aqui e nas Actions:
+
+```bash
+chave=$(openssl rand -hex 32)
+printf %s "$chave" | (cd worker/observador && npx wrangler secret put CHAVE_RONDAS)
+printf %s "$chave" | gh secret set CHAVE_RONDAS
+unset chave
+```
+
+Assim a chave não aparece no ecrã nem no histórico do terminal. Sem o segredo no Worker o
+`/ronda` recusa tudo com 401; sem ele nas Actions o raspador não envia nada. Em nenhum dos dois
+casos uma ronda pára.
+
+## Publicar
+
+O `observador.yml` publica-o a partir do `main` quando o `worker/observador/**` muda, corre os
+testes antes e sonda o Worker depois. Um `npx wrangler deploy` à mão passa a ser a excepção:
+quem o fizer faz `git pull` primeiro — a mesma armadilha que a 16/10/2026 publicou o relógio
+antigo.
+
 ## Tipos
 
 ```bash

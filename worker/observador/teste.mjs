@@ -134,3 +134,47 @@ assert.deepStrictEqual(sa.sem_resultado, [1]);
 assert.strictEqual(sa.estado, 'vermelho');
 
 console.log('observador: saúde, 8 asserções, todas passaram');
+
+// ── as idas à APL, registadas por quem as fez (B9.31) ──────────────────────────────────
+import { agruparIdas, validarRonda } from './src/index.js';
+
+const agora = Date.parse('2026-10-30T03:00:00Z');
+// a ronda das 00:30 de 30/10/2026: pediu, não publicou, e conta
+let ra = validarRonda(
+	{ origem: 'producao', quando: '2026-10-30T02:44:51+00:00',
+	  por_tipo: { calendario: 37, competiciones: 2 }, falhados: 0, corrida: '40993445344' },
+	agora
+);
+assert.deepStrictEqual(ra, {
+	dia: '2026-10-30', hora: '02:44:51', origem: 'producao', total: 39, falhados: 0,
+	por_tipo: { calendario: 37, competiciones: 2 }, corrida: '40993445344'
+});
+// a hora é a de Lisboa: no verão, 23:30 UTC já é o dia seguinte
+ra = validarRonda({ origem: 'aovivo', quando: '2026-10-10T23:30:00Z', por_tipo: { ficha: 3 } },
+	Date.parse('2026-10-11T00:00:00Z'));
+assert.strictEqual(ra.dia, '2026-10-11');
+assert.strictEqual(ra.hora, '00:30:00');
+
+// o que não tem a forma de uma ronda não entra
+const base = { origem: 'producao', quando: '2026-10-30T02:44:51Z', por_tipo: { ficha: 1 } };
+assert.strictEqual(validarRonda({ ...base, origem: 'portatil' }, agora), null, 'origem desconhecida');
+assert.strictEqual(validarRonda({ ...base, por_tipo: {} }, agora), null, 'sem pedidos');
+assert.strictEqual(validarRonda({ ...base, por_tipo: { ficha: 0 } }, agora), null, 'só zeros');
+assert.strictEqual(validarRonda({ ...base, por_tipo: { ficha: 1.5 } }, agora), null, 'não inteiro');
+assert.strictEqual(validarRonda({ ...base, por_tipo: { ficha: 99999 } }, agora), null, 'absurdo');
+assert.strictEqual(validarRonda({ ...base, por_tipo: { 'DROP TABLE': 1 } }, agora), null, 'tipo esquisito');
+assert.strictEqual(validarRonda({ ...base, quando: '2026-10-20T00:00:00Z' }, agora), null, 'velho de mais');
+assert.strictEqual(validarRonda(null, agora), null);
+
+const idas = agruparIdas([
+	{ hora: '02:44:51', origem: 'producao', total: 39, por_tipo: '{"calendario":37,"competiciones":2}' },
+	{ hora: '21:00:30', origem: 'aovivo', total: 3, por_tipo: '{"ficha":3}' },
+	{ hora: '21:01:00', origem: 'aovivo', total: 2, por_tipo: '{"ficha":2}' },
+	{ hora: '21:10:00', origem: 'testes', total: 40, por_tipo: '{"calendario":37,"competiciones":2,"clasificacion":1}' }
+]);
+assert.deepStrictEqual(idas.horas[2], { calendario: 37, competiciones: 2 });
+assert.deepStrictEqual(idas.horas[21], { ficha: 5, calendario: 37, competiciones: 2, clasificacion: 1 });
+assert.strictEqual(idas.rondas, 4);
+assert.deepStrictEqual(idas.por_origem.aovivo, { rondas: 2, pedidos: 5 });
+
+console.log('observador: idas à APL, 15 asserções, todas passaram');
