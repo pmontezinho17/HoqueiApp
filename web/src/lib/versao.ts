@@ -22,6 +22,10 @@
  * * **maior** (`2.0`) — o que muda a forma de usar a app: um ecrã novo, uma navegação
  *   diferente, uma coisa que estava num sítio e passou para outro;
  * * **menor** (`1.3`) — correcções e melhorias dentro do que já existia.
+ * * **terceiro número** (`1.9.1`) — uma reparação que vai ao `main` a meio da semana, quando a
+ *   próxima entrega já tem número. Nasceu a 31/10/2026: a `1.10` estava reservada para a entrega
+ *   de segunda, e o dono quis que quem está em produção fosse avisado da reparação sem lhe gastar
+ *   esse número. Produção passa da `1.9` para a `1.9.1`, e depois para a `1.10`.
  *
  * **Uma publicação que não mexe no que o utilizador vê não sobe a versão.** É o caso de uma
  * alteração à consola, ao raspador ou a um workflow — e é por isso que o aviso deixa de
@@ -38,7 +42,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.9';
+export const VERSAO = '1.9.1';
 
 /**
  * **O número que se vê sobe uma vez por entrega; o site de testes ganha uma marca por cima.**
@@ -150,6 +154,21 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.9.1',
+		data: '2026-10-31',
+		pontos: [
+			{
+				tipo: 'corrigido',
+				titulo: '🛡️ Na ficha de jogo, os emblemas voltam antes do apito',
+				texto:
+					'Num jogo por começar podias ver dois círculos vazios no lugar das equipas, e ' +
+					'tocar num deles dava "página não encontrada". Acontecia quando a ficha oficial ' +
+					'ainda não tinha as equipas lá dentro. Agora os nomes e os emblemas aparecem ' +
+					'sempre, e tocar abre a equipa. 🙌'
+			}
+		]
+	},
 	{
 		versao: '1.9',
 		data: '2026-10-26',
