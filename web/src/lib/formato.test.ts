@@ -1,7 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { diaDeLisboa } from './dia';
-import { faseCurta, jornadaAtual, nomeProprio, nomeProva } from './formato';
+import { faseCurta, jornadaAtual, nomeProprio, nomeProva, situacaoADecorrer } from './formato';
 import { disputado, type Jogo } from './tipos';
 
 describe('nomeProprio', () => {
@@ -168,5 +168,22 @@ describe('jornadaAtual', () => {
 		const daJornada = jogos.filter((j) => j.jornada === atual.jornada);
 		const comecou = daJornada.some((j) => disputado(j) || (!!j.data && j.data <= hoje));
 		expect(comecou).toBe(atual.rotulo === 'em curso');
+	});
+});
+
+describe('situacaoADecorrer', () => {
+	it('um jogo terminado e suspendido não está a decorrer', () => {
+		// o texto da APL a 31/10/2026, num sub-15 acabado 6–1
+		expect(situacaoADecorrer('Jogo Terminado (Jogo Suspendido)')).toBe(false);
+	});
+
+	it('os estados fechados e por começar não estão a decorrer', () => {
+		for (const s of ['Jogo Terminado', 'Jogo Suspendido', 'Jogo Adiado', 'Jogo sem começar', null])
+			expect(situacaoADecorrer(s)).toBe(false);
+	});
+
+	it('o intervalo e as partes estão a decorrer', () => {
+		for (const s of ['Intervalo', '2ª Parte (13:26)', 'Prolongamento'])
+			expect(situacaoADecorrer(s)).toBe(true);
 	});
 });

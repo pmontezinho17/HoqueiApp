@@ -22,6 +22,10 @@
  * * **maior** (`2.0`) — o que muda a forma de usar a app: um ecrã novo, uma navegação
  *   diferente, uma coisa que estava num sítio e passou para outro;
  * * **menor** (`1.3`) — correcções e melhorias dentro do que já existia.
+ * * **terceiro número** (`1.9.1`) — uma reparação que vai ao `main` a meio da semana, quando a
+ *   próxima entrega já tem número. Nasceu a 31/10/2026: a `1.10` estava reservada para a entrega
+ *   de segunda, e o dono quis que quem está em produção fosse avisado da reparação sem lhe gastar
+ *   esse número. Produção passa da `1.9` para a `1.9.1`, e depois para a `1.10`.
  *
  * **Uma publicação que não mexe no que o utilizador vê não sobe a versão.** É o caso de uma
  * alteração à consola, ao raspador ou a um workflow — e é por isso que o aviso deixa de
@@ -207,6 +211,29 @@ export const NOVIDADES: Novidade[] = [
 				titulo: '🕐 Fora de Portugal, a hora dos jogos na tua hora',
 				texto:
 					'Se o teu telemóvel estiver noutro fuso horário — nos Açores, ou em viagem —, cada jogo mostra a tua hora em destaque e, por baixo, mais pequena, a hora em Portugal continental, com «PT» à frente. Só aparece quando as duas horas são diferentes: em Portugal continental e na Madeira fica tudo como estava.'
+			}
+		]
+	},
+	{
+		versao: '1.9.1',
+		data: '2026-10-31',
+		pontos: [
+			{
+				tipo: 'corrigido',
+				titulo: '🛡️ Na ficha de jogo, os emblemas voltam antes do apito',
+				texto:
+					'Num jogo por começar podias ver dois círculos vazios no lugar das equipas, e ' +
+					'tocar num deles dava "página não encontrada". Acontecia quando a ficha oficial ' +
+					'ainda não tinha as equipas lá dentro. Agora os nomes e os emblemas aparecem ' +
+					'sempre, e tocar abre a equipa. 🙌'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: '🔴 Um jogo acabado já não fica "ao vivo"',
+				texto:
+					'Quando a ficha oficial diz que um jogo terminou com uma nota a seguir — como ' +
+					'"suspendido" —, a app continuava a mostrá-lo ao vivo, horas depois do fim. ' +
+					'Agora passa a terminado, com o resultado final.'
 			}
 		]
 	},
