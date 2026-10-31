@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Folha from '$lib/Folha.svelte';
 	import { SITIO } from './sitio';
-	import { dataCurta, horaCurta } from '$lib/formato';
+	import { dataCurta, horaComLisboa } from '$lib/formato';
 	import { clube, escalao } from '$lib/nomes';
 	import { slug } from '$lib/slug';
 	import type { Jogo } from '$lib/tipos';
@@ -123,7 +123,7 @@
 				<li>
 					<a href={linkGoogle(j)} target="_blank" rel="noopener">
 						<span class="quando">
-							{dataCurta(j.data)}{j.hora ? ` · ${horaCurta(j.hora)}` : ''}
+							{dataCurta(j.data)}{j.hora ? ` · ${horaComLisboa(j.data, j.hora)}` : ''}
 						</span>
 						<span class="quem">{adversario(j)} <small>({onde(j)})</small></span>
 						<span class="mais" aria-hidden="true">+</span>

@@ -1,4 +1,4 @@
-import { diaDeLisboa, instanteDeLisboa } from './dia';
+import { diaDeLisboa, horaNoAparelho, instanteDeLisboa } from './dia';
 import { disputado, type Jogo } from './tipos';
 
 const DIAS = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
@@ -11,6 +11,17 @@ export function dataCurta(iso: string | null): string {
 }
 
 export const horaCurta = (h: string | null): string => (h ? h.slice(0, 5) : '');
+
+/**
+ * A hora de um jogo para um texto corrido: a do aparelho à frente e a de Lisboa entre
+ * parênteses, quando são diferentes — `"10:45 (15:45 PT)"`. Ver `horaNoAparelho`.
+ */
+export function horaComLisboa(data: string | null | undefined, hora: string | null): string {
+	const local = horaNoAparelho(data, hora);
+	if (!local) return horaCurta(hora);
+	const dia = local.dias ? ` ${local.dias > 0 ? '+' : '−'}${Math.abs(local.dias)}d` : '';
+	return `${local.hora}${dia} (${horaCurta(hora)} PT)`;
+}
 
 /**
  * A jornada em curso: a primeira, pela ordem da prova, que ainda tem jogos por disputar.

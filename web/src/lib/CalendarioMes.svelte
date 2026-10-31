@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Emblema from './Emblema.svelte';
 	import { disputado, type Jogo } from './tipos';
-	import { diaDeLisboa } from '$lib/dia';
+	import { diaDeLisboa, horaNoAparelho } from '$lib/dia';
 	import { adversario, jogoPrecisaDeMarca, localDoDia } from '$lib/calendario';
 
 	// Uma equipa de cada vez, de propósito. Com várias, dois jogos no mesmo dia não cabiam
@@ -79,8 +79,10 @@
 									<svelte:element this={j.id && disputado(j) ? 'a' : 'div'}
 										href={j.id && disputado(j) ? `/jogo/${j.id}` : null} class="jogo">
 										<Emblema equipa={outro} src={emblemas[outro]} tamanho={18} />
+										<!-- Fora do fuso de Lisboa, só a hora do aparelho: a célula não tem lugar para
+										     duas, e a de Lisboa está a um toque, na ficha. -->
 										<span class="hora">
-											{disputado(j) ? `${j.golos_casa}-${j.golos_fora}` : (j.hora?.slice(0, 5) ?? '')}
+											{disputado(j) ? `${j.golos_casa}-${j.golos_fora}` : (horaNoAparelho(j.data, j.hora)?.hora ?? j.hora?.slice(0, 5) ?? '')}
 											{#if jogoPrecisaDeMarca(doDia, equipa, j)}<b class="f-jogo" title="Fora">F</b>{/if}
 										</span>
 									</svelte:element>
