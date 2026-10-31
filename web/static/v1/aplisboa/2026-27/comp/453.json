@@ -328,8 +328,8 @@
    "hora": "19:00:00",
    "casa": "A STUART HCM",
    "fora": "APAC TOJAL",
-   "golos_casa": 0,
-   "golos_fora": 1,
+   "golos_casa": 2,
+   "golos_fora": 6,
    "recinto": "PAV.PROF.JOÃO CAMPELO",
    "ao_vivo": false
   },
@@ -486,10 +486,10 @@
      "vitorias": 4,
      "empates": 1,
      "derrotas": 2,
-     "golos_marcados": 20,
-     "golos_sofridos": 14,
-     "diferenca": 6,
-     "racio": 1.43,
+     "golos_marcados": 25,
+     "golos_sofridos": 16,
+     "diferenca": 9,
+     "racio": 1.56,
      "pontos": 13
     },
     {
@@ -542,10 +542,10 @@
      "vitorias": 1,
      "empates": 0,
      "derrotas": 6,
-     "golos_marcados": 10,
-     "golos_sofridos": 33,
-     "diferenca": -23,
-     "racio": 0.3,
+     "golos_marcados": 12,
+     "golos_sofridos": 38,
+     "diferenca": -26,
+     "racio": 0.32,
      "pontos": 3
     }
    ]
