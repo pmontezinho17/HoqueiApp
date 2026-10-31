@@ -7,6 +7,7 @@
 	import { destinoDoJogo } from './destinos';
 	import { barraDoMerito, descricaoDoMerito } from './meritoDoJogo';
 	import type { JogoAgenda } from './tipos';
+	import { horaNoAparelho } from './dia';
 
 	let {
 		jogo, emblemas, seguida, comData = false, comEscalao = false
@@ -24,6 +25,8 @@
 
 	const jogado = $derived(jogo.gc !== null && jogo.gf !== null);
 	const live = $derived(emCurso(jogo));
+	/** Fora do fuso de Lisboa, a hora do aparelho à frente e a do jogo por baixo — ver `dia.ts`. */
+	const local = $derived(horaNoAparelho(jogo.data, jogo.hora));
 	/**
 	 * Há transmissão deste jogo?
 	 *
@@ -77,7 +80,7 @@
   alvo com nada. Ver `destinos.ts`.
 -->
 <svelte:element this={destino ? 'a' : 'div'} href={destino} class="linha"
-	class:ligavel={destino} class:comDirecto={!!directo}>
+	class:ligavel={destino} class:comDirecto={!!directo} class:duasHoras={!!local}>
 	<span class="quando">
 		{#if live}
 			<!-- O ponto a pulsar lê-se antes do texto; o texto é para quem não vê cor.
@@ -89,7 +92,12 @@
 			{#if jogo.relogio}<span class="conta">{jogo.relogio}</span>{/if}
 		{:else}
 			{#if comData && jogo.data}<span class="dia">{diaCurto(jogo.data)}</span>{/if}
-			<span class="hora">{jogo.hora ?? '—'}</span>
+			{#if local}
+				<span class="hora">{local.hora}{#if local.dias}<sup>{local.dias > 0 ? '+' : '−'}{Math.abs(local.dias)}</sup>{/if}</span>
+				<span class="lisboa">{jogo.hora} Lisboa</span>
+			{:else}
+				<span class="hora">{jogo.hora ?? '—'}</span>
+			{/if}
 		{/if}
 		{#if comEscalao}<span class="escalao">{escalaoCurto(jogo.cat)}</span>{/if}
 	</span>
@@ -182,6 +190,11 @@
 	.linha.comDirecto {
 		grid-template-columns: 3.1rem 1fr auto auto;
 	}
+	/* "10:00 Lisboa" mede 69 px na letra mais pequena, e a coluna da hora tem 50 (medido a
+	   31/10/2026, a 375 px): sem isto a hora de Lisboa ia por baixo do emblema. Só alarga
+	   fora do fuso de Lisboa — em Portugal a lista fica como sempre foi. */
+	.linha.duasHoras { grid-template-columns: 4.5rem 1fr auto; }
+	.linha.duasHoras.comDirecto { grid-template-columns: 4.5rem 1fr auto auto; }
 
 	.linha {
 		display: grid;
@@ -205,6 +218,11 @@
 	.quando { display: flex; flex-direction: column; line-height: 1.3; }
 	.dia, .hora { color: var(--suave); font-variant-numeric: tabular-nums;
 		font-size: var(--t-pequeno); }
+	.lisboa { color: var(--suave); font-variant-numeric: tabular-nums; font-size: var(--t-micro);
+		white-space: nowrap; }
+	.hora sup { font-size: 0.7em; margin-left: 0.05em; }
+	/* a hora de quem está a ver manda; a de Lisboa fica por baixo, mais pequena */
+	.duasHoras .hora { color: var(--texto); font-weight: 600; }
 
 	/* um jogo a decorrer tem de se distinguir de um já fechado antes de ser lido */
 	.escalao { font-size: var(--t-micro); font-weight: 600; letter-spacing: 0.03em;

@@ -115,3 +115,45 @@ export function instanteDeLisboa(data: string, hora: string): number {
 	const primeiro = comoUtc - desvio(comoUtc);
 	return comoUtc - desvio(primeiro);
 }
+
+const formatadores = new Map<string, Intl.DateTimeFormat>();
+const formatador = (fuso: string) => {
+	let f = formatadores.get(fuso);
+	if (!f) {
+		f = new Intl.DateTimeFormat('en-GB', { timeZone: fuso, hourCycle: 'h23', year: 'numeric',
+			month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' });
+		formatadores.set(fuso, f);
+	}
+	return f;
+};
+const dois = (n: number) => String(n).padStart(2, '0');
+
+/**
+ * A hora de um jogo no fuso do aparelho, **quando não é a mesma de Lisboa**; `null` quando é.
+ *
+ * Pedido do dono a 31/10/2026, em viagem a UTC−5: *"gostava que a aplicação conseguisse
+ * avaliar sozinha o fuso horário do dispositivo e colocasse as duas horas … a local maior e a
+ * do jogo mais pequena"*. Por isso o `null` importa tanto como a hora: em Portugal continental
+ * e na Madeira não aparece nada de novo, e a linha fica como sempre foi.
+ *
+ * Compara-se o relógio e o dia, e não o nome do fuso: um aparelho em Londres no inverno dá a
+ * mesma hora que Lisboa e não precisa de segunda hora. `dias` é quanto o dia local se afasta
+ * do de Lisboa — um jogo das 20:15 visto a UTC+8 é às 04:15 do dia seguinte.
+ */
+export function horaNoAparelho(
+	data: string | null | undefined,
+	hora: string | null | undefined,
+	fuso: string = Intl.DateTimeFormat().resolvedOptions().timeZone
+): { hora: string; dias: number } | null {
+	if (!data || !hora) return null;
+	const p = Object.fromEntries(
+		formatador(fuso)
+			.formatToParts(new Date(instanteDeLisboa(data, hora)))
+			.map((x) => [x.type, Number(x.value)])
+	);
+	const local = `${dois(p.hour % 24)}:${dois(p.minute)}`;
+	const [a, m, d] = data.split('-').map(Number);
+	const dias = Math.round((Date.UTC(p.year, p.month - 1, p.day) - Date.UTC(a, m - 1, d)) / 864e5);
+	if (local === hora.slice(0, 5) && dias === 0) return null;
+	return { hora: local, dias };
+}

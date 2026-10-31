@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
-import { diaDeLisboa, diaDeLisboaMais, diaInicial, instanteDeLisboa } from './dia';
+import { diaDeLisboa, diaDeLisboaMais, diaInicial, horaNoAparelho, instanteDeLisboa } from './dia';
 import { emCurso } from './formato';
 
 /**
@@ -168,5 +168,38 @@ describe('o instante de um jogo', () => {
 			.filter((f) => /new Date\(`\$\{[^}]+\}T\$\{/.test(f.texto))
 			.map((f) => f.nome);
 		expect(maus).toEqual([]);
+	});
+});
+
+describe('a hora do jogo no fuso do aparelho', () => {
+	it('em Lisboa, nos Açores e em Bogotá', () => {
+		expect(horaNoAparelho('2026-10-31', '15:45', 'Europe/Lisbon')).toBeNull();
+		expect(horaNoAparelho('2026-10-31', '15:45', 'Atlantic/Madeira')).toBeNull();
+		expect(horaNoAparelho('2026-10-31', '15:45', 'Atlantic/Azores')).toEqual({ hora: '14:45', dias: 0 });
+		// o telemóvel do dono a 31/10/2026
+		expect(horaNoAparelho('2026-10-31', '15:45', 'America/Bogota')).toEqual({ hora: '10:45', dias: 0 });
+	});
+
+	it('o mesmo relógio noutro fuso não leva segunda hora', () => {
+		// Londres no inverno está à hora de Lisboa; no verão também — os dois mudam juntos
+		expect(horaNoAparelho('2026-11-07', '12:30', 'Europe/London')).toBeNull();
+		expect(horaNoAparelho('2026-05-09', '12:30', 'Europe/London')).toBeNull();
+	});
+
+	it('acompanha a mudança de hora de cada lado', () => {
+		// 25/10/2026 Lisboa passou a UTC+0; Nova Iorque só muda a 01/11
+		expect(horaNoAparelho('2026-10-31', '15:00', 'America/New_York')).toEqual({ hora: '11:00', dias: 0 });
+		expect(horaNoAparelho('2026-11-07', '15:00', 'America/New_York')).toEqual({ hora: '10:00', dias: 0 });
+	});
+
+	it('diz quando o dia local é outro', () => {
+		expect(horaNoAparelho('2026-10-31', '20:15', 'Asia/Macau')).toEqual({ hora: '04:15', dias: 1 });
+		expect(horaNoAparelho('2026-10-31', '00:30', 'America/Sao_Paulo')).toEqual({ hora: '21:30', dias: -1 });
+	});
+
+	it('aceita a hora com segundos, e nada sem data ou hora', () => {
+		expect(horaNoAparelho('2026-10-31', '15:45:00', 'America/Bogota')?.hora).toBe('10:45');
+		expect(horaNoAparelho('2026-10-31', null, 'America/Bogota')).toBeNull();
+		expect(horaNoAparelho(null, '15:45', 'America/Bogota')).toBeNull();
 	});
 });

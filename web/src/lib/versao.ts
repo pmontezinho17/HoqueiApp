@@ -201,6 +201,12 @@ export const NOVIDADES: Novidade[] = [
 				titulo: '🌍 Fora de Portugal continental, os jogos à hora certa',
 				texto:
 					'As horas dos jogos são as de Lisboa, mas a app lia-as na hora do teu telemóvel. Nos Açores, ou em viagem, os jogos a decorrer podiam não aparecer — ou ficar "ao vivo" horas depois do fim — e o botão do Google Calendar marcava o jogo à hora errada. Agora contam sempre a partir da hora de Lisboa.'
+			},
+			{
+				tipo: 'novo',
+				titulo: '🕐 Fora de Portugal, a hora dos jogos na tua hora',
+				texto:
+					'Se o teu telemóvel estiver noutro fuso horário — nos Açores, ou em viagem —, cada jogo mostra a tua hora em destaque e, por baixo, mais pequena, a hora a que se joga em Lisboa. Em Portugal continental e na Madeira fica tudo como estava.'
 			}
 		]
 	},
