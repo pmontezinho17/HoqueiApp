@@ -170,7 +170,7 @@ export const NOVIDADES: Novidade[] = [
 				tipo: 'novo',
 				titulo: '👉 Desliza para mudar de separador',
 				texto:
-					'Na competição e na equipa já podes passar de um separador para o outro a deslizar o dedo, como na ficha de jogo. Em qualquer sítio do ecrã, e não só por cima dos jogos. E nos Jogos, no Meu Clube e nas Competições, deslizar para lá do fim leva-te ao menu do lado.'
+					'Na competição e na equipa já podes passar de um separador para o outro a deslizar o dedo, como na ficha de jogo. Em qualquer sítio do ecrã, e não só por cima dos jogos — também por cima das tabelas, que já não rolam para o lado quando cabem no ecrã.'
 			},
 			{
 				tipo: 'corrigido',

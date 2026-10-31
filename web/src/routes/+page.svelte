@@ -3,8 +3,7 @@
 	import { APP_NOME } from '$lib/sitio';
 	import FitaDatas from '$lib/FitaDatas.svelte';
 	import PaginaDia from '$lib/PaginaDia.svelte';
-	import { afterNavigate, goto, replaceState } from '$app/navigation';
-	import { vizinha } from '$lib/seccao';
+	import { afterNavigate, replaceState } from '$app/navigation';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import { porEscalao } from '$lib/escaloes';
 	import { diaInicial } from '$lib/dia';
@@ -185,9 +184,7 @@
 	</div>
 {/if}
 
-<!-- Para lá do último dia, o Meu Clube: arrastar passa de um menu da barra de baixo para o
-     vizinho — ver a `lib/Faixa.svelte`. Antes do primeiro não há nada, os Jogos são a ponta. -->
-<Faixa itens={dias} bind:escolhido={dia} bind:progresso depois={() => goto(vizinha('/', 1)!)}>
+<Faixa itens={dias} bind:escolhido={dia} bind:progresso>
 	{#snippet pagina(d)}
 		<PaginaDia
 			dia={d}

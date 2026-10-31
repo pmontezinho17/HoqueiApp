@@ -1,7 +1,4 @@
 <script lang="ts">
-	import Faixa from '$lib/Faixa.svelte';
-	import { goto } from '$app/navigation';
-	import { vizinha } from '$lib/seccao';
 	import Emblema from '$lib/Emblema.svelte';
 	import { APP_NOME } from '$lib/sitio';
 	import Folha from '$lib/Folha.svelte';
@@ -132,47 +129,39 @@
 		}}
 	/>
 {:else}
-	<!-- Uma página só, para o arrasto levar aos menus do lado: os Jogos à esquerda, as
-	     Competições à direita — ver a `lib/Faixa.svelte`. A escolha de equipas fica de fora:
-	     tem peças fixas no ecrã, e dentro dos carris que se transladam deixavam de o ser. -->
-	<Faixa itens={['clube']} escolhido="clube"
-		antes={() => goto(vizinha('/clube', -1)!)} depois={() => goto(vizinha('/clube', 1)!)}>
-		{#snippet pagina()}
-			{#await resumir()}
-				<p class="vazio">A reunir os jogos…</p>
-			{:then resumos}
-					<!--
-					  Lançador, não painel: cada equipa leva à sua página, onde estão jogos,
-					  classificação e plantel. Empilhar tudo aqui não escala com várias equipas
-					  e dava um resumo fino em vez de uma página a sério.
-					-->
-					{#each resumos as r, i (r.fav.equipa + r.fav.categoria)}
-						<!-- `data-guia` só no primeiro: o tour ilumina um elemento, não uma lista -->
-						<a class="cartao" data-guia={i === 0 ? 'clube-cartoes' : undefined}
-							href={caminhoEquipa(r.fav.equipa, r.fav.categoria)}>
-							<Emblema equipa={r.fav.equipa} src={data.emblemas[r.fav.equipa]} tamanho={32} />
-							<span class="quem">
-								<span class="nome">{r.fav.equipa}</span>
-								<span class="escalao">{r.fav.categoria}</span>
-							</span>
-							<span class="jogo">
-								{#if r.proximo}
-									<span class="rot">próximo</span>
-									<span class="adv">{adversario(r.proximo, r.fav.equipa)}</span>
-									<span class="qd">{quando(r.proximo)}</span>
-								{:else if r.ultimo}
-									<span class="rot">último</span>
-									<span class="adv">{adversario(r.ultimo, r.fav.equipa)}</span>
-									<span class="qd">{r.ultimo.golos_casa}–{r.ultimo.golos_fora}</span>
-								{/if}
-							</span>
-							<span class="seta" aria-hidden="true">›</span>
-						</a>
-					{/each}
-				<button class="secundaria" data-guia="clube-seguir" onclick={() => (escolhendo = true)}>Escolher equipas</button>
-			{/await}
-		{/snippet}
-	</Faixa>
+	{#await resumir()}
+		<p class="vazio">A reunir os jogos…</p>
+	{:then resumos}
+			<!--
+			  Lançador, não painel: cada equipa leva à sua página, onde estão jogos,
+			  classificação e plantel. Empilhar tudo aqui não escala com várias equipas
+			  e dava um resumo fino em vez de uma página a sério.
+			-->
+			{#each resumos as r, i (r.fav.equipa + r.fav.categoria)}
+				<!-- `data-guia` só no primeiro: o tour ilumina um elemento, não uma lista -->
+				<a class="cartao" data-guia={i === 0 ? 'clube-cartoes' : undefined}
+					href={caminhoEquipa(r.fav.equipa, r.fav.categoria)}>
+					<Emblema equipa={r.fav.equipa} src={data.emblemas[r.fav.equipa]} tamanho={32} />
+					<span class="quem">
+						<span class="nome">{r.fav.equipa}</span>
+						<span class="escalao">{r.fav.categoria}</span>
+					</span>
+					<span class="jogo">
+						{#if r.proximo}
+							<span class="rot">próximo</span>
+							<span class="adv">{adversario(r.proximo, r.fav.equipa)}</span>
+							<span class="qd">{quando(r.proximo)}</span>
+						{:else if r.ultimo}
+							<span class="rot">último</span>
+							<span class="adv">{adversario(r.ultimo, r.fav.equipa)}</span>
+							<span class="qd">{r.ultimo.golos_casa}–{r.ultimo.golos_fora}</span>
+						{/if}
+					</span>
+					<span class="seta" aria-hidden="true">›</span>
+				</a>
+			{/each}
+		<button class="secundaria" data-guia="clube-seguir" onclick={() => (escolhendo = true)}>Escolher equipas</button>
+	{/await}
 {/if}
 
 <Folha bind:aberta titulo="Seguir uma equipa">
