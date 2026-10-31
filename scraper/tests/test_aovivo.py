@@ -572,3 +572,44 @@ def test_os_nomes_da_ficha_mandam_sobre_os_do_calendario():
     dados = {"casa": "PAREDE FC", "fora": ""}
     cli._nomes_do_calendario(dados, "PAREDE FC A", "FSE/AJ SALESIANA")
     assert dados == {"casa": "PAREDE FC", "fora": "FSE/AJ SALESIANA"}
+
+
+SUSPENDIDO = "Jogo Terminado (Jogo Suspendido)"
+
+
+def test_um_jogo_terminado_e_suspendido_nao_esta_a_decorrer():
+    """A 31/10/2026 a APL escreveu isto num sub-15 acabado, e ele ficou "ao vivo" até à noite."""
+    from hoquei.cli import _marcar_em_curso
+    from hoquei.modelos import em_curso
+
+    assert not em_curso(SUSPENDIDO)
+    entrada = {"id": 9604, "gc": 6, "gf": 1, "ao_vivo": True, "periodo": SUSPENDIDO,
+               "situacao": SUSPENDIDO}
+    _marcar_em_curso(entrada, {"situacao": SUSPENDIDO})
+    for chave in ("ao_vivo", "periodo", "situacao"):
+        assert chave not in entrada
+
+
+def test_a_marca_presa_apaga_se_mesmo_com_a_ficha_igual(tmp_path, monkeypatch):
+    """A ronda ao vivo só mexia na marca quando a ficha mudava — e a de 31/10 não mudava.
+
+    Fora da janela de três horas, como o jogo das 15:45 às 21:51: é a recolha dos atrasados
+    que o vai buscar, por ter a marca acesa. Depois desta ronda já não tem razão para voltar.
+    """
+    fx = _ficha("Jogo Terminado", None, None, SUSPENDIDO, 6, 1)
+    _agenda_com(tmp_path, _jogo(4))
+    monkeypatch.setattr(cli, "Fonte", _FonteFalsa)
+    monkeypatch.setattr(cli, "ficha", lambda _h, _i: fx)
+    # a primeira ronda grava a ficha; depois põe-se a agenda como estava em produção
+    assert cli.comando_aovivo(_args(tmp_path)) == 0
+    agenda_f = tmp_path / "agenda.json"
+    agenda = json.loads(agenda_f.read_text())
+    agenda["jogos"][0].update(ao_vivo=True, situacao=SUSPENDIDO, periodo=SUSPENDIDO)
+    agenda_f.write_text(json.dumps(agenda))
+    ficha_antes = (tmp_path / "match" / f"{ID}.json").read_text()
+
+    assert cli.comando_aovivo(_args(tmp_path)) == 0
+    assert (tmp_path / "match" / f"{ID}.json").read_text() == ficha_antes
+    j = json.loads(agenda_f.read_text())["jogos"][0]
+    assert "ao_vivo" not in j
+    assert (j["gc"], j["gf"]) == (6, 1)

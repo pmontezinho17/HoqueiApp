@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { faseCurta, nomeProprio, nomeProva } from './formato';
+import { faseCurta, nomeProprio, nomeProva, situacaoADecorrer } from './formato';
 
 describe('nomeProprio', () => {
 	it('põe em caixa de título o que a fonte publica em maiúsculas', () => {
@@ -102,5 +102,22 @@ describe('nomeProva', () => {
 	it('aguenta vazio e nulo', () => {
 		expect(nomeProva(null)).toBe('');
 		expect(nomeProva('')).toBe('');
+	});
+});
+
+describe('situacaoADecorrer', () => {
+	it('um jogo terminado e suspendido não está a decorrer', () => {
+		// o texto da APL a 31/10/2026, num sub-15 acabado 6–1
+		expect(situacaoADecorrer('Jogo Terminado (Jogo Suspendido)')).toBe(false);
+	});
+
+	it('os estados fechados e por começar não estão a decorrer', () => {
+		for (const s of ['Jogo Terminado', 'Jogo Suspendido', 'Jogo Adiado', 'Jogo sem começar', null])
+			expect(situacaoADecorrer(s)).toBe(false);
+	});
+
+	it('o intervalo e as partes estão a decorrer', () => {
+		for (const s of ['Intervalo', '2ª Parte (13:26)', 'Prolongamento'])
+			expect(situacaoADecorrer(s)).toBe(true);
 	});
 });

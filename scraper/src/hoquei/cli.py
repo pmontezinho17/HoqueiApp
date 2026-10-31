@@ -524,6 +524,15 @@ def comando_aovivo(args) -> int:
                 dados["merito"] = antigo["merito"]
             novo = json.dumps(dados, ensure_ascii=False, indent=1)
             if alvo.exists() and alvo.read_text() == novo:
+                # A ficha não mudou, mas a marca da agenda pode estar errada — e era só aqui
+                # que ela se corrigia. A 31/10/2026 ficou acesa num jogo acabado, com a ficha
+                # igual ronda após ronda, até à noite. Corrigi-la não custa um pedido: a ficha
+                # já veio.
+                entrada = por_id[j["id"]]
+                antes = entrada.get("ao_vivo")
+                _marcar_em_curso(entrada, dados)
+                if entrada.get("ao_vivo") != antes:
+                    mudou += 1
                 continue
             alvo.write_text(novo)
             # `ao_vivo` é o que a app usa para marcar o jogo em curso. A app só confia nele
