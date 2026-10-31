@@ -183,6 +183,12 @@ export const NOVIDADES: Novidade[] = [
 				titulo: '↩️ Voltar já te deixa onde estavas',
 				texto:
 					'Abrias um jogo a partir dos Jogos de uma equipa, carregavas na seta e aparecias no Resumo. Agora voltas ao separador e à série onde estavas. E a barra de baixo já não se apaga num jogo ou numa equipa: fica acesa a secção de onde vieste.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: '🗓️ A jornada da semana que vem já não está "em curso"',
+				texto:
+					'Acabava a jornada ao sábado e, no calendário da competição, a seguinte passava logo a dizer "em curso", uma semana antes do primeiro jogo. Agora diz "próxima" até ao dia do primeiro jogo.'
 			}
 		]
 	},

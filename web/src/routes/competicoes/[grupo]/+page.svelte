@@ -222,8 +222,8 @@
 				<section>
 					{#if p.competicao.serie}<h2>Série {p.competicao.serie}</h2>{/if}
 					{#each cal.jornadas as [jornada, jogos] (jornada)}
-						<p class="jornada" class:curso={jornada === cal.atual}>
-							{jornada}{#if jornada === cal.atual}<span class="agora">em curso</span>{/if}
+						<p class="jornada" class:curso={jornada === cal.atual?.jornada}>
+							{jornada}{#if jornada === cal.atual?.jornada}<span class="agora">{cal.atual.rotulo}</span>{/if}
 						</p>
 						{#each jogos as j (j.id ?? `${j.casa}${j.fora}`)}
 							<LinhaJogo jogo={paraAgenda(j, p.competicao.id, data.escalao)}
