@@ -31,11 +31,19 @@
 
 	let { data } = $props();
 
-	type Aba = 'resumo' | 'jogos' | 'classificacao' | 'plantel';
-	const ABAS: Aba[] = ['resumo', 'jogos', 'classificacao', 'plantel'];
+	/**
+	 * O Calendário tem separador próprio desde 31/10/2026. Até aí era uma segunda vista dentro dos
+	 * Jogos, escolhida numa lista, e o dono deu por isso: *"atualmente encontra-se escondida
+	 * dentro da tab jogos, e só quem sabe (e que tenho a certeza de que são poucos) é que acede"*.
+	 * Ver o mês inteiro de uma equipa — e subscrevê-lo no telefone — não devia depender de
+	 * descobrir uma lista. Fica entre os Jogos e a Classificação porque é outra forma de ver os
+	 * mesmos jogos, e assim um arrasto passa de uma para a outra.
+	 */
+	type Aba = 'resumo' | 'jogos' | 'calendario' | 'classificacao' | 'plantel';
+	const ABAS: Aba[] = ['resumo', 'jogos', 'calendario', 'classificacao', 'plantel'];
 
 	/**
-	 * A aba e a vista dos jogos vivem no endereço.
+	 * A aba vive no endereço.
 	 *
 	 * Ganham-se duas coisas com isso. Uma é poder partilhar a classificação de uma equipa
 	 * em vez de "abre a página e toca na terceira aba". A outra é o guia poder conduzir:
@@ -43,17 +51,17 @@
 	 * tocar no estado interno desta página.
 	 */
 	let aba = $state<Aba>('resumo');
-	let vistaJogos = $state<'lista' | 'calendario'>('lista');
 
 	// **Só o endereço manda aqui**, e a aba lê-se sem dependência. Desde que o endereço passou a
 	// guardar a aba com um `goto` (ver `lib/endereco.ts`), o `page.url` traz a aba anterior até
 	// a navegação acabar — e com a `aba` lida também, um toque em Jogos voltava a Resumo.
 	$effect(() => {
-		const a = page.url.searchParams.get('aba');
-		const v = page.url.searchParams.get('vista');
+		let a = page.url.searchParams.get('aba');
+		// Os endereços de antes do separador próprio — partilhados, ou num ecrã inicial —
+		// diziam `?aba=jogos&vista=calendario`, e continuam a abrir o calendário.
+		if (a === 'jogos' && page.url.searchParams.get('vista') === 'calendario') a = 'calendario';
 		untrack(() => {
 			if (a && ABAS.includes(a as Aba) && a !== aba) aba = a as Aba;
-			if ((v === 'lista' || v === 'calendario') && v !== vistaJogos) vistaJogos = v;
 		});
 	});
 
@@ -69,11 +77,9 @@
 	$effect(() => {
 		if (!routerPronto) return;
 		const u = new URL(location.href);
-		const vistaAlvo = aba === 'jogos' ? vistaJogos : null;
-		if (u.searchParams.get('aba') === aba && u.searchParams.get('vista') === vistaAlvo) return;
+		if (u.searchParams.get('aba') === aba && !u.searchParams.has('vista')) return;
 		u.searchParams.set('aba', aba);
-		if (vistaAlvo) u.searchParams.set('vista', vistaAlvo);
-		else u.searchParams.delete('vista');
+		u.searchParams.delete('vista');
 		void guardarNoEndereco(u);
 	});
 	/** '' = todas. A lista de jogos e o plantel permitem todas; a classificação não. */
@@ -198,10 +204,6 @@
 		)
 	);
 	const tabela = $derived(tabelas.find((t) => t.chave === tabelaEscolhida) ?? tabelas[0]);
-	const VISTAS = [
-		{ valor: 'lista' as const, rotulo: 'Em lista' },
-		{ valor: 'calendario' as const, rotulo: 'Em calendário' }
-	];
 	// a mesma lista nos Jogos e no Plantel; `''` é "todas", e os ids vão como texto, que é
 	// como o `<select>` os devolve
 	const comTodas = $derived([
@@ -300,6 +302,7 @@
 		<Separadores activo={aba} escolher={(v) => (aba = v)} guia="equipa-abas" separadores={[
 			{ valor: 'resumo', rotulo: 'Resumo', icone: 'clube' },
 			{ valor: 'jogos', rotulo: 'Jogos', icone: 'jogos' },
+		{ valor: 'calendario', rotulo: 'Calendário', icone: 'data' },
 			{ valor: 'classificacao', rotulo: 'Classificação', icone: 'tabela' },
 			{ valor: 'plantel', rotulo: 'Plantel', icone: 'equipas' }
 		]} />
@@ -331,40 +334,34 @@
 				{#if recinto}<dt>Joga em casa</dt><dd class="txt">{recinto}</dd>{/if}
 			</dl>
 		{:else if a === 'jogos'}
-			<!-- A vista e a prova lado a lado, como a série e as colunas na competição e os filtros da
-			     lista de jogos. A prova só existe na lista: o calendário mostra o mês inteiro. -->
-			<div class="controlos" data-guia="equipa-vistas">
-				<Escolha rotulo="Ver os jogos" bind:valor={vistaJogos} opcoes={VISTAS} />
-				{#if vistaJogos === 'lista' && provas.length > 1}
+			{#if provas.length > 1}
+				<div class="controlos">
 					<Escolha rotulo="Competição" bind:valor={provaJogos} opcoes={comTodas} />
-				{/if}
-			</div>
-
-			{#if vistaJogos === 'calendario'}
-				<!-- sem filtro: o calendário mostra o mês da equipa inteiro, de todas as provas -->
-				<CalendarioMes {jogos} equipa={data.equipa} emblemas={data.emblemas} />
-				<div class="subscrever" data-guia="equipa-calendario">
-					<AdicionarCalendario
-						equipa={data.equipa} categoria={data.categoria} {jogos}
-						recintos={data.recintos} />
 				</div>
-			{:else}
-				{#if proximosFiltrados.length}
-					<p class="rotulo">Por disputar</p>
-					{#each proximosFiltrados as j (j.id ?? `${j.casa}${j.fora}`)}
-						<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} comData />
-					{/each}
-				{/if}
-				{#if anterioresFiltrados.length}
-					<p class="rotulo">Resultados</p>
-					{#each anterioresFiltrados as j (j.id ?? `${j.casa}${j.fora}`)}
-						<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} comData />
-					{/each}
-				{/if}
-				{#if proximosFiltrados.length + anterioresFiltrados.length === 0}
-					<p class="vazio">Sem jogos nesta competição.</p>
-				{/if}
 			{/if}
+			{#if proximosFiltrados.length}
+				<p class="rotulo">Por disputar</p>
+				{#each proximosFiltrados as j (j.id ?? `${j.casa}${j.fora}`)}
+					<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} comData />
+				{/each}
+			{/if}
+			{#if anterioresFiltrados.length}
+				<p class="rotulo">Resultados</p>
+				{#each anterioresFiltrados as j (j.id ?? `${j.casa}${j.fora}`)}
+					<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} comData />
+				{/each}
+			{/if}
+			{#if proximosFiltrados.length + anterioresFiltrados.length === 0}
+				<p class="vazio">Sem jogos nesta competição.</p>
+			{/if}
+		{:else if a === 'calendario'}
+			<!-- sem filtro: o calendário mostra o mês da equipa inteiro, de todas as provas -->
+			<CalendarioMes {jogos} equipa={data.equipa} emblemas={data.emblemas} />
+			<div class="subscrever" data-guia="equipa-calendario">
+				<AdicionarCalendario
+					equipa={data.equipa} categoria={data.categoria} {jogos}
+					recintos={data.recintos} />
+			</div>
 		{:else if a === 'classificacao' && oQueMostrar === 'merito'}
 			<!-- Nos Escolares e nos Benjamins a classificação **é** o Mérito. Uma tabela por série em
 			     que esta equipa entra, como no ecrã da competição, e as mesmas três notas à volta: o
