@@ -2,7 +2,8 @@
 	import Emblema from '$lib/Emblema.svelte';
 	import { APP_NOME } from '$lib/sitio';
 	import RotuloCalculada from '$lib/RotuloCalculada.svelte';
-	import { tabelasDe } from '$lib/classificacao';
+	import { COLUNAS, tabelasDe } from '$lib/classificacao';
+	import TopoFixo from '$lib/TopoFixo.svelte';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import TabelaClassificacao from '$lib/TabelaClassificacao.svelte';
 	import TabelaMerito from '$lib/TabelaMerito.svelte';
@@ -45,10 +46,6 @@
 	const temSeries = $derived(data.provas.length > 1);
 	// no Mérito não há colunas a escolher: a tabela é a do regulamento
 	const escolheColunas = $derived(aba === 'classificacao' && !temMerito);
-	const COLUNAS = [
-		{ valor: false, rotulo: 'Tabela simples' },
-		{ valor: true, rotulo: 'Tabela completa' }
-	];
 
 	const minhasEquipas = $derived(new Set(favoritos.lista.map((f) => f.equipa)));
 	const opcoes = $derived(opcoesDeSerie(data.provas, minhasEquipas));
@@ -148,21 +145,23 @@
 
 <svelte:head><title>{data.grupoNome} — {APP_NOME}</title></svelte:head>
 
-<header class="titulo">
-	<p class="escalao">{data.escalao}</p>
-	<h1>{data.grupoNome}</h1>
-	{#if temSeries}
-		<p class="quantas">{data.provas.length} séries</p>
-	{/if}
-</header>
+<TopoFixo>
+	<header class="titulo">
+		<p class="escalao">{data.escalao}</p>
+		<h1>{data.grupoNome}</h1>
+		{#if temSeries}
+			<p class="quantas">{data.provas.length} séries</p>
+		{/if}
+	</header>
 
-<div class="barra">
-	<Separadores activo={aba} escolher={(v) => (aba = v)} separadores={[
-		{ valor: 'classificacao', rotulo: 'Classificação', icone: 'tabela' },
-		{ valor: 'calendario', rotulo: 'Calendário', icone: 'data' },
-		{ valor: 'marcadores', rotulo: 'Marcadores', icone: 'marcadores' }
-	]} />
-</div>
+	<div class="barra">
+		<Separadores activo={aba} escolher={(v) => (aba = v)} separadores={[
+			{ valor: 'classificacao', rotulo: 'Classificação', icone: 'tabela' },
+			{ valor: 'calendario', rotulo: 'Calendário', icone: 'data' },
+			{ valor: 'marcadores', rotulo: 'Marcadores', icone: 'marcadores' }
+		]} />
+	</div>
+</TopoFixo>
 
 <!-- A série e as colunas lado a lado, como o escalão e o agrupar na lista de jogos: a fila
      de letras e a dos dois modos eram duas linhas inteiras de botões por cima das tabelas. -->
@@ -268,7 +267,7 @@
 
 	/* De ponta a ponta do ecrã, como na ficha de jogo: o `main` tem 0.9rem de cada lado, e a
 	   barra encolhida dentro dele lia-se como um cartão e não como a navegação do ecrã. */
-	.barra { margin: 0 -0.9rem 0.8rem; }
+	.barra { margin: 0 -0.9rem; }
 
 	/* Meia largura cada, mesmo quando só há uma: mudar de separador não faz a série esticar e
 	   encolher. O desenho de cada lista vive no `lib/Escolha.svelte`. */

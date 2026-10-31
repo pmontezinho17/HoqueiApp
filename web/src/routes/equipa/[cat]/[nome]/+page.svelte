@@ -2,7 +2,9 @@
 	import AdicionarCalendario from '$lib/AdicionarCalendario.svelte';
 	import { APP_NOME } from '$lib/sitio';
 	import RotuloCalculada from '$lib/RotuloCalculada.svelte';
-	import { classificacaoDaEquipa, tabelasDe } from '$lib/classificacao';
+	import { classificacaoDaEquipa, COLUNAS, tabelasDe } from '$lib/classificacao';
+	import Escolha from '$lib/Escolha.svelte';
+	import TopoFixo from '$lib/TopoFixo.svelte';
 	import CalendarioMes from '$lib/CalendarioMes.svelte';
 	import ChapeuMerito from '$lib/ChapeuMerito.svelte';
 	import LegendaMerito from '$lib/LegendaMerito.svelte';
@@ -194,6 +196,16 @@
 		)
 	);
 	const tabela = $derived(tabelas.find((t) => t.chave === tabelaEscolhida) ?? tabelas[0]);
+	const VISTAS = [
+		{ valor: 'lista' as const, rotulo: 'Em lista' },
+		{ valor: 'calendario' as const, rotulo: 'Em calendário' }
+	];
+	// a mesma lista nos Jogos e no Plantel; `''` é "todas", e os ids vão como texto, que é
+	// como o `<select>` os devolve
+	const comTodas = $derived([
+		{ valor: '', rotulo: 'Todas as competições' },
+		...provas.map((p) => ({ valor: String(p.id), rotulo: p.rotulo }))
+	]);
 
 	/** Um só sítio a escolher os defeitos, e volta a correr quando se muda de equipa. */
 	$effect(() => {
@@ -269,26 +281,28 @@
 
 <svelte:head><title>{data.equipa} {data.categoria} — {APP_NOME}</title></svelte:head>
 
-<header class="topo">
-	<Emblema equipa={data.equipa} src={data.emblemas[data.equipa]} tamanho={40} />
-	<div class="quem">
-		<h1>{data.equipa}</h1>
-		<p class="escalao">{data.categoria}</p>
-	</div>
-	<button
-		class="seguir" class:activo={segue}
-		onclick={() => favoritos.alternar(data.equipa, data.categoria, data.provas.map((p) => p.id))}
-	>{segue ? '✓ A seguir' : '+ Seguir'}</button>
-</header>
+<TopoFixo>
+	<header class="topo">
+		<Emblema equipa={data.equipa} src={data.emblemas[data.equipa]} tamanho={40} />
+		<div class="quem">
+			<h1>{data.equipa}</h1>
+			<p class="escalao">{data.categoria}</p>
+		</div>
+		<button
+			class="seguir" class:activo={segue}
+			onclick={() => favoritos.alternar(data.equipa, data.categoria, data.provas.map((p) => p.id))}
+		>{segue ? '✓ A seguir' : '+ Seguir'}</button>
+	</header>
 
-<div class="barra">
-	<Separadores activo={aba} escolher={(v) => (aba = v)} guia="equipa-abas" separadores={[
-		{ valor: 'resumo', rotulo: 'Resumo', icone: 'clube' },
-		{ valor: 'jogos', rotulo: 'Jogos', icone: 'jogos' },
-		{ valor: 'classificacao', rotulo: 'Classificação', icone: 'tabela' },
-		{ valor: 'plantel', rotulo: 'Plantel', icone: 'equipas' }
-	]} />
-</div>
+	<div class="barra">
+		<Separadores activo={aba} escolher={(v) => (aba = v)} guia="equipa-abas" separadores={[
+			{ valor: 'resumo', rotulo: 'Resumo', icone: 'clube' },
+			{ valor: 'jogos', rotulo: 'Jogos', icone: 'jogos' },
+			{ valor: 'classificacao', rotulo: 'Classificação', icone: 'tabela' },
+			{ valor: 'plantel', rotulo: 'Plantel', icone: 'equipas' }
+		]} />
+	</div>
+</TopoFixo>
 
 {#if aba === 'resumo'}
 	<FormaRecente {jogos} equipa={data.equipa} emblemas={data.emblemas} />
@@ -311,9 +325,13 @@
 		{#if recinto}<dt>Joga em casa</dt><dd class="txt">{recinto}</dd>{/if}
 	</dl>
 {:else if aba === 'jogos'}
-	<div class="vistas" role="tablist" data-guia="equipa-vistas">
-		<button role="tab" aria-selected={vistaJogos === 'lista'} onclick={() => (vistaJogos = 'lista')}>Lista</button>
-		<button role="tab" aria-selected={vistaJogos === 'calendario'} onclick={() => (vistaJogos = 'calendario')}>Calendário</button>
+	<!-- A vista e a prova lado a lado, como a série e as colunas na competição e os filtros da
+	     lista de jogos. A prova só existe na lista: o calendário mostra o mês inteiro. -->
+	<div class="controlos" data-guia="equipa-vistas">
+		<Escolha rotulo="Ver os jogos" bind:valor={vistaJogos} opcoes={VISTAS} />
+		{#if vistaJogos === 'lista' && provas.length > 1}
+			<Escolha rotulo="Competição" bind:valor={provaJogos} opcoes={comTodas} />
+		{/if}
 	</div>
 
 	{#if vistaJogos === 'calendario'}
@@ -325,12 +343,6 @@
 				recintos={data.recintos} />
 		</div>
 	{:else}
-		{#if provas.length > 1}
-			<select bind:value={provaJogos} aria-label="Competição">
-				<option value="">Todas as competições</option>
-				{#each provas as p (p.id)}<option value={p.id}>{p.rotulo}</option>{/each}
-			</select>
-		{/if}
 		{#if proximosFiltrados.length}
 			<p class="rotulo">Por disputar</p>
 			{#each proximosFiltrados as j (j.id ?? `${j.casa}${j.fora}`)}
@@ -371,18 +383,15 @@
 	{:else}
 		<!-- sem "todas as competições", de propósito: séries diferentes não se enfrentam e
 		     uma tabela fundida compararia adversários disjuntos -->
-		{#if tabelas.length > 1}
-			<select bind:value={tabelaEscolhida} aria-label="Competição">
-				{#each tabelas as t (t.chave)}<option value={t.chave}>{t.rotulo}</option>{/each}
-			</select>
-		{:else}
-			<p class="rotulo">{tabelas[0].rotulo}</p>
-		{/if}
-
-		<div class="modos" role="group" aria-label="Colunas">
-			<button class:activo={!completa} onclick={() => (completa = false)}>Simples</button>
-			<button class:activo={completa} onclick={() => (completa = true)}>Completa</button>
+		<div class="controlos">
+			{#if tabelas.length > 1}
+				<Escolha rotulo="Competição" bind:valor={tabelaEscolhida}
+					opcoes={tabelas.map((t) => ({ valor: t.chave, rotulo: t.rotulo }))} />
+			{/if}
+			<Escolha rotulo="Colunas da tabela" bind:valor={completa} opcoes={COLUNAS} />
 		</div>
+		<!-- o nome da prova por cima da tabela, sempre: a meia largura a lista corta-o -->
+		<p class="rotulo">{tabela.rotulo}</p>
 		<TabelaClassificacao
 			linhas={tabela.linhas} emblemas={data.emblemas} categoria={data.categoria}
 			{completa} destaque={(e) => e === data.equipa} assistencias={tabela.assist} />
@@ -393,10 +402,9 @@
 	<!-- com filtro **e** com "todas": o plantel de uma prova é o que responde a "quem joga
 	     aqui agora"; o agregado continua a servir para os totais da época -->
 	{#if provas.length > 1}
-		<select bind:value={provaPlantel} aria-label="Competição">
-			<option value="">Todas as competições</option>
-			{#each provas as p (p.id)}<option value={String(p.id)}>{p.rotulo}</option>{/each}
-		</select>
+		<div class="controlos">
+			<Escolha rotulo="Competição" bind:valor={provaPlantel} opcoes={comTodas} />
+		</div>
 	{/if}
 	{#if plantel.length === 0}
 		<p class="vazio">Ainda não há fichas de jogo publicadas para esta equipa nesta prova.</p>
@@ -452,22 +460,14 @@
 	.seguir.activo { border-color: var(--acento); color: var(--acento); font-weight: 600; }
 
 	/* de ponta a ponta, como na ficha de jogo e na competição — ver o `lib/Separadores.svelte` */
-	.barra { margin: 0 -0.9rem 0.9rem; }
+	.barra { margin: 0 -0.9rem; }
 
 	.subscrever { display: flex; justify-content: center; margin-top: 0.9rem; }
 
-	.modos { display: flex; gap: 0.25rem; margin-bottom: 0.7rem; }
-	.modos button { flex: 1; min-height: 44px; font-size: 0.72rem; cursor: pointer;
-		border-radius: 999px; border: 1px solid var(--borda);
-		background: var(--cartao); color: var(--suave); }
-	.modos button.activo { border-color: var(--acento); color: var(--acento); font-weight: 600; }
-
-	.vistas { display: flex; gap: 0.25rem; margin-bottom: 0.8rem; }
-	.vistas button { flex: 1; min-height: 44px; font-size: 0.74rem; cursor: pointer;
-		border-radius: 999px; border: 1px solid var(--borda);
-		background: none; color: var(--suave); }
-	.vistas button[aria-selected='true'] { border-color: var(--acento); color: var(--acento);
-		font-weight: 600; }
+	/* Meia largura cada, mesmo quando só há uma — como na competição. O desenho de cada lista
+	   vive no `lib/Escolha.svelte`. */
+	.controlos { display: flex; gap: var(--e-2); margin-bottom: 0.8rem; }
+	.controlos > :global(label) { max-width: calc(50% - var(--e-2) / 2); }
 
 	.rotulo { font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.06em;
 		color: var(--suave); margin: 0.9rem 0 0.3rem; }
@@ -476,12 +476,6 @@
 	.numeros dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums;
 		padding: 0.35rem 0; border-bottom: 1px solid var(--borda); }
 	.numeros dd.txt { font-size: 0.72rem; }
-
-	/* 16px e não menos: no iPhone, um campo com letra menor faz o Safari ampliar a
-	   página inteira ao receber foco. Ver a nota em +layout.svelte. */
-	select { width: 100%; padding: 0.5rem 0.6rem; margin-bottom: 0.7rem; font-size: 1rem;
-		border-radius: 8px; border: 1px solid var(--borda);
-		background: var(--cartao); color: inherit; }
 
 	.verProva { display: inline-block; margin-top: 0.7rem; font-size: 0.74rem;
 		color: var(--acento); text-decoration: none; }
