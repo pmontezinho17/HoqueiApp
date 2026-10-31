@@ -1,4 +1,4 @@
-name: CI
+name: DEV e PRODUÇÃO · Testes de cada PR
 
 on:
   push:

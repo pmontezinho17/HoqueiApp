@@ -86,6 +86,8 @@ export interface FichaJogo {
 	equipas: EquipaFicha[];
 	cronologia: EventoJogo[];
 	boletim?: Boletim | null;
+	/** o Mérito da Formação das duas equipas, só nos Encontros Distritais; `null` sem boletim */
+	merito?: MeritoDaEquipa[] | null;
 	/** o que a fonte diz estar a acontecer: "1ª Parte (13:26)", "Intervalo", "Jogo Terminado" */
 	situacao?: string | null;
 	/** só num jogo a decorrer: "2ª Parte" ou "Intervalo", e o relógio quando há */
@@ -134,6 +136,41 @@ export interface LinhaMerito {
 	por_confirmar: number;
 }
 
+/** Uma alínea do Artigo 92.º aplicada a uma equipa num jogo. */
+export interface ParcelaMerito { regra: string; texto: string; pontos: number; }
+
+/** O Mérito de uma equipa num jogo, tal como a ficha o traz. */
+export interface MeritoDaEquipa {
+	equipa: string;
+	atletas: number;
+	guardas_redes: number;
+	participantes: number;
+	completa: boolean;
+	bonificacao: number;
+	/** negativa ou zero */
+	penalizacao: number;
+	total: number;
+	parcelas: ParcelaMerito[];
+	/** o que o boletim não deixa confirmar, e por isso não está descontado */
+	avisos: string[];
+	/**
+	 * As letras da grelha que não são o `X`, por letra — `{"J": 7}`. Só existe quando as há, e
+	 * só nas fichas lidas depois de 29/10/2026. Ver `fichaPorEsclarecer`.
+	 */
+	marcas_fora_do_x?: Record<string, number>;
+}
+
+/**
+ * O Mérito de um jogo na agenda, para a linha das listas: `[bonificação, penalização]` de cada
+ * equipa, ao mínimo porque a agenda traz ~800 jogos. Desde 27/10/2026 — uma agenda em cache de
+ * antes disso não o tem, e a linha simplesmente não aparece.
+ */
+export interface ResumoMerito {
+	casa: [number, number];
+	fora: [number, number];
+	por_confirmar?: boolean;
+}
+
 export interface FicheiroMerito {
 	competicao_id: number;
 	nome: string;
@@ -164,6 +201,8 @@ export interface JogoAgenda {
 	situacao?: string | null;
 	/** há ficha publicada para um jogo ainda por disputar: dá os convocados */
 	tem_ficha?: boolean;
+	/** o Mérito do jogo, só nos jogos disputados dos Encontros Distritais com boletim */
+	merito?: ResumoMerito;
 	grupo_id?: string; grupo_nome?: string; serie?: string | null;
 }
 export interface Agenda { jogos: JogoAgenda[]; }

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { rolarSoSePreciso } from '$lib/rolar';
 	import { nomeProprio } from '$lib/formato';
 	import type { EquipaFicha, LinhaJogador } from './tipos';
 	let {
@@ -44,7 +45,7 @@
 {#each equipas as equipa (equipa.nome)}
 	<section>
 		<h3>{equipa.nome}</h3>
-		<div class="rolo">
+		<div class="rolo" use:rolarSoSePreciso>
 			<table>
 				<thead>
 					<tr>

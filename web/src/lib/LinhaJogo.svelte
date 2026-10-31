@@ -5,6 +5,7 @@
 	import { emCurso, escalaoCurto, faseCurta } from './formato';
 	import { piscar } from './piscar';
 	import { destinoDoJogo } from './destinos';
+	import { barraDoMerito, descricaoDoMerito } from './meritoDoJogo';
 	import type { JogoAgenda } from './tipos';
 
 	let {
@@ -39,6 +40,14 @@
 	// **Um alvo por linha**, e é sempre a ficha do jogo — mesmo num jogo por disputar, que desde
 	// 09/10 abre com o recinto e a hora. A razão é do dono e está no `destinos.ts`.
 	const destino = $derived(destinoDoJogo(jogo));
+	/**
+	 * O Mérito numa linha, por baixo do jogo — pedido do dono a 27/10/2026, para se ver sem
+	 * abrir a ficha que o 21–5 de um jogo pode ser um 1–11 no Mérito. Só nos jogos disputados
+	 * com Mérito na agenda; os outros ficam exactamente como eram. Ver `meritoDoJogo.ts`.
+	 */
+	const merito = $derived(jogado && jogo.merito ? jogo.merito : null);
+	const barras = $derived(merito ? [barraDoMerito(merito.casa), barraDoMerito(merito.fora)] : []);
+	const pts = (n: number) => `${n}`.replace('-', '−');
 
 	const diaCurto = (iso: string) => {
 		const d = new Date(`${iso}T00:00:00`);
@@ -113,6 +122,31 @@
 		<span class="golos" aria-label={`${jogo.gc} a ${jogo.gf}`}>
 			<b class:vencedor={ganhouCasa} use:piscar={jogo.gc}>{jogo.gc}</b>
 			<b class:vencedor={ganhouFora} use:piscar={jogo.gf}>{jogo.gf}</b>
+		</span>
+	{/if}
+
+	{#if merito}
+		<span class="merito">
+			<span class="so-voz">{descricaoDoMerito(merito, jogo.casa, jogo.fora)}</span>
+			<span class="rotulo" aria-hidden="true">Mérito</span>
+			<!-- **O total à frente da barra de cada equipa, e não um placar "1–11" no fim.** Com
+			     totais negativos o placar lia-se "10−−5" e "−8–1" — visto a 375 px a 27/10/2026,
+			     em 8 dos 19 jogos dos Benjamins nível II. Os dois números continuam lado a lado,
+			     casa e fora, que é o resultado do Mérito. -->
+			<span class="barras" aria-hidden="true">
+				{#each barras as b, i (i)}
+					<span class="conta">
+						<span class="barra" class:abaixo={b.abaixoDeZero}>
+							<i class="ficou" style:width="{b.ficou * 100}%"></i><i class="perdeu"
+								style:width="{b.perdeu * 100}%"></i>
+						</span>
+						<b class:abaixo={b.abaixoDeZero}>{pts(b.total)}</b>
+					</span>
+				{/each}
+			</span>
+			{#if merito.por_confirmar}
+				<i class="duvida" aria-hidden="true" title="com pontos por confirmar">?</i>
+			{/if}
 		</span>
 	{/if}
 </svelte:element>
@@ -209,4 +243,27 @@
 	.golos b { font-weight: 400; color: var(--texto-2); line-height: 1.25;
 		padding: 0 var(--e-1); margin: 0 calc(var(--e-1) * -1); }
 	.golos b.vencedor { font-weight: 600; color: var(--texto); }
+
+	/* **Uma linha só, e nas mesmas colunas do jogo**: o rótulo na da hora, as barras na dos
+	   nomes, o placar do Mérito na dos golos. O `subgrid` é o que as alinha de linha para linha
+	   numa lista; sem ele (navegadores antigos) cai para uma grelha própria, igual em desenho. */
+	.merito { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid;
+		align-items: center; line-height: 1.1; }
+	/* o intervalo da grelha vale também entre filas: sem isto a linha do Mérito ficava a 8 px
+	   das equipas e a linha crescia 20 px (de 56 para 76, medido a 27/10/2026) */
+	.linha:has(.merito) { row-gap: var(--e-0); }
+	.merito .rotulo { font-size: var(--t-micro); font-weight: 600; letter-spacing: 0.03em;
+		color: var(--suave); text-transform: uppercase; }
+	.merito .barras { grid-column: 2 / -2; display: grid; grid-template-columns: 1fr 1fr;
+		gap: var(--e-4); max-width: 16rem; }
+	.conta { display: flex; align-items: center; gap: var(--e-2); min-width: 0; }
+	.conta b { min-width: 1.6rem; font-size: var(--t-micro); font-weight: 600;
+		color: var(--texto-2); font-variant-numeric: tabular-nums; }
+	.conta b.abaixo { color: var(--perde); }
+	.barra { flex: 1; display: flex; height: 6px; border-radius: 3px; overflow: hidden;
+		background: var(--borda-fraca); }
+	.barra .ficou { background: var(--ganha-barra); }
+	.barra .perdeu { background: var(--perde-barra); }
+	.duvida { grid-column: -2 / -1; justify-self: end; font-style: normal; font-weight: 700;
+		font-size: var(--t-pequeno); color: var(--aviso); }
 </style>

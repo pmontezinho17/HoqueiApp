@@ -6,11 +6,15 @@
 	import Emblema from '$lib/Emblema.svelte';
 	import FichaEquipas from '$lib/FichaEquipas.svelte';
 	import TabelaClassificacao from '$lib/TabelaClassificacao.svelte';
+	import LegendaClassificacao from '$lib/LegendaClassificacao.svelte';
 	import TabelaMerito from '$lib/TabelaMerito.svelte';
 	import LegendaMerito from '$lib/LegendaMerito.svelte';
 	import Faixa from '$lib/Faixa.svelte';
 	import InfoJogo from './InfoJogo.svelte';
+	import MeritoDoJogo from './MeritoDoJogo.svelte';
+	import { contasDoJogo } from '$lib/meritoDoJogo';
 	import Icone from '$lib/Icone.svelte';
+	import Separadores from '$lib/Separadores.svelte';
 	import Directo from '$lib/Directo.svelte';
 	import { directoDe } from '$lib/directos';
 	import { nomeProprio, nomeProva } from '$lib/formato';
@@ -95,11 +99,13 @@
 	const grupos = $derived(tabela.grupos);
 	const merito = $derived(data.merito);
 	const temTabela = $derived(oQueMostrar !== 'nenhuma');
+	/** as duas contas do Mérito deste jogo — só nos Encontros Distritais e com boletim */
+	const contas = $derived(contasDoJogo(f.merito, f.casa, f.fora));
 	/** o que a legenda do Mérito precisa de saber sobre o que ainda não está confirmado */
 	const meritoPorConfirmar = $derived(
 		(merito?.linhas ?? []).reduce((n, l) => n + l.por_confirmar, 0)
 	);
-	const temSeparadores = $derived(temEventos || temTabela || temEquipas || temInfo);
+	const temSeparadores = $derived(temEventos || !!contas || temTabela || temEquipas || temInfo);
 
 	/**
 	 * A transmissão deste jogo, se houver — ver `directos.ts` para o porquê de ser uma lista
@@ -107,7 +113,7 @@
 	 */
 	const directo = $derived(directoDe(f.id));
 
-	type Tab = 'directo' | 'eventos' | 'tabela' | 'equipas' | 'info';
+	type Tab = 'directo' | 'eventos' | 'merito' | 'tabela' | 'equipas' | 'info';
 	let tab = $state<string>('eventos');
 	/** os separadores que existem neste jogo, pela ordem em que aparecem na barra */
 	const abas = $derived(
@@ -116,6 +122,8 @@
 				// primeiro de todos: quem tem onde ver o jogo não quer começar pela cronologia
 				['directo', !!directo],
 				['eventos', temEventos],
+				// ao lado da classificação, e antes dela: é deste jogo, e a tabela é da série
+				['merito', !!contas],
 				['tabela', temTabela],
 				['equipas', temEquipas],
 				['info', temInfo]
@@ -123,6 +131,26 @@
 		)
 			.filter(([, ha]) => ha)
 			.map(([id]) => id)
+	);
+	/**
+	 * O que cada separador mostra na barra: o `curto` por baixo do ícone, o `rotulo` para quem
+	 * ouve por voz. Curtos porque aqui podem ser seis — a 375px são 62px cada.
+	 */
+	const NA_BARRA: Record<Tab, { rotulo: string; curto?: string; icone: string; classe?: string }> = {
+		directo: { rotulo: 'Ver em directo', curto: 'Directo', icone: 'directo', classe: 'aoVivo' },
+		eventos: { rotulo: 'Eventos do jogo', curto: 'Eventos', icone: 'eventos' },
+		merito: { rotulo: 'Mérito deste jogo', curto: 'Mérito', icone: 'merito' },
+		tabela: { rotulo: 'Classificação', icone: 'tabela' },
+		// num jogo por começar isto é a convocatória, não a ficha
+		equipas: { rotulo: 'Equipas', icone: 'equipas' },
+		info: { rotulo: 'Informações', curto: 'Info', icone: 'informacoes' }
+	};
+	const separadores = $derived(
+		abas.map((valor) => ({
+			valor: valor as string,
+			...NA_BARRA[valor],
+			...(valor === 'equipas' && porComecar ? { rotulo: 'Convocados' } : {})
+		}))
 	);
 	// Num jogo a decorrer é a cronologia que se quer, não a ficha — **excepto quando há
 	// transmissão**: aí o que se quer é o jogo, e a cronologia está a uma passagem de dedo.
@@ -389,8 +417,11 @@
 				</div>
 			{/if}
 
-			<!-- W7.3: o caminho de volta à competição, dentro do herói -->
-			<a class="prova" href={f.grupo_id ? `/competicoes/${f.grupo_id}` : '/competicoes'}>
+			<!-- W7.3: o caminho de volta à competição, dentro do herói. Abre na série deste jogo,
+			     que é a que a linha nomeia — a classificação dela, e não a das seis séries. -->
+			<a class="prova" href={f.grupo_id
+				? `/competicoes/${f.grupo_id}${f.serie ? `?serie=${encodeURIComponent(f.serie)}` : ''}`
+				: '/competicoes'}>
 				<!-- o escalão saiu daqui para cima do resultado; aqui fica a prova -->
 				<span class="texto">
 					<span class="nome">{nomeProva(provaCurta)}</span>
@@ -405,34 +436,9 @@
 </article>
 
 {#if temSeparadores}
-	<!-- Ícones e não texto: cabem os quatro de ponta a ponta sem apertar, e o rótulo
-	     continua a existir para quem lê por voz. Dentro do cromado, para ficarem sempre
-	     agarrados ao herói e nunca passarem por baixo dele. -->
-	<div class="tabs" role="tablist">
-		{#if directo}
-			<button class="aoVivo" role="tab" aria-selected={tab === 'directo'}
-				aria-label="Ver em directo" onclick={() => (tab = 'directo')}
-			><Icone nome="directo" tamanho={22} /></button>
-		{/if}
-		{#if temEventos}
-			<button role="tab" aria-selected={tab === 'eventos'} aria-label="Eventos do jogo"
-				onclick={() => (tab = 'eventos')}><Icone nome="eventos" tamanho={22} /></button>
-		{/if}
-		{#if temTabela}
-			<button role="tab" aria-selected={tab === 'tabela'} aria-label="Classificação"
-				onclick={() => (tab = 'tabela')}><Icone nome="tabela" tamanho={22} /></button>
-		{/if}
-		{#if temEquipas}
-			<!-- num jogo por começar isto é a convocatória, não a ficha -->
-			<button role="tab" aria-selected={tab === 'equipas'}
-				aria-label={porComecar ? 'Convocados' : 'Equipas'}
-				onclick={() => (tab = 'equipas')}><Icone nome="equipas" tamanho={22} /></button>
-		{/if}
-		{#if temInfo}
-			<button role="tab" aria-selected={tab === 'info'} aria-label="Informações"
-				onclick={() => (tab = 'info')}><Icone nome="informacoes" tamanho={22} /></button>
-		{/if}
-	</div>
+	<!-- Dentro do cromado, para ficarem sempre agarrados ao herói e nunca passarem por baixo
+	     dele. -->
+	<Separadores {separadores} activo={tab} escolher={(v) => (tab = v)} />
 {/if}
 </div>
 </div>
@@ -466,6 +472,10 @@
 			{:else if aba === 'eventos'}
 				<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
 					omitidos={f.individuais_omitidos ?? false} />
+			{:else if aba === 'merito'}
+				{#if contas}
+					<MeritoDoJogo casa={contas.casa} fora={contas.fora} emblemas={data.emblemas} />
+				{/if}
 			{:else if aba === 'tabela'}
 				<!-- Nos Escolares e nos Benjamins a classificação **é** o Mérito do Artigo 92.º,
 				     e não uma tabela de pontos. Medido a 21/10/2026: das 37 provas publicadas, 8
@@ -481,10 +491,11 @@
 						{#if g.linhas.length}
 							{#if g.nome}<h2 class="serie">{g.nome}</h2>{/if}
 							<TabelaClassificacao linhas={g.linhas} emblemas={data.emblemas}
-								categoria={f.categoria ?? ''}
+								categoria={f.categoria ?? ''} legenda={false}
 								destaque={(e) => e === f.casa || e === f.fora} />
 						{/if}
 					{/each}
+					<LegendaClassificacao />
 					{#if tabela.calculada}<RotuloCalculada />{/if}
 				{/if}
 			{:else if aba === 'equipas'}
@@ -672,29 +683,7 @@
 	/* ------------------------------------------------------------- separadores */
 	/* Colados por baixo do herói, que muda de altura ao colapsar — daí a altura vir
 	   medida e não escrita à mão. Nunca ficam escondidos. */
-	.tabs {
-		display: flex;
-		background: var(--cartao);
-		border-bottom: 1px solid var(--borda);
-	}
-	.tabs button {
-		flex: 1 1 0; min-height: 46px; padding: var(--e-2) 0;
-		display: flex; align-items: center; justify-content: center;
-		cursor: pointer; background: none; border: 0;
-		border-bottom: 2px solid transparent;
-		color: var(--suave);
-	}
-	/* o único separador com cor própria: é o que distingue "há jogo para ver" de "há dados
-	   para ler", e a cor do botão é a mesma da câmara na lista */
-	.tabs button[aria-selected='true'] {
-		color: var(--acento);
-		border-bottom-color: var(--acento);
-	}
-	.tabs button[aria-selected='true'] :global(svg) { color: var(--acento); }
-	/* A câmara é vermelha esteja ou não escolhida — é a marca de "este dá para ver", e a
-	   selecção já se lê no sublinhado. A regra vem **depois** da do separador escolhido de
-	   propósito: têm a mesma especificidade, e é a ordem que decide. */
-	.tabs button.aoVivo :global(svg) { color: var(--directo); }
+	/* o desenho dos separadores vive no `lib/Separadores.svelte`, igual em todos os ecrãs */
 
 	/* Uma nota e não um aviso: nada está mal, há só uma coisa que ainda não aconteceu. Por
 	   isso sem amarelo e sem ícone de alerta — a lição da caixa das classificações

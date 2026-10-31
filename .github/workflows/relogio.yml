@@ -22,7 +22,7 @@
 #
 # **Não mexe nos segredos do Worker.** O `GITHUB_TOKEN` dele foi posto com `wrangler secret put`
 # e um `deploy` não lhe toca — ver o README do relógio.
-name: Publicar o relógio
+name: PRODUÇÃO · Publicar o relógio
 
 on:
   push:
