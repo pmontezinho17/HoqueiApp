@@ -5,7 +5,7 @@
 	import { clube, escalao } from '$lib/nomes';
 	import { slug } from '$lib/slug';
 	import type { Jogo } from '$lib/tipos';
-	import { diaDeLisboa } from '$lib/dia';
+	import { diaDeLisboa, instanteDeLisboa } from '$lib/dia';
 
 	let {
 		equipa,
@@ -65,7 +65,8 @@
 		const titulo = `🏑 ${escalao(categoria)} 🏑 ${clube(j.casa)} vs ${clube(j.fora)}`;
 		const p = new URLSearchParams({ action: 'TEMPLATE', text: titulo });
 		if (j.data && j.hora) {
-			const inicio = new Date(`${j.data}T${j.hora.slice(0, 5)}:00`);
+			// em UTC no link, por isso o instante tem de ser o de Lisboa: ver `instanteDeLisboa`
+			const inicio = new Date(instanteDeLisboa(j.data, j.hora));
 			const fim = new Date(inicio.getTime() + 90 * 60_000);
 			const f = (d: Date) => d.toISOString().replace(/[-:]|\.\d{3}/g, '');
 			p.set('dates', `${f(inicio)}/${f(fim)}`);

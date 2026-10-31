@@ -1,3 +1,4 @@
+import { instanteDeLisboa } from './dia';
 import { disputado, type Jogo } from './tipos';
 
 const DIAS = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
@@ -88,7 +89,7 @@ const JANELA_AO_VIVO_MS = 3 * 60 * 60 * 1000;
  */
 export function emCurso(jogo: { ao_vivo?: boolean; data: string; hora: string | null }): boolean {
 	if (!jogo.ao_vivo || !jogo.hora) return false;
-	const inicio = new Date(`${jogo.data}T${jogo.hora.slice(0, 5)}:00`).getTime();
+	const inicio = instanteDeLisboa(jogo.data, jogo.hora);
 	const agora = Date.now();
 	return agora >= inicio && agora - inicio < JANELA_AO_VIVO_MS;
 }
