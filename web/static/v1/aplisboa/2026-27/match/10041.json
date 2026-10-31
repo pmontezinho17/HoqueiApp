@@ -183,6 +183,20 @@
    "nome": "CD PAÇO ARCOS B",
    "jogadores": [
     {
+     "numero": "10",
+     "nome": "GONÇALO PEREIRA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
      "numero": "2",
      "nome": "JOÃO PINHEIRO",
      "titular": true,
@@ -242,20 +256,6 @@
      "numero": "8",
      "nome": "TOMÁS RAMOS",
      "titular": false,
-     "golos": 0,
-     "assistencias": 0,
-     "defesas": 0,
-     "penalidades": "0/0",
-     "livres_diretos": "0/0",
-     "cartoes_amarelos": 0,
-     "cartoes_azuis": 0,
-     "cartoes_vermelhos": 0,
-     "papel": null
-    },
-    {
-     "numero": "10",
-     "nome": "GONÇALO PEREIRA",
-     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -497,7 +497,7 @@
  "boletim": {
   "oficiais": {
    "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
-   "Árbitro Auxiliar": "CARLA RAMOS",
+   "Árbitro Auxiliar": "TATIANA  ROQUE",
    "Cronometrista": "JUAN HERNANDEZ",
    "Diretor de campo": "VASCO MARTINHO",
    "Gestor de segurança": "ANTONIO ROCHA"
@@ -574,8 +574,8 @@
    "participantes": 6,
    "completa": false,
    "bonificacao": 6,
-   "penalizacao": -11,
-   "total": -5,
+   "penalizacao": -8,
+   "total": -2,
    "parcelas": [
     {
      "regra": "3.1",
@@ -594,18 +594,19 @@
     },
     {
      "regra": "4.1.3",
-     "texto": "1 com 3 meias partes seguidas",
-     "pontos": -1
+     "texto": "2 com 3 meias partes seguidas",
+     "pontos": -2
     },
     {
      "regra": "4.1.6",
-     "texto": "2 fizeram as quatro meias partes",
-     "pontos": -8
+     "texto": "1 fizeram as quatro meias partes",
+     "pontos": -4
     }
    ],
    "avisos": []
   }
  ],
+ "merito_revisto": "2026-10-31",
  "competicao_id": 466,
  "categoria": "BENJAMINS",
  "jornada": "1ª JORNADA",

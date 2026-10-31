@@ -16,6 +16,9 @@
   1,
   2
  ],
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "CD PAÇO ARCOS A",
@@ -624,12 +627,6 @@
   "capitao_casa": null,
   "capitao_fora": null
  },
- "competicao_id": 465,
- "categoria": "BENJAMINS",
- "jornada": "1ª JORNADA",
- "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-i",
- "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I",
- "serie": "A",
  "merito": [
   {
    "equipa": "CD PAÇO ARCOS A",
@@ -667,7 +664,10 @@
      "pontos": -8
     }
    ],
-   "avisos": []
+   "avisos": [],
+   "marcas_fora_do_x": {
+    "J": 7
+   }
   },
   {
    "equipa": "A STUART HCM",
@@ -695,7 +695,17 @@
      "pontos": -1
     }
    ],
-   "avisos": []
+   "avisos": [],
+   "marcas_fora_do_x": {
+    "J": 2
+   }
   }
- ]
+ ],
+ "merito_revisto": "2026-10-31",
+ "competicao_id": 465,
+ "categoria": "BENJAMINS",
+ "jornada": "1ª JORNADA",
+ "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-i",
+ "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I",
+ "serie": "A"
 }

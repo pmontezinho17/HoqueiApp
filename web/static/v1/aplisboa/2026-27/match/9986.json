@@ -16,6 +16,9 @@
   0,
   0
  ],
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "SC TORRES",
@@ -649,12 +652,6 @@
   "capitao_casa": null,
   "capitao_fora": null
  },
- "competicao_id": 465,
- "categoria": "BENJAMINS",
- "jornada": "1ª JORNADA",
- "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-i",
- "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I",
- "serie": "A",
  "merito": [
   {
    "equipa": "SC TORRES",
@@ -707,5 +704,12 @@
    ],
    "avisos": []
   }
- ]
+ ],
+ "merito_revisto": "2026-10-31",
+ "competicao_id": 465,
+ "categoria": "BENJAMINS",
+ "jornada": "1ª JORNADA",
+ "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-i",
+ "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I",
+ "serie": "A"
 }

@@ -16,6 +16,9 @@
   0,
   1
  ],
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "PAREDE FC B",
@@ -891,12 +894,6 @@
   "capitao_casa": null,
   "capitao_fora": null
  },
- "competicao_id": 464,
- "categoria": "ESCOLARES",
- "jornada": "1ª JORNADA",
- "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-ii",
- "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II",
- "serie": "E",
  "merito": [
   {
    "equipa": "PAREDE FC B",
@@ -944,5 +941,12 @@
    ],
    "avisos": []
   }
- ]
+ ],
+ "merito_revisto": "2026-10-31",
+ "competicao_id": 464,
+ "categoria": "ESCOLARES",
+ "jornada": "1ª JORNADA",
+ "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-ii",
+ "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II",
+ "serie": "E"
 }
