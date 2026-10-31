@@ -164,7 +164,7 @@ export const NOVIDADES: Novidade[] = [
 				tipo: 'novo',
 				titulo: '🟩🟥 O que dizem as barras do Mérito',
 				texto:
-					'Há uma barra por equipa: a da esquerda é a da casa, a da direita a de fora. O verde é a parte dos pontos que a equipa ganhou (bonificações) e o vermelho a parte que perdeu (penalizações); juntos enchem sempre a barra. Quem ganhou 9 pontos e perdeu 10 tem a barra quase meio a meio. O número ao lado é o Mérito da equipa nesse jogo, e fica a vermelho quando é negativo.'
+					'Nos jogos de Benjamins e Escolares, por baixo do resultado, há uma barra por equipa: a da esquerda é a da casa, a da direita a de fora. O verde é a parte dos pontos que a equipa ganhou (bonificações) e o vermelho a parte que perdeu (penalizações); juntos enchem sempre a barra. Quem ganhou 9 pontos e perdeu 10 tem a barra quase meio a meio. O número ao lado é o Mérito da equipa nesse jogo, e fica a vermelho quando é negativo.'
 			},
 			{
 				tipo: 'novo',
