@@ -328,8 +328,8 @@
    "hora": "11:30:00",
    "casa": "SC TORRES",
    "fora": "CD PAÇO ARCOS A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 26,
    "recinto": "PAV. SC TORRES",
    "ao_vivo": false
   },
@@ -466,6 +466,20 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "CD PAÇO ARCOS A",
+     "logo": "/intranet/logos/7.png",
+     "jogos": 7,
+     "vitorias": 6,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 108,
+     "golos_sofridos": 7,
+     "diferenca": 101,
+     "racio": 15.43,
+     "pontos": 18
+    },
+    {
+     "posicao": 2,
      "equipa": "AD OEIRAS A",
      "logo": "/intranet/logos/6.png",
      "jogos": 6,
@@ -477,20 +491,6 @@
      "diferenca": 68,
      "racio": 14.6,
      "pontos": 18
-    },
-    {
-     "posicao": 2,
-     "equipa": "CD PAÇO ARCOS A",
-     "logo": "/intranet/logos/7.png",
-     "jogos": 6,
-     "vitorias": 5,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 82,
-     "golos_sofridos": 7,
-     "diferenca": 75,
-     "racio": 11.71,
-     "pontos": 15
     },
     {
      "posicao": 3,
@@ -524,14 +524,14 @@
      "posicao": 5,
      "equipa": "SC TORRES",
      "logo": "/intranet/logos/25.png",
-     "jogos": 6,
+     "jogos": 7,
      "vitorias": 1,
      "empates": 0,
-     "derrotas": 5,
+     "derrotas": 6,
      "golos_marcados": 9,
-     "golos_sofridos": 70,
-     "diferenca": -61,
-     "racio": 0.13,
+     "golos_sofridos": 96,
+     "diferenca": -87,
+     "racio": 0.09,
      "pontos": 3
     },
     {

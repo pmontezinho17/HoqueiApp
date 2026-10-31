@@ -155,8 +155,8 @@
    "hora": "10:00:00",
    "casa": "CRIAR-T GD",
    "fora": "CD PAÇO ARCOS B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 20,
+   "golos_fora": 0,
    "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
    "ao_vivo": false
   },

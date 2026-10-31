@@ -338,8 +338,8 @@
    "hora": "14:00:00",
    "casa": "FSE/AJ SALESIANA",
    "fora": "CACO A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 1,
    "recinto": "PAV. SALESIANA",
    "ao_vivo": false
   },
@@ -366,8 +366,8 @@
    "hora": "10:00:00",
    "casa": "SC TORRES",
    "fora": "CD PAÇO ARCOS A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 7,
+   "golos_fora": 4,
    "recinto": "PAV. SC TORRES",
    "ao_vivo": false
   },
