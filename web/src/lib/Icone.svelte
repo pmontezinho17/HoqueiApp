@@ -97,6 +97,13 @@
 		     aqui punha o 2 e o 3 em cima um do outro a 22px. -->
 		<path d="M8 4.4h4v13H8z" />
 		<path d="M3 9.2h5v8.2H3zM12 11.6h5v5.8h-5z" />
+	{:else if nome === 'marcadores'}
+		<!-- uma pessoa e a bola: quem marcou. Uma só, para não se confundir com as duas do
+		     plantel; a bola é a mesma, cheia, do stick dos eventos. Uma baliza com a bola
+		     dentro foi a primeira ideia, e a 22px lia-se como uma caixa. -->
+		<circle cx="8" cy="6.2" r="2.7" />
+		<path d="M3.2 16.6c0-2.7 2.1-4.7 4.8-4.7s4.8 2 4.8 4.7" />
+		<circle cx="15.4" cy="14.8" r="2" fill="currentColor" stroke="none" />
 	{:else if nome === 'merito'}
 		<!-- mais e menos numa placa: a conta do jogo, o que se ganhou e o que se perdeu -->
 		<rect x="3" y="3.4" width="14" height="13.2" rx="2.4" />
