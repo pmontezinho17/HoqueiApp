@@ -553,3 +553,22 @@ def test_a_ronda_ao_vivo_fecha_um_jogo_sem_pedir_a_lista_de_competicoes(tmp_path
     # este teste existe para cobrir nunca é executada — foi assim que escrevi um teste vazio
     # à primeira. É também o que acontece a sério: o `aovivo.sh` não passa `--id-temp`.
     assert cli.comando_aovivo(_args(tmp_path, id_temp=None)) == 0
+
+
+def test_uma_ficha_sem_equipas_fica_com_os_nomes_do_calendario(tmp_path, monkeypatch):
+    """O jogo 9521, a 31/10/2026: a fonte serviu a convocatória sem equipas nenhumas.
+
+    Publicada assim, a ficha de jogo mostrava dois círculos sem nome, e tocar num deles dava
+    "página não encontrada" — o endereço da equipa sai do nome.
+    """
+    fx = _ficha("Jogo sem começar", None, None, "Jogo sem começar", 0, 0)
+    fx.casa = fx.fora = ""
+    _correr(_agenda(tmp_path), fx, monkeypatch)
+    publicada = json.loads((tmp_path / "match" / f"{ID}.json").read_text())
+    assert (publicada["casa"], publicada["fora"]) == ("A", "B")
+
+
+def test_os_nomes_da_ficha_mandam_sobre_os_do_calendario():
+    dados = {"casa": "PAREDE FC", "fora": ""}
+    cli._nomes_do_calendario(dados, "PAREDE FC A", "FSE/AJ SALESIANA")
+    assert dados == {"casa": "PAREDE FC", "fora": "FSE/AJ SALESIANA"}

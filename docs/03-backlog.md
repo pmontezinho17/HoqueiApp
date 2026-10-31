@@ -63,6 +63,7 @@
 | R1 | Fechar o `workers.dev` do observador com ligação de serviço (fecha a B9.27) | must | S | aberto — ver "Um review externo" |
 | R2 | `ruff check` no CI, e corrigir os 5 nomes indefinidos do `comando_despejar` | must | S | aberto |
 | R3 | `diaDeLisboa()` partilhado, em vez de `toISOString()` em 7 ficheiros da interface | should | S | ✅ **17/10** — e eu tinha-o despriorizado por "adormecido"; o dono apanhou-o às 00:48 |
+| R3.1 | A **hora** de um jogo também é de Lisboa: `instanteDeLisboa()` no "a decorrer", no ritmo de refrescar e no link do Google Calendar | must | XS | **em espera, a pedido do dono a 31/10** — quer testar antes. O código está no PR #137, em rascunho. Apanhado nesse dia: com o telemóvel 5 h atrás de Lisboa, a secção "A decorrer agora" não aparecia com seis jogos marcados ao vivo. O R3 corrigiu o dia e deixou a hora |
 | R4 | Página de privacidade: tirar as duas frases que deixaram de ser verdade | must | XS | ✅ **16/10** — e a correcção ficou escrita na própria página, à vista, em vez de apagada |
 | R5 | `README.md` a descrever o produto que existe | should | S | aberto |
 | R6 | Tirar o DDL do `/sugerir` (a premissa caiu: o token já tem D1) | could | XS | aberto |

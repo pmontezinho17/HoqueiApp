@@ -513,6 +513,7 @@ def comando_aovivo(args) -> int:
             antigo = json.loads(alvo.read_text()) if alvo.exists() else {}
             dados = para_dicionario(fx)
             dados.update(_contexto_da_ficha(j, antigo, destino))
+            _nomes_do_calendario(dados, j.get("casa"), j.get("fora"))
             # O Mérito da Formação não se calcula aqui, e isso é deliberado. O boletim só
             # aparece uns minutos **depois** do apito final, por isso uma ronda ao vivo lê-o
             # sempre vazio — e escrever `merito: null` agora era pior do que não escrever
@@ -647,6 +648,25 @@ def _marcar_em_curso(entrada: dict | None, ficha: dict) -> None:
     else:
         for chave in ("ao_vivo", "periodo", "relogio", "situacao"):
             entrada.pop(chave, None)
+
+
+def _nomes_do_calendario(dados: dict, casa: str | None, fora: str | None) -> None:
+    """Uma ficha sem equipas fica com os nomes do calendário.
+
+    A ficha de um jogo por começar pode vir da fonte **sem equipas nenhumas**: a mesa ainda não
+    lançou a convocatória, e o cabeçalho com os nomes também não está lá. Apanhado pelo dono a
+    31/10/2026 no Parede FC A – FSE/AJ Salesiana de sub-13 (jogo 9521): a ronda ao vivo foi
+    buscá-la aos 20 minutos antes do apito e publicou `casa: ""` e `fora: ""`. A ficha de jogo
+    mostrou dois círculos sem emblema, e tocar num deles dava "página não encontrada", porque o
+    endereço da equipa sai do nome.
+
+    O calendário já sabe quem joga, e ler os nomes daí não custa nenhum pedido. Só se preenche o
+    que vem vazio: quando a ficha traz nomes, são esses que mandam.
+    """
+    if not dados.get("casa") and casa:
+        dados["casa"] = casa
+    if not dados.get("fora") and fora:
+        dados["fora"] = fora
 
 
 def _contexto_da_ficha(entrada: dict, antigo: dict, destino: pathlib.Path) -> dict:
@@ -870,6 +890,7 @@ def comando_publicar(args) -> int:
                     continue
                 pagina = fonte.jogo(jogo.id).html
                 dados = para_dicionario(ficha(pagina, jogo.id))
+                _nomes_do_calendario(dados, jogo.casa, jogo.fora)
                 if vale_merito(prova.nome):
                     dados["merito"] = _merito_da_ficha(pagina, dados)
                     antigo = json.loads(alvo.read_text()) if alvo.exists() else {}
