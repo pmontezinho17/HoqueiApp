@@ -4,6 +4,7 @@
 	import RotuloCalculada from '$lib/RotuloCalculada.svelte';
 	import { COLUNAS, tabelasDe } from '$lib/classificacao';
 	import TopoFixo from '$lib/TopoFixo.svelte';
+	import Faixa from '$lib/Faixa.svelte';
 	import LinhaJogo from '$lib/LinhaJogo.svelte';
 	import TabelaClassificacao from '$lib/TabelaClassificacao.svelte';
 	import TabelaMerito from '$lib/TabelaMerito.svelte';
@@ -45,7 +46,7 @@
 	let completa = $state(false);
 	const temSeries = $derived(data.provas.length > 1);
 	// no Mérito não há colunas a escolher: a tabela é a do regulamento
-	const escolheColunas = $derived(aba === 'classificacao' && !temMerito);
+	const colunasEm = (a: string) => a === 'classificacao' && !temMerito;
 
 	const minhasEquipas = $derived(new Set(favoritos.lista.map((f) => f.equipa)));
 	const opcoes = $derived(opcoesDeSerie(data.provas, minhasEquipas));
@@ -163,101 +164,109 @@
 	</div>
 </TopoFixo>
 
-<!-- A série e as colunas lado a lado, como o escalão e o agrupar na lista de jogos: a fila
-     de letras e a dos dois modos eram duas linhas inteiras de botões por cima das tabelas. -->
-{#if opcoes.length || escolheColunas}
-	<div class="controlos">
-		{#if opcoes.length}
-			<Escolha rotulo="Série" bind:valor={serie} {opcoes} />
+<!-- Arrastar para o lado muda de separador, como na ficha de jogo. Os controlos vão dentro de
+     cada página e não por cima da faixa: as colunas só existem na Classificação, e assim a
+     fila desliza com o conteúdo a que pertence. Nas pontas não passa ao menu vizinho: uma
+     competição está dentro das Competições — ver a `lib/Faixa.svelte`. -->
+<Faixa itens={ABAS} bind:escolhido={aba}>
+	{#snippet pagina(a)}
+		<!-- A série e as colunas lado a lado, como o escalão e o agrupar na lista de jogos: a fila
+		     de letras e a dos dois modos eram duas linhas inteiras de botões por cima das tabelas. -->
+		{#if opcoes.length || colunasEm(a)}
+			<div class="controlos">
+				{#if opcoes.length}
+					<Escolha rotulo="Série" bind:valor={serie} {opcoes} />
+				{/if}
+				{#if colunasEm(a)}
+					<Escolha rotulo="Colunas da tabela" bind:valor={completa} opcoes={COLUNAS} />
+				{/if}
+			</div>
 		{/if}
-		{#if escolheColunas}
-			<Escolha rotulo="Colunas da tabela" bind:valor={completa} opcoes={COLUNAS} />
-		{/if}
-	</div>
-{/if}
 
-{#if aba === 'classificacao' && temMerito}
-	<ChapeuMerito />
-	{#each visiveis as p (p.competicao.id)}
-		{#if p.merito?.linhas.length}
-			<section>
-				{#if p.competicao.serie}<h2>Série {p.competicao.serie}</h2>{/if}
-				<TabelaMerito
-					linhas={p.merito.linhas} emblemas={data.emblemas}
-					categoria={p.competicao.categoria} {destaque} />
-			</section>
-		{/if}
-	{/each}
-	<RegrasMerito />
-	<LegendaMerito porConfirmar={meritoPorConfirmar} semBoletim={meritoSemBoletim} />
-{:else if aba === 'classificacao'}
-	<!-- Uma nota no fundo, e não uma por série: nas três séries dos Escolares eram três avisos
-	     iguais empilhados. Vale para o ecrã, e por isso vive com as outras notas, lá em baixo. -->
-	{@const algumaCalculada = visiveis.some((p) => tabelasDe(p.dados).calculada)}
-	{#each visiveis as p (p.competicao.id)}
-		{@const t = tabelasDe(p.dados)}
-		{#each t.grupos as grupo, i (grupo.nome ?? i)}
-			<section>
-				<h2>{p.competicao.serie ? `Série ${p.competicao.serie}` : (grupo.nome ?? 'Classificação')}</h2>
-				<TabelaClassificacao
-					linhas={grupo.linhas} emblemas={data.emblemas}
-					categoria={p.competicao.categoria} {completa} {destaque}
-					assistencias={assistencias(p.quadro)} legenda={false} />
-			</section>
-		{/each}
-	{/each}
-	<LegendaClassificacao {completa} />
-	<p class="nota">Vitória 3 pontos, empate 1. As séries não se enfrentam, por isso não há tabela única.</p>
-	{#if algumaCalculada}<RotuloCalculada />{/if}
-{:else if aba === 'calendario'}
-	{#each visiveis as p (p.competicao.id)}
-		{@const cal = jogosDaProva(p.dados.jogos)}
-		<section>
-			{#if p.competicao.serie}<h2>Série {p.competicao.serie}</h2>{/if}
-			{#each cal.jornadas as [jornada, jogos] (jornada)}
-				<p class="jornada" class:curso={jornada === cal.atual}>
-					{jornada}{#if jornada === cal.atual}<span class="agora">em curso</span>{/if}
-				</p>
-				{#each jogos as j (j.id ?? `${j.casa}${j.fora}`)}
-					<LinhaJogo jogo={paraAgenda(j, p.competicao.id, data.escalao)}
-						emblemas={data.emblemas} seguida={destaque} comData />
+		{#if a === 'classificacao' && temMerito}
+			<ChapeuMerito />
+			{#each visiveis as p (p.competicao.id)}
+				{#if p.merito?.linhas.length}
+					<section>
+						{#if p.competicao.serie}<h2>Série {p.competicao.serie}</h2>{/if}
+						<TabelaMerito
+							linhas={p.merito.linhas} emblemas={data.emblemas}
+							categoria={p.competicao.categoria} {destaque} />
+					</section>
+				{/if}
+			{/each}
+			<RegrasMerito />
+			<LegendaMerito porConfirmar={meritoPorConfirmar} semBoletim={meritoSemBoletim} />
+		{:else if a === 'classificacao'}
+			<!-- Uma nota no fundo, e não uma por série: nas três séries dos Escolares eram três avisos
+			     iguais empilhados. Vale para o ecrã, e por isso vive com as outras notas, lá em baixo. -->
+			{@const algumaCalculada = visiveis.some((p) => tabelasDe(p.dados).calculada)}
+			{#each visiveis as p (p.competicao.id)}
+				{@const t = tabelasDe(p.dados)}
+				{#each t.grupos as grupo, i (grupo.nome ?? i)}
+					<section>
+						<h2>{p.competicao.serie ? `Série ${p.competicao.serie}` : (grupo.nome ?? 'Classificação')}</h2>
+						<TabelaClassificacao
+							linhas={grupo.linhas} emblemas={data.emblemas}
+							categoria={p.competicao.categoria} {completa} {destaque}
+							assistencias={assistencias(p.quadro)} legenda={false} />
+					</section>
 				{/each}
 			{/each}
-		</section>
-	{/each}
-{:else}
-	{#if marcadores.length === 0}
-		<p class="nota">Ainda não há fichas de jogo publicadas nesta competição.</p>
-	{:else}
-		<!-- A chave dos números, antes da lista: sem ela o total lê-se como se fosse de um jogo
-		     só — ver o comentário do `jogosContados`. -->
-		<p class="chave">
-			Totais de <b>{jogosContados}</b>
-			{jogosContados === 1 ? 'jogo' : 'jogos'} com ficha publicada: golos a
-			<b>negrito</b>, assistências (<b>A</b>) e jogos de cada jogador (<b>j</b>).
-		</p>
-		<ol class="marcadores">
-			{#each marcadores as m, i (m.equipa + m.nome)}
-				<li class:minha={destaque(m.equipa)}>
-					<span class="lugar">{i + 1}</span>
-					<span class="quem">
-						<span class="nome">{nomeProprio(m.nome)}</span>
-						<span class="clube">
-							{m.equipa}{#if m.serie}<span class="ser">série {m.serie}</span>{/if}
-						</span>
-					</span>
-					<span class="numeros"><b>{m.golos}</b><span>{m.assistencias}A · {m.jogos}j</span></span>
-				</li>
+			<LegendaClassificacao {completa} />
+			<p class="nota">Vitória 3 pontos, empate 1. As séries não se enfrentam, por isso não há tabela única.</p>
+			{#if algumaCalculada}<RotuloCalculada />{/if}
+		{:else if a === 'calendario'}
+			{#each visiveis as p (p.competicao.id)}
+				{@const cal = jogosDaProva(p.dados.jogos)}
+				<section>
+					{#if p.competicao.serie}<h2>Série {p.competicao.serie}</h2>{/if}
+					{#each cal.jornadas as [jornada, jogos] (jornada)}
+						<p class="jornada" class:curso={jornada === cal.atual}>
+							{jornada}{#if jornada === cal.atual}<span class="agora">em curso</span>{/if}
+						</p>
+						{#each jogos as j (j.id ?? `${j.casa}${j.fora}`)}
+							<LinhaJogo jogo={paraAgenda(j, p.competicao.id, data.escalao)}
+								emblemas={data.emblemas} seguida={destaque} comData />
+						{/each}
+					{/each}
+				</section>
 			{/each}
-		</ol>
-		{#if temSeries && !serie}
-			<p class="nota">
-				Somado entre séries. Como as séries não se enfrentam, os totais não são
-				directamente comparáveis — a série de cada jogador está indicada.
-			</p>
+		{:else}
+			{#if marcadores.length === 0}
+				<p class="nota">Ainda não há fichas de jogo publicadas nesta competição.</p>
+			{:else}
+				<!-- A chave dos números, antes da lista: sem ela o total lê-se como se fosse de um jogo
+				     só — ver o comentário do `jogosContados`. -->
+				<p class="chave">
+					Totais de <b>{jogosContados}</b>
+					{jogosContados === 1 ? 'jogo' : 'jogos'} com ficha publicada: golos a
+					<b>negrito</b>, assistências (<b>A</b>) e jogos de cada jogador (<b>j</b>).
+				</p>
+				<ol class="marcadores">
+					{#each marcadores as m, i (m.equipa + m.nome)}
+						<li class:minha={destaque(m.equipa)}>
+							<span class="lugar">{i + 1}</span>
+							<span class="quem">
+								<span class="nome">{nomeProprio(m.nome)}</span>
+								<span class="clube">
+									{m.equipa}{#if m.serie}<span class="ser">série {m.serie}</span>{/if}
+								</span>
+							</span>
+							<span class="numeros"><b>{m.golos}</b><span>{m.assistencias}A · {m.jogos}j</span></span>
+						</li>
+					{/each}
+				</ol>
+				{#if temSeries && !serie}
+					<p class="nota">
+						Somado entre séries. Como as séries não se enfrentam, os totais não são
+						directamente comparáveis — a série de cada jogador está indicada.
+					</p>
+				{/if}
+			{/if}
 		{/if}
-	{/if}
-{/if}
+	{/snippet}
+</Faixa>
 
 <style>
 	.titulo { margin-bottom: 0.8rem; }

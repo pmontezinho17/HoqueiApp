@@ -167,6 +167,12 @@ export const NOVIDADES: Novidade[] = [
 					'Nas competições com várias séries já não tens de percorrer as seis: escolhes a que te interessa numa lista, ao lado da escolha entre tabela simples e completa. A série da tua equipa leva uma estrela ★. Foi uma sugestão vossa — obrigado! E os separadores da competição, da equipa e do jogo passaram a ser iguais, de ponta a ponta do ecrã, com o nome por baixo de cada ícone. O ícone dos Jogos é agora um rinque, e o topo da competição e da equipa fica parado enquanto rolas.'
 			},
 			{
+				tipo: 'novo',
+				titulo: '👉 Desliza para mudar de separador',
+				texto:
+					'Na competição e na equipa já podes passar de um separador para o outro a deslizar o dedo, como na ficha de jogo. Em qualquer sítio do ecrã, e não só por cima dos jogos. E nos Jogos, no Meu Clube e nas Competições, deslizar para lá do fim leva-te ao menu do lado.'
+			},
+			{
 				tipo: 'corrigido',
 				titulo: '↩️ Voltar já te deixa onde estavas',
 				texto:

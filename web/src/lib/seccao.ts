@@ -43,3 +43,18 @@ export function seccaoDe(caminho: string, anterior: Seccao | null): Seccao | nul
 	if (anterior) return anterior;
 	return POR_OMISSAO.find(([prefixo]) => caminho.startsWith(prefixo))?.[1] ?? null;
 }
+
+/** As secções pela ordem da barra de baixo, da esquerda para a direita. */
+export const ORDEM: Seccao[] = ['/', '/clube', '/competicoes'];
+
+/**
+ * A secção ao lado, para onde leva arrastar para lá do fim de um dos três ecrãs principais —
+ * ver `antes` e `depois` na `lib/Faixa.svelte`. `null` nas pontas: à esquerda dos Jogos e à
+ * direita das Competições não há nada, e a barra não dá a volta.
+ *
+ * @param passo `1` para a direita da barra (arrastar o dedo para a esquerda), `-1` para a
+ *   esquerda
+ */
+export function vizinha(seccao: Seccao, passo: 1 | -1): Seccao | null {
+	return ORDEM[ORDEM.indexOf(seccao) + passo] ?? null;
+}

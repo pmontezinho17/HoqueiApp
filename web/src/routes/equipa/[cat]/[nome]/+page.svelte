@@ -5,6 +5,7 @@
 	import { classificacaoDaEquipa, COLUNAS, tabelasDe } from '$lib/classificacao';
 	import Escolha from '$lib/Escolha.svelte';
 	import TopoFixo from '$lib/TopoFixo.svelte';
+	import Faixa from '$lib/Faixa.svelte';
 	import CalendarioMes from '$lib/CalendarioMes.svelte';
 	import ChapeuMerito from '$lib/ChapeuMerito.svelte';
 	import LegendaMerito from '$lib/LegendaMerito.svelte';
@@ -304,150 +305,156 @@
 	</div>
 </TopoFixo>
 
-{#if aba === 'resumo'}
-	<FormaRecente {jogos} equipa={data.equipa} emblemas={data.emblemas} />
+<!-- Arrastar para o lado muda de separador, como na ficha de jogo e na competição. Nas pontas
+     não passa ao menu vizinho: uma equipa está dentro de um menu — ver a `lib/Faixa.svelte`. -->
+<Faixa itens={ABAS} bind:escolhido={aba}>
+	{#snippet pagina(a)}
+		{#if a === 'resumo'}
+			<FormaRecente {jogos} equipa={data.equipa} emblemas={data.emblemas} />
 
-	{#if proximos.length}
-		<p class="rotulo">Próximo jogo</p>
-		<LinhaJogo jogo={paraAgenda(proximos[0])} emblemas={data.emblemas} seguida={destaque} comData />
-	{/if}
-	{#if anteriores.length}
-		<p class="rotulo">Último resultado</p>
-		<LinhaJogo jogo={paraAgenda(anteriores[0])} emblemas={data.emblemas} seguida={destaque} comData />
-	{/if}
-
-	<p class="rotulo">Esta época</p>
-	<dl class="numeros">
-		<dt>Jogos</dt><dd>{totais.jogos}</dd>
-		<dt>Golos marcados</dt><dd>{totais.gm}</dd>
-		<dt>Golos sofridos</dt><dd>{totais.gs}</dd>
-		<dt>Assistências</dt><dd>{totais.assistencias}</dd>
-		{#if recinto}<dt>Joga em casa</dt><dd class="txt">{recinto}</dd>{/if}
-	</dl>
-{:else if aba === 'jogos'}
-	<!-- A vista e a prova lado a lado, como a série e as colunas na competição e os filtros da
-	     lista de jogos. A prova só existe na lista: o calendário mostra o mês inteiro. -->
-	<div class="controlos" data-guia="equipa-vistas">
-		<Escolha rotulo="Ver os jogos" bind:valor={vistaJogos} opcoes={VISTAS} />
-		{#if vistaJogos === 'lista' && provas.length > 1}
-			<Escolha rotulo="Competição" bind:valor={provaJogos} opcoes={comTodas} />
-		{/if}
-	</div>
-
-	{#if vistaJogos === 'calendario'}
-		<!-- sem filtro: o calendário mostra o mês da equipa inteiro, de todas as provas -->
-		<CalendarioMes {jogos} equipa={data.equipa} emblemas={data.emblemas} />
-		<div class="subscrever" data-guia="equipa-calendario">
-			<AdicionarCalendario
-				equipa={data.equipa} categoria={data.categoria} {jogos}
-				recintos={data.recintos} />
-		</div>
-	{:else}
-		{#if proximosFiltrados.length}
-			<p class="rotulo">Por disputar</p>
-			{#each proximosFiltrados as j (j.id ?? `${j.casa}${j.fora}`)}
-				<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} comData />
-			{/each}
-		{/if}
-		{#if anterioresFiltrados.length}
-			<p class="rotulo">Resultados</p>
-			{#each anterioresFiltrados as j (j.id ?? `${j.casa}${j.fora}`)}
-				<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} comData />
-			{/each}
-		{/if}
-		{#if proximosFiltrados.length + anterioresFiltrados.length === 0}
-			<p class="vazio">Sem jogos nesta competição.</p>
-		{/if}
-	{/if}
-{:else if aba === 'classificacao' && oQueMostrar === 'merito'}
-	<!-- Nos Escolares e nos Benjamins a classificação **é** o Mérito. Uma tabela por série em
-	     que esta equipa entra, como no ecrã da competição, e as mesmas três notas à volta: o
-	     chapéu em cima porque não se pode esconder, as regras e a legenda em baixo. -->
-	<ChapeuMerito />
-	{#each meritos as p (p.id)}
-		<section>
-			{#if meritos.length > 1}<p class="rotulo">{p.rotulo}</p>{/if}
-			<TabelaMerito
-				linhas={p.merito!.linhas}
-				emblemas={data.emblemas}
-				categoria={data.categoria}
-				{destaque}
-			/>
-		</section>
-	{/each}
-	<RegrasMerito />
-	<LegendaMerito porConfirmar={meritoPorConfirmar} semBoletim={meritoSemBoletim} />
-{:else if aba === 'classificacao'}
-	{#if tabelas.length === 0}
-		<p class="vazio">Esta equipa não tem classificação publicada.</p>
-	{:else}
-		<!-- sem "todas as competições", de propósito: séries diferentes não se enfrentam e
-		     uma tabela fundida compararia adversários disjuntos -->
-		<div class="controlos">
-			{#if tabelas.length > 1}
-				<Escolha rotulo="Competição" bind:valor={tabelaEscolhida}
-					opcoes={tabelas.map((t) => ({ valor: t.chave, rotulo: t.rotulo }))} />
+			{#if proximos.length}
+				<p class="rotulo">Próximo jogo</p>
+				<LinhaJogo jogo={paraAgenda(proximos[0])} emblemas={data.emblemas} seguida={destaque} comData />
 			{/if}
-			<Escolha rotulo="Colunas da tabela" bind:valor={completa} opcoes={COLUNAS} />
-		</div>
-		<!-- o nome da prova por cima da tabela, sempre: a meia largura a lista corta-o -->
-		<p class="rotulo">{tabela.rotulo}</p>
-		<TabelaClassificacao
-			linhas={tabela.linhas} emblemas={data.emblemas} categoria={data.categoria}
-			{completa} destaque={(e) => e === data.equipa} assistencias={tabela.assist} />
-		<a class="verProva" href={`/competicoes/${tabela.grupoId}`}>Ver a competição ›</a>
-		{#if tabela?.calculada}<RotuloCalculada />{/if}
-	{/if}
-{:else}
-	<!-- com filtro **e** com "todas": o plantel de uma prova é o que responde a "quem joga
-	     aqui agora"; o agregado continua a servir para os totais da época -->
-	{#if provas.length > 1}
-		<div class="controlos">
-			<Escolha rotulo="Competição" bind:valor={provaPlantel} opcoes={comTodas} />
-		</div>
-	{/if}
-	{#if plantel.length === 0}
-		<p class="vazio">Ainda não há fichas de jogo publicadas para esta equipa nesta prova.</p>
-	{:else}
-		<!-- tabela com cabeçalho: antes eram colunas sem nome e desalinhadas, porque
-		     cada célula só aparecia quando o valor não era zero -->
-		<div class="rolo">
-			<table class="plantel">
-				<thead>
-					<tr>
-						<th class="nome" scope="col">Jogador</th>
-						<th scope="col"><abbr title="Jogos">J</abbr></th>
-						<th scope="col"><abbr title="Golos">G</abbr></th>
-						<th scope="col"><abbr title="Assistências">A</abbr></th>
-						<th scope="col"><abbr title="Defesas">D</abbr></th>
-						<th scope="col"><span class="cartao am" aria-hidden="true"></span><span class="sr">Cartões amarelos</span></th>
-						<th scope="col"><span class="cartao az" aria-hidden="true"></span><span class="sr">Cartões azuis</span></th>
-						<th scope="col"><span class="cartao vm" aria-hidden="true"></span><span class="sr">Cartões vermelhos</span></th>
-					</tr>
-				</thead>
-				<tbody>
-					{#each plantel as j (j.nome)}
-						<tr>
-							<th class="nome" scope="row">{nomeProprio(j.nome)}</th>
-							<td>{j.jogos}</td>
-							<td class:marcou={j.golos > 0}>{j.golos || '–'}</td>
-							<td>{j.assistencias || '–'}</td>
-							<td>{j.defesas || '–'}</td>
-							<td>{j.amarelos || '–'}</td>
-							<td>{j.azuis || '–'}</td>
-							<td>{j.vermelhos || '–'}</td>
-						</tr>
+			{#if anteriores.length}
+				<p class="rotulo">Último resultado</p>
+				<LinhaJogo jogo={paraAgenda(anteriores[0])} emblemas={data.emblemas} seguida={destaque} comData />
+			{/if}
+
+			<p class="rotulo">Esta época</p>
+			<dl class="numeros">
+				<dt>Jogos</dt><dd>{totais.jogos}</dd>
+				<dt>Golos marcados</dt><dd>{totais.gm}</dd>
+				<dt>Golos sofridos</dt><dd>{totais.gs}</dd>
+				<dt>Assistências</dt><dd>{totais.assistencias}</dd>
+				{#if recinto}<dt>Joga em casa</dt><dd class="txt">{recinto}</dd>{/if}
+			</dl>
+		{:else if a === 'jogos'}
+			<!-- A vista e a prova lado a lado, como a série e as colunas na competição e os filtros da
+			     lista de jogos. A prova só existe na lista: o calendário mostra o mês inteiro. -->
+			<div class="controlos" data-guia="equipa-vistas">
+				<Escolha rotulo="Ver os jogos" bind:valor={vistaJogos} opcoes={VISTAS} />
+				{#if vistaJogos === 'lista' && provas.length > 1}
+					<Escolha rotulo="Competição" bind:valor={provaJogos} opcoes={comTodas} />
+				{/if}
+			</div>
+
+			{#if vistaJogos === 'calendario'}
+				<!-- sem filtro: o calendário mostra o mês da equipa inteiro, de todas as provas -->
+				<CalendarioMes {jogos} equipa={data.equipa} emblemas={data.emblemas} />
+				<div class="subscrever" data-guia="equipa-calendario">
+					<AdicionarCalendario
+						equipa={data.equipa} categoria={data.categoria} {jogos}
+						recintos={data.recintos} />
+				</div>
+			{:else}
+				{#if proximosFiltrados.length}
+					<p class="rotulo">Por disputar</p>
+					{#each proximosFiltrados as j (j.id ?? `${j.casa}${j.fora}`)}
+						<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} comData />
 					{/each}
-				</tbody>
-			</table>
-		</div>
-		<p class="nota">
-			{provaPlantel
-				? 'Desta prova, a partir das fichas de jogo publicadas.'
-				: 'Somado entre as provas do escalão — um atleta que tenha mudado de equipa entre provas aparece aqui com os dois períodos juntos.'}
-		</p>
-	{/if}
-{/if}
+				{/if}
+				{#if anterioresFiltrados.length}
+					<p class="rotulo">Resultados</p>
+					{#each anterioresFiltrados as j (j.id ?? `${j.casa}${j.fora}`)}
+						<LinhaJogo jogo={paraAgenda(j)} emblemas={data.emblemas} seguida={destaque} comData />
+					{/each}
+				{/if}
+				{#if proximosFiltrados.length + anterioresFiltrados.length === 0}
+					<p class="vazio">Sem jogos nesta competição.</p>
+				{/if}
+			{/if}
+		{:else if a === 'classificacao' && oQueMostrar === 'merito'}
+			<!-- Nos Escolares e nos Benjamins a classificação **é** o Mérito. Uma tabela por série em
+			     que esta equipa entra, como no ecrã da competição, e as mesmas três notas à volta: o
+			     chapéu em cima porque não se pode esconder, as regras e a legenda em baixo. -->
+			<ChapeuMerito />
+			{#each meritos as p (p.id)}
+				<section>
+					{#if meritos.length > 1}<p class="rotulo">{p.rotulo}</p>{/if}
+					<TabelaMerito
+						linhas={p.merito!.linhas}
+						emblemas={data.emblemas}
+						categoria={data.categoria}
+						{destaque}
+					/>
+				</section>
+			{/each}
+			<RegrasMerito />
+			<LegendaMerito porConfirmar={meritoPorConfirmar} semBoletim={meritoSemBoletim} />
+		{:else if a === 'classificacao'}
+			{#if tabelas.length === 0}
+				<p class="vazio">Esta equipa não tem classificação publicada.</p>
+			{:else}
+				<!-- sem "todas as competições", de propósito: séries diferentes não se enfrentam e
+				     uma tabela fundida compararia adversários disjuntos -->
+				<div class="controlos">
+					{#if tabelas.length > 1}
+						<Escolha rotulo="Competição" bind:valor={tabelaEscolhida}
+							opcoes={tabelas.map((t) => ({ valor: t.chave, rotulo: t.rotulo }))} />
+					{/if}
+					<Escolha rotulo="Colunas da tabela" bind:valor={completa} opcoes={COLUNAS} />
+				</div>
+				<!-- o nome da prova por cima da tabela, sempre: a meia largura a lista corta-o -->
+				<p class="rotulo">{tabela.rotulo}</p>
+				<TabelaClassificacao
+					linhas={tabela.linhas} emblemas={data.emblemas} categoria={data.categoria}
+					{completa} destaque={(e) => e === data.equipa} assistencias={tabela.assist} />
+				<a class="verProva" href={`/competicoes/${tabela.grupoId}`}>Ver a competição ›</a>
+				{#if tabela?.calculada}<RotuloCalculada />{/if}
+			{/if}
+		{:else}
+			<!-- com filtro **e** com "todas": o plantel de uma prova é o que responde a "quem joga
+			     aqui agora"; o agregado continua a servir para os totais da época -->
+			{#if provas.length > 1}
+				<div class="controlos">
+					<Escolha rotulo="Competição" bind:valor={provaPlantel} opcoes={comTodas} />
+				</div>
+			{/if}
+			{#if plantel.length === 0}
+				<p class="vazio">Ainda não há fichas de jogo publicadas para esta equipa nesta prova.</p>
+			{:else}
+				<!-- tabela com cabeçalho: antes eram colunas sem nome e desalinhadas, porque
+				     cada célula só aparecia quando o valor não era zero -->
+				<div class="rolo">
+					<table class="plantel">
+						<thead>
+							<tr>
+								<th class="nome" scope="col">Jogador</th>
+								<th scope="col"><abbr title="Jogos">J</abbr></th>
+								<th scope="col"><abbr title="Golos">G</abbr></th>
+								<th scope="col"><abbr title="Assistências">A</abbr></th>
+								<th scope="col"><abbr title="Defesas">D</abbr></th>
+								<th scope="col"><span class="cartao am" aria-hidden="true"></span><span class="sr">Cartões amarelos</span></th>
+								<th scope="col"><span class="cartao az" aria-hidden="true"></span><span class="sr">Cartões azuis</span></th>
+								<th scope="col"><span class="cartao vm" aria-hidden="true"></span><span class="sr">Cartões vermelhos</span></th>
+							</tr>
+						</thead>
+						<tbody>
+							{#each plantel as j (j.nome)}
+								<tr>
+									<th class="nome" scope="row">{nomeProprio(j.nome)}</th>
+									<td>{j.jogos}</td>
+									<td class:marcou={j.golos > 0}>{j.golos || '–'}</td>
+									<td>{j.assistencias || '–'}</td>
+									<td>{j.defesas || '–'}</td>
+									<td>{j.amarelos || '–'}</td>
+									<td>{j.azuis || '–'}</td>
+									<td>{j.vermelhos || '–'}</td>
+								</tr>
+							{/each}
+						</tbody>
+					</table>
+				</div>
+				<p class="nota">
+					{provaPlantel
+						? 'Desta prova, a partir das fichas de jogo publicadas.'
+						: 'Somado entre as provas do escalão — um atleta que tenha mudado de equipa entre provas aparece aqui com os dois períodos juntos.'}
+				</p>
+			{/if}
+		{/if}
+	{/snippet}
+</Faixa>
 
 <style>
 	.topo { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.9rem; }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { seccaoDe, type Seccao } from './seccao';
+import { seccaoDe, vizinha, type Seccao } from './seccao';
 
 /** percorre os caminhos como a pessoa os percorre, cada um a partir do anterior */
 const percurso = (...caminhos: string[]) => {
@@ -40,5 +40,19 @@ describe('a secção acesa na barra de baixo', () => {
 
 	it('um caminho que só comece pelas mesmas letras não é da secção', () => {
 		expect(seccaoDe('/clubes-antigos', null)).toBeNull();
+	});
+});
+
+describe('arrastar para o menu do lado', () => {
+	it('segue a ordem da barra de baixo', () => {
+		expect(vizinha('/', 1)).toBe('/clube');
+		expect(vizinha('/clube', 1)).toBe('/competicoes');
+		expect(vizinha('/clube', -1)).toBe('/');
+		expect(vizinha('/competicoes', -1)).toBe('/clube');
+	});
+
+	it('não dá a volta nas pontas', () => {
+		expect(vizinha('/', -1)).toBeNull();
+		expect(vizinha('/competicoes', 1)).toBeNull();
 	});
 });
