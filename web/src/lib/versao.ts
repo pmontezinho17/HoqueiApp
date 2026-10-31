@@ -162,6 +162,12 @@ export const NOVIDADES: Novidade[] = [
 			},
 			{
 				tipo: 'novo',
+				titulo: '🟩🟥 O que dizem as barras do Mérito',
+				texto:
+					'Há uma barra por equipa: a da esquerda é a da casa, a da direita a de fora. O verde é a parte dos pontos que a equipa ganhou (bonificações) e o vermelho a parte que perdeu (penalizações); juntos enchem sempre a barra. Quem ganhou 9 pontos e perdeu 10 tem a barra quase meio a meio. O número ao lado é o Mérito da equipa nesse jogo, e fica a vermelho quando é negativo.'
+			},
+			{
+				tipo: 'novo',
 				titulo: '🔤 Escolhe a série que queres ver',
 				texto:
 					'Nas competições com várias séries já não tens de percorrer as seis: escolhes a que te interessa numa lista, ao lado da escolha entre tabela simples e completa. A série da tua equipa leva uma estrela ★. Foi uma sugestão vossa — obrigado! E os separadores da competição, da equipa e do jogo passaram a ser iguais, de ponta a ponta do ecrã, com o nome por baixo de cada ícone. O ícone dos Jogos é agora um rinque, e o topo da competição e da equipa fica parado enquanto rolas.'
