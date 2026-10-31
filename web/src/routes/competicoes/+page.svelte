@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Faixa from '$lib/Faixa.svelte';
-	import { vizinha } from '$lib/seccao';
 	/**
 	 * O menu de Competições: uma grelha de escalões, três por linha.
 	 *
@@ -102,68 +100,62 @@
 
 <h1 class="sr">Competições</h1>
 
-<!-- Uma página só, para o arrasto levar ao Meu Clube, à esquerda — ver a `lib/Faixa.svelte`.
-     À direita não há nada: as Competições são a ponta da barra. -->
-<Faixa itens={['competicoes']} escolhido="competicoes" antes={() => goto(vizinha('/competicoes', -1)!)}>
-	{#snippet pagina()}
-		{#if tudo.nadaVivo}
-			<p class="nota">Não há provas a decorrer. Em baixo está a época toda.</p>
-		{:else if tudo.terminadas}
-			<!-- um link e não um botão: isto muda o endereço, e um link é o que o browser sabe
-			     guardar, partilhar e desfazer com o botão de voltar -->
-			<a class="interruptor" href={endereco({ tudo: !pedido })}>
-				{pedido
-					? 'mostrar só o que está a decorrer'
-					: `mostrar também as ${tudo.terminadas} que já acabaram`}
-			</a>
-		{/if}
+{#if tudo.nadaVivo}
+	<p class="nota">Não há provas a decorrer. Em baixo está a época toda.</p>
+{:else if tudo.terminadas}
+	<!-- um link e não um botão: isto muda o endereço, e um link é o que o browser sabe
+	     guardar, partilhar e desfazer com o botão de voltar -->
+	<a class="interruptor" href={endereco({ tudo: !pedido })}>
+		{pedido
+			? 'mostrar só o que está a decorrer'
+			: `mostrar também as ${tudo.terminadas} que já acabaram`}
+	</a>
+{/if}
 
-		<ul class="grelha">
-			{#each lista as [escalao, provas], i (escalao)}
-				{@const estaAberto = slug(escalao) === aberto && provas.length > 1}
-				<li>
-					<button
-						class="escalao"
-						class:aberto={estaAberto}
-						aria-expanded={provas.length > 1 ? estaAberto : undefined}
-						onclick={() => tocar(escalao, provas)}
-					>
-						<CrachaEscalao categoria={escalao} tamanho={56} />
-						<span class="cat">{escalao}</span>
-						<!-- o número só aparece quando há escolha a fazer: "1 prova" é ruído -->
-						<span class="quantas">{provas.length > 1 ? `${provas.length} provas` : ''}</span>
-					</button>
+<ul class="grelha">
+	{#each lista as [escalao, provas], i (escalao)}
+		{@const estaAberto = slug(escalao) === aberto && provas.length > 1}
+		<li>
+			<button
+				class="escalao"
+				class:aberto={estaAberto}
+				aria-expanded={provas.length > 1 ? estaAberto : undefined}
+				onclick={() => tocar(escalao, provas)}
+			>
+				<CrachaEscalao categoria={escalao} tamanho={56} />
+				<span class="cat">{escalao}</span>
+				<!-- o número só aparece quando há escolha a fazer: "1 prova" é ruído -->
+				<span class="quantas">{provas.length > 1 ? `${provas.length} provas` : ''}</span>
+			</button>
+		</li>
+
+		<!--
+			O painel entra **a seguir ao último cartão da linha** do escalão aberto, e não a
+			seguir ao próprio cartão: num `grid` de três colunas, metê-lo no meio da linha
+			partia-a ao meio. Daí a conta do fim da linha.
+
+			As três colunas são fixas em todas as larguras — ver o CSS. Se um dia deixarem de
+			ser, esta conta tem de mudar com elas.
+		-->
+		{#if aberto && i === fimDaLinhaAberta}
+			{@const dentro = lista.find(([e]) => slug(e) === aberto)}
+			{#if dentro && dentro[1].length > 1}
+				{@const curtos = semPrefixoComum(dentro[1].map((g) => g.nome))}
+				<li class="painel">
+					{#each dentro[1] as g, k (g.id)}
+						<a class="ficha" href={`/competicoes/${g.id}`}>
+							<span class="nome">{curtos[k]}</span>
+							{#if g.series.length}
+								<span class="series">{g.series.length} séries · {g.series.join(' ')}</span>
+							{/if}
+							{#if !g.viva}<em class="acabou">terminada</em>{/if}
+						</a>
+					{/each}
 				</li>
-
-				<!--
-					O painel entra **a seguir ao último cartão da linha** do escalão aberto, e não a
-					seguir ao próprio cartão: num `grid` de três colunas, metê-lo no meio da linha
-					partia-a ao meio. Daí a conta do fim da linha.
-
-					As três colunas são fixas em todas as larguras — ver o CSS. Se um dia deixarem de
-					ser, esta conta tem de mudar com elas.
-				-->
-				{#if aberto && i === fimDaLinhaAberta}
-					{@const dentro = lista.find(([e]) => slug(e) === aberto)}
-					{#if dentro && dentro[1].length > 1}
-						{@const curtos = semPrefixoComum(dentro[1].map((g) => g.nome))}
-						<li class="painel">
-							{#each dentro[1] as g, k (g.id)}
-								<a class="ficha" href={`/competicoes/${g.id}`}>
-									<span class="nome">{curtos[k]}</span>
-									{#if g.series.length}
-										<span class="series">{g.series.length} séries · {g.series.join(' ')}</span>
-									{/if}
-									{#if !g.viva}<em class="acabou">terminada</em>{/if}
-								</a>
-							{/each}
-						</li>
-					{/if}
-				{/if}
-			{/each}
-		</ul>
-	{/snippet}
-</Faixa>
+			{/if}
+		{/if}
+	{/each}
+</ul>
 
 <style>
 	/* três por linha, como no ecrã de escolha de equipas */

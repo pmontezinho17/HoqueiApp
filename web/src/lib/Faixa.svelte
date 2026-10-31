@@ -4,9 +4,12 @@
 	 *
 	 * Serve os dias na lista de jogos e os separadores da ficha de jogo, da competição e da
 	 * equipa: em todos o que se quer é ver a página a seguir o dedo, e não saltar quando ele
-	 * se levanta. Desde 31/10/2026 serve também o Meu Clube e as Competições, com uma página
-	 * só, para o arrasto passar de um menu da barra de baixo para o vizinho — ver `antes` e
-	 * `depois`.
+	 * se levanta.
+	 *
+	 * **Nas pontas trava, e não passa ao menu do lado.** A 31/10/2026 experimentou-se: para
+	 * lá do último separador dos Jogos, do Meu Clube e das Competições o arrasto levava ao
+	 * menu vizinho da barra de baixo. O dono testou-o no telemóvel e preferiu sem: *"Prefiro
+	 * que não mudes entre menus inferiores. Gosto do resto do feeling."*
 	 *
 	 * Porque é feito à mão e não com `scroll-snap`: um contentor com scroll horizontal
 	 * rouba também o scroll vertical (quando um eixo tem scroll, o outro deixa de poder ser
@@ -25,9 +28,7 @@
 		itens,
 		escolhido = $bindable(),
 		progresso = $bindable(0),
-		pagina,
-		antes,
-		depois
+		pagina
 	}: {
 		/** as páginas, pela ordem em que se arrastam */
 		itens: string[];
@@ -40,20 +41,6 @@
 		progresso?: number;
 		/** o conteúdo de um dia, chamado uma vez por página montada */
 		pagina: Snippet<[string]>;
-		/**
-		 * O que fazer quando se arrasta para lá da primeira página (`antes`) ou da última
-		 * (`depois`). Sem eles o arrasto trava com resistência; com eles passa ao menu vizinho
-		 * da barra de baixo, a pedido do dono a 31/10/2026: *"quando chegas ao limite de uma
-		 * das tabs, se andares para o lado que já não tem mais tabs, deverá mover para o
-		 * próximo menu"*.
-		 *
-		 * **Só os três ecrãs da barra de baixo os passam.** Uma equipa, uma competição ou um
-		 * jogo estão *dentro* de um menu: passar do Plantel de uma equipa para as Competições
-		 * tirava a pessoa do ecrã onde estava, que é a perda de "onde é que eu estou?" que o
-		 * `lib/seccao.ts` acabou de resolver.
-		 */
-		antes?: () => void;
-		depois?: () => void;
 	} = $props();
 
 	const idx = $derived(itens.indexOf(escolhido));
@@ -71,8 +58,6 @@
 	let x0 = 0;
 	let y0 = 0;
 	let eixo: '' | 'x' | 'y' = '';
-	/** o arrasto em bruto, antes da resistência: é por ele que se decide passar de menu */
-	let bruto = 0;
 	/** um arrasto horizontal não deve disparar o clique no jogo que estava sob o dedo */
 	let engolirClique = false;
 	let quadro = 0;
@@ -137,6 +122,10 @@
 	function baixo(e: PointerEvent) {
 		if (!suportado || !e.isPrimary) return;
 		if (e.pointerType === 'touch' && (e.clientX < BORDO || e.clientX > innerWidth - BORDO)) return;
+		// Uma folha aberta (o "Adicionar ao calendário", nos Jogos da equipa) está por cima de
+		// tudo mas vive dentro da página no DOM, e os eventos dela sobem até aqui. Arrastar lá
+		// dentro mexia o separador por trás.
+		if ((e.target as Element | null)?.closest?.('dialog')) return;
 		// pegar a meio de uma animação é legítimo — pára-a e continua de onde ela ia
 		cancelAnimationFrame(quadro);
 		clearTimeout(salvaguarda);
@@ -145,7 +134,6 @@
 		x0 = e.clientX;
 		y0 = e.clientY;
 		eixo = '';
-		bruto = 0;
 		engolirClique = false;
 	}
 
@@ -161,16 +149,12 @@
 		// Decidido o eixo, o gesto é nosso até o dedo se levantar, esteja ele por cima do que
 		// estiver. Sem isto, um arrasto com rato que acabasse por cima da bolha das sugestões
 		// (que é fixa e fica fora da faixa) entregava-lhe o `pointerup`, e a página ficava
-		// meio arrastada — apanhado a 31/10/2026 ao testar a passagem entre menus. No toque o
+		// meio arrastada — apanhado a 31/10/2026 ao testar esta faixa com o rato. No toque o
 		// browser já faz isto sozinho; aqui fica explícito para os dois.
 		if (!engolirClique) caixa?.setPointerCapture?.(e.pointerId);
 		engolirClique = true;
-		bruto = ax;
-		// Sem página do outro lado o arrasto trava com resistência, em vez de mostrar vazio. Com
-		// um menu vizinho a resistência é menor: o dedo tem de sentir que aquilo vai a algum lado.
-		const parede = (ax < 0 && !seguinte) || (ax > 0 && !anterior);
-		const saida = ax < 0 ? depois : antes;
-		dx = parede ? ax * (saida ? 0.35 : 0.15) : ax;
+		// sem página do outro lado o arrasto trava com resistência, em vez de mostrar vazio
+		dx = (ax < 0 && !seguinte) || (ax > 0 && !anterior) ? ax * 0.15 : ax;
 	}
 
 	function largar(e: PointerEvent) {
@@ -182,15 +166,6 @@
 		}
 		eixo = '';
 		const limiar = Math.min(90, largura * 0.22);
-		// para lá da última página: o menu vizinho, se houver
-		if (bruto <= -limiar && !seguinte && depois) {
-			animar(0);
-			return depois();
-		}
-		if (bruto >= limiar && !anterior && antes) {
-			animar(0);
-			return antes();
-		}
 		const dir = dx <= -limiar && seguinte ? 1 : dx >= limiar && anterior ? -1 : 0;
 		if (!dir) return animar(0);
 		pendente = dir;

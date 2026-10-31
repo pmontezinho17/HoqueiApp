@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { rolarSoSePreciso } from '$lib/rolar';
 	import AdicionarCalendario from '$lib/AdicionarCalendario.svelte';
 	import { APP_NOME } from '$lib/sitio';
 	import RotuloCalculada from '$lib/RotuloCalculada.svelte';
@@ -416,7 +417,7 @@
 			{:else}
 				<!-- tabela com cabeçalho: antes eram colunas sem nome e desalinhadas, porque
 				     cada célula só aparecia quando o valor não era zero -->
-				<div class="rolo">
+				<div class="rolo" use:rolarSoSePreciso>
 					<table class="plantel">
 						<thead>
 							<tr>

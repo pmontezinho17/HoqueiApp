@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { rolarSoSePreciso } from '$lib/rolar';
 	import Emblema from '$lib/Emblema.svelte';
 	import { caminhoEquipa } from '$lib/slug';
 	import type { LinhaClassificacao } from '$lib/tipos';
@@ -29,8 +30,8 @@
 
 <!-- Rola na horizontal com o lugar e o nome fixos: na vista completa são onze colunas, e
      sem isto perde-se de quem é a linha a meio do gesto. -->
-<div class="rolo">
-	<table>
+<div class="rolo" use:rolarSoSePreciso>
+	<table class:encolhe={!completa}>
 		<thead>
 			<tr>
 				<th class="p" scope="col">#</th><th class="eq" scope="col">Equipa</th>
@@ -56,7 +57,7 @@
 					<td class="p">{l.posicao}</td>
 					<th class="eq" scope="row">
 						<a href={caminhoEquipa(l.equipa, categoria)}>
-							<Emblema equipa={l.equipa} src={emblemas[l.equipa]} tamanho={18} />{l.equipa}
+							<Emblema equipa={l.equipa} src={emblemas[l.equipa]} tamanho={18} /><span class="nome">{l.equipa}</span>
 						</a>
 					</th>
 					<td>{l.jogos}</td>
@@ -93,7 +94,12 @@
 	   https://bugs.webkit.org/show_bug.cgi?id=128486 */
 	table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.76rem;
 		font-variant-numeric: tabular-nums; }
-	th, td { box-sizing: border-box; padding: 0.4rem 0.3rem; text-align: right;
+	/* 0.2rem de lado e não 0.3rem: medido a 31/10/2026 a 375px, sete tabelas da vista simples
+	   passavam a caixa por 1 a 20px, todas por um nome comprido ("S ALENQUER BENFICA"). Por
+	   tão pouco a tabela virava caixa de scroll, e o arrasto que muda de separador deixava de
+	   funcionar por cima dela — ver `lib/rolar.ts`. São 16 lados num cabeçalho de 8 colunas,
+	   cerca de 25px. */
+	th, td { box-sizing: border-box; padding: 0.4rem 0.2rem; text-align: right;
 		white-space: nowrap; }
 	thead th { font-size: 0.64rem; color: var(--suave); font-weight: 600;
 		border-bottom: 1px solid var(--borda); }
@@ -104,6 +110,14 @@
 	.eq { position: sticky; left: var(--lugar); z-index: 1; text-align: left;
 		font-weight: 400; background: var(--fundo); }
 	.eq a { display: flex; align-items: center; gap: 0.35rem; text-decoration: none; }
+	/* Na vista simples o nome encolhe, com reticências, em vez de a tabela passar a rolar. O
+	   padding mais curto chegava a 375px, mas a 360px — um Android comum — a Sub-15 voltava a
+	   passar por 14px (medido a 31/10/2026). Cortar duas letras a um nome comprido custa menos
+	   do que o arrasto deixar de mudar de separador por cima da tabela inteira. `width: 100%`
+	   com `max-width: 0` é o que faz uma célula ficar com o que sobra, e não com o que pede.
+	   Na completa não: são onze colunas, o nome ficava com 60px, e ali rolar é o esperado. */
+	.encolhe .eq { width: 100%; max-width: 0; }
+	.eq .nome { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 	.pts { font-weight: 700; padding-left: 0.5rem; }
 	tbody tr + tr th, tbody tr + tr td { border-top: 1px solid var(--borda); }
 	tbody tr.minha > * { background: var(--acento-fraco); }
