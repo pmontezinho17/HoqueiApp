@@ -94,7 +94,7 @@
 			{#if comData && jogo.data}<span class="dia">{diaCurto(jogo.data)}</span>{/if}
 			{#if local}
 				<span class="hora">{local.hora}{#if local.dias}<sup>{local.dias > 0 ? '+' : '−'}{Math.abs(local.dias)}</sup>{/if}</span>
-				<span class="lisboa">{jogo.hora} Lisboa</span>
+				<span class="lisboa">{jogo.hora} PT</span>
 			{:else}
 				<span class="hora">{jogo.hora ?? '—'}</span>
 			{/if}
@@ -190,11 +190,6 @@
 	.linha.comDirecto {
 		grid-template-columns: 3.1rem 1fr auto auto;
 	}
-	/* "10:00 Lisboa" mede 69 px na letra mais pequena, e a coluna da hora tem 50 (medido a
-	   31/10/2026, a 375 px): sem isto a hora de Lisboa ia por baixo do emblema. Só alarga
-	   fora do fuso de Lisboa — em Portugal a lista fica como sempre foi. */
-	.linha.duasHoras { grid-template-columns: 4.5rem 1fr auto; }
-	.linha.duasHoras.comDirecto { grid-template-columns: 4.5rem 1fr auto auto; }
 
 	.linha {
 		display: grid;
@@ -218,7 +213,11 @@
 	.quando { display: flex; flex-direction: column; line-height: 1.3; }
 	.dia, .hora { color: var(--suave); font-variant-numeric: tabular-nums;
 		font-size: var(--t-pequeno); }
-	.lisboa { color: var(--suave); font-variant-numeric: tabular-nums; font-size: var(--t-micro);
+	/* Abaixo do `--t-micro`, de propósito: o dono pediu-a *"mais pequena"* a 31/10/2026, e é
+	   uma nota para quem está fora, não a hora principal. 9 px, como a hora do calendário do mês.
+	   E "PT", não "Lisboa", também a pedido dele: "10:00 Lisboa" media 69 px e a coluna tem 50,
+	   ia por baixo do emblema; "10:00 PT" mede 41 e cabe sem alargar a coluna. */
+	.lisboa { color: var(--suave); font-variant-numeric: tabular-nums; font-size: 0.5625rem;
 		white-space: nowrap; }
 	.hora sup { font-size: 0.7em; margin-left: 0.05em; }
 	/* a hora de quem está a ver manda; a de Lisboa fica por baixo, mais pequena */
