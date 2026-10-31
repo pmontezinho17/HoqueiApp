@@ -624,12 +624,6 @@
   "capitao_casa": null,
   "capitao_fora": null
  },
- "competicao_id": 463,
- "categoria": "ESCOLARES",
- "jornada": "1ª JORNADA",
- "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-ii",
- "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II",
- "serie": "D",
  "merito": [
   {
    "equipa": "SC TORRES",
@@ -687,5 +681,12 @@
    ],
    "avisos": []
   }
- ]
+ ],
+ "merito_revisto": "2026-10-31",
+ "competicao_id": 463,
+ "categoria": "ESCOLARES",
+ "jornada": "1ª JORNADA",
+ "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-ii",
+ "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II",
+ "serie": "D"
 }

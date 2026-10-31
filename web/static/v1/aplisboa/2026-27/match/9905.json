@@ -16,6 +16,9 @@
   4,
   2
  ],
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "AE FISICA D A",
@@ -739,12 +742,6 @@
   "capitao_casa": null,
   "capitao_fora": null
  },
- "competicao_id": 461,
- "categoria": "ESCOLARES",
- "jornada": "1ª JORNADA",
- "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-i",
- "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I",
- "serie": "B",
  "merito": [
   {
    "equipa": "AE FISICA D A",
@@ -797,5 +794,12 @@
    ],
    "avisos": []
   }
- ]
+ ],
+ "merito_revisto": "2026-10-31",
+ "competicao_id": 461,
+ "categoria": "ESCOLARES",
+ "jornada": "1ª JORNADA",
+ "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-i",
+ "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I",
+ "serie": "B"
 }

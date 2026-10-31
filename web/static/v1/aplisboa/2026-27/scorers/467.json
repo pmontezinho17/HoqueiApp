@@ -588,19 +588,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "OLIVIA GRANJA",
-   "equipa": "CACO B",
-   "jogos": 3,
-   "numero": "54",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "AFONSO AUGUSTO",
    "equipa": "HC LOURINHÃ",
    "jogos": 4,
@@ -761,6 +748,19 @@
    "equipa": "CACO B",
    "jogos": 4,
    "numero": "66",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "OLIVIA GRANJA",
+   "equipa": "CACO B",
+   "jogos": 4,
+   "numero": "54",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,

@@ -16,10 +16,27 @@
   1,
   1
  ],
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "CACO A",
    "jogadores": [
+    {
+     "numero": "92",
+     "nome": "VICENTE ROQUE",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
     {
      "numero": "7",
      "nome": "LUCA COSTA",
@@ -133,20 +150,6 @@
      "papel": null
     },
     {
-     "numero": "92",
-     "nome": "VICENTE ROQUE",
-     "titular": true,
-     "golos": 0,
-     "assistencias": 0,
-     "defesas": 0,
-     "penalidades": "0/0",
-     "livres_diretos": "0/0",
-     "cartoes_amarelos": 0,
-     "cartoes_azuis": 0,
-     "cartoes_vermelhos": 0,
-     "papel": null
-    },
-    {
      "numero": "95",
      "nome": "VICENTE CABRITA",
      "titular": false,
@@ -162,7 +165,7 @@
     },
     {
      "numero": null,
-     "nome": "ARLETE SANTOS",
+     "nome": "SÓNIA MOREIRA",
      "titular": false,
      "golos": null,
      "assistencias": null,
@@ -775,9 +778,9 @@
   "oficiais": {
    "Árbitro 1 (ch. dupla)": "RITA ALMEIDA",
    "Árbitro Auxiliar": "SANDRA MOITEIRO",
-   "Delegado Técnico": "ARLETE SANTOS",
+   "Cronometrista": "ARLETE SANTOS",
    "Diretor de campo": "JOANA SALTA",
-   "Gestor de segurança": "NUNO SANTOS"
+   "Gestor de segurança": "MARCO PÓVOA"
   },
   "parciais": [
    {
@@ -806,21 +809,15 @@
   ],
   "inicio": [
    "18:55",
-   "19:18"
+   "19:17"
   ],
   "termo": [
    "19:12",
-   "20:30"
+   "19:37"
   ],
   "capitao_casa": null,
   "capitao_fora": null
  },
- "competicao_id": 465,
- "categoria": "BENJAMINS",
- "jornada": "2ª JORNADA",
- "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-i",
- "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I",
- "serie": "A",
  "merito": [
   {
    "equipa": "CACO A",
@@ -868,5 +865,12 @@
    ],
    "avisos": []
   }
- ]
+ ],
+ "merito_revisto": "2026-10-31",
+ "competicao_id": 465,
+ "categoria": "BENJAMINS",
+ "jornada": "2ª JORNADA",
+ "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-i",
+ "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I",
+ "serie": "A"
 }

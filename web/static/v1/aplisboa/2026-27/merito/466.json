@@ -21,9 +21,9 @@
    "jogos": 4,
    "participantes": 31,
    "bonificacao": 34,
-   "penalizacao": -20,
-   "pontos": 14,
-   "media": 3.5,
+   "penalizacao": -15,
+   "pontos": 19,
+   "media": 4.75,
    "por_confirmar": 0
   },
   {
@@ -43,9 +43,9 @@
    "jogos": 3,
    "participantes": 20,
    "bonificacao": 26,
-   "penalizacao": -24,
-   "pontos": 2,
-   "media": 0.67,
+   "penalizacao": -23,
+   "pontos": 3,
+   "media": 1.0,
    "por_confirmar": 0
   },
   {
@@ -54,9 +54,9 @@
    "jogos": 3,
    "participantes": 18,
    "bonificacao": 18,
-   "penalizacao": -30,
-   "pontos": -12,
-   "media": -4.0,
+   "penalizacao": -24,
+   "pontos": -6,
+   "media": -2.0,
    "por_confirmar": 0
   }
  ]

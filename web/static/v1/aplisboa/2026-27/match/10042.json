@@ -16,6 +16,9 @@
   5,
   1
  ],
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "AD OEIRAS B",
@@ -872,22 +875,16 @@
    0
   ],
   "inicio": [
-   "14:01",
+   "14:00",
    "14:37"
   ],
   "termo": [
-   "14:32",
+   "14:27",
    "14:56"
   ],
   "capitao_casa": null,
   "capitao_fora": null
  },
- "competicao_id": 466,
- "categoria": "BENJAMINS",
- "jornada": "1ª JORNADA",
- "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-ii",
- "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II",
- "serie": "B",
  "merito": [
   {
    "equipa": "AD OEIRAS B",
@@ -965,5 +962,12 @@
    ],
    "avisos": []
   }
- ]
+ ],
+ "merito_revisto": "2026-10-31",
+ "competicao_id": 466,
+ "categoria": "BENJAMINS",
+ "jornada": "1ª JORNADA",
+ "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-ii",
+ "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II",
+ "serie": "B"
 }

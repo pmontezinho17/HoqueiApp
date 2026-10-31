@@ -700,8 +700,8 @@
  "boletim": {
   "oficiais": {
    "Árbitro 1 (ch. dupla)": "MIGUEL SOARES",
-   "Árbitro Auxiliar": "Tania Morgado",
-   "Cronometrista": "Arlete Santos",
+   "Árbitro Auxiliar": "TANIA MORGADO",
+   "Cronometrista": "ARLETE SANTOS",
    "Diretor de campo": "ANDRÉ CABRAL",
    "Gestor de segurança": "MARCO POVOA"
   },
@@ -794,6 +794,7 @@
    "avisos": []
   }
  ],
+ "merito_revisto": "2026-10-31",
  "competicao_id": 461,
  "categoria": "ESCOLARES",
  "jornada": "4ª JORNADA",

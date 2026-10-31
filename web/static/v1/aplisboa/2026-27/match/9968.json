@@ -925,12 +925,6 @@
   "capitao_casa": null,
   "capitao_fora": null
  },
- "competicao_id": 464,
- "categoria": "ESCOLARES",
- "jornada": "2ª JORNADA",
- "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-ii",
- "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II",
- "serie": "E",
  "merito": [
   {
    "equipa": "UD VILAFRANQUENSE B",
@@ -993,5 +987,12 @@
    ],
    "avisos": []
   }
- ]
+ ],
+ "merito_revisto": "2026-10-31",
+ "competicao_id": 464,
+ "categoria": "ESCOLARES",
+ "jornada": "2ª JORNADA",
+ "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-ii",
+ "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II",
+ "serie": "E"
 }
