@@ -211,8 +211,8 @@
    "hora": "15:00:00",
    "casa": "FC CASTRENSE",
    "fora": "CF ESTREMOZ",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 4,
+   "golos_fora": 3,
    "recinto": "PAV. MUN. ANTONIO DOS ANJOS",
    "ao_vivo": false
   },
@@ -365,29 +365,29 @@
      "posicao": 4,
      "equipa": "CF ESTREMOZ",
      "logo": "/intranet/logos/0.png",
-     "jogos": 5,
+     "jogos": 6,
      "vitorias": 1,
      "empates": 0,
-     "derrotas": 4,
-     "golos_marcados": 10,
-     "golos_sofridos": 24,
-     "diferenca": -14,
-     "racio": 0.42,
+     "derrotas": 5,
+     "golos_marcados": 13,
+     "golos_sofridos": 28,
+     "diferenca": -15,
+     "racio": 0.46,
      "pontos": 3
     },
     {
      "posicao": 5,
      "equipa": "FC CASTRENSE",
      "logo": "/intranet/logos/0.png",
-     "jogos": 5,
-     "vitorias": 0,
+     "jogos": 6,
+     "vitorias": 1,
      "empates": 0,
      "derrotas": 5,
-     "golos_marcados": 8,
-     "golos_sofridos": 53,
-     "diferenca": -45,
-     "racio": 0.15,
-     "pontos": 0
+     "golos_marcados": 12,
+     "golos_sofridos": 56,
+     "diferenca": -44,
+     "racio": 0.21,
+     "pontos": 3
     }
    ]
   }

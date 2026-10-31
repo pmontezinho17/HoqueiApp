@@ -1,5 +1,8 @@
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { faseCurta, nomeProprio, nomeProva } from './formato';
+import { diaDeLisboa } from './dia';
+import { faseCurta, jornadaAtual, nomeProprio, nomeProva } from './formato';
+import { disputado, type Jogo } from './tipos';
 
 describe('nomeProprio', () => {
 	it('põe em caixa de título o que a fonte publica em maiúsculas', () => {
@@ -102,5 +105,68 @@ describe('nomeProva', () => {
 	it('aguenta vazio e nulo', () => {
 		expect(nomeProva(null)).toBe('');
 		expect(nomeProva('')).toBe('');
+	});
+});
+
+describe('jornadaAtual', () => {
+	const jogo = (jornada: string, data: string, golos: [number, number] | null): Jogo =>
+		({ jornada, data, golos_casa: golos?.[0] ?? null, golos_fora: golos?.[1] ?? null }) as Jogo;
+
+	// a 7ª e a 8ª dos sub-13 a 31/10/2026, ao fim da tarde de sábado
+	const sabado = [
+		jogo('7ª JORNADA', '2026-10-31', [8, 1]),
+		jogo('7ª JORNADA', '2026-10-31', [2, 3]),
+		jogo('7ª JORNADA', '2026-10-31', [0, 3]),
+		jogo('8ª JORNADA', '2026-11-07', null),
+		jogo('8ª JORNADA', '2026-11-07', null)
+	];
+
+	it('a jornada seguinte a uma acabada diz "próxima" até chegar o dia', () => {
+		expect(jornadaAtual(sabado, '2026-10-31')).toEqual({ jornada: '8ª JORNADA', rotulo: 'próxima' });
+		expect(jornadaAtual(sabado, '2026-11-06')).toEqual({ jornada: '8ª JORNADA', rotulo: 'próxima' });
+	});
+
+	it('no dia do primeiro jogo passa a "em curso", ainda sem resultados', () => {
+		expect(jornadaAtual(sabado, '2026-11-07')).toEqual({ jornada: '8ª JORNADA', rotulo: 'em curso' });
+	});
+
+	it('uma jornada com um jogo já disputado está em curso, mesmo antes da data dos outros', () => {
+		const jogos = [
+			jogo('7ª JORNADA', '2026-10-31', [8, 1]),
+			jogo('7ª JORNADA', '2026-11-14', null),
+			jogo('8ª JORNADA', '2026-11-07', null)
+		];
+		expect(jornadaAtual(jogos, '2026-11-01')).toEqual({ jornada: '7ª JORNADA', rotulo: 'em curso' });
+	});
+
+	it('o dia de hoje é o de Lisboa, não o do telemóvel', () => {
+		// 23:30 de sexta em Bogotá (UTC−5) já é sábado, 04:30, em Lisboa
+		const quando = new Date('2026-11-07T04:30:00Z');
+		expect(jornadaAtual(sabado, diaDeLisboa(quando))?.rotulo).toBe('em curso');
+	});
+
+	it('uma prova sem jogos não tem jornada', () => {
+		expect(jornadaAtual([], '2026-10-31')).toBeNull();
+	});
+
+	// Os dados publicados, prova a prova: o rótulo tem de concordar com os resultados e as
+	// datas que lá estão. Não fixa números — as provas mudam a cada ronda —, fixa a razão.
+	const raiz = new URL('../../static/v1/aplisboa/', import.meta.url);
+	const temporadas = existsSync(raiz) ? readdirSync(raiz).sort().reverse() : [];
+	const pasta = new URL(`${temporadas[0]}/comp/`, raiz);
+	const provas = existsSync(pasta) ? readdirSync(pasta).filter((f) => f.endsWith('.json')) : [];
+	const hoje = diaDeLisboa();
+
+	it('há provas publicadas para verificar', () => {
+		expect(provas.length).toBeGreaterThan(10);
+	});
+
+	it.each(provas)('em %s, "próxima" só numa jornada sem resultados e por chegar', (f) => {
+		const jogos: Jogo[] = JSON.parse(readFileSync(new URL(f, pasta), 'utf-8')).jogos ?? [];
+		const atual = jornadaAtual(jogos, hoje);
+		if (!atual) return;
+		const daJornada = jogos.filter((j) => j.jornada === atual.jornada);
+		const comecou = daJornada.some((j) => disputado(j) || (!!j.data && j.data <= hoje));
+		expect(comecou).toBe(atual.rotulo === 'em curso');
 	});
 });

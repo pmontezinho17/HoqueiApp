@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { rolarSoSePreciso } from '$lib/rolar';
 	/**
 	 * A tabela de Mérito da Formação — o Artigo 92.º do regulamento da APL.
 	 *
@@ -25,7 +26,7 @@
 	} = $props();
 </script>
 
-<div class="rolo">
+<div class="rolo" use:rolarSoSePreciso>
 	<table>
 		<thead>
 			<tr>
@@ -64,7 +65,10 @@
 	   e a largura do lugar partilhada entre a coluna e o encosto do nome */
 	table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.76rem;
 		font-variant-numeric: tabular-nums; }
-	th, td { box-sizing: border-box; padding: 0.4rem 0.3rem; text-align: right;
+	/* 0.2rem de lado pela mesma razão da `TabelaClassificacao`: a 31/10/2026 uma série dos
+	   Escolares passava a caixa por 2px, e virava caixa de scroll por cima da qual o arrasto
+	   não mudava de separador */
+	th, td { box-sizing: border-box; padding: 0.4rem 0.2rem; text-align: right;
 		white-space: nowrap; }
 	thead th { font-size: 0.64rem; color: var(--suave); font-weight: 600;
 		border-bottom: 1px solid var(--borda); }

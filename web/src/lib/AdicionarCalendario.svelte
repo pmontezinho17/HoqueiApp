@@ -140,7 +140,14 @@
 
 	<p class="ou">ou de uma vez, com a época toda</p>
 
-	{#if sistema !== 'ios'}
+	<!--
+		Só no computador. No Android este botão não funciona — o dono confirmou-o no telemóvel a
+		31/10/2026 e pediu para o tirar. O link abre a aplicação do Google Calendar, e a
+		aplicação não sabe subscrever um calendário por endereço: é o mesmo limite que os passos
+		de "Subscrever à mão" aqui em baixo já diziam ("a aplicação não tem esta opção"). No
+		Android ficam os jogos um a um, o ficheiro e os passos à mão pelo site.
+	-->
+	{#if sistema === 'outro'}
 		<a class="principal secundaria" href={googleUrl} target="_blank" rel="noopener">
 			Subscrever no Google Calendar
 		</a>
@@ -150,12 +157,21 @@
 	{/if}
 	<a class="principal secundaria" href={url} download={ficheiro}>Descarregar ficheiro (.ics)</a>
 
-	<p class="aviso">
-		<strong>Estas duas demoram a dar sinal.</strong> O Google só vai buscar um calendário
-		subscrito horas depois de o adicionares, e não tem botão para forçar — depois disso
-		corrige-se sozinho sempre que um jogo mudar. O ficheiro fica na pasta de
-		<strong>Transferências</strong> e tens de o abrir a partir de lá para os jogos entrarem.
-	</p>
+	{#if sistema === 'android'}
+		<!-- sem o botão do Google, o "estas duas" deixava de ter duas -->
+		<p class="aviso">
+			O ficheiro fica na pasta de <strong>Transferências</strong> e tens de o abrir a partir de
+			lá para os jogos entrarem. Para a época se actualizar sozinha quando um jogo mudar,
+			subscreve à mão — os passos estão aqui em baixo.
+		</p>
+	{:else}
+		<p class="aviso">
+			<strong>Estas duas demoram a dar sinal.</strong> O Google só vai buscar um calendário
+			subscrito horas depois de o adicionares, e não tem botão para forçar — depois disso
+			corrige-se sozinho sempre que um jogo mudar. O ficheiro fica na pasta de
+			<strong>Transferências</strong> e tens de o abrir a partir de lá para os jogos entrarem.
+		</p>
+	{/if}
 
 	<div class="url">
 		<code>{url}</code>

@@ -1,6 +1,6 @@
 {
  "competicao_id": 443,
- "jogos_considerados": 19,
+ "jogos_considerados": 20,
  "jogadores": [
   {
    "nome": "FRANCISCO FATELA",
@@ -81,6 +81,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "LUCAS MORGADO",
+   "equipa": "APAC TOJAL",
+   "jogos": 7,
+   "numero": "19",
+   "golos": 12,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 15,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOSÉ NUNES",
    "equipa": "CACO A",
    "jogos": 6,
@@ -130,19 +143,6 @@
    "pontos": 12,
    "amarelos": 0,
    "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LUCAS MORGADO",
-   "equipa": "APAC TOJAL",
-   "jogos": 6,
-   "numero": "19",
-   "golos": 9,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 11,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -263,14 +263,40 @@
    "vermelhos": 0
   },
   {
-   "nome": "GASTÃO BOTELHO",
+   "nome": "RODRIGO GUERREIRO",
    "equipa": "APAC TOJAL",
-   "jogos": 6,
-   "numero": "15",
-   "golos": 3,
+   "jogos": 7,
+   "numero": "8",
+   "golos": 4,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 4,
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LOURENÇO OLIVEIRA",
+   "equipa": "APAC TOJAL",
+   "jogos": 5,
+   "numero": "25",
+   "golos": 3,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUSTAVO DUARTE",
+   "equipa": "APAC TOJAL",
+   "jogos": 7,
+   "numero": "3",
+   "golos": 3,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 5,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -289,10 +315,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "RODRIGO GUERREIRO",
+   "nome": "GASTÃO BOTELHO",
    "equipa": "APAC TOJAL",
-   "jogos": 6,
-   "numero": "8",
+   "jogos": 7,
+   "numero": "15",
    "golos": 3,
    "assistencias": 1,
    "defesas": 0,
@@ -317,21 +343,8 @@
   {
    "nome": "DIOGO LOPES",
    "equipa": "APAC TOJAL",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "21",
-   "golos": 2,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUSTAVO DUARTE",
-   "equipa": "APAC TOJAL",
-   "jogos": 6,
-   "numero": "3",
    "golos": 2,
    "assistencias": 2,
    "defesas": 0,
@@ -356,7 +369,7 @@
   {
    "nome": "MARTIM SILVA",
    "equipa": "HC SINTRA",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "7",
    "golos": 2,
    "assistencias": 0,
@@ -364,6 +377,32 @@
    "pontos": 2,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DUARTE GASPAR",
+   "equipa": "HC SINTRA",
+   "jogos": 7,
+   "numero": "5",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANTÓNIO BRANDÃO",
+   "equipa": "HC SINTRA",
+   "jogos": 3,
+   "numero": "6",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -406,19 +445,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE GASPAR",
-   "equipa": "HC SINTRA",
-   "jogos": 6,
-   "numero": "3",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "FRANCISCO LEITE",
    "equipa": "CACO A",
    "jogos": 6,
@@ -445,14 +471,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO OLIVEIRA",
+   "nome": "FRANCISCO CARDOSO",
    "equipa": "APAC TOJAL",
-   "jogos": 4,
-   "numero": "7",
+   "jogos": 1,
+   "numero": "9",
    "golos": 0,
-   "assistencias": 1,
+   "assistencias": 0,
    "defesas": 0,
-   "pontos": 1,
+   "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -471,33 +497,7 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANTÓNIO BRANDÃO",
-   "equipa": "HC SINTRA",
-   "jogos": 2,
-   "numero": "6",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "LEONOR MATA",
-   "equipa": "HC SINTRA",
-   "jogos": 2,
-   "numero": "6",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MATIAS FERREIRA",
    "equipa": "HC SINTRA",
    "jogos": 2,
    "numero": "6",
@@ -536,8 +536,8 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO SOUSA",
-   "equipa": "APAC TOJAL",
+   "nome": "LOURENÇO RODRIGUES",
+   "equipa": "AD OEIRAS A",
    "jogos": 3,
    "numero": "1",
    "golos": 0,
@@ -549,10 +549,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO RODRIGUES",
-   "equipa": "AD OEIRAS A",
+   "nome": "MATIAS FERREIRA",
+   "equipa": "HC SINTRA",
    "jogos": 3,
-   "numero": "1",
+   "numero": "67",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -588,36 +588,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO BELÉM",
-   "equipa": "HC SINTRA",
-   "jogos": 4,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MANUEL MENDES",
+   "nome": "FRANCISCO SOUSA",
    "equipa": "APAC TOJAL",
    "jogos": 4,
-   "numero": "22",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARIA DORDIO",
-   "equipa": "HC SINTRA",
-   "jogos": 4,
-   "numero": "13",
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -631,6 +605,19 @@
    "equipa": "AD OEIRAS A",
    "jogos": 4,
    "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "AFONSO BELÉM",
+   "equipa": "HC SINTRA",
+   "jogos": 5,
+   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -679,10 +666,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE SILVA",
+   "nome": "MANUEL MENDES",
+   "equipa": "APAC TOJAL",
+   "jogos": 5,
+   "numero": "02",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARIA DORDIO",
    "equipa": "HC SINTRA",
    "jogos": 5,
-   "numero": "23",
+   "numero": "13",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -705,49 +705,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DAVID CRUZ",
+   "nome": "DUARTE SILVA",
    "equipa": "HC SINTRA",
    "jogos": 6,
-   "numero": "77",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GASPAR PEREIRA",
-   "equipa": "HC SINTRA",
-   "jogos": 6,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO OLIVEIRA",
-   "equipa": "APAC TOJAL",
-   "jogos": 6,
-   "numero": "49",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ISABEL HIGINO",
-   "equipa": "HC SINTRA",
-   "jogos": 6,
-   "numero": "2",
+   "numero": "23",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -783,6 +744,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DAVID CRUZ",
+   "equipa": "HC SINTRA",
+   "jogos": 7,
+   "numero": "77",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DUARTE PAULO",
    "equipa": "SC TORRES",
    "jogos": 7,
@@ -809,10 +783,49 @@
    "vermelhos": 0
   },
   {
+   "nome": "GASPAR PEREIRA",
+   "equipa": "HC SINTRA",
+   "jogos": 7,
+   "numero": "96",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GONÇALO LOURENÇO",
    "equipa": "SC TORRES",
    "jogos": 7,
    "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GONÇALO OLIVEIRA",
+   "equipa": "APAC TOJAL",
+   "jogos": 7,
+   "numero": "49",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ISABEL HIGINO",
+   "equipa": "HC SINTRA",
+   "jogos": 7,
+   "numero": "2",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
