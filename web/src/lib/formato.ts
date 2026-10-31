@@ -1,3 +1,4 @@
+import { diaDeLisboa } from './dia';
 import { disputado, type Jogo } from './tipos';
 
 const DIAS = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
@@ -18,15 +19,30 @@ export const horaCurta = (h: string | null): string => (h ? h.slice(0, 5) : '');
  * a 3ª jornada tem um jogo a 22/09 e a 1ª ainda tem um a 23/09, por isso saltava para a 3ª
  * com a 1ª por fechar. O que o utilizador quer saber é onde vai a prova, não qual é o
  * próximo jogo do calendário.
+ *
+ * O rótulo distingue uma jornada começada de uma por começar. A 31/10 os três jogos da 7ª
+ * jornada dos sub-13 acabaram ao sábado à tarde e a 8ª, toda a 7/11, passou a dizer "em
+ * curso" uma semana antes do primeiro apito — o dono reparou no telemóvel. Começa no dia do
+ * seu primeiro jogo, por decisão dele: *"talvez tenha mais lógica quando chegar o dia"*. O dia
+ * é o de Lisboa, porque as datas da fonte são de Lisboa e ele estava noutro fuso quando
+ * reparou. Um resultado já publicado também a dá por começada, para o caso de um jogo
+ * antecipado ou de uma data que a fonte não actualizou.
  */
-export function jornadaAtual(jogos: Jogo[]): string | null {
+export function jornadaAtual(
+	jogos: Jogo[],
+	hoje: string = diaDeLisboa()
+): { jornada: string; rotulo: 'em curso' | 'próxima' } | null {
 	const ordem: string[] = [];
 	const porJogar = new Set<string>();
+	const comecadas = new Set<string>();
 	for (const j of jogos) {
 		if (!ordem.includes(j.jornada)) ordem.push(j.jornada);
+		if (disputado(j) || (j.data && j.data <= hoje)) comecadas.add(j.jornada);
 		if (!disputado(j)) porJogar.add(j.jornada);
 	}
-	return ordem.find((j) => porJogar.has(j)) ?? ordem.at(-1) ?? null;
+	const jornada = ordem.find((j) => porJogar.has(j)) ?? ordem.at(-1);
+	if (!jornada) return null;
+	return { jornada, rotulo: comecadas.has(jornada) ? 'em curso' : 'próxima' };
 }
 
 /** Dentro da jornada a fonte ordena por número de jogo, não por quando se joga. */
