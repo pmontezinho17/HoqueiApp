@@ -93,6 +93,22 @@ export function emCurso(jogo: { ao_vivo?: boolean; data: string; hora: string | 
 	return agora >= inicio && agora - inicio < JANELA_AO_VIVO_MS;
 }
 
+/** O que a fonte escreve na `situacao` de um jogo que já não está a decorrer. */
+const FECHADO = ['Jogo Terminado', 'Jogo Suspendido', 'Jogo Adiado'];
+
+/**
+ * Nem terminado, nem por começar: pela `situacao` da ficha, está a acontecer alguma coisa.
+ *
+ * O estado fechado conta pelo **começo** do texto. A 31/10/2026 a APL escreveu
+ * "Jogo Terminado (Jogo Suspendido)" num sub-15 acabado, e a comparação pelo texto inteiro
+ * punha a ficha a dizer que o jogo ia a decorrer. É a mesma regra do `em_curso` do raspador.
+ */
+export function situacaoADecorrer(situacao: string | null | undefined): boolean {
+	if (!situacao) return false;
+	const s = situacao.trim();
+	return !FECHADO.some((f) => s.startsWith(f)) && !/come[çc]ar/i.test(s);
+}
+
 
 /** algarismos romanos usados nos níveis e nas fases: `NIVEL II`, `FASE III` */
 const ROMANOS = /^(?:i{1,3}|iv|vi{0,3}|ix|xi{0,2})$/i;
