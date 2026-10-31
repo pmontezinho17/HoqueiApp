@@ -14,6 +14,7 @@
 	const manifest = $derived(pwaInfo?.webManifest?.linkTag ?? '');
 
 	import { page, navigating } from '$app/state';
+	import { seccaoDe, type Seccao } from '$lib/seccao';
 	import Desatualizado from '$lib/Desatualizado.svelte';
 	import Icone from '$lib/Icone.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
@@ -65,8 +66,12 @@
 		{ href: '/clube', rotulo: 'O Meu Clube', icone: 'clube' },
 		{ href: '/competicoes', rotulo: 'Competições', icone: 'prova' }
 	];
-	const activa = (href: string) =>
-		href === '/' ? page.url.pathname === '/' : page.url.pathname.startsWith(href);
+	// Uma ficha de jogo ou uma equipa acendem a secção de onde se veio — ver `lib/seccao.ts`.
+	// `anterior` não é estado de propósito: é só a memória da última conta, e não deve
+	// provocar outra.
+	let anterior: Seccao | null = null;
+	const seccao = $derived.by(() => (anterior = seccaoDe(page.url.pathname, anterior)));
+	const activa = (href: string) => seccao === href;
 
 	/** altura real do cabeçalho colado, publicada em `--topo` para quem precise de colar
 	 *  algo imediatamente abaixo dele */
@@ -171,7 +176,7 @@
 	{#each SECCOES as s (s.href)}
 		<a
 			href={s.href}
-			aria-current={activa(s.href) ? 'page' : undefined}
+			aria-current={activa(s.href) ? (page.url.pathname === s.href ? 'page' : 'true') : undefined}
 			data-guia={s.href === '/' ? undefined : `nav-${s.href.slice(1)}`}
 		>
 			<Icone nome={s.icone} tamanho={21} />
@@ -402,8 +407,10 @@
 		font-size: var(--t-micro); text-decoration: none; color: var(--suave);
 		white-space: nowrap;
 	}
-	.barra a[aria-current='page'] { color: var(--acento); font-weight: 600; }
-	.barra a[aria-current='page'] :global(svg) { color: var(--acento); }
+	/* `page` na própria secção, `true` num jogo ou numa equipa aberta a partir dela: para quem
+	   lê por voz não é a mesma coisa, e para quem vê é */
+	.barra a[aria-current] { color: var(--acento); font-weight: 600; }
+	.barra a[aria-current] :global(svg) { color: var(--acento); }
 	.conta {
 		margin-left: var(--e-1); padding: 0 var(--e-2); border-radius: var(--raio-pilula);
 		background: var(--acento); color: var(--cartao); font-size: var(--t-micro);
