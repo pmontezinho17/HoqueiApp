@@ -1,8 +1,8 @@
 {
  "competicao_id": 465,
  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
- "jogos_lidos": 19,
- "jogos_sem_boletim": 0,
+ "jogos_lidos": 20,
+ "jogos_sem_boletim": 1,
  "linhas": [
   {
    "posicao": 1,
@@ -28,6 +28,17 @@
   },
   {
    "posicao": 3,
+   "equipa": "SC TORRES",
+   "jogos": 6,
+   "participantes": 54,
+   "bonificacao": 66,
+   "penalizacao": -6,
+   "pontos": 60,
+   "media": 10.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 4,
    "equipa": "HC SINTRA",
    "jogos": 5,
    "participantes": 48,
@@ -35,17 +46,6 @@
    "penalizacao": 0,
    "pontos": 55,
    "media": 11.0,
-   "por_confirmar": 0
-  },
-  {
-   "posicao": 4,
-   "equipa": "SC TORRES",
-   "jogos": 5,
-   "participantes": 45,
-   "bonificacao": 54,
-   "penalizacao": -5,
-   "pontos": 49,
-   "media": 9.8,
    "por_confirmar": 0
   },
   {
@@ -84,12 +84,12 @@
   {
    "posicao": 8,
    "equipa": "CD PAÇO ARCOS A",
-   "jogos": 5,
-   "participantes": 40,
-   "bonificacao": 43,
-   "penalizacao": -16,
-   "pontos": 27,
-   "media": 5.4,
+   "jogos": 6,
+   "participantes": 48,
+   "bonificacao": 51,
+   "penalizacao": -17,
+   "pontos": 34,
+   "media": 5.67,
    "por_confirmar": 0
   }
  ]
