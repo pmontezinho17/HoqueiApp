@@ -314,8 +314,8 @@
    "hora": "18:00:00",
    "casa": "HC SINTRA",
    "fora": "CACO B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 5,
+   "golos_fora": 3,
    "recinto": "PAV. HC SINTRA",
    "ao_vivo": false
   },
@@ -510,14 +510,14 @@
      "posicao": 4,
      "equipa": "CACO B",
      "logo": "/intranet/logos/26.png",
-     "jogos": 6,
+     "jogos": 7,
      "vitorias": 2,
      "empates": 2,
-     "derrotas": 2,
-     "golos_marcados": 8,
-     "golos_sofridos": 32,
-     "diferenca": -24,
-     "racio": 0.25,
+     "derrotas": 3,
+     "golos_marcados": 11,
+     "golos_sofridos": 37,
+     "diferenca": -26,
+     "racio": 0.3,
      "pontos": 8
     },
     {
@@ -538,15 +538,15 @@
      "posicao": 6,
      "equipa": "HC SINTRA",
      "logo": "/intranet/logos/8.png",
-     "jogos": 6,
-     "vitorias": 0,
+     "jogos": 7,
+     "vitorias": 1,
      "empates": 0,
      "derrotas": 6,
-     "golos_marcados": 7,
-     "golos_sofridos": 47,
-     "diferenca": -40,
-     "racio": 0.15,
-     "pontos": 0
+     "golos_marcados": 12,
+     "golos_sofridos": 50,
+     "diferenca": -38,
+     "racio": 0.24,
+     "pontos": 3
     }
    ]
   }
