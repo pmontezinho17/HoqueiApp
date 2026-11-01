@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9624@hoquei.pages.dev
-DTSTAMP:20261031T000000Z
-DTSTART:20261031T180000Z
-DTEND:20261031T193000Z
-SUMMARY:🏑 Sub-15 🏑 HC Lourinhã vs AE Fisica D A
-LOCATION:Hoquei Clube da Lourinhã
-DESCRIPTION:HC Lourinhã 1–7 AE Fisica D A\nCAMP. REG. SUB-15 - 1ª FASE 
- · Série C · SUB-15\nPAV. GIMNO. DA LOURINHÃ\nhttps://hoquei.pages.dev/
- jogo/9624\nDados da Associação de Patinagem de Lisboa. Site não oficial
- .
-URL:https://hoquei.pages.dev/jogo/9624
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9627@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T161500Z

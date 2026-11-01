@@ -1011,9 +1011,13 @@
      "pontos": -2
     }
    ],
-   "avisos": []
+   "avisos": [],
+   "marcas_fora_do_x": {
+    "J": 1
+   }
   }
  ],
+ "merito_revisto": "2026-11-01",
  "competicao_id": 461,
  "categoria": "ESCOLARES",
  "jornada": "5ª JORNADA",

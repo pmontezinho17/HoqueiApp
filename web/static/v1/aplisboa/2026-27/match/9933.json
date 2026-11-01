@@ -338,6 +338,20 @@
     },
     {
      "numero": null,
+     "nome": "ANA ALVES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "D"
+    },
+    {
+     "numero": null,
      "nome": "JOÃO LEITÃO",
      "titular": false,
      "golos": null,
@@ -716,7 +730,7 @@
  "boletim": {
   "oficiais": {
    "Árbitro 1 (ch. dupla)": "JOAO GUILHERME",
-   "Árbitro Auxiliar": "Miguel Martins",
+   "Árbitro Auxiliar": "MIGUEL MARTINS",
    "Cronometrista": "ANA MENDES",
    "Diretor de campo": "ANDREIA RIBEIRO",
    "Gestor de segurança": "ARMANDO FONSECA"
@@ -810,6 +824,7 @@
    "avisos": []
   }
  ],
+ "merito_revisto": "2026-11-01",
  "competicao_id": 462,
  "categoria": "ESCOLARES",
  "jornada": "5ª JORNADA",

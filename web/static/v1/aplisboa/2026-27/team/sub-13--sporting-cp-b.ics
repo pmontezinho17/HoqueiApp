@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9553@hoquei.pages.dev
-DTSTAMP:20261031T000000Z
-DTSTART:20261031T143000Z
-DTEND:20261031T160000Z
-SUMMARY:🏑 Sub-13 🏑 CD Paço Arcos B vs Sporting CP B
-LOCATION:Pavilhão do Clube Desportivo de Paço de Arcos (CDPA)
-DESCRIPTION:CD Paço Arcos B 1–15 Sporting CP B\nCAMP. REG. SUB-13 - 1ª 
- FASE · Série D · SUB-13\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/
- jogo/9553\nDados da Associação de Patinagem de Lisboa. Site não oficial
- .
-URL:https://hoquei.pages.dev/jogo/9553
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9556@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T144500Z

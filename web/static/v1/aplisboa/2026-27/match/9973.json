@@ -137,7 +137,7 @@
     },
     {
      "numero": null,
-     "nome": "CARLOS VENTURA",
+     "nome": "SUSANA OLIVEIRA",
      "titular": false,
      "golos": null,
      "assistencias": null,
@@ -883,6 +883,7 @@
    "avisos": []
   }
  ],
+ "merito_revisto": "2026-11-01",
  "competicao_id": 464,
  "categoria": "ESCOLARES",
  "jornada": "5ª JORNADA",

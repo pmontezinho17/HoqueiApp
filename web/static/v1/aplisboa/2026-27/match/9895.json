@@ -352,6 +352,20 @@
     },
     {
      "numero": null,
+     "nome": "DIANA GOMES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "D"
+    },
+    {
+     "numero": null,
      "nome": "RODRIGO FERREIRA",
      "titular": false,
      "golos": null,
@@ -363,20 +377,6 @@
      "cartoes_azuis": 0,
      "cartoes_vermelhos": 0,
      "papel": "T"
-    },
-    {
-     "numero": null,
-     "nome": "DIANA GOMES",
-     "titular": false,
-     "golos": null,
-     "assistencias": null,
-     "defesas": null,
-     "penalidades": null,
-     "livres_diretos": null,
-     "cartoes_amarelos": 0,
-     "cartoes_azuis": 0,
-     "cartoes_vermelhos": 0,
-     "papel": "T2"
     }
    ]
   }
@@ -762,7 +762,7 @@
    0
   ],
   "inicio": [
-   "15:31",
+   "15:30",
    "15:57"
   ],
   "termo": [
@@ -827,9 +827,13 @@
      "pontos": -6
     }
    ],
-   "avisos": []
+   "avisos": [],
+   "marcas_fora_do_x": {
+    "J": 2
+   }
   }
  ],
+ "merito_revisto": "2026-11-01",
  "competicao_id": 460,
  "categoria": "ESCOLARES",
  "jornada": "2ª JORNADA",

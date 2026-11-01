@@ -1,18 +1,18 @@
 {
  "competicao_id": 466,
  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE B",
- "jogos_lidos": 9,
- "jogos_sem_boletim": 1,
+ "jogos_lidos": 10,
+ "jogos_sem_boletim": 0,
  "linhas": [
   {
    "posicao": 1,
    "equipa": "S ALENQUER BENFICA",
-   "jogos": 3,
-   "participantes": 30,
-   "bonificacao": 39,
+   "jogos": 4,
+   "participantes": 40,
+   "bonificacao": 53,
    "penalizacao": -1,
-   "pontos": 38,
-   "media": 12.67,
+   "pontos": 52,
+   "media": 13.0,
    "por_confirmar": 1
   },
   {
@@ -28,6 +28,17 @@
   },
   {
    "posicao": 3,
+   "equipa": "AD OEIRAS B",
+   "jogos": 4,
+   "participantes": 28,
+   "bonificacao": 34,
+   "penalizacao": -25,
+   "pontos": 9,
+   "media": 2.25,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 4,
    "equipa": "CRIAR-T GD",
    "jogos": 4,
    "participantes": 24,
@@ -35,17 +46,6 @@
    "penalizacao": -28,
    "pontos": 8,
    "media": 2.0,
-   "por_confirmar": 0
-  },
-  {
-   "posicao": 4,
-   "equipa": "AD OEIRAS B",
-   "jogos": 3,
-   "participantes": 20,
-   "bonificacao": 26,
-   "penalizacao": -23,
-   "pontos": 3,
-   "media": 1.0,
    "por_confirmar": 0
   },
   {
