@@ -108,11 +108,12 @@
 	<!-- A resposta a quem contesta um ponto, escrita onde a dúvida nasce. A caixa de sugestões
 	     não guarda contacto nenhum, por isso o pai que contestou o -3 da AE Física (jogo 9913)
 	     não podia receber resposta; decisão do dono a 29/10/2026, depois de ouvir quem conhece o
-	     regulamento. A releitura de uma semana é o `_merito_por_rever` do raspador. -->
+	     regulamento. A releitura — todas as semanas, durante um mês, desde 01/11/2026 — é o
+	     `_merito_por_rever` do raspador. -->
 	<p class="nota">
 		Contado por nós a partir do boletim que a associação publica. A pontuação oficial é a da
 		folha de controlo do jogo. Se o boletim tiver um erro, é o clube que pede a correcção à
-		associação, e a app volta a ler cada jogo uma semana depois para a apanhar.
+		associação, e a app volta a ler cada jogo todas as semanas, durante um mês, para a apanhar.
 	</p>
 </section>
 

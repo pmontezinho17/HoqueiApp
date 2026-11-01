@@ -135,9 +135,17 @@ foi outra, e é a que vale: *"a APL faz as contas baseando-se nas fichas de jogo
 se a ficha está mal preenchida, **é o clube que pede a correcção à APL**, e a app não decide o
 que a ficha não diz. O #116 foi fechado.
 
-O que ficou foi a outra metade da pergunta: se a ficha for corrigida, a app acompanha? Desde
-29/10/2026 relê cada ficha com Mérito uma vez, uma semana depois do jogo — ver
-`_merito_por_rever` no `cli.py`.
+O que ficou foi a outra metade da pergunta: se a ficha for corrigida, a app acompanha? De
+29/10 a 01/11/2026 relia cada ficha com Mérito uma vez, uma semana depois do jogo. **Desde
+01/11/2026 relê-a todas as semanas durante um mês** — dias 7, 14, 21 e 28 —, e aos 30 dias dá-a
+por fechada. Ver `_merito_por_rever` no `cli.py`.
+
+A releitura única não chegava, e soube-se na primeira ronda: a 31/10/2026 releram-se 72 fichas e
+o Mérito mudou em **4** (10041, 10045, 10046 e 9972), corrigidas pela APL duas a três semanas
+depois do jogo. O dono propôs primeiro reler só as fichas com `J`; nenhuma das quatro tem `J`
+hoje, e não se sabe se o tinha, porque foram lidas antes de as letras se contarem. Escolheu, entre
+três opções com o custo à frente, reler todas: *"mais vale a mais do que a menos"*. São ~72
+pedidos por semana, contra ~22 de reler as sem `J` uma só vez.
 
 **O `J` é uma substituição, e conta como meia parte jogada.** Decisão do dono a 01/11/2026,
 depois de lhe explicarem o que a letra quer dizer: o `J` vai para o atleta que **entrou** a meio de
@@ -179,12 +187,11 @@ APL um `J` — uma lesão, por exemplo —, e a APL corrige a ficha. A app não 
 justificável: lê a ficha como está, e quando a ficha muda, a conta muda. É a mesma regra do caso
 do 9913 acima.
 
-**O prazo para essa justificação não se sabe**, e é dele que depende se a releitura de uma semana
-(`DIAS_ATE_REVER_O_MERITO`, no `cli.py`) chega. Medido a 01/11/2026 nos jogos com `J` em
-produção: o 9988 e o 9989 foram relidos a 31/10, cinco e quatro semanas depois do jogo, e o 9895
-e o 9913 a 01/11, uma semana depois — **o `J` continuava lá nos quatro**. Quando o dono souber o
-prazo, a releitura acerta-se por ele; se for mais longo do que uma semana, um `J` tirado depois
-disso não chega à app.
+**O prazo para essa justificação não se sabe**, e é dele que depende se o mês de releituras
+(`DIAS_DE_VIGIA`, no `cli.py`) chega. Medido a 01/11/2026 nos jogos com `J` em produção: o 9988
+e o 9989 foram relidos a 31/10, cinco e quatro semanas depois do jogo, e o 9895 e o 9913 a 01/11,
+uma semana depois — **o `J` continuava lá nos quatro**. Quando o dono souber o prazo, a vigia
+acerta-se por ele; um `J` tirado depois dos 30 dias não chega à app.
 
 A contagem das letras continua no campo `marcas_fora_do_x` de cada equipa e na lista
 `merito_marcas_fora_do_x` do `meta.json`. É ela que põe a nota e o amarelo da lista (`com_j`, no
