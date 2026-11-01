@@ -1,9 +1,9 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
-	barraDoMerito, contasDoJogo, descricaoDoMerito, linhasDoMerito
+	barraDoMerito, contasDoJogo, descricaoDoMerito, jogoComJ, linhasDoMerito
 } from './meritoDoJogo';
-import type { FichaJogo } from './tipos';
+import type { FichaJogo, MeritoDaEquipa } from './tipos';
 
 /**
  * A tabela do separador do Mérito, contra **todos** os jogos publicados — ver `meritoDoJogo.ts`.
@@ -128,5 +128,61 @@ describe('a barra de cada equipa', () => {
 	it('quem lê por voz ouve a conta, e o por confirmar', () => {
 		expect(descricaoDoMerito({ casa: [9, -8], fora: [11, 0], por_confirmar: true }, 'VIL', 'TOJ'))
 			.toBe('Mérito: VIL 1 (ganhou 9, perdeu 8), TOJ 11, com pontos por confirmar');
+	});
+});
+
+describe('o J na ficha', () => {
+	const equipa = (extra: Partial<MeritoDaEquipa> = {}): MeritoDaEquipa => ({
+		equipa: 'A', atletas: 9, guardas_redes: 2, participantes: 9, completa: false,
+		bonificacao: 9, penalizacao: -3, total: 6,
+		parcelas: [
+			{ regra: '3.1', texto: '9 atletas participantes', pontos: 9 },
+			{ regra: '4.1.4', texto: '1 com 3 meias partes', pontos: -1 },
+			{ regra: '4.1.5', texto: '1 com 3 meias partes seguidas', pontos: -2 }
+		],
+		avisos: [], ...extra
+	});
+
+	it('uma só equipa com um J chega para o jogo ter a nota', () => {
+		expect(jogoComJ(equipa({ marcas_fora_do_x: { J: 1 } }), equipa())).toBe(true);
+		expect(jogoComJ(equipa(), equipa({ marcas_fora_do_x: { J: 7 } }))).toBe(true);
+	});
+
+	it('um aviso do 4.1.7 não é um J, nem uma letra que não seja o J', () => {
+		expect(jogoComJ(equipa({ avisos: ['1 atleta(s) com um só período'] }), equipa())).toBe(false);
+		expect(jogoComJ(equipa({ marcas_fora_do_x: {} }), equipa())).toBe(false);
+		expect(jogoComJ(equipa({ marcas_fora_do_x: { Y: 1 } }), equipa())).toBe(false);
+	});
+
+	it('o ponto amarelo vai só às linhas em que o J dessa equipa pesa', () => {
+		// o AE Física D A no 9913, medido a 01/11/2026: 4.1.4 e 4.1.5
+		const linhas = linhasDoMerito(
+			equipa({ marcas_fora_do_x: { J: 1 }, regras_do_j: ['4.1.4', '4.1.5'] }), equipa());
+		const marcadas = linhas.filter((l) => l.jCasa).map((l) => l.chave);
+		expect(marcadas).toEqual(['4.1.4', '4.1.5']);
+		expect(linhas.some((l) => l.jFora)).toBe(false);
+	});
+
+	it('uma ficha com J lida antes das regras tem a nota e nenhum ponto amarelo', () => {
+		const linhas = linhasDoMerito(equipa({ marcas_fora_do_x: { J: 2 } }), equipa());
+		expect(linhas.some((l) => l.jCasa || l.jFora)).toBe(false);
+	});
+
+	it('quem lê por voz ouve que há substituições', () => {
+		expect(descricaoDoMerito({ casa: [9, -10], fora: [14, 0], com_j: ['casa'] }, 'SAB', 'ADO'))
+			.toBe('Mérito: SAB -1 (ganhou 9, perdeu 10), ADO 14, com substituições na ficha');
+	});
+
+	it.skipIf(!comMerito.length)('nos jogos publicados, a nota só aparece onde há um J', () => {
+		for (const f of comMerito) {
+			const [casa, fora] = f.merito!;
+			const letra = f.merito!.some((m) => (m.marcas_fora_do_x?.J ?? 0) > 0);
+			expect(jogoComJ(casa, fora), `jogo ${f.id}`).toBe(letra);
+			// e um ponto amarelo nunca aparece numa equipa sem J
+			for (const l of linhasDoMerito(casa, fora)) {
+				if (l.jCasa) expect(casa.marcas_fora_do_x?.J, `jogo ${f.id}`).toBeGreaterThan(0);
+				if (l.jFora) expect(fora.marcas_fora_do_x?.J, `jogo ${f.id}`).toBeGreaterThan(0);
+			}
+		}
 	});
 });

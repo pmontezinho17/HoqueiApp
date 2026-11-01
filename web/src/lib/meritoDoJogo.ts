@@ -41,6 +41,9 @@ export interface LinhaRegra {
 	/** `null` quando a regra não se aplicou a esta equipa */
 	casa: number | null;
 	fora: number | null;
+	/** o `J` desta equipa pesa nesta linha: o ponto vai a amarelo */
+	jCasa: boolean;
+	jFora: boolean;
 }
 
 /** As regras pela ordem do Artigo 92.º, que é a ordem em que aparecem na tabela. */
@@ -85,6 +88,23 @@ export function contasDoJogo(
 }
 
 /**
+ * **O jogo tem um `J` na grelha**, e o separador do Mérito diz o que isso é.
+ *
+ * O `J` é uma substituição a meio de uma meia parte, marcada em quem entrou, e conta como meia
+ * parte jogada — decisão do dono a 01/11/2026, com a conta igual à de sempre. Mas um pai que
+ * vê a sua equipa perder pontos por isso estranha, e já houve um que contestou o −3 da AE Física
+ * (jogo 9913) por escrito. Daí a nota: *"na ficha de jogo houve um ou mais atletas que entraram
+ * numa das partes, e o clube pode regularizar a situação com a APL"*. Entre 29/10 e 01/11 esta
+ * mesma decisão dizia que a ficha "não era clara"; deixou de o dizer quando se soube o que era.
+ */
+export function jogoComJ(casa: MeritoDaEquipa, fora: MeritoDaEquipa): boolean {
+	return [casa, fora].some((m) => (m.marcas_fora_do_x?.J ?? 0) > 0);
+}
+
+/** O número da regra de uma linha: os três casos do 4.2 partilham-no. */
+const regraDe = (chave: string) => chave.split('-')[0];
+
+/**
  * As linhas da tabela A: **só as regras que deram pontos a pelo menos uma das equipas**, pela
  * ordem do regulamento, com "ganha" antes de "perde".
  */
@@ -96,6 +116,7 @@ export function linhasDoMerito(casa: MeritoDaEquipa, fora: MeritoDaEquipa): Linh
 	};
 	const c = somar(casa);
 	const f = somar(fora);
+	const doJ = (m: MeritoDaEquipa, chave: string) => !!m.regras_do_j?.includes(regraDe(chave));
 	const linhas: LinhaRegra[] = [];
 	for (const r of REGRAS) {
 		if (!c.has(r.chave) && !f.has(r.chave)) continue;
@@ -103,7 +124,9 @@ export function linhasDoMerito(casa: MeritoDaEquipa, fora: MeritoDaEquipa): Linh
 			...r,
 			grupo: r.chave.startsWith('3.') ? 'ganha' : 'perde',
 			casa: c.get(r.chave) ?? null,
-			fora: f.get(r.chave) ?? null
+			fora: f.get(r.chave) ?? null,
+			jCasa: doJ(casa, r.chave),
+			jFora: doJ(fora, r.chave)
 		});
 	}
 	// Uma regra que não está no catálogo — uma alínea nova no raspador — não desaparece da
@@ -116,7 +139,7 @@ export function linhasDoMerito(casa: MeritoDaEquipa, fora: MeritoDaEquipa): Linh
 			if (conhecidas.has(k)) continue;
 			const l = extra.get(k) ?? {
 				chave: k, grupo: p.pontos >= 0 ? 'ganha' : 'perde', rotulo: p.texto,
-				detalhe: null, casa: null, fora: null
+				detalhe: null, casa: null, fora: null, jCasa: doJ(casa, k), jFora: doJ(fora, k)
 			};
 			l[lado] = (l[lado] ?? 0) + p.pontos;
 			extra.set(k, l);
@@ -172,6 +195,7 @@ export function descricaoDoMerito(r: ResumoMerito, casa: string, fora: string): 
 	const uma = (nome: string, [b, p]: [number, number]) =>
 		`${nome} ${b + p}${p ? ` (ganhou ${b}, perdeu ${-p})` : ''}`;
 	return `Mérito: ${uma(casa, r.casa)}, ${uma(fora, r.fora)}` +
+		(r.com_j?.length ? ', com substituições na ficha' : '') +
 		(r.por_confirmar ? ', com pontos por confirmar' : '');
 }
 

@@ -313,7 +313,43 @@ def _merito_da_ficha(html: str, dados: dict) -> list[dict] | None:
         fora_do_x = {k: v for k, v in sorted(letras.items()) if k != "X"}
         if fora_do_x:
             conta["marcas_fora_do_x"] = fora_do_x
+    if any((c.get("marcas_fora_do_x") or {}).get("J") for c in contas):
+        _regras_do_j(html, dados, banco, contas)
     return contas
+
+
+def _regras_do_j(html: str, dados: dict, banco, contas: list[dict]) -> None:
+    """Em que linhas da conta pesa o `J`, para a app as pintar de amarelo.
+
+    O `J` é uma substituição a meio de uma meia parte, e conta como meia parte jogada (87.º
+    7.6) — decisão do dono a 01/11/2026. Mas é a única marca que um clube pode pedir à APL para
+    tirar, justificando-a, e o dono quer que o pai que estranhe um ponto o veja assinalado:
+    *"na linha de onde o J vai penalizar, colocamos esse ponto com fundo amarelo"*.
+
+    A pergunta é contrafactual, e responde-se assim: a mesma conta, lida como se os `J` não
+    estivessem na grelha. As regras cujos pontos mudam são as do `J`. Zero pedidos: é o mesmo
+    HTML. Só se guarda nas equipas que têm `J`; uma lista vazia diz "tem `J`, e não mexeu em
+    nada", que é diferente de não ter a chave.
+    """
+    sem_j = participacao(html, ignorar=frozenset({"J"}))
+    if sem_j is None:
+        return
+    alternativa = [para_dicionario(m) for m in merito_do_jogo(
+        dados.get("casa"), dados.get("fora"), sem_j,
+        dados.get("golos_casa"), dados.get("golos_fora"), banco)]
+
+    def por_regra(conta: dict) -> dict[str, int]:
+        soma: dict[str, int] = {}
+        for p in conta["parcelas"]:
+            soma[p["regra"]] = soma.get(p["regra"], 0) + p["pontos"]
+        return soma
+
+    for conta, outra in zip(contas, alternativa):
+        if not (conta.get("marcas_fora_do_x") or {}).get("J"):
+            continue
+        com, sem = por_regra(conta), por_regra(outra)
+        conta["regras_do_j"] = sorted(r for r in com.keys() | sem.keys()
+                                      if com.get(r, 0) != sem.get(r, 0))
 
 
 def _sem_marcas(merito: list[dict] | None) -> list[dict] | None:
@@ -321,7 +357,24 @@ def _sem_marcas(merito: list[dict] | None) -> list[dict] | None:
     primeira releitura de cada jogo com um `J` contava como ficha corrigida."""
     if merito is None:
         return None
-    return [{k: v for k, v in m.items() if k != "marcas_fora_do_x"} for m in merito]
+    return [{k: v for k, v in m.items() if k not in ("marcas_fora_do_x", "regras_do_j")}
+            for m in merito]
+
+
+def _j_por_explicar(caminho: pathlib.Path) -> bool:
+    """Uma ficha com `J` guardada antes de haver `regras_do_j`, que tem de se ler outra vez.
+
+    As linhas a pintar só saem da grelha atleta a atleta, e essa não se guarda — ver
+    `parsers/participacao.py`. Custo, contado a 01/11/2026: os cinco jogos com `J` em produção
+    (9895, 9913, 9988, 9989 e 10008), cinco pedidos uma vez só. Depois a chave fica lá, mesmo
+    vazia, e não se repete; os jogos novos já a trazem da primeira leitura.
+    """
+    try:
+        merito = json.loads(caminho.read_text()).get("merito") or []
+    except (OSError, ValueError):
+        return False
+    return any((m.get("marcas_fora_do_x") or {}).get("J") and "regras_do_j" not in m
+               for m in merito)
 
 
 def _resumo_do_merito(ficha: dict) -> dict | None:
@@ -355,6 +408,14 @@ def _resumo_do_merito(ficha: dict) -> dict | None:
     # `?` em produção (9895, 9913, 9988, 9989, 10008), e o sexto, o 10048, é um 4.1.7.
     if any(m.get("avisos") for m in (casa, fora)):
         resumo["por_confirmar"] = True
+    # o lado com um `J`, para a linha pintar o total de amarelo, por pedido do dono a 01/11/2026:
+    # *"colocar os pontos de méritos totais mas com fundo amarelo, para destacar que há algo que
+    # está a afetar essa pontuação"*. Lê-se da contagem das letras, que todas as fichas com
+    # Mérito lidas desde 29/10/2026 já têm, e por isso não espera por nenhuma releitura.
+    com_j = [lado for lado, m in (("casa", casa), ("fora", fora))
+             if (m.get("marcas_fora_do_x") or {}).get("J")]
+    if com_j:
+        resumo["com_j"] = com_j
     return resumo
 
 
@@ -897,7 +958,8 @@ def comando_publicar(args) -> int:
                 reler_merito = (args.rever_merito and vale_merito(prova.nome)
                                 and _merito_por_rever(alvo, hoje))
                 falta_campo_novo = _sem_chave(alvo, "boletim") or (
-                    vale_merito(prova.nome) and _sem_chave(alvo, "merito")) or (
+                    vale_merito(prova.nome) and (_sem_chave(alvo, "merito")
+                                                 or _j_por_explicar(alvo))) or (
                     args.rever_boletins and _boletim_por_chegar(alvo, hoje)) or reler_merito or (
                     _pedido_a_reler(args.reler, jogo.id, vale_merito(prova.nome)))
                 if not falta_campo_novo and _resultado_conhecido(alvo) == (

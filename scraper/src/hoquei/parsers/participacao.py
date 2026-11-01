@@ -97,7 +97,7 @@ class AtletaBoletim:
         return all(self.periodos)
 
 
-def _atletas(tabela: Node) -> list[AtletaBoletim]:
+def _atletas(tabela: Node, ignorar: frozenset[str] = frozenset()) -> list[AtletaBoletim]:
     saida: list[AtletaBoletim] = []
     for tr in tabela.css("tr"):
         c = _celulas(tr)
@@ -110,7 +110,8 @@ def _atletas(tabela: Node) -> list[AtletaBoletim]:
             # qualquer marca conta, e não só o `X`: a marca é da mesa e não do sistema,
             # e falhar uma participação por causa de um `x` minúsculo dava uma penalização
             # inventada a uma equipa que não fez nada de errado
-            periodos=tuple(bool(c[i]) for i in _PERIODOS),  # type: ignore[arg-type]
+            periodos=tuple(bool(c[i]) and c[i].strip().upper() not in ignorar  # type: ignore[arg-type]
+                           for i in _PERIODOS),
             golos=_numero(c[_TOTAL_DE_GOLOS]) or 0,
         ))
     return saida
@@ -184,8 +185,12 @@ def _colunas(celula: Node) -> int:
     return int(bruto) if bruto.isdigit() else 1
 
 
-def participacao(html: str) -> tuple[list[AtletaBoletim], list[AtletaBoletim]] | None:
+def participacao(html: str, ignorar: frozenset[str] = frozenset(),
+                 ) -> tuple[list[AtletaBoletim], list[AtletaBoletim]] | None:
     """(visitada, visitante), ou `None` quando o boletim não está lá.
+
+    `ignorar` lê a grelha como se as letras dadas não estivessem lá. Serve para uma só pergunta:
+    que regras do Mérito mudam por causa de um `J` — ver `regras_do_j` no `cli.py`.
 
     `None` e `([], [])` são coisas diferentes e quem consome tem de as distinguir: a
     primeira é "o jogo ainda não fechou" — o boletim só aparece minutos depois do apito —
@@ -197,7 +202,7 @@ def participacao(html: str) -> tuple[list[AtletaBoletim], list[AtletaBoletim]] |
     tabelas = acta.css("table")
     if len(tabelas) < 4:
         return None
-    casa, fora = _atletas(tabelas[2]), _atletas(tabelas[3])
+    casa, fora = _atletas(tabelas[2], ignorar), _atletas(tabelas[3], ignorar)
     if not casa and not fora:
         return None
     return casa, fora
@@ -215,7 +220,8 @@ def marcas_da_grelha(html: str) -> tuple[dict[str, int], dict[str, int]] | None:
     O que o `J` é soube-se a 01/11/2026: uma **substituição** a meio de uma meia parte, marcada
     em quem entrou, e que pelo 87.º 7.6 conta como meia parte jogada — é o que o `_atletas` já
     fazia. A contagem fica para se medir quantos há e quantos a APL tira depois de o clube os
-    justificar. Ver `docs/09-regulamento-apl.md`.
+    justificar, e é ela que pinta de amarelo o Mérito do jogo na app. Ver
+    `docs/09-regulamento-apl.md`.
 
     **Só a contagem por equipa**, e nunca de quem: `{"X": 20, "J": 1}` não diz que criança
     teve o `J`, e é isso que permite guardá-la.

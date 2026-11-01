@@ -155,10 +155,16 @@ export interface MeritoDaEquipa {
 	avisos: string[];
 	/**
 	 * As letras da grelha que não são o `X`, por letra — `{"J": 7}`. Só existe quando as há, e
-	 * só nas fichas lidas depois de 29/10/2026. Nenhum ecrã a lê desde 01/11/2026: o `J` é uma
-	 * substituição e já está na conta. Ver `docs/09-regulamento-apl.md`.
+	 * só nas fichas lidas depois de 29/10/2026. O `J` é uma substituição, e é o que põe a nota
+	 * amarela no separador do Mérito. Ver `jogoComJ`.
 	 */
 	marcas_fora_do_x?: Record<string, number>;
+	/**
+	 * As regras em que o `J` pesa — `["4.1.4", "4.1.5"]` —, para a tabela as pintar de amarelo.
+	 * Só nas equipas com `J`, e só nas fichas lidas desde 01/11/2026; vazia quando o `J` não
+	 * mexeu em nada.
+	 */
+	regras_do_j?: string[];
 }
 
 /**
@@ -170,6 +176,8 @@ export interface ResumoMerito {
 	casa: [number, number];
 	fora: [number, number];
 	por_confirmar?: boolean;
+	/** o lado ou lados com um `J` na grelha, desde 01/11/2026: o total vai a amarelo */
+	com_j?: ('casa' | 'fora')[];
 }
 
 export interface FicheiroMerito {

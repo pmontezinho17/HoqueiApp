@@ -144,8 +144,28 @@ depois de lhe explicarem o que a letra quer dizer: o `J` vai para o atleta que *
 uma meia parte, seja por lesão do colega, seja por o treinador o mandar entrar, e o 87.º 7.6 diz
 que quem substitui outro conta como tendo feito a meia parte inteira. A conta já o fazia desde o
 início — é o que a ficha diz —, e o que mudou foi deixar de a dar por incerta: o `J` **penaliza**, e
-o jogo deixou de ficar por confirmar por causa dele. Sem o `?` nas listas e sem a nota amarela no
-separador do Mérito.
+o jogo deixou de ficar por confirmar por causa dele.
+
+**Mas fica assinalado, e isso é pedido do dono no mesmo dia.** Um pai que vê a equipa perder
+pontos por um `J` estranha — já houve um que contestou o −3 da AE Física (jogo 9913) por escrito —,
+e a app tem de lhe mostrar onde e porquê:
+
+* **nas listas**, o total do Mérito da equipa com `J` vai com fundo amarelo, no lugar do `?` que
+  lá estava (o `?` fica só para o 4.1.7, que esse sim não está descontado);
+* **no separador do Mérito**, o ponto de cada regra em que o `J` pesa vai com o mesmo fundo, e por
+  baixo da tabela há uma nota que diz o que o amarelo quer dizer: um ou mais atletas entraram a
+  meio de uma das partes, isso conta como meia parte jogada, e o clube pode regularizar a situação
+  junto da APL.
+
+As regras em que o `J` pesa saem de uma pergunta contrafactual: a mesma conta, lida como se os `J`
+não estivessem na grelha; as regras cujos pontos mudam são as dele (`_regras_do_j` no `cli.py`,
+campo `regras_do_j`). Medido a 01/11/2026 nos cinco jogos com `J`: só penalizações, sempre —
+9895 e 9913 no 4.1.4 e 4.1.5, 9988 no 4.1.3 e 4.1.6 (e 4.1.3 do adversário), 9989 no 4.1.4 e
+4.1.6, 10008 no 4.1.4. Esses cinco foram lidos antes de o campo existir, e relêem-se uma vez
+(`_j_por_explicar`): cinco pedidos, uma vez só.
+
+Entre 29/10 e 01/11/2026 a nota era outra — *"a ficha de jogo contém elementos que não são
+claros"* — e o jogo levava o `?`. Era o que se podia dizer sem saber o que a letra queria dizer.
 
 O que vinha de 29/10/2026, e porque é que se tinha deixado em aberto: lida a grelha das 82 fichas
 com Mérito, a sexta marca do 9913 era um `J`, e não era a única — 13 `J` em 5 equipas de 4 jogos
@@ -167,8 +187,8 @@ prazo, a releitura acerta-se por ele; se for mais longo do que uma semana, um `J
 disso não chega à app.
 
 A contagem das letras continua no campo `marcas_fora_do_x` de cada equipa e na lista
-`merito_marcas_fora_do_x` do `meta.json`. Já não decide nada no ecrã, mas é ela que diz quantos
-`J` há por jogo, e quantos desaparecem numa releitura.
+`merito_marcas_fora_do_x` do `meta.json`. É ela que põe a nota e o amarelo da lista (`com_j`, no
+resumo do Mérito da agenda), e é ela que diz quantos `J` desaparecem numa releitura.
 
 ## Artigo 93.º ponto 4.1 — porque é que a nossa tabela nunca é oficial
 

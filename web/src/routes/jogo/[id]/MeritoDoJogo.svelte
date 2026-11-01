@@ -9,7 +9,7 @@
 	 * `meritoDoJogo.ts`, onde os testes as alcançam.
 	 */
 	import Emblema from '$lib/Emblema.svelte';
-	import { linhasDoMerito } from '$lib/meritoDoJogo';
+	import { jogoComJ, linhasDoMerito } from '$lib/meritoDoJogo';
 	import type { MeritoDaEquipa } from '$lib/tipos';
 
 	let {
@@ -23,6 +23,7 @@
 	const linhas = $derived(linhasDoMerito(casa, fora));
 	const ganha = $derived(linhas.filter((l) => l.grupo === 'ganha'));
 	const perde = $derived(linhas.filter((l) => l.grupo === 'perde'));
+	const comJ = $derived(jogoComJ(casa, fora));
 	const avisos = $derived(
 		[casa, fora].flatMap((m) => m.avisos.map((a) => ({ equipa: m.equipa, texto: a })))
 	);
@@ -76,8 +77,8 @@
 					{#each grupo as l (l.chave)}
 						<tr>
 							<th scope="row">{l.rotulo}{#if l.detalhe}<span class="det">{l.detalhe}</span>{/if}</th>
-							<td class="v" class:ganha={(l.casa ?? 0) > 0} class:perde={(l.casa ?? 0) < 0}>{ponto(l.casa)}</td>
-							<td class="v" class:ganha={(l.fora ?? 0) > 0} class:perde={(l.fora ?? 0) < 0}>{ponto(l.fora)}</td>
+							<td class="v" class:ganha={(l.casa ?? 0) > 0} class:perde={(l.casa ?? 0) < 0}><span class:j={l.jCasa}>{ponto(l.casa)}</span></td>
+							<td class="v" class:ganha={(l.fora ?? 0) > 0} class:perde={(l.fora ?? 0) < 0}><span class:j={l.jFora}>{ponto(l.fora)}</span></td>
 						</tr>
 					{/each}
 				</tbody>
@@ -88,9 +89,18 @@
 		</tfoot>
 	</table>
 
-	<!-- Um `J` na grelha já teve aqui uma nota amarela, de 29/10 a 01/11/2026: "a ficha de jogo
-	     contém elementos que não são claros". Saiu quando o dono soube que o `J` é uma
-	     substituição e penaliza como qualquer meia parte — ver `docs/09-regulamento-apl.md`. -->
+	<!-- O texto é a pedido do dono a 01/11/2026: dizer o que é o ponto amarelo, que um ou mais
+	     atletas entraram a meio de uma parte, e que o clube pode regularizar com a APL. Ver
+	     `jogoComJ` e o `docs/09-regulamento-apl.md`. -->
+	{#if comJ}
+		<p class="aviso">
+			<span class="j">Os pontos com fundo amarelo</span> têm substituições a pesar. Na ficha de
+			jogo, um ou mais atletas entraram a meio de uma das partes (marcados com <b>J</b>), e o
+			regulamento conta essa meia parte como jogada — o que pode trazer penalizações. O clube
+			pode regularizar a situação junto da APL; se a ficha for corrigida, os pontos atualizam-se
+			aqui.
+		</p>
+	{/if}
 	{#each avisos as a (a.equipa + a.texto)}
 		<p class="aviso"><b>Por confirmar, {a.equipa}:</b> {a.texto}</p>
 	{/each}
@@ -144,6 +154,10 @@
 	td.v { color: var(--suave); }
 	td.ganha { color: var(--ganha); font-weight: 600; }
 	td.perde { color: var(--perde); font-weight: 600; }
+	/* o mesmo amarelo da nota, por baixo do número e não da célula inteira: o ponto lê-se como
+	   marcado, e a coluna mantém o alinhamento à direita */
+	.j { background: var(--j-fundo); border-radius: 3px; padding: 0 0.25rem; }
+	.aviso .j { color: var(--texto); }
 	tfoot > tr > * { border-top: 1px solid var(--borda); font-weight: 700; font-size: var(--t-destaque); }
 	tfoot td.v { color: var(--texto); }
 
