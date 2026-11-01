@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9523@hoquei.pages.dev
-DTSTAMP:20261031T000000Z
-DTSTART:20261031T143000Z
-DTEND:20261031T160000Z
-SUMMARY:🏑 Sub-13 🏑 CD Mafra vs A Stuart HCM
-LOCATION:Pavilhão Clube Desportivo de Mafra
-DESCRIPTION:CD Mafra 0–3 A Stuart HCM\nCAMP. REG. SUB-13 - 1ª FASE · S
- érie C · SUB-13\nPAV. MAFRA\nhttps://hoquei.pages.dev/jogo/9523\nDados d
- a Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9523
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9524@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T153000Z

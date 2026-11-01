@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9693@hoquei.pages.dev
-DTSTAMP:20261031T000000Z
-DTSTART:20261031T153000Z
-DTEND:20261031T170000Z
-SUMMARY:🏑 Sub-17 🏑 FSE/AJ Salesiana B vs S Alenquer Benfica
-LOCATION:Salesianos do Estoril
-DESCRIPTION:FSE/AJ Salesiana B 0–13 S Alenquer Benfica\nCAMP. REG. SUB-17
-  - 1ª FASE · Série B · SUB-17\nPAV. SALESIANA\nhttps://hoquei.pages.de
- v/jogo/9693\nDados da Associação de Patinagem de Lisboa. Site não ofici
- al.
-URL:https://hoquei.pages.dev/jogo/9693
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9696@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T143000Z

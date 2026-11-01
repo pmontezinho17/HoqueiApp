@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9521@hoquei.pages.dev
-DTSTAMP:20261031T000000Z
-DTSTART:20261031T154500Z
-DTEND:20261031T171500Z
-SUMMARY:🏑 Sub-13 🏑 Parede FC A vs FSE/AJ Salesiana
-LOCATION:Pavilhão Parede F.C.
-DESCRIPTION:Parede FC A 8–1 FSE/AJ Salesiana\nCAMP. REG. SUB-13 - 1ª FAS
- E · Série C · SUB-13\nPAV. PAREDE\nhttps://hoquei.pages.dev/jogo/9521\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9521
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9524@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T153000Z
