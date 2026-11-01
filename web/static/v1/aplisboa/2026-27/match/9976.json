@@ -3,9 +3,9 @@
  "competicao": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE E",
  "casa": "UD VILAFRANQUENSE B",
  "fora": "PAREDE FC B",
- "golos_casa": 1,
+ "golos_casa": 8,
  "golos_fora": 0,
- "estado": null,
+ "estado": "Jogo Terminado",
  "data": "2026-11-01",
  "hora": "14:45:00",
  "recinto": "PAV. VILAFRANQUENSE",
@@ -13,12 +13,12 @@
   "LUORENÇO GONÇALVES"
  ],
  "faltas": [
-  0,
-  0
+  5,
+  3
  ],
- "situacao": "1ª Parte (6:49)",
- "periodo": "1ª Parte",
- "relogio": "6:49",
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "UD VILAFRANQUENSE B",
@@ -40,8 +40,8 @@
     {
      "numero": "5",
      "nome": "GONÇALO VICENTE",
-     "titular": false,
-     "golos": 0,
+     "titular": true,
+     "golos": 2,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -54,8 +54,8 @@
     {
      "numero": "7",
      "nome": "GONCALO RODRIGUES",
-     "titular": false,
-     "golos": 0,
+     "titular": true,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -69,7 +69,7 @@
      "numero": "23",
      "nome": "PEDRO REIS",
      "titular": false,
-     "golos": 0,
+     "golos": 4,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -82,9 +82,9 @@
     {
      "numero": "62",
      "nome": "CAETANA VICENTE",
-     "titular": false,
+     "titular": true,
      "golos": 0,
-     "assistencias": 0,
+     "assistencias": 1,
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
@@ -96,9 +96,9 @@
     {
      "numero": "88",
      "nome": "VASCO DUARTE",
-     "titular": false,
+     "titular": true,
      "golos": 1,
-     "assistencias": 0,
+     "assistencias": 1,
      "defesas": 0,
      "penalidades": "0/0",
      "livres_diretos": "0/0",
@@ -110,7 +110,7 @@
     {
      "numero": "61",
      "nome": "RODRIGO VENTURA",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -171,7 +171,7 @@
     {
      "numero": "1",
      "nome": "TOMAS MARÇAL",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -213,7 +213,7 @@
     {
      "numero": "21",
      "nome": "ANTONIO ROSA",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -227,7 +227,7 @@
     {
      "numero": "22",
      "nome": "LOURENÇO MENDES",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -241,7 +241,7 @@
     {
      "numero": "25",
      "nome": "GONÇALO SANTOS",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -269,7 +269,7 @@
     {
      "numero": "54",
      "nome": "SOFIA SANTOS",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -355,10 +355,448 @@
    "golos_casa": 1,
    "golos_fora": 0,
    "texto": "Golo para UD VILAFRANQUENSE B | VASCO DUARTE"
+  },
+  {
+   "ordem": 2,
+   "tipo": "golo",
+   "relogio": "5:14",
+   "parte": 1,
+   "minuto": 2,
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogador": "GONÇALO VICENTE",
+   "assistencia": "VASCO DUARTE",
+   "variante": null,
+   "numero": null,
+   "golos_casa": 2,
+   "golos_fora": 0,
+   "texto": "Golo para UD VILAFRANQUENSE B | GONÇALO VICENTE | Assistência por VASCO DUARTE"
+  },
+  {
+   "ordem": 3,
+   "tipo": "falta_equipa",
+   "relogio": "3:30",
+   "parte": 1,
+   "minuto": 4,
+   "equipa": "PAREDE FC B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 1,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 1 para PAREDE FC B"
+  },
+  {
+   "ordem": 4,
+   "tipo": "falta_equipa",
+   "relogio": "2:17",
+   "parte": 1,
+   "minuto": 5,
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 1,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 1 para UD VILAFRANQUENSE B"
+  },
+  {
+   "ordem": 5,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 1,
+   "minuto": 8,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 1ª parte"
+  },
+  {
+   "ordem": 6,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 2,
+   "minuto": 8,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 2ª parte"
+  },
+  {
+   "ordem": 7,
+   "tipo": "golo",
+   "relogio": "6:38",
+   "parte": 2,
+   "minuto": 9,
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogador": "PEDRO REIS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 3,
+   "golos_fora": 0,
+   "texto": "Golo para UD VILAFRANQUENSE B | PEDRO REIS"
+  },
+  {
+   "ordem": 8,
+   "tipo": "falta_equipa",
+   "relogio": "5:48",
+   "parte": 2,
+   "minuto": 10,
+   "equipa": "PAREDE FC B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 2,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 2 para PAREDE FC B"
+  },
+  {
+   "ordem": 9,
+   "tipo": "golo",
+   "relogio": "5:40",
+   "parte": 2,
+   "minuto": 10,
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogador": "PEDRO REIS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 4,
+   "golos_fora": 0,
+   "texto": "Golo para UD VILAFRANQUENSE B | PEDRO REIS"
+  },
+  {
+   "ordem": 10,
+   "tipo": "falta_equipa",
+   "relogio": "4:31",
+   "parte": 2,
+   "minuto": 11,
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 2,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 2 para UD VILAFRANQUENSE B"
+  },
+  {
+   "ordem": 11,
+   "tipo": "falta_equipa",
+   "relogio": "2:30",
+   "parte": 2,
+   "minuto": 13,
+   "equipa": "PAREDE FC B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 3,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 3 para PAREDE FC B"
+  },
+  {
+   "ordem": 12,
+   "tipo": "golo",
+   "relogio": "0:11",
+   "parte": 2,
+   "minuto": 15,
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogador": "GONCALO RODRIGUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 5,
+   "golos_fora": 0,
+   "texto": "Golo para UD VILAFRANQUENSE B | GONCALO RODRIGUES"
+  },
+  {
+   "ordem": 13,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 2,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 2ª parte"
+  },
+  {
+   "ordem": 14,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 3ª parte"
+  },
+  {
+   "ordem": 15,
+   "tipo": "golo",
+   "relogio": "5:32",
+   "parte": 3,
+   "minuto": 18,
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogador": "PEDRO REIS",
+   "assistencia": "CAETANA VICENTE",
+   "variante": null,
+   "numero": null,
+   "golos_casa": 6,
+   "golos_fora": 0,
+   "texto": "Golo para UD VILAFRANQUENSE B | PEDRO REIS | Assistência por CAETANA VICENTE"
+  },
+  {
+   "ordem": 16,
+   "tipo": "falta_equipa",
+   "relogio": "5:31",
+   "parte": 3,
+   "minuto": 18,
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 3,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 3 para UD VILAFRANQUENSE B"
+  },
+  {
+   "ordem": 17,
+   "tipo": "falta_equipa",
+   "relogio": "1:26",
+   "parte": 3,
+   "minuto": 22,
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 4,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 4 para UD VILAFRANQUENSE B"
+  },
+  {
+   "ordem": 18,
+   "tipo": "falta_equipa",
+   "relogio": "1:25",
+   "parte": 3,
+   "minuto": 22,
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 5,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 5 para UD VILAFRANQUENSE B"
+  },
+  {
+   "ordem": 19,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 3,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 3ª parte"
+  },
+  {
+   "ordem": 20,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 4ª parte"
+  },
+  {
+   "ordem": 21,
+   "tipo": "golo",
+   "relogio": "6:47",
+   "parte": 4,
+   "minuto": 25,
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogador": "PEDRO REIS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 7,
+   "golos_fora": 0,
+   "texto": "Golo para UD VILAFRANQUENSE B | PEDRO REIS"
+  },
+  {
+   "ordem": 22,
+   "tipo": "golo",
+   "relogio": "4:36",
+   "parte": 4,
+   "minuto": 27,
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogador": "GONÇALO VICENTE",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 8,
+   "golos_fora": 0,
+   "texto": "Golo para UD VILAFRANQUENSE B | GONÇALO VICENTE"
+  },
+  {
+   "ordem": 23,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 4,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
- "merito": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "LUORENÇO GONÇALVES",
+   "Árbitro Auxiliar": "TANIA SILVA",
+   "Cronometrista": "SUSANA OLIVEIRA",
+   "Diretor de campo": "MAURO MORGADO",
+   "Gestor de segurança": "CARLA LAGARTO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 5,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 3,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 8,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   2,
+   3
+  ],
+  "faltas_fora": [
+   3,
+   0
+  ],
+  "inicio": [
+   "14:45",
+   "15:11"
+  ],
+  "termo": [
+   "15:06",
+   "15:42"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
+ "merito": [
+  {
+   "equipa": "UD VILAFRANQUENSE B",
+   "atletas": 7,
+   "guardas_redes": 2,
+   "participantes": 7,
+   "completa": false,
+   "bonificacao": 10,
+   "penalizacao": -10,
+   "total": 0,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "7 atletas participantes",
+     "pontos": 7
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "4.1.1",
+     "texto": "apresentou 7 atletas",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.3",
+     "texto": "1 com 3 meias partes seguidas",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.6",
+     "texto": "2 fizeram as quatro meias partes",
+     "pontos": -8
+    }
+   ],
+   "avisos": [],
+   "marcas_fora_do_x": {
+    "J": 1
+   }
+  },
+  {
+   "equipa": "PAREDE FC B",
+   "atletas": 9,
+   "guardas_redes": 2,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -2,
+   "total": 7,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "4.1.4",
+     "texto": "2 com 3 meias partes",
+     "pontos": -2
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 464,
  "categoria": "ESCOLARES",
  "jornada": "6ª JORNADA",

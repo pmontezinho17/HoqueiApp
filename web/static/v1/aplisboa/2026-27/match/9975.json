@@ -3,9 +3,9 @@
  "competicao": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE E",
  "casa": "CACO B",
  "fora": "FSE/AJ SALESIANA B",
- "golos_casa": 4,
+ "golos_casa": 6,
  "golos_fora": 3,
- "estado": null,
+ "estado": "Jogo Terminado",
  "data": "2026-11-01",
  "hora": "14:30:00",
  "recinto": "PAV.C.A.C.OURIQUE",
@@ -13,12 +13,12 @@
   "MATEUS LEHNERT"
  ],
  "faltas": [
-  1,
-  1
+  3,
+  3
  ],
- "situacao": "2ª Parte (4:53)",
- "periodo": "2ª Parte",
- "relogio": "4:53",
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "CACO B",
@@ -26,7 +26,7 @@
     {
      "numero": "80",
      "nome": "DUARTE FERREIRA",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -69,7 +69,7 @@
      "numero": "32",
      "nome": "GABRIEL VIEIRA",
      "titular": false,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -82,8 +82,8 @@
     {
      "numero": "35",
      "nome": "JOANA RODRIGUES",
-     "titular": false,
-     "golos": 0,
+     "titular": true,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -110,7 +110,7 @@
     {
      "numero": "40",
      "nome": "FRANCISCO RIBEIRO",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -124,7 +124,7 @@
     {
      "numero": "88",
      "nome": "FRANCISCO LUIS",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -138,7 +138,7 @@
     {
      "numero": "97",
      "nome": "CATARINA DOMINGOS",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -241,7 +241,7 @@
     {
      "numero": "4",
      "nome": "JOÃO CONSTANTINO",
-     "titular": false,
+     "titular": true,
      "golos": 2,
      "assistencias": 0,
      "defesas": 0,
@@ -255,7 +255,7 @@
     {
      "numero": "5",
      "nome": "JOSÉ GARIN",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -269,7 +269,7 @@
     {
      "numero": "6",
      "nome": "LUCA FRIOLI",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -311,7 +311,7 @@
     {
      "numero": "9",
      "nome": "RAFAEL GARCIA",
-     "titular": false,
+     "titular": true,
      "golos": 1,
      "assistencias": 0,
      "defesas": 0,
@@ -325,7 +325,7 @@
     {
      "numero": "10",
      "nome": "LOURENÇO FERNANDES",
-     "titular": false,
+     "titular": true,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -547,10 +547,269 @@
    "golos_casa": 4,
    "golos_fora": 3,
    "texto": "Golo para CACO B | LUCA COSTA"
+  },
+  {
+   "ordem": 12,
+   "tipo": "falta_equipa",
+   "relogio": "4:21",
+   "parte": 2,
+   "minuto": 11,
+   "equipa": "FSE/AJ SALESIANA B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 2,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 2 para FSE/AJ SALESIANA B"
+  },
+  {
+   "ordem": 13,
+   "tipo": "falta_equipa",
+   "relogio": "1:45",
+   "parte": 2,
+   "minuto": 14,
+   "equipa": "CACO B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 2,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 2 para CACO B"
+  },
+  {
+   "ordem": 14,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 2,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 2ª parte"
+  },
+  {
+   "ordem": 15,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 3ª parte"
+  },
+  {
+   "ordem": 16,
+   "tipo": "golo",
+   "relogio": "6:24",
+   "parte": 3,
+   "minuto": 17,
+   "equipa": "CACO B",
+   "jogador": "JOANA RODRIGUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 5,
+   "golos_fora": 3,
+   "texto": "Golo para CACO B | JOANA RODRIGUES"
+  },
+  {
+   "ordem": 17,
+   "tipo": "falta_equipa",
+   "relogio": "1:01",
+   "parte": 3,
+   "minuto": 22,
+   "equipa": "CACO B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 3,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 3 para CACO B"
+  },
+  {
+   "ordem": 18,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 3,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 3ª parte"
+  },
+  {
+   "ordem": 19,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 4ª parte"
+  },
+  {
+   "ordem": 20,
+   "tipo": "golo",
+   "relogio": "5:15",
+   "parte": 4,
+   "minuto": 26,
+   "equipa": "CACO B",
+   "jogador": "GABRIEL VIEIRA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 6,
+   "golos_fora": 3,
+   "texto": "Golo para CACO B | GABRIEL VIEIRA"
+  },
+  {
+   "ordem": 21,
+   "tipo": "falta_equipa",
+   "relogio": "3:06",
+   "parte": 4,
+   "minuto": 28,
+   "equipa": "FSE/AJ SALESIANA B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 3,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 3 para FSE/AJ SALESIANA B"
+  },
+  {
+   "ordem": 22,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 4,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
- "merito": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MATEUS LEHNERT",
+   "Árbitro Auxiliar": "ANA BORGES",
+   "Cronometrista": "SERGIO DOMINGOS",
+   "Gestor de segurança": "MARCO POVOA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 4,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 6,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   2,
+   1
+  ],
+  "faltas_fora": [
+   2,
+   1
+  ],
+  "inicio": [
+   "14:30",
+   "14:59"
+  ],
+  "termo": [
+   "14:54",
+   "15:21"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
+ "merito": [
+  {
+   "equipa": "CACO B",
+   "atletas": 9,
+   "guardas_redes": 1,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 12,
+   "penalizacao": -1,
+   "total": 11,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "FSE/AJ SALESIANA B",
+   "atletas": 10,
+   "guardas_redes": 2,
+   "participantes": 10,
+   "completa": true,
+   "bonificacao": 11,
+   "penalizacao": 0,
+   "total": 11,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "10 atletas participantes",
+     "pontos": 10
+    },
+    {
+     "regra": "3.4",
+     "texto": "equipa completa (2 GR e 8 JC)",
+     "pontos": 1
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 464,
  "categoria": "ESCOLARES",
  "jornada": "6ª JORNADA",

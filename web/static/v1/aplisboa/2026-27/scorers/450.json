@@ -1,6 +1,6 @@
 {
  "competicao_id": 450,
- "jogos_considerados": 11,
+ "jogos_considerados": 12,
  "jogadores": [
   {
    "nome": "DINIS MOREIRA",
@@ -94,19 +94,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUSTAVO COSTA",
-   "equipa": "A STUART HCM A",
-   "jogos": 4,
-   "numero": "17",
-   "golos": 3,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "VICENTE SILVA",
    "equipa": "AD OEIRAS B",
    "jogos": 4,
@@ -120,9 +107,35 @@
    "vermelhos": 0
   },
   {
+   "nome": "GUSTAVO COSTA",
+   "equipa": "A STUART HCM A",
+   "jogos": 5,
+   "numero": "17",
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GIL ESPADA",
+   "equipa": "A STUART HCM A",
+   "jogos": 5,
+   "numero": "45",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "SANTIAGO DIAS",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "7",
    "golos": 3,
    "assistencias": 0,
@@ -130,6 +143,19 @@
    "pontos": 3,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO MATOS",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 5,
+   "numero": "9",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -146,9 +172,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "LUCAS HELENO",
+   "equipa": "A STUART HCM A",
+   "jogos": 5,
+   "numero": "77",
+   "golos": 2,
+   "assistencias": 4,
+   "defesas": 0,
+   "pontos": 6,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "FRANCISCO FATELA",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "8",
    "golos": 2,
    "assistencias": 2,
@@ -172,22 +211,9 @@
    "vermelhos": 0
   },
   {
-   "nome": "LUCAS HELENO",
-   "equipa": "A STUART HCM A",
-   "jogos": 4,
-   "numero": "77",
-   "golos": 2,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "LEONARDO CHUVA",
    "equipa": "A STUART HCM A",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "10",
    "golos": 2,
    "assistencias": 0,
@@ -195,32 +221,6 @@
    "pontos": 2,
    "amarelos": 1,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GIL ESPADA",
-   "equipa": "A STUART HCM A",
-   "jogos": 4,
-   "numero": "45",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TIAGO MATOS",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 4,
-   "numero": "9",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -260,6 +260,19 @@
    "pontos": 2,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SIMÃO COSTA",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 5,
+   "numero": "2",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 1,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -354,6 +367,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "LOURENÇO BARRENTO",
+   "equipa": "A STUART HCM A",
+   "jogos": 5,
+   "numero": "30",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "SANTIAGO SILVA",
    "equipa": "AD OEIRAS B",
    "jogos": 5,
@@ -406,23 +432,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "SIMÃO COSTA",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 4,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 1,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "FILIPE PASSARINHO",
    "equipa": "AD OEIRAS B",
    "jogos": 5,
    "numero": "5",
+   "golos": 0,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RODRIGO MARTINS",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 5,
+   "numero": "4",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -449,19 +475,6 @@
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 1,
    "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "VERA REIS",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 1,
-   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -523,10 +536,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO MARQUES",
-   "equipa": "A STUART HCM A",
+   "nome": "VERA REIS",
+   "equipa": "CD PAÇO ARCOS B",
    "jogos": 2,
-   "numero": "4",
+   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -562,23 +575,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "GABRIEL SANTOS",
-   "equipa": "CD PAÇO ARCOS B",
+   "nome": "JOÃO MARQUES",
+   "equipa": "A STUART HCM A",
    "jogos": 3,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 3,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TIAGO SILVA",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 3,
-   "numero": "1",
+   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -601,19 +601,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "BERNARDO COSTA",
-   "equipa": "A STUART HCM A",
-   "jogos": 4,
-   "numero": "61",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIOGO RODRIGUES",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 4,
@@ -627,13 +614,13 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO BARRENTO",
-   "equipa": "A STUART HCM A",
+   "nome": "GABRIEL SANTOS",
+   "equipa": "CD PAÇO ARCOS B",
    "jogos": 4,
-   "numero": "30",
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
-   "defesas": 0,
+   "defesas": 3,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -644,19 +631,6 @@
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 4,
    "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RODRIGO MARTINS",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 4,
-   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -679,19 +653,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "SANTIAGO ALMEIDA",
-   "equipa": "A STUART HCM A",
-   "jogos": 4,
-   "numero": "99",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "SIMÃO RÉQUIO",
    "equipa": "A STUART HCM A",
    "jogos": 4,
@@ -705,13 +666,26 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO REIS",
-   "equipa": "A STUART HCM A",
+   "nome": "TIAGO SILVA",
+   "equipa": "CD PAÇO ARCOS B",
    "jogos": 4,
-   "numero": "12",
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
-   "defesas": 1,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "BERNARDO COSTA",
+   "equipa": "A STUART HCM A",
+   "jogos": 5,
+   "numero": "61",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -751,6 +725,32 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SANTIAGO ALMEIDA",
+   "equipa": "A STUART HCM A",
+   "jogos": 5,
+   "numero": "99",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO REIS",
+   "equipa": "A STUART HCM A",
+   "jogos": 5,
+   "numero": "12",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
