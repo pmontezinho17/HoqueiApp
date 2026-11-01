@@ -9,7 +9,7 @@
 	 * `meritoDoJogo.ts`, onde os testes as alcançam.
 	 */
 	import Emblema from '$lib/Emblema.svelte';
-	import { fichaPorEsclarecer, linhasDoMerito } from '$lib/meritoDoJogo';
+	import { jogoComJ, linhasDoMerito } from '$lib/meritoDoJogo';
 	import type { MeritoDaEquipa } from '$lib/tipos';
 
 	let {
@@ -23,7 +23,7 @@
 	const linhas = $derived(linhasDoMerito(casa, fora));
 	const ganha = $derived(linhas.filter((l) => l.grupo === 'ganha'));
 	const perde = $derived(linhas.filter((l) => l.grupo === 'perde'));
-	const porEsclarecer = $derived(fichaPorEsclarecer(casa, fora));
+	const comJ = $derived(jogoComJ(casa, fora));
 	const avisos = $derived(
 		[casa, fora].flatMap((m) => m.avisos.map((a) => ({ equipa: m.equipa, texto: a })))
 	);
@@ -77,8 +77,8 @@
 					{#each grupo as l (l.chave)}
 						<tr>
 							<th scope="row">{l.rotulo}{#if l.detalhe}<span class="det">{l.detalhe}</span>{/if}</th>
-							<td class="v" class:ganha={(l.casa ?? 0) > 0} class:perde={(l.casa ?? 0) < 0}>{ponto(l.casa)}</td>
-							<td class="v" class:ganha={(l.fora ?? 0) > 0} class:perde={(l.fora ?? 0) < 0}>{ponto(l.fora)}</td>
+							<td class="v" class:ganha={(l.casa ?? 0) > 0} class:perde={(l.casa ?? 0) < 0}><span class:j={l.jCasa}>{ponto(l.casa)}</span></td>
+							<td class="v" class:ganha={(l.fora ?? 0) > 0} class:perde={(l.fora ?? 0) < 0}><span class:j={l.jFora}>{ponto(l.fora)}</span></td>
 						</tr>
 					{/each}
 				</tbody>
@@ -89,13 +89,16 @@
 		</tfoot>
 	</table>
 
-	<!-- Uma só, e curta, por decisão do dono a 29/10/2026. Não diz a letra nem a causa de
-	     propósito: pode ser um erro de preenchimento que obrigue a corrigir a ficha, e não é
-	     fácil de cruzar com o regulamento. Ver `fichaPorEsclarecer`. -->
-	{#if porEsclarecer}
+	<!-- O texto é do dono, a 01/11/2026, em duas voltas: que um ou mais atletas entraram a meio
+	     de uma parte, que isso traz penalizações, que o clube pode regularizar com a APL e que a
+	     app o apanha todas as semanas. Começava por "os pontos com fundo amarelo têm substituições
+	     a pesar", e ele tirou essa frase. Ver `jogoComJ` e o `docs/09-regulamento-apl.md`. -->
+	{#if comJ}
 		<p class="aviso">
-			A ficha de jogo contém elementos que não são claros e, por esse motivo, não é possível
-			determinar com exatidão os pontos deste jogo.
+			Na ficha de jogo, um ou mais atletas entraram a meio de uma das partes (marcados com
+			<b>J</b>), e o regulamento conta essa meia parte como jogada, o que traz penalizações. O
+			clube pode regularizar a situação junto da APL; a aplicação volta a ler a ficha todas as
+			semanas e, se for corrigida, atualiza os pontos.
 		</p>
 	{/if}
 	{#each avisos as a (a.equipa + a.texto)}
@@ -105,11 +108,12 @@
 	<!-- A resposta a quem contesta um ponto, escrita onde a dúvida nasce. A caixa de sugestões
 	     não guarda contacto nenhum, por isso o pai que contestou o -3 da AE Física (jogo 9913)
 	     não podia receber resposta; decisão do dono a 29/10/2026, depois de ouvir quem conhece o
-	     regulamento. A releitura de uma semana é o `_merito_por_rever` do raspador. -->
+	     regulamento. A releitura — todas as semanas, durante um mês, desde 01/11/2026 — é o
+	     `_merito_por_rever` do raspador. -->
 	<p class="nota">
 		Contado por nós a partir do boletim que a associação publica. A pontuação oficial é a da
 		folha de controlo do jogo. Se o boletim tiver um erro, é o clube que pede a correcção à
-		associação, e a app volta a ler cada jogo uma semana depois para a apanhar.
+		associação, e a app volta a ler cada jogo todas as semanas, durante um mês, para a apanhar.
 	</p>
 </section>
 
@@ -151,6 +155,9 @@
 	td.v { color: var(--suave); }
 	td.ganha { color: var(--ganha); font-weight: 600; }
 	td.perde { color: var(--perde); font-weight: 600; }
+	/* o mesmo amarelo da nota, por baixo do número e não da célula inteira: o ponto lê-se como
+	   marcado, e a coluna mantém o alinhamento à direita */
+	.j { background: var(--j-fundo); border-radius: 3px; padding: 0 0.25rem; }
 	tfoot > tr > * { border-top: 1px solid var(--borda); font-weight: 700; font-size: var(--t-destaque); }
 	tfoot td.v { color: var(--texto); }
 

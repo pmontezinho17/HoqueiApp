@@ -241,6 +241,13 @@
 		   do contrário — ver o cabeçalho do `cor.svelte.ts`. */
 		--acento: var(--c-claro, #0a7d54); --acento-fraco: var(--cf-claro, #e8f4ef);
 		--aviso: #92400e; --aviso-fundo: #fef3c7; --vivo: #c2410c;
+		/* **O amarelo dos pontos em que pesa um `J`**, e não o `--aviso-fundo`: no escuro esse é um
+		   castanho que, a 01/11/2026, a 375 px, mal se distinguia do fundo da lista, e o dono pediu
+		   o ponto "com fundo amarelo, para destacar". No claro, um tom acima do da nota, para o
+		   ponto se ver dentro dela. No escuro é um compromisso medido: contra o fundo 1,9:1 (o castanho da nota dava 1,38), e o
+		   vermelho de um total negativo fica a 3,5:1 por cima dele. Mais claro destacava mais e
+		   deixava o −1 a 2,6:1. */
+		--j-fundo: #fde68a;
 		/* **Um vermelho próprio para "terminada", e não o `--vivo`.** O `--vivo` quer dizer
 		   "está a acontecer agora" e usá-lo para "já acabou" punha a mesma cor a dizer duas
 		   coisas opostas na mesma aplicação. Este é mais frio e mais escuro, e nunca aparece
@@ -290,6 +297,7 @@
 			--borda: #272b33; --borda-fraca: #1f232a;
 			--acento: var(--c-escuro, #34d399); --acento-fraco: var(--cf-escuro, #12271f);
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
+			--j-fundo: #544210;
 			--terminado: #f2b8b5;
 			--directo: #f87171;
 			--estrela: #fbbf24;
@@ -305,6 +313,7 @@
 			--borda: #272b33; --borda-fraca: #1f232a;
 			--acento: var(--c-escuro, #34d399); --acento-fraco: var(--cf-escuro, #12271f);
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
+			--j-fundo: #544210;
 			--terminado: #f2b8b5;
 			--directo: #f87171;
 			--estrela: #fbbf24;

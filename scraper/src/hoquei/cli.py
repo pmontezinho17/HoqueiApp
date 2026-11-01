@@ -210,44 +210,50 @@ def _boletim_por_chegar(caminho: pathlib.Path, hoje: date) -> bool:
     return timedelta(0) <= hoje - dia <= timedelta(days=DIAS_DO_BOLETIM)
 
 
-#: Quantos dias depois do jogo se relê a ficha para apanhar uma correcção ao boletim.
-DIAS_ATE_REVER_O_MERITO = 7
+#: De quantos em quantos dias se relê uma ficha com Mérito, e até quantos dias depois do jogo.
+DIAS_ENTRE_RELEITURAS = 7
+DIAS_DE_VIGIA = 30
 
 
 def _merito_por_rever(caminho: pathlib.Path, hoje: date) -> bool:
-    """Um jogo com Mérito que já leva uma semana e ainda não foi relido.
+    """Uma ficha com Mérito que ainda está no mês de vigia e não foi relida esta semana.
 
     **Uma ficha corrigida pela APL não chegava à app.** A ficha de um jogo terminado só se
     volta a pedir se o resultado mudar, e uma correcção às marcas das meias partes não muda o
     resultado. Decisão do dono a 29/10/2026, depois de ouvir quem conhece o regulamento sobre o
     -3 da AE Física (jogo 9913): *"a APL faz as contas baseando-se nas fichas de jogo, como a
     app [...] se a pontuação não está correcta, o clube terá que pedir uma correcção à ficha"*.
-    E a pergunta seguinte foi a desta função: se a ficha for corrigida, a app acompanha?
 
-    Relê-se **uma vez**, sete dias depois do jogo, na ronda das 00:30 (`--rever-merito`). O
-    custo, contado na agenda a 29/10/2026: 11 a 23 jogos de Mérito por semana, 18 em média, logo
-    ~18 pedidos por semana. Na primeira ronda depois de isto entrar, os jogos já com mais de uma
-    semana relêem-se todos de uma vez — 64 dos 82 com Mérito a 29/10/2026, uma só vez, e é também
-    a primeira medição: diz logo se alguma ficha antiga foi corrigida.
+    **Relê-se todas as semanas, durante um mês** — nos dias 7, 14, 21 e 28 depois do jogo —, e
+    aos 30 dias a ficha dá-se por fechada. Decisão do dono a 01/11/2026, entre três opções: *"mais
+    vale a mais do que a menos"*. Até aí relia-se uma vez, uma semana depois, e a primeira ronda
+    com isso, a de 31/10/2026, mostrou porque não chegava: das 72 fichas relidas, o Mérito mudou
+    em **4** (10041, 10045, 10046 e 9972), corrigidas pela APL duas a três semanas depois do jogo —
+    tarde de mais para uma releitura só ao sétimo dia. Nenhuma delas tem `J` hoje, e não se sabe se
+    o tinha: foram lidas antes de se contarem as letras. Por isso a vigia é de todas as fichas, e
+    não só das com `J`, que foi a primeira proposta do dono no mesmo dia.
 
-    **Não se sabe se vale a pena, e é por isso que se conta.** A ronda escreve no `meta.json`
-    quantas fichas releu e em quantas o Mérito mudou. Se ao fim de um mês forem zero, isto
-    desliga-se: ninguém corrige fichas uma semana depois, e 18 pedidos por semana para nada são
-    18 pedidos a mais no servidor de uma associação.
+    O custo, contado na agenda a 29/10/2026: 11 a 23 jogos de Mérito por semana, 18 em média, e
+    cada um relido quatro vezes — **~72 pedidos por semana**, na ronda das 00:30
+    (`--rever-merito`). A ronda conta no `meta.json` quantas fichas releu e em quantas o Mérito
+    mudou; é esse número que diz, ao fim da época, se o mês é de mais ou de menos.
 
-    O sinal de "já relida" é o campo `merito_revisto`, com a data da releitura.
+    O sinal é o `merito_revisto`, com a data da última releitura.
     """
     try:
         dados = json.loads(caminho.read_text())
     except (OSError, ValueError):
         return False
-    if not dados.get("merito") or dados.get("merito_revisto"):
+    if not dados.get("merito"):
         return False
     try:
         dia = date.fromisoformat(dados.get("data") or "")
+        revisto = date.fromisoformat(dados["merito_revisto"]) if dados.get("merito_revisto") else None
     except ValueError:
         return False
-    return hoje - dia >= timedelta(days=DIAS_ATE_REVER_O_MERITO)
+    if not timedelta(days=DIAS_ENTRE_RELEITURAS) <= hoje - dia <= timedelta(days=DIAS_DE_VIGIA):
+        return False
+    return revisto is None or hoje - revisto >= timedelta(days=DIAS_ENTRE_RELEITURAS)
 
 
 def _pedido_a_reler(reler: str | None, jogo_id: int, com_merito: bool) -> bool:
@@ -313,7 +319,43 @@ def _merito_da_ficha(html: str, dados: dict) -> list[dict] | None:
         fora_do_x = {k: v for k, v in sorted(letras.items()) if k != "X"}
         if fora_do_x:
             conta["marcas_fora_do_x"] = fora_do_x
+    if any((c.get("marcas_fora_do_x") or {}).get("J") for c in contas):
+        _regras_do_j(html, dados, banco, contas)
     return contas
+
+
+def _regras_do_j(html: str, dados: dict, banco, contas: list[dict]) -> None:
+    """Em que linhas da conta pesa o `J`, para a app as pintar de amarelo.
+
+    O `J` é uma substituição a meio de uma meia parte, e conta como meia parte jogada (87.º
+    7.6) — decisão do dono a 01/11/2026. Mas é a única marca que um clube pode pedir à APL para
+    tirar, justificando-a, e o dono quer que o pai que estranhe um ponto o veja assinalado:
+    *"na linha de onde o J vai penalizar, colocamos esse ponto com fundo amarelo"*.
+
+    A pergunta é contrafactual, e responde-se assim: a mesma conta, lida como se os `J` não
+    estivessem na grelha. As regras cujos pontos mudam são as do `J`. Zero pedidos: é o mesmo
+    HTML. Só se guarda nas equipas que têm `J`; uma lista vazia diz "tem `J`, e não mexeu em
+    nada", que é diferente de não ter a chave.
+    """
+    sem_j = participacao(html, ignorar=frozenset({"J"}))
+    if sem_j is None:
+        return
+    alternativa = [para_dicionario(m) for m in merito_do_jogo(
+        dados.get("casa"), dados.get("fora"), sem_j,
+        dados.get("golos_casa"), dados.get("golos_fora"), banco)]
+
+    def por_regra(conta: dict) -> dict[str, int]:
+        soma: dict[str, int] = {}
+        for p in conta["parcelas"]:
+            soma[p["regra"]] = soma.get(p["regra"], 0) + p["pontos"]
+        return soma
+
+    for conta, outra in zip(contas, alternativa):
+        if not (conta.get("marcas_fora_do_x") or {}).get("J"):
+            continue
+        com, sem = por_regra(conta), por_regra(outra)
+        conta["regras_do_j"] = sorted(r for r in com.keys() | sem.keys()
+                                      if com.get(r, 0) != sem.get(r, 0))
 
 
 def _sem_marcas(merito: list[dict] | None) -> list[dict] | None:
@@ -321,7 +363,24 @@ def _sem_marcas(merito: list[dict] | None) -> list[dict] | None:
     primeira releitura de cada jogo com um `J` contava como ficha corrigida."""
     if merito is None:
         return None
-    return [{k: v for k, v in m.items() if k != "marcas_fora_do_x"} for m in merito]
+    return [{k: v for k, v in m.items() if k not in ("marcas_fora_do_x", "regras_do_j")}
+            for m in merito]
+
+
+def _j_por_explicar(caminho: pathlib.Path) -> bool:
+    """Uma ficha com `J` guardada antes de haver `regras_do_j`, que tem de se ler outra vez.
+
+    As linhas a pintar só saem da grelha atleta a atleta, e essa não se guarda — ver
+    `parsers/participacao.py`. Custo, contado a 01/11/2026: os cinco jogos com `J` em produção
+    (9895, 9913, 9988, 9989 e 10008), cinco pedidos uma vez só. Depois a chave fica lá, mesmo
+    vazia, e não se repete; os jogos novos já a trazem da primeira leitura.
+    """
+    try:
+        merito = json.loads(caminho.read_text()).get("merito") or []
+    except (OSError, ValueError):
+        return False
+    return any((m.get("marcas_fora_do_x") or {}).get("J") and "regras_do_j" not in m
+               for m in merito)
 
 
 def _resumo_do_merito(ficha: dict) -> dict | None:
@@ -349,12 +408,20 @@ def _resumo_do_merito(ficha: dict) -> dict | None:
         return None
     resumo: dict = {"casa": [casa["bonificacao"], casa["penalizacao"]],
                     "fora": [fora["bonificacao"], fora["penalizacao"]]}
-    # sem isto, a linha mostrava como certo um total que tem uma penalização em aberto. E uma
-    # grelha com letras que não são o `X` também, pedido do dono a 29/10/2026 — ver o
-    # `docs/09-regulamento-apl.md`. Essa **não** entra nos `avisos` da equipa: o `por_confirmar`
-    # da tabela da série conta os avisos, e a nota que o explica em produção fala só do 4.1.7.
-    if any(m.get("avisos") or m.get("marcas_fora_do_x") for m in (casa, fora)):
+    # sem isto, a linha mostrava como certo um total que tem uma penalização em aberto. Uma
+    # grelha com um `J` também deixou o jogo por confirmar, de 29/10 a 01/11/2026, até o dono
+    # saber que o `J` é uma substituição e que penaliza: medido nesse dia, eram cinco dos seis
+    # `?` em produção (9895, 9913, 9988, 9989, 10008), e o sexto, o 10048, é um 4.1.7.
+    if any(m.get("avisos") for m in (casa, fora)):
         resumo["por_confirmar"] = True
+    # o lado com um `J`, para a linha pintar o total de amarelo, por pedido do dono a 01/11/2026:
+    # *"colocar os pontos de méritos totais mas com fundo amarelo, para destacar que há algo que
+    # está a afetar essa pontuação"*. Lê-se da contagem das letras, que todas as fichas com
+    # Mérito lidas desde 29/10/2026 já têm, e por isso não espera por nenhuma releitura.
+    com_j = [lado for lado, m in (("casa", casa), ("fora", fora))
+             if (m.get("marcas_fora_do_x") or {}).get("J")]
+    if com_j:
+        resumo["com_j"] = com_j
     return resumo
 
 
@@ -897,7 +964,8 @@ def comando_publicar(args) -> int:
                 reler_merito = (args.rever_merito and vale_merito(prova.nome)
                                 and _merito_por_rever(alvo, hoje))
                 falta_campo_novo = _sem_chave(alvo, "boletim") or (
-                    vale_merito(prova.nome) and _sem_chave(alvo, "merito")) or (
+                    vale_merito(prova.nome) and (_sem_chave(alvo, "merito")
+                                                 or _j_por_explicar(alvo))) or (
                     args.rever_boletins and _boletim_por_chegar(alvo, hoje)) or reler_merito or (
                     _pedido_a_reler(args.reler, jogo.id, vale_merito(prova.nome)))
                 if not falta_campo_novo and _resultado_conhecido(alvo) == (
@@ -926,7 +994,7 @@ def comando_publicar(args) -> int:
                         # cada releitura contava como "mudou"
                         if _sem_marcas(antigo.get("merito")) != _sem_marcas(dados["merito"]):
                             merito_mudou += 1
-                            print(f"Mérito do jogo {jogo.id} mudou na releitura de uma semana depois",
+                            print(f"Mérito do jogo {jogo.id} mudou na releitura semanal",
                                   file=sys.stderr)
                         dados["merito_revisto"] = hoje.isoformat()
                     elif antigo.get("merito_revisto"):
@@ -1053,7 +1121,7 @@ def comando_publicar(args) -> int:
         "pedidos_falhados": fonte.falhados,
         "pedidos_por_tipo": dict(sorted(fonte.por_tipo.items())),
         "pedidos_dia": acumular_pedidos(meta_anterior, fonte, _agora().date().isoformat()),
-        # a medição que decide se a releitura de uma semana fica — ver `_merito_por_rever`;
+        # quantas fichas se releram e em quantas o Mérito mudou — ver `_merito_por_rever`;
         # o `meta.json` vai para o git a cada ronda, por isso o histórico conta-se depois
         "merito_relido": merito_relido,
         "merito_mudou": merito_mudou,
@@ -1130,7 +1198,8 @@ def main(argv=None) -> int:
                    help="voltar a pedir os jogos terminados que guardámos sem boletim, até "
                         f"{DIAS_DO_BOLETIM} dias depois do jogo — uma vez por dia, na ronda das 00:30")
     b.add_argument("--rever-merito", action="store_true",
-                   help=f"reler uma vez as fichas com Mérito {DIAS_ATE_REVER_O_MERITO} dias depois do "
+                   help=f"reler as fichas com Mérito de {DIAS_ENTRE_RELEITURAS} em "
+                        f"{DIAS_ENTRE_RELEITURAS} dias, até {DIAS_DE_VIGIA} dias depois do "
                         "jogo, para apanhar uma correcção da APL — na ronda das 00:30")
     b.add_argument("--reler", default=None, metavar="merito|ID,ID",
                    help="voltar a pedir estas fichas mesmo sem mudanças: `merito` para as das provas "

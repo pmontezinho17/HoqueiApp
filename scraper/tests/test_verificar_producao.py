@@ -210,6 +210,11 @@ class TestCadaVerificacaoSozinha:
         assert self._com(vp, monkeypatch, agenda({"casa": [9, -8], "fora": [11, 0]})) == []
         falhas = self._com(vp, monkeypatch, agenda({"casa": {"total": 1}, "fora": [11, 0]}))
         assert len(falhas) == 1 and "Mérito do jogo 1" in falhas[0]
+        assert self._com(vp, monkeypatch, agenda(
+            {"casa": [9, -10], "fora": [14, 0], "com_j": ["casa"]})) == []
+        falhas = self._com(vp, monkeypatch, agenda(
+            {"casa": [9, -10], "fora": [14, 0], "com_j": "casa"}))
+        assert len(falhas) == 1 and "com_j" in falhas[0]
 
     def test_um_json_truncado(self, vp, monkeypatch):
         falhas = self._com(vp, monkeypatch, lambda u: (

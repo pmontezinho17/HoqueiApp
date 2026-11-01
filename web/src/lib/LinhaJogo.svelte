@@ -148,7 +148,8 @@
 							<i class="ficou" style:width="{b.ficou * 100}%"></i><i class="perdeu"
 								style:width="{b.perdeu * 100}%"></i>
 						</span>
-						<b class:abaixo={b.abaixoDeZero}>{pts(b.total)}</b>
+						<b class:abaixo={b.abaixoDeZero}
+							class:j={merito.com_j?.includes(i === 0 ? 'casa' : 'fora')}>{pts(b.total)}</b>
 					</span>
 				{/each}
 			</span>
@@ -277,6 +278,10 @@
 	.conta b { min-width: 1.6rem; font-size: var(--t-micro); font-weight: 600;
 		color: var(--texto-2); font-variant-numeric: tabular-nums; }
 	.conta b.abaixo { color: var(--perde); }
+	/* **o total com um `J` vai a amarelo**, por pedido do dono a 01/11/2026: *"para destacar que
+	   há algo que está a afetar essa pontuação"*. A explicação está no separador do Mérito do jogo */
+	.conta b.j { background: var(--j-fundo); border-radius: 3px; padding: 0 0.2rem;
+		text-align: center; }
 	.barra { flex: 1; display: flex; height: 6px; border-radius: 3px; overflow: hidden;
 		background: var(--borda-fraca); }
 	.barra .ficou { background: var(--ganha-barra); }

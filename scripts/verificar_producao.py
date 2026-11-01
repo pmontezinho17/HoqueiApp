@@ -225,6 +225,10 @@ def _merito_mal_formado(jogos: list) -> str | None:
             if not (isinstance(conta, list) and len(conta) == 2
                     and all(isinstance(x, int) for x in conta)):
                 return f"o Mérito do jogo {j.get('id')} não tem [bonificação, penalização] na {lado}"
+        # desde 01/11/2026: os lados com um `J`, que a linha pinta de amarelo com um `.includes`
+        com_j = m.get("com_j", [])
+        if not (isinstance(com_j, list) and set(com_j) <= {"casa", "fora"}):
+            return f"o Mérito do jogo {j.get('id')} tem um com_j que não é uma lista de lados"
     return None
 
 
