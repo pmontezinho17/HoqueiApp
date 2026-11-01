@@ -172,6 +172,12 @@ export const NOVIDADES: Novidade[] = [
 			},
 			{
 				tipo: 'novo',
+				titulo: '🟨 Benjamins e Escolares: pontos a amarelo no Mérito',
+				texto:
+					'Quando um atleta entra a meio de uma meia parte (um J na ficha), o regulamento conta essa meia parte como jogada e a equipa é penalizada. Esses pontos aparecem a amarelo, com uma nota a explicar. Se o clube regularizar junto da APL, a app actualiza sozinha.'
+			},
+			{
+				tipo: 'novo',
 				titulo: '🔤 Escolhe a série que queres ver',
 				texto:
 					'Nas competições com várias séries já não tens de percorrer as seis: escolhes a que te interessa numa lista, ao lado da escolha entre tabela simples e completa. A série da tua equipa leva uma estrela ★. Foi uma sugestão vossa — obrigado! E os separadores da competição, da equipa e do jogo passaram a ser iguais, de ponta a ponta do ecrã, com o nome por baixo de cada ícone. O ícone dos Jogos é agora um rinque, e o topo da competição e da equipa fica parado enquanto rolas.'
