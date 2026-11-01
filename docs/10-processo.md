@@ -186,6 +186,7 @@ alfabética agrupa-os.
 | **PRODUÇÃO** · Dados e publicação | `dados.yml` | lê a APL, comita os dados no `main` e publica `hoquei.pages.dev` |
 | **PRODUÇÃO** · Jogos ao vivo | `aovivo.yml` | o ciclo ao vivo nos dias de jogos |
 | **PRODUÇÃO** · Publicar o relógio | `relogio.yml` | publica o Worker que dispara e vigia as Actions |
+| **PRODUÇÃO** · Publicar o observador | `observador.yml` | publica o Worker que mede a cadeia e recebe a contagem de cada ida à APL |
 | **PRODUÇÃO** · Vigiar o site | `saude.yml` | pergunta ao site no ar se está a servir bem |
 | **PRODUÇÃO** · Vigia do observador | `vigia.yml` | confirma que o observador do ciclo ao vivo continua vivo |
 | **PRODUÇÃO** · Aviso da cadeia | `aviso.yml` | abre e fecha a issue de aviso quando alguma coisa pára |

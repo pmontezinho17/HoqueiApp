@@ -197,6 +197,12 @@ jobs:
       - name: Regenerar /v1
         if: steps.vale.outputs.correr == 'true'
         working-directory: scraper
+        # Quem pede à APL di-lo ao observador, publique ou não — ver `scraper/src/hoquei/
+        # registo.py` e o B9.31. Sem o segredo, o raspador não envia nada e corre igual.
+        env:
+          OBSERVADOR: https://hoquei-observador.torneiopa.workers.dev
+          CHAVE_RONDAS: ${{ secrets.CHAVE_RONDAS }}
+          ORIGEM_RONDA: producao
         # O `--rever-boletins` só na ronda das 00:30: volta a pedir, uma vez por dia, os jogos
         # terminados que guardámos antes de a mesa anexar o boletim. Ver `_boletim_por_chegar`
         # no `cli.py` — eram 12 a 27/10/2026, e 11 já o tinham. O `--rever-merito` relê uma vez,

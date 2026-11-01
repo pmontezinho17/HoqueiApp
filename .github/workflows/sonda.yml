@@ -50,6 +50,11 @@ jobs:
           ssh-key: ${{ secrets.CHAVE_ESCRITA }}
 
       - name: Sondar os jogos de hoje
+        # a sonda também pede fichas à APL, e até 30/10/2026 ninguém as contava — ver o B9.31
+        env:
+          OBSERVADOR: https://hoquei-observador.torneiopa.workers.dev
+          CHAVE_RONDAS: ${{ secrets.CHAVE_RONDAS }}
+          ORIGEM_RONDA: sonda
         run: |
           python3 scripts/sondar_atualizacao.py \
             --tenant aplisboa \
