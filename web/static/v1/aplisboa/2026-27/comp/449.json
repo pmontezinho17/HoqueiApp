@@ -225,8 +225,8 @@
    "hora": "14:45:00",
    "casa": "A STUART HCM B",
    "fora": "HC LOURINHÃ",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 0,
    "recinto": "PAV.PROF.JOÃO CAMPELO",
    "ao_vivo": false
   },
@@ -365,29 +365,29 @@
      "posicao": 4,
      "equipa": "HC LOURINHÃ",
      "logo": "/intranet/logos/21.png",
-     "jogos": 5,
+     "jogos": 6,
      "vitorias": 1,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 4,
      "golos_marcados": 12,
      "golos_sofridos": 26,
      "diferenca": -14,
      "racio": 0.46,
-     "pontos": 3
+     "pontos": 4
     },
     {
      "posicao": 5,
      "equipa": "A STUART HCM B",
      "logo": "/intranet/logos/10.png",
-     "jogos": 5,
+     "jogos": 6,
      "vitorias": 0,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 5,
      "golos_marcados": 1,
      "golos_sofridos": 62,
      "diferenca": -61,
      "racio": 0.02,
-     "pontos": 0
+     "pontos": 1
     }
    ]
   }
