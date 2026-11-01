@@ -183,7 +183,7 @@
    "hora": "14:30:00",
    "casa": "CACO B",
    "fora": "FSE/AJ SALESIANA B",
-   "golos_casa": 4,
+   "golos_casa": 6,
    "golos_fora": 3,
    "recinto": "PAV.C.A.C.OURIQUE",
    "ao_vivo": false
@@ -197,7 +197,7 @@
    "hora": "14:45:00",
    "casa": "UD VILAFRANQUENSE B",
    "fora": "PAREDE FC B",
-   "golos_casa": 1,
+   "golos_casa": 8,
    "golos_fora": 0,
    "recinto": "PAV. VILAFRANQUENSE",
    "ao_vivo": false

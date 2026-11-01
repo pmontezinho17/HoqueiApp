@@ -183,8 +183,8 @@
    "hora": "16:00:00",
    "casa": "AD OEIRAS B",
    "fora": "A STUART HCM B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 12,
+   "golos_fora": 1,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
   },
@@ -198,7 +198,7 @@
    "casa": "CD PAÇO ARCOS B",
    "fora": "SC TORRES",
    "golos_casa": 2,
-   "golos_fora": 0,
+   "golos_fora": 9,
    "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
   },

@@ -1,11 +1,22 @@
 {
  "competicao_id": 462,
  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE C",
- "jogos_lidos": 11,
+ "jogos_lidos": 12,
  "jogos_sem_boletim": 0,
  "linhas": [
   {
    "posicao": 1,
+   "equipa": "HC LOURINHÃ",
+   "jogos": 5,
+   "participantes": 50,
+   "bonificacao": 65,
+   "penalizacao": 0,
+   "pontos": 65,
+   "media": 13.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 2,
    "equipa": "CRIAR-T GD",
    "jogos": 5,
    "participantes": 47,
@@ -16,7 +27,7 @@
    "por_confirmar": 0
   },
   {
-   "posicao": 2,
+   "posicao": 3,
    "equipa": "PAREDE FC A",
    "jogos": 4,
    "participantes": 40,
@@ -24,17 +35,6 @@
    "penalizacao": 0,
    "pontos": 54,
    "media": 13.5,
-   "por_confirmar": 0
-  },
-  {
-   "posicao": 3,
-   "equipa": "HC LOURINHÃ",
-   "jogos": 4,
-   "participantes": 40,
-   "bonificacao": 51,
-   "penalizacao": 0,
-   "pontos": 51,
-   "media": 12.75,
    "por_confirmar": 0
   },
   {
@@ -51,12 +51,12 @@
   {
    "posicao": 5,
    "equipa": "A STUART HCM A",
-   "jogos": 4,
-   "participantes": 34,
-   "bonificacao": 40,
-   "penalizacao": -4,
-   "pontos": 36,
-   "media": 9.0,
+   "jogos": 5,
+   "participantes": 43,
+   "bonificacao": 49,
+   "penalizacao": -5,
+   "pontos": 44,
+   "media": 8.8,
    "por_confirmar": 0
   }
  ]

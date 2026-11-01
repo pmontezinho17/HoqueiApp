@@ -1,33 +1,44 @@
 {
  "competicao_id": 463,
  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE D",
- "jogos_lidos": 10,
- "jogos_sem_boletim": 1,
+ "jogos_lidos": 12,
+ "jogos_sem_boletim": 0,
  "linhas": [
   {
    "posicao": 1,
    "equipa": "AD OEIRAS B",
-   "jogos": 4,
-   "participantes": 40,
-   "bonificacao": 56,
+   "jogos": 5,
+   "participantes": 50,
+   "bonificacao": 70,
    "penalizacao": 0,
-   "pontos": 56,
+   "pontos": 70,
    "media": 14.0,
    "por_confirmar": 0
   },
   {
    "posicao": 2,
    "equipa": "SC TORRES",
-   "jogos": 4,
-   "participantes": 36,
-   "bonificacao": 45,
-   "penalizacao": -4,
-   "pontos": 41,
-   "media": 10.25,
+   "jogos": 5,
+   "participantes": 45,
+   "bonificacao": 57,
+   "penalizacao": -5,
+   "pontos": 52,
+   "media": 10.4,
    "por_confirmar": 0
   },
   {
    "posicao": 3,
+   "equipa": "A STUART HCM B",
+   "jogos": 5,
+   "participantes": 46,
+   "bonificacao": 50,
+   "penalizacao": -5,
+   "pontos": 45,
+   "media": 9.0,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 4,
    "equipa": "SPORTING CP B",
    "jogos": 4,
    "participantes": 32,
@@ -38,25 +49,14 @@
    "por_confirmar": 0
   },
   {
-   "posicao": 4,
-   "equipa": "A STUART HCM B",
-   "jogos": 4,
-   "participantes": 36,
-   "bonificacao": 39,
-   "penalizacao": -5,
-   "pontos": 34,
-   "media": 8.5,
-   "por_confirmar": 0
-  },
-  {
    "posicao": 5,
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 4,
-   "participantes": 34,
-   "bonificacao": 34,
-   "penalizacao": -10,
-   "pontos": 24,
-   "media": 6.0,
+   "jogos": 5,
+   "participantes": 43,
+   "bonificacao": 43,
+   "penalizacao": -12,
+   "pontos": 31,
+   "media": 6.2,
    "por_confirmar": 0
   }
  ]

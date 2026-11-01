@@ -1,6 +1,6 @@
 {
  "competicao_id": 447,
- "jogos_considerados": 19,
+ "jogos_considerados": 20,
  "jogadores": [
   {
    "nome": "ALEXANDRE FARIAS",
@@ -18,12 +18,12 @@
   {
    "nome": "JOÃO RAMOS",
    "equipa": "CD PAÇO ARCOS A",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "6",
-   "golos": 17,
+   "golos": 20,
    "assistencias": 11,
    "defesas": 0,
-   "pontos": 28,
+   "pontos": 31,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -31,12 +31,12 @@
   {
    "nome": "MÁRIO FRANCISCO",
    "equipa": "CD PAÇO ARCOS A",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "7",
-   "golos": 16,
+   "golos": 17,
    "assistencias": 2,
    "defesas": 0,
-   "pontos": 18,
+   "pontos": 19,
    "amarelos": 0,
    "azuis": 1,
    "vermelhos": 0
@@ -81,6 +81,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "TOMÁS CABRAL",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 7,
+   "numero": "9",
+   "golos": 12,
+   "assistencias": 5,
+   "defesas": 0,
+   "pontos": 17,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RAFAEL ALMEIDA",
    "equipa": "AD OEIRAS A",
    "jogos": 6,
@@ -94,27 +107,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS CABRAL",
+   "nome": "AFONSO HELFRICH",
    "equipa": "CD PAÇO ARCOS A",
-   "jogos": 6,
-   "numero": "9",
+   "jogos": 7,
+   "numero": "3",
    "golos": 11,
    "assistencias": 4,
    "defesas": 0,
    "pontos": 15,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "AFONSO HELFRICH",
-   "equipa": "CD PAÇO ARCOS A",
-   "jogos": 6,
-   "numero": "3",
-   "golos": 10,
-   "assistencias": 4,
-   "defesas": 0,
-   "pontos": 14,
    "amarelos": 0,
    "azuis": 1,
    "vermelhos": 0
@@ -122,12 +122,25 @@
   {
    "nome": "MARTIM CHORINCAS",
    "equipa": "CD PAÇO ARCOS A",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "5",
-   "golos": 9,
+   "golos": 11,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 10,
+   "pontos": 12,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FRANCISCO PASCOAL",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 6,
+   "numero": "4",
+   "golos": 10,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 12,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -141,19 +154,6 @@
    "assistencias": 6,
    "defesas": 0,
    "pontos": 14,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "FRANCISCO PASCOAL",
-   "equipa": "CD PAÇO ARCOS A",
-   "jogos": 5,
-   "numero": "4",
-   "golos": 8,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 10,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -265,7 +265,7 @@
   {
    "nome": "GUILHERME PEIXOTO",
    "equipa": "HC SINTRA",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "5",
    "golos": 3,
    "assistencias": 1,
@@ -354,19 +354,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "PEDRO GASPAR",
-   "equipa": "HC SINTRA",
-   "jogos": 6,
-   "numero": "3",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIOGO CARPINTEIRO",
    "equipa": "UD VILAFRANQUENSE B",
    "jogos": 7,
@@ -380,9 +367,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "PEDRO GASPAR",
+   "equipa": "HC SINTRA",
+   "jogos": 7,
+   "numero": "3",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "HENRIQUE SILVA",
    "equipa": "HC SINTRA",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "10",
    "golos": 1,
    "assistencias": 2,
@@ -484,19 +484,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DAVID PEREIRA",
-   "equipa": "HC SINTRA",
-   "jogos": 6,
-   "numero": "56",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "LOURENÇO MACHADO",
    "equipa": "UD VILAFRANQUENSE B",
    "jogos": 6,
@@ -510,9 +497,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "DAVID PEREIRA",
+   "equipa": "HC SINTRA",
+   "jogos": 7,
+   "numero": "56",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "MIGUEL PATRÍCIO",
    "equipa": "HC SINTRA",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "21",
    "golos": 0,
    "assistencias": 1,
@@ -525,6 +525,19 @@
   {
    "nome": "EDUARDO SILVA",
    "equipa": "AE FISICA D B",
+   "jogos": 1,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FILIPE SANTOS",
+   "equipa": "CD PAÇO ARCOS A",
    "jogos": 1,
    "numero": "10",
    "golos": 0,
@@ -640,10 +653,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM SILVA",
-   "equipa": "HC SINTRA",
-   "jogos": 3,
-   "numero": "7",
+   "nome": "JAIME FONSECA",
+   "equipa": "AE FISICA D B",
+   "jogos": 4,
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -653,10 +666,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JAIME FONSECA",
-   "equipa": "AE FISICA D B",
+   "nome": "MARTIM SILVA",
+   "equipa": "HC SINTRA",
    "jogos": 4,
-   "numero": "10",
+   "numero": "7",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -692,19 +705,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM MARQUES",
-   "equipa": "HC SINTRA",
-   "jogos": 5,
-   "numero": "35",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "THAÍS CREMONA",
    "equipa": "CRIAR-T GD",
    "jogos": 5,
@@ -722,19 +722,6 @@
    "equipa": "HC SINTRA",
    "jogos": 6,
    "numero": "99",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ARTUR FARIA",
-   "equipa": "HC SINTRA",
-   "jogos": 6,
-   "numero": "28",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -783,6 +770,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MARTIM MARQUES",
+   "equipa": "HC SINTRA",
+   "jogos": 6,
+   "numero": "35",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RITA FARIA",
    "equipa": "CRIAR-T GD",
    "jogos": 6,
@@ -800,19 +800,6 @@
    "equipa": "CRIAR-T GD",
    "jogos": 6,
    "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RODRIGO DIOGO",
-   "equipa": "HC SINTRA",
-   "jogos": 6,
-   "numero": "27",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -848,19 +835,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO FERREIRA",
-   "equipa": "CD PAÇO ARCOS A",
-   "jogos": 6,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "VASCO VIEGAS",
    "equipa": "AD OEIRAS A",
    "jogos": 6,
@@ -874,10 +848,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "VICENTE CRUZ",
+   "nome": "ARTUR FARIA",
    "equipa": "HC SINTRA",
-   "jogos": 6,
-   "numero": "77",
+   "jogos": 7,
+   "numero": "28",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -913,6 +887,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "RODRIGO DIOGO",
+   "equipa": "HC SINTRA",
+   "jogos": 7,
+   "numero": "27",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO FERREIRA",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 7,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TOMÁS FERNANDES",
    "equipa": "UD VILAFRANQUENSE B",
    "jogos": 7,
@@ -922,6 +922,19 @@
    "defesas": 1,
    "pontos": 0,
    "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VICENTE CRUZ",
+   "equipa": "HC SINTRA",
+   "jogos": 7,
+   "numero": "77",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   }
