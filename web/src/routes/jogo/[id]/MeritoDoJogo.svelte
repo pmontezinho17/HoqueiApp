@@ -9,7 +9,7 @@
 	 * `meritoDoJogo.ts`, onde os testes as alcançam.
 	 */
 	import Emblema from '$lib/Emblema.svelte';
-	import { fichaPorEsclarecer, linhasDoMerito } from '$lib/meritoDoJogo';
+	import { linhasDoMerito } from '$lib/meritoDoJogo';
 	import type { MeritoDaEquipa } from '$lib/tipos';
 
 	let {
@@ -23,7 +23,6 @@
 	const linhas = $derived(linhasDoMerito(casa, fora));
 	const ganha = $derived(linhas.filter((l) => l.grupo === 'ganha'));
 	const perde = $derived(linhas.filter((l) => l.grupo === 'perde'));
-	const porEsclarecer = $derived(fichaPorEsclarecer(casa, fora));
 	const avisos = $derived(
 		[casa, fora].flatMap((m) => m.avisos.map((a) => ({ equipa: m.equipa, texto: a })))
 	);
@@ -89,15 +88,9 @@
 		</tfoot>
 	</table>
 
-	<!-- Uma só, e curta, por decisão do dono a 29/10/2026. Não diz a letra nem a causa de
-	     propósito: pode ser um erro de preenchimento que obrigue a corrigir a ficha, e não é
-	     fácil de cruzar com o regulamento. Ver `fichaPorEsclarecer`. -->
-	{#if porEsclarecer}
-		<p class="aviso">
-			A ficha de jogo contém elementos que não são claros e, por esse motivo, não é possível
-			determinar com exatidão os pontos deste jogo.
-		</p>
-	{/if}
+	<!-- Um `J` na grelha já teve aqui uma nota amarela, de 29/10 a 01/11/2026: "a ficha de jogo
+	     contém elementos que não são claros". Saiu quando o dono soube que o `J` é uma
+	     substituição e penaliza como qualquer meia parte — ver `docs/09-regulamento-apl.md`. -->
 	{#each avisos as a (a.equipa + a.texto)}
 		<p class="aviso"><b>Por confirmar, {a.equipa}:</b> {a.texto}</p>
 	{/each}

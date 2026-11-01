@@ -155,7 +155,8 @@ export interface MeritoDaEquipa {
 	avisos: string[];
 	/**
 	 * As letras da grelha que não são o `X`, por letra — `{"J": 7}`. Só existe quando as há, e
-	 * só nas fichas lidas depois de 29/10/2026. Ver `fichaPorEsclarecer`.
+	 * só nas fichas lidas depois de 29/10/2026. Nenhum ecrã a lê desde 01/11/2026: o `J` é uma
+	 * substituição e já está na conta. Ver `docs/09-regulamento-apl.md`.
 	 */
 	marcas_fora_do_x?: Record<string, number>;
 }

@@ -212,6 +212,11 @@ def marcas_da_grelha(html: str) -> tuple[dict[str, int], dict[str, int]] | None:
     que devia. Uma letra fora do normal é um sinal de que a mesa quis dizer outra coisa, e o
     dono pediu para saber em quantos jogos isto acontece.
 
+    O que o `J` é soube-se a 01/11/2026: uma **substituição** a meio de uma meia parte, marcada
+    em quem entrou, e que pelo 87.º 7.6 conta como meia parte jogada — é o que o `_atletas` já
+    fazia. A contagem fica para se medir quantos há e quantos a APL tira depois de o clube os
+    justificar. Ver `docs/09-regulamento-apl.md`.
+
     **Só a contagem por equipa**, e nunca de quem: `{"X": 20, "J": 1}` não diz que criança
     teve o `J`, e é isso que permite guardá-la.
     """

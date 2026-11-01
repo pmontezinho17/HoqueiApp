@@ -221,10 +221,10 @@ class TestAsLetrasDaGrelha:
         depois = [{"total": 11, "marcas_fora_do_x": {"J": 1}, "avisos": []}]
         assert cli._sem_marcas(antes) == cli._sem_marcas(depois)
 
-    def test_um_jogo_com_j_fica_por_confirmar(self, ficha_escolares_com_boletim):
-        """Pedido do dono a 29/10/2026: até se saber o que o `J` quer dizer, a linha do jogo nas
-        listas leva o `?`. Mas a equipa **não** ganha um aviso: a nota da tabela da série, em
-        produção, explica os avisos como um atleta com um só período."""
+    def test_um_jogo_com_j_nao_fica_por_confirmar(self, ficha_escolares_com_boletim):
+        """Decisão do dono a 01/11/2026: o `J` é uma substituição e penaliza, como qualquer meia
+        parte jogada. Esteve três dias a pôr o `?` na linha do jogo, enquanto não se sabia o que
+        queria dizer. A letra continua contada, e a equipa não ganha aviso nenhum."""
         from hoquei import cli
         i = ficha_escolares_com_boletim.index('id="acta"')
         alvo = '"text-align:center;">X</td>'
@@ -237,9 +237,9 @@ class TestAsLetrasDaGrelha:
         normais = cli._merito_da_ficha(ficha_escolares_com_boletim,
                                        {"casa": "A", "fora": "B", "golos_casa": 0, "golos_fora": 5})
         assert [c["avisos"] for c in contas] == [c["avisos"] for c in normais]
+        assert not any(c["avisos"] for c in normais)
         resumo = cli._resumo_do_merito({"casa": "A", "fora": "B", "merito": contas})
-        assert resumo["por_confirmar"] is True
-        # e o jogo sem letras nenhumas fica como era
-        if not any(c["avisos"] for c in normais):
-            assert "por_confirmar" not in cli._resumo_do_merito(
-                {"casa": "A", "fora": "B", "merito": normais})
+        assert "por_confirmar" not in resumo
+        # e o `J` pesa na conta exactamente como o `X` que substituiu: é o 87.º 7.6, quem
+        # substitui faz a meia parte inteira
+        assert cli._sem_marcas(contas) == normais

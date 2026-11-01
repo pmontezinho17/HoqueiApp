@@ -349,11 +349,11 @@ def _resumo_do_merito(ficha: dict) -> dict | None:
         return None
     resumo: dict = {"casa": [casa["bonificacao"], casa["penalizacao"]],
                     "fora": [fora["bonificacao"], fora["penalizacao"]]}
-    # sem isto, a linha mostrava como certo um total que tem uma penalização em aberto. E uma
-    # grelha com letras que não são o `X` também, pedido do dono a 29/10/2026 — ver o
-    # `docs/09-regulamento-apl.md`. Essa **não** entra nos `avisos` da equipa: o `por_confirmar`
-    # da tabela da série conta os avisos, e a nota que o explica em produção fala só do 4.1.7.
-    if any(m.get("avisos") or m.get("marcas_fora_do_x") for m in (casa, fora)):
+    # sem isto, a linha mostrava como certo um total que tem uma penalização em aberto. Uma
+    # grelha com um `J` também deixou o jogo por confirmar, de 29/10 a 01/11/2026, até o dono
+    # saber que o `J` é uma substituição e que penaliza: medido nesse dia, eram cinco dos seis
+    # `?` em produção (9895, 9913, 9988, 9989, 10008), e o sexto, o 10048, é um 4.1.7.
+    if any(m.get("avisos") for m in (casa, fora)):
         resumo["por_confirmar"] = True
     return resumo
 
