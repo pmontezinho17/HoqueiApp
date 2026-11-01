@@ -89,16 +89,16 @@
 		</tfoot>
 	</table>
 
-	<!-- O texto é a pedido do dono a 01/11/2026: dizer o que é o ponto amarelo, que um ou mais
-	     atletas entraram a meio de uma parte, e que o clube pode regularizar com a APL. Ver
-	     `jogoComJ` e o `docs/09-regulamento-apl.md`. -->
+	<!-- O texto é do dono, a 01/11/2026, em duas voltas: que um ou mais atletas entraram a meio
+	     de uma parte, que isso traz penalizações, que o clube pode regularizar com a APL e que a
+	     app o apanha todas as semanas. Começava por "os pontos com fundo amarelo têm substituições
+	     a pesar", e ele tirou essa frase. Ver `jogoComJ` e o `docs/09-regulamento-apl.md`. -->
 	{#if comJ}
 		<p class="aviso">
-			<span class="j">Os pontos com fundo amarelo</span> têm substituições a pesar. Na ficha de
-			jogo, um ou mais atletas entraram a meio de uma das partes (marcados com <b>J</b>), e o
-			regulamento conta essa meia parte como jogada — o que pode trazer penalizações. O clube
-			pode regularizar a situação junto da APL; se a ficha for corrigida, os pontos atualizam-se
-			aqui.
+			Na ficha de jogo, um ou mais atletas entraram a meio de uma das partes (marcados com
+			<b>J</b>), e o regulamento conta essa meia parte como jogada, o que traz penalizações. O
+			clube pode regularizar a situação junto da APL; a aplicação volta a ler a ficha todas as
+			semanas e, se for corrigida, atualiza os pontos.
 		</p>
 	{/if}
 	{#each avisos as a (a.equipa + a.texto)}
@@ -157,7 +157,6 @@
 	/* o mesmo amarelo da nota, por baixo do número e não da célula inteira: o ponto lê-se como
 	   marcado, e a coluna mantém o alinhamento à direita */
 	.j { background: var(--j-fundo); border-radius: 3px; padding: 0 0.25rem; }
-	.aviso .j { color: var(--texto); }
 	tfoot > tr > * { border-top: 1px solid var(--borda); font-weight: 700; font-size: var(--t-destaque); }
 	tfoot td.v { color: var(--texto); }
 

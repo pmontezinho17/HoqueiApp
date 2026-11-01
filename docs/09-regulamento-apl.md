@@ -153,9 +153,9 @@ e a app tem de lhe mostrar onde e porquê:
 * **nas listas**, o total do Mérito da equipa com `J` vai com fundo amarelo, no lugar do `?` que
   lá estava (o `?` fica só para o 4.1.7, que esse sim não está descontado);
 * **no separador do Mérito**, o ponto de cada regra em que o `J` pesa vai com o mesmo fundo, e por
-  baixo da tabela há uma nota que diz o que o amarelo quer dizer: um ou mais atletas entraram a
-  meio de uma das partes, isso conta como meia parte jogada, e o clube pode regularizar a situação
-  junto da APL.
+  baixo da tabela há uma nota que explica o `J`: um ou mais atletas entraram a meio de uma das
+  partes, isso conta como meia parte jogada e traz penalizações, o clube pode regularizar a
+  situação junto da APL, e a app volta a ler a ficha todas as semanas.
 
 As regras em que o `J` pesa saem de uma pergunta contrafactual: a mesma conta, lida como se os `J`
 não estivessem na grelha; as regras cujos pontos mudam são as dele (`_regras_do_j` no `cli.py`,
