@@ -40,6 +40,9 @@ AGENDA = json.dumps({"jogos": [{"id": 1, "data": "2026-10-17"}]}).encode()
 META = json.dumps({"generated_at": "2026-10-13T00:00:00+00:00", "temporada_id": 5}).encode()
 COMPS = json.dumps({"competicoes": [{"id": 432}]}).encode()
 VERSAO = json.dumps({"versao": "1.1"}).encode()
+FICHA = json.dumps({"id": 1, "merito": [
+    {"equipa": "CD PAÇO ARCOS A", "total": -1, "regras_do_j": ["4.1.3", "4.1.6"]},
+    {"equipa": "A STUART HCM", "total": 6}]}).encode()
 CACHE_NOSSA = {"cache-control": "public, max-age=20, stale-while-revalidate=600"}
 
 
@@ -83,6 +86,8 @@ def site_bom(url: str, metodo: str = "GET", corpo: bytes | None = None):
         return 200, CACHE_NOSSA, COMPS
     if url.endswith("/versao.json"):
         return 200, {}, VERSAO
+    if "/match/" in url:
+        return 200, CACHE_NOSSA, FICHA
     if url.rstrip("/") == base_do(url):
         # a página inicial, com os nossos scripts e mais nenhuns
         return 200, {}, PAGINA_LIMPA
@@ -214,6 +219,38 @@ class TestCadaVerificacaoSozinha:
             {"casa": [9, -10], "fora": [14, 0], "com_j": ["casa"]})) == []
         falhas = self._com(vp, monkeypatch, agenda(
             {"casa": [9, -10], "fora": [14, 0], "com_j": "casa"}))
+        assert len(falhas) == 1 and "com_j" in falhas[0]
+
+    def test_a_ficha_de_um_jogo_com_j(self, vp, monkeypatch):
+        """O `regras_do_j` vive no `match/`, e a agenda escolhe qual se pede: o jogo com `J`."""
+        agenda = json.dumps({"jogos": [
+            {"id": 7, "merito": {"casa": [9, 0], "fora": [8, 0]}},
+            {"id": 9988, "merito": {"casa": [11, -12], "fora": [8, -2], "com_j": ["casa"]}},
+        ]}).encode()
+        pedidos = []
+
+        def site(ficha):
+            def responder(u):
+                if u.endswith("/agenda.json"):
+                    return 200, CACHE_NOSSA, agenda
+                if "/match/" in u:
+                    pedidos.append(u.rsplit("/", 1)[-1])
+                    return ficha
+                return None
+            return responder
+        assert self._com(vp, monkeypatch, site((200, CACHE_NOSSA, FICHA))) == []
+        assert pedidos == ["9988.json"]
+        mal = json.dumps({"merito": [{"equipa": "X", "regras_do_j": "4.1.3"}]}).encode()
+        falhas = self._com(vp, monkeypatch, site((200, CACHE_NOSSA, mal)))
+        assert len(falhas) == 1 and "regras_do_j" in falhas[0]
+        falhas = self._com(vp, monkeypatch, site((404, {}, b"")))
+        assert len(falhas) == 1 and "9988.json" in falhas[0]
+
+    def test_um_com_j_com_lixo_falha_sem_rebentar(self, vp, monkeypatch):
+        agenda = json.dumps({"jogos": [{"id": 1, "merito": {
+            "casa": [9, 0], "fora": [8, 0], "com_j": [{"lado": "casa"}]}}]}).encode()
+        falhas = self._com(vp, monkeypatch, lambda u: (
+            (200, CACHE_NOSSA, agenda) if u.endswith("/agenda.json") else None))
         assert len(falhas) == 1 and "com_j" in falhas[0]
 
     def test_um_json_truncado(self, vp, monkeypatch):

@@ -170,7 +170,8 @@ não estivessem na grelha; as regras cujos pontos mudam são as dele (`_regras_d
 campo `regras_do_j`). Medido a 01/11/2026 nos cinco jogos com `J`: só penalizações, sempre —
 9895 e 9913 no 4.1.4 e 4.1.5, 9988 no 4.1.3 e 4.1.6 (e 4.1.3 do adversário), 9989 no 4.1.4 e
 4.1.6, 10008 no 4.1.4. Esses cinco foram lidos antes de o campo existir, e relêem-se uma vez
-(`_j_por_explicar`): cinco pedidos, uma vez só.
+(`_j_por_explicar`). A 02/11/2026, na revisão da entrega, já eram **seis**: o 9976, de 01/11, foi
+lido pelo raspador antigo depois desta contagem. Seis pedidos, uma vez só.
 
 Entre 29/10 e 01/11/2026 a nota era outra — *"a ficha de jogo contém elementos que não são
 claros"* — e o jogo levava o `?`. Era o que se podia dizer sem saber o que a letra queria dizer.

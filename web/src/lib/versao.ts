@@ -216,7 +216,7 @@ export const NOVIDADES: Novidade[] = [
 				tipo: 'novo',
 				titulo: '🕐 Fora de Portugal, a hora dos jogos na tua hora',
 				texto:
-					'Se o teu telemóvel estiver noutro fuso horário — nos Açores, ou em viagem —, cada jogo mostra a tua hora em destaque e, por baixo, mais pequena, a hora em Portugal continental, com «PT» à frente. Só aparece quando as duas horas são diferentes: em Portugal continental e na Madeira fica tudo como estava.'
+					'Se o teu telemóvel estiver noutro fuso horário — nos Açores, ou em viagem —, nas listas cada jogo mostra a tua hora em destaque e, por baixo, mais pequena, a hora em Portugal continental, com «PT» à frente. Só aparece quando as duas horas são diferentes: em Portugal continental e na Madeira fica tudo como estava.'
 			}
 		]
 	},

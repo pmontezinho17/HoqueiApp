@@ -354,6 +354,23 @@ class TestAFichaRelidaDuranteUmMes:
         assert relida == [7, 14, 21, 28]
 
 
+class TestOBoletimQueDesaparece:
+    """Uma releitura semanal que não encontra o boletim não apaga o Mérito — ver
+    `_merito_a_guardar`. Visto na revisão da entrega de 02/11/2026."""
+
+    ANTIGO = [{"equipa": "CD PAÇO ARCOS A", "total": -1}, {"equipa": "A STUART HCM", "total": 6}]
+
+    def test_sem_boletim_fica_o_que_estava(self):
+        assert cli._merito_a_guardar(None, self.ANTIGO) == self.ANTIGO
+
+    def test_uma_correccao_entra(self):
+        novo = [{"equipa": "CD PAÇO ARCOS A", "total": 10}, {"equipa": "A STUART HCM", "total": 6}]
+        assert cli._merito_a_guardar(novo, self.ANTIGO) == novo
+
+    def test_um_jogo_que_nunca_teve_merito_continua_sem(self):
+        assert cli._merito_a_guardar(None, None) is None
+
+
 def test_o_botao_do_site_de_testes_rele_so_o_que_se_pediu():
     """O `--reler` do site de testes — ver `_pedido_a_reler`. Sem ele a ronda é a de sempre."""
     from hoquei.cli import _pedido_a_reler

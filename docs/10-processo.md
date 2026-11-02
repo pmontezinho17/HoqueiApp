@@ -14,7 +14,7 @@ escrito em código em vez de na memória de alguém.
 | Repositório | `pmontezinho17/HoqueiApp`, público |
 | Ambientes | **produção** `hoquei.pages.dev` · **testes** `testes.hoquei.pages.dev` |
 | O que separa os dois | **tudo.** O site de testes tem base de dados própria desde 15/10 e dados seus desde 30/10, lidos pelo raspador do `dev` quando se carrega no botão do `ramo.yml` |
-| Testes automáticos | 316 no raspador, 388 no `web/` — bloqueantes no CI, excepto os marcados `fonte` |
+| Testes automáticos | 362 no raspador, 601 no `web/` — bloqueantes no CI, excepto os marcados `fonte` |
 | Depois de publicar | `scripts/verificar_producao.py` pergunta ao site 7 coisas, nos dois publicadores |
 | Vigia | o relógio da Cloudflare sonda produção de 10 em 10 minutos, 24 h por dia |
 | Protecção do `main` | ruleset `main protegido`, quatro regras activas desde 18/10: PR obrigatório, `scraper` e `web` verdes, sem apagar nem reescrever. O robô dos dados entra por chave de implantação |

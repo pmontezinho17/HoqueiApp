@@ -367,12 +367,33 @@ def _sem_marcas(merito: list[dict] | None) -> list[dict] | None:
             for m in merito]
 
 
+def _merito_a_guardar(novo: list[dict] | None, antigo: list[dict] | None) -> list[dict] | None:
+    """O Mérito que fica na ficha depois de a ler outra vez: o novo, menos quando desapareceu.
+
+    Um boletim que estava lá e deixa de estar não é um jogo sem Mérito, é uma ficha a meio de
+    ser corrigida, ou uma página que a fonte serviu incompleta. Guardar o `None` tirava o jogo
+    da tabela da série e da linha das listas, e o `_merito_por_rever` deixava de olhar para
+    ele — a correcção que se esperava nunca chegava. Visto na revisão da entrega de
+    02/11/2026: o defeito já existia, mas a releitura semanal lê cada ficha quatro vezes num
+    mês em vez de uma, e por isso torna-o quatro vezes mais provável.
+
+    **Só na releitura semanal**, e isso é de propósito. Ela marca o `merito_revisto` e só volta
+    à ficha daí a sete dias. Nas outras releituras guardar o antigo podia fazer pedir a mesma
+    página a cada ronda: uma ficha com `J` e sem `regras_do_j` continuava a ser um
+    `_j_por_explicar` enquanto o boletim não voltasse.
+    """
+    if novo is None and antigo:
+        return antigo
+    return novo
+
+
 def _j_por_explicar(caminho: pathlib.Path) -> bool:
     """Uma ficha com `J` guardada antes de haver `regras_do_j`, que tem de se ler outra vez.
 
     As linhas a pintar só saem da grelha atleta a atleta, e essa não se guarda — ver
     `parsers/participacao.py`. Custo, contado a 01/11/2026: os cinco jogos com `J` em produção
-    (9895, 9913, 9988, 9989 e 10008), cinco pedidos uma vez só. Depois a chave fica lá, mesmo
+    (9895, 9913, 9988, 9989 e 10008); a 02/11 eram seis, com o 9976 lido pelo raspador antigo
+    no dia anterior. Seis pedidos, uma vez só. Depois a chave fica lá, mesmo
     vazia, e não se repete; os jogos novos já a trazem da primeira leitura.
     """
     try:
@@ -986,8 +1007,13 @@ def comando_publicar(args) -> int:
                 dados = para_dicionario(ficha(pagina, jogo.id))
                 _nomes_do_calendario(dados, jogo.casa, jogo.fora)
                 if vale_merito(prova.nome):
-                    dados["merito"] = _merito_da_ficha(pagina, dados)
                     antigo = json.loads(alvo.read_text()) if alvo.exists() else {}
+                    lido = _merito_da_ficha(pagina, dados)
+                    dados["merito"] = (_merito_a_guardar(lido, antigo.get("merito"))
+                                       if reler_merito else lido)
+                    if lido is None and dados["merito"] is not None:
+                        print(f"Jogo {jogo.id}: o boletim desapareceu na releitura; fica o "
+                              "Mérito que já estava", file=sys.stderr)
                     if reler_merito:
                         merito_relido += 1
                         # sem a contagem das letras, que as fichas antigas não tinham: senão
