@@ -43,6 +43,18 @@ export function interpretar(cru: string | null): Favorito[] {
 	}
 }
 
+/**
+ * As equipas seguidas **deste escalão**, pelo nome.
+ *
+ * Um nome não chega para dizer que a equipa é a seguida: o HC SINTRA tem equipa nos Benjamins,
+ * nos Escolares e nos Sub-17, e são três equipas diferentes. O ecrã da competição comparava só
+ * o nome, e o dono, que segue o HC SINTRA de outro escalão, viu a 02/11/2026 a linha dele
+ * destacada na classificação dos Sub-17. A lista de jogos já comparava os dois.
+ */
+export function seguidasNoEscalao(lista: Favorito[], categoria: string): Set<string> {
+	return new Set(lista.filter((f) => f.categoria === categoria).map((f) => f.equipa));
+}
+
 function ler(): { lista: Favorito[]; descartados: number } {
 	try {
 		const cru = localStorage.getItem(CHAVE);

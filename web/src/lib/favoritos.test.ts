@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { interpretar } from './favoritos.svelte';
+import { interpretar, seguidasNoEscalao } from './favoritos.svelte';
 
 const bom = { equipa: 'AD OEIRAS A', categoria: 'BENJAMINS', competicoes: [465] };
 
@@ -55,5 +55,25 @@ describe('ler os favoritos do armazenamento', () => {
 			expect(typeof f.categoria).toBe('string');
 			expect(f.competicoes.every((c) => typeof c === 'number')).toBe(true);
 		}
+	});
+});
+
+/**
+ * O HC SINTRA tem equipa em vários escalões. Quem segue a dos Benjamins via, a 02/11/2026, a
+ * linha do HC SINTRA destacada na classificação dos Sub-17.
+ */
+describe('as equipas seguidas de um escalão', () => {
+	const lista = [
+		{ equipa: 'HC SINTRA', categoria: 'BENJAMINS', competicoes: [465] },
+		{ equipa: 'AD OEIRAS A', categoria: 'SUB-17', competicoes: [470] }
+	];
+
+	it('não destaca a equipa com o mesmo nome noutro escalão', () => {
+		expect(seguidasNoEscalao(lista, 'SUB-17').has('HC SINTRA')).toBe(false);
+	});
+
+	it('destaca a do escalão certo', () => {
+		expect([...seguidasNoEscalao(lista, 'BENJAMINS')]).toEqual(['HC SINTRA']);
+		expect([...seguidasNoEscalao(lista, 'SUB-17')]).toEqual(['AD OEIRAS A']);
 	});
 });
