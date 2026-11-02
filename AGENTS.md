@@ -100,8 +100,8 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
 
 | | |
 |---|---|
-| `scraper/` | o raspador em Python (`uv`, `httpx`, `selectolax`), os *parsers* e 305 testes |
-| `web/` | a PWA (SvelteKit 2, runes, `adapter-static`, `@vite-pwa/sveltekit`) e 316 testes |
+| `scraper/` | o raspador em Python (`uv`, `httpx`, `selectolax`), os *parsers* e 362 testes |
+| `web/` | a PWA (SvelteKit 2, runes, `adapter-static`, `@vite-pwa/sveltekit`) e 601 testes |
 | `web/static/v1/` | os JSON publicados — o contrato de dados |
 | `scripts/` | o ciclo ao vivo (`aovivo.sh`) e utilitários |
 | `worker/relogio/` | o Cloudflare Worker que serve de relógio e cão de guarda às Actions |

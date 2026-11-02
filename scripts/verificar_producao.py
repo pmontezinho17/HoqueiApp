@@ -206,6 +206,48 @@ def contrato_intacto(base: str) -> str | None:
             return f"{V1}/{nome} não tem {', '.join(faltam)} — o contrato mudou"
         if nome == "agenda.json" and (mal := _merito_mal_formado(d.get("jogos") or [])):
             return f"{V1}/agenda.json: {mal} — o contrato mudou"
+        if nome == "agenda.json" and (mal := _uma_ficha_com_merito(base, d.get("jogos") or [])):
+            return mal
+    return None
+
+
+def _uma_ficha_com_merito(base: str, jogos: list) -> str | None:
+    """A ficha de **um** jogo com Mérito, de preferência com `J`, tem a forma que o ecrã lê.
+
+    O `regras_do_j` vive no `match/`, e até 02/11/2026 nenhuma verificação pedia um `match/`:
+    a revisão da entrega desse dia reparou que o campo novo não tinha quem o vigiasse. Um
+    pedido só, e ao nosso CDN, não à fonte. Escolhe-se um jogo com `com_j` porque é aí que o
+    campo existe; sem nenhum, qualquer jogo com Mérito serve para verificar o resto.
+    """
+    com_merito = [j for j in jogos if isinstance(j, dict) and isinstance(j.get("merito"), dict)]
+    if not com_merito:
+        return None
+    jogo = next((j for j in com_merito if j["merito"].get("com_j")), com_merito[0])
+    caminho = f"{V1}/match/{jogo.get('id')}.json"
+    estado, _, corpo = _pedir(f"{base}{caminho}")
+    if estado != 200:
+        return f"{caminho} devolveu HTTP {estado}, e a agenda diz que o jogo tem Mérito"
+    try:
+        ficha = json.loads(corpo)
+    except json.JSONDecodeError as e:
+        return f"{caminho} não é JSON válido: {e}"
+    if mal := _ficha_mal_formada(ficha):
+        return f"{caminho}: {mal} — o contrato mudou"
+    return None
+
+
+def _ficha_mal_formada(ficha: dict) -> str | None:
+    """O `merito` de uma ficha é uma lista de equipas, e o `regras_do_j` de cada uma, quando
+    existe, é uma lista de regras: o separador do Mérito faz-lhe um `.includes`."""
+    merito = ficha.get("merito") if isinstance(ficha, dict) else None
+    if merito is None:
+        return None
+    if not (isinstance(merito, list) and all(isinstance(m, dict) for m in merito)):
+        return "o merito não é uma lista de equipas"
+    for m in merito:
+        regras = m.get("regras_do_j", [])
+        if not (isinstance(regras, list) and all(isinstance(r, str) for r in regras)):
+            return f"o regras_do_j de {m.get('equipa')} não é uma lista de regras"
     return None
 
 
@@ -227,7 +269,7 @@ def _merito_mal_formado(jogos: list) -> str | None:
                 return f"o Mérito do jogo {j.get('id')} não tem [bonificação, penalização] na {lado}"
         # desde 01/11/2026: os lados com um `J`, que a linha pinta de amarelo com um `.includes`
         com_j = m.get("com_j", [])
-        if not (isinstance(com_j, list) and set(com_j) <= {"casa", "fora"}):
+        if not (isinstance(com_j, list) and all(lado in ("casa", "fora") for lado in com_j)):
             return f"o Mérito do jogo {j.get('id')} tem um com_j que não é uma lista de lados"
     return None
 
