@@ -688,7 +688,11 @@
    "avisos": [],
    "marcas_fora_do_x": {
     "J": 1
-   }
+   },
+   "regras_do_j": [
+    "4.1.4",
+    "4.1.6"
+   ]
   },
   {
    "equipa": "SC TORRES",

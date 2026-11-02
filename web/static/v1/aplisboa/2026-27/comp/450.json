@@ -197,8 +197,8 @@
    "hora": "19:00:00",
    "casa": "CD PAÇO ARCOS B",
    "fora": "A STUART HCM A",
-   "golos_casa": 2,
-   "golos_fora": 2,
+   "golos_casa": 4,
+   "golos_fora": 3,
    "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
   },
@@ -264,7 +264,7 @@
    "grupo": null,
    "jornada": "9ª JORNADA",
    "data": "2026-11-15",
-   "hora": "16:15:00",
+   "hora": "15:30:00",
    "casa": "A STUART HCM A",
    "fora": "AD OEIRAS B",
    "golos_casa": null,
@@ -335,6 +335,20 @@
     },
     {
      "posicao": 2,
+     "equipa": "CD PAÇO ARCOS B",
+     "logo": "/intranet/logos/7.png",
+     "jogos": 5,
+     "vitorias": 2,
+     "empates": 1,
+     "derrotas": 2,
+     "golos_marcados": 12,
+     "golos_sofridos": 15,
+     "diferenca": -3,
+     "racio": 0.8,
+     "pontos": 7
+    },
+    {
+     "posicao": 3,
      "equipa": "AD OEIRAS B",
      "logo": "/intranet/logos/6.png",
      "jogos": 5,
@@ -346,20 +360,6 @@
      "diferenca": -4,
      "racio": 0.78,
      "pontos": 6
-    },
-    {
-     "posicao": 3,
-     "equipa": "CD PAÇO ARCOS B",
-     "logo": "/intranet/logos/7.png",
-     "jogos": 5,
-     "vitorias": 1,
-     "empates": 2,
-     "derrotas": 2,
-     "golos_marcados": 10,
-     "golos_sofridos": 14,
-     "diferenca": -4,
-     "racio": 0.71,
-     "pontos": 5
     },
     {
      "posicao": 4,
@@ -381,13 +381,13 @@
      "logo": "/intranet/logos/10.png",
      "jogos": 5,
      "vitorias": 1,
-     "empates": 1,
-     "derrotas": 3,
-     "golos_marcados": 11,
-     "golos_sofridos": 21,
-     "diferenca": -10,
+     "empates": 0,
+     "derrotas": 4,
+     "golos_marcados": 12,
+     "golos_sofridos": 23,
+     "diferenca": -11,
      "racio": 0.52,
-     "pontos": 4
+     "pontos": 3
     }
    ]
   }

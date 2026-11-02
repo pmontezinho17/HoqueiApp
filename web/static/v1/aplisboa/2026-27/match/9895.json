@@ -830,7 +830,11 @@
    "avisos": [],
    "marcas_fora_do_x": {
     "J": 2
-   }
+   },
+   "regras_do_j": [
+    "4.1.4",
+    "4.1.5"
+   ]
   }
  ],
  "merito_revisto": "2026-11-01",

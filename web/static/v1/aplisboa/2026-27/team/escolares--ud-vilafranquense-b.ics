@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9976@hoquei.pages.dev
-DTSTAMP:20261101T000000Z
-DTSTART:20261101T144500Z
-DTEND:20261101T161500Z
-SUMMARY:🏑 Escolares 🏑 UD Vilafranquense B vs Parede FC B
-LOCATION:Pavilhão José Mário Cerejo
-DESCRIPTION:UD Vilafranquense B 8–0 Parede FC B\nENCONTROS DISTRITAIS ESC
- OLARES - 1ª FASE NIVEL II · Série E · ESCOLARES\nPAV. VILAFRANQUENSE\n
- https://hoquei.pages.dev/jogo/9976\nDados da Associação de Patinagem de 
- Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9976
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9978@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T100000Z

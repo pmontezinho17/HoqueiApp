@@ -667,7 +667,11 @@
    "avisos": [],
    "marcas_fora_do_x": {
     "J": 7
-   }
+   },
+   "regras_do_j": [
+    "4.1.3",
+    "4.1.6"
+   ]
   },
   {
    "equipa": "A STUART HCM",
@@ -698,7 +702,10 @@
    "avisos": [],
    "marcas_fora_do_x": {
     "J": 2
-   }
+   },
+   "regras_do_j": [
+    "4.1.3"
+   ]
   }
  ],
  "merito_revisto": "2026-10-31",

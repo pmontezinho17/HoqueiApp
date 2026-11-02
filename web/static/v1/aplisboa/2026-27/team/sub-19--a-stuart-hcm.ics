@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9872@hoquei.pages.dev
-DTSTAMP:20261101T000000Z
-DTSTART:20261101T161500Z
-DTEND:20261101T174500Z
-SUMMARY:🏑 Sub-19 🏑 A Stuart HCM vs Caco
-LOCATION:Pavilhão João Campelo - A. Stuart Hóquei Clube de Massamá
-DESCRIPTION:A Stuart HCM 2–4 Caco\nCAMP. REG. SUB-19 - 1ª FASE · Série
-  C · SUB-19\nPAV.PROF.JOÃO CAMPELO\nhttps://hoquei.pages.dev/jogo/9872\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9872
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9875@hoquei.pages.dev
 DTSTAMP:20261108T000000Z
 DTSTART:20261108T173000Z

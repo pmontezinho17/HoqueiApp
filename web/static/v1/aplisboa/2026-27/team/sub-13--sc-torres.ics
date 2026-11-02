@@ -9,6 +9,18 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
+UID:jogo-9478@hoquei.pages.dev
+DTSTAMP:20261106T000000Z
+DTSTART:20261106T210000Z
+DTEND:20261106T223000Z
+SUMMARY:🏑 Sub-13 🏑 SC Torres vs Caco A
+LOCATION:Sporting Clube de Torres (SCT)
+DESCRIPTION:SC Torres vs Caco A\nCAMP. REG. SUB-13 - 1ª FASE · Série A 
+ · SUB-13\nPAV. SC TORRES\nhttps://hoquei.pages.dev/jogo/9478\nDados da As
+ sociação de Patinagem de Lisboa. Site não oficial.
+URL:https://hoquei.pages.dev/jogo/9478
+END:VEVENT
+BEGIN:VEVENT
 UID:jogo-9474@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T143000Z
@@ -19,18 +31,6 @@ DESCRIPTION:HC Sintra vs SC Torres\nCAMP. REG. SUB-13 - 1ª FASE · Série
  A · SUB-13\nPAV. SC TORRES\nhttps://hoquei.pages.dev/jogo/9474\nDados da 
  Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9474
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9478@hoquei.pages.dev
-DTSTAMP:20261114T000000Z
-DTSTART:20261114T113000Z
-DTEND:20261114T130000Z
-SUMMARY:🏑 Sub-13 🏑 SC Torres vs Caco A
-LOCATION:Sporting Clube de Torres (SCT)
-DESCRIPTION:SC Torres vs Caco A\nCAMP. REG. SUB-13 - 1ª FASE · Série A 
- · SUB-13\nPAV. SC TORRES\nhttps://hoquei.pages.dev/jogo/9478\nDados da As
- sociação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9478
 END:VEVENT
 BEGIN:VEVENT
 UID:jogo-9482@hoquei.pages.dev
