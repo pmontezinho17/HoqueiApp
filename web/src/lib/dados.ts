@@ -1,40 +1,19 @@
 import type { Agenda, FicheiroCompeticao, FicheiroMerito, FichaJogo, IndiceCompeticoes, IndiceEquipas, Meta, Quadro } from './tipos';
 
-import { PRODUCAO, ehSiteDeRamo } from './ambiente.js';
-
 const CAMINHO = '/v1/aplisboa/2026-27';
 
 /**
- * De onde vêm os dados.
+ * De onde vêm os dados: **sempre da própria origem**, em produção e no site de testes.
  *
- * **Em produção, da própria origem** — sem CORS, e o service worker trata destes pedidos com
- * o mesmo mecanismo com que trata o código.
- *
- * **Num site de ramo, de produção.** Isto mudou a 10/10/2026 e foi a correcção de um
- * problema que mordeu duas vezes no mesmo dia. Um site de ramo publica os dados que estavam
- * commitados quando foi construído, e isso envelhece depressa: às 18:16 desse sábado o site
- * de testes mostrava o CD PAÇO ARCOS B – AE FISICA D B como "por começar" enquanto o jogo ia
- * 2-0 ao intervalo. O dono abriu-o para ver a transmissão e não viu jogo nenhum a decorrer.
- *
- * Ler de produção resolve isso **sem custar um único pedido à APL**: é o nosso próprio CDN,
- * já publicado, e a regra do projecto é uma raspagem central e nunca uma por ambiente. O
- * `hoquei.pages.dev` responde com `access-control-allow-origin: *` — verificado nesse dia.
- *
- * E tem uma segunda virtude, maior do que a primeira: o site de testes passa a diferir de
- * produção **só no código**. Era isso que um ambiente de testes devia ser desde o início, e
- * uma cópia de dados a envelhecer em paralelo nunca foi outra coisa senão uma fonte de
- * enganos.
- *
- * O contador de produção sabe ignorar estes pedidos — ver `oQueContar` no `_middleware.js`,
- * que de outra forma passava a contar o tráfego de testes nos números reais.
+ * De 10/10 a 30/10/2026 o site de testes lia os dados de produção, porque a cópia commitada no
+ * ramo envelhecia: às 18:16 de um sábado mostrava o CD PAÇO ARCOS B – AE FISICA D B como "por
+ * começar" enquanto o jogo ia 2-0 ao intervalo. Resolvia isso e criou outra coisa: um ecrã novo
+ * que precisasse de um campo novo só se testava depois de o raspador ir ao `main`. O dono
+ * recusou essa dependência a 30/10/2026 — *"cada um dos ambientes deveria ser autónomo"* —, e o
+ * site de testes passou a ter dados seus, lidos pelo raspador do `dev` quando se carrega no
+ * botão do `ramo.yml`. A idade desses dados é a do último clique, e isso foi escolha do dono:
+ * zero pedidos à APL quando ninguém está a testar.
  */
-function base(): string {
-	if (typeof location !== 'undefined' && ehSiteDeRamo(location.hostname)) {
-		return `https://${PRODUCAO}${CAMINHO}`;
-	}
-	return CAMINHO;
-}
-
 /**
  * Um erro que distingue "não está publicado" de "não há rede". Os dois precisam de respostas
  * diferentes na interface, e misturá-los fez a app dizer a quem tinha rede perfeita que o
@@ -47,30 +26,9 @@ export class NaoPublicado extends Error {
 	}
 }
 
-/**
- * Lê um ficheiro de dados, com o caminho **relativo à raiz do `/v1`** — `/merito/461.json`.
- *
- * Num site de ramo tenta primeiro em produção, que é o que o torna fresco, e **cai para a
- * cópia local quando produção não tem o ficheiro**. Essa segunda tentativa não é defensiva:
- * é o caso normal de um ambiente de testes. O site de testes leva código novo, e código novo
- * traz ficheiros novos — os do Mérito da Formação existiam lá dias antes de existirem em
- * produção.
- *
- * Sem ela, a 10/10/2026, o separador da classificação dos Escolares ficou **vazio**: o site
- * de testes pedia o Mérito a produção, produção devolvia a página de fallback, e a tabela de
- * vitórias que antes preenchia aquele espaço já tinha sido removida no mesmo dia. Duas
- * mudanças minhas a cruzarem-se.
- */
+/** Lê um ficheiro de dados, com o caminho **relativo à raiz do `/v1`** — `/merito/461.json`. */
 async function json<T>(sufixo: string, fetchFn: typeof fetch, opcoes?: RequestInit): Promise<T> {
-	try {
-		return await pedir<T>(`${base()}${sufixo}`, fetchFn, opcoes);
-	} catch (e) {
-		const local = `${CAMINHO}${sufixo}`;
-		if (e instanceof NaoPublicado && base() !== CAMINHO) {
-			return pedir<T>(local, fetchFn, opcoes);
-		}
-		throw e;
-	}
+	return pedir<T>(`${CAMINHO}${sufixo}`, fetchFn, opcoes);
 }
 
 async function pedir<T>(caminho: string, fetchFn: typeof fetch, opcoes?: RequestInit): Promise<T> {

@@ -1,6 +1,7 @@
 import { readFileSync, readdirSync } from 'node:fs';
-import { describe, expect, it } from 'vitest';
-import { diaDeLisboa, diaDeLisboaMais, diaInicial } from './dia';
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
+import { diaDeLisboa, diaDeLisboaMais, diaInicial, horaNoAparelho, instanteDeLisboa } from './dia';
+import { emCurso } from './formato';
 
 /**
  * A hora em que isto se partia: a primeira hora do dia, em hora de verão.
@@ -41,6 +42,15 @@ describe('o dia de Lisboa', () => {
 	});
 });
 
+/** Os `.ts` e `.svelte` da interface, sem os testes. */
+const fontes = (dir: URL): { nome: string; texto: string }[] =>
+	readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+		const filho = new URL(`${e.name}${e.isDirectory() ? '/' : ''}`, dir);
+		if (e.isDirectory()) return fontes(filho);
+		if (!/\.(ts|svelte)$/.test(e.name) || e.name.includes('.test.')) return [];
+		return [{ nome: e.name, texto: readFileSync(filho, 'utf-8') }];
+	});
+
 /**
  * E a pergunta fica em código: **nenhum ecrã volta a usar a data de UTC**.
  *
@@ -49,14 +59,6 @@ describe('o dia de Lisboa', () => {
  * política de privacidade: uma lista copiada para um teste tem o problema que o teste resolve.
  */
 describe('ninguém usa a data de UTC para saber que dia é hoje', () => {
-	const fontes = (dir: URL): { nome: string; texto: string }[] =>
-		readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
-			const filho = new URL(`${e.name}${e.isDirectory() ? '/' : ''}`, dir);
-			if (e.isDirectory()) return fontes(filho);
-			if (!/\.(ts|svelte)$/.test(e.name) || e.name.includes('.test.')) return [];
-			return [{ nome: e.name, texto: readFileSync(filho, 'utf-8') }];
-		});
-
 	it('varre ficheiros que cheguem para isto significar alguma coisa', () => {
 		expect(fontes(new URL('../', import.meta.url)).length).toBeGreaterThan(40);
 	});
@@ -102,5 +104,102 @@ describe('que dia abrir na lista de jogos', () => {
 	it('sem dias nenhuns devolve vazio em vez de rebentar', () => {
 		expect(diaInicial('2026-10-31', [], hoje)).toBe('');
 		expect(diaInicial(null, [], hoje)).toBe('');
+	});
+});
+
+/**
+ * A hora de um jogo é de Lisboa, venha de que telemóvel vier.
+ *
+ * Apanhado pelo dono a 31/10/2026, com o telemóvel a marcar 09:33 quando em Lisboa eram 14:33:
+ * seis jogos com a marca `ao_vivo` na agenda publicada e nenhuma secção "A decorrer agora". O
+ * `new Date('2026-10-31T14:30:00')` lia a hora no fuso do aparelho.
+ *
+ * Os resultados esperados vêm escritos em UTC, com o `Z`, e por isso não dependem do fuso de
+ * quem corre os testes — e o fuso do processo muda-se para o de Bogotá, a 5 horas de Lisboa como
+ * o telemóvel do dono estava, para a suite apanhar o defeito em qualquer máquina. O Node relê o
+ * `TZ` quando ele muda; medido a 31/10/2026, o `new Date('2026-10-31T14:30:00')` antigo dava
+ * 19:30Z com este fuso, e o teste do "a decorrer" falhava.
+ */
+describe('o instante de um jogo', () => {
+	const fusoOriginal = process.env.TZ;
+	beforeAll(() => {
+		process.env.TZ = 'America/Bogota';
+	});
+	afterAll(() => {
+		if (fusoOriginal === undefined) delete process.env.TZ;
+		else process.env.TZ = fusoOriginal;
+	});
+	afterEach(() => vi.useRealTimers());
+
+	it('o processo está mesmo noutro fuso', () => {
+		expect(new Date('2026-10-31T14:30:00').toISOString()).toBe('2026-10-31T19:30:00.000Z');
+	});
+
+	it('no inverno a hora de Lisboa é a de UTC', () => {
+		expect(instanteDeLisboa('2026-10-31', '14:30')).toBe(Date.parse('2026-10-31T14:30:00Z'));
+	});
+
+	it('no verão é uma hora antes em UTC', () => {
+		expect(instanteDeLisboa('2026-10-17', '14:30')).toBe(Date.parse('2026-10-17T13:30:00Z'));
+	});
+
+	it('aguenta os dois lados do domingo da mudança de hora', () => {
+		// 25/10/2026: às 02:00 de verão os relógios voltaram à 01:00 de inverno
+		expect(instanteDeLisboa('2026-10-25', '00:30')).toBe(Date.parse('2026-10-24T23:30:00Z'));
+		expect(instanteDeLisboa('2026-10-25', '10:00')).toBe(Date.parse('2026-10-25T10:00:00Z'));
+		// 29/03/2026: à 01:00 de inverno saltou-se para as 02:00 de verão
+		expect(instanteDeLisboa('2026-03-29', '00:30')).toBe(Date.parse('2026-03-29T00:30:00Z'));
+		expect(instanteDeLisboa('2026-03-29', '10:00')).toBe(Date.parse('2026-03-29T09:00:00Z'));
+	});
+
+	it('aceita a hora com segundos, como às vezes vem da fonte', () => {
+		expect(instanteDeLisboa('2026-10-31', '14:30:00')).toBe(Date.parse('2026-10-31T14:30:00Z'));
+	});
+
+	it('um jogo das 14:30 marcado ao vivo está a decorrer às 14:33 de Lisboa', () => {
+		vi.useFakeTimers();
+		vi.setSystemTime(new Date('2026-10-31T14:33:00Z'));
+		expect(emCurso({ ao_vivo: true, data: '2026-10-31', hora: '14:30' })).toBe(true);
+		expect(emCurso({ ao_vivo: true, data: '2026-10-31', hora: '15:00' })).toBe(false);
+	});
+
+	it('nenhum ficheiro lê a hora de um jogo no fuso do aparelho', () => {
+		const maus = fontes(new URL('../', import.meta.url))
+			.filter((f) => /new Date\(`\$\{[^}]+\}T\$\{/.test(f.texto))
+			.map((f) => f.nome);
+		expect(maus).toEqual([]);
+	});
+});
+
+describe('a hora do jogo no fuso do aparelho', () => {
+	it('em Lisboa, nos Açores e em Bogotá', () => {
+		expect(horaNoAparelho('2026-10-31', '15:45', 'Europe/Lisbon')).toBeNull();
+		expect(horaNoAparelho('2026-10-31', '15:45', 'Atlantic/Madeira')).toBeNull();
+		expect(horaNoAparelho('2026-10-31', '15:45', 'Atlantic/Azores')).toEqual({ hora: '14:45', dias: 0 });
+		// o telemóvel do dono a 31/10/2026
+		expect(horaNoAparelho('2026-10-31', '15:45', 'America/Bogota')).toEqual({ hora: '10:45', dias: 0 });
+	});
+
+	it('o mesmo relógio noutro fuso não leva segunda hora', () => {
+		// Londres no inverno está à hora de Lisboa; no verão também — os dois mudam juntos
+		expect(horaNoAparelho('2026-11-07', '12:30', 'Europe/London')).toBeNull();
+		expect(horaNoAparelho('2026-05-09', '12:30', 'Europe/London')).toBeNull();
+	});
+
+	it('acompanha a mudança de hora de cada lado', () => {
+		// 25/10/2026 Lisboa passou a UTC+0; Nova Iorque só muda a 01/11
+		expect(horaNoAparelho('2026-10-31', '15:00', 'America/New_York')).toEqual({ hora: '11:00', dias: 0 });
+		expect(horaNoAparelho('2026-11-07', '15:00', 'America/New_York')).toEqual({ hora: '10:00', dias: 0 });
+	});
+
+	it('diz quando o dia local é outro', () => {
+		expect(horaNoAparelho('2026-10-31', '20:15', 'Asia/Macau')).toEqual({ hora: '04:15', dias: 1 });
+		expect(horaNoAparelho('2026-10-31', '00:30', 'America/Sao_Paulo')).toEqual({ hora: '21:30', dias: -1 });
+	});
+
+	it('aceita a hora com segundos, e nada sem data ou hora', () => {
+		expect(horaNoAparelho('2026-10-31', '15:45:00', 'America/Bogota')?.hora).toBe('10:45');
+		expect(horaNoAparelho('2026-10-31', null, 'America/Bogota')).toBeNull();
+		expect(horaNoAparelho(null, '15:45', 'America/Bogota')).toBeNull();
 	});
 });

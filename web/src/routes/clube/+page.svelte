@@ -7,7 +7,7 @@
 	import EscolherClubes from '$lib/EscolherClubes.svelte';
 	import { competicoesVivas } from '$lib/clubes';
 	import { guia } from '$lib/guia.svelte';
-	import { porQuando } from '$lib/formato';
+	import { horaComLisboa, porQuando } from '$lib/formato';
 	import { caminhoEquipa } from '$lib/slug';
 	import { disputado, type FicheiroCompeticao, type Jogo } from '$lib/tipos';
 	import { diaDeLisboa } from '$lib/dia';
@@ -96,7 +96,7 @@
 	const quando = (j: Jogo | undefined) => {
 		if (!j?.data) return '';
 		const d = new Date(`${j.data}T00:00:00`);
-		return `${d.getDate()}/${d.getMonth() + 1}${j.hora ? `, ${j.hora.slice(0, 5)}` : ''}`;
+		return `${d.getDate()}/${d.getMonth() + 1}${j.hora ? `, ${horaComLisboa(j.data, j.hora)}` : ''}`;
 	};
 	const adversario = (j: Jogo, equipa: string) => (j.casa === equipa ? j.fora : j.casa);
 </script>

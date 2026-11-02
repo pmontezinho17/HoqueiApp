@@ -18,10 +18,10 @@ e não publica a conta. Nós fazemos a conta, com dois avisos que não se escond
    marcamo-lo como **a confirmar**, em vez de penalizar uma equipa que levou um miúdo ao
    hospital.
 
-Há um terceiro caso por confirmar, que não vive aqui por depender da letra que a mesa escreveu
-e não só de haver marca: uma grelha com um `J` em vez do `X`. Fica no campo `marcas_fora_do_x`
-de cada equipa, e não nos avisos — ver `_merito_da_ficha` no `cli.py` e o
-`docs/09-regulamento-apl.md`.
+Um `J` na grelha **não** é um caso por confirmar, embora o tenha sido entre 29/10 e 01/11/2026:
+é uma substituição a meio de uma meia parte, e conta como meia parte jogada (87.º 7.6), com as
+penalizações que isso traga. Um `J` que o clube justifique à APL sai da ficha, e a conta segue a
+ficha. Ver o `docs/09-regulamento-apl.md`.
 
 ### A conta, artigo a artigo
 

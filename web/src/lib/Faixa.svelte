@@ -2,8 +2,14 @@
 	/**
 	 * Arrastar o dedo para o lado muda de página.
 	 *
-	 * Serve os dias na lista de jogos e os separadores no ecrã de jogo: nos dois o que se
-	 * quer é ver a página a seguir o dedo, e não saltar quando ele se levanta.
+	 * Serve os dias na lista de jogos e os separadores da ficha de jogo, da competição e da
+	 * equipa: em todos o que se quer é ver a página a seguir o dedo, e não saltar quando ele
+	 * se levanta.
+	 *
+	 * **Nas pontas trava, e não passa ao menu do lado.** A 31/10/2026 experimentou-se: para
+	 * lá do último separador dos Jogos, do Meu Clube e das Competições o arrasto levava ao
+	 * menu vizinho da barra de baixo. O dono testou-o no telemóvel e preferiu sem: *"Prefiro
+	 * que não mudes entre menus inferiores. Gosto do resto do feeling."*
 	 *
 	 * Porque é feito à mão e não com `scroll-snap`: um contentor com scroll horizontal
 	 * rouba também o scroll vertical (quando um eixo tem scroll, o outro deixa de poder ser
@@ -62,13 +68,64 @@
 		progresso = largura ? dx / largura : 0;
 	});
 
+	/**
+	 * A faixa estica-se até à barra de baixo, mesmo quando a página é curta.
+	 *
+	 * Sem isto o gesto só pegava por cima do conteúdo. O dono deu por isso a 31/10/2026 — *"só
+	 * funciona quando eu faço o gesto de deslizar em textos, pois se fizer numa parte que não
+	 * tenha nada, não dá"* — e medi: num dia com dois jogos a faixa acabava aos 424px e a barra
+	 * de baixo começava aos 759px. Os 335px pelo meio não eram de ninguém.
+	 *
+	 * A conta faz-se com medidas e não com números escritos aqui: onde a faixa começa, a
+	 * altura da barra e o espaço que o `main` reserva por baixo (que muda com a bolha das
+	 * sugestões). A `folga` — o que o `main` reserva para lá da barra — entra como
+	 * `padding-bottom` dos carris e sai como margem negativa da faixa. Assim, numa página
+	 * curta a faixa chega à barra sem o ecrã ganhar scroll, e numa página longa fica tudo como
+	 * estava.
+	 */
+	let minimo = $state(0);
+	let folga = $state(0);
+	function medir() {
+		if (!caixa) return;
+		const barra = document.querySelector('nav.barra')?.getBoundingClientRect().height ?? 0;
+		const main = caixa.closest('main');
+		const reserva = main ? parseFloat(getComputedStyle(main).paddingBottom) || 0 : 0;
+		const acima = caixa.getBoundingClientRect().top + scrollY;
+		folga = Math.max(0, reserva - barra);
+		minimo = Math.max(0, innerHeight - acima - barra);
+	}
+	$effect(() => {
+		if (!caixa) return;
+		medir();
+		// o que está por cima da faixa muda de altura (um título que parte em duas linhas, os
+		// filtros que aparecem): observar o corpo apanha tudo, e a conta é barata
+		const obs = new ResizeObserver(medir);
+		obs.observe(document.body);
+		addEventListener('resize', medir);
+		return () => {
+			obs.disconnect();
+			removeEventListener('resize', medir);
+		};
+	});
+
 	const DECIDIR = 8; // px de movimento antes de escolher o eixo
 	const suportado = typeof CSS !== 'undefined' && CSS.supports?.('overflow-x', 'clip');
 	const semAnimacao = () =>
 		typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+	/**
+	 * Os bordos do ecrã são do sistema: no Safari e no Android, arrastar a partir do bordo é
+	 * "voltar atrás". Um gesto que comece ali fica para eles, e não para os dois ao mesmo tempo.
+	 */
+	const BORDO = 20;
+
 	function baixo(e: PointerEvent) {
 		if (!suportado || !e.isPrimary) return;
+		if (e.pointerType === 'touch' && (e.clientX < BORDO || e.clientX > innerWidth - BORDO)) return;
+		// Uma folha aberta (o "Adicionar ao calendário", nos Jogos da equipa) está por cima de
+		// tudo mas vive dentro da página no DOM, e os eventos dela sobem até aqui. Arrastar lá
+		// dentro mexia o separador por trás.
+		if ((e.target as Element | null)?.closest?.('dialog')) return;
 		// pegar a meio de uma animação é legítimo — pára-a e continua de onde ela ia
 		cancelAnimationFrame(quadro);
 		clearTimeout(salvaguarda);
@@ -89,8 +146,14 @@
 			eixo = Math.abs(ax) > Math.abs(ay) ? 'x' : 'y';
 		}
 		if (eixo !== 'x') return;
+		// Decidido o eixo, o gesto é nosso até o dedo se levantar, esteja ele por cima do que
+		// estiver. Sem isto, um arrasto com rato que acabasse por cima da bolha das sugestões
+		// (que é fixa e fica fora da faixa) entregava-lhe o `pointerup`, e a página ficava
+		// meio arrastada — apanhado a 31/10/2026 ao testar esta faixa com o rato. No toque o
+		// browser já faz isto sozinho; aqui fica explícito para os dois.
+		if (!engolirClique) caixa?.setPointerCapture?.(e.pointerId);
 		engolirClique = true;
-		// sem dia do outro lado o arrasto trava com resistência, em vez de mostrar vazio
+		// sem página do outro lado o arrasto trava com resistência, em vez de mostrar vazio
 		dx = (ax < 0 && !seguinte) || (ax > 0 && !anterior) ? ax * 0.15 : ax;
 	}
 
@@ -167,6 +230,8 @@
 
 <div
 	class="faixa"
+	style:min-height={minimo ? `${minimo}px` : undefined}
+	style:margin-bottom={folga ? `${-folga}px` : undefined}
 	bind:this={caixa}
 	bind:clientWidth={largura}
 	role="group"
@@ -182,7 +247,7 @@
 		e.stopPropagation();
 	}}
 >
-	<div class="carris" style="--dx: {dx}px">
+	<div class="carris" style="--dx: {dx}px" style:padding-bottom={folga ? `${folga}px` : undefined}>
 		{#if anterior}
 			<div class="pag esquerda" aria-hidden="true" inert>{@render pagina(anterior)}</div>
 		{/if}

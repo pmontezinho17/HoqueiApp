@@ -1,4 +1,4 @@
-name: Actualizar dados
+name: PRODUÇÃO · Dados e publicação
 
 # Porquê esta cadência e não mais: cada execução custa ~75 pedidos à fonte (a lista de
 # competições e um calendário + classificação por prova), e a fonte é um IIS partilhado de
@@ -199,9 +199,9 @@ jobs:
         working-directory: scraper
         # O `--rever-boletins` só na ronda das 00:30: volta a pedir, uma vez por dia, os jogos
         # terminados que guardámos antes de a mesa anexar o boletim. Ver `_boletim_por_chegar`
-        # no `cli.py` — eram 12 a 27/10/2026, e 11 já o tinham. O `--rever-merito` relê uma vez,
-        # uma semana depois, as fichas com Mérito, para apanhar uma correcção da APL — ver
-        # `_merito_por_rever`.
+        # no `cli.py` — eram 12 a 27/10/2026, e 11 já o tinham. O `--rever-merito` relê as fichas
+        # com Mérito todas as semanas durante um mês (~72 pedidos por semana), para apanhar uma
+        # correcção da APL — ver `_merito_por_rever`.
         run: >-
           uv run python -m hoquei.cli publicar --tenant aplisboa
           --destino ../web/static/v1/aplisboa/2026-27
@@ -264,6 +264,11 @@ jobs:
       # todos os dias, porque é por lá que chegam ao telemóvel de quem está na bancada. Sem
       # isto, o `dev` ficaria uma semana com os dados da segunda anterior e os testes que lêem
       # `web/static/v1` passariam a medir o passado.
+      #
+      # **Esta cópia já não é a do site de testes.** Desde 30/10/2026 o site de testes tem dados
+      # seus, no R2, lidos pelo raspador do `dev` — ver o `ramo.yml`. O que aqui se leva é a cópia
+      # do git, que é o que os testes do CI lêem nos PRs para o `dev`, e o que o `ramo.yml` usa
+      # se o R2 ainda não tiver nada.
       #
       # **Não há conflito possível** em condições normais: só este workflow e o `aovivo.sh`
       # escrevem em `web/static/v1`, e o `dev` nunca lá toca. Se ainda assim houver, **aborta e

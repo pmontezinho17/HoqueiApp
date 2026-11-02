@@ -3,7 +3,7 @@
 	 *  boletim oficial quando a fonte o anexa. */
 	import BoletimOficial from '$lib/BoletimOficial.svelte';
 	import Icone from '$lib/Icone.svelte';
-	import { dataLonga, horaCurta, nomeProprio } from '$lib/formato';
+	import { dataLonga, horaComLisboa, nomeProprio } from '$lib/formato';
 	import { boletimDaCronologia, boletimPorPartes } from '$lib/partes';
 	import type { FichaJogo } from '$lib/tipos';
 
@@ -26,7 +26,8 @@
 		<li>
 			<Icone nome="data" />
 			<span
-				>{f.data ? dataLonga(f.data) : ''}{#if f.data && f.hora}&nbsp;·&nbsp;{/if}{#if f.hora}{horaCurta(
+				>{f.data ? dataLonga(f.data) : ''}{#if f.data && f.hora}&nbsp;·&nbsp;{/if}{#if f.hora}{horaComLisboa(
+						f.data,
 						f.hora
 					)}{/if}</span
 			>

@@ -42,7 +42,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.9.1';
+export const VERSAO = '1.10';
 
 /**
  * **O número que se vê sobe uma vez por entrega; o site de testes ganha uma marca por cima.**
@@ -154,6 +154,72 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.10',
+		data: '2026-11-02',
+		pontos: [
+			{
+				tipo: 'novo',
+				titulo: '🧮 Benjamins e Escolares: o Mérito de cada jogo, conta a conta',
+				texto:
+					'Ganhar 21–5 e ficar 1–11 no Mérito? Acontece! Na ficha do jogo há um separador novo que mostra, regra a regra, os pontos que cada equipa ganhou e perdeu. E nas listas, por baixo de cada jogo, uma linha com duas barrinhas e o resultado do Mérito.'
+			},
+			{
+				tipo: 'novo',
+				titulo: '🟩🟥 O que dizem as barras do Mérito',
+				texto:
+					'Nos jogos de Benjamins e Escolares, por baixo do resultado, há uma barra por equipa: a da esquerda é a da casa, a da direita a de fora. O verde é a parte dos pontos que a equipa ganhou (bonificações) e o vermelho a parte que perdeu (penalizações); juntos enchem sempre a barra. Quem ganhou 9 pontos e perdeu 10 tem a barra quase meio a meio. O número ao lado é o Mérito da equipa nesse jogo, e fica a vermelho quando é negativo.'
+			},
+			{
+				tipo: 'novo',
+				titulo: '🟨 Benjamins e Escolares: pontos a amarelo no Mérito',
+				texto:
+					'Quando um atleta entra a meio de uma meia parte (um J na ficha), o regulamento conta essa meia parte como jogada e a equipa é penalizada. Esses pontos aparecem a amarelo, com uma nota a explicar. Se o clube regularizar junto da APL, a app actualiza sozinha.'
+			},
+			{
+				tipo: 'novo',
+				titulo: '🔤 Escolhe a série que queres ver',
+				texto:
+					'Nas competições com várias séries já não tens de percorrer as seis: escolhes a que te interessa numa lista, ao lado da escolha entre tabela simples e completa. A série da tua equipa leva uma estrela ★. Foi uma sugestão vossa — obrigado! E os separadores da competição, da equipa e do jogo passaram a ser iguais, de ponta a ponta do ecrã, com o nome por baixo de cada ícone. O ícone dos Jogos é agora um rinque, e o topo da competição e da equipa fica parado enquanto rolas.'
+			},
+			{
+				tipo: 'novo',
+				titulo: '📅 O calendário da equipa tem separador próprio',
+				texto:
+					'O mês inteiro da tua equipa, com os resultados e os próximos jogos, deixou de estar escondido dentro dos Jogos: tem agora o seu separador, entre os Jogos e a Classificação. E é lá que podes pôr os jogos no calendário do telemóvel.'
+			},
+			{
+				tipo: 'novo',
+				titulo: '👉 Desliza para mudar de separador',
+				texto:
+					'Na competição e na equipa já podes passar de um separador para o outro a deslizar o dedo, como na ficha de jogo. Em qualquer sítio do ecrã, e não só por cima dos jogos — também por cima das tabelas, que já não rolam para o lado quando cabem no ecrã.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: '↩️ Voltar já te deixa onde estavas',
+				texto:
+					'Abrias um jogo a partir dos Jogos de uma equipa, carregavas na seta e aparecias no Resumo. Agora voltas ao separador e à série onde estavas. E a barra de baixo já não se apaga num jogo ou numa equipa: fica acesa a secção de onde vieste.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: '🗓️ A jornada da semana que vem já não está "em curso"',
+				texto:
+					'Acabava a jornada ao sábado e, no calendário da competição, a seguinte passava logo a dizer "em curso", uma semana antes do primeiro jogo. Agora diz "próxima" até ao dia do primeiro jogo.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: '🌍 Fora de Portugal continental, os jogos à hora certa',
+				texto:
+					'As horas dos jogos são as de Lisboa, mas a app lia-as na hora do teu telemóvel. Nos Açores, ou em viagem, os jogos a decorrer podiam não aparecer — ou ficar "ao vivo" horas depois do fim — e o botão do Google Calendar marcava o jogo à hora errada. Agora contam sempre a partir da hora de Lisboa.'
+			},
+			{
+				tipo: 'novo',
+				titulo: '🕐 Fora de Portugal, a hora dos jogos na tua hora',
+				texto:
+					'Se o teu telemóvel estiver noutro fuso horário — nos Açores, ou em viagem —, nas listas cada jogo mostra a tua hora em destaque e, por baixo, mais pequena, a hora em Portugal continental, com «PT» à frente. Só aparece quando as duas horas são diferentes: em Portugal continental e na Madeira fica tudo como estava.'
+			}
+		]
+	},
 	{
 		versao: '1.9.1',
 		data: '2026-10-31',
