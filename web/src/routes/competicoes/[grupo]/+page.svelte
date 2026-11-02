@@ -11,7 +11,7 @@
 	import ChapeuMerito from '$lib/ChapeuMerito.svelte';
 	import LegendaMerito from '$lib/LegendaMerito.svelte';
 	import RegrasMerito from '$lib/RegrasMerito.svelte';
-	import { favoritos } from '$lib/favoritos.svelte';
+	import { favoritos, seguidasNoEscalao } from '$lib/favoritos.svelte';
 	import { jornadaAtual, porQuando, nomeProprio } from '$lib/formato';
 	import { caminhoEquipa } from '$lib/slug';
 	import type { Jogo, JogoAgenda, TotaisJogador } from '$lib/tipos';
@@ -48,7 +48,8 @@
 	// no Mérito não há colunas a escolher: a tabela é a do regulamento
 	const colunasEm = (a: string) => a === 'classificacao' && !temMerito;
 
-	const minhasEquipas = $derived(new Set(favoritos.lista.map((f) => f.equipa)));
+	// cada grupo é de um só escalão (medido a 02/11/2026, nas 9 categorias publicadas)
+	const minhasEquipas = $derived(seguidasNoEscalao(favoritos.lista, data.escalao));
 	const opcoes = $derived(opcoesDeSerie(data.provas, minhasEquipas));
 	const visiveis = $derived(seriesVisiveis(data.provas, serie));
 
