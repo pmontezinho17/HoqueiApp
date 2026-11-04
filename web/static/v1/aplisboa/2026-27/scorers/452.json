@@ -1,6 +1,6 @@
 {
  "competicao_id": 452,
- "jogos_considerados": 20,
+ "jogos_considerados": 21,
  "jogadores": [
   {
    "nome": "DANIEL ANTUNES",
@@ -13,6 +13,19 @@
    "pontos": 20,
    "amarelos": 0,
    "azuis": 2,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RODRIGO PASSARINHO",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 7,
+   "numero": "4",
+   "golos": 11,
+   "assistencias": 6,
+   "defesas": 0,
+   "pontos": 17,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -29,6 +42,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "GONÇALO COSTA",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 6,
+   "numero": "2",
+   "golos": 11,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 12,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DAVI OLIVEIRA",
    "equipa": "CACO A",
    "jogos": 7,
@@ -42,27 +68,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "RODRIGO PASSARINHO",
-   "equipa": "CD PAÇO ARCOS A",
-   "jogos": 6,
-   "numero": "4",
-   "golos": 10,
-   "assistencias": 6,
-   "defesas": 0,
-   "pontos": 16,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIOGO CAVACO",
    "equipa": "SL BENFICA B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "3",
    "golos": 10,
-   "assistencias": 2,
+   "assistencias": 3,
    "defesas": 0,
-   "pontos": 12,
+   "pontos": 13,
    "amarelos": 0,
    "azuis": 4,
    "vermelhos": 0
@@ -78,19 +91,6 @@
    "pontos": 12,
    "amarelos": 0,
    "azuis": 2,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO COSTA",
-   "equipa": "CD PAÇO ARCOS A",
-   "jogos": 5,
-   "numero": "2",
-   "golos": 10,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 11,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -135,7 +135,7 @@
   {
    "nome": "TOMÁS ROSÁRIO",
    "equipa": "CD PAÇO ARCOS A",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "8",
    "golos": 6,
    "assistencias": 1,
@@ -159,6 +159,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "RICARDO BARREIROS",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 7,
+   "numero": "7",
+   "golos": 5,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 7,
+   "amarelos": 2,
+   "azuis": 2,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUSTAVO MATIAS",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 7,
+   "numero": "5",
+   "golos": 5,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 6,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TOMÁS LEITÃO",
    "equipa": "S ALENQUER BENFICA",
    "jogos": 7,
@@ -172,14 +198,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUSTAVO MATIAS",
-   "equipa": "CD PAÇO ARCOS A",
-   "jogos": 6,
-   "numero": "5",
+   "nome": "VICENTE PERES",
+   "equipa": "SL BENFICA B",
+   "jogos": 7,
+   "numero": "4",
    "golos": 5,
-   "assistencias": 0,
+   "assistencias": 1,
    "defesas": 0,
-   "pontos": 5,
+   "pontos": 6,
    "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
@@ -224,41 +250,28 @@
    "vermelhos": 0
   },
   {
-   "nome": "RICARDO BARREIROS",
-   "equipa": "CD PAÇO ARCOS A",
+   "nome": "ANDRÉ ROSADO",
+   "equipa": "SL BENFICA B",
    "jogos": 6,
-   "numero": "7",
+   "numero": "9",
    "golos": 4,
    "assistencias": 2,
    "defesas": 0,
    "pontos": 6,
-   "amarelos": 2,
-   "azuis": 2,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ANDRÉ ROSADO",
-   "equipa": "SL BENFICA B",
-   "jogos": 5,
-   "numero": "9",
-   "golos": 4,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 5,
    "amarelos": 0,
    "azuis": 2,
    "vermelhos": 0
   },
   {
-   "nome": "VICENTE PERES",
+   "nome": "ALEXANDRE LORY",
    "equipa": "SL BENFICA B",
-   "jogos": 6,
-   "numero": "4",
+   "jogos": 7,
+   "numero": "6",
    "golos": 4,
    "assistencias": 1,
    "defesas": 0,
    "pontos": 5,
-   "amarelos": 1,
+   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -328,19 +341,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ALEXANDRE LORY",
-   "equipa": "SL BENFICA B",
-   "jogos": 6,
-   "numero": "6",
-   "golos": 3,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DINIS FERRO",
    "equipa": "S ALENQUER BENFICA",
    "jogos": 6,
@@ -393,6 +393,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DINIS VALENTE",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 5,
+   "numero": "9",
+   "golos": 2,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "FRANCISCO GRAÇA",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 4,
@@ -402,19 +415,6 @@
    "defesas": 0,
    "pontos": 4,
    "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DINIS VALENTE",
-   "equipa": "CD PAÇO ARCOS A",
-   "jogos": 4,
-   "numero": "9",
-   "golos": 2,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -447,7 +447,7 @@
   {
    "nome": "FRANCISCO PIÇARRA",
    "equipa": "SL BENFICA B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "8",
    "golos": 2,
    "assistencias": 0,
@@ -536,10 +536,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUSTAVO GUERREIRO",
-   "equipa": "SL BENFICA B",
+   "nome": "PAULO BORDALO",
+   "equipa": "FSE/AJ SALESIANA B",
    "jogos": 6,
-   "numero": "5",
+   "numero": "10",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -549,10 +549,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "PAULO BORDALO",
-   "equipa": "FSE/AJ SALESIANA B",
-   "jogos": 6,
-   "numero": "10",
+   "nome": "GUSTAVO GUERREIRO",
+   "equipa": "SL BENFICA B",
+   "jogos": 7,
+   "numero": "5",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -627,32 +627,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DANIEL MOREIRA",
-   "equipa": "SL BENFICA B",
-   "jogos": 4,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "FILIPA GONÇALVES",
-   "equipa": "SL BENFICA B",
-   "jogos": 4,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GUILHERME GOMES",
    "equipa": "SL BENFICA B",
    "jogos": 4,
@@ -679,10 +653,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOSÉ SIMÕES",
+   "nome": "DANIEL MOREIRA",
    "equipa": "SL BENFICA B",
-   "jogos": 4,
-   "numero": "7",
+   "jogos": 5,
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -718,6 +692,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "FILIPA GONÇALVES",
+   "equipa": "SL BENFICA B",
+   "jogos": 5,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOSÉ SIMÕES",
+   "equipa": "SL BENFICA B",
+   "jogos": 5,
+   "numero": "7",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "NUNO GONZALEZ",
    "equipa": "FSE/AJ SALESIANA B",
    "jogos": 5,
@@ -727,32 +727,6 @@
    "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "AFONSO NEVES",
-   "equipa": "CD PAÇO ARCOS A",
-   "jogos": 6,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "EDUARDO DANTAS",
-   "equipa": "CD PAÇO ARCOS A",
-   "jogos": 6,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -777,19 +751,6 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "PEDRO FONSECA",
-   "equipa": "SL BENFICA B",
-   "jogos": 6,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -822,6 +783,32 @@
    "vermelhos": 0
   },
   {
+   "nome": "AFONSO NEVES",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 7,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "EDUARDO DANTAS",
+   "equipa": "CD PAÇO ARCOS A",
+   "jogos": 7,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GIL LOPES",
    "equipa": "CRIAR-T GD",
    "jogos": 7,
@@ -842,6 +829,19 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 3,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PEDRO FONSECA",
+   "equipa": "SL BENFICA B",
+   "jogos": 7,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
