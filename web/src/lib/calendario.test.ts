@@ -1,6 +1,6 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { adversario, jogoPrecisaDeMarca, localDoDia, localDoJogo } from './calendario';
+import { adversario, jogoPrecisaDeMarca, jornadaCurta, localDoDia, localDoJogo } from './calendario';
 import type { Jogo } from './tipos';
 
 /**
@@ -108,5 +108,37 @@ describe('contra os dados publicados', () => {
 		// (`SUB-17 · CACO A`, 12/09) era um deles.
 		const mistos = [...dias].filter(([chave, js]) => localDoDia(js, chave.split('\u0000')[1]) === 'misto');
 		expect(mistos.length).toBeGreaterThan(0);
+	});
+});
+
+describe('a jornada na célula do dia', () => {
+	it('encurta as duas formas que a fonte usa', () => {
+		expect(jornadaCurta('5ª JORNADA')).toBe('J5');
+		expect(jornadaCurta('12ª JORNADA - 1ª FASE')).toBe('J12');
+		expect(jornadaCurta('JORNADA 3')).toBe('J3');
+	});
+
+	it('não inventa sigla para rondas de Taça e torneios', () => {
+		for (const j of ['MEIA FINAL', 'FINAL FOUR - QUARTOS FINAL', 'TORNEIO PEDRO ROSADO', 'SUB-13', '', null])
+			expect(jornadaCurta(j)).toBeNull();
+	});
+
+	it('todas as jornadas numeradas publicadas ganham sigla', () => {
+		const raiz = new URL('../../static/v1/aplisboa/', import.meta.url);
+		if (!existsSync(raiz)) return;
+		const epoca = readdirSync(raiz).sort().reverse()[0];
+		const pasta = new URL(`${epoca}/comp/`, raiz);
+		const falhas = new Set<string>();
+		let numeradas = 0;
+		for (const f of readdirSync(pasta).filter((x) => x.endsWith('.json'))) {
+			const { jogos } = JSON.parse(readFileSync(new URL(f, pasta), 'utf8')) as { jogos: Jogo[] };
+			for (const j of jogos) {
+				if (!/JORNADA/i.test(j.jornada ?? '')) continue;
+				numeradas++;
+				if (!jornadaCurta(j.jornada)) falhas.add(j.jornada);
+			}
+		}
+		expect(numeradas).toBeGreaterThan(0);
+		expect([...falhas]).toEqual([]);
 	});
 });
