@@ -42,7 +42,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.10';
+export const VERSAO = '1.11';
 
 /**
  * **O número que se vê sobe uma vez por entrega; o site de testes ganha uma marca por cima.**
@@ -154,6 +154,18 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.11',
+		data: '2026-11-09',
+		pontos: [
+			{
+				tipo: 'novo',
+				titulo: '🗓️ O calendário da equipa diz a jornada',
+				texto:
+					'No mês da tua equipa, por baixo de cada jogo, aparece a jornada: J5 é a 5.ª jornada. As rondas das Taças e os torneios ficam sem sigla. Foi uma sugestão vossa — obrigado!'
+			}
+		]
+	},
 	{
 		versao: '1.10',
 		data: '2026-11-02',
