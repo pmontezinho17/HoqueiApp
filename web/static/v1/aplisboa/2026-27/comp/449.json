@@ -57,7 +57,7 @@
    "hora": "11:15:00",
    "casa": "AE FISICA D A",
    "fora": "HC LOURINHÃ",
-   "golos_casa": 5,
+   "golos_casa": 10,
    "golos_fora": 0,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
@@ -85,8 +85,8 @@
    "hora": "16:30:00",
    "casa": "HC LOURINHÃ",
    "fora": "A STUART HCM B",
-   "golos_casa": 9,
-   "golos_fora": 1,
+   "golos_casa": 0,
+   "golos_fora": 10,
    "recinto": "PAV. GIMNO. DA LOURINHÃ",
    "ao_vivo": false
   },
