@@ -951,6 +951,10 @@ def comando_publicar(args) -> int:
                     "gc": j.golos_casa, "gf": j.golos_fora,
                     "recinto": j.recinto, "comp": prova.id,
                     "prova": prova.nome, "cat": prova.categoria,
+                    # Desde 04/11/2026, para as listas de jogos dizerem a jornada (S6). Zero
+                    # pedidos: vem no calendário que já se leu. Medido nesse dia: +21 KB nos
+                    # 296 KB da agenda, e +1,2 KB comprimida (15,8 para 17,0 KB).
+                    "jornada": j.jornada or None,
                     **{k: v for k, v in identificar(prova.categoria, prova.nome).items()
                        if k in ("grupo_id", "grupo_nome", "serie")},
                 })

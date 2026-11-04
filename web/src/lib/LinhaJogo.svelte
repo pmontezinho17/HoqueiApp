@@ -8,6 +8,7 @@
 	import { barraDoMerito, descricaoDoMerito } from './meritoDoJogo';
 	import type { JogoAgenda } from './tipos';
 	import { horaNoAparelho } from './dia';
+	import { jornadaCurta } from './calendario';
 
 	let {
 		jogo, emblemas, seguida, comData = false, comEscalao = false
@@ -100,6 +101,12 @@
 			{/if}
 		{/if}
 		{#if comEscalao}<span class="escalao">{escalaoCurto(jogo.cat)}</span>{/if}
+		<!-- A jornada, a pedido do dono a 04/11/2026, em todas as listas e não só no mês da equipa.
+		     Em cada jogo e não no cabeçalho da série: medido nesse dia, em 12 dos 353 dias-série
+		     publicados há jogos de mais do que uma jornada (antecipados e torneios), e agrupada por
+		     hora ou pavilhão a lista nem tem cabeçalho de série. O calendário da competição já
+		     agrupa por jornada, e por isso não a passa. Durante o jogo a coluna é da fase. -->
+		{#if !live && jornadaCurta(jogo.jornada)}<span class="jornada">{jornadaCurta(jogo.jornada)}</span>{/if}
 	</span>
 
 	<span class="equipas">
@@ -220,6 +227,8 @@
 	   ia por baixo do emblema; "10:00 PT" mede 41 e cabe sem alargar a coluna. */
 	.lisboa { color: var(--suave); font-variant-numeric: tabular-nums; font-size: 0.5625rem;
 		white-space: nowrap; }
+	.jornada { color: var(--suave); font-size: 0.5625rem; font-variant-numeric: tabular-nums;
+		line-height: 1; }
 	.hora sup { font-size: 0.7em; margin-left: 0.05em; }
 	/* a hora de quem está a ver manda; a de Lisboa fica por baixo, mais pequena */
 	.duasHoras .hora { color: var(--texto); font-weight: 600; }

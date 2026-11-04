@@ -206,6 +206,8 @@ def contrato_intacto(base: str) -> str | None:
             return f"{V1}/{nome} não tem {', '.join(faltam)} — o contrato mudou"
         if nome == "agenda.json" and (mal := _merito_mal_formado(d.get("jogos") or [])):
             return f"{V1}/agenda.json: {mal} — o contrato mudou"
+        if nome == "agenda.json" and (mal := _jornada_mal_formada(d.get("jogos") or [])):
+            return f"{V1}/agenda.json: {mal} — o contrato mudou"
         if nome == "agenda.json" and (mal := _uma_ficha_com_merito(base, d.get("jogos") or [])):
             return mal
     return None
@@ -271,6 +273,18 @@ def _merito_mal_formado(jogos: list) -> str | None:
         com_j = m.get("com_j", [])
         if not (isinstance(com_j, list) and all(lado in ("casa", "fora") for lado in com_j)):
             return f"o Mérito do jogo {j.get('id')} tem um com_j que não é uma lista de lados"
+    return None
+
+
+def _jornada_mal_formada(jogos: list) -> str | None:
+    """A `jornada` de cada jogo da agenda, desde 04/11/2026, é texto ou nada.
+
+    Opcional, porque a agenda de antes não a tinha e os jogos de torneio podem vir sem ela.
+    Quando existe tem de ser texto: a linha do jogo passa-a por uma expressão regular.
+    """
+    for j in jogos:
+        if isinstance(j, dict) and not isinstance(j.get("jornada"), (str, type(None))):
+            return f"a jornada do jogo {j.get('id')} não é texto"
     return None
 
 

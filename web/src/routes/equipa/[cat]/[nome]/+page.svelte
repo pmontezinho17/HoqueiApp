@@ -278,6 +278,7 @@
 		id: j.id, data: j.data ?? '', hora: j.hora ? j.hora.slice(0, 5) : null,
 		casa: j.casa, fora: j.fora, gc: j.golos_casa, gf: j.golos_fora,
 		recinto: j.recinto, comp: data.provas[0]?.id ?? 0, prova: '', cat: data.categoria,
+		jornada: j.jornada,
 		merito: j.id !== null ? meritoDosJogos.get(j.id) : undefined
 	});
 	const destaque = (e: string) => e === data.equipa;
