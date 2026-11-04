@@ -253,6 +253,12 @@ class TestCadaVerificacaoSozinha:
             (200, CACHE_NOSSA, agenda) if u.endswith("/agenda.json") else None))
         assert len(falhas) == 1 and "com_j" in falhas[0]
 
+    def test_uma_jornada_que_nao_e_texto(self, vp, monkeypatch):
+        agenda = json.dumps({"jogos": [{"id": 1, "jornada": 8}]}).encode()
+        falhas = self._com(vp, monkeypatch, lambda u: (
+            (200, CACHE_NOSSA, agenda) if u.endswith("/agenda.json") else None))
+        assert len(falhas) == 1 and "jornada" in falhas[0]
+
     def test_um_json_truncado(self, vp, monkeypatch):
         falhas = self._com(vp, monkeypatch, lambda u: (
             (200, CACHE_NOSSA, b'{"jogos": [') if u.endswith("/agenda.json") else None))

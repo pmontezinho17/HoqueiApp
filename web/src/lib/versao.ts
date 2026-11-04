@@ -160,9 +160,9 @@ export const NOVIDADES: Novidade[] = [
 		pontos: [
 			{
 				tipo: 'novo',
-				titulo: '🗓️ O calendário da equipa diz a jornada',
+				titulo: '🗓️ Cada jogo diz a jornada',
 				texto:
-					'No mês da tua equipa, por baixo de cada jogo, aparece a jornada: J5 é a 5.ª jornada. As rondas das Taças e os torneios ficam sem sigla. Foi uma sugestão vossa — obrigado!'
+					'Na lista de jogos do dia, nos jogos da tua equipa e no mês do calendário, por baixo da hora de cada jogo aparece a jornada: J5 é a 5.ª jornada. As rondas das Taças e os torneios ficam sem sigla. Foi uma sugestão vossa — obrigado!'
 			}
 		]
 	},

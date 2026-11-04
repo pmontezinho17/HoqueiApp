@@ -213,6 +213,8 @@ export interface JogoAgenda {
 	/** o Mérito do jogo, só nos jogos disputados dos Encontros Distritais com boletim */
 	merito?: ResumoMerito;
 	grupo_id?: string; grupo_nome?: string; serie?: string | null;
+	/** desde 04/11/2026; as agendas de antes não a têm, e os torneios podem vir sem ela */
+	jornada?: string | null;
 }
 export interface Agenda { jogos: JogoAgenda[]; }
 
