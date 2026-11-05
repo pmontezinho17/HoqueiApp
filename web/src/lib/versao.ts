@@ -163,6 +163,12 @@ export const NOVIDADES: Novidade[] = [
 				titulo: '🗓️ Cada jogo diz a jornada',
 				texto:
 					'Na lista de jogos do dia, nos jogos da tua equipa e no mês do calendário, por baixo da hora de cada jogo aparece a jornada: J5 é a 5.ª jornada. As rondas das Taças e os torneios ficam sem sigla. Foi uma sugestão vossa — obrigado!'
+			},
+			{
+				tipo: 'novo',
+				titulo: '🧭 Uma barra de baixo nova',
+				texto:
+					'A barra com Jogos, O Meu Clube e Competições passou a flutuar sobre a página. Quando desces, encolhe e fica só com os ícones, para veres mais jogos; quando sobes, volta inteira. No Android, a faixa por baixo dela deixou de ser amarela.'
 			}
 		]
 	},

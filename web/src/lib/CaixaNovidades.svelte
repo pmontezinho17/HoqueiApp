@@ -91,7 +91,7 @@
 		left: var(--e-4);
 		right: var(--e-4);
 		/* folga para a barra de baixo e para o recorte do telemóvel */
-		--fundo: calc(52px + env(safe-area-inset-bottom) + var(--e-3));
+		--fundo: calc(var(--barra-ocupa) + var(--e-3));
 		bottom: var(--fundo);
 		max-width: 30rem;
 		margin-inline: auto;
@@ -174,5 +174,5 @@
 	   canto, e a bolha é desenhada depois, logo ganha — medido a 375×812 com a lista da 1.1.
 	   O `main` já reserva 60px para o mesmo problema; aqui a caixa sobe acima dela, que não
 	   desperdiça espaço por dentro como um `padding` faria. */
-	.caixa.comBolha { --fundo: calc(52px + env(safe-area-inset-bottom) + var(--e-4) + 60px); }
+	.caixa.comBolha { --fundo: calc(var(--barra-ocupa) + var(--e-4) + 60px); }
 </style>
