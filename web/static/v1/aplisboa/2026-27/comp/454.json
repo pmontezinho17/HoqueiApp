@@ -212,7 +212,7 @@
    "casa": "UD VILAFRANQUENSE",
    "fora": "AD OEIRAS A",
    "golos_casa": 0,
-   "golos_fora": 2,
+   "golos_fora": 7,
    "recinto": "PAV. VILAFRANQUENSE",
    "ao_vivo": false
   },
@@ -327,10 +327,10 @@
      "vitorias": 6,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 67,
+     "golos_marcados": 72,
      "golos_sofridos": 8,
-     "diferenca": 59,
-     "racio": 8.38,
+     "diferenca": 64,
+     "racio": 9.0,
      "pontos": 18
     },
     {
@@ -370,9 +370,9 @@
      "empates": 0,
      "derrotas": 4,
      "golos_marcados": 36,
-     "golos_sofridos": 31,
-     "diferenca": 5,
-     "racio": 1.16,
+     "golos_sofridos": 36,
+     "diferenca": 0,
+     "racio": 1.0,
      "pontos": 6
     },
     {
