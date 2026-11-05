@@ -25,6 +25,7 @@
 	import { cor } from '$lib/cor.svelte';
 	import { APP_NOME } from '$lib/sitio';
 	import { marcarPresenca, marcarSessao } from '$lib/presenca';
+	import { aoRolar, type EstadoBarra } from '$lib/barra';
 
 	let { data, children } = $props();
 
@@ -72,6 +73,20 @@
 	let anterior: Seccao | null = null;
 	const seccao = $derived.by(() => (anterior = seccaoDe(page.url.pathname, anterior)));
 	const activa = (href: string) => seccao === href;
+
+	// A barra de baixo recolhe-se a descer — ver `lib/barra.ts`. Quem pede menos movimento fica
+	// com ela sempre inteira: uma barra que encolhe e cresce sozinha é movimento que ninguém
+	// pediu, e a regra global do CSS só lhe tirava a animação, não a mudança.
+	let barra = $state<EstadoBarra>({ recolhida: false, desde: 0 });
+	$effect(() => {
+		if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+		const seguir = () => {
+			const seguinte = aoRolar(barra, scrollY);
+			if (seguinte !== barra) barra = seguinte;
+		};
+		addEventListener('scroll', seguir, { passive: true });
+		return () => removeEventListener('scroll', seguir);
+	});
 
 	/** altura real do cabeçalho colado, publicada em `--topo` para quem precise de colar
 	 *  algo imediatamente abaixo dele */
@@ -172,15 +187,20 @@
   fonte" — o "em todas as páginas" era regra nossa, não promessa. Fica em dois cliques em vez
   de um, e em troca o rodapé deixa de empurrar a barra de navegação.
 -->
-<nav class="barra" aria-label="Secções">
+<nav class="barra" class:recolhida={barra.recolhida} aria-label="Secções">
 	{#each SECCOES as s (s.href)}
 		<a
 			href={s.href}
 			aria-current={activa(s.href) ? (page.url.pathname === s.href ? 'page' : 'true') : undefined}
 			data-guia={s.href === '/' ? undefined : `nav-${s.href.slice(1)}`}
 		>
-			<Icone nome={s.icone} tamanho={21} />
-			<span>{s.rotulo}{#if s.href === '/clube' && favoritos.lista.length}<i class="conta">{favoritos.lista.length}</i>{/if}</span>
+			<!-- recolhida, o rótulo esconde-se só à vista e o contador sobe para cima do ícone;
+			     o do ícone é `aria-hidden` porque o leitor de ecrã já lê o do rótulo -->
+			<span class="simbolo">
+				<Icone nome={s.icone} tamanho={21} />
+				{#if s.href === '/clube' && favoritos.lista.length}<i class="conta sobre" aria-hidden="true">{favoritos.lista.length}</i>{/if}
+			</span>
+			<span class="rotulo">{s.rotulo}{#if s.href === '/clube' && favoritos.lista.length}<i class="conta">{favoritos.lista.length}</i>{/if}</span>
 		</a>
 	{/each}
 </nav>
@@ -227,6 +247,13 @@
 		--e-4: 12px; --e-5: 16px; --e-6: 24px; --e-7: 32px;
 
 		--raio: 8px; --raio-cartao: 12px; --raio-pilula: 999px;
+
+		/* O espaço que a barra de baixo ocupa a contar do fundo do ecrã: os 52px dela, o ar
+		   por baixo, e a risca do iPhone. Era `52px + env(safe-area-inset-bottom)` repetido
+		   em seis sítios até a barra passar a flutuar a 05/11/2026. **É o da barra inteira,
+		   também quando ela está recolhida**: se a bolha e as caixas acompanhassem a barra a
+		   encolher, saltavam a cada inversão do dedo. */
+		--barra-ocupa: calc(52px + var(--e-3) + env(safe-area-inset-bottom));
 
 		/* Três níveis de texto e dois de separador, onde antes havia dois e um. É o que
 		   permite o cabeçalho de uma secção recuar atrás do conteúdo em vez de competir
@@ -399,22 +426,47 @@
 		border: 0; background: none; padding: 0; font: inherit; cursor: pointer; }
 	.icone:hover, .icone:focus-visible { color: var(--acento); }
 
-	/* Barra de navegação em baixo, fixa.
+	/* Barra de navegação em baixo, a flutuar.
+	 *
+	 * Uma pílula afastada das margens, e não uma faixa de lado a lado, por pedido do dono a
+	 * 05/11/2026, a partir de uma app de futebol que ele usa. O ar por baixo dela é a página,
+	 * que segue o tema; a barra dos gestos do Android, mais abaixo, não segue (ver o
+	 * `theme_color` no `vite.config.ts`).
 	 *
 	 * `env(safe-area-inset-bottom)` não é enfeite: no iPhone a barra ficava por baixo da
 	 * risca de gestos e o terceiro separador era impossível de tocar. */
 	.barra {
-		position: fixed; inset: auto 0 0 0; z-index: 10;
-		background: var(--fundo); border-top: 1px solid var(--borda);
-		padding-bottom: env(safe-area-inset-bottom);
+		position: fixed; z-index: 10;
+		left: var(--e-4); right: var(--e-4);
+		bottom: calc(var(--e-3) + env(safe-area-inset-bottom));
+		max-width: 30rem; margin: 0 auto;
+		background: var(--cartao); border: 1px solid var(--borda);
+		border-radius: var(--raio-pilula);
+		box-shadow: 0 4px 18px rgb(0 0 0 / 0.14);
 		display: flex; justify-content: center;
 	}
 	.barra a {
 		flex: 1 1 0; max-width: 10rem;
 		display: flex; flex-direction: column; align-items: center; justify-content: center;
-		gap: 2px; min-height: 52px; padding: var(--e-2) var(--e-1);
+		/* 50 e não 52: a borda da pílula fecha os 52 que o `--barra-ocupa` reserva */
+		gap: 2px; min-height: 50px; padding: var(--e-1);
 		font-size: var(--t-micro); text-decoration: none; color: var(--suave);
 		white-space: nowrap;
+		transition: min-height 0.2s ease;
+	}
+	.simbolo { position: relative; display: inline-flex; }
+	.sobre { display: none; }
+
+	/* Recolhida: só os ícones. Os 44px são o mínimo de toque que não se negocia, e o rótulo
+	   sai só da vista — quem lê por voz continua a ouvir "O Meu Clube". */
+	.barra.recolhida a { min-height: 44px; }
+	.barra.recolhida .rotulo {
+		position: absolute; width: 1px; height: 1px; overflow: hidden;
+		clip-path: inset(50%); white-space: nowrap;
+	}
+	.barra.recolhida .sobre {
+		display: inline-block; position: absolute; top: -5px; left: 70%; margin-left: 0;
+		line-height: 1.35;
 	}
 	/* `page` na própria secção, `true` num jogo ou numa equipa aberta a partir dela: para quem
 	   lê por voz não é a mesma coisa, e para quem vê é */
@@ -429,11 +481,11 @@
 	/* o `padding-bottom` tem de limpar a barra fixa, senão o último jogo fica debaixo dela */
 	main {
 		max-width: 44rem; margin: 0 auto;
-		padding: var(--e-4) 0.9rem calc(52px + env(safe-area-inset-bottom) + var(--e-6));
+		padding: var(--e-4) 0.9rem calc(var(--barra-ocupa) + var(--e-6));
 	}
 
 	/* a altura da bolha (48px) mais o ar à volta dela */
-	main.comBolha { padding-bottom: calc(52px + env(safe-area-inset-bottom) + var(--e-6) + 60px); }
+	main.comBolha { padding-bottom: calc(var(--barra-ocupa) + var(--e-6) + 60px); }
 
 	.progresso {
 		position: fixed; inset: 0 0 auto 0; height: 3px; background: var(--acento);
