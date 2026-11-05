@@ -239,8 +239,8 @@
    "hora": "20:00:00",
    "casa": "BIBLIOTECA IR A",
    "fora": "BIBLIOTECA IR B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 5,
+   "golos_fora": 0,
    "recinto": "PAV. VALADO DE FRADES",
    "ao_vivo": false
   },
@@ -349,6 +349,20 @@
     },
     {
      "posicao": 3,
+     "equipa": "BIBLIOTECA IR A",
+     "logo": "/intranet/logos/22.png",
+     "jogos": 7,
+     "vitorias": 2,
+     "empates": 1,
+     "derrotas": 4,
+     "golos_marcados": 20,
+     "golos_sofridos": 25,
+     "diferenca": -5,
+     "racio": 0.8,
+     "pontos": 7
+    },
+    {
+     "posicao": 4,
      "equipa": "UF ENTRONCAMENTO",
      "logo": "/intranet/logos/24.png",
      "jogos": 6,
@@ -362,31 +376,17 @@
      "pontos": 7
     },
     {
-     "posicao": 4,
-     "equipa": "BIBLIOTECA IR A",
-     "logo": "/intranet/logos/22.png",
-     "jogos": 6,
-     "vitorias": 1,
-     "empates": 1,
-     "derrotas": 4,
-     "golos_marcados": 15,
-     "golos_sofridos": 25,
-     "diferenca": -10,
-     "racio": 0.6,
-     "pontos": 4
-    },
-    {
      "posicao": 5,
      "equipa": "BIBLIOTECA IR B",
      "logo": "/intranet/logos/22.png",
-     "jogos": 5,
+     "jogos": 6,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 5,
+     "derrotas": 6,
      "golos_marcados": 6,
-     "golos_sofridos": 45,
-     "diferenca": -39,
-     "racio": 0.13,
+     "golos_sofridos": 50,
+     "diferenca": -44,
+     "racio": 0.12,
      "pontos": 0
     }
    ]
