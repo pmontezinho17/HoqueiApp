@@ -2020,6 +2020,13 @@ interface continua verde — medido a 07/10/2026, nenhum amarelo passa os 4,5:1 
 nos dois temas com um valor só: o torrado dá 3,06 no claro e a mostarda clara 2,38. Para o
 ícone serve, que aí o mínimo é 3:1 e o stick é branco sobre a cor.
 
+**O `theme_color` deixou o amarelo a 04/11/2026** e passou a ser o `#0f1115` do
+`background_color`. O que se escreveu acima estava incompleto: o Android também pinta com ele a
+barra dos gestos, por baixo da nossa barra de navegação, e o dono viu-a torrada sobre uma página
+cinzenta no telemóvel dele (Android 17, Chrome 156). A página não a consegue mudar — o Chrome só
+lê o manifesto ao instalar e ao actualizar a app, e o manifesto tem uma cor para os dois temas.
+O porquê da escolha está no comentário do `vite.config.ts`. O ícone continua amarelo.
+
 Fica em aberto, por escolha do dono: experimentar a interface inteira em torrado, com dois
 valores por tema — ocre `#8a5a00` no claro (5,93) e `#e0a92a` no escuro —, como já se faz com
 a estrela dos favoritos.
