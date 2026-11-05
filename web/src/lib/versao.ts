@@ -168,7 +168,7 @@ export const NOVIDADES: Novidade[] = [
 				tipo: 'novo',
 				titulo: '🧭 Uma barra de baixo nova',
 				texto:
-					'A barra com Jogos, O Meu Clube e Competições passou a flutuar sobre a página. Quando desces, encolhe e fica só com os ícones, para veres mais jogos; quando sobes, volta inteira. No Android, a faixa por baixo dela deixou de ser amarela.'
+					'A barra com Jogos, O Meu Clube e Competições passou a flutuar sobre a página, afastada das margens. No Android, a faixa por baixo dela deixou de ser amarela.'
 			}
 		]
 	},
