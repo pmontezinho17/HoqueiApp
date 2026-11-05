@@ -849,7 +849,50 @@
    "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
+   "Árbitro Auxiliar": "RUI GOMES",
+   "Cronometrista": "LUIS DANTAS",
+   "Diretor de campo": "TIAGO FRANCISCO",
+   "Gestor de segurança": "LUIS PAULINO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 2
+   }
+  ],
+  "faltas_casa": [
+   5,
+   4
+  ],
+  "faltas_fora": [
+   1,
+   7
+  ],
+  "inicio": [
+   "21:45",
+   "22:28"
+  ],
+  "termo": [
+   "22:18",
+   "22:56"
+  ],
+  "capitao_casa": "DINIS VALENTE",
+  "capitao_fora": "DIOGO CAVACO"
+ },
  "competicao_id": 452,
  "categoria": "SUB-17",
  "jornada": "7ª JORNADA",
