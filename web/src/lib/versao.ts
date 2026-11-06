@@ -169,6 +169,12 @@ export const NOVIDADES: Novidade[] = [
 				titulo: '🧭 Uma barra de baixo nova',
 				texto:
 					'A barra com Jogos, O Meu Clube e Competições passou a flutuar ao centro, do tamanho dos três botões, e encolhe para só os ícones quando se desce a página. No Android, a faixa por baixo dela deixou de ser amarela.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: '🔢 O calendário da prova pela ordem das jornadas',
+				texto:
+					'Um jogo antecipado levava a jornada inteira para trás: nos Sub-13 a 6.ª jornada aparecia logo a seguir à 2.ª. Agora as jornadas vêm sempre por ordem, e o jogo antecipado fica na sua, com a data em que se jogou.'
 			}
 		]
 	},

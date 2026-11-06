@@ -1,7 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { diaDeLisboa } from './dia';
-import { faseCurta, jornadaAtual, nomeProprio, nomeProva, situacaoADecorrer } from './formato';
+import { faseCurta, jornadaAtual, nomeProprio, nomeProva, porJornada, situacaoADecorrer } from './formato';
 import { disputado, type Jogo } from './tipos';
 
 describe('nomeProprio', () => {
@@ -185,5 +185,42 @@ describe('situacaoADecorrer', () => {
 	it('o intervalo e as partes estão a decorrer', () => {
 		for (const s of ['Intervalo', '2ª Parte (13:26)', 'Prolongamento'])
 			expect(situacaoADecorrer(s)).toBe(true);
+	});
+});
+
+describe('porJornada', () => {
+	const jogo = (jornada: string, data: string, hora = '15:00') =>
+		({ jornada, data, hora, casa: `${jornada}${data}`, fora: 'X' }) as unknown as Jogo;
+
+	it('um jogo antecipado não leva a jornada dele para trás', () => {
+		// Sub-13, Série C, como o dono o viu a 06/11/2026: a 6ª jornada com um jogo a 5/10
+		const jogos = [
+			jogo('1ª JORNADA', '2026-09-26'),
+			jogo('2ª JORNADA', '2026-10-03'),
+			jogo('3ª JORNADA', '2026-10-11'),
+			jogo('6ª JORNADA', '2026-10-25'),
+			jogo('6ª JORNADA', '2026-10-05')
+		];
+		const r = porJornada(jogos);
+		expect(r.map(([j]) => j)).toEqual(['1ª JORNADA', '2ª JORNADA', '3ª JORNADA', '6ª JORNADA']);
+		// e dentro da jornada, por quando se joga
+		expect(r[3][1].map((j) => j.data)).toEqual(['2026-10-05', '2026-10-25']);
+	});
+
+	// Os dados publicados: nas provas com todas as jornadas numeradas, os números sobem sempre,
+	// e nenhum jogo se perde nem se repete. Não fixa quais têm jogos antecipados — isso muda.
+	const raiz = new URL('../../static/v1/aplisboa/', import.meta.url);
+	const temporadas = existsSync(raiz) ? readdirSync(raiz).sort().reverse() : [];
+	const pasta = new URL(`${temporadas[0]}/comp/`, raiz);
+	const provas = existsSync(pasta) ? readdirSync(pasta).filter((f) => f.endsWith('.json')) : [];
+	const numero = (j: string) => Number(/^(\d+)ª\s+JORNADA\b/i.exec(j)?.[1] ?? NaN);
+
+	it.each(provas)('em %s, as jornadas numeradas saem por ordem', (f) => {
+		const jogos: Jogo[] = JSON.parse(readFileSync(new URL(f, pasta), 'utf-8')).jogos ?? [];
+		const r = porJornada(jogos);
+		expect(r.reduce((n, [, js]) => n + js.length, 0)).toBe(jogos.length);
+		const ns = r.map(([j]) => numero(j));
+		if (ns.some(Number.isNaN)) return;
+		expect(ns).toEqual([...ns].sort((a, b) => a - b));
 	});
 });
