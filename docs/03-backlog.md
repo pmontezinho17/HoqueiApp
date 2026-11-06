@@ -1804,6 +1804,48 @@ valer a pena:
 vezes esta semana, e amanhã é véspera de um fim de semana com 75 jogos. Uma contagem
 incompleta e honesta vale mais do que um publicador arriscado.
 
+### Feito a 30/10/2026 — pela fonte, e não pelo publicador (🟡 no `dev`)
+
+O dono olhou para a consola nessa tarde: *"parece-me que hoje não foi executado a ronda da
+meia noite"*. Tinha sido, às 02:44, com 39 pedidos — 37 calendários e 2 listas — e nada de
+novo, porque na véspera não houve jogos e a APL não mexeu em calendário nenhum. Não publicou,
+e a consola deu **zero pedidos no dia**. Pior: o cartão "40 na última ronda" era de uma ronda
+de **véspera**. Medido nos commits desde 06/10: a ronda das 00:30 não publicou a 06/10, 08/10,
+12/10 e 30/10; nas outras noites a APL tinha mudado sempre alguma coisa, e por isso o defeito
+parecia não existir.
+
+O dono pediu dois gráficos: *"um para todas as chamadas [...] à APL (independentemente de ter
+atualizações), e outro para informar o número de atualizações"*.
+
+**A saída escolhida não é a da tabela acima.** Uma linha sempre comitada mexia no publicador e
+punha um commit por ronda no `main` — ~600 num sábado de ciclo ao vivo. Em vez disso conta
+quem pede: o `Fonte.__exit__` envia ao observador, no fim de cada processo, os pedidos por
+tipo (`scraper/src/hoquei/registo.py`), e o observador guarda-os na tabela `ronda_fonte` com
+um `POST /ronda` protegido pelo segredo `CHAVE_RONDAS`. Conta também o que nunca tinha sido
+contado: as rondas ao vivo sem golos, que nem escreviam o `meta.json`, a sonda, e o botão do
+site de testes — à parte, porque é outro ambiente a pedir ao mesmo servidor.
+
+| | antes | depois |
+|---|---|---|
+| ronda sem novidade | invisível | conta, à hora a que correu |
+| ronda ao vivo sem golos | invisível | conta |
+| sonda (~3 fichas de 3 em 3 min ao fim de semana) | nunca contada | conta, como "sonda dos jogos" |
+| botão do site de testes | nunca contado | conta, como "botão do site de testes" |
+| "pedidos à APL, agora" | a última ronda **que publicou** | a última ida, com a hora e quem a fez |
+| actualizações | um número solto | um gráfico por hora, à hora da ronda que as fez |
+
+Custa **zero** pedidos à APL e uma linha na D1 por ronda. Os dias anteriores ao registo
+continuam desenhados com a conta antiga, e a página diz qual das duas está a mostrar.
+
+**Rondas e publicações ficam lado a lado, sem se subtraírem**: uma publicação de código (o
+`so_publicar`) muda os dados sem ronda nenhuma, e "N rondas não trouxeram nada" seria uma conta
+que só parece exacta.
+
+**Entra com a entrega de segunda**, e é aí que se verifica: o `observador.yml`, novo, publica o
+Worker a partir do `main` e confirma que o `/ronda` responde 401 sem chave. Até lá o raspador do
+`dev` envia para um observador que ainda não tem o `/ronda`, recebe 404 e segue — uma medição
+perdida nunca pára uma ronda.
+
 ## Aparelhos distintos por dia, sem identificador (08/10/2026)
 
 O dono perguntou se dá para medir utilizadores distintos. **Pessoas, não** — isso exige um

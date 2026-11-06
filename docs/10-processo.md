@@ -14,7 +14,7 @@ escrito em código em vez de na memória de alguém.
 | Repositório | `pmontezinho17/HoqueiApp`, público |
 | Ambientes | **produção** `hoquei.pages.dev` · **testes** `testes.hoquei.pages.dev` |
 | O que separa os dois | **tudo.** O site de testes tem base de dados própria desde 15/10 e dados seus desde 30/10, lidos pelo raspador do `dev` quando se carrega no botão do `ramo.yml` |
-| Testes automáticos | 364 no raspador, 649 no `web/` — bloqueantes no CI, excepto os marcados `fonte` |
+| Testes automáticos | 371 no raspador, 653 no `web/` — bloqueantes no CI, excepto os marcados `fonte` |
 | Depois de publicar | `scripts/verificar_producao.py` pergunta ao site 7 coisas, nos dois publicadores |
 | Vigia | o relógio da Cloudflare sonda produção de 10 em 10 minutos, 24 h por dia |
 | Protecção do `main` | ruleset `main protegido`, quatro regras activas desde 18/10: PR obrigatório, `scraper` e `web` verdes, sem apagar nem reescrever. O robô dos dados entra por chave de implantação |
@@ -186,6 +186,7 @@ alfabética agrupa-os.
 | **PRODUÇÃO** · Dados e publicação | `dados.yml` | lê a APL, comita os dados no `main` e publica `hoquei.pages.dev` |
 | **PRODUÇÃO** · Jogos ao vivo | `aovivo.yml` | o ciclo ao vivo nos dias de jogos |
 | **PRODUÇÃO** · Publicar o relógio | `relogio.yml` | publica o Worker que dispara e vigia as Actions |
+| **PRODUÇÃO** · Publicar o observador | `observador.yml` | publica o Worker que mede a cadeia e recebe a contagem de cada ida à APL |
 | **PRODUÇÃO** · Vigiar o site | `saude.yml` | pergunta ao site no ar se está a servir bem |
 | **PRODUÇÃO** · Vigia do observador | `vigia.yml` | confirma que o observador do ciclo ao vivo continua vivo |
 | **PRODUÇÃO** · Aviso da cadeia | `aviso.yml` | abre e fecha a issue de aviso quando alguma coisa pára |
