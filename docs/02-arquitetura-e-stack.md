@@ -198,7 +198,8 @@ Ficheiros estáticos, versionados por caminho para nunca quebrar clientes antigo
 /v1/{tenant}/{season}/scorers/{comp}.json → quadro de marcadores agregado
 /v1/{tenant}/{season}/prejogo/{id}.json   → o que se sabe de um jogo por disputar: forma,
                                             confronto directo, a época com o lugar na série e
-                                            as sequências (S13). Feito a partir das fichas em
+                                            as sequências; quando marcam e sofrem, a disciplina
+                                            e os treinadores (S13). Feito a partir das fichas em
                                             disco, sem pedidos; apagado quando o jogo se joga
 /v1/{tenant}/{season}/team/{id}.ics       → feed de calendário subscritível
 /v1/events.json                           → alterações detetadas (base das notificações)

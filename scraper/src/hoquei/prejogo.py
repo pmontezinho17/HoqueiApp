@@ -16,6 +16,10 @@ três: as duas equipas, o confronto entre elas e o lugar de cada uma na série. 
 resultado mexe em todos os jogos por disputar das duas equipas e da série, e isso é só espaço
 no git — os ficheiros só se reescrevem quando mudam.
 
+**Fase 2, a 06/11/2026:** quando marcam e quando sofrem, a disciplina e os treinadores — ver
+`_detalhe`. Tudo das mesmas fichas, e com a mesma cobertura medida nesse dia: as 521 fichas
+oficiais têm o relógio de cada parte, as faltas de equipa e o treinador das duas equipas.
+
 O que fica de fora, de propósito:
 
 * **Torneios Particulares** — jogos-treino e torneios de convite, com equipas de escalões
@@ -37,6 +41,29 @@ ULTIMOS = 5
 
 
 @dataclass
+class Detalhe:
+    """O que só a ficha diz de um jogo, visto de uma das equipas (fase 2)."""
+
+    #: golos em cada quarto do tempo regulamentar, da equipa e do adversário; `None` sem relógio
+    quartos_marcados: list[int] | None
+    quartos_sofridos: list[int] | None
+    #: (partes, minutos de cada uma) — 2×20 nos Sub-15, 4×8 nos Benjamins
+    formato: tuple[int, int] | None
+    #: faltas de equipa no fim do jogo: (nossas, do adversário)
+    faltas: tuple[int, int] | None
+    azuis: int
+    amarelos: int
+    vermelhos: int
+    #: (marcados, tentados), a favor e contra
+    penaltis: tuple[int, int]
+    penaltis_contra: tuple[int, int]
+    livres: tuple[int, int]
+    livres_contra: tuple[int, int]
+    treinador: str | None
+    treinador_adversario: str | None
+
+
+@dataclass
 class Jogado:
     """Um jogo já disputado, visto de uma das equipas."""
 
@@ -53,6 +80,7 @@ class Jogado:
     primeiro: str | None = None
     #: o resultado da 1.ª parte, visto desta equipa; `None` sem boletim
     intervalo: tuple[int, int] | None = None
+    detalhe: Detalhe | None = None
 
     @property
     def resultado(self) -> str:
@@ -110,6 +138,143 @@ class Equipa:
             "ganhava_ao_intervalo": vezes(com_intervalo, lambda j: j.intervalo[0] > j.intervalo[1]),
             "perdia_ao_intervalo": vezes(com_intervalo, lambda j: j.intervalo[0] < j.intervalo[1]),
         }
+
+
+    def periodos(self) -> dict:
+        """Os golos marcados e sofridos em cada quarto do jogo, somados na época.
+
+        **Em quartos do tempo e não em minutos**, porque as partes vão de 8 a 25 minutos
+        conforme o escalão e a prova (medido a 06/11/2026: 2×15, 2×18, 2×20, 2×25 e 4×8). Num
+        jogo de quatro partes cada quarto é uma parte; num de duas é meia parte. O prolongamento
+        fica de fora: não é tempo que todos os jogos tenham. O `formato` mais frequente vai junto
+        para a app escrever os minutos.
+        """
+        com = [j.detalhe for j in self.jogos if j.detalhe and j.detalhe.quartos_marcados is not None]
+        formatos = [d.formato for d in com if d.formato]
+        formato = max(set(formatos), key=formatos.count) if formatos else None
+        return {
+            "jogos": len(com),
+            "marcados": [sum(d.quartos_marcados[i] for d in com) for i in range(4)],
+            "sofridos": [sum(d.quartos_sofridos[i] for d in com) for i in range(4)],
+            "formato": list(formato) if formato else None,
+        }
+
+    def disciplina(self) -> dict:
+        com = [j.detalhe for j in self.jogos if j.detalhe]
+        faltas = [d.faltas for d in com if d.faltas]
+        soma = lambda f: [sum(f(d)[0] for d in com), sum(f(d)[1] for d in com)]
+        return {
+            "jogos": len(com),
+            # sobre os jogos com faltas no boletim: 521 de 521 a 06/11/2026, mas o "de" é dele
+            "jogos_com_faltas": len(faltas),
+            "faltas": sum(f[0] for f in faltas),
+            "faltas_adversario": sum(f[1] for f in faltas),
+            "azuis": sum(d.azuis for d in com),
+            "amarelos": sum(d.amarelos for d in com),
+            "vermelhos": sum(d.vermelhos for d in com),
+            "penaltis": soma(lambda d: d.penaltis),
+            "penaltis_contra": soma(lambda d: d.penaltis_contra),
+            "livres": soma(lambda d: d.livres),
+            "livres_contra": soma(lambda d: d.livres_contra),
+        }
+
+    def treinador(self) -> dict | None:
+        """O treinador do último jogo, e o que a equipa fez com ele esta época.
+
+        O do último jogo e não o mais frequente: uma troca de treinador a meio da época é
+        exactamente o que quem vai ver o jogo quer saber, e "o mais frequente" escondia-a.
+        """
+        com = [j for j in self.jogos if j.detalhe and j.detalhe.treinador]
+        if not com:
+            return None
+        nome = com[-1].detalhe.treinador
+        dele = [j for j in com if j.detalhe.treinador == nome]
+        return {
+            "nome": nome,
+            "jogos": len(dele),
+            "vitorias": sum(j.resultado == "V" for j in dele),
+            "empates": sum(j.resultado == "E" for j in dele),
+            "derrotas": sum(j.resultado == "D" for j in dele),
+        }
+
+
+def _segundos(relogio: str | None) -> int | None:
+    try:
+        m, s = (relogio or "").split(":")
+        return int(m) * 60 + int(s)
+    except ValueError:
+        return None
+
+
+def _treinador(ficha: dict, nome_equipa: str | None) -> str | None:
+    for e in ficha.get("equipas") or []:
+        if e.get("nome") == nome_equipa:
+            return next((j["nome"] for j in e.get("jogadores") or [] if j.get("papel") == "T" and j.get("nome")), None)
+    return None
+
+
+def _detalhe(ficha: dict | None, casa: bool) -> Detalhe | None:
+    """Os números da fase 2 de um jogo, a partir da cronologia e do boletim.
+
+    O quarto de cada golo sai do relógio da fonte, que conta para trás dentro de cada parte: o
+    `inicio_parte` diz quanto dura a parte (`"20:00"`), e um golo aos `"8:13"` foi marcado com
+    11:47 jogados. As partes regulamentares são as que duram o mesmo que a primeira — o
+    prolongamento tem 3 ou 5 minutos, e medido a 06/11/2026 vem em 50 das 521 fichas.
+
+    A equipa de um penálti falhado é a que o bateu, e a de um cartão a do jogador que o viu —
+    verificado contra o plantel da própria ficha.
+    """
+    if not ficha:
+        return None
+    nossa = ficha.get("casa") if casa else ficha.get("fora")
+    deles = ficha.get("fora") if casa else ficha.get("casa")
+    cron = ficha.get("cronologia") or []
+
+    duracao = {e.get("parte"): _segundos(e.get("relogio")) for e in cron if e.get("tipo") == "inicio_parte"}
+    primeira = duracao.get(1)
+    regulares = sorted(p for p, d in duracao.items() if p and d and d == primeira)
+    quartos_m = quartos_s = formato = None
+    if primeira and regulares == list(range(1, len(regulares) + 1)):
+        total = primeira * len(regulares)
+        quartos_m, quartos_s = [0, 0, 0, 0], [0, 0, 0, 0]
+        formato = (len(regulares), primeira // 60)
+        for e in cron:
+            if e.get("tipo") != "golo" or e.get("parte") not in regulares:
+                continue
+            falta = _segundos(e.get("relogio"))
+            if falta is None:
+                quartos_m = quartos_s = formato = None
+                break
+            jogado = (e["parte"] - 1) * primeira + (primeira - falta)
+            q = min(3, max(0, jogado * 4 // total))
+            if e.get("equipa") == nossa:
+                quartos_m[q] += 1
+            elif e.get("equipa") == deles:
+                quartos_s[q] += 1
+
+    def conta(tipo_golo: str, tipo_falhado: str, equipa: str) -> tuple[int, int]:
+        marcados = sum(1 for e in cron if e.get("tipo") == "golo" and e.get("variante") == tipo_golo
+                       and e.get("equipa") == equipa)
+        falhados = sum(1 for e in cron if e.get("tipo") == tipo_falhado and e.get("equipa") == equipa)
+        return marcados, marcados + falhados
+
+    def cartoes(cor: str) -> int:
+        return sum(1 for e in cron if e.get("tipo") == "cartao" and e.get("variante") == cor
+                   and e.get("equipa") == nossa)
+
+    f = ficha.get("faltas") or [None, None]
+    faltas = None
+    if f[0] is not None and f[1] is not None:
+        faltas = (f[0], f[1]) if casa else (f[1], f[0])
+    return Detalhe(
+        quartos_marcados=quartos_m, quartos_sofridos=quartos_s, formato=formato, faltas=faltas,
+        azuis=cartoes("azul"), amarelos=cartoes("amarelo"), vermelhos=cartoes("vermelho"),
+        penaltis=conta("penalti", "penalti_falhado", nossa),
+        penaltis_contra=conta("penalti", "penalti_falhado", deles),
+        livres=conta("livre_direto", "livre_direto_falhado", nossa),
+        livres_contra=conta("livre_direto", "livre_direto_falhado", deles),
+        treinador=_treinador(ficha, nossa), treinador_adversario=_treinador(ficha, deles),
+    )
 
 
 def _do_jogo(ficha: dict | None, casa: bool) -> tuple[str | None, tuple[int, int] | None]:
@@ -170,7 +335,7 @@ def _jogado(j: dict, casa: bool, ficha: dict | None) -> Jogado:
         id=j["id"], data=j["data"], hora=j.get("hora") or "", comp=j["comp"], prova=j["prova"],
         em_casa=casa, adversario=j["fora"] if casa else j["casa"],
         marcados=j["gc"] if casa else j["gf"], sofridos=j["gf"] if casa else j["gc"],
-        primeiro=primeiro, intervalo=intervalo,
+        primeiro=primeiro, intervalo=intervalo, detalhe=_detalhe(ficha, casa),
     )
 
 
@@ -208,6 +373,9 @@ def calcular(agenda: list[dict], fichas: dict[int, dict]) -> dict[int, dict]:
                 "epoca": e.epoca(),
                 "lugares": _lugares(da_serie, nome),
                 "sequencias": e.sequencias(),
+                "periodos": e.periodos(),
+                "disciplina": e.disciplina(),
+                "treinador": e.treinador(),
             }
         confrontos = [x for x in equipas.get((cat, j["casa"]), vazio).jogos if x.adversario == j["fora"]]
         resultado[j["id"]] = {
@@ -216,8 +384,32 @@ def calcular(agenda: list[dict], fichas: dict[int, dict]) -> dict[int, dict]:
             **lados,
             # vistos da equipa da casa deste jogo, do mais recente para o mais antigo
             "confrontos": [_linha(x) for x in confrontos[::-1]],
+            "treinadores": _treinadores_frente_a_frente(lados["casa"]["treinador"], lados["fora"]["treinador"], equipas),
         }
     return resultado
+
+
+def _treinadores_frente_a_frente(casa: dict | None, fora: dict | None,
+                                 equipas: dict[tuple[str, str], Equipa]) -> dict | None:
+    """As vezes que os dois treinadores já se defrontaram esta época, **em qualquer escalão**.
+
+    Um treinador costuma ter mais do que uma equipa, e é aí que isto diz alguma coisa que o
+    confronto directo das equipas não diz. Contado do lado do treinador da casa deste jogo, e
+    só uma vez por jogo — cada jogo está nas duas equipas que o jogaram.
+    """
+    if not casa or not fora or casa["nome"] == fora["nome"]:
+        return None
+    r = {"jogos": 0, "vitorias": 0, "empates": 0, "derrotas": 0}
+    vistos = set()
+    for e in equipas.values():
+        for j in e.jogos:
+            d = j.detalhe
+            if j.id in vistos or not d or d.treinador != casa["nome"] or d.treinador_adversario != fora["nome"]:
+                continue
+            vistos.add(j.id)
+            r["jogos"] += 1
+            r[{"V": "vitorias", "E": "empates", "D": "derrotas"}[j.resultado]] += 1
+    return r
 
 
 def _linha(x: Jogado) -> dict:

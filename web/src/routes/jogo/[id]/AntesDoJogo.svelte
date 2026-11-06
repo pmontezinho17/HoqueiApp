@@ -7,6 +7,9 @@
 	import {
 		bolasDaForma,
 		jogosDaForma,
+		linhasDaDisciplina,
+		linhasDosPeriodos,
+		treinadoresDoJogo,
 		comoFoiJogado,
 		linhasDaEpoca,
 		linhasDasContagens,
@@ -33,6 +36,9 @@
 	const contagens = $derived(linhasDasContagens(p));
 	const confrontos = $derived(resumoDosConfrontos(p));
 	const emCurso = $derived({ casa: sequenciasEmCurso(p.casa), fora: sequenciasEmCurso(p.fora) });
+	const periodos = $derived({ marcados: linhasDosPeriodos(p, 'marcados'), sofridos: linhasDosPeriodos(p, 'sofridos') });
+	const disciplina = $derived(linhasDaDisciplina(p));
+	const treinadores = $derived(treinadoresDoJogo(p));
 </script>
 
 {#snippet bolas(lado: Lado)}
@@ -49,14 +55,22 @@
 	</div>
 {/snippet}
 
+{#snippet cabeca(titulo = '')}
+	<li class="cabeca">
+		<Emblema equipa={p.casa.equipa} src={emblemas[p.casa.equipa]} tamanho={22} />
+		<span class="rotulo">{titulo}</span>
+		<Emblema equipa={p.fora.equipa} src={emblemas[p.fora.equipa]} tamanho={22} />
+	</li>
+{/snippet}
+
 {#snippet comparada(l: LinhaComparada)}
 	<li>
 		<span class="v" class:melhor={l.melhor === 'casa'}>
-			{l.casa.texto}{#if l.casa.lugar}<small>{l.casa.lugar}</small>{/if}
+			{l.casa.texto}{#if l.casa.lugar ?? l.casa.pequeno}<small>{l.casa.lugar ?? l.casa.pequeno}</small>{/if}
 		</span>
 		<span class="rotulo">{l.rotulo}</span>
 		<span class="v" class:melhor={l.melhor === 'fora'}>
-			{l.fora.texto}{#if l.fora.lugar}<small>{l.fora.lugar}</small>{/if}
+			{l.fora.texto}{#if l.fora.lugar ?? l.fora.pequeno}<small>{l.fora.lugar ?? l.fora.pequeno}</small>{/if}
 		</span>
 	</li>
 {/snippet}
@@ -134,11 +148,7 @@
 <section>
 	<h2>A época</h2>
 	<ul class="cartao lado-a-lado">
-		<li class="cabeca">
-			<Emblema equipa={p.casa.equipa} src={emblemas[p.casa.equipa]} tamanho={22} />
-			<span></span>
-			<Emblema equipa={p.fora.equipa} src={emblemas[p.fora.equipa]} tamanho={22} />
-		</li>
+		{@render cabeca()}
 		{#each epoca as l (l.rotulo)}{@render comparada(l)}{/each}
 	</ul>
 	{#if mostraLugares(p)}
@@ -146,16 +156,27 @@
 	{/if}
 </section>
 
+{#if periodos.marcados && periodos.sofridos}
+	<section>
+		<h2>Quando marcam e quando sofrem</h2>
+		<ul class="cartao lado-a-lado">
+			{@render cabeca('Golos marcados')}
+			{#each periodos.marcados as l (l.rotulo)}{@render comparada(l)}{/each}
+		</ul>
+		<ul class="cartao lado-a-lado">
+			{@render cabeca('Golos sofridos')}
+			{#each periodos.sofridos as l (l.rotulo)}{@render comparada(l)}{/each}
+		</ul>
+		<p class="nota">A parte dos golos da época de cada equipa em cada período do jogo, sem o prolongamento.</p>
+	</section>
+{/if}
+
 {#if contagens.length || emCurso.casa.length || emCurso.fora.length}
 	<section>
 		<h2>Sequências</h2>
 		{#if contagens.length}
 			<ul class="cartao lado-a-lado">
-				<li class="cabeca">
-					<Emblema equipa={p.casa.equipa} src={emblemas[p.casa.equipa]} tamanho={22} />
-					<span></span>
-					<Emblema equipa={p.fora.equipa} src={emblemas[p.fora.equipa]} tamanho={22} />
-				</li>
+				{@render cabeca()}
 				{#each contagens as l (l.rotulo)}{@render comparada(l)}{/each}
 			</ul>
 		{/if}
@@ -170,6 +191,35 @@
 				</div>
 			{/if}
 		{/each}
+	</section>
+{/if}
+
+{#if disciplina.length}
+	<section>
+		<h2>Disciplina e bolas paradas</h2>
+		<ul class="cartao lado-a-lado">
+			{@render cabeca()}
+			{#each disciplina as l (l.rotulo)}{@render comparada(l)}{/each}
+		</ul>
+	</section>
+{/if}
+
+{#if treinadores}
+	<section>
+		<h2>Treinadores</h2>
+		<div class="cartao treinadores">
+			{#each ['casa', 'fora'] as const as lado (lado)}
+				{@const t = treinadores[lado]}
+				<div class="treinador">
+					<Emblema equipa={p[lado].equipa} src={emblemas[p[lado].equipa]} tamanho={22} />
+					<span>
+						<b>{t?.nome ?? '—'}</b>
+						{#if t}<small>{t.registo}</small>{/if}
+					</span>
+				</div>
+			{/each}
+		</div>
+		{#if treinadores.frente}<p class="nota">{treinadores.frente}</p>{/if}
 	</section>
 {/if}
 
@@ -320,6 +370,21 @@
 		color: var(--texto-2);
 	}
 	.lado-a-lado .v.melhor { color: var(--texto); font-weight: 700; }
+
+	.lado-a-lado .cabeca .rotulo { font-weight: 600; color: var(--texto); }
+	.lado-a-lado + .lado-a-lado { margin-top: var(--e-3); }
+
+	.treinadores { padding: var(--e-2) var(--e-4); }
+	.treinador {
+		display: flex;
+		align-items: center;
+		gap: var(--e-3);
+		min-height: 48px;
+		padding: var(--e-2) 0;
+		font-size: var(--t-base);
+	}
+	.treinador + .treinador { border-top: 1px solid var(--borda-fraca); }
+	.treinador b { font-weight: 600; }
 
 	.emCurso { padding: var(--e-3) var(--e-4); }
 	.emCurso .quem {
