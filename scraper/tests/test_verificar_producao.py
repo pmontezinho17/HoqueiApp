@@ -253,6 +253,36 @@ class TestCadaVerificacaoSozinha:
             (200, CACHE_NOSSA, agenda) if u.endswith("/agenda.json") else None))
         assert len(falhas) == 1 and "com_j" in falhas[0]
 
+    def test_o_prejogo_do_primeiro_jogo_por_disputar(self, vp, monkeypatch):
+        """O `prejogo/` é do primeiro jogo por disputar e oficial — nem do torneio, nem do jogado."""
+        agenda = json.dumps({"jogos": [
+            {"id": 5, "gc": 2, "gf": 1, "cat": "SUB-15"},
+            {"id": 6, "gc": None, "gf": None, "cat": "TORNEIOS PARTICULARES"},
+            {"id": 7, "gc": None, "gf": None, "cat": "SUB-15"},
+        ]}).encode()
+        equipa = {"equipa": "A", "ultimos": [], "epoca": {}, "lugares": {}, "sequencias": {}}
+        bom = json.dumps({"id": 7, "na_serie": 6, "casa": equipa, "fora": equipa,
+                          "confrontos": []}).encode()
+        pedidos = []
+
+        def site(resposta):
+            def responder(u):
+                if u.endswith("/agenda.json"):
+                    return 200, CACHE_NOSSA, agenda
+                if "/prejogo/" in u:
+                    pedidos.append(u.rsplit("/", 1)[-1])
+                    return resposta
+                return None
+            return responder
+        assert self._com(vp, monkeypatch, site((200, CACHE_NOSSA, bom))) == []
+        assert pedidos == ["7.json"]
+        falhas = self._com(vp, monkeypatch, site((404, {}, b"")))
+        assert len(falhas) == 1 and "7.json" in falhas[0] and "por disputar" in falhas[0]
+        sem_sequencias = json.dumps({"id": 7, "na_serie": 6, "fora": equipa, "confrontos": [],
+                                     "casa": {k: v for k, v in equipa.items() if k != "sequencias"}}).encode()
+        falhas = self._com(vp, monkeypatch, site((200, CACHE_NOSSA, sem_sequencias)))
+        assert len(falhas) == 1 and "casa.sequencias" in falhas[0]
+
     def test_uma_jornada_que_nao_e_texto(self, vp, monkeypatch):
         agenda = json.dumps({"jogos": [{"id": 1, "jornada": 8}]}).encode()
         falhas = self._com(vp, monkeypatch, lambda u: (

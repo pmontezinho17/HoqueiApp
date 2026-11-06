@@ -193,8 +193,9 @@ jobs:
           echo "::error::A ronda de produção não acabou em 10 minutos."
           exit 1
 
+      # Sempre, e não só quando se lê a APL: o `prejogo/` corre também com "só publicar o código"
+      # — ver o passo "Antes do jogo" abaixo.
       - uses: astral-sh/setup-uv@v5
-        if: steps.origem.outputs.pede == 'true'
         with:
           enable-cache: true
 
@@ -221,6 +222,15 @@ jobs:
           esac
           uv run python -m hoquei.cli publicar --tenant aplisboa --destino "../$DADOS" \
             --rondas "$RUNNER_TEMP/rondas.jsonl" "${extra[@]}"
+
+      # **O que se sabe antes de cada jogo, feito a partir do disco — 0 pedidos à APL** (#11).
+      # Corre em todas as finalidades, e é para as que não lêem a APL que ele existe: os dados do
+      # R2 foram escritos por um raspador anterior, sem `prejogo/`, e a página do jogo do site de
+      # testes ficava sem o separador novo até alguém carregar numa leitura que custa pedidos.
+      # Depois de uma leitura volta a correr sobre o que o `publicar` já escreveu, e não muda nada.
+      - name: Antes do jogo, a partir das fichas em disco — 0 pedidos à APL
+        working-directory: scraper
+        run: uv run python -m hoquei.cli prejogo --destino "../$DADOS"
 
       - name: Guardar os dados do site de testes no R2
         id: guardar

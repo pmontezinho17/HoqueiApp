@@ -1,4 +1,4 @@
-import type { Agenda, FicheiroCompeticao, FicheiroMerito, FichaJogo, IndiceCompeticoes, IndiceEquipas, Meta, Quadro } from './tipos';
+import type { Agenda, FicheiroCompeticao, FicheiroMerito, FichaJogo, IndiceCompeticoes, IndiceEquipas, Meta, Prejogo, Quadro } from './tipos';
 
 const CAMINHO = '/v1/aplisboa/2026-27';
 
@@ -80,6 +80,13 @@ export const carregarQuadro = (comp: number, f: typeof fetch) =>
  */
 export const carregarMerito = (comp: number, f: typeof fetch) =>
 	json<FicheiroMerito>(`/merito/${comp}.json`, f);
+
+/**
+ * O que se sabe de um jogo antes de ele começar. Só existe enquanto o jogo está por disputar —
+ * o raspador apaga-o quando há resultado — e nunca nos Torneios Particulares.
+ */
+export const carregarPrejogo = (id: number, f: typeof fetch) =>
+	json<Prejogo>(`/prejogo/${id}.json`, f);
 
 /** nome da equipa → caminho do emblema na nossa origem */
 export const carregarEmblemas = (f: typeof fetch) =>

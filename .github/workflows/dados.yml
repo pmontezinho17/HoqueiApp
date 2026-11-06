@@ -313,6 +313,16 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
 
+      # **Só publicar também leva o `prejogo/` feito por este código** (#11), e sem pedir nada à
+      # fonte: lê a agenda e as fichas commitadas. Sem isto, a primeira publicação depois de uma
+      # entrega — que é um `push`, logo só publicar — mostrava o que se sabia antes de cada jogo
+      # com os dados da última ronda de quem o escreveu, ou sem ficheiro nenhum para os jogos
+      # novos. Numa ronda normal o `publicar` já o fez.
+      - name: Antes do jogo, a partir das fichas commitadas — 0 pedidos à fonte
+        if: env.SO_PUBLICAR == 'true'
+        working-directory: scraper
+        run: uv run python -m hoquei.cli prejogo --destino ../web/static/v1/aplisboa/2026-27
+
       - name: Construir a PWA
         if: (steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || env.SO_PUBLICAR == 'true'
         working-directory: web

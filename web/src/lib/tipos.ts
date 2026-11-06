@@ -180,6 +180,65 @@ export interface ResumoMerito {
 	com_j?: ('casa' | 'fora')[];
 }
 
+/** Um jogo já disputado, visto de uma das equipas — ver `scraper/src/hoquei/prejogo.py`. */
+export interface JogoDaForma {
+	id: number;
+	data: string;
+	comp: number;
+	prova: string;
+	em_casa: boolean;
+	adversario: string;
+	marcados: number;
+	sofridos: number;
+}
+
+/** Quantas vezes, em quantos jogos: `{ vezes: 4, de: 6 }` lê-se "4 de 6". */
+export interface Vezes {
+	vezes: number;
+	de: number;
+}
+
+export interface EquipaAntesDoJogo {
+	equipa: string;
+	/** do mais recente para o mais antigo, até cinco */
+	ultimos: JogoDaForma[];
+	epoca: {
+		jogos: number;
+		vitorias: number;
+		empates: number;
+		derrotas: number;
+		marcados: number;
+		sofridos: number;
+		sem_sofrer: number;
+		sem_marcar: number;
+	};
+	/** o lugar na série em cada número, por jogo; vazio para quem ainda não jogou */
+	lugares: Partial<Record<'vitorias' | 'marcados' | 'sofridos' | 'diferenca' | 'sem_sofrer', number>>;
+	sequencias: {
+		resultado: { tipo: 'V' | 'E' | 'D'; n: number } | null;
+		sem_perder: number;
+		sem_ganhar: number;
+		a_marcar: number;
+		a_sofrer: number;
+		marcou_primeiro: Vezes;
+		sofreu_primeiro: Vezes;
+		ganhou_depois_de_marcar_primeiro: Vezes;
+		ganhava_ao_intervalo: Vezes;
+		perdia_ao_intervalo: Vezes;
+	};
+}
+
+/** `prejogo/<id>.json`: o que se sabe de um jogo por disputar (#11). */
+export interface Prejogo {
+	id: number;
+	/** quantas equipas da série já jogaram — o "de" dos lugares */
+	na_serie: number;
+	casa: EquipaAntesDoJogo;
+	fora: EquipaAntesDoJogo;
+	/** os jogos entre as duas nesta época, vistos da equipa da casa deste jogo */
+	confrontos: JogoDaForma[];
+}
+
 export interface FicheiroMerito {
 	competicao_id: number;
 	nome: string;

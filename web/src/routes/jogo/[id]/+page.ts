@@ -1,4 +1,4 @@
-import { carregarCompeticao, carregarJogo, carregarMerito } from '$lib/dados';
+import { carregarCompeticao, carregarJogo, carregarMerito, carregarPrejogo } from '$lib/dados';
 import { comNomesDaAgenda, fichaDaAgenda } from '$lib/fichaDaAgenda';
 import { emCurso } from '$lib/formato';
 import { error } from '@sveltejs/kit';
@@ -60,11 +60,17 @@ export const load: PageLoad = async ({ params, fetch, parent }) => {
 	//
 	// Os dois pedidos em paralelo: são dois ficheiros no nosso CDN e esperar por um para pedir
 	// o outro atrasava a página sem motivo.
-	const [competicao, merito] = ficha.competicao_id
-		? await Promise.all([
-				carregarCompeticao(ficha.competicao_id, fetch).catch(() => null),
-				carregarMerito(ficha.competicao_id, fetch).catch(() => null)
-			])
-		: [null, null];
-	return { ficha, competicao, merito, semFicha };
+	//
+	// **E o que se sabe antes do jogo, enquanto ele estiver por disputar** (#11). Só se pede
+	// sem resultado: o raspador apaga o ficheiro quando o jogo se joga, e pedi-lo depois era
+	// um 404 garantido em cada ficha aberta. Também não derruba a página. A agenda primeiro: a
+	// ficha de convocatória chega antes do apito com as colunas a zero, e um `0` ali não é
+	// resultado nenhum.
+	const porDisputar = naAgenda ? naAgenda.gc === null : ficha.golos_casa === null;
+	const [competicao, merito, prejogo] = await Promise.all([
+		ficha.competicao_id ? carregarCompeticao(ficha.competicao_id, fetch).catch(() => null) : null,
+		ficha.competicao_id ? carregarMerito(ficha.competicao_id, fetch).catch(() => null) : null,
+		porDisputar && !aoVivo ? carregarPrejogo(id, fetch).catch(() => null) : null
+	]);
+	return { ficha, competicao, merito, prejogo, semFicha };
 };
