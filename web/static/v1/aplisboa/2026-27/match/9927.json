@@ -16,6 +16,7 @@
   4,
   7
  ],
+ "situacao": "Jogo Terminado",
  "periodo": null,
  "relogio": null,
  "equipas": [
@@ -675,7 +676,7 @@
  "boletim": {
   "oficiais": {
    "Árbitro 1 (ch. dupla)": "MIGUEL SOARES",
-   "Árbitro Auxiliar": "jose barros",
+   "Árbitro Auxiliar": "JOSE BARROS",
    "Cronometrista": "BRUNO MARCELO",
    "Gestor de segurança": "BRUNO PEREIRA"
   },
@@ -705,22 +706,16 @@
    5
   ],
   "inicio": [
-   "9:59",
-   "10:25"
+   "10:00",
+   "10:24"
   ],
   "termo": [
-   "10:18",
+   "10:19",
    "10:47"
   ],
   "capitao_casa": null,
   "capitao_fora": null
  },
- "competicao_id": 462,
- "categoria": "ESCOLARES",
- "jornada": "2ª JORNADA",
- "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-i",
- "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I",
- "serie": "C",
  "merito": [
   {
    "equipa": "CRIAR-T GD",
@@ -778,5 +773,12 @@
    ],
    "avisos": []
   }
- ]
+ ],
+ "merito_revisto": "2026-10-31",
+ "competicao_id": 462,
+ "categoria": "ESCOLARES",
+ "jornada": "2ª JORNADA",
+ "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-i",
+ "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I",
+ "serie": "C"
 }

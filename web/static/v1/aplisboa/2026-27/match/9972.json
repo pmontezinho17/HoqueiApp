@@ -674,7 +674,8 @@
    "Árbitro 1 (ch. dupla)": "JOSE BENEDI",
    "Árbitro Auxiliar": "RITA NASCIMENTO",
    "Cronometrista": "DANIEL LENCASTRE",
-   "Diretor de campo": "RUI QUADRADO"
+   "Diretor de campo": "RUI QUADRADO",
+   "Gestor de segurança": "PEDRO SANTOS"
   },
   "parciais": [
    {
@@ -703,7 +704,7 @@
   ],
   "inicio": [
    "15:00",
-   "15:25"
+   "15:23"
   ],
   "termo": [
    "15:18",
@@ -739,9 +740,7 @@
      "pontos": 1
     }
    ],
-   "avisos": [
-    "1 atleta(s) com um só período — o 4.1.7 penaliza em 6 pontos e retira as bonificações, salvo lesão comprovada pelo árbitro, que o boletim publicado não mostra. Fica por confirmar e não está descontado."
-   ]
+   "avisos": []
   },
   {
    "equipa": "AE FISICA D B",
@@ -767,6 +766,7 @@
    "avisos": []
   }
  ],
+ "merito_revisto": "2026-10-31",
  "competicao_id": 464,
  "categoria": "ESCOLARES",
  "jornada": "4ª JORNADA",

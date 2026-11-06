@@ -105,9 +105,9 @@ export const PASSOS: Passo[] = [
 			'Os últimos resultados, o próximo jogo e a posição na tabela. É o que se quer ver de relance, e é o que abre.'
 	},
 	{
-		alvo: 'equipa-vistas',
+		alvo: 'equipa-abas',
 		caminho: umaEquipa,
-		params: { aba: 'jogos', vista: 'lista' },
+		params: { aba: 'jogos' },
 		titulo: 'Todos os jogos',
 		texto:
 			'A época inteira, jogados e por jogar. Se a equipa anda em mais do que uma prova, podes ver só uma.'
@@ -115,8 +115,8 @@ export const PASSOS: Passo[] = [
 	{
 		alvo: 'equipa-calendario',
 		caminho: umaEquipa,
-		params: { aba: 'jogos', vista: 'calendario' },
-		titulo: 'E em calendário',
+		params: { aba: 'calendario' },
+		titulo: 'O calendário',
 		texto:
 			'O mês à vista. Aqui podes subscrever o calendário da equipa: os jogos passam a aparecer no calendário do telefone, com o recinto, e mudam sozinhos se a associação mudar a hora.'
 	},

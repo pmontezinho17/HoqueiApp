@@ -69,3 +69,20 @@ export function fichaDaAgenda(j: JogoAgenda): FichaJogo {
 		serie: j.serie
 	};
 }
+
+/**
+ * Uma ficha publicada **sem nomes** fica com os da agenda.
+ *
+ * Não é o caso de cima — aqui a ficha existe, só que vazia. A fonte pode servir a ficha de um
+ * jogo por começar sem equipas nenhumas, e a ronda ao vivo publicou-a assim a 31/10/2026 no
+ * Parede FC A – FSE/AJ Salesiana de sub-13 (jogo 9521): dois círculos no lugar dos emblemas,
+ * nenhum nome, e tocar num deles dava "página não encontrada". O raspador passou a preencher os
+ * nomes a partir do calendário (`_nomes_do_calendario`); isto é para as fichas que já estejam
+ * publicadas assim, e para uma próxima vez em que a fonte surpreenda de outra forma.
+ *
+ * Só se preenche o que vem vazio.
+ */
+export function comNomesDaAgenda(f: FichaJogo, j: JogoAgenda | null): FichaJogo {
+	if (!j || (f.casa && f.fora)) return f;
+	return { ...f, casa: f.casa || j.casa, fora: f.fora || j.fora };
+}

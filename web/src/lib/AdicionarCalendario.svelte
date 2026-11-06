@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Folha from '$lib/Folha.svelte';
 	import { SITIO } from './sitio';
-	import { dataCurta, horaCurta } from '$lib/formato';
+	import { dataCurta, horaComLisboa } from '$lib/formato';
 	import { clube, escalao } from '$lib/nomes';
 	import { slug } from '$lib/slug';
 	import type { Jogo } from '$lib/tipos';
-	import { diaDeLisboa } from '$lib/dia';
+	import { diaDeLisboa, instanteDeLisboa } from '$lib/dia';
 
 	let {
 		equipa,
@@ -65,7 +65,8 @@
 		const titulo = `🏑 ${escalao(categoria)} 🏑 ${clube(j.casa)} vs ${clube(j.fora)}`;
 		const p = new URLSearchParams({ action: 'TEMPLATE', text: titulo });
 		if (j.data && j.hora) {
-			const inicio = new Date(`${j.data}T${j.hora.slice(0, 5)}:00`);
+			// em UTC no link, por isso o instante tem de ser o de Lisboa: ver `instanteDeLisboa`
+			const inicio = new Date(instanteDeLisboa(j.data, j.hora));
 			const fim = new Date(inicio.getTime() + 90 * 60_000);
 			const f = (d: Date) => d.toISOString().replace(/[-:]|\.\d{3}/g, '');
 			p.set('dates', `${f(inicio)}/${f(fim)}`);
@@ -122,7 +123,7 @@
 				<li>
 					<a href={linkGoogle(j)} target="_blank" rel="noopener">
 						<span class="quando">
-							{dataCurta(j.data)}{j.hora ? ` · ${horaCurta(j.hora)}` : ''}
+							{dataCurta(j.data)}{j.hora ? ` · ${horaComLisboa(j.data, j.hora)}` : ''}
 						</span>
 						<span class="quem">{adversario(j)} <small>({onde(j)})</small></span>
 						<span class="mais" aria-hidden="true">+</span>
@@ -139,7 +140,14 @@
 
 	<p class="ou">ou de uma vez, com a época toda</p>
 
-	{#if sistema !== 'ios'}
+	<!--
+		Só no computador. No Android este botão não funciona — o dono confirmou-o no telemóvel a
+		31/10/2026 e pediu para o tirar. O link abre a aplicação do Google Calendar, e a
+		aplicação não sabe subscrever um calendário por endereço: é o mesmo limite que os passos
+		de "Subscrever à mão" aqui em baixo já diziam ("a aplicação não tem esta opção"). No
+		Android ficam os jogos um a um, o ficheiro e os passos à mão pelo site.
+	-->
+	{#if sistema === 'outro'}
 		<a class="principal secundaria" href={googleUrl} target="_blank" rel="noopener">
 			Subscrever no Google Calendar
 		</a>
@@ -149,12 +157,21 @@
 	{/if}
 	<a class="principal secundaria" href={url} download={ficheiro}>Descarregar ficheiro (.ics)</a>
 
-	<p class="aviso">
-		<strong>Estas duas demoram a dar sinal.</strong> O Google só vai buscar um calendário
-		subscrito horas depois de o adicionares, e não tem botão para forçar — depois disso
-		corrige-se sozinho sempre que um jogo mudar. O ficheiro fica na pasta de
-		<strong>Transferências</strong> e tens de o abrir a partir de lá para os jogos entrarem.
-	</p>
+	{#if sistema === 'android'}
+		<!-- sem o botão do Google, o "estas duas" deixava de ter duas -->
+		<p class="aviso">
+			O ficheiro fica na pasta de <strong>Transferências</strong> e tens de o abrir a partir de
+			lá para os jogos entrarem. Para a época se actualizar sozinha quando um jogo mudar,
+			subscreve à mão — os passos estão aqui em baixo.
+		</p>
+	{:else}
+		<p class="aviso">
+			<strong>Estas duas demoram a dar sinal.</strong> O Google só vai buscar um calendário
+			subscrito horas depois de o adicionares, e não tem botão para forçar — depois disso
+			corrige-se sozinho sempre que um jogo mudar. O ficheiro fica na pasta de
+			<strong>Transferências</strong> e tens de o abrir a partir de lá para os jogos entrarem.
+		</p>
+	{/if}
 
 	<div class="url">
 		<code>{url}</code>

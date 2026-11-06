@@ -87,3 +87,19 @@ export function localDoDia(jogosDoDia: readonly Jogo[], equipa: string): LocalDo
 export function jogoPrecisaDeMarca(jogosDoDia: readonly Jogo[], equipa: string, jogo: Jogo): boolean {
 	return localDoDia(jogosDoDia, equipa) === 'misto' && localDoJogo(jogo, equipa) === 'fora';
 }
+
+/**
+ * A jornada em duas ou três letras, para caber na célula do dia: `5ª JORNADA` dá `J5`.
+ *
+ * Pedido pela caixa "O que está mal" a 15/10/2026 (S6). A competição já agrupava o calendário
+ * por jornada; o mês da equipa não dizia qual era, e é lá que se vê a época de uma equipa só.
+ *
+ * Só as jornadas numeradas. Medido a 04/11/2026 nos 805 jogos publicados: 725 têm a forma
+ * `Nª JORNADA` (às vezes com `- 1ª FASE`) e 6 a forma `JORNADA N`. Os outros 74 são rondas de
+ * Taça e torneios (`MEIA FINAL`, `TORNEIO PEDRO ROSADO`, `SUB-13`), sem uma abreviatura que se
+ * leia sem legenda. Nesses a célula fica como estava, em vez de inventar uma sigla.
+ */
+export function jornadaCurta(jornada: string | null | undefined): string | null {
+	const n = /^(\d+)ª\s+JORNADA\b/i.exec(jornada ?? '') ?? /^JORNADA\s+(\d+)$/i.exec(jornada ?? '');
+	return n ? `J${Number(n[1])}` : null;
+}

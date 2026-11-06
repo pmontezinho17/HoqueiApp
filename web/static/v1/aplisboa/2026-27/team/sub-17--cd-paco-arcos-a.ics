@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9691@hoquei.pages.dev
-DTSTAMP:20261104T000000Z
-DTSTART:20261104T214500Z
-DTEND:20261104T231500Z
-SUMMARY:🏑 Sub-17 🏑 CD Paço Arcos A vs SL Benfica B
-LOCATION:Pavilhão do Clube Desportivo de Paço de Arcos (CDPA)
-DESCRIPTION:CD Paço Arcos A vs SL Benfica B\nCAMP. REG. SUB-17 - 1ª FASE 
- · Série B · SUB-17\nPAV. PAÇO DE ARCOS\nhttps://hoquei.pages.dev/jogo/
- 9691\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9691
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9695@hoquei.pages.dev
 DTSTAMP:20261107T000000Z
 DTSTART:20261107T200000Z

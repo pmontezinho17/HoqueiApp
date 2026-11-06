@@ -225,7 +225,7 @@
      "papel": null
     },
     {
-     "numero": "02",
+     "numero": "2",
      "nome": "MARIA RODRIGUES",
      "titular": false,
      "golos": 0,
@@ -311,20 +311,6 @@
     {
      "numero": "9",
      "nome": "PEDRO AMARO",
-     "titular": false,
-     "golos": 0,
-     "assistencias": 0,
-     "defesas": 0,
-     "penalidades": "0/0",
-     "livres_diretos": "0/0",
-     "cartoes_amarelos": 0,
-     "cartoes_azuis": 0,
-     "cartoes_vermelhos": 0,
-     "papel": null
-    },
-    {
-     "numero": "99",
-     "nome": "GR FICTÍCIO",
      "titular": false,
      "golos": 0,
      "assistencias": 0,
@@ -894,13 +880,13 @@
   },
   {
    "equipa": "AE FISICA D B",
-   "atletas": 9,
-   "guardas_redes": 2,
+   "atletas": 8,
+   "guardas_redes": 1,
    "participantes": 8,
    "completa": false,
    "bonificacao": 8,
-   "penalizacao": -6,
-   "total": 2,
+   "penalizacao": -1,
+   "total": 7,
    "parcelas": [
     {
      "regra": "3.1",
@@ -908,19 +894,15 @@
      "pontos": 8
     },
     {
-     "regra": "4.1.4",
-     "texto": "2 com 3 meias partes",
-     "pontos": -2
-    },
-    {
-     "regra": "4.1.6",
-     "texto": "1 fizeram as quatro meias partes",
-     "pontos": -4
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
     }
    ],
    "avisos": []
   }
  ],
+ "merito_revisto": "2026-10-31",
  "competicao_id": 466,
  "categoria": "BENJAMINS",
  "jornada": "3ª JORNADA",

@@ -16,6 +16,9 @@
   4,
   7
  ],
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "APAC TOJAL",
@@ -739,12 +742,6 @@
   "capitao_casa": null,
   "capitao_fora": null
  },
- "competicao_id": 462,
- "categoria": "ESCOLARES",
- "jornada": "1ª JORNADA",
- "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-i",
- "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I",
- "serie": "C",
  "merito": [
   {
    "equipa": "APAC TOJAL",
@@ -797,5 +794,12 @@
    ],
    "avisos": []
   }
- ]
+ ],
+ "merito_revisto": "2026-10-31",
+ "competicao_id": 462,
+ "categoria": "ESCOLARES",
+ "jornada": "1ª JORNADA",
+ "grupo_id": "escolares--encontros-distritais-escolares-1-fase-nivel-i",
+ "grupo_nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I",
+ "serie": "C"
 }

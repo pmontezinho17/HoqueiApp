@@ -7,6 +7,8 @@
 	import { destinoDoJogo } from './destinos';
 	import { barraDoMerito, descricaoDoMerito } from './meritoDoJogo';
 	import type { JogoAgenda } from './tipos';
+	import { horaNoAparelho } from './dia';
+	import { jornadaCurta } from './calendario';
 
 	let {
 		jogo, emblemas, seguida, comData = false, comEscalao = false
@@ -24,6 +26,8 @@
 
 	const jogado = $derived(jogo.gc !== null && jogo.gf !== null);
 	const live = $derived(emCurso(jogo));
+	/** Fora do fuso de Lisboa, a hora do aparelho à frente e a do jogo por baixo — ver `dia.ts`. */
+	const local = $derived(horaNoAparelho(jogo.data, jogo.hora));
 	/**
 	 * Há transmissão deste jogo?
 	 *
@@ -77,7 +81,7 @@
   alvo com nada. Ver `destinos.ts`.
 -->
 <svelte:element this={destino ? 'a' : 'div'} href={destino} class="linha"
-	class:ligavel={destino} class:comDirecto={!!directo}>
+	class:ligavel={destino} class:comDirecto={!!directo} class:duasHoras={!!local}>
 	<span class="quando">
 		{#if live}
 			<!-- O ponto a pulsar lê-se antes do texto; o texto é para quem não vê cor.
@@ -89,9 +93,20 @@
 			{#if jogo.relogio}<span class="conta">{jogo.relogio}</span>{/if}
 		{:else}
 			{#if comData && jogo.data}<span class="dia">{diaCurto(jogo.data)}</span>{/if}
-			<span class="hora">{jogo.hora ?? '—'}</span>
+			{#if local}
+				<span class="hora">{local.hora}{#if local.dias}<sup>{local.dias > 0 ? '+' : '−'}{Math.abs(local.dias)}</sup>{/if}</span>
+				<span class="lisboa">{jogo.hora} PT</span>
+			{:else}
+				<span class="hora">{jogo.hora ?? '—'}</span>
+			{/if}
 		{/if}
 		{#if comEscalao}<span class="escalao">{escalaoCurto(jogo.cat)}</span>{/if}
+		<!-- A jornada, a pedido do dono a 04/11/2026, em todas as listas e não só no mês da equipa.
+		     Em cada jogo e não no cabeçalho da série: medido nesse dia, em 12 dos 353 dias-série
+		     publicados há jogos de mais do que uma jornada (antecipados e torneios), e agrupada por
+		     hora ou pavilhão a lista nem tem cabeçalho de série. O calendário da competição já
+		     agrupa por jornada, e por isso não a passa. Durante o jogo a coluna é da fase. -->
+		{#if !live && jornadaCurta(jogo.jornada)}<span class="jornada">{jornadaCurta(jogo.jornada)}</span>{/if}
 	</span>
 
 	<span class="equipas">
@@ -140,7 +155,8 @@
 							<i class="ficou" style:width="{b.ficou * 100}%"></i><i class="perdeu"
 								style:width="{b.perdeu * 100}%"></i>
 						</span>
-						<b class:abaixo={b.abaixoDeZero}>{pts(b.total)}</b>
+						<b class:abaixo={b.abaixoDeZero}
+							class:j={merito.com_j?.includes(i === 0 ? 'casa' : 'fora')}>{pts(b.total)}</b>
 					</span>
 				{/each}
 			</span>
@@ -205,6 +221,17 @@
 	.quando { display: flex; flex-direction: column; line-height: 1.3; }
 	.dia, .hora { color: var(--suave); font-variant-numeric: tabular-nums;
 		font-size: var(--t-pequeno); }
+	/* Abaixo do `--t-micro`, de propósito: o dono pediu-a *"mais pequena"* a 31/10/2026, e é
+	   uma nota para quem está fora, não a hora principal. 9 px, como a hora do calendário do mês.
+	   E "PT", não "Lisboa", também a pedido dele: "10:00 Lisboa" media 69 px e a coluna tem 50,
+	   ia por baixo do emblema; "10:00 PT" mede 41 e cabe sem alargar a coluna. */
+	.lisboa { color: var(--suave); font-variant-numeric: tabular-nums; font-size: 0.5625rem;
+		white-space: nowrap; }
+	.jornada { color: var(--suave); font-size: 0.5625rem; font-variant-numeric: tabular-nums;
+		line-height: 1; }
+	.hora sup { font-size: 0.7em; margin-left: 0.05em; }
+	/* a hora de quem está a ver manda; a de Lisboa fica por baixo, mais pequena */
+	.duasHoras .hora { color: var(--texto); font-weight: 600; }
 
 	/* um jogo a decorrer tem de se distinguir de um já fechado antes de ser lido */
 	.escalao { font-size: var(--t-micro); font-weight: 600; letter-spacing: 0.03em;
@@ -260,6 +287,10 @@
 	.conta b { min-width: 1.6rem; font-size: var(--t-micro); font-weight: 600;
 		color: var(--texto-2); font-variant-numeric: tabular-nums; }
 	.conta b.abaixo { color: var(--perde); }
+	/* **o total com um `J` vai a amarelo**, por pedido do dono a 01/11/2026: *"para destacar que
+	   há algo que está a afetar essa pontuação"*. A explicação está no separador do Mérito do jogo */
+	.conta b.j { background: var(--j-fundo); border-radius: 3px; padding: 0 0.2rem;
+		text-align: center; }
 	.barra { flex: 1; display: flex; height: 6px; border-radius: 3px; overflow: hidden;
 		background: var(--borda-fraca); }
 	.barra .ficou { background: var(--ganha-barra); }

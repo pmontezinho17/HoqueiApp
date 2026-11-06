@@ -16,6 +16,15 @@ def test_cabecalho_do_jogo_terminado(ficha_seniores):
     assert f.faltas == (7, 17)
 
 
+def test_terminado_e_suspendido_nao_vira_periodo(ficha_seniores):
+    """A 31/10/2026 a APL escreveu isto num sub-15 acabado, e a agenda publicou-o como
+    período de um jogo a decorrer. É a mesma ficha de seniores, com o texto desse dia."""
+    f = ficha(ficha_seniores.replace("Jogo Terminado", "Jogo Terminado (Jogo Suspendido)"), 9308)
+    assert f.estado == "Jogo Terminado"
+    assert f.situacao == "Jogo Terminado (Jogo Suspendido)"
+    assert f.periodo is None
+
+
 def test_arbitros_sem_os_rotulos_das_tabs(ficha_seniores):
     # os rótulos "FICHA DE JOGO" / "BOLETIM DE JOGO" vêm logo a seguir no DOM
     # e entravam na lista de árbitros

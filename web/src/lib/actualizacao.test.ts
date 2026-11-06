@@ -91,7 +91,8 @@ describe('o ficheiro gerado na construção', () => {
 		expect(existsSync(new URL('../../static/versao.json', import.meta.url))).toBe(false);
 	});
 
+	// o terceiro número é o das reparações a meio da semana, como a 1.9.1: ver `versao.ts`
 	it('a versão compilada é uma versão', () => {
-		expect(VERSAO).toMatch(/^\d+\.\d+$/);
+		expect(VERSAO).toMatch(/^\d+\.\d+(\.\d+)?$/);
 	});
 });

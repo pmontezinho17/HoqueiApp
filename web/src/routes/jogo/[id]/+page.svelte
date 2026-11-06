@@ -6,6 +6,7 @@
 	import Emblema from '$lib/Emblema.svelte';
 	import FichaEquipas from '$lib/FichaEquipas.svelte';
 	import TabelaClassificacao from '$lib/TabelaClassificacao.svelte';
+	import LegendaClassificacao from '$lib/LegendaClassificacao.svelte';
 	import TabelaMerito from '$lib/TabelaMerito.svelte';
 	import LegendaMerito from '$lib/LegendaMerito.svelte';
 	import Faixa from '$lib/Faixa.svelte';
@@ -13,9 +14,10 @@
 	import MeritoDoJogo from './MeritoDoJogo.svelte';
 	import { contasDoJogo } from '$lib/meritoDoJogo';
 	import Icone from '$lib/Icone.svelte';
+	import Separadores from '$lib/Separadores.svelte';
 	import Directo from '$lib/Directo.svelte';
 	import { directoDe } from '$lib/directos';
-	import { nomeProprio, nomeProva } from '$lib/formato';
+	import { nomeProprio, nomeProva, situacaoADecorrer } from '$lib/formato';
 	import { piscar } from '$lib/piscar';
 	import { caminhoEquipa } from '$lib/slug';
 	import { estadoDasFaltas, mostrarNoPlacar } from '$lib/faltas';
@@ -63,10 +65,7 @@
 	 *  A regra era "tem período", e o período vinha de um padrão que só reconhecia
 	 *  "Nª Parte (relógio)". Ao intervalo a app ficava **sem sinal nenhum** de que o jogo
 	 *  estava a decorrer — foi o que o utilizador viu. A fonte diz-o num campo próprio. */
-	const FECHADO = new Set(['Jogo Terminado', 'Jogo Suspendido', 'Jogo Adiado']);
-	const aDecorrer = $derived(
-		!!f.situacao && !FECHADO.has(f.situacao) && !/come[çc]ar/i.test(f.situacao)
-	);
+	const aDecorrer = $derived(situacaoADecorrer(f.situacao));
 	/** Nem começou: a ficha que existe é a convocatória, e as colunas estão todas a zero. */
 	const porComecar = $derived(!aDecorrer && /come[çc]ar/i.test(f.situacao ?? ''));
 
@@ -129,6 +128,26 @@
 		)
 			.filter(([, ha]) => ha)
 			.map(([id]) => id)
+	);
+	/**
+	 * O que cada separador mostra na barra: o `curto` por baixo do ícone, o `rotulo` para quem
+	 * ouve por voz. Curtos porque aqui podem ser seis — a 375px são 62px cada.
+	 */
+	const NA_BARRA: Record<Tab, { rotulo: string; curto?: string; icone: string; classe?: string }> = {
+		directo: { rotulo: 'Ver em directo', curto: 'Directo', icone: 'directo', classe: 'aoVivo' },
+		eventos: { rotulo: 'Eventos do jogo', curto: 'Eventos', icone: 'eventos' },
+		merito: { rotulo: 'Mérito deste jogo', curto: 'Mérito', icone: 'merito' },
+		tabela: { rotulo: 'Classificação', icone: 'tabela' },
+		// num jogo por começar isto é a convocatória, não a ficha
+		equipas: { rotulo: 'Equipas', icone: 'equipas' },
+		info: { rotulo: 'Informações', curto: 'Info', icone: 'informacoes' }
+	};
+	const separadores = $derived(
+		abas.map((valor) => ({
+			valor: valor as string,
+			...NA_BARRA[valor],
+			...(valor === 'equipas' && porComecar ? { rotulo: 'Convocados' } : {})
+		}))
 	);
 	// Num jogo a decorrer é a cronologia que se quer, não a ficha — **excepto quando há
 	// transmissão**: aí o que se quer é o jogo, e a cronologia está a uma passagem de dedo.
@@ -395,8 +414,11 @@
 				</div>
 			{/if}
 
-			<!-- W7.3: o caminho de volta à competição, dentro do herói -->
-			<a class="prova" href={f.grupo_id ? `/competicoes/${f.grupo_id}` : '/competicoes'}>
+			<!-- W7.3: o caminho de volta à competição, dentro do herói. Abre na série deste jogo,
+			     que é a que a linha nomeia — a classificação dela, e não a das seis séries. -->
+			<a class="prova" href={f.grupo_id
+				? `/competicoes/${f.grupo_id}${f.serie ? `?serie=${encodeURIComponent(f.serie)}` : ''}`
+				: '/competicoes'}>
 				<!-- o escalão saiu daqui para cima do resultado; aqui fica a prova -->
 				<span class="texto">
 					<span class="nome">{nomeProva(provaCurta)}</span>
@@ -411,38 +433,9 @@
 </article>
 
 {#if temSeparadores}
-	<!-- Ícones e não texto: cabem os quatro de ponta a ponta sem apertar, e o rótulo
-	     continua a existir para quem lê por voz. Dentro do cromado, para ficarem sempre
-	     agarrados ao herói e nunca passarem por baixo dele. -->
-	<div class="tabs" role="tablist">
-		{#if directo}
-			<button class="aoVivo" role="tab" aria-selected={tab === 'directo'}
-				aria-label="Ver em directo" onclick={() => (tab = 'directo')}
-			><Icone nome="directo" tamanho={22} /></button>
-		{/if}
-		{#if temEventos}
-			<button role="tab" aria-selected={tab === 'eventos'} aria-label="Eventos do jogo"
-				onclick={() => (tab = 'eventos')}><Icone nome="eventos" tamanho={22} /></button>
-		{/if}
-		{#if contas}
-			<button role="tab" aria-selected={tab === 'merito'} aria-label="Mérito deste jogo"
-				onclick={() => (tab = 'merito')}><Icone nome="merito" tamanho={22} /></button>
-		{/if}
-		{#if temTabela}
-			<button role="tab" aria-selected={tab === 'tabela'} aria-label="Classificação"
-				onclick={() => (tab = 'tabela')}><Icone nome="tabela" tamanho={22} /></button>
-		{/if}
-		{#if temEquipas}
-			<!-- num jogo por começar isto é a convocatória, não a ficha -->
-			<button role="tab" aria-selected={tab === 'equipas'}
-				aria-label={porComecar ? 'Convocados' : 'Equipas'}
-				onclick={() => (tab = 'equipas')}><Icone nome="equipas" tamanho={22} /></button>
-		{/if}
-		{#if temInfo}
-			<button role="tab" aria-selected={tab === 'info'} aria-label="Informações"
-				onclick={() => (tab = 'info')}><Icone nome="informacoes" tamanho={22} /></button>
-		{/if}
-	</div>
+	<!-- Dentro do cromado, para ficarem sempre agarrados ao herói e nunca passarem por baixo
+	     dele. -->
+	<Separadores {separadores} activo={tab} escolher={(v) => (tab = v)} />
 {/if}
 </div>
 </div>
@@ -495,10 +488,11 @@
 						{#if g.linhas.length}
 							{#if g.nome}<h2 class="serie">{g.nome}</h2>{/if}
 							<TabelaClassificacao linhas={g.linhas} emblemas={data.emblemas}
-								categoria={f.categoria ?? ''}
+								categoria={f.categoria ?? ''} legenda={false}
 								destaque={(e) => e === f.casa || e === f.fora} />
 						{/if}
 					{/each}
+					<LegendaClassificacao />
 					{#if tabela.calculada}<RotuloCalculada />{/if}
 				{/if}
 			{:else if aba === 'equipas'}
@@ -686,29 +680,7 @@
 	/* ------------------------------------------------------------- separadores */
 	/* Colados por baixo do herói, que muda de altura ao colapsar — daí a altura vir
 	   medida e não escrita à mão. Nunca ficam escondidos. */
-	.tabs {
-		display: flex;
-		background: var(--cartao);
-		border-bottom: 1px solid var(--borda);
-	}
-	.tabs button {
-		flex: 1 1 0; min-height: 46px; padding: var(--e-2) 0;
-		display: flex; align-items: center; justify-content: center;
-		cursor: pointer; background: none; border: 0;
-		border-bottom: 2px solid transparent;
-		color: var(--suave);
-	}
-	/* o único separador com cor própria: é o que distingue "há jogo para ver" de "há dados
-	   para ler", e a cor do botão é a mesma da câmara na lista */
-	.tabs button[aria-selected='true'] {
-		color: var(--acento);
-		border-bottom-color: var(--acento);
-	}
-	.tabs button[aria-selected='true'] :global(svg) { color: var(--acento); }
-	/* A câmara é vermelha esteja ou não escolhida — é a marca de "este dá para ver", e a
-	   selecção já se lê no sublinhado. A regra vem **depois** da do separador escolhido de
-	   propósito: têm a mesma especificidade, e é a ordem que decide. */
-	.tabs button.aoVivo :global(svg) { color: var(--directo); }
+	/* o desenho dos separadores vive no `lib/Separadores.svelte`, igual em todos os ecrãs */
 
 	/* Uma nota e não um aviso: nada está mal, há só uma coisa que ainda não aconteceu. Por
 	   isso sem amarelo e sem ícone de alerta — a lição da caixa das classificações

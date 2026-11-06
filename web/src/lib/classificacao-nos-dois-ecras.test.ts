@@ -98,7 +98,9 @@ describe('as três formas de classificar aparecem onde têm de aparecer', () => 
 		// decisão tem de vir da função pura — é lá que está testada contra os dados de todas as
 		// equipas, no `equipa-sem-classificacao.test.ts`.
 		const vazio = equipa.indexOf('não tem classificação publicada');
-		const comMerito = equipa.indexOf("aba === 'classificacao' && oQueMostrar === 'merito'");
+		// `a ===` e não `aba ===`: desde 31/10/2026 o ramo vive dentro da página da `Faixa`, que
+		// recebe o separador como `a` — e `a === …` apanha os dois nomes
+		const comMerito = equipa.indexOf("a === 'classificacao' && oQueMostrar === 'merito'");
 		expect(comMerito).toBeGreaterThan(-1);
 		expect(vazio).toBeGreaterThan(comMerito);
 		expect(equipa).toMatch(/classificacaoDaEquipa\(provas, data\.equipa\)/);

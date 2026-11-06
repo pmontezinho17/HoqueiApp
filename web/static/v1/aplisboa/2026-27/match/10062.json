@@ -16,6 +16,9 @@
   1,
   0
  ],
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
  "equipas": [
   {
    "nome": "CACO B",
@@ -140,6 +143,20 @@
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/1",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "95",
+     "nome": "OLIVIA GRANJA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
      "livres_diretos": "0/0",
      "cartoes_amarelos": 0,
      "cartoes_azuis": 0,
@@ -804,7 +821,7 @@
   "oficiais": {
    "Árbitro 1 (ch. dupla)": "RITA ALMEIDA",
    "Árbitro Auxiliar": "CHRISTINE LEHNERT",
-   "Cronometrista": "Joana Salta",
+   "Cronometrista": "JOANA SALTA",
    "Diretor de campo": "ARLETE SANTOS",
    "Gestor de segurança": "MARCO POVOA"
   },
@@ -834,22 +851,16 @@
    0
   ],
   "inicio": [
-   "17:09",
-   "17:41"
+   "17:00",
+   "17:44"
   ],
   "termo": [
-   "18:38",
-   "18:41"
+   "17:39",
+   "18:30"
   ],
   "capitao_casa": null,
   "capitao_fora": null
  },
- "competicao_id": 467,
- "categoria": "BENJAMINS",
- "jornada": "1ª JORNADA",
- "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-ii",
- "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II",
- "serie": "C",
  "merito": [
   {
    "equipa": "CACO B",
@@ -902,5 +913,12 @@
    ],
    "avisos": []
   }
- ]
+ ],
+ "merito_revisto": "2026-10-31",
+ "competicao_id": 467,
+ "categoria": "BENJAMINS",
+ "jornada": "1ª JORNADA",
+ "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-ii",
+ "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II",
+ "serie": "C"
 }

@@ -234,8 +234,16 @@ def em_curso(situacao: str | None) -> bool:
     os textos de jogo a decorrer deixaria de fora o primeiro que a fonte inventasse; excluir
     os de jogo fechado falha do lado seguro — um jogo a mais marcado como a decorrer corrige-se
     na ronda seguinte, um jogo a menos deixa o utilizador sem nada durante todo o jogo.
+
+    Um estado fechado conta pelo **começo** do texto, e não pelo texto inteiro. A 31/10/2026 a
+    APL escreveu `"Jogo Terminado (Jogo Suspendido)"` num sub-15 das 15:45 (UD Vilafranquense
+    A–APAC Tojal, 6–1): não estava em `FECHADO` à letra, e o jogo ficou marcado "ao vivo" até à
+    noite, com a ronda ao vivo a perguntar por ele de cinco em cinco minutos. O dono viu-o no
+    telemóvel às 21:51 e a consola dizia "ao vivo preso em 1". E não se corrigiu "na ronda
+    seguinte", como diz acima: a ficha não mudava, e a ronda ao vivo só mexia na marca quando
+    a ficha mudava — ver `comando_aovivo`.
     """
     if not situacao:
         return False
     s = situacao.strip()
-    return s not in FECHADO and "come" not in s.lower()
+    return not any(s.startswith(f) for f in FECHADO) and "come" not in s.lower()

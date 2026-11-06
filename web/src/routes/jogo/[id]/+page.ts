@@ -1,5 +1,5 @@
 import { carregarCompeticao, carregarJogo, carregarMerito } from '$lib/dados';
-import { fichaDaAgenda } from '$lib/fichaDaAgenda';
+import { comNomesDaAgenda, fichaDaAgenda } from '$lib/fichaDaAgenda';
 import { emCurso } from '$lib/formato';
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
@@ -35,7 +35,8 @@ export const load: PageLoad = async ({ params, fetch, parent }) => {
 	let ficha = null;
 	let semFicha = false;
 	try {
-		ficha = await carregarJogo(id, fetch, aoVivo);
+		// uma ficha de convocatória pode vir sem equipas: ver `comNomesDaAgenda`
+		ficha = comNomesDaAgenda(await carregarJogo(id, fetch, aoVivo), naAgenda);
 	} catch {
 		// Qualquer falha a buscar a ficha, e não só a de "não publicada": sem rede, com a
 		// agenda em cache, mais vale a página do jogo com o que já se sabe do que um erro.

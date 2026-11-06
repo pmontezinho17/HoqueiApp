@@ -24,7 +24,7 @@
    "nome": "CRIAR-T GD",
    "jogadores": [
     {
-     "numero": "01",
+     "numero": "1",
      "nome": "TOMÁS LOPES",
      "titular": true,
      "golos": 0,
@@ -38,7 +38,7 @@
      "papel": null
     },
     {
-     "numero": "02",
+     "numero": "2",
      "nome": "AFONSO NUNES",
      "titular": true,
      "golos": 0,
@@ -52,7 +52,7 @@
      "papel": null
     },
     {
-     "numero": "03",
+     "numero": "3",
      "nome": "ANTONIO PEREIRA",
      "titular": true,
      "golos": 0,
@@ -66,7 +66,7 @@
      "papel": null
     },
     {
-     "numero": "04",
+     "numero": "4",
      "nome": "MATEUS CABRERA",
      "titular": false,
      "golos": 0,
@@ -80,7 +80,7 @@
      "papel": null
     },
     {
-     "numero": "05",
+     "numero": "5",
      "nome": "LUCAS ALVES",
      "titular": false,
      "golos": 0,
@@ -94,7 +94,7 @@
      "papel": null
     },
     {
-     "numero": "06",
+     "numero": "6",
      "nome": "SANTIAGO LOPES",
      "titular": false,
      "golos": 0,
@@ -108,7 +108,7 @@
      "papel": null
     },
     {
-     "numero": "07",
+     "numero": "7",
      "nome": "VASCO FRAÚSTO",
      "titular": true,
      "golos": 0,
@@ -122,7 +122,7 @@
      "papel": null
     },
     {
-     "numero": "08",
+     "numero": "8",
      "nome": "AFONSO MARCELO",
      "titular": false,
      "golos": 0,
@@ -136,7 +136,7 @@
      "papel": null
     },
     {
-     "numero": "09",
+     "numero": "9",
      "nome": "FRANCISCO CARVOEIRO",
      "titular": true,
      "golos": 0,
@@ -1004,6 +1004,7 @@
    "avisos": []
   }
  ],
+ "merito_revisto": "2026-10-31",
  "competicao_id": 462,
  "categoria": "ESCOLARES",
  "jornada": "4ª JORNADA",

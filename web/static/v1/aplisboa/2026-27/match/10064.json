@@ -155,6 +155,20 @@
    "nome": "CACO B",
    "jogadores": [
     {
+     "numero": "92",
+     "nome": "XAVIER MIRANDA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
      "numero": "2",
      "nome": "MADALENA ABRANTES",
      "titular": false,
@@ -255,20 +269,6 @@
     {
      "numero": "66",
      "nome": "KISHON RAFAEL",
-     "titular": false,
-     "golos": 0,
-     "assistencias": 0,
-     "defesas": 0,
-     "penalidades": "0/0",
-     "livres_diretos": "0/0",
-     "cartoes_amarelos": 0,
-     "cartoes_azuis": 0,
-     "cartoes_vermelhos": 0,
-     "papel": null
-    },
-    {
-     "numero": "92",
-     "nome": "XAVIER MIRANDA",
      "titular": false,
      "golos": 0,
      "assistencias": 0,
@@ -836,12 +836,6 @@
   "capitao_casa": null,
   "capitao_fora": null
  },
- "competicao_id": 467,
- "categoria": "BENJAMINS",
- "jornada": "2ª JORNADA",
- "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-ii",
- "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II",
- "serie": "C",
  "merito": [
   {
    "equipa": "SPORTING CP",
@@ -899,5 +893,12 @@
    ],
    "avisos": []
   }
- ]
+ ],
+ "merito_revisto": "2026-10-31",
+ "competicao_id": 467,
+ "categoria": "BENJAMINS",
+ "jornada": "2ª JORNADA",
+ "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-ii",
+ "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II",
+ "serie": "C"
 }

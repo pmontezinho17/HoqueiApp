@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { fichaDaAgenda } from './fichaDaAgenda';
+import { comNomesDaAgenda, fichaDaAgenda } from './fichaDaAgenda';
 import type { JogoAgenda } from './tipos';
 
 const jogo = (extra: Partial<JogoAgenda> = {}): JogoAgenda => ({
@@ -64,5 +64,26 @@ describe('a ficha montada da agenda', () => {
 		expect(f.cronologia).toEqual([]);
 		expect(f.arbitros).toEqual([]);
 		expect(f.boletim).toBeNull();
+	});
+});
+
+describe('uma ficha publicada sem nomes', () => {
+	// o jogo 9521, tal como estava em produção a 31/10/2026 às 15:30
+	const vazia = () => ({ ...fichaDaAgenda(jogo()), casa: '', fora: '', id: 9521 });
+	const parede = jogo({ id: 9521, casa: 'PAREDE FC A', fora: 'FSE/AJ SALESIANA', cat: 'SUB-13' });
+
+	it('fica com os nomes da agenda', () => {
+		const f = comNomesDaAgenda(vazia(), parede);
+		expect([f.casa, f.fora]).toEqual(['PAREDE FC A', 'FSE/AJ SALESIANA']);
+	});
+
+	it('mas os nomes da ficha, quando os há, mandam', () => {
+		const f = comNomesDaAgenda({ ...vazia(), casa: 'PAREDE FC', fora: 'SALESIANA' }, parede);
+		expect([f.casa, f.fora]).toEqual(['PAREDE FC', 'SALESIANA']);
+	});
+
+	it('e sem o jogo na agenda fica como veio', () => {
+		const f = vazia();
+		expect(comNomesDaAgenda(f, null)).toBe(f);
 	});
 });

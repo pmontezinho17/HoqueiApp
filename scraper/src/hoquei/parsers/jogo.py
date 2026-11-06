@@ -11,7 +11,7 @@ from datetime import date, time
 
 from selectolax.parser import HTMLParser
 
-from ..modelos import EquipaFicha, EventoJogo, FichaJogo, LinhaJogador
+from ..modelos import EquipaFicha, EventoJogo, FichaJogo, LinhaJogador, em_curso
 from ..nomes import canonico
 from .boletim import boletim
 
@@ -191,8 +191,10 @@ def _cabecalho(arvore, equipa_fora: str | None = None) -> dict:
     if (sit := dados.get("situacao")):
         if m := re.search(r"(\d+[ªa]\s*[Pp]arte)\s*\((\d{1,2}:\d{2})\)", sit):
             dados["periodo"], dados["relogio"] = m.group(1), m.group(2)
-        elif sit not in _ESTADOS and "come" not in sit.lower():
-            # "Intervalo", "Prolongamento" e companhia: período sem relógio
+        elif em_curso(sit):
+            # "Intervalo", "Prolongamento" e companhia: período sem relógio. A mesma regra do
+            # `em_curso`, e não uma cópia dela: a cópia comparava o texto inteiro, e um
+            # "Jogo Terminado (Jogo Suspendido)" virava o período de um jogo acabado.
             dados["periodo"] = sit
     return dados
 

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { invalidate } from '$app/navigation';
+	import { diaDeLisboa, instanteDeLisboa } from '$lib/dia';
 	import type { JogoAgenda } from '$lib/tipos';
 
 	let { agenda }: { agenda: JogoAgenda[] } = $props();
@@ -33,8 +34,8 @@
 		return () => clearInterval(t);
 	});
 
-	const inicioDe = (j: JogoAgenda) =>
-		j.hora ? new Date(`${j.data}T${j.hora.slice(0, 5)}:00`).getTime() : null;
+	// a hora marcada é de Lisboa, e não a do aparelho: ver `instanteDeLisboa`
+	const inicioDe = (j: JogoAgenda) => (j.hora ? instanteDeLisboa(j.data, j.hora) : null);
 
 	const naJanela = $derived(
 		agenda.some((j) => {
@@ -43,14 +44,11 @@
 		})
 	);
 
-	// A data local, e **não** `toISOString()`: esse devolve a data em UTC, e no horário de
-	// verão um jogo às 23:30 de Lisboa já está escrito no dia seguinte. É a mesma troca que
-	// fez a ronda ao vivo sair cedo a 05/10, e que custou meio dia de jogos.
-	const hoje = $derived.by(() => {
-		const d = new Date(agora);
-		const p = (n: number) => String(n).padStart(2, '0');
-		return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
-	});
+	// O dia de Lisboa, e não o do aparelho nem o de UTC. Era a data local, e essa já tinha
+	// corrigido o `toISOString()` — que no verão escreve um jogo às 23:30 no dia seguinte e fez a
+	// ronda ao vivo sair cedo a 05/10. Mas a data local só é a de Lisboa em Portugal; fora, a 31/10,
+	// era o fuso do telemóvel do dono a decidir que dia era hoje.
+	const hoje = $derived(diaDeLisboa(new Date(agora)));
 	const diaDeJogos = $derived(agenda.some((j) => j.data === hoje));
 
 	$effect(() => {

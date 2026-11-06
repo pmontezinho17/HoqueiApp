@@ -1080,11 +1080,11 @@
   ],
   "inicio": [
    "12:00",
-   "12:30"
+   "12:35"
   ],
   "termo": [
-   "12:57",
-   "12:53"
+   "12:30",
+   "12:58"
   ],
   "capitao_casa": null,
   "capitao_fora": null
@@ -1142,6 +1142,7 @@
    "avisos": []
   }
  ],
+ "merito_revisto": "2026-10-31",
  "competicao_id": 465,
  "categoria": "BENJAMINS",
  "jornada": "5ª JORNADA",

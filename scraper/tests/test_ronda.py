@@ -200,6 +200,14 @@ class TestComOInterruptorLigado:
         b = json.loads((filtrada / "agenda.json").read_text())
         assert a == b
 
+    def test_a_agenda_diz_a_jornada(self, correr, tmp_path):
+        """Desde 04/11/2026 as listas de jogos mostram a jornada, e a agenda é o que elas lêem."""
+        destino = tmp_path / "v1"
+        correr(filtrar=False, hoje=QUARTA_SEM_JOGOS, destino=destino)
+        jogos = json.loads((destino / "agenda.json").read_text())["jogos"]
+        assert any("JORNADA" in (j.get("jornada") or "") for j in jogos)
+        assert all(isinstance(j.get("jornada"), (str, type(None))) for j in jogos)
+
     def test_no_dia_da_varredura_volta_a_pedir_tudo(self, correr, tmp_path):
         """A rede de segurança semanal, de ponta a ponta."""
         destino = tmp_path / "v1"
@@ -304,14 +312,16 @@ class TestOBoletimQueChegaDepois:
         assert not cli._boletim_por_chegar(f, QUARTA_SEM_JOGOS), "nem um jogo a decorrer"
 
 
-class TestOMeritoRelidoUmaSemanaDepois:
-    """Uma ficha corrigida pela APL chega à app — ver `_merito_por_rever`."""
+class TestAFichaRelidaDuranteUmMes:
+    """Decisão do dono a 01/11/2026: todas as fichas com Mérito, todas as semanas, durante um
+    mês — ver `_merito_por_rever`."""
 
     HOJE = dt.date(2026, 11, 2)
+    COM_J = [{"total": -1, "marcas_fora_do_x": {"J": 7}}, {"total": 6}]
 
-    def _ficha(self, tmp_path, **campos):
+    def _ficha(self, tmp_path, merito=COM_J, **campos):
         f = tmp_path / "1.json"
-        f.write_text(json.dumps({"estado": "Jogo Terminado", "merito": [{"total": 11}], **campos}))
+        f.write_text(json.dumps({"estado": "Jogo Terminado", "merito": merito, **campos}))
         return f
 
     def test_com_uma_semana_rele_se(self, tmp_path):
@@ -320,12 +330,53 @@ class TestOMeritoRelidoUmaSemanaDepois:
     def test_antes_da_semana_ainda_nao(self, tmp_path):
         assert not cli._merito_por_rever(self._ficha(tmp_path, data="2026-10-27"), self.HOJE)
 
-    def test_relida_uma_vez_nao_se_rele_outra(self, tmp_path):
-        f = self._ficha(tmp_path, data="2026-10-01", merito_revisto="2026-10-08")
+    def test_relida_ha_menos_de_uma_semana_espera(self, tmp_path):
+        f = self._ficha(tmp_path, data="2026-10-12", merito_revisto="2026-10-27")
         assert not cli._merito_por_rever(f, self.HOJE)
 
+    def test_relida_ha_uma_semana_rele_se_outra_vez(self, tmp_path):
+        f = self._ficha(tmp_path, data="2026-10-12", merito_revisto="2026-10-26")
+        assert cli._merito_por_rever(f, self.HOJE)
+
+    def test_passado_o_mes_a_ficha_esta_fechada(self, tmp_path):
+        assert cli._merito_por_rever(self._ficha(tmp_path, data="2026-10-03"), self.HOJE)
+        assert not cli._merito_por_rever(self._ficha(tmp_path, data="2026-10-02"), self.HOJE)
+
+    def test_uma_ficha_sem_j_tambem_se_rele(self, tmp_path):
+        """As quatro correcções de 31/10/2026 foram em fichas que hoje não têm `J`."""
+        sem_j = [{"total": 11}, {"total": 6}]
+        assert cli._merito_por_rever(self._ficha(tmp_path, merito=sem_j, data="2026-10-26"), self.HOJE)
+
     def test_sem_merito_nao_ha_nada_a_reler(self, tmp_path):
-        assert not cli._merito_por_rever(self._ficha(tmp_path, data="2026-10-01", merito=None), self.HOJE)
+        assert not cli._merito_por_rever(self._ficha(tmp_path, data="2026-10-26", merito=None), self.HOJE)
+
+    def test_quatro_releituras_num_mes(self, tmp_path):
+        """Os dias 7, 14, 21 e 28, com a ronda das 00:30 a correr todos os dias."""
+        f = self._ficha(tmp_path, data="2026-10-01")
+        relida = []
+        for d in range(0, 40):
+            hoje = dt.date(2026, 10, 1) + dt.timedelta(days=d)
+            if cli._merito_por_rever(f, hoje):
+                relida.append(d)
+                f.write_text(json.dumps({**json.loads(f.read_text()), "merito_revisto": hoje.isoformat()}))
+        assert relida == [7, 14, 21, 28]
+
+
+class TestOBoletimQueDesaparece:
+    """Uma releitura semanal que não encontra o boletim não apaga o Mérito — ver
+    `_merito_a_guardar`. Visto na revisão da entrega de 02/11/2026."""
+
+    ANTIGO = [{"equipa": "CD PAÇO ARCOS A", "total": -1}, {"equipa": "A STUART HCM", "total": 6}]
+
+    def test_sem_boletim_fica_o_que_estava(self):
+        assert cli._merito_a_guardar(None, self.ANTIGO) == self.ANTIGO
+
+    def test_uma_correccao_entra(self):
+        novo = [{"equipa": "CD PAÇO ARCOS A", "total": 10}, {"equipa": "A STUART HCM", "total": 6}]
+        assert cli._merito_a_guardar(novo, self.ANTIGO) == novo
+
+    def test_um_jogo_que_nunca_teve_merito_continua_sem(self):
+        assert cli._merito_a_guardar(None, None) is None
 
 
 def test_o_botao_do_site_de_testes_rele_so_o_que_se_pediu():

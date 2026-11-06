@@ -215,16 +215,72 @@ class TestAsLetrasDaGrelha:
         for nome in (a.nome for lado in participacao(html) for a in lado):
             assert nome not in publicado
 
+    @staticmethod
+    def _j_a_mais(html: str) -> str:
+        """Um `J` como os de produção: uma marca a mais numa meia parte em que o atleta não
+        estava. O JOGADOR 30 da amostra tem `_ X _ X`; com o `J` na 3.ª fica com três seguidas."""
+        linha = html.index("JOGADOR 30", html.index('id="acta"'))
+        vazia = '"text-align:center;"></td>'
+        segunda = html.index(vazia, html.index(vazia, linha) + 1)
+        return html[:segunda] + '"text-align:center;">J</td>' + html[segunda + len(vazia):]
+
+    def test_as_regras_em_que_o_j_pesa(self, ficha_escolares_com_boletim):
+        """Pedido do dono a 01/11/2026: a linha da conta onde o `J` penaliza vai a amarelo. São
+        as regras que mudam quando se lê a grelha sem os `J`."""
+        from hoquei import cli
+        from hoquei.parsers.participacao import participacao
+        html = self._j_a_mais(ficha_escolares_com_boletim)
+        com, sem = participacao(html), participacao(html, ignorar=frozenset({"J"}))
+        assert [a.periodos for a in sem[0]] == [a.periodos for a in participacao(
+            ficha_escolares_com_boletim)[0]]
+        assert sum(a.tres_seguidas for a in com[0]) == sum(a.tres_seguidas for a in sem[0]) + 1
+        contas = cli._merito_da_ficha(html, {"casa": "A", "fora": "B", "golos_casa": 0, "golos_fora": 5})
+        regras = contas[0]["regras_do_j"]
+        assert regras and all(r.startswith("4.1.") for r in regras)
+        # cada regra marcada tem mesmo pontos diferentes dos da conta sem o `J`
+        normais = cli._merito_da_ficha(ficha_escolares_com_boletim,
+                                       {"casa": "A", "fora": "B", "golos_casa": 0, "golos_fora": 5})
+        pontos = lambda c, r: sum(p["pontos"] for p in c["parcelas"] if p["regra"] == r)
+        assert all(pontos(contas[0], r) != pontos(normais[0], r) for r in regras)
+        # a outra equipa não tem `J`, e por isso nem tem a chave
+        assert "regras_do_j" not in contas[1]
+        resumo = cli._resumo_do_merito({"casa": "A", "fora": "B", "merito": contas})
+        assert resumo["com_j"] == ["casa"]
+        assert "por_confirmar" not in resumo
+
+    def test_um_j_que_nao_mexe_em_nada_fica_com_a_lista_vazia(self, ficha_escolares_com_boletim):
+        """Vazia e não ausente: diz que a ficha já foi lida com a pergunta, e não volta a pedir-se."""
+        from hoquei import cli
+        i = ficha_escolares_com_boletim.index('id="acta"')
+        alvo = '"text-align:center;">X</td>'
+        j = ficha_escolares_com_boletim.index(alvo, i)
+        html = (ficha_escolares_com_boletim[:j] + alvo.replace(">X<", ">J<")
+                + ficha_escolares_com_boletim[j + len(alvo):])
+        contas = cli._merito_da_ficha(html, {"casa": "A", "fora": "B", "golos_casa": 0, "golos_fora": 5})
+        assert contas[0]["regras_do_j"] == []
+
+    def test_uma_ficha_com_j_de_antes_das_regras_relê_se_uma_vez(self, tmp_path):
+        """Os cinco jogos com `J` em produção a 01/11/2026 foram lidos sem `regras_do_j`."""
+        import json
+        from hoquei import cli
+        alvo = tmp_path / "1.json"
+        alvo.write_text(json.dumps({"merito": [{"marcas_fora_do_x": {"J": 2}}, {}]}))
+        assert cli._j_por_explicar(alvo)
+        alvo.write_text(json.dumps({"merito": [{"marcas_fora_do_x": {"J": 2}, "regras_do_j": []}, {}]}))
+        assert not cli._j_por_explicar(alvo)
+        alvo.write_text(json.dumps({"merito": [{}, {}]}))
+        assert not cli._j_por_explicar(alvo)
+
     def test_a_releitura_nao_conta_a_letra_como_mudanca(self):
         from hoquei import cli
         antes = [{"total": 11, "avisos": []}]
         depois = [{"total": 11, "marcas_fora_do_x": {"J": 1}, "avisos": []}]
         assert cli._sem_marcas(antes) == cli._sem_marcas(depois)
 
-    def test_um_jogo_com_j_fica_por_confirmar(self, ficha_escolares_com_boletim):
-        """Pedido do dono a 29/10/2026: até se saber o que o `J` quer dizer, a linha do jogo nas
-        listas leva o `?`. Mas a equipa **não** ganha um aviso: a nota da tabela da série, em
-        produção, explica os avisos como um atleta com um só período."""
+    def test_um_jogo_com_j_nao_fica_por_confirmar(self, ficha_escolares_com_boletim):
+        """Decisão do dono a 01/11/2026: o `J` é uma substituição e penaliza, como qualquer meia
+        parte jogada. Esteve três dias a pôr o `?` na linha do jogo, enquanto não se sabia o que
+        queria dizer. A letra continua contada, e a equipa não ganha aviso nenhum."""
         from hoquei import cli
         i = ficha_escolares_com_boletim.index('id="acta"')
         alvo = '"text-align:center;">X</td>'
@@ -237,9 +293,9 @@ class TestAsLetrasDaGrelha:
         normais = cli._merito_da_ficha(ficha_escolares_com_boletim,
                                        {"casa": "A", "fora": "B", "golos_casa": 0, "golos_fora": 5})
         assert [c["avisos"] for c in contas] == [c["avisos"] for c in normais]
+        assert not any(c["avisos"] for c in normais)
         resumo = cli._resumo_do_merito({"casa": "A", "fora": "B", "merito": contas})
-        assert resumo["por_confirmar"] is True
-        # e o jogo sem letras nenhumas fica como era
-        if not any(c["avisos"] for c in normais):
-            assert "por_confirmar" not in cli._resumo_do_merito(
-                {"casa": "A", "fora": "B", "merito": normais})
+        assert "por_confirmar" not in resumo
+        # e o `J` pesa na conta exactamente como o `X` que substituiu: é o 87.º 7.6, quem
+        # substitui faz a meia parte inteira
+        assert cli._sem_marcas(contas) == normais

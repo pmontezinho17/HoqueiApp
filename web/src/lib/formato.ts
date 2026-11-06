@@ -1,3 +1,4 @@
+import { diaDeLisboa, horaNoAparelho, instanteDeLisboa } from './dia';
 import { disputado, type Jogo } from './tipos';
 
 const DIAS = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
@@ -12,21 +13,47 @@ export function dataCurta(iso: string | null): string {
 export const horaCurta = (h: string | null): string => (h ? h.slice(0, 5) : '');
 
 /**
+ * A hora de um jogo para um texto corrido: a do aparelho à frente e a de Lisboa entre
+ * parênteses, quando são diferentes — `"10:45 (15:45 PT)"`. Ver `horaNoAparelho`.
+ */
+export function horaComLisboa(data: string | null | undefined, hora: string | null): string {
+	const local = horaNoAparelho(data, hora);
+	if (!local) return horaCurta(hora);
+	const dia = local.dias ? ` ${local.dias > 0 ? '+' : '−'}${Math.abs(local.dias)}d` : '';
+	return `${local.hora}${dia} (${horaCurta(hora)} PT)`;
+}
+
+/**
  * A jornada em curso: a primeira, pela ordem da prova, que ainda tem jogos por disputar.
  *
  * Tentei primeiro "a jornada do próximo jogo por data" e dá a resposta errada: nesta prova
  * a 3ª jornada tem um jogo a 22/09 e a 1ª ainda tem um a 23/09, por isso saltava para a 3ª
  * com a 1ª por fechar. O que o utilizador quer saber é onde vai a prova, não qual é o
  * próximo jogo do calendário.
+ *
+ * O rótulo distingue uma jornada começada de uma por começar. A 31/10 os três jogos da 7ª
+ * jornada dos sub-13 acabaram ao sábado à tarde e a 8ª, toda a 7/11, passou a dizer "em
+ * curso" uma semana antes do primeiro apito — o dono reparou no telemóvel. Começa no dia do
+ * seu primeiro jogo, por decisão dele: *"talvez tenha mais lógica quando chegar o dia"*. O dia
+ * é o de Lisboa, porque as datas da fonte são de Lisboa e ele estava noutro fuso quando
+ * reparou. Um resultado já publicado também a dá por começada, para o caso de um jogo
+ * antecipado ou de uma data que a fonte não actualizou.
  */
-export function jornadaAtual(jogos: Jogo[]): string | null {
+export function jornadaAtual(
+	jogos: Jogo[],
+	hoje: string = diaDeLisboa()
+): { jornada: string; rotulo: 'em curso' | 'próxima' } | null {
 	const ordem: string[] = [];
 	const porJogar = new Set<string>();
+	const comecadas = new Set<string>();
 	for (const j of jogos) {
 		if (!ordem.includes(j.jornada)) ordem.push(j.jornada);
+		if (disputado(j) || (j.data && j.data <= hoje)) comecadas.add(j.jornada);
 		if (!disputado(j)) porJogar.add(j.jornada);
 	}
-	return ordem.find((j) => porJogar.has(j)) ?? ordem.at(-1) ?? null;
+	const jornada = ordem.find((j) => porJogar.has(j)) ?? ordem.at(-1);
+	if (!jornada) return null;
+	return { jornada, rotulo: comecadas.has(jornada) ? 'em curso' : 'próxima' };
 }
 
 /** Dentro da jornada a fonte ordena por número de jogo, não por quando se joga. */
@@ -34,6 +61,28 @@ export function porQuando(jogos: Jogo[]): Jogo[] {
 	return [...jogos].sort((a, b) =>
 		`${a.data ?? "9999"}${a.hora ?? ""}`.localeCompare(`${b.data ?? "9999"}${b.hora ?? ""}`)
 	);
+}
+
+/**
+ * O calendário de uma prova, jornada a jornada: as jornadas pela ordem da prova, e os jogos de
+ * cada uma por quando se jogam.
+ *
+ * **A ordem das jornadas é a da fonte, e não a das datas.** Os grupos nasciam da lista já
+ * ordenada por data, por isso uma jornada com um jogo antecipado saltava para o lugar desse
+ * jogo e levava a jornada inteira com ela. O dono viu-o a 06/11/2026 nos Sub-13, Série C: a 6ª
+ * jornada logo a seguir à 2ª, porque o A STUART HCM – PAREDE FC A se jogou a 5/10. A decisão
+ * dele foi a jornada: *"prefiro ver um jogo mais à frente já jogado, do que estar a passar uma
+ * jornada para trás"* — um jogo adiado de outra equipa tornava a ordem por data igualmente
+ * enganadora.
+ *
+ * Medido nesse dia nos 37 ficheiros de prova publicados: nos 25 com todas as jornadas
+ * numeradas, a fonte lista-as **sempre** por ordem; e em 9 deles a ordem por data trocava pelo
+ * menos duas. É a mesma "ordem da prova" que o `jornadaAtual` já usava.
+ */
+export function porJornada(jogos: Jogo[]): [string, Jogo[]][] {
+	const m = new Map<string, Jogo[]>();
+	for (const j of jogos) (m.get(j.jornada) ?? m.set(j.jornada, []).get(j.jornada)!).push(j);
+	return [...m].map(([jornada, daJornada]) => [jornada, porQuando(daJornada)]);
 }
 
 const DIAS_LONGOS = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira',
@@ -88,9 +137,25 @@ const JANELA_AO_VIVO_MS = 3 * 60 * 60 * 1000;
  */
 export function emCurso(jogo: { ao_vivo?: boolean; data: string; hora: string | null }): boolean {
 	if (!jogo.ao_vivo || !jogo.hora) return false;
-	const inicio = new Date(`${jogo.data}T${jogo.hora.slice(0, 5)}:00`).getTime();
+	const inicio = instanteDeLisboa(jogo.data, jogo.hora);
 	const agora = Date.now();
 	return agora >= inicio && agora - inicio < JANELA_AO_VIVO_MS;
+}
+
+/** O que a fonte escreve na `situacao` de um jogo que já não está a decorrer. */
+const FECHADO = ['Jogo Terminado', 'Jogo Suspendido', 'Jogo Adiado'];
+
+/**
+ * Nem terminado, nem por começar: pela `situacao` da ficha, está a acontecer alguma coisa.
+ *
+ * O estado fechado conta pelo **começo** do texto. A 31/10/2026 a APL escreveu
+ * "Jogo Terminado (Jogo Suspendido)" num sub-15 acabado, e a comparação pelo texto inteiro
+ * punha a ficha a dizer que o jogo ia a decorrer. É a mesma regra do `em_curso` do raspador.
+ */
+export function situacaoADecorrer(situacao: string | null | undefined): boolean {
+	if (!situacao) return false;
+	const s = situacao.trim();
+	return !FECHADO.some((f) => s.startsWith(f)) && !/come[çc]ar/i.test(s);
 }
 
 

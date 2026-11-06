@@ -103,3 +103,12 @@ export function classificacaoDoJogo(
 	if (merito?.linhas?.length) return 'merito';
 	return tabelasDe(competicao).grupos.some((g) => g.linhas.length > 0) ? 'pontos' : 'nenhuma';
 }
+
+/**
+ * As duas vistas de uma tabela de pontos, como se escolhem na lista ao lado da série (na
+ * competição) ou da prova (na equipa). Num só sítio para as duas dizerem o mesmo.
+ */
+export const COLUNAS = [
+	{ valor: false, rotulo: 'Tabela simples' },
+	{ valor: true, rotulo: 'Tabela completa' }
+];
