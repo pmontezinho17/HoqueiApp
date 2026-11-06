@@ -205,6 +205,18 @@ export function sequenciasEmCurso(e: EquipaAntesDoJogo): string[] {
 	return linhas;
 }
 
+/**
+ * As bolas da forma, **do jogo mais antigo para o mais recente**, da esquerda para a direita.
+ *
+ * Saíram ao contrário a 06/11/2026, na ordem do ficheiro (o mais recente primeiro), e o dono
+ * apanhou-o no site de testes nesse dia: uma fila de resultados lê-se como uma linha do tempo,
+ * e o último jogo é o da ponta direita, colado ao jogo que vem. A **lista** por baixo continua
+ * do mais recente para o mais antigo — ali o que se procura é o último jogo, e ele disse que
+ * essa está certa.
+ */
+export const bolasDaForma = (e: Pick<EquipaAntesDoJogo, 'ultimos'>): Resultado[] =>
+	[...e.ultimos].reverse().map(resultadoDe);
+
 /** O confronto directo, contado do lado da equipa da casa deste jogo. */
 export function resumoDosConfrontos(p: Prejogo): { casa: number; empates: number; fora: number } {
 	const r = { casa: 0, empates: 0, fora: 0 };

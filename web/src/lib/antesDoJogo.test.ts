@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
+	bolasDaForma,
 	comoFoiJogado,
 	diaCurto,
 	outraProva,
@@ -118,6 +119,17 @@ describe('a lista dos jogos', () => {
 	it('a prova só quando é outra', () => {
 		expect(outraProva({ comp: 449, prova: 'CAMP. REG. SUB-15 - 1ª FASE - SERIE C' }, 449)).toBeNull();
 		expect(outraProva({ comp: 430, prova: 'SUPERTAÇA APL SUB-15' }, 449)).toBe('Supertaça Apl Sub-15');
+	});
+});
+
+describe('bolasDaForma', () => {
+	it('do mais antigo para o mais recente, ao contrário da lista', () => {
+		// o SC TORRES dos Sub-13 a 06/11/2026: ganhou ao HC SINTRA a 10/10 e perdeu os quatro seguintes
+		const ultimos = [[0, 26], [0, 17], [4, 5], [2, 13], [3, 1]].map(([marcados, sofridos], i) => ({
+			id: i, data: '', comp: 1, prova: '', em_casa: true, adversario: '', marcados, sofridos
+		}));
+		expect(bolasDaForma({ ultimos })).toEqual(['V', 'D', 'D', 'D', 'D']);
+		expect(ultimos[0].marcados).toBe(0);
 	});
 });
 
