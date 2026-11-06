@@ -12,7 +12,7 @@
 	import LegendaMerito from '$lib/LegendaMerito.svelte';
 	import RegrasMerito from '$lib/RegrasMerito.svelte';
 	import { favoritos, seguidasNoEscalao } from '$lib/favoritos.svelte';
-	import { jornadaAtual, porQuando, nomeProprio } from '$lib/formato';
+	import { jornadaAtual, porJornada, nomeProprio } from '$lib/formato';
 	import { caminhoEquipa } from '$lib/slug';
 	import type { Jogo, JogoAgenda, TotaisJogador } from '$lib/tipos';
 	import { meritoPorJogo } from '$lib/meritoDoJogo';
@@ -129,12 +129,7 @@
 		return linhas.sort((a, b) => b.golos - a.golos || b.assistencias - a.assistencias).slice(0, 40);
 	});
 
-	const jogosDaProva = (jogos: Jogo[]) => {
-		const atual = jornadaAtual(jogos);
-		const m = new Map<string, Jogo[]>();
-		for (const j of porQuando(jogos)) (m.get(j.jornada) ?? m.set(j.jornada, []).get(j.jornada)!).push(j);
-		return { atual, jornadas: [...m] };
-	};
+	const jogosDaProva = (jogos: Jogo[]) => ({ atual: jornadaAtual(jogos), jornadas: porJornada(jogos) });
 
 	const meritoDosJogos = $derived(meritoPorJogo(data.agenda as JogoAgenda[]));
 	const paraAgenda = (j: Jogo, comp: number, cat: string) => ({
