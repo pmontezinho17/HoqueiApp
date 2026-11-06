@@ -12,7 +12,7 @@
  * não: remates, posse de bola, defesas (só 141 das 521 fichas as registam) e tudo o que tenha
  * a forma de uma aposta.
  */
-import { nomeProva } from './formato';
+import { nomeProprio, nomeProva } from './formato';
 import type { EquipaAntesDoJogo, JogoDaForma, Prejogo, Vezes } from './tipos';
 
 export type Resultado = 'V' | 'E' | 'D';
@@ -46,6 +46,8 @@ export interface Valor {
 	texto: string;
 	/** "2.º", ou `null` quando não se mostra — ver `MINIMO_PARA_LUGARES` */
 	lugar: string | null;
+	/** outra coisa pequena por baixo do número, onde não há lugar: "18 golos" */
+	pequeno?: string | null;
 }
 
 export interface LinhaComparada {
@@ -261,4 +263,127 @@ export function diaCurto(iso: string): string {
  */
 export function outraProva(j: Pick<JogoDaForma, 'comp' | 'prova'>, comp: number | null | undefined): string | null {
 	return j.comp === comp ? null : nomeProva(j.prova);
+}
+
+// --- fase 2 (06/11/2026): quando marcam, disciplina, treinadores ------------------------------
+
+/**
+ * Os quatro períodos em minutos, a partir do formato da equipa da casa: `[2, 20]` dá
+ * `0–10'`, `10–20'`, `20–30'`, `30–40'`, e `[4, 8]` dá uma parte em cada um.
+ *
+ * Em minutos porque é como se fala de um jogo, e os números por baixo vêm em quartos do tempo
+ * precisamente para isto: as duas equipas de um jogo jogam o mesmo formato, e um quarto quer
+ * dizer o mesmo para as duas. Sem formato conhecido, diz-se o quarto.
+ */
+export function rotulosDosPeriodos(formato: [number, number] | null | undefined): string[] {
+	if (!formato) return ['1.º quarto', '2.º quarto', '3.º quarto', '4.º quarto'];
+	const total = formato[0] * formato[1];
+	const m = (i: number) => Math.round((i * total) / 4);
+	return [0, 1, 2, 3].map((i) => `${m(i)}–${m(i + 1)}'`);
+}
+
+/**
+ * Os golos de cada período em **percentagem dos golos da equipa**, com o número por baixo.
+ *
+ * Percentagem porque as duas equipas marcaram números muito diferentes — 134 contra 85 no
+ * AD OEIRAS A–CD PAÇO ARCOS A, medido a 06/11/2026 — e o que se quer ver é **quando**, não
+ * quantos. Sem destaque: marcar mais cedo não é melhor nem pior.
+ */
+export function linhasDosPeriodos(p: Prejogo, qual: 'marcados' | 'sofridos'): LinhaComparada[] | null {
+	const a = p.casa.periodos;
+	const b = p.fora.periodos;
+	if (!a?.jogos && !b?.jogos) return null;
+	const rotulos = rotulosDosPeriodos(a?.formato ?? b?.formato);
+	const valor = (per: EquipaAntesDoJogo['periodos'], i: number): Valor => {
+		const total = per ? per[qual].reduce((x, y) => x + y, 0) : 0;
+		if (!per?.jogos || !total) return { texto: '—', lugar: null };
+		const n = per[qual][i];
+		return { texto: `${Math.round((100 * n) / total)}%`, lugar: null, pequeno: plural(n, 'golo', 'golos') };
+	};
+	return rotulos.map((rotulo, i) => ({ rotulo, casa: valor(a, i), fora: valor(b, i), melhor: null }));
+}
+
+/**
+ * A disciplina e as bolas paradas, lado a lado. Cada linha só aparece quando diz alguma coisa:
+ * os vermelhos quando alguém os viu, os penáltis e os livres directos quando alguém os bateu.
+ */
+export function linhasDaDisciplina(p: Prejogo): LinhaComparada[] {
+	const a = p.casa.disciplina;
+	const b = p.fora.disciplina;
+	if (!a?.jogos && !b?.jogos) return [];
+	const linhas: LinhaComparada[] = [];
+	const porJogoDe = (rotulo: string, f: (d: NonNullable<typeof a>) => [number, number]) => {
+		const v = (d: typeof a): [Valor, number | null] => {
+			if (!d) return [{ texto: '—', lugar: null }, null];
+			const [n, de] = f(d);
+			return de ? [{ texto: decimal(n / de), lugar: null }, n / de] : [{ texto: '—', lugar: null }, null];
+		};
+		const [x, nx] = v(a);
+		const [y, ny] = v(b);
+		// menos é melhor em tudo o que é castigo
+		const melhor = nx !== null && ny !== null && nx !== ny ? (nx < ny ? 'casa' : 'fora') : null;
+		linhas.push({ rotulo, casa: x, fora: y, melhor });
+	};
+	porJogoDe('Faltas de equipa por jogo', (d) => [d.faltas, d.jogos_com_faltas]);
+	porJogoDe('Cartões azuis por jogo', (d) => [d.azuis, d.jogos]);
+	if ((a?.vermelhos ?? 0) + (b?.vermelhos ?? 0) > 0) {
+		const x = a?.vermelhos ?? 0;
+		const y = b?.vermelhos ?? 0;
+		linhas.push({
+			rotulo: 'Cartões vermelhos',
+			casa: { texto: String(x), lugar: null },
+			fora: { texto: String(y), lugar: null },
+			melhor: x === y ? null : x < y ? 'casa' : 'fora'
+		});
+	}
+	const convertidos = (rotulo: string, f: (d: NonNullable<typeof a>) => [number, number]) => {
+		const x = a ? f(a) : ([0, 0] as [number, number]);
+		const y = b ? f(b) : ([0, 0] as [number, number]);
+		if (!x[1] && !y[1]) return;
+		const texto = ([n, de]: [number, number]): Valor => ({ texto: de ? `${n} de ${de}` : '—', lugar: null });
+		let melhor: Lado | null = null;
+		if (x[1] && y[1] && x[0] / x[1] !== y[0] / y[1]) melhor = x[0] / x[1] > y[0] / y[1] ? 'casa' : 'fora';
+		linhas.push({ rotulo, casa: texto(x), fora: texto(y), melhor });
+	};
+	convertidos('Penáltis marcados', (d) => d.penaltis);
+	convertidos('Livres directos marcados', (d) => d.livres);
+	return linhas;
+}
+
+export interface TreinadoresDoJogo {
+	casa: { nome: string; registo: string } | null;
+	fora: { nome: string; registo: string } | null;
+	/** "Já se defrontaram 3 vezes esta época: …", ou `null` na primeira vez */
+	frente: string | null;
+}
+
+const registoDe = (t: { jogos: number; vitorias: number; empates: number; derrotas: number }) =>
+	`${t.vitorias}V ${t.empates}E ${t.derrotas}D em ${plural(t.jogos, 'jogo', 'jogos')} com a equipa`;
+
+/**
+ * Os treinadores e as vezes que já se cruzaram **em qualquer escalão**: um treinador costuma
+ * ter mais do que uma equipa, e é aí que isto diz o que o confronto directo das equipas não diz.
+ * Medido a 06/11/2026: em 164 dos 260 jogos por disputar, os dois já se tinham defrontado.
+ */
+export function treinadoresDoJogo(p: Prejogo): TreinadoresDoJogo | null {
+	const a = p.casa.treinador;
+	const b = p.fora.treinador;
+	if (!a && !b) return null;
+	const t = p.treinadores;
+	let frente: string | null = null;
+	if (a && b && t?.jogos) {
+		const nomeA = nomeProprio(a.nome);
+		const nomeB = nomeProprio(b.nome);
+		const partes = [
+			t.vitorias ? `${plural(t.vitorias, 'vitória', 'vitórias')} de ${nomeA}` : null,
+			t.empates ? plural(t.empates, 'empate', 'empates') : null,
+			t.derrotas ? `${plural(t.derrotas, 'vitória', 'vitórias')} de ${nomeB}` : null
+		].filter(Boolean);
+		frente = `Já se defrontaram ${t.jogos === 1 ? 'uma vez' : `${t.jogos} vezes`} esta época, em todos os escalões: ${partes.join(', ')}.`;
+	}
+	return {
+		casa: a ? { nome: nomeProprio(a.nome), registo: registoDe(a) } : null,
+		fora: b ? { nome: nomeProprio(b.nome), registo: registoDe(b) } : null,
+		frente
+	};
 }

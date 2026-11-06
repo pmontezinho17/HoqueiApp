@@ -226,6 +226,35 @@ export interface EquipaAntesDoJogo {
 		ganhava_ao_intervalo: Vezes;
 		perdia_ao_intervalo: Vezes;
 	};
+	/**
+	 * Fase 2 (06/11/2026). Opcionais porque os ficheiros escritos antes dela não os têm, e o do
+	 * site de testes pode ficar para trás até ao próximo clique no botão.
+	 */
+	periodos?: {
+		/** jogos com relógio na ficha — o "de" dos quatro números */
+		jogos: number;
+		/** golos em cada quarto do tempo regulamentar, somados na época */
+		marcados: [number, number, number, number];
+		sofridos: [number, number, number, number];
+		/** [partes, minutos de cada uma], o mais frequente: [2, 20] nos Sub-15 */
+		formato: [number, number] | null;
+	};
+	disciplina?: {
+		jogos: number;
+		jogos_com_faltas: number;
+		faltas: number;
+		faltas_adversario: number;
+		azuis: number;
+		amarelos: number;
+		vermelhos: number;
+		/** [marcados, tentados] */
+		penaltis: [number, number];
+		penaltis_contra: [number, number];
+		livres: [number, number];
+		livres_contra: [number, number];
+	};
+	/** o treinador do último jogo, e o que a equipa fez com ele esta época */
+	treinador?: { nome: string; jogos: number; vitorias: number; empates: number; derrotas: number } | null;
 }
 
 /** `prejogo/<id>.json`: o que se sabe de um jogo por disputar (#11). */
@@ -237,6 +266,8 @@ export interface Prejogo {
 	fora: EquipaAntesDoJogo;
 	/** os jogos entre as duas nesta época, vistos da equipa da casa deste jogo */
 	confrontos: JogoDaForma[];
+	/** os dois treinadores frente a frente esta época, em qualquer escalão, do lado do da casa */
+	treinadores?: { jogos: number; vitorias: number; empates: number; derrotas: number } | null;
 }
 
 export interface FicheiroMerito {

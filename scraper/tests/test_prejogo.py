@@ -237,3 +237,103 @@ def test_as_equipas_de_uma_fase_nova_ja_existiam_na_anterior(publicado):
                  for e in (x["casa"], x["fora"])}
         sem_historia |= {(j["cat"], e) for e in (j["casa"], j["fora"]) if e not in antes}
     assert not sem_historia, f"equipas de uma fase nova sem nome na anterior: {sorted(sem_historia)}"
+
+
+# --- fase 2: quando marcam, disciplina, treinadores ------------------------------------------
+
+def _ficha_completa():
+    """Um 2×20 com prolongamento de 5, penáltis, livres, cartões e os dois treinadores."""
+    golo = lambda parte, relogio, equipa, variante=None: {
+        "tipo": "golo", "parte": parte, "relogio": relogio, "equipa": equipa, "variante": variante}
+    return {
+        "id": 1, "casa": "A", "fora": "B", "faltas": [7, 4],
+        "equipas": [
+            {"nome": "A", "jogadores": [{"nome": "ANA", "papel": None}, {"nome": "TREINA A", "papel": "T"}]},
+            {"nome": "B", "jogadores": [{"nome": "ADJUNTO B", "papel": "T2"}, {"nome": "TREINA B", "papel": "T"}]},
+        ],
+        "cronologia": [
+            {"tipo": "inicio_parte", "parte": 1, "relogio": "20:00"},
+            golo(1, "19:00", "A"),                      # 1:00 jogado → 1.º quarto
+            golo(1, "5:00", "B", "penalti"),            # 15:00 → 2.º quarto
+            {"tipo": "penalti_falhado", "parte": 1, "equipa": "A", "variante": "penalti"},
+            {"tipo": "cartao", "parte": 1, "equipa": "A", "variante": "azul"},
+            {"tipo": "inicio_parte", "parte": 2, "relogio": "20:00"},
+            golo(2, "20:00", "A", "livre_direto"),      # 20:00 → 3.º quarto
+            golo(2, "0:01", "A"),                       # 39:59 → 4.º quarto
+            {"tipo": "cartao", "parte": 2, "equipa": "B", "variante": "vermelho"},
+            {"tipo": "inicio_parte", "parte": 3, "relogio": "5:00"},
+            golo(3, "2:00", "B"),                       # prolongamento: fora dos quartos
+        ],
+    }
+
+
+def test_detalhe_de_um_jogo_visto_da_casa():
+    from hoquei.prejogo import _detalhe
+    d = _detalhe(_ficha_completa(), casa=True)
+    assert d.quartos_marcados == [1, 0, 1, 1] and d.quartos_sofridos == [0, 1, 0, 0]
+    assert d.formato == (2, 20)
+    assert d.faltas == (7, 4)
+    assert (d.azuis, d.amarelos, d.vermelhos) == (1, 0, 0)
+    assert d.penaltis == (0, 1) and d.penaltis_contra == (1, 1)
+    assert d.livres == (1, 1) and d.livres_contra == (0, 0)
+    # o treinador principal, e não o adjunto que aparece primeiro
+    assert (d.treinador, d.treinador_adversario) == ("TREINA A", "TREINA B")
+
+
+def test_detalhe_visto_de_fora_troca_os_lados():
+    from hoquei.prejogo import _detalhe
+    d = _detalhe(_ficha_completa(), casa=False)
+    assert d.quartos_marcados == [0, 1, 0, 0] and d.faltas == (4, 7) and d.vermelhos == 1
+    assert d.penaltis == (1, 1) and d.treinador == "TREINA B"
+
+
+def test_quatro_partes_cada_parte_e_um_quarto():
+    from hoquei.prejogo import _detalhe
+    f = {"casa": "A", "fora": "B", "cronologia": [
+        {"tipo": "inicio_parte", "parte": p, "relogio": "8:00"} for p in (1, 2, 3, 4)] + [
+        {"tipo": "golo", "parte": 3, "relogio": "0:30", "equipa": "A"}]}
+    d = _detalhe(f, casa=True)
+    assert d.quartos_marcados == [0, 0, 1, 0] and d.formato == (4, 8)
+
+
+def test_sem_relogio_nao_ha_quartos():
+    from hoquei.prejogo import _detalhe
+    f = {"casa": "A", "fora": "B", "cronologia": [{"tipo": "golo", "parte": 1, "equipa": "A"}]}
+    assert _detalhe(f, casa=True).quartos_marcados is None
+
+
+def test_treinador_e_o_do_ultimo_jogo_e_os_frente_a_frente():
+    """Uma troca de treinador conta a partir dela; e o frente a frente vale em qualquer escalão."""
+    def ficha(id, casa, fora, tc, tf):
+        return {"id": id, "casa": casa, "fora": fora, "faltas": [0, 0], "cronologia": [],
+                "equipas": [{"nome": casa, "jogadores": [{"nome": tc, "papel": "T"}]},
+                            {"nome": fora, "jogadores": [{"nome": tf, "papel": "T"}]}]}
+    agenda = [
+        _jogo(1, "2026-10-01", "A", "B", 1, 0),
+        _jogo(2, "2026-10-08", "A", "C", 0, 2),
+        _jogo(3, "2026-10-09", "X", "Y", 4, 4, cat="SUB-17", comp=2),   # os mesmos treinadores, noutro escalão
+        _jogo(9, "2026-11-01", "A", "B"),
+    ]
+    fichas = {1: ficha(1, "A", "B", "VELHO", "ZE"), 2: ficha(2, "A", "C", "NOVO", "ZE"),
+              3: ficha(3, "X", "Y", "NOVO", "ZE")}
+    p = calcular(agenda, fichas)[9]
+    assert p["casa"]["treinador"] == {"nome": "NOVO", "jogos": 1, "vitorias": 0, "empates": 0, "derrotas": 1}
+    # o NOVO e o ZE: 0–2 (o ZE pelo C) e 4–4 nos Sub-17
+    assert p["treinadores"] == {"jogos": 2, "vitorias": 0, "empates": 1, "derrotas": 1}
+
+
+def test_a_fase_2_cobre_os_dados_publicados(publicado):
+    """Medido a 06/11/2026 nos 260 prejogo: os 16 083 golos das equipas caem todos num quarto,
+    e todas as equipas que já jogaram têm treinador. Se isto cair, a fonte mudou o relógio ou o
+    boletim — e o separador passava a mostrar períodos com golos a menos sem ninguém saber."""
+    _, _, pre = publicado
+    for p in pre.values():
+        for lado in ("casa", "fora"):
+            e = p[lado]
+            assert sum(e["periodos"]["marcados"]) <= e["epoca"]["marcados"], p["id"]
+            for chave in ("penaltis", "penaltis_contra", "livres", "livres_contra"):
+                marcados, de = e["disciplina"][chave]
+                assert 0 <= marcados <= de, (p["id"], chave)
+    lados = [p[l] for p in pre.values() for l in ("casa", "fora") if p[l]["epoca"]["jogos"]]
+    assert sum(sum(e["periodos"]["marcados"]) for e in lados) / sum(e["epoca"]["marcados"] for e in lados) > 0.95
+    assert sum(1 for e in lados if e["treinador"]) / len(lados) > 0.95
