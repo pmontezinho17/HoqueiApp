@@ -1,16 +1,16 @@
 {
  "competicao_id": 447,
- "jogos_considerados": 20,
+ "jogos_considerados": 21,
  "jogadores": [
   {
    "nome": "ALEXANDRE FARIAS",
    "equipa": "AD OEIRAS A",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "4",
-   "golos": 23,
-   "assistencias": 22,
+   "golos": 24,
+   "assistencias": 24,
    "defesas": 0,
-   "pontos": 45,
+   "pontos": 48,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -29,6 +29,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MANUEL HENRIQUES",
+   "equipa": "AD OEIRAS A",
+   "jogos": 7,
+   "numero": "11",
+   "golos": 19,
+   "assistencias": 16,
+   "defesas": 0,
+   "pontos": 35,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MÁRIO FRANCISCO",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 6,
@@ -42,14 +55,14 @@
    "vermelhos": 0
   },
   {
-   "nome": "MANUEL HENRIQUES",
+   "nome": "GONÇALO CARVALHO",
    "equipa": "AD OEIRAS A",
-   "jogos": 6,
-   "numero": "11",
+   "jogos": 7,
+   "numero": "6",
    "golos": 15,
-   "assistencias": 14,
+   "assistencias": 9,
    "defesas": 0,
-   "pontos": 29,
+   "pontos": 24,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -57,25 +70,12 @@
   {
    "nome": "TIAGO PAIS",
    "equipa": "AD OEIRAS A",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "7",
-   "golos": 14,
+   "golos": 15,
    "assistencias": 9,
    "defesas": 0,
-   "pontos": 23,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO CARVALHO",
-   "equipa": "AD OEIRAS A",
-   "jogos": 6,
-   "numero": "6",
-   "golos": 13,
-   "assistencias": 7,
-   "defesas": 0,
-   "pontos": 20,
+   "pontos": 24,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -96,7 +96,7 @@
   {
    "nome": "RAFAEL ALMEIDA",
    "equipa": "AD OEIRAS A",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "2",
    "golos": 12,
    "assistencias": 2,
@@ -133,6 +133,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "ANDRÉ LOPES",
+   "equipa": "AD OEIRAS A",
+   "jogos": 7,
+   "numero": "3",
+   "golos": 10,
+   "assistencias": 7,
+   "defesas": 0,
+   "pontos": 17,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "FRANCISCO PASCOAL",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 6,
@@ -146,22 +159,9 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANDRÉ LOPES",
-   "equipa": "AD OEIRAS A",
-   "jogos": 6,
-   "numero": "3",
-   "golos": 8,
-   "assistencias": 6,
-   "defesas": 0,
-   "pontos": 14,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "RAFAEL CARAPINHA",
    "equipa": "CRIAR-T GD",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "7",
    "golos": 8,
    "assistencias": 2,
@@ -174,8 +174,8 @@
   {
    "nome": "MANUEL CAPELA",
    "equipa": "AD OEIRAS A",
-   "jogos": 3,
-   "numero": "9",
+   "jogos": 4,
+   "numero": "5",
    "golos": 7,
    "assistencias": 2,
    "defesas": 0,
@@ -226,7 +226,7 @@
   {
    "nome": "FÁBIO COSTA",
    "equipa": "CRIAR-T GD",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "3",
    "golos": 4,
    "assistencias": 2,
@@ -252,7 +252,7 @@
   {
    "nome": "TOMÁS ANGELINO",
    "equipa": "CRIAR-T GD",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "8",
    "golos": 3,
    "assistencias": 5,
@@ -692,32 +692,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO SERRA",
-   "equipa": "CRIAR-T GD",
-   "jogos": 5,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "THAÍS CREMONA",
-   "equipa": "CRIAR-T GD",
-   "jogos": 5,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ALEXANDRE LOURENÇO",
    "equipa": "HC SINTRA",
    "jogos": 6,
@@ -731,23 +705,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIANA BALÃO",
+   "nome": "FRANCISCO SERRA",
    "equipa": "CRIAR-T GD",
    "jogos": 6,
-   "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUILHERME NETO",
-   "equipa": "AD OEIRAS A",
-   "jogos": 6,
-   "numero": "1",
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -783,32 +744,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "RITA FARIA",
-   "equipa": "CRIAR-T GD",
-   "jogos": 6,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RITA MARCELO",
-   "equipa": "CRIAR-T GD",
-   "jogos": 6,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "SANTIAGO FERREIRA",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 6,
@@ -835,10 +770,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "VASCO VIEGAS",
-   "equipa": "AD OEIRAS A",
+   "nome": "THAÍS CREMONA",
+   "equipa": "CRIAR-T GD",
    "jogos": 6,
-   "numero": "10",
+   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -874,6 +809,45 @@
    "vermelhos": 0
   },
   {
+   "nome": "DIANA BALÃO",
+   "equipa": "CRIAR-T GD",
+   "jogos": 7,
+   "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME NETO",
+   "equipa": "AD OEIRAS A",
+   "jogos": 7,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RITA FARIA",
+   "equipa": "CRIAR-T GD",
+   "jogos": 7,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RITA GONÇALVES",
    "equipa": "UD VILAFRANQUENSE B",
    "jogos": 7,
@@ -884,6 +858,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RITA MARCELO",
+   "equipa": "CRIAR-T GD",
+   "jogos": 7,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -922,6 +909,19 @@
    "defesas": 1,
    "pontos": 0,
    "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "VASCO VIEGAS",
+   "equipa": "AD OEIRAS A",
+   "jogos": 7,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
