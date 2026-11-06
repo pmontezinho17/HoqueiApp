@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
 	bolasDaForma,
+	jogosDaForma,
 	comoFoiJogado,
 	diaCurto,
 	outraProva,
@@ -122,14 +123,21 @@ describe('a lista dos jogos', () => {
 	});
 });
 
-describe('bolasDaForma', () => {
+describe('a forma, do mais antigo para o mais recente', () => {
 	it('do mais antigo para o mais recente, ao contrário da lista', () => {
 		// o SC TORRES dos Sub-13 a 06/11/2026: ganhou ao HC SINTRA a 10/10 e perdeu os quatro seguintes
 		const ultimos = [[0, 26], [0, 17], [4, 5], [2, 13], [3, 1]].map(([marcados, sofridos], i) => ({
 			id: i, data: '', comp: 1, prova: '', em_casa: true, adversario: '', marcados, sofridos
 		}));
 		expect(bolasDaForma({ ultimos })).toEqual(['V', 'D', 'D', 'D', 'D']);
+		expect(jogosDaForma({ ultimos }).map((j) => j.marcados)).toEqual([3, 2, 4, 0, 0]);
+		// sem mexer no que veio do ficheiro
 		expect(ultimos[0].marcados).toBe(0);
+	});
+	it('no arranque da época são os que houver', () => {
+		const um = [{ id: 1, data: '', comp: 1, prova: '', em_casa: true, adversario: '', marcados: 2, sofridos: 2 }];
+		expect(bolasDaForma({ ultimos: um })).toEqual(['E']);
+		expect(jogosDaForma({ ultimos: [] })).toEqual([]);
 	});
 });
 

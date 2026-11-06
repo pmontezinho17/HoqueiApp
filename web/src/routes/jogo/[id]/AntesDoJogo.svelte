@@ -6,6 +6,7 @@
 	import Emblema from '$lib/Emblema.svelte';
 	import {
 		bolasDaForma,
+		jogosDaForma,
 		comoFoiJogado,
 		linhasDaEpoca,
 		linhasDasContagens,
@@ -77,7 +78,7 @@
 	</div>
 	{#if daLista.ultimos.length}
 		<ul class="cartao jogos">
-			{#each daLista.ultimos as j (j.id)}
+			{#each jogosDaForma(daLista) as j (j.id)}
 				{@const r = resultadoDe(j)}
 				<li>
 					<a href="/jogo/{j.id}">
