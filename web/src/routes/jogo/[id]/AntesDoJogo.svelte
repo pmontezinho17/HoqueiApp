@@ -5,6 +5,7 @@
 	 */
 	import Emblema from '$lib/Emblema.svelte';
 	import {
+		bolasDaForma,
 		comoFoiJogado,
 		linhasDaEpoca,
 		linhasDasContagens,
@@ -35,12 +36,12 @@
 
 {#snippet bolas(lado: Lado)}
 	{@const e = p[lado]}
+	{@const bolas = bolasDaForma(e)}
 	<div class="forma">
 		<Emblema equipa={e.equipa} src={emblemas[e.equipa]} tamanho={22} />
 		<span class="nome">{e.equipa}</span>
-		<span class="bolas" aria-label="Últimos jogos, do mais recente: {e.ultimos.map((j) => NOME[resultadoDe(j)]).join(', ') || 'nenhum'}">
-			{#each e.ultimos as j (j.id)}
-				{@const r = resultadoDe(j)}
+		<span class="bolas" aria-label="Últimos jogos, do mais antigo para o mais recente: {bolas.map((r) => NOME[r]).join(', ') || 'nenhum'}">
+			{#each bolas as r, i (i)}
 				<i class="r {r}" aria-hidden="true">{r}</i>
 			{/each}
 		</span>
