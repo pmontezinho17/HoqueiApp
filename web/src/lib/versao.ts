@@ -166,6 +166,12 @@ export const NOVIDADES: Novidade[] = [
 			},
 			{
 				tipo: 'novo',
+				titulo: '📊 Antes do jogo',
+				texto:
+					'Num jogo ainda por disputar há um separador novo: a forma das duas equipas nos últimos cinco jogos, como correram os jogos entre elas esta época, a época lado a lado com o lugar de cada uma na série, e quem costuma marcar primeiro ou ir a ganhar ao intervalo.'
+			},
+			{
+				tipo: 'novo',
 				titulo: '🧭 Uma barra de baixo nova',
 				texto:
 					'A barra com Jogos, O Meu Clube e Competições passou a flutuar ao centro, do tamanho dos três botões, e encolhe para só os ícones quando se desce a página. No Android, a faixa por baixo dela deixou de ser amarela.'

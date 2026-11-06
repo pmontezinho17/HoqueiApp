@@ -12,6 +12,8 @@
 	import Faixa from '$lib/Faixa.svelte';
 	import InfoJogo from './InfoJogo.svelte';
 	import MeritoDoJogo from './MeritoDoJogo.svelte';
+	import AntesDoJogo from './AntesDoJogo.svelte';
+	import { temAntesDoJogo } from '$lib/antesDoJogo';
 	import { contasDoJogo } from '$lib/meritoDoJogo';
 	import Icone from '$lib/Icone.svelte';
 	import Separadores from '$lib/Separadores.svelte';
@@ -102,7 +104,12 @@
 	const meritoPorConfirmar = $derived(
 		(merito?.linhas ?? []).reduce((n, l) => n + l.por_confirmar, 0)
 	);
-	const temSeparadores = $derived(temEventos || !!contas || temTabela || temEquipas || temInfo);
+	/**
+	 * O que se sabe antes do jogo (#11) — só num jogo por começar, e só com alguma coisa para
+	 * dizer. A decisão vive no `temAntesDoJogo`; o ficheiro só é pedido sem resultado.
+	 */
+	const prejogo = $derived(!aDecorrer && temAntesDoJogo(data.prejogo) ? data.prejogo : null);
+	const temSeparadores = $derived(!!prejogo || temEventos || !!contas || temTabela || temEquipas || temInfo);
 
 	/**
 	 * A transmissão deste jogo, se houver — ver `directos.ts` para o porquê de ser uma lista
@@ -110,7 +117,7 @@
 	 */
 	const directo = $derived(directoDe(f.id));
 
-	type Tab = 'directo' | 'eventos' | 'merito' | 'tabela' | 'equipas' | 'info';
+	type Tab = 'directo' | 'antes' | 'eventos' | 'merito' | 'tabela' | 'equipas' | 'info';
 	let tab = $state<string>('eventos');
 	/** os separadores que existem neste jogo, pela ordem em que aparecem na barra */
 	const abas = $derived(
@@ -118,6 +125,8 @@
 			[
 				// primeiro de todos: quem tem onde ver o jogo não quer começar pela cronologia
 				['directo', !!directo],
+				// antes da classificação: é deste jogo, e a tabela é da série
+				['antes', !!prejogo],
 				['eventos', temEventos],
 				// ao lado da classificação, e antes dela: é deste jogo, e a tabela é da série
 				['merito', !!contas],
@@ -135,6 +144,7 @@
 	 */
 	const NA_BARRA: Record<Tab, { rotulo: string; curto?: string; icone: string; classe?: string }> = {
 		directo: { rotulo: 'Ver em directo', curto: 'Directo', icone: 'directo', classe: 'aoVivo' },
+		antes: { rotulo: 'Antes do jogo', curto: 'Antes', icone: 'antes' },
 		eventos: { rotulo: 'Eventos do jogo', curto: 'Eventos', icone: 'eventos' },
 		merito: { rotulo: 'Mérito deste jogo', curto: 'Mérito', icone: 'merito' },
 		tabela: { rotulo: 'Classificação', icone: 'tabela' },
@@ -176,7 +186,11 @@
 		// interessante entrar no menu de jogo, mas apresentar apenas o tab de informação"*. Sem
 		// isto chegava-se aqui na classificação da prova — correcta, mas não é o que quem vai ao
 		// pavilhão na véspera veio buscar: veio ver a hora e o recinto.
-		tab = semFicha && abas.includes('info') ? 'info' : abas[0];
+		//
+		// **E com o que se sabe antes do jogo, cai nele** (#11, 06/11/2026): é a razão de abrir um
+		// jogo de amanhã que não seja para saber onde é — e a hora e o recinto continuam no
+		// cabeçalho do separador ao lado.
+		tab = prejogo ? 'antes' : semFicha && abas.includes('info') ? 'info' : abas[0];
 	});
 
 	/**
@@ -466,6 +480,8 @@
 				{#if directo && tab === 'directo'}
 					<Directo {directo} casa={f.casa} fora={f.fora} />
 				{/if}
+			{:else if aba === 'antes'}
+				{#if prejogo}<AntesDoJogo p={prejogo} emblemas={data.emblemas} comp={f.competicao_id ?? null} />{/if}
 			{:else if aba === 'eventos'}
 				<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
 					omitidos={f.individuais_omitidos ?? false} />
