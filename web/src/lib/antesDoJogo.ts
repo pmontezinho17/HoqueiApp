@@ -206,16 +206,19 @@ export function sequenciasEmCurso(e: EquipaAntesDoJogo): string[] {
 }
 
 /**
- * As bolas da forma, **do jogo mais antigo para o mais recente**, da esquerda para a direita.
+ * Os últimos jogos de uma equipa, **do mais antigo para o mais recente** — nas bolas e na
+ * lista por baixo delas.
  *
- * Saíram ao contrário a 06/11/2026, na ordem do ficheiro (o mais recente primeiro), e o dono
- * apanhou-o no site de testes nesse dia: uma fila de resultados lê-se como uma linha do tempo,
- * e o último jogo é o da ponta direita, colado ao jogo que vem. A **lista** por baixo continua
- * do mais recente para o mais antigo — ali o que se procura é o último jogo, e ele disse que
- * essa está certa.
+ * São os cinco últimos disputados, de todas as provas do escalão; no arranque da época são os
+ * que houver, e nenhum quando a equipa ainda não jogou. O ficheiro traz-os do mais recente para
+ * o mais antigo, e foi assim que saíram a 06/11/2026. O dono apanhou-o no site de testes nesse
+ * dia, primeiro nas bolas e depois na lista: uma fila de resultados lê-se como uma linha do
+ * tempo, com o último jogo no fim, encostado ao jogo que vem.
  */
+export const jogosDaForma = (e: Pick<EquipaAntesDoJogo, 'ultimos'>): JogoDaForma[] => [...e.ultimos].reverse();
+
 export const bolasDaForma = (e: Pick<EquipaAntesDoJogo, 'ultimos'>): Resultado[] =>
-	[...e.ultimos].reverse().map(resultadoDe);
+	jogosDaForma(e).map(resultadoDe);
 
 /** O confronto directo, contado do lado da equipa da casa deste jogo. */
 export function resumoDosConfrontos(p: Prejogo): { casa: number; empates: number; fora: number } {
