@@ -1,16 +1,16 @@
 {
  "competicao_id": 466,
- "jogos_considerados": 10,
+ "jogos_considerados": 11,
  "jogadores": [
   {
    "nome": "RODRIGO SANTOS",
    "equipa": "CRIAR-T GD",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "9",
-   "golos": 29,
+   "golos": 33,
    "assistencias": 4,
    "defesas": 0,
-   "pontos": 33,
+   "pontos": 37,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -18,12 +18,12 @@
   {
    "nome": "XAVIER NARCISO",
    "equipa": "CRIAR-T GD",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "2",
-   "golos": 21,
+   "golos": 22,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 21,
+   "pontos": 22,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -57,7 +57,7 @@
   {
    "nome": "RODRIGO TAVARES",
    "equipa": "CRIAR-T GD",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "4",
    "golos": 10,
    "assistencias": 0,
@@ -83,8 +83,8 @@
   {
    "nome": "LOURENÇO SIMÔES",
    "equipa": "AD OEIRAS B",
-   "jogos": 4,
-   "numero": "3",
+   "jogos": 5,
+   "numero": "10",
    "golos": 8,
    "assistencias": 0,
    "defesas": 0,
@@ -109,7 +109,7 @@
   {
    "nome": "DIOGO SEVERINO",
    "equipa": "AD OEIRAS B",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "8",
    "golos": 6,
    "assistencias": 1,
@@ -122,7 +122,7 @@
   {
    "nome": "GUILHERME ALMEIDA",
    "equipa": "AD OEIRAS B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "4",
    "golos": 6,
    "assistencias": 0,
@@ -135,7 +135,7 @@
   {
    "nome": "ANALU ABRANTES",
    "equipa": "CRIAR-T GD",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "6",
    "golos": 5,
    "assistencias": 0,
@@ -148,7 +148,7 @@
   {
    "nome": "ÁUREA CRISTINA",
    "equipa": "CRIAR-T GD",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "7",
    "golos": 5,
    "assistencias": 0,
@@ -237,6 +237,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "VICENTE SIMONS",
+   "equipa": "AD OEIRAS B",
+   "jogos": 1,
+   "numero": "9",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "CAETANO SILVA",
    "equipa": "S ALENQUER BENFICA",
    "jogos": 3,
@@ -254,19 +267,6 @@
    "equipa": "AE FISICA D B",
    "jogos": 3,
    "numero": "5",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LEONOR FREIRE",
-   "equipa": "AD OEIRAS B",
-   "jogos": 4,
-   "numero": "6",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -302,6 +302,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "LEONOR FREIRE",
+   "equipa": "AD OEIRAS B",
+   "jogos": 5,
+   "numero": "6",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DUARTE RAMOS",
    "equipa": "AE FISICA D B",
    "jogos": 1,
@@ -328,19 +341,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO POSSIDONIO",
-   "equipa": "AD OEIRAS B",
-   "jogos": 1,
-   "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MARTIM P. GOMES",
    "equipa": "AD OEIRAS B",
    "jogos": 1,
@@ -354,10 +354,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DAVID MARCELINO",
+   "nome": "LOURENÇO POSSIDONIO",
    "equipa": "AD OEIRAS B",
    "jogos": 2,
-   "numero": "8",
+   "numero": "5",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -384,6 +384,19 @@
    "equipa": "S ALENQUER BENFICA",
    "jogos": 2,
    "numero": "51",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DAVID MARCELINO",
+   "equipa": "AD OEIRAS B",
+   "jogos": 3,
+   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -423,19 +436,6 @@
    "equipa": "AE FISICA D B",
    "jogos": 3,
    "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARIA ROLLIS",
-   "equipa": "AD OEIRAS B",
-   "jogos": 3,
-   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -523,6 +523,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MARIA ROLLIS",
+   "equipa": "AD OEIRAS B",
+   "jogos": 4,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "PEDRO AMARO",
    "equipa": "AE FISICA D B",
    "jogos": 4,
@@ -536,9 +549,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "TOMÁS RAMOS",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 4,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "SILVA XAVIER",
    "equipa": "AD OEIRAS B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "7",
    "golos": 0,
    "assistencias": 0,
@@ -551,20 +577,7 @@
   {
    "nome": "TOMÁS LOPES",
    "equipa": "CRIAR-T GD",
-   "jogos": 4,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TOMÁS RAMOS",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "1",
    "golos": 0,
    "assistencias": 0,

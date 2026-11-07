@@ -1,0 +1,644 @@
+{
+ "id": 10052,
+ "competicao": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE B",
+ "casa": "CRIAR-T GD",
+ "fora": "AD OEIRAS B",
+ "golos_casa": 5,
+ "golos_fora": 1,
+ "estado": "Jogo Terminado",
+ "data": "2026-11-07",
+ "hora": "10:00:00",
+ "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+ "arbitros": [
+  "JOSE MARTINS"
+ ],
+ "faltas": [
+  0,
+  1
+ ],
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
+ "equipas": [
+  {
+   "nome": "CRIAR-T GD",
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "TOMÁS LOPES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "2",
+     "nome": "XAVIER NARCISO",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "RODRIGO TAVARES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "6",
+     "nome": "ANALU ABRANTES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "ÁUREA CRISTINA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "RODRIGO SANTOS",
+     "titular": true,
+     "golos": 4,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "FRANCISCO NARCISO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "SÉRGIO OLIVEIRA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "T"
+    }
+   ]
+  },
+  {
+   "nome": "AD OEIRAS B",
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "MARIA ROLLIS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "3",
+     "nome": "DAVID MARCELINO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "GUILHERME ALMEIDA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "5",
+     "nome": "LOURENÇO POSSIDONIO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "6",
+     "nome": "LEONOR FREIRE",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "SILVA XAVIER",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "DIOGO SEVERINO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "VICENTE SIMONS",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "LOURENÇO SIMÔES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "NUNO FREIRE",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "JAIME SANTOS",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "T"
+    }
+   ]
+  }
+ ],
+ "cronologia": [
+  {
+   "ordem": 0,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 1,
+   "minuto": 0,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 1ª Parte"
+  },
+  {
+   "ordem": 1,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 1,
+   "minuto": 8,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 1ª parte"
+  },
+  {
+   "ordem": 2,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 2,
+   "minuto": 8,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 2ª parte"
+  },
+  {
+   "ordem": 3,
+   "tipo": "golo",
+   "relogio": "6:32",
+   "parte": 2,
+   "minuto": 9,
+   "equipa": "CRIAR-T GD",
+   "jogador": "RODRIGO SANTOS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 1,
+   "golos_fora": 0,
+   "texto": "Golo para CRIAR-T GD | RODRIGO SANTOS"
+  },
+  {
+   "ordem": 4,
+   "tipo": "golo",
+   "relogio": "3:33",
+   "parte": 2,
+   "minuto": 12,
+   "equipa": "CRIAR-T GD",
+   "jogador": "RODRIGO SANTOS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 2,
+   "golos_fora": 0,
+   "texto": "Golo para CRIAR-T GD | RODRIGO SANTOS"
+  },
+  {
+   "ordem": 5,
+   "tipo": "falta_equipa",
+   "relogio": "3:21",
+   "parte": 2,
+   "minuto": 12,
+   "equipa": "AD OEIRAS B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 1,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 1 para AD OEIRAS B"
+  },
+  {
+   "ordem": 6,
+   "tipo": "golo",
+   "relogio": "2:20",
+   "parte": 2,
+   "minuto": 13,
+   "equipa": "CRIAR-T GD",
+   "jogador": "RODRIGO SANTOS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 3,
+   "golos_fora": 0,
+   "texto": "Golo para CRIAR-T GD | RODRIGO SANTOS"
+  },
+  {
+   "ordem": 7,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 2,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 2ª parte"
+  },
+  {
+   "ordem": 8,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 3ª parte"
+  },
+  {
+   "ordem": 9,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 3,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 3ª parte"
+  },
+  {
+   "ordem": 10,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 4ª parte"
+  },
+  {
+   "ordem": 11,
+   "tipo": "golo",
+   "relogio": "7:16",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": "AD OEIRAS B",
+   "jogador": "VICENTE SIMONS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 3,
+   "golos_fora": 1,
+   "texto": "Golo para AD OEIRAS B | VICENTE SIMONS"
+  },
+  {
+   "ordem": 12,
+   "tipo": "golo",
+   "relogio": "4:06",
+   "parte": 4,
+   "minuto": 27,
+   "equipa": "CRIAR-T GD",
+   "jogador": "RODRIGO SANTOS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 4,
+   "golos_fora": 1,
+   "texto": "Golo para CRIAR-T GD | RODRIGO SANTOS"
+  },
+  {
+   "ordem": 13,
+   "tipo": "golo",
+   "relogio": "3:04",
+   "parte": 4,
+   "minuto": 28,
+   "equipa": "CRIAR-T GD",
+   "jogador": "XAVIER NARCISO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 5,
+   "golos_fora": 1,
+   "texto": "Golo para CRIAR-T GD | XAVIER NARCISO"
+  },
+  {
+   "ordem": 14,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 4,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
+  }
+ ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOSE MARTINS",
+   "Árbitro Auxiliar": "CARLOS LOPES",
+   "Cronometrista": "JESSICA FELGUEIRAS",
+   "Gestor de segurança": "BRUNO PEREIRA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 3,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 5,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "10:00",
+   "10:21"
+  ],
+  "termo": [
+   "10:16",
+   "10:42"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
+ "merito": [
+  {
+   "equipa": "CRIAR-T GD",
+   "atletas": 6,
+   "guardas_redes": 1,
+   "participantes": 6,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -8,
+   "total": 1,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "6 atletas participantes",
+     "pontos": 6
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "4.1.1",
+     "texto": "apresentou 6 atletas",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.3",
+     "texto": "2 com 3 meias partes seguidas",
+     "pontos": -2
+    },
+    {
+     "regra": "4.1.6",
+     "texto": "1 fizeram as quatro meias partes",
+     "pontos": -4
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "AD OEIRAS B",
+   "atletas": 9,
+   "guardas_redes": 2,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -2,
+   "total": 7,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "4.1.4",
+     "texto": "2 com 3 meias partes",
+     "pontos": -2
+    }
+   ],
+   "avisos": []
+  }
+ ],
+ "competicao_id": 466,
+ "categoria": "BENJAMINS",
+ "jornada": "6ª JORNADA",
+ "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-ii",
+ "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II",
+ "serie": "B"
+}

@@ -1,8 +1,8 @@
 {
  "competicao_id": 465,
  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
- "jogos_lidos": 23,
- "jogos_sem_boletim": 0,
+ "jogos_lidos": 24,
+ "jogos_sem_boletim": 1,
  "linhas": [
   {
    "posicao": 1,
@@ -28,6 +28,17 @@
   },
   {
    "posicao": 3,
+   "equipa": "SC TORRES",
+   "jogos": 7,
+   "participantes": 63,
+   "bonificacao": 76,
+   "penalizacao": -7,
+   "pontos": 69,
+   "media": 9.86,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 4,
    "equipa": "HC SINTRA",
    "jogos": 6,
    "participantes": 58,
@@ -38,18 +49,18 @@
    "por_confirmar": 0
   },
   {
-   "posicao": 4,
-   "equipa": "SC TORRES",
+   "posicao": 5,
+   "equipa": "AE FISICA D A",
    "jogos": 6,
    "participantes": 54,
-   "bonificacao": 66,
-   "penalizacao": -6,
+   "bonificacao": 62,
+   "penalizacao": -2,
    "pontos": 60,
    "media": 10.0,
-   "por_confirmar": 0
+   "por_confirmar": 1
   },
   {
-   "posicao": 5,
+   "posicao": 6,
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 5,
    "participantes": 46,
@@ -57,17 +68,6 @@
    "penalizacao": -9,
    "pontos": 50,
    "media": 10.0,
-   "por_confirmar": 0
-  },
-  {
-   "posicao": 6,
-   "equipa": "AE FISICA D A",
-   "jogos": 5,
-   "participantes": 44,
-   "bonificacao": 50,
-   "penalizacao": -2,
-   "pontos": 48,
-   "media": 9.6,
    "por_confirmar": 0
   },
   {

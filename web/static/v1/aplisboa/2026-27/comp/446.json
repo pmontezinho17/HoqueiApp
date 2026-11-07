@@ -370,8 +370,8 @@
    "hora": "14:45:00",
    "casa": "SPORTING CP B",
    "fora": "AD OEIRAS B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 0,
    "recinto": "PAV.G.S.SACAVENENSE",
    "ao_vivo": false
   },
@@ -468,29 +468,29 @@
      "posicao": 1,
      "equipa": "AD OEIRAS B",
      "logo": "/intranet/logos/6.png",
-     "jogos": 7,
+     "jogos": 8,
      "vitorias": 7,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 0,
      "golos_marcados": 53,
      "golos_sofridos": 8,
      "diferenca": 45,
      "racio": 6.62,
-     "pontos": 21
+     "pontos": 22
     },
     {
      "posicao": 2,
      "equipa": "SPORTING CP B",
      "logo": "/intranet/logos/2.png",
-     "jogos": 7,
+     "jogos": 8,
      "vitorias": 6,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 1,
      "golos_marcados": 64,
      "golos_sofridos": 13,
      "diferenca": 51,
      "racio": 4.92,
-     "pontos": 18
+     "pontos": 19
     },
     {
      "posicao": 3,

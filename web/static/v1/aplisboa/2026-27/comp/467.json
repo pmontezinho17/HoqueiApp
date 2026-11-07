@@ -258,8 +258,8 @@
    "hora": "11:00:00",
    "casa": "SPORTING CP",
    "fora": "UD VILAFRANQUENSE",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 3,
+   "golos_fora": 3,
    "recinto": "PAV.G.S.SACAVENENSE",
    "ao_vivo": false
   },

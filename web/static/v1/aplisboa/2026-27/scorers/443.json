@@ -1,6 +1,6 @@
 {
  "competicao_id": 443,
- "jogos_considerados": 21,
+ "jogos_considerados": 22,
  "jogadores": [
   {
    "nome": "FRANCISCO FATELA",
@@ -211,6 +211,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MIGUEL AZEVEDO",
+   "equipa": "SC TORRES",
+   "jogos": 8,
+   "numero": "3",
+   "golos": 6,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 8,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "CONSTANÇA COSTA",
    "equipa": "AD OEIRAS A",
    "jogos": 6,
@@ -234,19 +247,6 @@
    "pontos": 8,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MIGUEL AZEVEDO",
-   "equipa": "SC TORRES",
-   "jogos": 7,
-   "numero": "3",
-   "golos": 5,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 7,
-   "amarelos": 0,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -356,7 +356,7 @@
   {
    "nome": "VALENTIM SANTOS",
    "equipa": "SC TORRES",
-   "jogos": 8,
+   "jogos": 9,
    "numero": "5",
    "golos": 3,
    "assistencias": 1,
@@ -382,7 +382,7 @@
   {
    "nome": "MARTIM SILVA",
    "equipa": "HC SINTRA",
-   "jogos": 7,
+   "jogos": 8,
    "numero": "7",
    "golos": 2,
    "assistencias": 0,
@@ -395,7 +395,7 @@
   {
    "nome": "DUARTE GASPAR",
    "equipa": "HC SINTRA",
-   "jogos": 7,
+   "jogos": 8,
    "numero": "5",
    "golos": 1,
    "assistencias": 1,
@@ -447,7 +447,7 @@
   {
    "nome": "BENEDITA MARTINS",
    "equipa": "SC TORRES",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "6",
    "golos": 1,
    "assistencias": 0,
@@ -460,7 +460,7 @@
   {
    "nome": "EDUARDO BOTELHO",
    "equipa": "SC TORRES",
-   "jogos": 8,
+   "jogos": 9,
    "numero": "2",
    "golos": 0,
    "assistencias": 2,
@@ -488,6 +488,19 @@
    "equipa": "APAC TOJAL",
    "jogos": 1,
    "numero": "17",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO PEREIRA",
+   "equipa": "HC SINTRA",
+   "jogos": 1,
+   "numero": "12",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -601,32 +614,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "TOMÁS ESTEVES",
-   "equipa": "SC TORRES",
-   "jogos": 4,
-   "numero": "8",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "AFONSO BELÉM",
-   "equipa": "HC SINTRA",
-   "jogos": 5,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DANIEL LOURENÇO",
    "equipa": "HC SINTRA",
    "jogos": 5,
@@ -666,10 +653,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARIA DORDIO",
-   "equipa": "HC SINTRA",
+   "nome": "TOMÁS ESTEVES",
+   "equipa": "SC TORRES",
    "jogos": 5,
-   "numero": "13",
+   "numero": "8",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -679,8 +666,8 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIEGO LUIS",
-   "equipa": "SC TORRES",
+   "nome": "AFONSO BELÉM",
+   "equipa": "HC SINTRA",
    "jogos": 6,
    "numero": "4",
    "golos": 0,
@@ -688,14 +675,14 @@
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
-   "azuis": 1,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE SILVA",
+   "nome": "MARIA DORDIO",
    "equipa": "HC SINTRA",
    "jogos": 6,
-   "numero": "23",
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -731,13 +718,26 @@
    "vermelhos": 0
   },
   {
-   "nome": "GASPAR PEREIRA",
-   "equipa": "HC SINTRA",
+   "nome": "DIEGO LUIS",
+   "equipa": "SC TORRES",
    "jogos": 7,
-   "numero": "96",
+   "numero": "4",
    "golos": 0,
    "assistencias": 0,
-   "defesas": 1,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DUARTE SILVA",
+   "equipa": "HC SINTRA",
+   "jogos": 7,
+   "numero": "23",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -748,19 +748,6 @@
    "equipa": "APAC TOJAL",
    "jogos": 7,
    "numero": "49",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ISABEL HIGINO",
-   "equipa": "HC SINTRA",
-   "jogos": 7,
-   "numero": "2",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -809,9 +796,35 @@
    "vermelhos": 0
   },
   {
+   "nome": "GASPAR PEREIRA",
+   "equipa": "HC SINTRA",
+   "jogos": 8,
+   "numero": "96",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ISABEL HIGINO",
+   "equipa": "HC SINTRA",
+   "jogos": 8,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "AFONSO VALENTIM",
    "equipa": "SC TORRES",
-   "jogos": 8,
+   "jogos": 9,
    "numero": "1",
    "golos": 0,
    "assistencias": 0,
@@ -824,7 +837,7 @@
   {
    "nome": "DUARTE PAULO",
    "equipa": "SC TORRES",
-   "jogos": 8,
+   "jogos": 9,
    "numero": "7",
    "golos": 0,
    "assistencias": 0,
@@ -837,7 +850,7 @@
   {
    "nome": "FREDERICK VENTURA",
    "equipa": "SC TORRES",
-   "jogos": 8,
+   "jogos": 9,
    "numero": "9",
    "golos": 0,
    "assistencias": 0,
@@ -850,7 +863,7 @@
   {
    "nome": "GONÇALO LOURENÇO",
    "equipa": "SC TORRES",
-   "jogos": 8,
+   "jogos": 9,
    "numero": "10",
    "golos": 0,
    "assistencias": 0,
