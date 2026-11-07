@@ -5,9 +5,8 @@
 	 */
 	import Emblema from '$lib/Emblema.svelte';
 	import {
-		bolasDaForma,
-		jogosDaForma,
 		linhasDaDisciplina,
+		linhasDaForma,
 		linhasDosPeriodos,
 		treinadoresDoJogo,
 		comoFoiJogado,
@@ -16,10 +15,9 @@
 		mostraLugares,
 		outraProva,
 		diaCurto,
-		resultadoDe,
 		resumoDosConfrontos,
 		sequenciasEmCurso,
-		type Lado,
+		type JogoNaForma,
 		type LinhaComparada,
 		type Resultado
 	} from '$lib/antesDoJogo';
@@ -29,9 +27,7 @@
 
 	const NOME: Record<Resultado, string> = { V: 'vitória', E: 'empate', D: 'derrota' };
 
-	/** de que equipa se vê a lista dos últimos jogos — a da casa, à partida, como nas apps */
-	let deQuem = $state<Lado>('casa');
-	const daLista = $derived(p[deQuem]);
+	const forma = $derived(linhasDaForma(p));
 	const epoca = $derived(linhasDaEpoca(p));
 	const contagens = $derived(linhasDasContagens(p));
 	const confrontos = $derived(resumoDosConfrontos(p));
@@ -41,18 +37,16 @@
 	const treinadores = $derived(treinadoresDoJogo(p));
 </script>
 
-{#snippet bolas(lado: Lado)}
-	{@const e = p[lado]}
-	{@const bolas = bolasDaForma(e)}
-	<div class="forma">
-		<Emblema equipa={e.equipa} src={emblemas[e.equipa]} tamanho={22} />
-		<span class="nome">{e.equipa}</span>
-		<span class="bolas" aria-label="Últimos jogos, do mais antigo para o mais recente: {bolas.map((r) => NOME[r]).join(', ') || 'nenhum'}">
-			{#each bolas as r, i (i)}
-				<i class="r {r}" aria-hidden="true">{r}</i>
-			{/each}
-		</span>
-	</div>
+{#snippet jogo(j: JogoNaForma | null)}
+	{#if j}
+		<a href="/jogo/{j.id}" class="jogo" aria-label="{diaCurto(j.data)}: {j.casa} {j.gc}–{j.gf} {j.fora}, {NOME[j.resultado]}">
+			<Emblema equipa={j.casa} src={emblemas[j.casa]} tamanho={22} />
+			<b class="r {j.resultado}">{j.gc}–{j.gf}</b>
+			<Emblema equipa={j.fora} src={emblemas[j.fora]} tamanho={22} />
+		</a>
+	{:else}
+		<span></span>
+	{/if}
 {/snippet}
 
 {#snippet cabeca(titulo = '')}
@@ -77,40 +71,21 @@
 
 <section>
 	<h2>Forma recente</h2>
-	<div class="cartao">
-		{@render bolas('casa')}
-		{@render bolas('fora')}
-	</div>
-
-	<div class="escolha" role="group" aria-label="Últimos jogos de qual equipa">
-		{#each ['casa', 'fora'] as const as lado (lado)}
-			<button type="button" aria-pressed={deQuem === lado} onclick={() => (deQuem = lado)}>
-				<Emblema equipa={p[lado].equipa} src={emblemas[p[lado].equipa]} tamanho={18} />
-				<span>{p[lado].equipa}</span>
-			</button>
-		{/each}
-	</div>
-	{#if daLista.ultimos.length}
-		<ul class="cartao jogos">
-			{#each jogosDaForma(daLista) as j (j.id)}
-				{@const r = resultadoDe(j)}
-				<li>
-					<a href="/jogo/{j.id}">
-						<span class="quando">{diaCurto(j.data)}{#if outraProva(j, comp)}<small>{outraProva(j, comp)}</small>{/if}</span>
-						<span class="contra">
-							<small class="onde">{j.em_casa ? 'Casa' : 'Fora'}</small>
-							<Emblema equipa={j.adversario} src={emblemas[j.adversario]} tamanho={18} />
-							<span class="nome">{j.adversario}</span>
-						</span>
-						<span class="res">{j.marcados}–{j.sofridos}</span>
-						<i class="r {r}" aria-label={NOME[r]}>{r}</i>
-					</a>
+	{#if forma.length}
+		<ul class="cartao forma">
+			{@render cabeca()}
+			{#each forma as l, i (i)}
+				<li class:recente={i === 0}>
+					{@render jogo(l.casa)}
+					<span class="marca">{#if i === 0}último<br />jogo{/if}</span>
+					{@render jogo(l.fora)}
 				</li>
 			{/each}
 		</ul>
-	{:else}
-		<p class="nada">{daLista.equipa} ainda não jogou esta época.</p>
 	{/if}
+	{#each ['casa', 'fora'] as const as lado (lado)}
+		{#if !p[lado].ultimos.length}<p class="nada">{p[lado].equipa} ainda não jogou esta época.</p>{/if}
+	{/each}
 </section>
 
 <section>
@@ -257,7 +232,6 @@
 		padding-top: var(--e-2);
 		border-top: 1px solid var(--borda);
 	}
-	section > .escolha + .cartao { border-top: 0; padding-top: 0; }
 	.nome {
 		min-width: 0;
 		overflow: hidden;
@@ -271,17 +245,21 @@
 		font-weight: 400;
 	}
 
-	/* as bolas de resultado: verde, cinzento, vermelho, com a letra para quem não vê cores */
+	/*
+	 * A forma lado a lado (07/11/2026): o resultado num rectângulo com a cor do resultado para a
+	 * equipa da coluna — verde, cinzento, vermelho —, e o jogo tal como foi jogado, com a casa à
+	 * esquerda. A letra V/E/D saiu: o resultado está escrito, e quem não vê cores lê o número.
+	 */
 	.r {
 		display: inline-grid;
 		place-items: center;
-		flex: none;
-		width: 22px;
-		height: 22px;
-		border-radius: 50%;
-		font-style: normal;
-		font-size: var(--t-micro);
+		min-width: 3.4rem;
+		height: 28px;
+		padding: 0 var(--e-2);
+		border-radius: 6px;
+		font-size: var(--t-base);
 		font-weight: 700;
+		font-variant-numeric: tabular-nums;
 		/* a cor do cartão e não branco: no tema escuro as cores de ganhar e perder são claras,
 		   e o branco por cima delas não se lia */
 		color: var(--cartao);
@@ -290,44 +268,34 @@
 	.r.E { background: var(--suave); }
 	.r.D { background: var(--perde); }
 
-	.forma {
-		display: flex;
+	.forma li {
+		display: grid;
+		grid-template-columns: 1fr 2.8rem 1fr;
 		align-items: center;
-		gap: var(--e-3);
 		min-height: 44px;
-		font-size: var(--t-base);
 	}
-	.forma + .forma { border-top: 1px solid var(--borda-fraca); }
-	.forma .nome { flex: 1; }
-	.bolas { display: flex; gap: var(--e-1); }
-
-	.escolha {
-		display: flex;
-		gap: var(--e-2);
-		margin: var(--e-3) 0;
-	}
-	.escolha button {
+	.forma .cabeca { justify-items: center; min-height: 36px; }
+	.forma .jogo {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: var(--e-2);
-		flex: 1;
-		min-width: 0;
-		min-height: 40px;
-		padding: 0 var(--e-3);
-		border: 1px solid var(--borda);
-		border-radius: var(--raio-pilula);
-		background: var(--cartao);
-		color: var(--texto-2);
-		font: inherit;
-		font-size: var(--t-pequeno);
-		cursor: pointer;
+		padding: var(--e-1) 0;
+		color: inherit;
+		text-decoration: none;
 	}
-	.escolha button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-	.escolha button[aria-pressed='true'] {
-		border-color: var(--acento);
+	/* o jogo mais recente: uma faixa por trás da linha e a marca no meio, uma só para os dois */
+	.forma li.recente {
+		margin: var(--e-1) calc(-1 * var(--e-2));
+		padding: 0 var(--e-2);
+		border-radius: var(--raio-cartao);
 		background: var(--acento-fraco);
-		color: var(--texto);
+	}
+	.marca {
+		text-align: center;
+		font-size: var(--t-micro);
+		line-height: 1.2;
+		color: var(--texto-2);
 		font-weight: 600;
 	}
 
@@ -345,12 +313,6 @@
 	}
 	.quando { font-size: var(--t-pequeno); color: var(--texto-2); min-width: 0; }
 	.quando small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-	.contra { display: flex; align-items: center; gap: var(--e-2); min-width: 0; }
-	.onde {
-		flex: none;
-		width: 2.2rem;
-		display: inline;
-	}
 	.res { font-weight: 700; font-variant-numeric: tabular-nums; }
 	.jogos a.confronto { grid-template-columns: 3.4rem minmax(0, 1fr) auto minmax(0, 1fr); }
 	.eq { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--t-pequeno); }

@@ -1,14 +1,14 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
-	bolasDaForma,
-	jogosDaForma,
 	comoFoiJogado,
 	diaCurto,
 	outraProva,
 	linhasDaDisciplina,
 	linhasDaEpoca,
+	linhasDaForma,
 	linhasDosPeriodos,
+	percentagens,
 	partesDoJogo,
 	treinadoresDoJogo,
 	linhasDasContagens,
@@ -127,21 +127,33 @@ describe('a lista dos jogos', () => {
 	});
 });
 
-describe('a forma, do mais antigo para o mais recente', () => {
-	it('do mais antigo para o mais recente, ao contrário da lista', () => {
+describe('a forma, lado a lado e do mais recente para o mais antigo', () => {
+	const jogo = (id: number, marcados: number, sofridos: number, em_casa = true, adversario = 'X') =>
+		({ id, data: '2026-10-01', comp: 1, prova: '', em_casa, adversario, marcados, sofridos });
+
+	it('pela ordem do ficheiro, que já é a do mais recente primeiro', () => {
 		// o SC TORRES dos Sub-13 a 06/11/2026: ganhou ao HC SINTRA a 10/10 e perdeu os quatro seguintes
-		const ultimos = [[0, 26], [0, 17], [4, 5], [2, 13], [3, 1]].map(([marcados, sofridos], i) => ({
-			id: i, data: '', comp: 1, prova: '', em_casa: true, adversario: '', marcados, sofridos
-		}));
-		expect(bolasDaForma({ ultimos })).toEqual(['V', 'D', 'D', 'D', 'D']);
-		expect(jogosDaForma({ ultimos }).map((j) => j.marcados)).toEqual([3, 2, 4, 0, 0]);
-		// sem mexer no que veio do ficheiro
-		expect(ultimos[0].marcados).toBe(0);
+		const ultimos = [[0, 26], [0, 17], [4, 5], [2, 13], [3, 1]].map(([m, s], i) => jogo(i, m, s));
+		const l = linhasDaForma(prejogo({ ...equipa('A'), ultimos }, equipa('B')));
+		expect(l.map((x) => x.casa?.resultado)).toEqual(['D', 'D', 'D', 'D', 'V']);
+		expect(l[0].casa?.id).toBe(0);
 	});
-	it('no arranque da época são os que houver', () => {
-		const um = [{ id: 1, data: '', comp: 1, prova: '', em_casa: true, adversario: '', marcados: 2, sofridos: 2 }];
-		expect(bolasDaForma({ ultimos: um })).toEqual(['E']);
-		expect(jogosDaForma({ ultimos: [] })).toEqual([]);
+
+	it('cada jogo como foi jogado, com o resultado para a equipa da coluna', () => {
+		const a = { ...equipa('A'), ultimos: [jogo(1, 1, 3, false, 'C')] };
+		const b = { ...equipa('B'), ultimos: [jogo(2, 2, 1, true, 'D')] };
+		const [l] = linhasDaForma(prejogo(a, b));
+		// o A perdeu fora com o C por 3–1: o C à esquerda, e vermelho na coluna do A
+		expect(l.casa).toMatchObject({ casa: 'C', fora: 'A', gc: 3, gf: 1, resultado: 'D' });
+		expect(l.fora).toMatchObject({ casa: 'B', fora: 'D', gc: 2, gf: 1, resultado: 'V' });
+	});
+
+	it('no arranque da época são os que houver, e a coluna mais curta fica com buracos', () => {
+		const a = { ...equipa('A'), ultimos: [jogo(1, 2, 2), jogo(2, 0, 1)] };
+		const l = linhasDaForma(prejogo(a, equipa('B')));
+		expect(l).toHaveLength(2);
+		expect(l.map((x) => [x.casa?.resultado, x.fora])).toEqual([['E', null], ['D', null]]);
+		expect(linhasDaForma(prejogo(equipa('A'), equipa('B')))).toEqual([]);
 	});
 });
 
@@ -168,6 +180,15 @@ describe('fase 2', () => {
 		expect(partesDoJogo([4, 8])).toBe(4);
 		expect(partesDoJogo([2, 18])).toBe(2);
 		expect(partesDoJogo(null)).toBe(2);
+	});
+
+	it('as percentagens somam sempre 100 — o jogo de Escolares de 07/11/2026', () => {
+		// os 13, 6, 11 e 9 golos de uma equipa de Escolares: arredondados um a um davam 33+15+28+23 = 99
+		expect(percentagens([13, 6, 11, 9])).toEqual([33, 16, 28, 23]);
+		// e estes davam 101
+		expect(percentagens([4, 4, 4, 5]).reduce((x, y) => x + y)).toBe(100);
+		expect(percentagens([1, 1, 1])).toEqual([34, 33, 33]);
+		expect(percentagens([0, 0])).toEqual([0, 0]);
 	});
 
 	it('os golos de cada parte em percentagem dos da equipa, e sem destaque', () => {
@@ -265,6 +286,18 @@ describe('os prejogo publicados', () => {
 		const com = todos.filter(temAntesDoJogo);
 		if (!com.length) return;
 		expect(com.filter((p) => linhasDosPeriodos(p, 'marcados') && linhasDaDisciplina(p).length && treinadoresDoJogo(p)).length / com.length).toBeGreaterThan(0.9);
+	});
+
+	it('todas as colunas de "quando marcam" somam 100% — medido a 07/11/2026: 118 de 384 não somavam', () => {
+		for (const p of todos)
+			for (const qual of ['marcados', 'sofridos'] as const) {
+				const l = linhasDosPeriodos(p, qual);
+				if (!l) continue;
+				for (const lado of ['casa', 'fora'] as const) {
+					if (l[0][lado].texto === '—') continue;
+					expect(l.reduce((s, x) => s + parseInt(x[lado].texto), 0), `jogo ${p.id} ${lado} ${qual}`).toBe(100);
+				}
+			}
 	});
 
 	it('os lugares nunca passam do número de equipas da série', () => {
