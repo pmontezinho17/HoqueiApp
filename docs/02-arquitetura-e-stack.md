@@ -194,7 +194,9 @@ Ficheiros estáticos, versionados por caminho para nunca quebrar clientes antigo
                                              `classificacao_calculada` é a nossa, e só existe
                                              onde a fonte não publica nenhuma)
 /v1/{tenant}/{season}/match/{id}.json     → ficha de jogo: cabeçalho, estatística por
-                                            jogador, cronologia e boletim oficial
+                                            jogador, cronologia e boletim oficial; nos
+                                            Escolares e Benjamins, `em_pista` — quem jogou
+                                            cada período e os golos em cada um (07/11/2026)
 /v1/{tenant}/{season}/scorers/{comp}.json → quadro de marcadores agregado
 /v1/{tenant}/{season}/prejogo/{id}.json   → o que se sabe de um jogo antes de ele começar:
                                             forma, confronto directo, a época com o lugar na

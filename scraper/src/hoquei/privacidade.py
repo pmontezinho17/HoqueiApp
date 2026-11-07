@@ -47,6 +47,10 @@ def anonimizar_ficha(dados: dict) -> dict:
     # O boletim oficial traz nomes — o capitão (uma criança, nestes escalões) e a equipa de
     # arbitragem. A estrutura do jogo fica: resultado por parte, faltas e horas não
     # identificam ninguém.
+    # a grelha do "Em pista" é atleta a atleta. Fica a chave, a `None`, para a ronda não voltar
+    # a pedir a página por a julgar em falta (`_em_pista_por_preencher`)
+    if "em_pista" in dados:
+        dados["em_pista"] = None
     if dados.get("boletim"):
         dados["boletim"] = {**dados["boletim"],
                             "oficiais": {}, "capitao_casa": None, "capitao_fora": None}
