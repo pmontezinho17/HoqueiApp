@@ -6,26 +6,45 @@ se exige dela é **não mentir sobre a própria confiança**: quando diz 75%, o 
 ganhar perto de 75 vezes em cada 100. É essa a medida que escolheu o modelo, e é essa que o
 `test_probabilidade.py` vigia.
 
-**O modelo é a média de dois, e é a mistura que ganha** — medido a 07/11/2026 nos 524 jogos
-oficiais disputados, prevendo cada mês só com os anteriores (331 jogos em outubro e novembro
-em que as duas equipas já tinham jogado):
+**O modelo é a média de dois, e é a mistura que ganha** — medido nos jogos oficiais
+disputados, prevendo cada mês só com os anteriores (331 jogos em outubro e novembro em que as
+duas equipas já tinham jogado):
 
 * **Elo com margem**: cada equipa tem uma força que sobe e desce com cada resultado, mais
-  quanto maior a diferença de golos. O empate pelo modelo de Davidson.
-* **Poisson**: os golos esperados de cada equipa a partir do que ela marca e sofre, puxados
-  para a média do escalão enquanto há poucos jogos. A probabilidade sai de todos os resultados
-  possíveis.
-* Sem modelo — as frequências da época —, o mais provável acontecia em 47% dos jogos. Cada um
-  dos dois, afinado, em 76% a 79%. **A média dos dois, sem afinar, em 80%**, e com a melhor
-  pontuação das três (log loss 0,53 contra 0,56 e 0,59).
-* A média era modesta de mais: quando dizia 70–80%, o favorito ganhava 87%. Daí o `AFIAR`,
-  que eleva as três probabilidades a 1,4 e as normaliza. Afinado só com setembro deu 1,4, e
-  com setembro e outubro deu outra vez 1,4. Depois disso, em 331 jogos: o favorito ganhou
-  80%; dito 55% aconteceu 54%, dito 75% aconteceu 74%, dito 85% aconteceu 88%, e dito 96%
-  aconteceu 96%.
+  quanto maior a diferença de golos, com rendimentos decrescentes (o logaritmo da margem) e
+  menos para o favorito que ganha por muito — a receita do FiveThirtyEight. O empate pelo
+  modelo de Davidson.
+* **Golos esperados ajustados ao adversário** (o modelo de Maher, 1982, a base do
+  Dixon-Coles): cada equipa tem um ataque e uma defesa, e cada resultado explica-se pelos dois
+  lados. Um 26–0 ao SC TORRES diz sobretudo que a defesa do SC TORRES é fraca — e conta pouco
+  para um jogo entre duas equipas boas. Ver `_ajustar`.
+* Sem modelo — as frequências da época —, o mais provável acontecia em 47% dos jogos.
+* A média dos dois é afiada por um expoente, `AFIAR`, porque sozinha era modesta de mais.
+
+**Os golos sem ajuste ao adversário foram a primeira versão, e estavam errados.** A 07/11/2026
+o dono olhou para o CD PAÇO ARCOS A–AD OEIRAS A dos Sub-13 — duas equipas do topo, uma vitória
+para cada uma no confronto directo — e o separador dava 67% ao Paço de Arcos: *"não deverá ser
+por goleadas que eu devo contabilizar mais (…) não faz sentido num jogo entre duas equipas
+boas"*. Tinha razão, e a causa era esta: os golos marcados contavam por inteiro, fosse contra
+quem fosse, e o Paço de Arcos tinha 24–0 e 26–0 ao SC TORRES. Ajustados ao adversário, os golos
+esperados desse jogo descem para 2,1–1,9 e a previsão fica 55–9–36. E **melhorou no conjunto**,
+nos mesmos 331 jogos:
+
+* o mais provável aconteceu em 81,3% (era 80,1%), com log loss 0,487 (era 0,512);
+* o expoente afinado saiu 1,2 com setembro e outra vez 1,2 com setembro e outubro;
+* calibração do favorito: dito 55% aconteceu 45% (31 jogos), 66% → 73%, 75% → 71%,
+  86% → 87%, 96% → 97%; empates, 10,1 previstos e 12 reais — e nos 90 jogos em que o favorito
+  tinha menos de 70%, 5,7 previstos e 5 reais.
 
 O que se tentou e **não** ficou, para ninguém repetir:
 
+* **Limitar as goleadas** (contar no máximo 10 ou 15 golos de diferença). Aproximava aquele
+  jogo, mas tirava acerto à época (77,0% → 76,5%), como num teste publicado com o futebol
+  americano universitário em que cada limite tirava acerto. O ajuste ao adversário resolve o
+  mesmo problema pela razão certa, e acerta mais.
+* **Dar peso extra ao confronto directo.** Nos 85 jogos que já tinham um, piorou com os quatro
+  pesos testados: os jogos entre as duas já entram nas contas como os outros.
+* **Pesar mais os jogos recentes** (o ξ do Dixon-Coles): não mudou nada que se medisse.
 * **A força do clube noutros escalões** como ponto de partida das equipas com poucos jogos.
   Ganhava nos jogos de afinação e perdia nos outros: era afinar sobre ruído.
 * **Encolher o empate**. Há 20 empates em 524 jogos, e com 4 nos jogos de afinação o valor
@@ -45,9 +64,9 @@ from collections import defaultdict
 ELO_K = 120
 ELO_CASA = 25           # pontos de Elo da equipa da casa
 ELO_EMPATE = 0.05       # o ν de Davidson
-POISSON_PESO = 4        # quantos jogos "da média do escalão" entram em cada equipa
+POISSON_PESO = 2        # quantos golos "de equipa média" entram no ataque e na defesa de cada uma
 POISSON_CASA = 1.05
-AFIAR = 1.4
+AFIAR = 1.2
 INICIAL = 1500.0
 MEDIA_SEM_JOGOS = 4.5   # golos por equipa e jogo num escalão que ainda não jogou nada
 
@@ -70,10 +89,8 @@ class Previsor:
     def __init__(self) -> None:
         self.elo: dict[tuple, float] = defaultdict(lambda: INICIAL)
         self.jogos: dict[tuple, int] = defaultdict(int)
-        self.marcados: dict[tuple, float] = defaultdict(float)
-        self.sofridos: dict[tuple, float] = defaultdict(float)
-        self.golos_do_escalao: dict[str, float] = defaultdict(float)
-        self.jogos_do_escalao: dict[str, int] = defaultdict(int)
+        self.do_escalao: dict[str, list[tuple[str, str, int, int]]] = defaultdict(list)
+        self._ajuste: dict[str, tuple[int, float, dict, dict]] = {}
 
     def _equipas(self, j: dict) -> tuple[tuple, tuple]:
         return (j["cat"], j["casa"]), (j["cat"], j["fora"])
@@ -85,20 +102,62 @@ class Previsor:
         s = pa + pb + e
         return pa / s, e / s, pb / s
 
-    def _media(self, cat: str) -> float:
-        n = self.jogos_do_escalao[cat]
-        return self.golos_do_escalao[cat] / (2 * n) if n else MEDIA_SEM_JOGOS
+    def _ajustar(self, cat: str) -> tuple[float, dict, dict]:
+        """O ataque e a defesa de cada equipa do escalão, **explicando cada resultado pelos dois
+        lados** — o modelo de Maher por aproximações sucessivas.
+
+        Ataque 2 é marcar o dobro do que a média marcaria contra a mesma defesa; defesa 0,5 é
+        sofrer metade. Cada volta recalcula os ataques com as defesas da volta anterior e depois
+        as defesas com os ataques novos. `POISSON_PESO` golos de equipa média entram em cada um,
+        para que uma equipa com dois jogos não fique com um ataque de 9 por ter dado 18–0.
+
+        Refaz-se só quando o escalão tem um jogo novo, e parte do ajuste anterior. Medido a
+        07/11/2026 nos 413 jogos com previsão: 10 voltas a partir do anterior afastam-se no
+        máximo 0,4 pontos percentuais de 40 voltas a partir do zero, e a época inteira mede-se
+        em 0,3 s.
+        """
+        jogos = self.do_escalao[cat]
+        guardado = self._ajuste.get(cat)
+        if guardado and guardado[0] == len(jogos):
+            return guardado[1], guardado[2], guardado[3]
+        mu = sum(gc + gf for _, _, gc, gf in jogos) / (2 * len(jogos)) if jogos else MEDIA_SEM_JOGOS
+        ataque = dict(guardado[2]) if guardado else {}
+        defesa = dict(guardado[3]) if guardado else {}
+        for casa, fora, _, _ in jogos:
+            for t in (casa, fora):
+                ataque.setdefault(t, 1.0)
+                defesa.setdefault(t, 1.0)
+        for _ in range(10 if guardado else 40):
+            num: dict[str, float] = defaultdict(float)
+            den: dict[str, float] = defaultdict(float)
+            for casa, fora, gc, gf in jogos:
+                num[casa] += gc
+                den[casa] += mu * defesa[fora] * POISSON_CASA
+                num[fora] += gf
+                den[fora] += mu * defesa[casa] / POISSON_CASA
+            ataque = {t: (num[t] + POISSON_PESO) / (den[t] + POISSON_PESO) for t in ataque}
+            num, den = defaultdict(float), defaultdict(float)
+            for casa, fora, gc, gf in jogos:
+                num[fora] += gc
+                den[fora] += mu * ataque[casa] * POISSON_CASA
+                num[casa] += gf
+                den[casa] += mu * ataque[fora] / POISSON_CASA
+            defesa = {t: (num[t] + POISSON_PESO) / (den[t] + POISSON_PESO) for t in defesa}
+        self._ajuste[cat] = (len(jogos), mu, ataque, defesa)
+        return mu, ataque, defesa
+
+    def golos_esperados(self, a: tuple, b: tuple) -> tuple[float, float]:
+        mu, ataque, defesa = self._ajustar(a[0])
+        la = mu * ataque.get(a[1], 1.0) * defesa.get(b[1], 1.0) * POISSON_CASA
+        lb = mu * ataque.get(b[1], 1.0) * defesa.get(a[1], 1.0) / POISSON_CASA
+        return max(0.05, la), max(0.05, lb)
 
     def _golos(self, a: tuple, b: tuple) -> tuple[float, float, float]:
-        mu = self._media(a[0])
-        ataque = lambda t: (self.marcados[t] / mu + POISSON_PESO) / (self.jogos[t] + POISSON_PESO)
-        defesa = lambda t: (self.sofridos[t] / mu + POISSON_PESO) / (self.jogos[t] + POISSON_PESO)
-        la = max(0.05, mu * ataque(a) * defesa(b) * POISSON_CASA)
-        lb = max(0.05, mu * ataque(b) * defesa(a) / POISSON_CASA)
-        # até 70 golos: o maior resultado da época é um 35–2 (Sub-17), e λ não passa de 30
-        pa, pb = _poisson(la, 70), _poisson(lb, 70)
+        la, lb = self.golos_esperados(a, b)
+        # até 80 golos: o maior resultado da época é um 35–2 (Sub-17)
+        pa, pb = _poisson(la, 80), _poisson(lb, 80)
         acumulado, vitoria, empate = 0.0, 0.0, 0.0
-        for x in range(70):
+        for x in range(80):
             vitoria += pa[x] * acumulado
             empate += pa[x] * pb[x]
             acumulado += pb[x]
@@ -126,12 +185,9 @@ class Previsor:
         margem *= 2.2 / (do_vencedor * 0.001 + 2.2)
         self.elo[a] += ELO_K * margem * (real - esperado)
         self.elo[b] -= ELO_K * margem * (real - esperado)
-        for t, m, s in ((a, gc, gf), (b, gf, gc)):
-            self.marcados[t] += m
-            self.sofridos[t] += s
-            self.jogos[t] += 1
-        self.golos_do_escalao[j["cat"]] += gc + gf
-        self.jogos_do_escalao[j["cat"]] += 1
+        self.jogos[a] += 1
+        self.jogos[b] += 1
+        self.do_escalao[j["cat"]].append((j["casa"], j["fora"], gc, gf))
 
 
 def previsoes(oficiais: list[dict]) -> dict[int, tuple[float, float, float] | None]:
