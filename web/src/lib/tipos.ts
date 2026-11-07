@@ -268,11 +268,6 @@ export interface Prejogo {
 	confrontos: JogoDaForma[];
 	/** os dois treinadores frente a frente esta época, em qualquer escalão, do lado do da casa */
 	treinadores?: { jogos: number; vitorias: number; empates: number; derrotas: number } | null;
-	/**
-	 * A previsão, em percentagens inteiras que somam 100 (fase 3, 07/11/2026); `null` quando
-	 * uma das equipas ainda não tinha jogado. Opcional: os ficheiros de antes da fase 3 não a têm.
-	 */
-	probabilidade?: { casa: number; empate: number; fora: number } | null;
 }
 
 export interface FicheiroMerito {

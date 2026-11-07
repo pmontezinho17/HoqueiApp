@@ -7,7 +7,6 @@
 	import {
 		linhasDaDisciplina,
 		linhasDaForma,
-		previsaoDoJogo,
 		linhasDosPeriodos,
 		treinadoresDoJogo,
 		comoFoiJogado,
@@ -34,7 +33,6 @@
 	const NOME: Record<Resultado, string> = { V: 'vitória', E: 'empate', D: 'derrota' };
 
 	const forma = $derived(linhasDaForma(p));
-	const previsao = $derived(previsaoDoJogo(p));
 	const epoca = $derived(linhasDaEpoca(p));
 	const contagens = $derived(linhasDasContagens(p));
 	const confrontos = $derived(resumoDosConfrontos(p));
@@ -78,29 +76,6 @@
 
 {#if depoisDoApito}
 	<p class="aviso">Como estavam as duas equipas quando este jogo começou: nada do que se jogou depois entra nestes números.</p>
-{/if}
-
-{#if previsao}
-	<section>
-		<h2>Previsão</h2>
-		<div
-			class="previsao"
-			role="img"
-			aria-label="Previsão: {p.casa.equipa} {previsao.casa}%, empate {previsao.empate}%, {p.fora.equipa} {previsao.fora}%"
-		>
-			<div class="numeros" aria-hidden="true">
-				<span><Emblema equipa={p.casa.equipa} src={emblemas[p.casa.equipa]} tamanho={22} /><b>{previsao.casa}%</b></span>
-				<span class="meio"><small>Empate</small><b>{previsao.empate}%</b></span>
-				<span class="fora"><b>{previsao.fora}%</b><Emblema equipa={p.fora.equipa} src={emblemas[p.fora.equipa]} tamanho={22} /></span>
-			</div>
-			<div class="barra" aria-hidden="true">
-				<i class="c" style="flex-grow: {previsao.casa}"></i>
-				<i class="e" style="flex-grow: {previsao.empate}"></i>
-				<i class="f" style="flex-grow: {previsao.fora}"></i>
-			</div>
-		</div>
-		<p class="nota">Uma estimativa feita com os resultados desta época — não uma certeza.</p>
-	</section>
 {/if}
 
 <section>
@@ -418,35 +393,6 @@
 		font-weight: 600;
 	}
 	.emCurso ul { margin: 0; padding-left: var(--e-5); font-size: var(--t-base); line-height: 1.6; }
-
-	/*
-	 * A previsão (fase 3): três números e uma barra partida nas três probabilidades, em tons
-	 * neutros. Sem verde nem vermelho — são as cores de ganhar e perder, e isto não é um resultado.
-	 */
-	.previsao { padding-top: var(--e-2); }
-	.numeros {
-		display: grid;
-		grid-template-columns: 1fr auto 1fr;
-		align-items: center;
-	}
-	.numeros span { display: flex; align-items: center; gap: var(--e-2); }
-	.numeros .meio { flex-direction: column; gap: 0; }
-	.numeros .fora { justify-content: flex-end; }
-	.numeros b { font-size: var(--t-titulo); font-variant-numeric: tabular-nums; }
-	.numeros .meio b { font-size: var(--t-destaque); color: var(--texto-2); font-weight: 600; }
-	.barra {
-		display: flex;
-		gap: 2px;
-		height: 8px;
-		margin-top: var(--e-3);
-		border-radius: var(--raio-pilula);
-		overflow: hidden;
-	}
-	.barra i { flex-basis: 0; min-width: 2px; }
-	/* nem a cor de destaque: no site de testes ela é verde, e lia-se "a casa ganha" */
-	.barra .c { background: var(--texto); }
-	.barra .e { background: var(--borda); }
-	.barra .f { background: var(--suave); }
 
 	.nada, .nota {
 		margin: var(--e-3) 0 0;

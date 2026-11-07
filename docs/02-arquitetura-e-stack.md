@@ -199,8 +199,7 @@ Ficheiros estáticos, versionados por caminho para nunca quebrar clientes antigo
 /v1/{tenant}/{season}/prejogo/{id}.json   → o que se sabe de um jogo antes de ele começar:
                                             forma, confronto directo, a época com o lugar na
                                             série e as sequências; quando marcam e sofrem, a
-                                            disciplina, os treinadores e a previsão V/E/D (S13,
-                                            `probabilidade`, `null` sem jogos). Feito a partir das
+                                            disciplina e os treinadores (S13). Feito a partir das
                                             fichas em disco, sem pedidos. Fica depois do jogo,
                                             com os números de antes dele (desde 07/11/2026); não
                                             existe para os Torneios Particulares nem para um

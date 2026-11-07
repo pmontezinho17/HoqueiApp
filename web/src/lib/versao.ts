@@ -168,7 +168,7 @@ export const NOVIDADES: Novidade[] = [
 				tipo: 'novo',
 				titulo: '📊 Antes do jogo',
 				texto:
-					'Num jogo ainda por disputar há um separador novo: uma previsão de quem ganha, a forma das duas equipas nos últimos cinco jogos, como correram os jogos entre elas esta época, a época lado a lado com o lugar de cada uma na série, quem costuma marcar primeiro ou ir a ganhar ao intervalo, em que altura do jogo marcam e sofrem, as faltas, os cartões e os penáltis, e os treinadores. Depois do jogo continua lá, com os números de antes dele.'
+					'Num jogo ainda por disputar há um separador novo: a forma das duas equipas nos últimos cinco jogos, como correram os jogos entre elas esta época, a época lado a lado com o lugar de cada uma na série, quem costuma marcar primeiro ou ir a ganhar ao intervalo, em que altura do jogo marcam e sofrem, as faltas, os cartões e os penáltis, e os treinadores. Depois do jogo continua lá, com os números de antes dele.'
 			},
 			{
 				tipo: 'novo',
