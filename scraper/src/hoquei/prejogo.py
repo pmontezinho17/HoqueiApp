@@ -147,7 +147,7 @@ class Equipa:
         conforme o escalão e a prova (medido a 06/11/2026: 2×15, 2×18, 2×20, 2×25 e 4×8). Num
         jogo de quatro partes cada quarto é uma parte; num de duas é meia parte. O prolongamento
         fica de fora: não é tempo que todos os jogos tenham. O `formato` mais frequente vai junto
-        para a app escrever os minutos.
+        para a app decidir se mostra duas partes ou quatro — ver `partesDoJogo`.
         """
         com = [j.detalhe for j in self.jogos if j.detalhe and j.detalhe.quartos_marcados is not None]
         formatos = [d.formato for d in com if d.formato]

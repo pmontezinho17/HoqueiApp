@@ -167,7 +167,6 @@
 			{@render cabeca('Golos sofridos')}
 			{#each periodos.sofridos as l (l.rotulo)}{@render comparada(l)}{/each}
 		</ul>
-		<p class="nota">A parte dos golos da época de cada equipa em cada período do jogo, sem o prolongamento.</p>
 	</section>
 {/if}
 
@@ -224,21 +223,41 @@
 {/if}
 
 <style>
-	section { margin: 0 0 var(--e-6); }
-	section:first-of-type { margin-top: var(--e-4); }
-	h2 {
-		margin: 0 0 var(--e-3);
-		font-size: var(--t-destaque);
-		font-weight: 600;
-	}
-	.cartao {
-		margin: 0 0 var(--e-3);
-		padding: 0 var(--e-4);
-		list-style: none;
+	/*
+	 * **Uma caixa por análise**, desde 07/11/2026, a pedido do dono: *"cada secção está separada
+	 * por um título (…) conseguimos acrescentar algum tipo de caixa entre cada uma das análises
+	 * para ter uma leitura mais simples e direta?"*. Até aí cada secção era um título solto com
+	 * cartões por baixo, e numa página de sete secções o olho não sabia onde uma acabava.
+	 * A caixa é a secção; o que estava em cartões lá dentro passa a listas sem moldura, separadas
+	 * por um traço, para não ficar caixa dentro de caixa.
+	 */
+	section {
+		margin: 0 0 var(--e-4);
+		padding: var(--e-4);
 		border: 1px solid var(--borda);
 		border-radius: var(--raio-cartao);
 		background: var(--cartao);
 	}
+	section:first-of-type { margin-top: var(--e-4); }
+	h2 {
+		margin: 0 0 var(--e-2);
+		padding-bottom: var(--e-3);
+		border-bottom: 1px solid var(--borda);
+		font-size: var(--t-destaque);
+		font-weight: 600;
+	}
+	.cartao {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	/* duas listas seguidas na mesma caixa: um espaço e um traço entre elas */
+	section > :not(h2) + .cartao {
+		margin-top: var(--e-3);
+		padding-top: var(--e-2);
+		border-top: 1px solid var(--borda);
+	}
+	section > .escolha + .cartao { border-top: 0; padding-top: 0; }
 	.nome {
 		min-width: 0;
 		overflow: hidden;
@@ -285,7 +304,7 @@
 	.escolha {
 		display: flex;
 		gap: var(--e-2);
-		margin: 0 0 var(--e-3);
+		margin: var(--e-3) 0;
 	}
 	.escolha button {
 		display: flex;
@@ -372,9 +391,8 @@
 	.lado-a-lado .v.melhor { color: var(--texto); font-weight: 700; }
 
 	.lado-a-lado .cabeca .rotulo { font-weight: 600; color: var(--texto); }
-	.lado-a-lado + .lado-a-lado { margin-top: var(--e-3); }
 
-	.treinadores { padding: var(--e-2) var(--e-4); }
+	.treinadores { padding: 0; }
 	.treinador {
 		display: flex;
 		align-items: center;
@@ -386,7 +404,7 @@
 	.treinador + .treinador { border-top: 1px solid var(--borda-fraca); }
 	.treinador b { font-weight: 600; }
 
-	.emCurso { padding: var(--e-3) var(--e-4); }
+	.emCurso { padding-bottom: 0; }
 	.emCurso .quem {
 		display: flex;
 		align-items: center;
@@ -398,7 +416,7 @@
 	.emCurso ul { margin: 0; padding-left: var(--e-5); font-size: var(--t-base); line-height: 1.6; }
 
 	.nada, .nota {
-		margin: 0 0 var(--e-3);
+		margin: var(--e-3) 0 0;
 		font-size: var(--t-pequeno);
 		color: var(--suave);
 	}

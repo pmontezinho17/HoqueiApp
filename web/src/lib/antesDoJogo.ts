@@ -268,39 +268,47 @@ export function outraProva(j: Pick<JogoDaForma, 'comp' | 'prova'>, comp: number 
 // --- fase 2 (06/11/2026): quando marcam, disciplina, treinadores ------------------------------
 
 /**
- * Os quatro períodos em minutos, a partir do formato da equipa da casa: `[2, 20]` dá
- * `0–10'`, `10–20'`, `20–30'`, `30–40'`, e `[4, 8]` dá uma parte em cada um.
+ * Quantas partes tem o jogo: **quatro nos Benjamins e Escolares, duas daí para cima**, com
+ * partes mais compridas à medida que o escalão sobe. Vem do formato mais frequente da equipa da
+ * casa, que o raspador lê do relógio de cada ficha.
  *
- * Em minutos porque é como se fala de um jogo, e os números por baixo vêm em quartos do tempo
- * precisamente para isto: as duas equipas de um jogo jogam o mesmo formato, e um quarto quer
- * dizer o mesmo para as duas. Sem formato conhecido, diz-se o quarto.
+ * Até 07/11/2026 o separador mostrava sempre quatro períodos com os minutos (`0–9'`, `9–18'`…),
+ * mesmo num Sub-13 de duas partes. O dono viu-o no site de testes nesse dia: *"a partir de sub-13
+ * só existem 2 partes"*, e pediu a parte pelo nome em vez dos minutos. As contas estavam certas
+ * — os quatro quartos somados dois a dois são as duas partes —, o que estava errado era cortar o
+ * jogo onde o jogo não tem corte.
  */
-export function rotulosDosPeriodos(formato: [number, number] | null | undefined): string[] {
-	if (!formato) return ['1.º quarto', '2.º quarto', '3.º quarto', '4.º quarto'];
-	const total = formato[0] * formato[1];
-	const m = (i: number) => Math.round((i * total) / 4);
-	return [0, 1, 2, 3].map((i) => `${m(i)}–${m(i + 1)}'`);
-}
+export const partesDoJogo = (formato: [number, number] | null | undefined): 2 | 4 => (formato?.[0] === 4 ? 4 : 2);
 
 /**
- * Os golos de cada período em **percentagem dos golos da equipa**, com o número por baixo.
+ * Os golos de cada parte em **percentagem dos golos da equipa**, com o número por baixo.
  *
  * Percentagem porque as duas equipas marcaram números muito diferentes — 134 contra 85 no
  * AD OEIRAS A–CD PAÇO ARCOS A, medido a 06/11/2026 — e o que se quer ver é **quando**, não
  * quantos. Sem destaque: marcar mais cedo não é melhor nem pior.
+ *
+ * O ficheiro traz quartos do tempo de jogo, e é isso que deixa juntar jogos de formatos
+ * diferentes na mesma equipa: num jogo de duas partes cada parte são dois quartos, num de quatro
+ * cada parte é um.
  */
 export function linhasDosPeriodos(p: Prejogo, qual: 'marcados' | 'sofridos'): LinhaComparada[] | null {
 	const a = p.casa.periodos;
 	const b = p.fora.periodos;
 	if (!a?.jogos && !b?.jogos) return null;
-	const rotulos = rotulosDosPeriodos(a?.formato ?? b?.formato);
+	const partes = partesDoJogo(a?.formato ?? b?.formato);
+	const porParte = (q: number[]) => (partes === 4 ? q : [q[0] + q[1], q[2] + q[3]]);
 	const valor = (per: EquipaAntesDoJogo['periodos'], i: number): Valor => {
-		const total = per ? per[qual].reduce((x, y) => x + y, 0) : 0;
+		const golos = per ? porParte(per[qual]) : [];
+		const total = golos.reduce((x, y) => x + y, 0);
 		if (!per?.jogos || !total) return { texto: '—', lugar: null };
-		const n = per[qual][i];
-		return { texto: `${Math.round((100 * n) / total)}%`, lugar: null, pequeno: plural(n, 'golo', 'golos') };
+		return { texto: `${Math.round((100 * golos[i]) / total)}%`, lugar: null, pequeno: plural(golos[i], 'golo', 'golos') };
 	};
-	return rotulos.map((rotulo, i) => ({ rotulo, casa: valor(a, i), fora: valor(b, i), melhor: null }));
+	return Array.from({ length: partes }, (_, i) => ({
+		rotulo: `${i + 1}.ª parte`,
+		casa: valor(a, i),
+		fora: valor(b, i),
+		melhor: null
+	}));
 }
 
 /**
