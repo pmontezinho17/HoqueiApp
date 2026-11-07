@@ -9,7 +9,7 @@ import {
 	linhasDaDisciplina,
 	linhasDaEpoca,
 	linhasDosPeriodos,
-	rotulosDosPeriodos,
+	partesDoJogo,
 	treinadoresDoJogo,
 	linhasDasContagens,
 	resumoDosConfrontos,
@@ -164,18 +164,23 @@ describe('fase 2', () => {
 		livres: [0, 0] as [number, number], livres_contra: [0, 0] as [number, number], ...o
 	});
 
-	it('os períodos em minutos, a partir do formato', () => {
-		expect(rotulosDosPeriodos([2, 20])).toEqual(["0–10'", "10–20'", "20–30'", "30–40'"]);
-		expect(rotulosDosPeriodos([4, 8])).toEqual(["0–8'", "8–16'", "16–24'", "24–32'"]);
-		expect(rotulosDosPeriodos([2, 25])).toEqual(["0–13'", "13–25'", "25–38'", "38–50'"]);
-		expect(rotulosDosPeriodos(null)[0]).toBe('1.º quarto');
+	it('quatro partes nos Benjamins e Escolares, duas nos outros', () => {
+		expect(partesDoJogo([4, 8])).toBe(4);
+		expect(partesDoJogo([2, 18])).toBe(2);
+		expect(partesDoJogo(null)).toBe(2);
 	});
 
-	it('os golos de cada período em percentagem dos da equipa, e sem destaque', () => {
+	it('os golos de cada parte em percentagem dos da equipa, e sem destaque', () => {
 		const a = { ...equipa('A', { jogos: 2 }), periodos: { jogos: 2, marcados: [2, 0, 1, 1] as [number, number, number, number], sofridos: [0, 0, 0, 0] as [number, number, number, number], formato: [2, 20] as [number, number] } };
 		const b = equipa('B', { jogos: 2 });
 		const l = linhasDosPeriodos(prejogo(a, b), 'marcados')!;
-		expect(l[0]).toMatchObject({ rotulo: "0–10'", casa: { texto: '50%', pequeno: '2 golos' }, fora: { texto: '—' }, melhor: null });
+		// num 2×20 os quartos juntam-se dois a dois: 2+0 na 1.ª parte, 1+1 na 2.ª
+		expect(l.map((x) => x.rotulo)).toEqual(['1.ª parte', '2.ª parte']);
+		expect(l[0]).toMatchObject({ casa: { texto: '50%', pequeno: '2 golos' }, fora: { texto: '—' }, melhor: null });
+		expect(l[1].casa).toMatchObject({ texto: '50%', pequeno: '2 golos' });
+		const benjamins = { ...a, periodos: { ...a.periodos, formato: [4, 8] as [number, number] } };
+		const quatro = linhasDosPeriodos(prejogo(benjamins, b), 'marcados')!;
+		expect(quatro.map((x) => [x.rotulo, x.casa.texto])).toEqual([['1.ª parte', '50%'], ['2.ª parte', '0%'], ['3.ª parte', '25%'], ['4.ª parte', '25%']]);
 		// sem golos sofridos não há percentagem para fazer: traços e não 0%
 		expect(linhasDosPeriodos(prejogo(a, b), 'sofridos')!.every((x) => x.casa.texto === '—')).toBe(true);
 		expect(linhasDosPeriodos(prejogo(equipa('A'), equipa('B')), 'marcados')).toBeNull();
