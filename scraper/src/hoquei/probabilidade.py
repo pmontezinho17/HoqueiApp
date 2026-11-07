@@ -36,6 +36,14 @@ nos mesmos 331 jogos:
   86% → 87%, 96% → 97%; empates, 10,1 previstos e 12 reais — e nos 90 jogos em que o favorito
   tinha menos de 70%, 5,7 previstos e 5 reais.
 
+**E os resultados da secretaria não ensinam nada** (07/11/2026, ver `administrativos`). O
+AE FISICA D A–PAREDE FC A dos Sub-13 saiu 16–3–81 e acabou 2–2; o dono perguntou porquê, e a
+causa era um 0–10 do AE FISICA D A na primeira jornada que não foi jogado — os dez golos estão
+no mesmo segundo e sem marcador. Sem os 6 jogos assim, esse jogo fica 29–6–65, e o conjunto
+melhora nos mesmos 406 jogos: acerto 79,3% → 80,5%, log loss 0,4945 → 0,4877. Nos 324 jogos de
+outubro e novembro, com o expoente afinado outra vez só com os meses anteriores (1,2 e 1,3; fica
+1,2): acerto 84%, log loss 0,450.
+
 O que se tentou e **não** ficou, para ninguém repetir:
 
 * **Limitar as goleadas** (contar no máximo 10 ou 15 golos de diferença). Aproximava aquele
@@ -45,6 +53,10 @@ O que se tentou e **não** ficou, para ninguém repetir:
 * **Dar peso extra ao confronto directo.** Nos 85 jogos que já tinham um, piorou com os quatro
   pesos testados: os jogos entre as duas já entram nas contas como os outros.
 * **Pesar mais os jogos recentes** (o ξ do Dixon-Coles): não mudou nada que se medisse.
+* **Juntar os nomes do Torneio de Abertura aos do campeonato** (AE FISICA A e AE FISICA D A).
+  Não se tentou, de propósito: são 113 jogos-equipa fora do nome do campeonato, e em muitos
+  não há como saber qual equipa jogou — o SPORTING CP do torneio é a A ou a B. Ver o
+  `test_as_equipas_de_uma_fase_nova_ja_existiam_na_anterior`.
 * **A força do clube noutros escalões** como ponto de partida das equipas com poucos jogos.
   Ganhava nos jogos de afinação e perdia nos outros: era afinar sobre ruído.
 * **Encolher o empate**. Há 20 empates em 524 jogos, e com 4 nos jogos de afinação o valor
@@ -190,12 +202,34 @@ class Previsor:
         self.do_escalao[j["cat"]].append((j["casa"], j["fora"], gc, gf))
 
 
-def previsoes(oficiais: list[dict]) -> dict[int, tuple[float, float, float] | None]:
+def administrativos(fichas: dict[int, dict]) -> set[int]:
+    """Os jogos cujo resultado foi **escrito pela secretaria e não jogado**.
+
+    Na ficha vêem-se assim: três golos ou mais da mesma equipa no mesmo instante e sem marcador.
+    Medido a 07/11/2026: são 6 na época, todos 10–0 e todos com os dez golos no mesmo segundo —
+    o AE FISICA D A–FSE/AJ SALESIANA dos Sub-13 estava 0–0 ao intervalo e acabou 0–10 com os dez
+    golos no minuto 36. Contam na classificação, e por isso continuam na forma e na época do
+    separador. **Não contam para a previsão**: não dizem nada sobre a força de ninguém, e aquele
+    0–10 era a maior parte da razão por que o AE FISICA D A–PAREDE FC A de 07/11 saía 16–3–81.
+    O jogo acabou 2–2; o dono deu por isso no site de testes.
+    """
+    r = set()
+    for id_jogo, ficha in fichas.items():
+        sem_marcador: dict[tuple, int] = defaultdict(int)
+        for e in ficha.get("cronologia") or []:
+            if e.get("tipo") == "golo" and not e.get("jogador"):
+                sem_marcador[(e.get("parte"), e.get("relogio"), e.get("equipa"))] += 1
+        if sem_marcador and max(sem_marcador.values()) >= 3:
+            r.add(id_jogo)
+    return r
+
+
+def previsoes(oficiais: list[dict], ignorar: set[int] = frozenset()) -> dict[int, tuple[float, float, float] | None]:
     """jogo → (casa, empate, fora), cada um com o que se sabia antes dele.
 
     Os disputados pela ordem do calendário, cada um antes de aprender com ele. Os por disputar
     com tudo o que já se jogou — mesmo um adiado, que tem data antiga e vem atrás de jogos já
-    disputados.
+    disputados. Dos `ignorar` não se aprende nada — ver `administrativos`.
     """
     p = Previsor()
     r: dict[int, tuple[float, float, float] | None] = {}
@@ -205,7 +239,8 @@ def previsoes(oficiais: list[dict]) -> dict[int, tuple[float, float, float] | No
             pendentes.append(j)
             continue
         r[j["id"]] = p.prever(j)
-        p.aprender(j)
+        if j["id"] not in ignorar:
+            p.aprender(j)
     for j in pendentes:
         r[j["id"]] = p.prever(j)
     return r
@@ -234,19 +269,19 @@ def em_percentagem(p: tuple[float, float, float] | None) -> dict | None:
     return {"casa": r[0], "empate": r[1], "fora": r[2]}
 
 
-def medir(oficiais: list[dict]) -> dict:
+def medir(oficiais: list[dict], ignorar: set[int] = frozenset()) -> dict:
     """O que o modelo vale nos jogos já disputados: acerto, log loss e calibração.
 
     A calibração é a do favorito: em cada caixa de 10 pontos, a probabilidade média que se lhe
     deu e as vezes que ganhou. Ver `test_probabilidade.py`.
     """
-    prev = previsoes(oficiais)
+    prev = previsoes(oficiais, ignorar)
     n = acertos = 0
     logloss = 0.0
     caixas: dict[int, list[float]] = defaultdict(lambda: [0, 0, 0.0])
     for j in oficiais:
         p = prev.get(j["id"])
-        if j.get("gc") is None or p is None:
+        if j.get("gc") is None or p is None or j["id"] in ignorar:
             continue
         real = 0 if j["gc"] > j["gf"] else 1 if j["gc"] == j["gf"] else 2
         n += 1

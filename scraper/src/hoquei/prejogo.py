@@ -383,7 +383,7 @@ def calcular(agenda: list[dict], fichas: dict[int, dict]) -> dict[int, dict]:
         serie.setdefault(j["comp"], set()).update((j["casa"], j["fora"]))
 
     vazio = Equipa()
-    previsoes = probabilidade.previsoes(oficiais)
+    previsoes = probabilidade.previsoes(oficiais, probabilidade.administrativos(fichas))
     resultado = {}
     for j in oficiais:
         disputado = j.get("gc") is not None

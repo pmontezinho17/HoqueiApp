@@ -5,7 +5,7 @@ import pathlib
 import pytest
 
 from hoquei.prejogo import calcular
-from hoquei.probabilidade import Previsor, chave, em_percentagem, medir, previsoes
+from hoquei.probabilidade import Previsor, administrativos, chave, em_percentagem, medir, previsoes
 
 PUBLICADO = pathlib.Path(__file__).resolve().parents[2] / "web" / "static" / "v1" / "aplisboa" / "2026-27"
 
@@ -70,6 +70,22 @@ def test_uma_goleada_ao_mais_fraco_nao_faz_esperar_golos_contra_um_bom():
     assert contra_o_fraco[0] > 15         # medido: 23,6
 
 
+def test_um_resultado_da_secretaria_nao_ensina_nada():
+    """O AE FISICA D A–FSE/AJ SALESIANA dos Sub-13: 0–0 ao intervalo e 0–10 no fim, com os dez
+    golos no mesmo instante e sem marcador. Medido a 07/11/2026: 6 jogos assim na época."""
+    golo = lambda parte, relogio, jogador=None: {"tipo": "golo", "parte": parte, "relogio": relogio,
+                                                  "equipa": "B", "jogador": jogador}
+    fichas = {
+        1: {"cronologia": [golo(2, "0:00") for _ in range(10)]},
+        2: {"cronologia": [golo(1, "10:00", "ANA"), golo(1, "10:00", "RITA"), golo(2, "3:00")]},
+        3: {"cronologia": []},
+    }
+    assert administrativos(fichas) == {1}
+    agenda = AGENDA + [_jogo(5, "2026-10-09", "A", "C", 0, 10)]
+    normal, sem = previsoes(agenda)[9], previsoes(agenda, {5})[9]
+    assert sem == previsoes(AGENDA)[9] and sem[0] > normal[0]
+
+
 def test_em_percentagem_soma_100():
     assert em_percentagem((1 / 3, 1 / 3, 1 / 3)) == {"casa": 34, "empate": 33, "fora": 33}
     assert sum(em_percentagem((0.615, 0.049, 0.336)).values()) == 100
@@ -93,12 +109,16 @@ def medida():
     if not (PUBLICADO / "agenda.json").exists():
         pytest.skip("sem dados publicados em web/static/v1")
     agenda = json.loads((PUBLICADO / "agenda.json").read_text())["jogos"]
-    return medir([j for j in agenda if j["cat"] != "TORNEIOS PARTICULARES"])
+    fichas = {}
+    for f in (PUBLICADO / "match").glob("*.json"):
+        d = json.loads(f.read_text())
+        fichas[d["id"]] = d
+    return medir([j for j in agenda if j["cat"] != "TORNEIOS PARTICULARES"], administrativos(fichas))
 
 
 def test_acerta_bem_mais_do_que_o_acaso(medida):
-    """Medido a 07/11/2026 em 413 jogos, setembro incluído: o favorito ganhou 78% (log loss
-    0,517), e sem modelo o mais provável acontecia em 47%. Não se pede que acerte sempre — é uma previsão —, mas se
+    """Medido a 07/11/2026 em 406 jogos, setembro incluído e sem os resultados da secretaria:
+    o favorito ganhou 80,5% (log loss 0,488), e sem modelo o mais provável acontecia em 47%. Não se pede que acerte sempre — é uma previsão —, mas se
     cair abaixo de 70% alguma coisa mudou nos dados ou no código."""
     assert medida["jogos"] >= 300
     assert medida["acerto"] > 0.70
@@ -110,8 +130,8 @@ def test_nao_mente_sobre_a_propria_confianca(medida):
 
     A tolerância é a do acaso e não um número fixo: numa caixa de n jogos em que se disse p, o
     que acontece varia naturalmente uns √(p(1−p)/n) — 7 pontos com 46 jogos a 55%. Aceita-se
-    até 2,5 vezes isso. Medido a 07/11/2026, a caixa que mais se afastava era a de 50–60%: 55%
-    dito, 43% acontecido, em 46 jogos — 1,6 vezes. Um modelo que se torne confiante de mais
+    até 2,5 vezes isso. Medido a 07/11/2026, a caixa que mais se afastava era a de 90–100%: 96%
+    dito, 98% acontecido, em 136 jogos — 1,2 vezes. Um modelo que se torne confiante de mais
     passa disto nas caixas grandes, onde o acaso já não o cobre.
     """
     import math
