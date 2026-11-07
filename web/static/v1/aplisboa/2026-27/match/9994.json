@@ -17,7 +17,7 @@
   2
  ],
  "situacao": "Jogo Terminado (Jogo Suspendido)",
- "periodo": "Jogo Terminado (Jogo Suspendido)",
+ "periodo": null,
  "relogio": null,
  "equipas": [
   {
@@ -901,7 +901,7 @@
    "avisos": []
   }
  ],
- "merito_revisto": "2026-10-31",
+ "merito_revisto": "2026-11-07",
  "competicao_id": 465,
  "categoria": "BENJAMINS",
  "jornada": "3ª JORNADA",
