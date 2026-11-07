@@ -394,8 +394,8 @@
    "hora": "14:45:00",
    "casa": "A STUART HCM",
    "fora": "FSE/AJ SALESIANA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 0,
    "recinto": "PAV.PROF.JOÃO CAMPELO",
    "ao_vivo": false
   },
@@ -422,8 +422,8 @@
    "hora": "11:30:00",
    "casa": "AE FISICA D A",
    "fora": "SC TORRES",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 4,
+   "golos_fora": 4,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
   },

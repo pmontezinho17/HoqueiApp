@@ -1,7 +1,7 @@
 {
  "competicao_id": 467,
  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE C",
- "jogos_lidos": 15,
+ "jogos_lidos": 16,
  "jogos_sem_boletim": 0,
  "linhas": [
   {
@@ -51,22 +51,22 @@
   {
    "posicao": 5,
    "equipa": "UD VILAFRANQUENSE",
-   "jogos": 5,
-   "participantes": 30,
-   "bonificacao": 45,
-   "penalizacao": -42,
-   "pontos": 3,
-   "media": 0.6,
+   "jogos": 6,
+   "participantes": 36,
+   "bonificacao": 52,
+   "penalizacao": -50,
+   "pontos": 2,
+   "media": 0.33,
    "por_confirmar": 0
   },
   {
    "posicao": 6,
    "equipa": "SPORTING CP",
-   "jogos": 5,
-   "participantes": 35,
-   "bonificacao": 47,
-   "penalizacao": -57,
-   "pontos": -10,
+   "jogos": 6,
+   "participantes": 42,
+   "bonificacao": 55,
+   "penalizacao": -67,
+   "pontos": -12,
    "media": -2.0,
    "por_confirmar": 0
   }
