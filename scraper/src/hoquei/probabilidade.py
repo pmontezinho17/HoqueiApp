@@ -38,8 +38,8 @@ nos mesmos 331 jogos:
 
 **E os resultados da secretaria não ensinam nada** (07/11/2026, ver `administrativos`). O
 AE FISICA D A–PAREDE FC A dos Sub-13 saiu 16–3–81 e acabou 2–2; o dono perguntou porquê, e a
-causa era um 0–10 do AE FISICA D A na primeira jornada que não foi jogado — os dez golos estão
-no mesmo segundo e sem marcador. Sem os 6 jogos assim, esse jogo fica 29–6–65, e o conjunto
+causa era um 0–10 do AE FISICA D A na primeira jornada que foi um castigo e não um resultado
+de campo — os dez golos estão no mesmo segundo e sem marcador. Sem os 6 jogos assim, esse jogo fica 29–6–65, e o conjunto
 melhora nos mesmos 406 jogos: acerto 79,3% → 80,5%, log loss 0,4945 → 0,4877. Nos 324 jogos de
 outubro e novembro, com o expoente afinado outra vez só com os meses anteriores (1,2 e 1,3; fica
 1,2): acerto 84%, log loss 0,450.
@@ -204,6 +204,11 @@ class Previsor:
 
 def administrativos(fichas: dict[int, dict]) -> set[int]:
     """Os jogos cujo resultado foi **escrito pela secretaria e não jogado**.
+
+    **São castigos**: a APL dá 10–0 contra a equipa que cometeu uma irregularidade — por
+    exemplo, alinhar um jogador ainda não inscrito na associação. Explicou-o o dono a
+    07/11/2026. O jogo pode até ter sido disputado, mas o resultado que fica não é o do campo,
+    e por isso diz alguma coisa sobre a papelada e nada sobre o hóquei.
 
     Na ficha vêem-se assim: três golos ou mais da mesma equipa no mesmo instante e sem marcador.
     Medido a 07/11/2026: são 6 na época, todos 10–0 e todos com os dez golos no mesmo segundo —
