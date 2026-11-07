@@ -75,3 +75,6 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           # Quem este ciclo acorda a cada ronda, além de publicar — ver o fim do `aovivo.sh`.
           OBSERVADOR: https://hoquei-observador.torneiopa.workers.dev
+          # e a quem cada ronda diz o que pediu à APL, mesmo sem golos — ver `registo.py`
+          CHAVE_RONDAS: ${{ secrets.CHAVE_RONDAS }}
+          ORIGEM_RONDA: aovivo

@@ -241,7 +241,7 @@
 		right: var(--e-3);
 		left: auto;
 		width: min(20rem, calc(100vw - 2 * var(--e-3)));
-		max-height: calc(100vh - var(--queda) - 52px - env(safe-area-inset-bottom) - var(--e-6));
+		max-height: calc(100vh - var(--queda) - var(--barra-ocupa) - var(--e-6));
 		overflow-y: auto;
 		overscroll-behavior: contain;
 		padding: var(--e-2);

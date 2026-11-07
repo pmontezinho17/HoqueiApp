@@ -200,6 +200,14 @@ class TestComOInterruptorLigado:
         b = json.loads((filtrada / "agenda.json").read_text())
         assert a == b
 
+    def test_a_agenda_diz_a_jornada(self, correr, tmp_path):
+        """Desde 04/11/2026 as listas de jogos mostram a jornada, e a agenda é o que elas lêem."""
+        destino = tmp_path / "v1"
+        correr(filtrar=False, hoje=QUARTA_SEM_JOGOS, destino=destino)
+        jogos = json.loads((destino / "agenda.json").read_text())["jogos"]
+        assert any("JORNADA" in (j.get("jornada") or "") for j in jogos)
+        assert all(isinstance(j.get("jornada"), (str, type(None))) for j in jogos)
+
     def test_no_dia_da_varredura_volta_a_pedir_tudo(self, correr, tmp_path):
         """A rede de segurança semanal, de ponta a ponta."""
         destino = tmp_path / "v1"

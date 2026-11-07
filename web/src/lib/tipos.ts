@@ -180,6 +180,101 @@ export interface ResumoMerito {
 	com_j?: ('casa' | 'fora')[];
 }
 
+/** Um jogo já disputado, visto de uma das equipas — ver `scraper/src/hoquei/prejogo.py`. */
+export interface JogoDaForma {
+	id: number;
+	data: string;
+	comp: number;
+	prova: string;
+	em_casa: boolean;
+	adversario: string;
+	marcados: number;
+	sofridos: number;
+}
+
+/** Quantas vezes, em quantos jogos: `{ vezes: 4, de: 6 }` lê-se "4 de 6". */
+export interface Vezes {
+	vezes: number;
+	de: number;
+}
+
+export interface EquipaAntesDoJogo {
+	equipa: string;
+	/** do mais recente para o mais antigo, até cinco */
+	ultimos: JogoDaForma[];
+	epoca: {
+		jogos: number;
+		vitorias: number;
+		empates: number;
+		derrotas: number;
+		marcados: number;
+		sofridos: number;
+		sem_sofrer: number;
+		sem_marcar: number;
+	};
+	/** o lugar na série em cada número, por jogo; vazio para quem ainda não jogou */
+	lugares: Partial<Record<'vitorias' | 'marcados' | 'sofridos' | 'diferenca' | 'sem_sofrer', number>>;
+	sequencias: {
+		resultado: { tipo: 'V' | 'E' | 'D'; n: number } | null;
+		sem_perder: number;
+		sem_ganhar: number;
+		a_marcar: number;
+		a_sofrer: number;
+		marcou_primeiro: Vezes;
+		sofreu_primeiro: Vezes;
+		ganhou_depois_de_marcar_primeiro: Vezes;
+		ganhava_ao_intervalo: Vezes;
+		perdia_ao_intervalo: Vezes;
+	};
+	/**
+	 * Fase 2 (06/11/2026). Opcionais porque os ficheiros escritos antes dela não os têm, e o do
+	 * site de testes pode ficar para trás até ao próximo clique no botão.
+	 */
+	periodos?: {
+		/** jogos com relógio na ficha — o "de" dos quatro números */
+		jogos: number;
+		/** golos em cada quarto do tempo regulamentar, somados na época */
+		marcados: [number, number, number, number];
+		sofridos: [number, number, number, number];
+		/** [partes, minutos de cada uma], o mais frequente: [2, 20] nos Sub-15 */
+		formato: [number, number] | null;
+	};
+	disciplina?: {
+		jogos: number;
+		jogos_com_faltas: number;
+		faltas: number;
+		faltas_adversario: number;
+		azuis: number;
+		amarelos: number;
+		vermelhos: number;
+		/** [marcados, tentados] */
+		penaltis: [number, number];
+		penaltis_contra: [number, number];
+		livres: [number, number];
+		livres_contra: [number, number];
+	};
+	/** o treinador do último jogo, e o que a equipa fez com ele esta época */
+	treinador?: { nome: string; jogos: number; vitorias: number; empates: number; derrotas: number } | null;
+}
+
+/** `prejogo/<id>.json`: o que se sabe de um jogo por disputar (#11). */
+export interface Prejogo {
+	id: number;
+	/** quantas equipas da série já jogaram — o "de" dos lugares */
+	na_serie: number;
+	casa: EquipaAntesDoJogo;
+	fora: EquipaAntesDoJogo;
+	/** os jogos entre as duas nesta época, vistos da equipa da casa deste jogo */
+	confrontos: JogoDaForma[];
+	/** os dois treinadores frente a frente esta época, em qualquer escalão, do lado do da casa */
+	treinadores?: { jogos: number; vitorias: number; empates: number; derrotas: number } | null;
+	/**
+	 * A previsão, em percentagens inteiras que somam 100 (fase 3, 07/11/2026); `null` quando
+	 * uma das equipas ainda não tinha jogado. Opcional: os ficheiros de antes da fase 3 não a têm.
+	 */
+	probabilidade?: { casa: number; empate: number; fora: number } | null;
+}
+
 export interface FicheiroMerito {
 	competicao_id: number;
 	nome: string;
@@ -213,6 +308,8 @@ export interface JogoAgenda {
 	/** o Mérito do jogo, só nos jogos disputados dos Encontros Distritais com boletim */
 	merito?: ResumoMerito;
 	grupo_id?: string; grupo_nome?: string; serie?: string | null;
+	/** desde 04/11/2026; as agendas de antes não a têm, e os torneios podem vir sem ela */
+	jornada?: string | null;
 }
 export interface Agenda { jogos: JogoAgenda[]; }
 

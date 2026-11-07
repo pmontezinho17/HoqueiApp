@@ -270,7 +270,7 @@
 		right: var(--e-4);
 		/* `--acima-da-barra`: um ecrã com barra de acção fixa no fundo declara ali a altura
 		   dela e a bolha sobe. Sem isso vale zero e fica onde sempre esteve. */
-		bottom: calc(52px + env(safe-area-inset-bottom) + var(--acima-da-barra, 0px) + var(--e-4));
+		bottom: calc(var(--barra-ocupa) + var(--acima-da-barra, 0px) + var(--e-4));
 		z-index: 20;
 		display: flex;
 		align-items: center;
@@ -318,7 +318,7 @@
 		z-index: 21;
 		right: var(--e-3);
 		left: var(--e-3);
-		bottom: calc(52px + env(safe-area-inset-bottom) + var(--e-3));
+		bottom: calc(var(--barra-ocupa) + var(--e-3));
 		max-width: 26rem;
 		margin-left: auto;
 		padding: var(--e-4);

@@ -16,6 +16,7 @@ import httpx
 
 from .fonte import UA, Fonte
 from .merito import escalonar, merito_do_jogo, vale_merito
+from . import prejogo
 from .modelos import em_curso, para_dicionario
 from .parsers.calendario import calendario
 from .parsers.participacao import marcas_da_grelha, nao_atletas, participacao
@@ -951,6 +952,10 @@ def comando_publicar(args) -> int:
                     "gc": j.golos_casa, "gf": j.golos_fora,
                     "recinto": j.recinto, "comp": prova.id,
                     "prova": prova.nome, "cat": prova.categoria,
+                    # Desde 04/11/2026, para as listas de jogos dizerem a jornada (S6). Zero
+                    # pedidos: vem no calendário que já se leu. Medido nesse dia: +21 KB nos
+                    # 296 KB da agenda, e +1,2 KB comprimida (15,8 para 17,0 KB).
+                    "jornada": j.jornada or None,
                     **{k: v for k, v in identificar(prova.categoria, prova.nome).items()
                        if k in ("grupo_id", "grupo_nome", "serie")},
                 })
@@ -1088,6 +1093,10 @@ def comando_publicar(args) -> int:
             j["tem_ficha"] = True
     (destino / "agenda.json").write_text(json.dumps({"jogos": agenda}, ensure_ascii=False))
 
+    # #11 — o que se sabe de cada jogo por disputar, a partir do que acabou de se escrever.
+    # Zero pedidos: lê a agenda e o `match/` do disco. Ver `prejogo.py`.
+    pre_escritos, pre_apagados = prejogo.escrever(destino)
+
     # B4.11 — um feed de calendário por equipa+escalão, com os jogos que a agenda já tem.
     # Subscreve-se uma vez e corrige-se sozinho quando a federação adia um jogo.
     pasta_ics = destino / "team"
@@ -1186,8 +1195,52 @@ def comando_publicar(args) -> int:
     nota = f"{restritas} sem dados individuais" if args.anonimizar_formacao else "nomes em todos os escalões"
     print(f"\nemblemas: {novos_emb} convertidos, {emb_existentes} já existentes")
     print(f"feeds de calendário: {len(escritos)}")
+    print(f"antes do jogo: {pre_escritos} escritos, {pre_apagados} apagados")
     print(f"{len(provas)} competições ({nota}), {total} jogos"
           f"\nfichas: {buscadas} buscadas, {saltadas} já actuais → {destino}")
+    return 0
+
+
+def comando_prejogo(args) -> int:
+    """Só o `prejogo/`, a partir do que está em disco — **sem abrir a fonte**.
+
+    Existe para o botão do site de testes com "só publicar o código" e para a publicação de um
+    `push` no `main`: nenhum dos dois corre o `publicar`, e os dois levam ao ar dados que não
+    foram escritos por este código. Sem isto, o site de testes mostrava a página do jogo sem a
+    secção nova até alguém ler a APL, e a primeira publicação depois de uma entrega mostrava-a
+    com os jogos da semana anterior.
+    """
+    escritos, apagados = prejogo.escrever(pathlib.Path(args.destino))
+    print(f"antes do jogo: {escritos} escritos, {apagados} apagados — 0 pedidos à fonte")
+    return 0
+
+
+def comando_probabilidade(args) -> int:
+    """O que vale a previsão nos jogos já disputados — **para afinar o modelo**, sem pedidos.
+
+    O dono, a 07/11/2026: *"podes ir afinando o algoritmo para melhorar o número"*. Afinar é
+    mudar uma constante de `probabilidade.py`, correr isto antes e depois, e ficar com a
+    mudança só se o log loss descer **e** a calibração não se estragar. O `test_probabilidade.py`
+    falha se a calibração passar dos limites.
+    """
+    from . import probabilidade
+    destino = pathlib.Path(args.destino)
+    agenda = json.loads((destino / "agenda.json").read_text(encoding="utf-8"))["jogos"]
+    fichas = {}
+    for f in (destino / "match").glob("*.json"):
+        try:
+            d = json.loads(f.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            continue
+        fichas[d.get("id") or int(f.stem)] = d
+    secretaria = probabilidade.administrativos(fichas)
+    m = probabilidade.medir([j for j in agenda if j.get("cat") not in prejogo.FORA], secretaria)
+    print(f"{len(secretaria)} resultados da secretaria postos de parte")
+    print(f"{m['jogos']} jogos com previsão · o mais provável aconteceu em {m['acerto']:.0%} · "
+          f"log loss {m['logloss']:.3f}")
+    print("favorito    jogos   dito   aconteceu")
+    for caixa, c in m["calibracao"].items():
+        print(f"{caixa:>3}–{caixa + 10:<3}%   {c['jogos']:>5}   {c['dito']:>4.0%}   {c['aconteceu']:>8.0%}")
     return 0
 
 
@@ -1254,6 +1307,16 @@ def main(argv=None) -> int:
                    help="até quantas horas depois da hora marcada ainda se insiste num "
                         "jogo sem resultado (default 8)")
     v.set_defaults(func=comando_aovivo)
+
+    a = sub.add_parser("prejogo", parents=[comum],
+                       help="escrever só o prejogo/ a partir do que está em disco, sem pedir nada à fonte")
+    a.add_argument("--destino", required=True)
+    a.set_defaults(func=comando_prejogo)
+
+    a = sub.add_parser("probabilidade", parents=[comum],
+                       help="medir a previsão do separador Antes do jogo nos jogos já disputados, sem pedir nada à fonte")
+    a.add_argument("--destino", required=True)
+    a.set_defaults(func=comando_probabilidade)
 
     d = sub.add_parser("despejar", parents=[comum], help="escrever todas as competições em JSON")
     d.add_argument("--destino", required=True)

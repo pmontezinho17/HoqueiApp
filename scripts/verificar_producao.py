@@ -206,8 +206,47 @@ def contrato_intacto(base: str) -> str | None:
             return f"{V1}/{nome} não tem {', '.join(faltam)} — o contrato mudou"
         if nome == "agenda.json" and (mal := _merito_mal_formado(d.get("jogos") or [])):
             return f"{V1}/agenda.json: {mal} — o contrato mudou"
+        if nome == "agenda.json" and (mal := _jornada_mal_formada(d.get("jogos") or [])):
+            return f"{V1}/agenda.json: {mal} — o contrato mudou"
         if nome == "agenda.json" and (mal := _uma_ficha_com_merito(base, d.get("jogos") or [])):
             return mal
+        if nome == "agenda.json" and (mal := _um_prejogo(base, d.get("jogos") or [])):
+            return mal
+    return None
+
+
+#: as chaves do `prejogo/<id>.json` que o separador "Antes do jogo" lê — ver `prejogo.py`
+#: a `probabilidade` desde 07/11/2026 (fase 3): tem de estar lá, mesmo que seja `null`
+CHAVES_DO_PREJOGO = ("id", "na_serie", "casa", "fora", "confrontos", "probabilidade")
+CHAVES_DE_CADA_EQUIPA = ("equipa", "ultimos", "epoca", "lugares", "sequencias")
+
+
+def _um_prejogo(base: str, jogos: list) -> str | None:
+    """O `prejogo/` do **primeiro** jogo por disputar existe e tem a forma que o ecrã lê (#11).
+
+    O primeiro e não um qualquer, porque é o que mais provavelmente apanha uma publicação que
+    levou ao ar uma agenda nova com o `prejogo/` de antes: os dois publicadores fazem-no a
+    partir do disco, e esta é a verificação de que o fizeram. Um pedido só, ao nosso CDN.
+    Sem jogos por disputar — o fim da época — não há o que verificar.
+    """
+    por_disputar = [j for j in jogos if isinstance(j, dict) and "gc" in j and j["gc"] is None
+                    and j.get("cat") and j["cat"] != "TORNEIOS PARTICULARES"]
+    if not por_disputar:
+        return None
+    caminho = f"{V1}/prejogo/{por_disputar[0].get('id')}.json"
+    estado, _, corpo = _pedir(f"{base}{caminho}")
+    if estado != 200:
+        return f"{caminho} devolveu HTTP {estado}, e a agenda diz que o jogo está por disputar"
+    try:
+        d = json.loads(corpo)
+    except json.JSONDecodeError as e:
+        return f"{caminho} não é JSON válido: {e}"
+    faltam = [c for c in CHAVES_DO_PREJOGO if c not in d]
+    for lado in ("casa", "fora"):
+        if isinstance(d.get(lado), dict):
+            faltam += [f"{lado}.{c}" for c in CHAVES_DE_CADA_EQUIPA if c not in d[lado]]
+    if faltam:
+        return f"{caminho} não tem {', '.join(faltam)} — o contrato mudou"
     return None
 
 
@@ -271,6 +310,18 @@ def _merito_mal_formado(jogos: list) -> str | None:
         com_j = m.get("com_j", [])
         if not (isinstance(com_j, list) and all(lado in ("casa", "fora") for lado in com_j)):
             return f"o Mérito do jogo {j.get('id')} tem um com_j que não é uma lista de lados"
+    return None
+
+
+def _jornada_mal_formada(jogos: list) -> str | None:
+    """A `jornada` de cada jogo da agenda, desde 04/11/2026, é texto ou nada.
+
+    Opcional, porque a agenda de antes não a tinha e os jogos de torneio podem vir sem ela.
+    Quando existe tem de ser texto: a linha do jogo passa-a por uma expressão regular.
+    """
+    for j in jogos:
+        if isinstance(j, dict) and not isinstance(j.get("jornada"), (str, type(None))):
+            return f"a jornada do jogo {j.get('id')} não é texto"
     return None
 
 

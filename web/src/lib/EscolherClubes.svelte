@@ -282,8 +282,8 @@
 
 	.rodape {
 		position: fixed;
-		/* acima da barra de navegação, que tem 52px mais a área segura do iPhone */
-		bottom: calc(52px + env(safe-area-inset-bottom));
+		/* acima da barra de navegação, no espaço que ela reserva (ver `--barra-ocupa`) */
+		bottom: var(--barra-ocupa);
 		left: 0;
 		right: 0;
 		/* abaixo do véu do painel (30), para o painel aberto o cobrir como ao resto */
@@ -343,7 +343,7 @@
 		*/
 		top: calc(var(--topo, 96px) + var(--e-3));
 		max-height: calc(
-			100vh - var(--topo, 96px) - 52px - env(safe-area-inset-bottom) - var(--e-6)
+			100vh - var(--topo, 96px) - var(--barra-ocupa) - var(--e-6)
 		);
 		max-width: 26rem;
 		margin: 0 auto;

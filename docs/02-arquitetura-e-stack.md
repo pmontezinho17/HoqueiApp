@@ -196,6 +196,15 @@ Ficheiros estáticos, versionados por caminho para nunca quebrar clientes antigo
 /v1/{tenant}/{season}/match/{id}.json     → ficha de jogo: cabeçalho, estatística por
                                             jogador, cronologia e boletim oficial
 /v1/{tenant}/{season}/scorers/{comp}.json → quadro de marcadores agregado
+/v1/{tenant}/{season}/prejogo/{id}.json   → o que se sabe de um jogo antes de ele começar:
+                                            forma, confronto directo, a época com o lugar na
+                                            série e as sequências; quando marcam e sofrem, a
+                                            disciplina, os treinadores e a previsão V/E/D (S13,
+                                            `probabilidade`, `null` sem jogos). Feito a partir das
+                                            fichas em disco, sem pedidos. Fica depois do jogo,
+                                            com os números de antes dele (desde 07/11/2026); não
+                                            existe para os Torneios Particulares nem para um
+                                            disputado em que nenhuma das equipas tinha jogado
 /v1/{tenant}/{season}/team/{id}.ics       → feed de calendário subscritível
 /v1/events.json                           → alterações detetadas (base das notificações)
 /v1/meta.json                             → última atualização, versão do parser, estado

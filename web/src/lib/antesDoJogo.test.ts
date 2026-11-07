@@ -1,0 +1,342 @@
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { describe, expect, it } from 'vitest';
+import {
+	comoFoiJogado,
+	diaCurto,
+	outraProva,
+	linhasDaDisciplina,
+	linhasDaEpoca,
+	linhasDaForma,
+	linhasDosPeriodos,
+	percentagens,
+	previsaoDoJogo,
+	partesDoJogo,
+	treinadoresDoJogo,
+	linhasDasContagens,
+	resumoDosConfrontos,
+	sequenciasEmCurso,
+	temAntesDoJogo
+} from './antesDoJogo';
+import type { EquipaAntesDoJogo, Prejogo } from './tipos';
+
+const vezes = (v: number, de: number) => ({ vezes: v, de });
+
+function equipa(nome: string, e: Partial<EquipaAntesDoJogo['epoca']> = {}, s: Partial<EquipaAntesDoJogo['sequencias']> = {}): EquipaAntesDoJogo {
+	return {
+		equipa: nome,
+		ultimos: [],
+		epoca: { jogos: 0, vitorias: 0, empates: 0, derrotas: 0, marcados: 0, sofridos: 0, sem_sofrer: 0, sem_marcar: 0, ...e },
+		lugares: e.jogos ? { vitorias: 1, marcados: 2, sofridos: 3, diferenca: 1, sem_sofrer: 4 } : {},
+		sequencias: {
+			resultado: null, sem_perder: 0, sem_ganhar: 0, a_marcar: 0, a_sofrer: 0,
+			marcou_primeiro: vezes(0, 0), sofreu_primeiro: vezes(0, 0),
+			ganhou_depois_de_marcar_primeiro: vezes(0, 0),
+			ganhava_ao_intervalo: vezes(0, 0), perdia_ao_intervalo: vezes(0, 0),
+			...s
+		}
+	};
+}
+
+const prejogo = (casa: EquipaAntesDoJogo, fora: EquipaAntesDoJogo, na_serie = 6): Prejogo => ({
+	id: 1, na_serie, casa, fora, confrontos: []
+});
+
+describe('temAntesDoJogo', () => {
+	it('não há separador quando nenhuma das equipas jogou', () => {
+		expect(temAntesDoJogo(prejogo(equipa('A'), equipa('B')))).toBe(false);
+		expect(temAntesDoJogo(null)).toBe(false);
+	});
+	it('basta uma ter jogado', () => {
+		expect(temAntesDoJogo(prejogo(equipa('A', { jogos: 1, vitorias: 1, marcados: 2 }), equipa('B')))).toBe(true);
+	});
+});
+
+describe('linhasDaEpoca', () => {
+	const a = equipa('A', { jogos: 4, vitorias: 3, empates: 1, marcados: 18, sofridos: 6, sem_sofrer: 1 });
+	const b = equipa('B', { jogos: 5, vitorias: 1, derrotas: 4, marcados: 7, sofridos: 20 });
+	const linhas = linhasDaEpoca(prejogo(a, b));
+	const linha = (r: string) => linhas.find((l) => l.rotulo === r)!;
+
+	it('por jogo, com vírgula e com o sinal na diferença', () => {
+		expect(linha('Vitórias').casa.texto).toBe('75%');
+		expect(linha('Golos marcados por jogo').casa.texto).toBe('4,5');
+		expect(linha('Golos sofridos por jogo').fora.texto).toBe('4,0');
+		expect(linha('Diferença de golos por jogo').casa.texto).toBe('+3,0');
+		expect(linha('Diferença de golos por jogo').fora.texto).toBe('-2,6');
+	});
+	it('nos golos sofridos, menos é melhor', () => {
+		expect(linha('Golos sofridos por jogo').melhor).toBe('casa');
+		expect(linha('Golos marcados por jogo').melhor).toBe('casa');
+	});
+	it('o número de jogos não tem melhor', () => {
+		expect(linha('Jogos').melhor).toBeNull();
+	});
+	it('os lugares aparecem numa série de três ou mais, e não numa de duas', () => {
+		expect(linha('Golos marcados por jogo').casa.lugar).toBe('2.º');
+		expect(linha('Jogos').casa.lugar).toBeNull();
+		const deDuas = linhasDaEpoca(prejogo(a, b, 2));
+		expect(deDuas.every((l) => l.casa.lugar === null && l.fora.lugar === null)).toBe(true);
+	});
+	it('uma equipa que ainda não jogou tem traços e não zeros', () => {
+		const l = linhasDaEpoca(prejogo(a, equipa('C')));
+		expect(l.every((x) => x.fora.texto === '—')).toBe(true);
+		expect(l.every((x) => x.melhor === null)).toBe(true);
+	});
+});
+
+describe('linhasDasContagens', () => {
+	it('"de" e não percentagem, e a comparação pela proporção', () => {
+		const a = equipa('A', { jogos: 1 }, { marcou_primeiro: vezes(1, 1) });
+		const b = equipa('B', { jogos: 6 }, { marcou_primeiro: vezes(5, 6), perdia_ao_intervalo: vezes(1, 6) });
+		const l = linhasDasContagens(prejogo(a, b));
+		const mp = l.find((x) => x.rotulo === 'Marcou primeiro')!;
+		expect([mp.casa.texto, mp.fora.texto, mp.melhor]).toEqual(['1 de 1', '5 de 6', 'casa']);
+		const pi = l.find((x) => x.rotulo === 'A perder ao intervalo')!;
+		expect([pi.casa.texto, pi.melhor]).toEqual(['—', null]);
+		// ninguém tem jogos que contem para o "a ganhar ao intervalo": a linha não aparece
+		expect(l.some((x) => x.rotulo === 'A ganhar ao intervalo')).toBe(false);
+	});
+});
+
+describe('sequenciasEmCurso', () => {
+	it('não repete o "sem perder" quando é igual à série de vitórias', () => {
+		const e = equipa('A', { jogos: 8 }, { resultado: { tipo: 'V', n: 4 }, sem_perder: 4 });
+		expect(sequenciasEmCurso(e)).toEqual(['4 vitórias seguidas']);
+	});
+	it('diz o "sem perder" quando é mais comprido', () => {
+		const e = equipa('A', { jogos: 8 }, { resultado: { tipo: 'V', n: 2 }, sem_perder: 5 });
+		expect(sequenciasEmCurso(e)).toEqual(['2 vitórias seguidas', '5 jogos sem perder']);
+	});
+	it('a época inteira diz-se de outra maneira', () => {
+		const e = equipa('A', { jogos: 5 }, { resultado: { tipo: 'E', n: 1 }, sem_perder: 5, a_marcar: 5 });
+		expect(sequenciasEmCurso(e)).toEqual(['Ainda não perdeu esta época', 'Marcou em todos os jogos']);
+	});
+	it('abaixo de três jogos seguidos não é sequência, e um resultado só não é série', () => {
+		const e = equipa('A', { jogos: 5 }, { resultado: { tipo: 'D', n: 1 }, sem_ganhar: 2, a_sofrer: 2 });
+		expect(sequenciasEmCurso(e)).toEqual([]);
+	});
+});
+
+describe('a lista dos jogos', () => {
+	it('o dia sem o dia da semana', () => {
+		expect(diaCurto('2026-10-04')).toBe('4 out');
+		expect(diaCurto('2026-12-25')).toBe('25 dez');
+	});
+	it('a prova só quando é outra', () => {
+		expect(outraProva({ comp: 449, prova: 'CAMP. REG. SUB-15 - 1ª FASE - SERIE C' }, 449)).toBeNull();
+		expect(outraProva({ comp: 430, prova: 'SUPERTAÇA APL SUB-15' }, 449)).toBe('Supertaça Apl Sub-15');
+	});
+});
+
+describe('a forma, lado a lado e do mais recente para o mais antigo', () => {
+	const jogo = (id: number, marcados: number, sofridos: number, em_casa = true, adversario = 'X') =>
+		({ id, data: '2026-10-01', comp: 1, prova: '', em_casa, adversario, marcados, sofridos });
+
+	it('pela ordem do ficheiro, que já é a do mais recente primeiro', () => {
+		// o SC TORRES dos Sub-13 a 06/11/2026: ganhou ao HC SINTRA a 10/10 e perdeu os quatro seguintes
+		const ultimos = [[0, 26], [0, 17], [4, 5], [2, 13], [3, 1]].map(([m, s], i) => jogo(i, m, s));
+		const l = linhasDaForma(prejogo({ ...equipa('A'), ultimos }, equipa('B')));
+		expect(l.map((x) => x.casa?.resultado)).toEqual(['D', 'D', 'D', 'D', 'V']);
+		expect(l[0].casa?.id).toBe(0);
+	});
+
+	it('cada jogo como foi jogado, com o resultado para a equipa da coluna', () => {
+		const a = { ...equipa('A'), ultimos: [jogo(1, 1, 3, false, 'C')] };
+		const b = { ...equipa('B'), ultimos: [jogo(2, 2, 1, true, 'D')] };
+		const [l] = linhasDaForma(prejogo(a, b));
+		// o A perdeu fora com o C por 3–1: o C à esquerda, e vermelho na coluna do A
+		expect(l.casa).toMatchObject({ casa: 'C', fora: 'A', gc: 3, gf: 1, resultado: 'D' });
+		expect(l.fora).toMatchObject({ casa: 'B', fora: 'D', gc: 2, gf: 1, resultado: 'V' });
+	});
+
+	it('no arranque da época são os que houver, e a coluna mais curta fica com buracos', () => {
+		const a = { ...equipa('A'), ultimos: [jogo(1, 2, 2), jogo(2, 0, 1)] };
+		const l = linhasDaForma(prejogo(a, equipa('B')));
+		expect(l).toHaveLength(2);
+		expect(l.map((x) => [x.casa?.resultado, x.fora])).toEqual([['E', null], ['D', null]]);
+		expect(linhasDaForma(prejogo(equipa('A'), equipa('B')))).toEqual([]);
+	});
+});
+
+describe('confronto directo', () => {
+	const j = { id: 1, data: '2026-10-01', comp: 1, prova: 'P', adversario: 'B', marcados: 1, sofridos: 3 };
+	it('as equipas onde jogaram, e não onde estão neste jogo', () => {
+		expect(comoFoiJogado({ ...j, em_casa: false }, 'A')).toEqual({ casa: 'B', fora: 'A', gc: 3, gf: 1 });
+		expect(comoFoiJogado({ ...j, em_casa: true }, 'A')).toEqual({ casa: 'A', fora: 'B', gc: 1, gf: 3 });
+	});
+	it('contado do lado da casa deste jogo', () => {
+		const p = { ...prejogo(equipa('A'), equipa('B')), confrontos: [{ ...j, em_casa: true }, { ...j, em_casa: false, marcados: 2, sofridos: 2 }] };
+		expect(resumoDosConfrontos(p)).toEqual({ casa: 0, empates: 1, fora: 1 });
+	});
+});
+
+describe('fase 2', () => {
+	const disc = (o: Partial<NonNullable<EquipaAntesDoJogo['disciplina']>> = {}) => ({
+		jogos: 4, jogos_com_faltas: 4, faltas: 12, faltas_adversario: 8, azuis: 2, amarelos: 1, vermelhos: 0,
+		penaltis: [1, 2] as [number, number], penaltis_contra: [0, 0] as [number, number],
+		livres: [0, 0] as [number, number], livres_contra: [0, 0] as [number, number], ...o
+	});
+
+	it('quatro partes nos Benjamins e Escolares, duas nos outros', () => {
+		expect(partesDoJogo([4, 8])).toBe(4);
+		expect(partesDoJogo([2, 18])).toBe(2);
+		expect(partesDoJogo(null)).toBe(2);
+	});
+
+	it('as percentagens somam sempre 100 — o jogo de Escolares de 07/11/2026', () => {
+		// os 13, 6, 11 e 9 golos de uma equipa de Escolares: arredondados um a um davam 33+15+28+23 = 99
+		expect(percentagens([13, 6, 11, 9])).toEqual([33, 16, 28, 23]);
+		// e estes davam 101
+		expect(percentagens([4, 4, 4, 5]).reduce((x, y) => x + y)).toBe(100);
+		expect(percentagens([1, 1, 1])).toEqual([34, 33, 33]);
+		expect(percentagens([0, 0])).toEqual([0, 0]);
+	});
+
+	it('os golos de cada parte em percentagem dos da equipa, e sem destaque', () => {
+		const a = { ...equipa('A', { jogos: 2 }), periodos: { jogos: 2, marcados: [2, 0, 1, 1] as [number, number, number, number], sofridos: [0, 0, 0, 0] as [number, number, number, number], formato: [2, 20] as [number, number] } };
+		const b = equipa('B', { jogos: 2 });
+		const l = linhasDosPeriodos(prejogo(a, b), 'marcados')!;
+		// num 2×20 os quartos juntam-se dois a dois: 2+0 na 1.ª parte, 1+1 na 2.ª
+		expect(l.map((x) => x.rotulo)).toEqual(['1.ª parte', '2.ª parte']);
+		expect(l[0]).toMatchObject({ casa: { texto: '50%', pequeno: '2 golos' }, fora: { texto: '—' }, melhor: null });
+		expect(l[1].casa).toMatchObject({ texto: '50%', pequeno: '2 golos' });
+		const benjamins = { ...a, periodos: { ...a.periodos, formato: [4, 8] as [number, number] } };
+		const quatro = linhasDosPeriodos(prejogo(benjamins, b), 'marcados')!;
+		expect(quatro.map((x) => [x.rotulo, x.casa.texto])).toEqual([['1.ª parte', '50%'], ['2.ª parte', '0%'], ['3.ª parte', '25%'], ['4.ª parte', '25%']]);
+		// sem golos sofridos não há percentagem para fazer: traços e não 0%
+		expect(linhasDosPeriodos(prejogo(a, b), 'sofridos')!.every((x) => x.casa.texto === '—')).toBe(true);
+		expect(linhasDosPeriodos(prejogo(equipa('A'), equipa('B')), 'marcados')).toBeNull();
+	});
+
+	it('na disciplina, menos é melhor; e as linhas sem nada não aparecem', () => {
+		const a = { ...equipa('A', { jogos: 4 }), disciplina: disc() };
+		const b = { ...equipa('B', { jogos: 4 }), disciplina: disc({ faltas: 20, azuis: 1, penaltis: [2, 2] }) };
+		const l = linhasDaDisciplina(prejogo(a, b));
+		const de = (r: string) => l.find((x) => x.rotulo === r);
+		expect(de('Faltas de equipa por jogo')).toMatchObject({ casa: { texto: '3,0' }, fora: { texto: '5,0' }, melhor: 'casa' });
+		expect(de('Cartões azuis por jogo')!.melhor).toBe('fora');
+		expect(de('Penáltis marcados')).toMatchObject({ casa: { texto: '1 de 2' }, fora: { texto: '2 de 2' }, melhor: 'fora' });
+		expect(de('Cartões vermelhos')).toBeUndefined();
+		expect(de('Livres directos marcados')).toBeUndefined();
+	});
+
+	it('os treinadores, e o frente a frente contado do lado do da casa', () => {
+		const t = (nome: string) => ({ nome, jogos: 5, vitorias: 3, empates: 1, derrotas: 1 });
+		const p = { ...prejogo({ ...equipa('A'), treinador: t('NUNO HENRIQUES') }, { ...equipa('B'), treinador: t('JOSÉ CALIFÓRNIA') }),
+			treinadores: { jogos: 3, vitorias: 2, empates: 0, derrotas: 1 } };
+		const r = treinadoresDoJogo(p)!;
+		expect(r.casa).toEqual({ nome: 'Nuno Henriques', registo: '3V 1E 1D em 5 jogos com a equipa' });
+		expect(r.frente).toBe('Já se defrontaram 3 vezes esta época, em todos os escalões: 2 vitórias de Nuno Henriques, 1 vitória de José Califórnia.');
+		expect(treinadoresDoJogo({ ...p, treinadores: { jogos: 0, vitorias: 0, empates: 0, derrotas: 0 } })!.frente).toBeNull();
+		expect(treinadoresDoJogo(prejogo(equipa('A'), equipa('B')))).toBeNull();
+	});
+});
+
+/**
+ * Contra os `prejogo/` **publicados**, um a um. A regra do projecto: um ecrã com uma mensagem
+ * de "não há nada" tem de ter um teste que prove que ela não aparece num caso real — e aqui há
+ * duas, o separador que não aparece e o "ainda não se defrontaram".
+ */
+describe('fase 3: a previsão', () => {
+	it('aparece com três números que somam 100, e não aparece sem eles', () => {
+		const p = prejogo(equipa('A', { jogos: 3 }), equipa('B', { jogos: 3 }));
+		expect(previsaoDoJogo({ ...p, probabilidade: { casa: 61, empate: 5, fora: 34 } })).toEqual({ casa: 61, empate: 5, fora: 34 });
+		// uma equipa ainda não tinha jogado
+		expect(previsaoDoJogo({ ...p, probabilidade: null })).toBeNull();
+		// um ficheiro de antes da fase 3
+		expect(previsaoDoJogo(p)).toBeNull();
+		// e uma conta que não fecha não se mostra
+		expect(previsaoDoJogo({ ...p, probabilidade: { casa: 61, empate: 5, fora: 33 } })).toBeNull();
+	});
+});
+
+describe('os prejogo publicados', () => {
+	const raiz = new URL('../../static/v1/aplisboa/', import.meta.url);
+	const temporadas = existsSync(raiz) ? readdirSync(raiz).sort().reverse() : [];
+	const pasta = temporadas.length ? new URL(`${temporadas[0]}/prejogo/`, raiz) : null;
+	const todos: Prejogo[] =
+		pasta && existsSync(pasta)
+			? readdirSync(pasta).map((n) => JSON.parse(readFileSync(new URL(n, pasta), 'utf-8')) as Prejogo)
+			: [];
+
+	/**
+	 * Contra a agenda só "há algum", e não "um por jogo": no `dev` a agenda chega do `main` a
+	 * cada ronda e o `prejogo/` só se refaz no botão do site de testes, por isso os dois andam
+	 * desencontrados até à entrega. A conta exacta está no `test_prejogo.py`, sobre a função.
+	 */
+	it('há prejogo publicados enquanto houver jogos por disputar', () => {
+		const agenda = pasta ? new URL('../agenda.json', pasta) : null;
+		const jogos: { gc: number | null; cat: string }[] =
+			agenda && existsSync(agenda) ? JSON.parse(readFileSync(agenda, 'utf-8')).jogos : [];
+		if (!jogos.some((j) => j.gc === null && j.cat !== 'TORNEIOS PARTICULARES')) return;
+		expect(todos.length).toBeGreaterThan(0);
+	});
+
+	it('quase todos têm separador — medido a 06/11/2026: 260 de 260', () => {
+		if (!todos.length) return;
+		const com = todos.filter(temAntesDoJogo).length;
+		expect(com / todos.length).toBeGreaterThan(0.9);
+	});
+
+	/**
+	 * Só nos por disputar. Desde 07/11/2026 há também os disputados, com o confronto directo de
+	 * antes deles — e esse é quase sempre vazio, porque na maior parte das séries as equipas só
+	 * se encontram uma vez por volta.
+	 */
+	it('o "ainda não se defrontaram" não é a regra — medido a 06/11/2026: 232 de 260 já se defrontaram', () => {
+		const agenda = pasta ? new URL('../agenda.json', pasta) : null;
+		const jogos: { id: number; gc: number | null }[] =
+			agenda && existsSync(agenda) ? JSON.parse(readFileSync(agenda, 'utf-8')).jogos : [];
+		const porDisputar = new Set(jogos.filter((j) => j.gc === null).map((j) => j.id));
+		const deles = todos.filter((p) => porDisputar.has(p.id));
+		if (!deles.length) return;
+		expect(deles.filter((p) => p.confrontos.length).length / deles.length).toBeGreaterThan(0.5);
+	});
+
+	it('nenhum texto sai com NaN, undefined ou Infinity', () => {
+		for (const p of todos.filter(temAntesDoJogo)) {
+			const linhas = [...linhasDaEpoca(p), ...linhasDasContagens(p), ...linhasDaDisciplina(p),
+				...(linhasDosPeriodos(p, 'marcados') ?? []), ...(linhasDosPeriodos(p, 'sofridos') ?? [])];
+			const textos = linhas.flatMap((l) => [l.casa.texto, l.fora.texto, l.casa.lugar, l.fora.lugar, l.casa.pequeno, l.fora.pequeno]);
+			const t = treinadoresDoJogo(p);
+			textos.push(t?.casa?.registo, t?.fora?.registo, t?.frente);
+			textos.push(...sequenciasEmCurso(p.casa), ...sequenciasEmCurso(p.fora));
+			expect(textos.join(' '), `jogo ${p.id}`).not.toMatch(/NaN|undefined|Infinity/);
+		}
+	});
+
+	it('a fase 2 está em todos os publicados com jogos — medido a 06/11/2026: 260 de 260', () => {
+		const com = todos.filter(temAntesDoJogo);
+		if (!com.length) return;
+		expect(com.filter((p) => linhasDosPeriodos(p, 'marcados') && linhasDaDisciplina(p).length && treinadoresDoJogo(p)).length / com.length).toBeGreaterThan(0.9);
+	});
+
+	it('todas as colunas de "quando marcam" somam 100% — medido a 07/11/2026: 118 de 384 não somavam', () => {
+		for (const p of todos)
+			for (const qual of ['marcados', 'sofridos'] as const) {
+				const l = linhasDosPeriodos(p, qual);
+				if (!l) continue;
+				for (const lado of ['casa', 'fora'] as const) {
+					if (l[0][lado].texto === '—') continue;
+					expect(l.reduce((s, x) => s + parseInt(x[lado].texto), 0), `jogo ${p.id} ${lado} ${qual}`).toBe(100);
+				}
+			}
+	});
+
+	/** Medido a 07/11/2026: os 257 por disputar têm previsão — as duas equipas já jogaram. */
+	it('a previsão está em quase todos os jogos por disputar', () => {
+		const agenda = pasta ? new URL('../agenda.json', pasta) : null;
+		const jogos: { id: number; gc: number | null }[] =
+			agenda && existsSync(agenda) ? JSON.parse(readFileSync(agenda, 'utf-8')).jogos : [];
+		const porDisputar = new Set(jogos.filter((j) => j.gc === null).map((j) => j.id));
+		const deles = todos.filter((p) => porDisputar.has(p.id));
+		if (!deles.length || !deles.some((p) => 'probabilidade' in p)) return;
+		expect(deles.filter((p) => previsaoDoJogo(p)).length / deles.length).toBeGreaterThan(0.9);
+	});
+
+	it('os lugares nunca passam do número de equipas da série', () => {
+		for (const p of todos)
+			for (const e of [p.casa, p.fora])
+				for (const l of Object.values(e.lugares)) expect(l, `jogo ${p.id}`).toBeLessThanOrEqual(p.na_serie);
+	});
+});
