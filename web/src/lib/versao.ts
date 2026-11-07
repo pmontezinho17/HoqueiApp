@@ -166,9 +166,15 @@ export const NOVIDADES: Novidade[] = [
 			},
 			{
 				tipo: 'novo',
-				titulo: '📊 Antes do jogo',
+				titulo: '📋 Pré-jogo',
 				texto:
-					'Num jogo ainda por disputar há um separador novo: a forma das duas equipas nos últimos cinco jogos, como correram os jogos entre elas esta época, a época lado a lado com o lugar de cada uma na série, quem costuma marcar primeiro ou ir a ganhar ao intervalo, em que altura do jogo marcam e sofrem, as faltas, os cartões e os penáltis, e os treinadores. Depois do jogo continua lá, com os números de antes dele.'
+					'Num jogo ainda por disputar há um separador novo, o Pré-jogo: a forma das duas equipas nos últimos cinco jogos, como correram os jogos entre elas esta época, a época lado a lado com o lugar de cada uma na série, quem costuma marcar primeiro ou ir a ganhar ao intervalo, em que altura do jogo marcam e sofrem, as faltas, os cartões e os penáltis, e os treinadores. Depois do jogo continua lá, com os números de antes dele.'
+			},
+			{
+				tipo: 'novo',
+				titulo: '⏱️ O tempo dos eventos como na ficha da APL',
+				texto:
+					'Nos eventos do jogo e nos marcadores, o tempo passou a ser o relógio de cada parte, a descer — numa parte de 18 minutos vai de 18:00 a 0:00, como no pavilhão e na ficha oficial. Antes contávamos os minutos do jogo inteiro, e a 2ª parte começava nos 18.'
 			},
 			{
 				tipo: 'novo',

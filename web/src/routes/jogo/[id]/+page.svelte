@@ -14,6 +14,7 @@
 	import MeritoDoJogo from './MeritoDoJogo.svelte';
 	import AntesDoJogo from './AntesDoJogo.svelte';
 	import { temAntesDoJogo } from '$lib/antesDoJogo';
+	import { temposDaCronologia } from '$lib/cronologia';
 	import { contasDoJogo } from '$lib/meritoDoJogo';
 	import Icone from '$lib/Icone.svelte';
 	import Separadores from '$lib/Separadores.svelte';
@@ -149,7 +150,7 @@
 	 */
 	const NA_BARRA: Record<Tab, { rotulo: string; curto?: string; icone: string; classe?: string }> = {
 		directo: { rotulo: 'Ver em directo', curto: 'Directo', icone: 'directo', classe: 'aoVivo' },
-		antes: { rotulo: 'Antes do jogo', curto: 'Antes', icone: 'antes' },
+		antes: { rotulo: 'Pré-jogo', icone: 'antes' },
 		eventos: { rotulo: 'Eventos do jogo', curto: 'Eventos', icone: 'eventos' },
 		merito: { rotulo: 'Mérito deste jogo', curto: 'Mérito', icone: 'merito' },
 		tabela: { rotulo: 'Classificação', icone: 'tabela' },
@@ -207,15 +208,20 @@
 	 * nenhuma. A história completa continua no separador dos eventos.
 	 */
 	const marcadores = $derived.by(() => {
-		const por = { casa: [] as string[], fora: [] as string[] };
-		for (const e of f.cronologia as EventoJogo[]) {
+		type Marcador = { tempo: string; nome: string };
+		const por = { casa: [] as Marcador[], fora: [] as Marcador[] };
+		const cronologia = f.cronologia as EventoJogo[];
+		// o relógio da APL, decrescente dentro da parte (07/11/2026): aqui leva a parte à
+		// frente, porque as duas partes estão na mesma lista e um 11:17 sozinho não diz qual
+		const tempos = temposDaCronologia(cronologia);
+		for (const e of cronologia) {
 			if (e.tipo !== 'golo') continue;
-			const minuto = e.minuto !== null ? `${e.minuto}'` : '';
+			const t = tempos.get(e.ordem);
+			const tempo = t ? `${t.parte} ${t.relogio}`.trim() : '';
 			const nome = e.jogador ? nomeProprio(e.jogador) : '';
-			const rotulo = [minuto, nome].filter(Boolean).join(' ');
-			if (!rotulo) continue;
-			if (e.equipa === f.casa) por.casa.push(rotulo);
-			else if (e.equipa === f.fora) por.fora.push(rotulo);
+			if (!tempo && !nome) continue;
+			if (e.equipa === f.casa) por.casa.push({ tempo, nome });
+			else if (e.equipa === f.fora) por.fora.push({ tempo, nome });
 		}
 		return por;
 	});
@@ -428,8 +434,8 @@
 
 			{#if temMarcadores}
 				<div class="marcadores">
-					<ul>{#each marcadores.casa as m, i (i)}<li>{m}</li>{/each}</ul>
-					<ul>{#each marcadores.fora as m, i (i)}<li>{m}</li>{/each}</ul>
+					<ul>{#each marcadores.casa as m, i (i)}<li>{#if m.tempo}<span class="tempo">{m.tempo}</span>{/if}{m.nome}</li>{/each}</ul>
+					<ul>{#each marcadores.fora as m, i (i)}<li>{#if m.tempo}<span class="tempo">{m.tempo}</span>{/if}{m.nome}</li>{/each}</ul>
 				</div>
 			{/if}
 
@@ -679,6 +685,7 @@
 	.marcadores li {
 		overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 	}
+	.marcadores .tempo { font-variant-numeric: tabular-nums; opacity: 0.8; margin-right: 0.35em; }
 
 	/* a ligação para a competição, dentro do herói */
 	.prova {

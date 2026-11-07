@@ -97,10 +97,14 @@
 		<path d="M15.2 3 9.8 12.4c-1 1.8-2.6 2.9-4.9 3.3" />
 		<circle cx="14.4" cy="16.4" r="1.6" fill="currentColor" stroke="none" />
 	{:else if nome === 'antes'}
-		<!-- duas colunas frente a frente com uma linha entre elas: as duas equipas comparadas,
-		     antes do jogo. Distinto do pódio da classificação, que tem três degraus. -->
-		<path d="M4.5 16.5v-6M7.5 16.5v-9.5M12.5 16.5v-8M15.5 16.5v-4.5" />
-		<path d="M10 3.5v13" stroke-dasharray="1.6 2" />
+		<!-- uma prancheta: o relatório que se prepara antes do jogo. Até 07/11/2026 eram quatro
+		     barras, e o dono pediu outro — lia-se como mais um gráfico ao lado do pódio da
+		     classificação. Comparei cinco a 22px: o cronómetro chocava com o ⏱ do desconto de
+		     tempo nos eventos, a ampulheta lia-se como "à espera", o apito não se reconhecia, e
+		     uma prancheta com uma jogada desenhada dentro ficava num borrão. -->
+		<rect x="4" y="3.6" width="12" height="13.8" rx="2" />
+		<path d="M7.6 3.6V2.6h4.8v1" />
+		<path d="M7 8.4h6M7 11.4h6M7 14.4h3.4" />
 	{:else if nome === 'tabela'}
 		<!-- pódio: o 1º ao meio, como em qualquer classificação. A lista numerada que estava
 		     aqui punha o 2 e o 3 em cima um do outro a 22px. -->
