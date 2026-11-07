@@ -272,8 +272,8 @@
    "hora": "14:45:00",
    "casa": "PAREDE FC",
    "fora": "CACO B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 4,
+   "golos_fora": 3,
    "recinto": "PAV. PAREDE",
    "ao_vivo": false
   },
@@ -286,8 +286,8 @@
    "hora": "15:00:00",
    "casa": "HC LOURINHÃ",
    "fora": "APAC TOJAL",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 5,
+   "golos_fora": 11,
    "recinto": "PAV. GIMNO. DA LOURINHÃ",
    "ao_vivo": false
   },

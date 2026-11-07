@@ -239,8 +239,8 @@
    "hora": "15:00:00",
    "casa": "CRIAR-T GD",
    "fora": "HC LOURINHÃ",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 1,
    "recinto": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
    "ao_vivo": false
   },
@@ -365,29 +365,29 @@
      "posicao": 4,
      "equipa": "HC LOURINHÃ",
      "logo": "/intranet/logos/21.png",
-     "jogos": 5,
+     "jogos": 6,
      "vitorias": 1,
      "empates": 0,
-     "derrotas": 4,
-     "golos_marcados": 8,
-     "golos_sofridos": 29,
-     "diferenca": -21,
-     "racio": 0.28,
+     "derrotas": 5,
+     "golos_marcados": 9,
+     "golos_sofridos": 31,
+     "diferenca": -22,
+     "racio": 0.29,
      "pontos": 3
     },
     {
      "posicao": 5,
      "equipa": "CRIAR-T GD",
      "logo": "/intranet/logos/17.png",
-     "jogos": 6,
-     "vitorias": 0,
+     "jogos": 7,
+     "vitorias": 1,
      "empates": 0,
      "derrotas": 6,
-     "golos_marcados": 2,
-     "golos_sofridos": 46,
-     "diferenca": -44,
-     "racio": 0.04,
-     "pontos": 0
+     "golos_marcados": 4,
+     "golos_sofridos": 47,
+     "diferenca": -43,
+     "racio": 0.09,
+     "pontos": 3
     }
    ]
   }

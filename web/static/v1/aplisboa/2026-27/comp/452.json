@@ -370,8 +370,8 @@
    "hora": "14:30:00",
    "casa": "S ALENQUER BENFICA",
    "fora": "CRIAR-T GD",
-   "golos_casa": 0,
-   "golos_fora": 0,
+   "golos_casa": 3,
+   "golos_fora": 2,
    "recinto": "PAV.S.ALENQUER E BENFICA",
    "ao_vivo": false
   },
@@ -494,6 +494,20 @@
     },
     {
      "posicao": 3,
+     "equipa": "S ALENQUER BENFICA",
+     "logo": "/intranet/logos/5.png",
+     "jogos": 8,
+     "vitorias": 4,
+     "empates": 0,
+     "derrotas": 4,
+     "golos_marcados": 44,
+     "golos_sofridos": 23,
+     "diferenca": 21,
+     "racio": 1.91,
+     "pontos": 12
+    },
+    {
+     "posicao": 4,
      "equipa": "SL BENFICA B",
      "logo": "/intranet/logos/1.png",
      "jogos": 7,
@@ -507,32 +521,18 @@
      "pontos": 12
     },
     {
-     "posicao": 4,
-     "equipa": "S ALENQUER BENFICA",
-     "logo": "/intranet/logos/5.png",
-     "jogos": 8,
-     "vitorias": 3,
-     "empates": 1,
-     "derrotas": 4,
-     "golos_marcados": 41,
-     "golos_sofridos": 21,
-     "diferenca": 20,
-     "racio": 1.95,
-     "pontos": 10
-    },
-    {
      "posicao": 5,
      "equipa": "CRIAR-T GD",
      "logo": "/intranet/logos/17.png",
      "jogos": 8,
      "vitorias": 2,
-     "empates": 1,
-     "derrotas": 5,
-     "golos_marcados": 21,
-     "golos_sofridos": 43,
-     "diferenca": -22,
-     "racio": 0.49,
-     "pontos": 7
+     "empates": 0,
+     "derrotas": 6,
+     "golos_marcados": 23,
+     "golos_sofridos": 46,
+     "diferenca": -23,
+     "racio": 0.5,
+     "pontos": 6
     },
     {
      "posicao": 6,
