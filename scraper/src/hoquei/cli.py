@@ -1224,8 +1224,18 @@ def comando_probabilidade(args) -> int:
     falha se a calibração passar dos limites.
     """
     from . import probabilidade
-    agenda = json.loads((pathlib.Path(args.destino) / "agenda.json").read_text(encoding="utf-8"))["jogos"]
-    m = probabilidade.medir([j for j in agenda if j.get("cat") not in prejogo.FORA])
+    destino = pathlib.Path(args.destino)
+    agenda = json.loads((destino / "agenda.json").read_text(encoding="utf-8"))["jogos"]
+    fichas = {}
+    for f in (destino / "match").glob("*.json"):
+        try:
+            d = json.loads(f.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            continue
+        fichas[d.get("id") or int(f.stem)] = d
+    secretaria = probabilidade.administrativos(fichas)
+    m = probabilidade.medir([j for j in agenda if j.get("cat") not in prejogo.FORA], secretaria)
+    print(f"{len(secretaria)} resultados da secretaria postos de parte")
     print(f"{m['jogos']} jogos com previsão · o mais provável aconteceu em {m['acerto']:.0%} · "
           f"log loss {m['logloss']:.3f}")
     print("favorito    jogos   dito   aconteceu")
