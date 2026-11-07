@@ -1,6 +1,7 @@
 """O que se sabe de um jogo antes de ele começar (#11, fase 1).
 
-Um `prejogo/<id>.json` por cada jogo por disputar: a forma recente das duas equipas, o
+Um `prejogo/<id>.json` por cada jogo oficial — por disputar e, desde 07/11/2026, também os
+disputados, com o que se sabia antes deles (ver `calcular`): a forma recente das duas equipas, o
 confronto directo desta época, os números da época com o lugar na série, e as sequências que
 só se tiram da cronologia — quem marca primeiro, quem ganha ao intervalo.
 
@@ -30,6 +31,7 @@ O que fica de fora, de propósito:
 """
 from __future__ import annotations
 
+import bisect
 import json
 import pathlib
 from dataclasses import dataclass, field
@@ -339,34 +341,57 @@ def _jogado(j: dict, casa: bool, ficha: dict | None) -> Jogado:
     )
 
 
+def _chave(data: str, hora: str | None, id_jogo: int) -> tuple[str, str, int]:
+    """A ordem do calendário. Sem hora vai para o fim do dia, como na agenda."""
+    return (data, hora or "99:99", id_jogo)
+
+
 def calcular(agenda: list[dict], fichas: dict[int, dict]) -> dict[int, dict]:
-    """jogo por disputar → o seu `prejogo`. Função pura: lê o que lhe dão e mais nada."""
+    """jogo oficial → o seu `prejogo`. Função pura: lê o que lhe dão e mais nada.
+
+    **Também os jogos já disputados, com o que se sabia antes deles** — decisão do dono a
+    07/11/2026: *"mantemos o separador depois do jogo, mas com os dados recolhidos até essa
+    data"*. Para um jogo por disputar conta tudo o que já se jogou; para um disputado, só os
+    jogos que vêm antes dele no calendário — a forma, a época, o lugar na série, o confronto
+    directo e os treinadores ficam como estavam quando o jogo começou. Por isso o ficheiro de um
+    jogo disputado não muda com os resultados seguintes, e só se reescreve se a APL corrigir
+    uma ficha anterior. Um disputado em que nenhuma das duas equipas tinha jogado não tem nada
+    para mostrar e não leva ficheiro.
+    """
     oficiais = [j for j in agenda if j.get("cat") not in FORA and j.get("id")]
     equipas: dict[tuple[str, str], Equipa] = {}
-    for j in sorted(oficiais, key=lambda j: (j["data"], j.get("hora") or "99:99", j["id"])):
+    for j in sorted(oficiais, key=lambda j: _chave(j["data"], j.get("hora"), j["id"])):
         if j.get("gc") is None or j.get("gf") is None:
             continue
         ficha = fichas.get(j["id"])
         for casa in (True, False):
             nome = j["casa"] if casa else j["fora"]
             equipas.setdefault((j["cat"], nome), Equipa()).jogos.append(_jogado(j, casa, ficha))
+    chaves = {k: [_chave(x.data, x.hora, x.id) for x in e.jogos] for k, e in equipas.items()}
+
+    def ate(corte: tuple | None) -> dict[tuple[str, str], Equipa]:
+        """As equipas só com os jogos antes de `corte`; com `None`, tudo o que se jogou."""
+        if corte is None:
+            return equipas
+        return {k: Equipa(e.jogos[:bisect.bisect_left(chaves[k], corte)]) for k, e in equipas.items()}
 
     # as equipas de cada série, a partir de todos os jogos dela, disputados ou não
     serie: dict[int, set[str]] = {}
     for j in oficiais:
         serie.setdefault(j["comp"], set()).update((j["casa"], j["fora"]))
 
-    numeros = {chave: e.epoca() for chave, e in equipas.items()}
     vazio = Equipa()
     resultado = {}
     for j in oficiais:
-        if j.get("gc") is not None:
-            continue
+        disputado = j.get("gc") is not None
+        vistas = ate(_chave(j["data"], j.get("hora"), j["id"]) if disputado else None)
         cat = j["cat"]
-        da_serie = {nome: numeros.get((cat, nome), vazio.epoca()) for nome in serie[j["comp"]]}
+        if disputado and not any(vistas.get((cat, n), vazio).jogos for n in (j["casa"], j["fora"])):
+            continue
+        da_serie = {nome: vistas.get((cat, nome), vazio).epoca() for nome in serie[j["comp"]]}
         lados = {}
         for lado, nome in (("casa", j["casa"]), ("fora", j["fora"])):
-            e = equipas.get((cat, nome), vazio)
+            e = vistas.get((cat, nome), vazio)
             lados[lado] = {
                 "equipa": nome,
                 "ultimos": [_linha(x) for x in e.jogos[::-1][:ULTIMOS]],
@@ -377,14 +402,14 @@ def calcular(agenda: list[dict], fichas: dict[int, dict]) -> dict[int, dict]:
                 "disciplina": e.disciplina(),
                 "treinador": e.treinador(),
             }
-        confrontos = [x for x in equipas.get((cat, j["casa"]), vazio).jogos if x.adversario == j["fora"]]
+        confrontos = [x for x in vistas.get((cat, j["casa"]), vazio).jogos if x.adversario == j["fora"]]
         resultado[j["id"]] = {
             "id": j["id"],
             "na_serie": sum(1 for n in da_serie.values() if n["jogos"]),
             **lados,
             # vistos da equipa da casa deste jogo, do mais recente para o mais antigo
             "confrontos": [_linha(x) for x in confrontos[::-1]],
-            "treinadores": _treinadores_frente_a_frente(lados["casa"]["treinador"], lados["fora"]["treinador"], equipas),
+            "treinadores": _treinadores_frente_a_frente(lados["casa"]["treinador"], lados["fora"]["treinador"], vistas),
         }
     return resultado
 
@@ -421,8 +446,8 @@ def escrever(destino: pathlib.Path) -> tuple[int, int]:
     """Escreve `prejogo/` a partir da agenda e das fichas em disco. Devolve (escritos, apagados).
 
     **Só reescreve o que mudou**, como os `.ics`: o resultado é determinista, e reescrevê-lo
-    igual fazia o git ver alterações a cada ronda. E apaga os dos jogos que entretanto se
-    disputaram — a página do jogo só os pede enquanto não houver resultado.
+    igual fazia o git ver alterações a cada ronda. E apaga os que deixaram de existir — um jogo
+    que saiu da agenda, ou que passou a Torneio Particular.
     """
     agenda = json.loads((destino / "agenda.json").read_text(encoding="utf-8"))["jogos"]
     fichas = {}

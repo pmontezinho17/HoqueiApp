@@ -208,19 +208,38 @@ export function sequenciasEmCurso(e: EquipaAntesDoJogo): string[] {
 }
 
 /**
- * Os últimos jogos de uma equipa, **do mais antigo para o mais recente** — nas bolas e na
- * lista por baixo delas.
+ * A forma recente das duas equipas **lado a lado, numa vista só**: uma linha por jogo, do
+ * **mais recente para o mais antigo**, e em cada lado o jogo tal como foi jogado — a casa à
+ * esquerda do resultado —, com a cor do resultado para a equipa dessa coluna.
  *
  * São os cinco últimos disputados, de todas as provas do escalão; no arranque da época são os
- * que houver, e nenhum quando a equipa ainda não jogou. O ficheiro traz-os do mais recente para
- * o mais antigo, e foi assim que saíram a 06/11/2026. O dono apanhou-o no site de testes nesse
- * dia, primeiro nas bolas e depois na lista: uma fila de resultados lê-se como uma linha do
- * tempo, com o último jogo no fim, encostado ao jogo que vem.
+ * que houver, e a coluna da equipa que jogou menos fica com buracos em baixo.
+ *
+ * A ordem já mudou duas vezes, e as duas a pedido do dono, que não se contradisse: o desenho é
+ * que mudou. A 06/11/2026 eram bolas numa fila e uma lista por equipa, com botões para escolher
+ * a equipa, e numa fila horizontal o tempo corre da esquerda para a direita — ele pediu o mais
+ * antigo primeiro. A 07/11/2026 pediu esta grelha, *"tem a informação toda de uma vista única
+ * sem ter de carregar em botões"*, com o mais recente em cima e um destaque no primeiro. Numa
+ * coluna lê-se de cima para baixo, e o que se procura primeiro é o último jogo.
  */
-export const jogosDaForma = (e: Pick<EquipaAntesDoJogo, 'ultimos'>): JogoDaForma[] => [...e.ultimos].reverse();
+export interface JogoNaForma {
+	id: number;
+	data: string;
+	casa: string;
+	fora: string;
+	gc: number;
+	gf: number;
+	/** o resultado para a equipa da coluna, e não para a da casa desse jogo */
+	resultado: Resultado;
+}
 
-export const bolasDaForma = (e: Pick<EquipaAntesDoJogo, 'ultimos'>): Resultado[] =>
-	jogosDaForma(e).map(resultadoDe);
+export function linhasDaForma(p: Prejogo): { casa: JogoNaForma | null; fora: JogoNaForma | null }[] {
+	const coluna = (e: EquipaAntesDoJogo): JogoNaForma[] =>
+		e.ultimos.map((j) => ({ id: j.id, data: j.data, ...comoFoiJogado(j, e.equipa), resultado: resultadoDe(j) }));
+	const a = coluna(p.casa);
+	const b = coluna(p.fora);
+	return Array.from({ length: Math.max(a.length, b.length) }, (_, i) => ({ casa: a[i] ?? null, fora: b[i] ?? null }));
+}
 
 /** O confronto directo, contado do lado da equipa da casa deste jogo. */
 export function resumoDosConfrontos(p: Prejogo): { casa: number; empates: number; fora: number } {
@@ -291,6 +310,30 @@ export const partesDoJogo = (formato: [number, number] | null | undefined): 2 | 
  * diferentes na mesma equipa: num jogo de duas partes cada parte são dois quartos, num de quatro
  * cada parte é um.
  */
+/**
+ * Percentagens inteiras que **somam sempre 100**, pelo método dos maiores restos: arredonda-se
+ * tudo para baixo e os pontos que faltam vão para as partes que ficaram com a maior fracção.
+ *
+ * Arredondar cada parte por si dava 99% ou 101% — o dono deu por isso a 07/11/2026 num jogo de
+ * Escolares, e medido nesse dia sobre os 260 jogos por disputar eram **118 de 384** colunas de
+ * quatro partes (77 a 99%, 41 a 101%). Nas de duas partes nunca acontecia: 656 de 656 somavam 100.
+ * Em empate de restos ganha a parte mais cedo, para o resultado não depender da ordem do motor.
+ */
+export function percentagens(valores: number[]): number[] {
+	const total = valores.reduce((x, y) => x + y, 0);
+	if (!total) return valores.map(() => 0);
+	const exactas = valores.map((v) => (100 * v) / total);
+	const r = exactas.map(Math.floor);
+	let falta = 100 - r.reduce((x, y) => x + y, 0);
+	const porResto = exactas.map((x, i) => ({ i, resto: x - Math.floor(x) })).sort((x, y) => y.resto - x.resto || x.i - y.i);
+	for (const { i } of porResto) {
+		if (falta <= 0) break;
+		r[i]++;
+		falta--;
+	}
+	return r;
+}
+
 export function linhasDosPeriodos(p: Prejogo, qual: 'marcados' | 'sofridos'): LinhaComparada[] | null {
 	const a = p.casa.periodos;
 	const b = p.fora.periodos;
@@ -301,7 +344,7 @@ export function linhasDosPeriodos(p: Prejogo, qual: 'marcados' | 'sofridos'): Li
 		const golos = per ? porParte(per[qual]) : [];
 		const total = golos.reduce((x, y) => x + y, 0);
 		if (!per?.jogos || !total) return { texto: '—', lugar: null };
-		return { texto: `${Math.round((100 * golos[i]) / total)}%`, lugar: null, pequeno: plural(golos[i], 'golo', 'golos') };
+		return { texto: `${percentagens(golos)[i]}%`, lugar: null, pequeno: plural(golos[i], 'golo', 'golos') };
 	};
 	return Array.from({ length: partes }, (_, i) => ({
 		rotulo: `${i + 1}.ª parte`,

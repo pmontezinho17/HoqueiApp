@@ -105,10 +105,13 @@
 		(merito?.linhas ?? []).reduce((n, l) => n + l.por_confirmar, 0)
 	);
 	/**
-	 * O que se sabe antes do jogo (#11) — só num jogo por começar, e só com alguma coisa para
-	 * dizer. A decisão vive no `temAntesDoJogo`; o ficheiro só é pedido sem resultado.
+	 * O que se sabia antes do jogo (#11), só com alguma coisa para dizer — a decisão vive no
+	 * `temAntesDoJogo`. **Também depois do jogo**, desde 07/11/2026: *"mantemos o separador
+	 * depois do jogo, mas com os dados recolhidos até essa data"*. Aí deixa de ser o primeiro e
+	 * de abrir por omissão — depois do apito o que se quer ver é o jogo.
 	 */
-	const prejogo = $derived(!aDecorrer && temAntesDoJogo(data.prejogo) ? data.prejogo : null);
+	const prejogo = $derived(temAntesDoJogo(data.prejogo) ? data.prejogo : null);
+	const depoisDoApito = $derived(aDecorrer || !data.porDisputar);
 	const temSeparadores = $derived(!!prejogo || temEventos || !!contas || temTabela || temEquipas || temInfo);
 
 	/**
@@ -126,8 +129,10 @@
 				// primeiro de todos: quem tem onde ver o jogo não quer começar pela cronologia
 				['directo', !!directo],
 				// antes da classificação: é deste jogo, e a tabela é da série
-				['antes', !!prejogo],
+				['antes', !!prejogo && !depoisDoApito],
 				['eventos', temEventos],
+				// depois do apito, a seguir ao jogo em si
+				['antes', !!prejogo && depoisDoApito],
 				// ao lado da classificação, e antes dela: é deste jogo, e a tabela é da série
 				['merito', !!contas],
 				['tabela', temTabela],
@@ -190,7 +195,7 @@
 		// **E com o que se sabe antes do jogo, cai nele** (#11, 06/11/2026): é a razão de abrir um
 		// jogo de amanhã que não seja para saber onde é — e a hora e o recinto continuam no
 		// cabeçalho do separador ao lado.
-		tab = prejogo ? 'antes' : semFicha && abas.includes('info') ? 'info' : abas[0];
+		tab = prejogo && !depoisDoApito ? 'antes' : semFicha && abas.includes('info') ? 'info' : abas[0];
 	});
 
 	/**
@@ -481,7 +486,7 @@
 					<Directo {directo} casa={f.casa} fora={f.fora} />
 				{/if}
 			{:else if aba === 'antes'}
-				{#if prejogo}<AntesDoJogo p={prejogo} emblemas={data.emblemas} comp={f.competicao_id ?? null} />{/if}
+				{#if prejogo}<AntesDoJogo p={prejogo} emblemas={data.emblemas} comp={f.competicao_id ?? null} {depoisDoApito} />{/if}
 			{:else if aba === 'eventos'}
 				<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
 					omitidos={f.individuais_omitidos ?? false} />
