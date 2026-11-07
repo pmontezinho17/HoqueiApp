@@ -36,8 +36,6 @@ import json
 import pathlib
 from dataclasses import dataclass, field
 
-from . import probabilidade
-
 #: os escalões que não entram — ver o cabeçalho
 FORA = {"TORNEIOS PARTICULARES"}
 #: quantos jogos mostra a forma recente; os cinco das apps que o dono trouxe a 06/11/2026
@@ -383,7 +381,6 @@ def calcular(agenda: list[dict], fichas: dict[int, dict]) -> dict[int, dict]:
         serie.setdefault(j["comp"], set()).update((j["casa"], j["fora"]))
 
     vazio = Equipa()
-    previsoes = probabilidade.previsoes(oficiais, probabilidade.administrativos(fichas))
     resultado = {}
     for j in oficiais:
         disputado = j.get("gc") is not None
@@ -413,8 +410,6 @@ def calcular(agenda: list[dict], fichas: dict[int, dict]) -> dict[int, dict]:
             # vistos da equipa da casa deste jogo, do mais recente para o mais antigo
             "confrontos": [_linha(x) for x in confrontos[::-1]],
             "treinadores": _treinadores_frente_a_frente(lados["casa"]["treinador"], lados["fora"]["treinador"], vistas),
-            # fase 3, a 07/11/2026: com o que se sabia antes do jogo, como tudo o resto
-            "probabilidade": probabilidade.em_percentagem(previsoes.get(j["id"])),
         }
     return resultado
 

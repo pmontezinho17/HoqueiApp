@@ -438,20 +438,3 @@ export function treinadoresDoJogo(p: Prejogo): TreinadoresDoJogo | null {
 		frente
 	};
 }
-
-// --- fase 3 (07/11/2026): a previsão ----------------------------------------------------------
-
-/**
- * A previsão de vitória, empate e derrota, ou `null` quando não há — uma das equipas ainda não
- * tinha jogado, ou o ficheiro é de antes da fase 3.
- *
- * As contas estão no raspador (`probabilidade.py`), com o que se mediu para as escolher; aqui
- * só se decide se aparece. **É uma previsão e diz-se que é** — o dono a 07/11/2026: *"lembra-te
- * que isto é apenas uma previsão"*. Por isso nada de destacar o favorito como se fosse um
- * resultado: as três partes da barra têm o mesmo peso, e os números falam.
- */
-export function previsaoDoJogo(p: Prejogo): { casa: number; empate: number; fora: number } | null {
-	const x = p.probabilidade;
-	if (!x || x.casa + x.empate + x.fora !== 100) return null;
-	return x;
-}

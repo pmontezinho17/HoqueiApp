@@ -216,8 +216,7 @@ def contrato_intacto(base: str) -> str | None:
 
 
 #: as chaves do `prejogo/<id>.json` que o separador "Antes do jogo" lê — ver `prejogo.py`
-#: a `probabilidade` desde 07/11/2026 (fase 3): tem de estar lá, mesmo que seja `null`
-CHAVES_DO_PREJOGO = ("id", "na_serie", "casa", "fora", "confrontos", "probabilidade")
+CHAVES_DO_PREJOGO = ("id", "na_serie", "casa", "fora", "confrontos")
 CHAVES_DE_CADA_EQUIPA = ("equipa", "ultimos", "epoca", "lugares", "sequencias")
 
 

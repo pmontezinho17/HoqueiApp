@@ -9,7 +9,6 @@ import {
 	linhasDaForma,
 	linhasDosPeriodos,
 	percentagens,
-	previsaoDoJogo,
 	partesDoJogo,
 	treinadoresDoJogo,
 	linhasDasContagens,
@@ -237,19 +236,6 @@ describe('fase 2', () => {
  * de "não há nada" tem de ter um teste que prove que ela não aparece num caso real — e aqui há
  * duas, o separador que não aparece e o "ainda não se defrontaram".
  */
-describe('fase 3: a previsão', () => {
-	it('aparece com três números que somam 100, e não aparece sem eles', () => {
-		const p = prejogo(equipa('A', { jogos: 3 }), equipa('B', { jogos: 3 }));
-		expect(previsaoDoJogo({ ...p, probabilidade: { casa: 61, empate: 5, fora: 34 } })).toEqual({ casa: 61, empate: 5, fora: 34 });
-		// uma equipa ainda não tinha jogado
-		expect(previsaoDoJogo({ ...p, probabilidade: null })).toBeNull();
-		// um ficheiro de antes da fase 3
-		expect(previsaoDoJogo(p)).toBeNull();
-		// e uma conta que não fecha não se mostra
-		expect(previsaoDoJogo({ ...p, probabilidade: { casa: 61, empate: 5, fora: 33 } })).toBeNull();
-	});
-});
-
 describe('os prejogo publicados', () => {
 	const raiz = new URL('../../static/v1/aplisboa/', import.meta.url);
 	const temporadas = existsSync(raiz) ? readdirSync(raiz).sort().reverse() : [];
@@ -321,17 +307,6 @@ describe('os prejogo publicados', () => {
 					expect(l.reduce((s, x) => s + parseInt(x[lado].texto), 0), `jogo ${p.id} ${lado} ${qual}`).toBe(100);
 				}
 			}
-	});
-
-	/** Medido a 07/11/2026: os 257 por disputar têm previsão — as duas equipas já jogaram. */
-	it('a previsão está em quase todos os jogos por disputar', () => {
-		const agenda = pasta ? new URL('../agenda.json', pasta) : null;
-		const jogos: { id: number; gc: number | null }[] =
-			agenda && existsSync(agenda) ? JSON.parse(readFileSync(agenda, 'utf-8')).jogos : [];
-		const porDisputar = new Set(jogos.filter((j) => j.gc === null).map((j) => j.id));
-		const deles = todos.filter((p) => porDisputar.has(p.id));
-		if (!deles.length || !deles.some((p) => 'probabilidade' in p)) return;
-		expect(deles.filter((p) => previsaoDoJogo(p)).length / deles.length).toBeGreaterThan(0.9);
 	});
 
 	it('os lugares nunca passam do número de equipas da série', () => {

@@ -1215,35 +1215,6 @@ def comando_prejogo(args) -> int:
     return 0
 
 
-def comando_probabilidade(args) -> int:
-    """O que vale a previsão nos jogos já disputados — **para afinar o modelo**, sem pedidos.
-
-    O dono, a 07/11/2026: *"podes ir afinando o algoritmo para melhorar o número"*. Afinar é
-    mudar uma constante de `probabilidade.py`, correr isto antes e depois, e ficar com a
-    mudança só se o log loss descer **e** a calibração não se estragar. O `test_probabilidade.py`
-    falha se a calibração passar dos limites.
-    """
-    from . import probabilidade
-    destino = pathlib.Path(args.destino)
-    agenda = json.loads((destino / "agenda.json").read_text(encoding="utf-8"))["jogos"]
-    fichas = {}
-    for f in (destino / "match").glob("*.json"):
-        try:
-            d = json.loads(f.read_text(encoding="utf-8"))
-        except json.JSONDecodeError:
-            continue
-        fichas[d.get("id") or int(f.stem)] = d
-    secretaria = probabilidade.administrativos(fichas)
-    m = probabilidade.medir([j for j in agenda if j.get("cat") not in prejogo.FORA], secretaria)
-    print(f"{len(secretaria)} resultados da secretaria postos de parte")
-    print(f"{m['jogos']} jogos com previsão · o mais provável aconteceu em {m['acerto']:.0%} · "
-          f"log loss {m['logloss']:.3f}")
-    print("favorito    jogos   dito   aconteceu")
-    for caixa, c in m["calibracao"].items():
-        print(f"{caixa:>3}–{caixa + 10:<3}%   {c['jogos']:>5}   {c['dito']:>4.0%}   {c['aconteceu']:>8.0%}")
-    return 0
-
-
 def main(argv=None) -> int:
     # num parser-pai partilhado, para que --tenant funcione antes OU depois do subcomando
     comum = argparse.ArgumentParser(add_help=False)
@@ -1312,11 +1283,6 @@ def main(argv=None) -> int:
                        help="escrever só o prejogo/ a partir do que está em disco, sem pedir nada à fonte")
     a.add_argument("--destino", required=True)
     a.set_defaults(func=comando_prejogo)
-
-    a = sub.add_parser("probabilidade", parents=[comum],
-                       help="medir a previsão do separador Antes do jogo nos jogos já disputados, sem pedir nada à fonte")
-    a.add_argument("--destino", required=True)
-    a.set_defaults(func=comando_probabilidade)
 
     d = sub.add_parser("despejar", parents=[comum], help="escrever todas as competições em JSON")
     d.add_argument("--destino", required=True)
