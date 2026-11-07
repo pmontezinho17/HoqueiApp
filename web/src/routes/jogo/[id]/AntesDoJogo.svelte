@@ -23,7 +23,12 @@
 	} from '$lib/antesDoJogo';
 	import type { Prejogo } from '$lib/tipos';
 
-	let { p, emblemas, comp }: { p: Prejogo; emblemas: Record<string, string>; comp: number | null } = $props();
+	let {
+		p,
+		emblemas,
+		comp,
+		depoisDoApito = false
+	}: { p: Prejogo; emblemas: Record<string, string>; comp: number | null; depoisDoApito?: boolean } = $props();
 
 	const NOME: Record<Resultado, string> = { V: 'vitória', E: 'empate', D: 'derrota' };
 
@@ -68,6 +73,10 @@
 		</span>
 	</li>
 {/snippet}
+
+{#if depoisDoApito}
+	<p class="aviso">Como estavam as duas equipas quando este jogo começou: nada do que se jogou depois entra nestes números.</p>
+{/if}
 
 <section>
 	<h2>Forma recente</h2>
@@ -214,6 +223,11 @@
 		background: var(--cartao);
 	}
 	section:first-of-type { margin-top: var(--e-4); }
+	.aviso {
+		margin: var(--e-4) 0 0;
+		font-size: var(--t-pequeno);
+		color: var(--texto-2);
+	}
 	h2 {
 		margin: 0 0 var(--e-2);
 		padding-bottom: var(--e-3);
@@ -250,14 +264,17 @@
 	 * equipa da coluna — verde, cinzento, vermelho —, e o jogo tal como foi jogado, com a casa à
 	 * esquerda. A letra V/E/D saiu: o resultado está escrito, e quem não vê cores lê o número.
 	 */
+	/* mais baixo do que o emblema, a pedido do dono a 07/11/2026: com 28px o resultado pesava
+	   mais do que as equipas, e o que se lê primeiro é quem jogou */
 	.r {
 		display: inline-grid;
 		place-items: center;
-		min-width: 3.4rem;
-		height: 28px;
-		padding: 0 var(--e-2);
-		border-radius: 6px;
-		font-size: var(--t-base);
+		min-width: 2.5rem;
+		height: 18px;
+		padding: 0 var(--e-1);
+		border-radius: 4px;
+		font-size: var(--t-pequeno);
+		line-height: 1;
 		font-weight: 700;
 		font-variant-numeric: tabular-nums;
 		/* a cor do cartão e não branco: no tema escuro as cores de ganhar e perder são claras,

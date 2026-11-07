@@ -48,8 +48,36 @@ def pre():
     return calcular(AGENDA, FICHAS)
 
 
-def test_so_os_jogos_por_disputar_e_sem_torneios(pre):
-    assert list(pre) == [9]
+def test_os_jogos_oficiais_e_sem_torneios(pre):
+    """Os disputados também, menos o primeiro: no 1 nenhuma das duas equipas tinha jogado."""
+    assert sorted(pre) == [2, 3, 4, 9]
+
+
+def test_um_jogo_disputado_so_conta_os_anteriores(pre):
+    """Decisão do dono a 07/11/2026: depois do jogo, os números de antes dele."""
+    p = pre[3]                                      # A–C a 15/10: antes, o 1 e o 2
+    assert p["casa"]["epoca"]["jogos"] == 2 and p["fora"]["epoca"]["jogos"] == 1
+    assert [x["id"] for x in p["casa"]["ultimos"]] == [2, 1]
+    # o confronto directo não inclui o próprio jogo
+    assert [x["id"] for x in p["confrontos"]] == [2]
+    # a série tinha três equipas com jogos, mas o C só um
+    assert p["na_serie"] == 3
+    # e nada do que veio depois: o 4 e o 3 não estão nos números
+    assert pre[2]["fora"]["epoca"]["jogos"] == 1 and pre[2]["casa"]["epoca"]["jogos"] == 0
+
+
+def test_um_jogo_disputado_nao_muda_com_os_resultados_seguintes():
+    antes = calcular(AGENDA, FICHAS)[3]
+    depois = calcular(AGENDA + [_jogo(10, "2026-10-29", "A", "C", 9, 0)], FICHAS)[3]
+    assert antes == depois
+
+
+def test_o_mesmo_dia_conta_pela_hora():
+    agenda = [{**_jogo(1, "2026-10-01", "A", "B", 1, 0), "hora": "10:00"},
+              {**_jogo(2, "2026-10-01", "A", "C", 2, 0), "hora": "16:00"}]
+    pre = calcular(agenda, {})
+    assert [x["id"] for x in pre[2]["casa"]["ultimos"]] == [1]
+    assert 1 not in pre
 
 
 def test_forma_do_mais_recente_para_o_mais_antigo(pre):
@@ -111,14 +139,19 @@ def test_equipa_sem_jogos():
     assert pre[5]["na_serie"] == 0
 
 
-def test_escrever_so_o_que_muda_e_apaga_os_disputados(tmp_path):
+def test_escrever_so_o_que_muda_e_apaga_o_que_sai(tmp_path):
     (tmp_path / "match").mkdir()
     (tmp_path / "agenda.json").write_text(json.dumps({"jogos": AGENDA}))
-    assert escrever(tmp_path) == (1, 0)
+    assert escrever(tmp_path) == (4, 0)
     assert json.loads((tmp_path / "prejogo" / "9.json").read_text())["id"] == 9
     assert escrever(tmp_path) == (0, 0)
+    # depois de disputado fica, e igual: os números já eram os de antes dele
     disputado = [dict(j, gc=1, gf=0) if j["id"] == 9 else j for j in AGENDA]
     (tmp_path / "agenda.json").write_text(json.dumps({"jogos": disputado}))
+    assert escrever(tmp_path) == (0, 0)
+    assert (tmp_path / "prejogo" / "9.json").exists()
+    # um jogo que sai da agenda leva o ficheiro com ele
+    (tmp_path / "agenda.json").write_text(json.dumps({"jogos": [j for j in disputado if j["id"] != 9]}))
     assert escrever(tmp_path) == (0, 1)
     assert not (tmp_path / "prejogo" / "9.json").exists()
 
@@ -145,6 +178,9 @@ def test_a_epoca_bate_com_o_motor_das_tabelas(publicado):
     à parte e verificada contra 30 tabelas.
     """
     agenda, _, pre = publicado
+    # só os por disputar: os dos disputados têm a época de antes deles, e não a da tabela
+    por_disputar = {j["id"] for j in agenda if j["gc"] is None}
+    pre = {i: p for i, p in pre.items() if i in por_disputar}
     provas_de = {}
     for j in agenda:
         if j["gc"] is not None:
@@ -173,7 +209,21 @@ def test_a_epoca_bate_com_o_motor_das_tabelas(publicado):
 def test_todos_os_jogos_por_disputar_oficiais_tem_prejogo(publicado):
     agenda, _, pre = publicado
     por_disputar = {j["id"] for j in agenda if j["gc"] is None and j["cat"] != "TORNEIOS PARTICULARES"}
-    assert por_disputar and set(pre) == por_disputar
+    assert por_disputar and por_disputar <= set(pre)
+
+
+def test_os_disputados_tem_prejogo_a_data(publicado):
+    """Medido a 07/11/2026: dos jogos oficiais disputados, só não têm os primeiros de cada
+    equipa — aqueles em que nenhuma das duas tinha jogado antes."""
+    agenda, _, pre = publicado
+    disputados = [j for j in agenda if j["gc"] is not None and j["cat"] != "TORNEIOS PARTICULARES"]
+    com = [j for j in disputados if j["id"] in pre]
+    assert len(com) / len(disputados) > 0.7
+    for j in com:
+        p = pre[j["id"]]
+        # nada do que se jogou nesse dia depois dele, nem nos dias seguintes
+        for lado in ("casa", "fora"):
+            assert all(x["data"] <= j["data"] and x["id"] != j["id"] for x in p[lado]["ultimos"]), j["id"]
 
 
 def test_as_sequencias_da_ficha_tem_cobertura(publicado):

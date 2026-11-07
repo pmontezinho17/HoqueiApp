@@ -264,10 +264,19 @@ describe('os prejogo publicados', () => {
 		expect(com / todos.length).toBeGreaterThan(0.9);
 	});
 
+	/**
+	 * Só nos por disputar. Desde 07/11/2026 há também os disputados, com o confronto directo de
+	 * antes deles — e esse é quase sempre vazio, porque na maior parte das séries as equipas só
+	 * se encontram uma vez por volta.
+	 */
 	it('o "ainda não se defrontaram" não é a regra — medido a 06/11/2026: 232 de 260 já se defrontaram', () => {
-		if (!todos.length) return;
-		const com = todos.filter((p) => p.confrontos.length).length;
-		expect(com / todos.length).toBeGreaterThan(0.5);
+		const agenda = pasta ? new URL('../agenda.json', pasta) : null;
+		const jogos: { id: number; gc: number | null }[] =
+			agenda && existsSync(agenda) ? JSON.parse(readFileSync(agenda, 'utf-8')).jogos : [];
+		const porDisputar = new Set(jogos.filter((j) => j.gc === null).map((j) => j.id));
+		const deles = todos.filter((p) => porDisputar.has(p.id));
+		if (!deles.length) return;
+		expect(deles.filter((p) => p.confrontos.length).length / deles.length).toBeGreaterThan(0.5);
 	});
 
 	it('nenhum texto sai com NaN, undefined ou Infinity', () => {

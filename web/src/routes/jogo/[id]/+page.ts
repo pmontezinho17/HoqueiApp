@@ -61,16 +61,17 @@ export const load: PageLoad = async ({ params, fetch, parent }) => {
 	// Os dois pedidos em paralelo: são dois ficheiros no nosso CDN e esperar por um para pedir
 	// o outro atrasava a página sem motivo.
 	//
-	// **E o que se sabe antes do jogo, enquanto ele estiver por disputar** (#11). Só se pede
-	// sem resultado: o raspador apaga o ficheiro quando o jogo se joga, e pedi-lo depois era
-	// um 404 garantido em cada ficha aberta. Também não derruba a página. A agenda primeiro: a
-	// ficha de convocatória chega antes do apito com as colunas a zero, e um `0` ali não é
-	// resultado nenhum.
-	const porDisputar = naAgenda ? naAgenda.gc === null : ficha.golos_casa === null;
+	// **E o que se sabia antes do jogo** (#11), antes, durante e depois dele. Até 07/11/2026 só
+	// se pedia sem resultado, porque o raspador apagava o ficheiro quando o jogo se jogava; desde
+	// esse dia fica, com os números de antes do jogo, por decisão do dono. Um ficheiro em falta
+	// — um Torneio Particular, ou um jogo em que nenhuma das equipas tinha jogado — não derruba a
+	// página. A agenda primeiro para saber se está por disputar: a ficha de convocatória chega
+	// antes do apito com as colunas a zero, e um `0` ali não é resultado nenhum.
+	const porDisputar = !aoVivo && (naAgenda ? naAgenda.gc === null : ficha.golos_casa === null);
 	const [competicao, merito, prejogo] = await Promise.all([
 		ficha.competicao_id ? carregarCompeticao(ficha.competicao_id, fetch).catch(() => null) : null,
 		ficha.competicao_id ? carregarMerito(ficha.competicao_id, fetch).catch(() => null) : null,
-		porDisputar && !aoVivo ? carregarPrejogo(id, fetch).catch(() => null) : null
+		carregarPrejogo(id, fetch).catch(() => null)
 	]);
-	return { ficha, competicao, merito, prejogo, semFicha };
+	return { ficha, competicao, merito, prejogo, porDisputar, semFicha };
 };
