@@ -342,7 +342,7 @@
    "hora": "19:00:00",
    "casa": "SL BENFICA A",
    "fora": "A STUART HCM",
-   "golos_casa": 6,
+   "golos_casa": 8,
    "golos_fora": 0,
    "recinto": "PAV. MURCHES",
    "ao_vivo": false
@@ -356,8 +356,8 @@
    "hora": "20:00:00",
    "casa": "CD PAÇO ARCOS B",
    "fora": "AE FISICA D B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 10,
+   "golos_fora": 5,
    "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
   },
@@ -472,10 +472,10 @@
      "vitorias": 7,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 40,
+     "golos_marcados": 42,
      "golos_sofridos": 2,
-     "diferenca": 38,
-     "racio": 20.0,
+     "diferenca": 40,
+     "racio": 21.0,
      "pontos": 21
     },
     {
@@ -496,28 +496,28 @@
      "posicao": 3,
      "equipa": "CD PAÇO ARCOS B",
      "logo": "/intranet/logos/7.png",
-     "jogos": 7,
-     "vitorias": 3,
+     "jogos": 8,
+     "vitorias": 4,
      "empates": 0,
      "derrotas": 4,
-     "golos_marcados": 14,
-     "golos_sofridos": 16,
-     "diferenca": -2,
-     "racio": 0.88,
-     "pontos": 9
+     "golos_marcados": 24,
+     "golos_sofridos": 21,
+     "diferenca": 3,
+     "racio": 1.14,
+     "pontos": 12
     },
     {
      "posicao": 4,
      "equipa": "AE FISICA D B",
      "logo": "/intranet/logos/11.png",
-     "jogos": 6,
+     "jogos": 7,
      "vitorias": 3,
      "empates": 0,
-     "derrotas": 3,
-     "golos_marcados": 11,
-     "golos_sofridos": 13,
-     "diferenca": -2,
-     "racio": 0.85,
+     "derrotas": 4,
+     "golos_marcados": 16,
+     "golos_sofridos": 23,
+     "diferenca": -7,
+     "racio": 0.7,
      "pontos": 9
     },
     {
@@ -543,9 +543,9 @@
      "empates": 0,
      "derrotas": 7,
      "golos_marcados": 12,
-     "golos_sofridos": 44,
-     "diferenca": -32,
-     "racio": 0.27,
+     "golos_sofridos": 46,
+     "diferenca": -34,
+     "racio": 0.26,
      "pontos": 3
     }
    ]
