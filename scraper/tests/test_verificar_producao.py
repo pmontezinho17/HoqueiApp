@@ -262,7 +262,7 @@ class TestCadaVerificacaoSozinha:
         ]}).encode()
         equipa = {"equipa": "A", "ultimos": [], "epoca": {}, "lugares": {}, "sequencias": {}}
         bom = json.dumps({"id": 7, "na_serie": 6, "casa": equipa, "fora": equipa,
-                          "confrontos": []}).encode()
+                          "confrontos": [], "probabilidade": None}).encode()
         pedidos = []
 
         def site(resposta):
@@ -282,6 +282,11 @@ class TestCadaVerificacaoSozinha:
                                      "casa": {k: v for k, v in equipa.items() if k != "sequencias"}}).encode()
         falhas = self._com(vp, monkeypatch, site((200, CACHE_NOSSA, sem_sequencias)))
         assert len(falhas) == 1 and "casa.sequencias" in falhas[0]
+        # um raspador anterior à fase 3 não escreve a probabilidade
+        sem_probabilidade = json.dumps({"id": 7, "na_serie": 6, "casa": equipa, "fora": equipa,
+                                        "confrontos": []}).encode()
+        falhas = self._com(vp, monkeypatch, site((200, CACHE_NOSSA, sem_probabilidade)))
+        assert len(falhas) == 1 and "probabilidade" in falhas[0]
 
     def test_uma_jornada_que_nao_e_texto(self, vp, monkeypatch):
         agenda = json.dumps({"jogos": [{"id": 1, "jornada": 8}]}).encode()
