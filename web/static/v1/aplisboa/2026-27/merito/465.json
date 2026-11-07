@@ -1,33 +1,44 @@
 {
  "competicao_id": 465,
  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
- "jogos_lidos": 24,
- "jogos_sem_boletim": 1,
+ "jogos_lidos": 27,
+ "jogos_sem_boletim": 0,
  "linhas": [
   {
    "posicao": 1,
    "equipa": "AD OEIRAS A",
-   "jogos": 6,
-   "participantes": 60,
-   "bonificacao": 84,
+   "jogos": 7,
+   "participantes": 70,
+   "bonificacao": 98,
    "penalizacao": 0,
-   "pontos": 84,
+   "pontos": 98,
    "media": 14.0,
-   "por_confirmar": 0
+   "por_confirmar": 1
   },
   {
    "posicao": 2,
    "equipa": "CACO A",
-   "jogos": 6,
-   "participantes": 60,
-   "bonificacao": 76,
+   "jogos": 7,
+   "participantes": 70,
+   "bonificacao": 87,
    "penalizacao": 0,
-   "pontos": 76,
-   "media": 12.67,
+   "pontos": 87,
+   "media": 12.43,
    "por_confirmar": 0
   },
   {
    "posicao": 3,
+   "equipa": "HC SINTRA",
+   "jogos": 7,
+   "participantes": 68,
+   "bonificacao": 77,
+   "penalizacao": -1,
+   "pontos": 76,
+   "media": 10.86,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 4,
    "equipa": "SC TORRES",
    "jogos": 7,
    "participantes": 63,
@@ -38,18 +49,18 @@
    "por_confirmar": 0
   },
   {
-   "posicao": 4,
-   "equipa": "HC SINTRA",
+   "posicao": 5,
+   "equipa": "FSE/AJ SALESIANA",
    "jogos": 6,
-   "participantes": 58,
-   "bonificacao": 66,
-   "penalizacao": -1,
-   "pontos": 65,
-   "media": 10.83,
+   "participantes": 56,
+   "bonificacao": 70,
+   "penalizacao": -9,
+   "pontos": 61,
+   "media": 10.17,
    "por_confirmar": 0
   },
   {
-   "posicao": 5,
+   "posicao": 6,
    "equipa": "AE FISICA D A",
    "jogos": 6,
    "participantes": 54,
@@ -60,36 +71,25 @@
    "por_confirmar": 1
   },
   {
-   "posicao": 6,
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 5,
-   "participantes": 46,
-   "bonificacao": 59,
-   "penalizacao": -9,
-   "pontos": 50,
-   "media": 10.0,
-   "por_confirmar": 0
-  },
-  {
    "posicao": 7,
    "equipa": "A STUART HCM",
-   "jogos": 6,
-   "participantes": 49,
-   "bonificacao": 54,
-   "penalizacao": -8,
-   "pontos": 46,
-   "media": 7.67,
+   "jogos": 7,
+   "participantes": 58,
+   "bonificacao": 66,
+   "penalizacao": -9,
+   "pontos": 57,
+   "media": 8.14,
    "por_confirmar": 0
   },
   {
    "posicao": 8,
    "equipa": "CD PAÇO ARCOS A",
-   "jogos": 6,
-   "participantes": 48,
-   "bonificacao": 51,
-   "penalizacao": -17,
-   "pontos": 34,
-   "media": 5.67,
+   "jogos": 7,
+   "participantes": 55,
+   "bonificacao": 61,
+   "penalizacao": -20,
+   "pontos": 41,
+   "media": 5.86,
    "por_confirmar": 0
   }
  ]

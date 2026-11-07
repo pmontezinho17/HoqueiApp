@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { nomeProprio } from '$lib/formato';
 	import Bola from './Bola.svelte';
+	import { nomeDaParte, temposDaCronologia } from './cronologia';
 	import type { EventoJogo } from './tipos';
 
 	let {
@@ -16,6 +17,9 @@
 	 * Os antigos vão descendo.
 	 */
 	const porOrdemInversa = $derived([...eventos].reverse());
+
+	/** O relógio da parte, decrescente, como na ficha da APL — ver `cronologia.ts`. */
+	const tempos = $derived(temposDaCronologia(eventos));
 
 	// marcações de estrutura: ocupam a largura toda e não pertencem a nenhum lado
 	const ESTRUTURA = new Set(['inicio_parte', 'fim_parte', 'fim_jogo', 'por_iniciar']);
@@ -80,7 +84,7 @@
 			{@const p = placarDaParte.get(e.ordem)}
 			<li class="marca">
 				<span
-					>{e.parte}ª parte{#if p}<b title={`Começou ${p[0]}–${p[1]}`}>{p[0]}–{p[1]}</b
+					>{nomeDaParte(e)}{#if p}<b title={`Começou ${p[0]}–${p[1]}`}>{p[0]}–{p[1]}</b
 						>{/if}</span
 				>
 			</li>
@@ -103,7 +107,7 @@
 				</div>
 
 				<div class="centro">
-					<span class="minuto">{e.minuto !== null ? `${e.minuto}'` : ''}</span>
+					<span class="minuto">{tempos.get(e.ordem)?.relogio ?? ''}</span>
 					{#if e.tipo === 'golo' && e.golos_casa !== null}
 						<span class="placar"><Bola tamanho={11} />{e.golos_casa}–{e.golos_fora}</span>
 					{:else}

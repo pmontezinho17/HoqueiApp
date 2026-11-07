@@ -394,8 +394,8 @@
    "hora": "14:45:00",
    "casa": "A STUART HCM",
    "fora": "FSE/AJ SALESIANA",
-   "golos_casa": 0,
-   "golos_fora": 0,
+   "golos_casa": 9,
+   "golos_fora": 5,
    "recinto": "PAV.PROF.JOÃO CAMPELO",
    "ao_vivo": false
   },
@@ -408,8 +408,8 @@
    "hora": "18:30:00",
    "casa": "CACO A",
    "fora": "AD OEIRAS A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 2,
+   "golos_fora": 23,
    "recinto": "PAV.C.A.C.OURIQUE",
    "ao_vivo": false
   },
@@ -436,8 +436,8 @@
    "hora": "15:00:00",
    "casa": "CD PAÇO ARCOS A",
    "fora": "HC SINTRA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 7,
+   "golos_fora": 6,
    "recinto": "PAV. HC SINTRA",
    "ao_vivo": false
   },
