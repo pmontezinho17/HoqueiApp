@@ -105,11 +105,6 @@
 		<rect x="4" y="3.6" width="12" height="13.8" rx="2" />
 		<path d="M7.6 3.6V2.6h4.8v1" />
 		<path d="M7 8.4h6M7 11.4h6M7 14.4h3.4" />
-	{:else if nome === 'pista'}
-		<!-- a pista vista de cima, com a linha do meio e o círculo central: quem está em pista -->
-		<rect x="2.6" y="4.6" width="14.8" height="10.8" rx="3.4" />
-		<path d="M10 4.6v10.8" />
-		<circle cx="10" cy="10" r="2" />
 	{:else if nome === 'tabela'}
 		<!-- pódio: o 1º ao meio, como em qualquer classificação. A lista numerada que estava
 		     aqui punha o 2 e o 3 em cima um do outro a 22px. -->

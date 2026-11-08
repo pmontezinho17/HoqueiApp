@@ -1,7 +1,9 @@
-"""Quem esteve em pista em cada período, nos Escolares e Benjamins — o separador "Em pista".
+"""Quem esteve em pista em cada período, nos Escolares e Benjamins — a grelha da
+tabela do separador Equipas.
 
 Pedido do dono a 07/11/2026, numa sugestão pela app: as fichas destes escalões mostram os
-atletas por períodos, e ele quis vê-los na ficha do jogo. A grelha é a mesma que o Mérito já lê
+atletas por períodos, e ele quis vê-los na ficha do jogo. Foi um separador próprio, o "Em pista", e no dia seguinte
+passou para dentro das Equipas, a pedido dele: separadores a mais. A grelha é a mesma que o Mérito já lê
 (`parsers/participacao.py`), do mesmo HTML: **zero pedidos novos** para os jogos que se lêem a
 partir de agora. A decisão de a publicar é dele, no mesmo dia — os nomes dos atletas já estão
 nas fichas e nos marcadores.

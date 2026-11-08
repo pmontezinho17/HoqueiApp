@@ -13,7 +13,6 @@
 	import InfoJogo from './InfoJogo.svelte';
 	import MeritoDoJogo from './MeritoDoJogo.svelte';
 	import AntesDoJogo from './AntesDoJogo.svelte';
-	import EmPista from './EmPista.svelte';
 	import { emPistaDoJogo } from '$lib/emPista';
 	import { temAntesDoJogo } from '$lib/antesDoJogo';
 	import { temposDaCronologia } from '$lib/cronologia';
@@ -115,9 +114,9 @@
 	 */
 	const prejogo = $derived(temAntesDoJogo(data.prejogo) ? data.prejogo : null);
 	/**
-	 * Quem esteve em pista em cada período, nos Escolares e Benjamins (07/11/2026). Faz destes
-	 * jogos os únicos com sete separadores — 53px cada a 375, em vez de 62 —, e o dono escolheu-o
-	 * assim, num separador próprio, em vez de o pôr dentro do Mérito.
+	 * Quem esteve em pista em cada período, nos Escolares e Benjamins. Foi um separador próprio a
+	 * 07/11/2026 e passou para dentro das Equipas no dia seguinte, por escolha do dono —
+	 * *"temos separadores a mais"*: eram sete nestes jogos, 53px cada a 375.
 	 */
 	const pista = $derived(emPistaDoJogo(f));
 	const depoisDoApito = $derived(aDecorrer || !data.porDisputar);
@@ -129,7 +128,7 @@
 	 */
 	const directo = $derived(directoDe(f.id));
 
-	type Tab = 'directo' | 'antes' | 'eventos' | 'merito' | 'pista' | 'tabela' | 'equipas' | 'info';
+	type Tab = 'directo' | 'antes' | 'eventos' | 'merito' | 'tabela' | 'equipas' | 'info';
 	let tab = $state<string>('eventos');
 	/** os separadores que existem neste jogo, pela ordem em que aparecem na barra */
 	const abas = $derived(
@@ -144,8 +143,6 @@
 				['antes', !!prejogo && depoisDoApito],
 				// ao lado da classificação, e antes dela: é deste jogo, e a tabela é da série
 				['merito', !!contas],
-				// quem jogou cada período, a seguir ao Mérito que se faz com isso (07/11/2026)
-				['pista', !!pista],
 				['tabela', temTabela],
 				['equipas', temEquipas],
 				['info', temInfo]
@@ -156,15 +153,13 @@
 	);
 	/**
 	 * O que cada separador mostra na barra: o `curto` por baixo do ícone, o `rotulo` para quem
-	 * ouve por voz. Curtos porque aqui podem ser sete — a 375px são 53px cada nos Escolares e
-	 * Benjamins, que têm também o "Em pista".
+	 * ouve por voz. Curtos porque aqui podem ser seis — a 375px são 62px cada.
 	 */
 	const NA_BARRA: Record<Tab, { rotulo: string; curto?: string; icone: string; classe?: string }> = {
 		directo: { rotulo: 'Ver em directo', curto: 'Directo', icone: 'directo', classe: 'aoVivo' },
 		antes: { rotulo: 'Pré-jogo', icone: 'antes' },
 		eventos: { rotulo: 'Eventos do jogo', curto: 'Eventos', icone: 'eventos' },
 		merito: { rotulo: 'Mérito deste jogo', curto: 'Mérito', icone: 'merito' },
-		pista: { rotulo: 'Em pista', icone: 'pista' },
 		tabela: { rotulo: 'Classificação', icone: 'tabela' },
 		// num jogo por começar isto é a convocatória, não a ficha
 		equipas: { rotulo: 'Equipas', icone: 'equipas' },
@@ -508,8 +503,6 @@
 			{:else if aba === 'eventos'}
 				<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
 					omitidos={f.individuais_omitidos ?? false} />
-			{:else if aba === 'pista'}
-				{#if pista}<EmPista equipas={pista} />{/if}
 			{:else if aba === 'merito'}
 				{#if contas}
 					<MeritoDoJogo casa={contas.casa} fora={contas.fora} emblemas={data.emblemas} />
@@ -543,7 +536,7 @@
 						pela associação, e pode mudar até ao apito inicial.
 					</p>
 				{/if}
-				<FichaEquipas equipas={f.equipas} {porComecar} />
+				<FichaEquipas equipas={f.equipas} {porComecar} {pista} />
 			{:else if aba === 'info'}
 				<InfoJogo {f} {morada} {linkMapa} />
 			{/if}

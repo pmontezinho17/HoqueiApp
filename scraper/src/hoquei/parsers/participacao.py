@@ -1,6 +1,6 @@
 """Quem jogou que período, lido do boletim oficial (`#acta`).
 
-**Publicado desde 07/11/2026, no separador "Em pista"** — decisão do dono nesse dia: *"isto não é
+**Publicado desde 07/11/2026, na tabela do separador Equipas** — decisão do dono nesse dia: *"isto não é
 assunto. Já estamos a colocar os nomes de todos os atletas noutros menus, e portanto este não
 será um novo problema"*. Até aí esta grelha não saía daqui (o parágrafo "Nada do que sai daqui"
 abaixo é desse tempo, e vale ainda para o `merito.py`, que continua a publicar só o agregado da

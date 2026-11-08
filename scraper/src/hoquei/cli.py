@@ -259,7 +259,7 @@ def _merito_por_rever(caminho: pathlib.Path, hoje: date) -> bool:
 
 
 def _em_pista_por_preencher(caminho: pathlib.Path, hoje: date) -> bool:
-    """Uma ficha com Mérito sem a grelha do "Em pista", que **nenhuma releitura vai ler**.
+    """Uma ficha com Mérito sem a grelha dos períodos (`em_pista`), que **nenhuma releitura vai ler**.
 
     O separador nasceu a 07/11/2026, e as fichas lidas antes guardavam só o Mérito da equipa.
     Das 109 com Mérito nesse dia, a releitura semanal (`_merito_por_rever`) ainda ia passar por
@@ -656,7 +656,7 @@ def comando_aovivo(args) -> int:
             # a ronda completa revisita uma vez, já com o jogo fechado, e acerta.
             if "merito" in antigo:
                 dados["merito"] = antigo["merito"]
-            # a grelha do "Em pista" vem do mesmo boletim, e pela mesma razão não se lê aqui
+            # a grelha dos períodos vem do mesmo boletim, e pela mesma razão não se lê aqui
             if "em_pista" in antigo:
                 dados["em_pista"] = antigo["em_pista"]
             novo = json.dumps(dados, ensure_ascii=False, indent=1)
@@ -1065,7 +1065,7 @@ def comando_publicar(args) -> int:
                         # uma ficha relida por outra razão (um resultado corrigido) não volta
                         # a contar como por reler
                         dados["merito_revisto"] = antigo["merito_revisto"]
-                    # o separador "Em pista": a grelha atleta a atleta, do mesmo HTML. Um boletim
+                    # a grelha dos períodos, na tabela das Equipas: atleta a atleta, do mesmo HTML. Um boletim
                     # que desaparece numa releitura não apaga a que já estava — a mesma razão
                     # do `_merito_a_guardar`
                     pista = em_pista(pagina, dados)

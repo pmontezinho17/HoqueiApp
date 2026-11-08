@@ -290,7 +290,7 @@ def _ficha_mal_formada(ficha: dict) -> str | None:
 
 
 def _em_pista_mal_formado(em_pista) -> str | None:
-    """O `em_pista` (07/11/2026) é o que o separador "Em pista" desenha: duas equipas, e em cada
+    """O `em_pista` (07/11/2026) é o que a tabela das Equipas desenha: duas equipas, e em cada
     atleta quatro marcas em texto. Opcional — as fichas antigas enchem-se aos poucos —, mas
     quando existe tem de ter esta forma, senão o separador parte-se num `.map`."""
     if em_pista is None:

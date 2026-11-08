@@ -160,9 +160,9 @@ export const NOVIDADES: Novidade[] = [
 		pontos: [
 			{
 				tipo: 'novo',
-				titulo: '🏒 Em pista',
+				titulo: '🏒 Quem jogou cada período',
 				texto:
-					'Nos jogos de Escolares e Benjamins há um separador novo: quem jogou cada período, atleta a atleta, como na ficha oficial, e quantos golos marcou em cada um. Quem entrou a meio de um período (o J da ficha) aparece a amarelo, como no Mérito. Foi uma sugestão vossa — obrigado!'
+					'Nos jogos de Escolares e Benjamins, o separador Equipas mostra agora quem jogou cada período, atleta a atleta, como na ficha oficial, e quantos golos marcou em cada um. Quem entrou a meio de um período (o J da ficha) aparece a amarelo, como no Mérito. Golos e assistências ficam juntos, e a tabela cabe no ecrã sem andar para o lado. Foi uma sugestão vossa — obrigado!'
 			}
 		]
 	},
