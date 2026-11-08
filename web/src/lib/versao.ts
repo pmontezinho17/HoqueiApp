@@ -42,7 +42,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.12';
+export const VERSAO = '1.11';
 
 /**
  * **O número que se vê sobe uma vez por entrega; o site de testes ganha uma marca por cima.**
@@ -155,21 +155,15 @@ export type Novidade = {
  */
 export const NOVIDADES: Novidade[] = [
 	{
-		versao: '1.12',
-		data: '2026-11-16',
+		versao: '1.11',
+		data: '2026-11-09',
 		pontos: [
 			{
 				tipo: 'novo',
 				titulo: '🏒 Quem jogou cada período',
 				texto:
 					'Nos jogos de Escolares e Benjamins, o separador Equipas mostra agora quem jogou cada período, atleta a atleta, como na ficha oficial, e quantos golos marcou em cada um. Quem entrou a meio de um período (o J da ficha) aparece a amarelo, como no Mérito. Golos e assistências ficam juntos, e a tabela cabe no ecrã sem andar para o lado. Foi uma sugestão vossa — obrigado!'
-			}
-		]
-	},
-	{
-		versao: '1.11',
-		data: '2026-11-09',
-		pontos: [
+			},
 			{
 				tipo: 'novo',
 				titulo: '🗓️ Cada jogo diz a jornada',
