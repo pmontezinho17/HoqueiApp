@@ -160,6 +160,12 @@ export const NOVIDADES: Novidade[] = [
 		pontos: [
 			{
 				tipo: 'novo',
+				titulo: '🏒 Quem jogou cada período',
+				texto:
+					'Nos jogos de Escolares e Benjamins, o separador Equipas mostra agora quem jogou cada período, atleta a atleta, como na ficha oficial, e quantos golos marcou em cada um. Quem entrou a meio de um período (o J da ficha) aparece a amarelo, como no Mérito. Golos e assistências ficam juntos, e a tabela cabe no ecrã sem andar para o lado. Foi uma sugestão vossa — obrigado!'
+			},
+			{
+				tipo: 'novo',
 				titulo: '🗓️ Cada jogo diz a jornada',
 				texto:
 					'Na lista de jogos do dia, nos jogos da tua equipa e no mês do calendário, por baixo da hora de cada jogo aparece a jornada: J5 é a 5.ª jornada. As rondas das Taças e os torneios ficam sem sigla. Foi uma sugestão vossa — obrigado!'

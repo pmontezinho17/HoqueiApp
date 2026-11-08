@@ -16,6 +16,7 @@ import httpx
 
 from .fonte import UA, Fonte
 from .merito import escalonar, merito_do_jogo, vale_merito
+from .em_pista import em_pista
 from . import prejogo
 from .modelos import em_curso, para_dicionario
 from .parsers.calendario import calendario
@@ -255,6 +256,34 @@ def _merito_por_rever(caminho: pathlib.Path, hoje: date) -> bool:
     if not timedelta(days=DIAS_ENTRE_RELEITURAS) <= hoje - dia <= timedelta(days=DIAS_DE_VIGIA):
         return False
     return revisto is None or hoje - revisto >= timedelta(days=DIAS_ENTRE_RELEITURAS)
+
+
+def _em_pista_por_preencher(caminho: pathlib.Path, hoje: date) -> bool:
+    """Uma ficha com Mérito sem a grelha dos períodos (`em_pista`), que **nenhuma releitura vai ler**.
+
+    O separador nasceu a 07/11/2026, e as fichas lidas antes guardavam só o Mérito da equipa.
+    Das 109 com Mérito nesse dia, a releitura semanal (`_merito_por_rever`) ainda ia passar por
+    62, e essas enchem-se sozinhas, sem pedidos a mais. As outras **47** pedem-se uma vez: 26 já
+    tinham saído do mês de vigia, e 21 (de 10 e 11/10) tinham tido a última releitura nesse dia,
+    aos 27 e 28 dias do jogo — a seguinte cairia aos 34, já fora dele. Contei primeiro 26, por
+    tomar como relidas todas as fichas com menos de 30 dias; medido com esta função, são 47, e
+    o dono confirmou-os depois da correcção.
+
+    Depois de lida fica a chave, mesmo a `None`, e não se repete.
+    """
+    try:
+        dados = json.loads(caminho.read_text())
+    except (OSError, ValueError):
+        return False
+    if not dados.get("merito") or "em_pista" in dados:
+        return False
+    try:
+        dia = date.fromisoformat(dados.get("data") or "")
+        revisto = date.fromisoformat(dados["merito_revisto"]) if dados.get("merito_revisto") else None
+    except ValueError:
+        return False
+    proxima = (revisto or dia) + timedelta(days=DIAS_ENTRE_RELEITURAS)
+    return proxima - dia > timedelta(days=DIAS_DE_VIGIA) or hoje - dia > timedelta(days=DIAS_DE_VIGIA)
 
 
 def _pedido_a_reler(reler: str | None, jogo_id: int, com_merito: bool) -> bool:
@@ -627,6 +656,9 @@ def comando_aovivo(args) -> int:
             # a ronda completa revisita uma vez, já com o jogo fechado, e acerta.
             if "merito" in antigo:
                 dados["merito"] = antigo["merito"]
+            # a grelha dos períodos vem do mesmo boletim, e pela mesma razão não se lê aqui
+            if "em_pista" in antigo:
+                dados["em_pista"] = antigo["em_pista"]
             novo = json.dumps(dados, ensure_ascii=False, indent=1)
             if alvo.exists() and alvo.read_text() == novo:
                 # A ficha não mudou, mas a marca da agenda pode estar errada — e era só aqui
@@ -993,6 +1025,7 @@ def comando_publicar(args) -> int:
                     vale_merito(prova.nome) and (_sem_chave(alvo, "merito")
                                                  or _j_por_explicar(alvo))) or (
                     args.rever_boletins and _boletim_por_chegar(alvo, hoje)) or reler_merito or (
+                    vale_merito(prova.nome) and _em_pista_por_preencher(alvo, hoje)) or (
                     _pedido_a_reler(args.reler, jogo.id, vale_merito(prova.nome)))
                 if not falta_campo_novo and _resultado_conhecido(alvo) == (
                         jogo.golos_casa, jogo.golos_fora, "Jogo Terminado"):
@@ -1032,6 +1065,12 @@ def comando_publicar(args) -> int:
                         # uma ficha relida por outra razão (um resultado corrigido) não volta
                         # a contar como por reler
                         dados["merito_revisto"] = antigo["merito_revisto"]
+                    # a grelha dos períodos, na tabela das Equipas: atleta a atleta, do mesmo HTML. Um boletim
+                    # que desaparece numa releitura não apaga a que já estava — a mesma razão
+                    # do `_merito_a_guardar`
+                    pista = em_pista(pagina, dados)
+                    dados["em_pista"] = (antigo["em_pista"] if pista is None and antigo.get("em_pista")
+                                         else pista)
                 # contexto para as migalhas no detalhe de jogo (W7.3): a ficha da fonte
                 # não sabe em que jornada nem em que série o jogo está
                 dados["competicao_id"] = prova.id

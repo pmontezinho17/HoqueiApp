@@ -275,6 +275,14 @@
 		   vermelho de um total negativo fica a 3,5:1 por cima dele. Mais claro destacava mais e
 		   deixava o −1 a 2,6:1. */
 		--j-fundo: #fde68a;
+		/* **O quadrado de quem entrou a meio, na tabela das Equipas, e não o `--j-fundo`.** Sem a
+		   letra `J` (decisão do dono a 08/11/2026) é a cor sozinha que o distingue, e o castanho
+		   do escuro ficava a 1,78:1 do cartão. O `--j-fundo` não pode subir, porque tem texto por
+		   cima (ver acima). Medido a 08/11 no escuro: o `#fcd34d` vivo dava 12:1 contra o cartão
+		   mas **1,33:1 contra o verde** de quem jogou o período inteiro — sem a letra, quem
+		   confunda verde e amarelo deixava de os separar. O `#a16207` fica a 3,5:1 do cartão e a
+		   2,56:1 do verde, e o número a branco a 4,9:1. No claro fica o amarelo de sempre. */
+		--j-quadrado: #fde68a; --j-quadrado-texto: #92400e;
 		/* **Um vermelho próprio para "terminada", e não o `--vivo`.** O `--vivo` quer dizer
 		   "está a acontecer agora" e usá-lo para "já acabou" punha a mesma cor a dizer duas
 		   coisas opostas na mesma aplicação. Este é mais frio e mais escuro, e nunca aparece
@@ -325,6 +333,7 @@
 			--acento: var(--c-escuro, #34d399); --acento-fraco: var(--cf-escuro, #12271f);
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
 			--j-fundo: #544210;
+			--j-quadrado: #a16207; --j-quadrado-texto: #fff;
 			--terminado: #f2b8b5;
 			--directo: #f87171;
 			--estrela: #fbbf24;
@@ -341,6 +350,7 @@
 			--acento: var(--c-escuro, #34d399); --acento-fraco: var(--cf-escuro, #12271f);
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
 			--j-fundo: #544210;
+			--j-quadrado: #a16207; --j-quadrado-texto: #fff;
 			--terminado: #f2b8b5;
 			--directo: #f87171;
 			--estrela: #fbbf24;

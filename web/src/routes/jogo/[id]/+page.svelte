@@ -13,6 +13,7 @@
 	import InfoJogo from './InfoJogo.svelte';
 	import MeritoDoJogo from './MeritoDoJogo.svelte';
 	import AntesDoJogo from './AntesDoJogo.svelte';
+	import { emPistaDoJogo } from '$lib/emPista';
 	import { temAntesDoJogo } from '$lib/antesDoJogo';
 	import { temposDaCronologia } from '$lib/cronologia';
 	import { contasDoJogo } from '$lib/meritoDoJogo';
@@ -112,6 +113,12 @@
 	 * de abrir por omissão — depois do apito o que se quer ver é o jogo.
 	 */
 	const prejogo = $derived(temAntesDoJogo(data.prejogo) ? data.prejogo : null);
+	/**
+	 * Quem esteve em pista em cada período, nos Escolares e Benjamins. Foi um separador próprio a
+	 * 07/11/2026 e passou para dentro das Equipas no dia seguinte, por escolha do dono —
+	 * *"temos separadores a mais"*: eram sete nestes jogos, 53px cada a 375.
+	 */
+	const pista = $derived(emPistaDoJogo(f));
 	const depoisDoApito = $derived(aDecorrer || !data.porDisputar);
 	const temSeparadores = $derived(!!prejogo || temEventos || !!contas || temTabela || temEquipas || temInfo);
 
@@ -529,7 +536,7 @@
 						pela associação, e pode mudar até ao apito inicial.
 					</p>
 				{/if}
-				<FichaEquipas equipas={f.equipas} {porComecar} />
+				<FichaEquipas equipas={f.equipas} {porComecar} {pista} />
 			{:else if aba === 'info'}
 				<InfoJogo {f} {morada} {linkMapa} />
 			{/if}

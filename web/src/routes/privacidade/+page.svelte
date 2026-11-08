@@ -268,6 +268,12 @@
 		associação.
 	</p>
 	<p>
+		Nos Escolares e Benjamins mostramos também, como a ficha oficial do jogo, <strong
+			>em que períodos cada atleta esteve em pista</strong
+		> e quantos golos marcou em cada um. O pedido de remoção, mais abaixo, tira também o nome
+		dessa grelha.
+	</p>
+	<p>
 		Dizemos isto com franqueza: <strong
 			>"já é público" não é o mesmo que "pode ser republicado"</strong
 		>. Juntar estes dados num sítio novo, pesquisável e agregado é um tratamento diferente

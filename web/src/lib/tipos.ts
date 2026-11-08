@@ -73,6 +73,18 @@ export interface Boletim {
 	capitao_fora: string | null;
 }
 
+/** Um atleta na grelha do boletim, como o `em_pista.py` a publica. */
+export interface AtletaEmPista {
+	numero: string | null;
+	nome: string;
+	gr: boolean;
+	/** a letra da mesa em cada um dos quatro períodos: "X" jogou, "J" entrou a meio, "" não */
+	marcas: string[];
+	/** os golos em cada período, da cronologia; `null` num jogo sem as quatro partes de 8:00 */
+	golos: number[] | null;
+}
+export interface EquipaEmPista { equipa: string; atletas: AtletaEmPista[]; }
+
 export interface FichaJogo {
 	id: number;
 	competicao: string | null;
@@ -88,6 +100,8 @@ export interface FichaJogo {
 	boletim?: Boletim | null;
 	/** o Mérito da Formação das duas equipas, só nos Encontros Distritais; `null` sem boletim */
 	merito?: MeritoDaEquipa[] | null;
+	/** quem esteve em pista em cada período, só onde há Mérito (07/11/2026); `null` sem boletim */
+	em_pista?: EquipaEmPista[] | null;
 	/** o que a fonte diz estar a acontecer: "1ª Parte (13:26)", "Intervalo", "Jogo Terminado" */
 	situacao?: string | null;
 	/** só num jogo a decorrer: "2ª Parte" ou "Intervalo", e o relógio quando há */

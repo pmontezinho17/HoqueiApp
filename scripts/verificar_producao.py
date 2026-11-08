@@ -286,6 +286,29 @@ def _ficha_mal_formada(ficha: dict) -> str | None:
         regras = m.get("regras_do_j", [])
         if not (isinstance(regras, list) and all(isinstance(r, str) for r in regras)):
             return f"o regras_do_j de {m.get('equipa')} não é uma lista de regras"
+    return _em_pista_mal_formado(ficha.get("em_pista"))
+
+
+def _em_pista_mal_formado(em_pista) -> str | None:
+    """O `em_pista` (07/11/2026) é o que a tabela das Equipas desenha: duas equipas, e em cada
+    atleta quatro marcas em texto. Opcional — as fichas antigas enchem-se aos poucos —, mas
+    quando existe tem de ter esta forma, senão o separador parte-se num `.map`."""
+    if em_pista is None:
+        return None
+    if not (isinstance(em_pista, list) and len(em_pista) == 2
+            and all(isinstance(e, dict) and isinstance(e.get("atletas"), list) for e in em_pista)):
+        return "o em_pista não são duas equipas com atletas"
+    for e in em_pista:
+        for a in e["atletas"]:
+            marcas = a.get("marcas") if isinstance(a, dict) else None
+            if not (isinstance(marcas, list) and len(marcas) == 4
+                    and all(isinstance(m, str) for m in marcas)):
+                return f"um atleta de {e.get('equipa')} no em_pista não tem as quatro marcas"
+            golos = a.get("golos")
+            if golos is not None and not (isinstance(golos, list) and len(golos) == 4):
+                return f"um atleta de {e.get('equipa')} no em_pista tem golos sem quatro períodos"
+            if "licenca" in a:
+                return "o em_pista traz a licença de um atleta"
     return None
 
 
