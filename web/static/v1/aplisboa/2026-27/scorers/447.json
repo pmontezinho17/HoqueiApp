@@ -1,6 +1,6 @@
 {
  "competicao_id": 447,
- "jogos_considerados": 21,
+ "jogos_considerados": 22,
  "jogadores": [
   {
    "nome": "ALEXANDRE FARIAS",
@@ -161,7 +161,7 @@
   {
    "nome": "RAFAEL CARAPINHA",
    "equipa": "CRIAR-T GD",
-   "jogos": 7,
+   "jogos": 8,
    "numero": "7",
    "golos": 8,
    "assistencias": 2,
@@ -226,7 +226,7 @@
   {
    "nome": "FÁBIO COSTA",
    "equipa": "CRIAR-T GD",
-   "jogos": 7,
+   "jogos": 8,
    "numero": "3",
    "golos": 4,
    "assistencias": 2,
@@ -252,7 +252,7 @@
   {
    "nome": "TOMÁS ANGELINO",
    "equipa": "CRIAR-T GD",
-   "jogos": 7,
+   "jogos": 8,
    "numero": "8",
    "golos": 3,
    "assistencias": 5,
@@ -315,6 +315,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DIOGO CARPINTEIRO",
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogos": 8,
+   "numero": "21",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MARTIM REIMÃO",
    "equipa": "AE FISICA D B",
    "jogos": 5,
@@ -330,7 +343,7 @@
   {
    "nome": "MARTIM CORREIA",
    "equipa": "UD VILAFRANQUENSE B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "33",
    "golos": 2,
    "assistencias": 2,
@@ -349,19 +362,6 @@
    "assistencias": 1,
    "defesas": 0,
    "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DIOGO CARPINTEIRO",
-   "equipa": "UD VILAFRANQUENSE B",
-   "jogos": 7,
-   "numero": "21",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -408,7 +408,7 @@
   {
    "nome": "FRANCISCO BATISTA",
    "equipa": "UD VILAFRANQUENSE B",
-   "jogos": 7,
+   "jogos": 8,
    "numero": "43",
    "golos": 1,
    "assistencias": 1,
@@ -421,7 +421,7 @@
   {
    "nome": "GUSTAVO VENTURA",
    "equipa": "UD VILAFRANQUENSE B",
-   "jogos": 7,
+   "jogos": 8,
    "numero": "19",
    "golos": 1,
    "assistencias": 1,
@@ -460,7 +460,7 @@
   {
    "nome": "FRANCISCO SOUSA",
    "equipa": "UD VILAFRANQUENSE B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "9",
    "golos": 1,
    "assistencias": 0,
@@ -473,21 +473,8 @@
   {
    "nome": "ENZO XAVIER",
    "equipa": "UD VILAFRANQUENSE B",
-   "jogos": 5,
-   "numero": "5",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LOURENÇO MACHADO",
-   "equipa": "UD VILAFRANQUENSE B",
    "jogos": 6,
-   "numero": "14",
+   "numero": "41",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -507,6 +494,19 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LOURENÇO MACHADO",
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogos": 7,
+   "numero": "14",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -575,19 +575,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO ANGELINO",
-   "equipa": "CRIAR-T GD",
-   "jogos": 1,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "XAVIER SILVA",
    "equipa": "AE FISICA D B",
    "jogos": 1,
@@ -616,6 +603,19 @@
   {
    "nome": "JOÃO VIEIRA",
    "equipa": "AE FISICA D B",
+   "jogos": 2,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LOURENÇO ANGELINO",
+   "equipa": "CRIAR-T GD",
    "jogos": 2,
    "numero": "10",
    "golos": 0,
@@ -679,19 +679,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DAVID RAMOS",
-   "equipa": "UD VILAFRANQUENSE B",
-   "jogos": 5,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ALEXANDRE LOURENÇO",
    "equipa": "HC SINTRA",
    "jogos": 6,
@@ -705,10 +692,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO SERRA",
-   "equipa": "CRIAR-T GD",
+   "nome": "DAVID RAMOS",
+   "equipa": "UD VILAFRANQUENSE B",
    "jogos": 6,
-   "numero": "10",
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -718,10 +705,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "HENRIQUE TEIXEIRA",
+   "nome": "FRANCISCO SERRA",
    "equipa": "CRIAR-T GD",
    "jogos": 6,
-   "numero": "9",
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -757,32 +744,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "SEBASTIÃO TEIXEIRA",
-   "equipa": "CRIAR-T GD",
-   "jogos": 6,
-   "numero": "6",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "THAÍS CREMONA",
-   "equipa": "CRIAR-T GD",
-   "jogos": 6,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "ARTUR FARIA",
    "equipa": "HC SINTRA",
    "jogos": 7,
@@ -809,19 +770,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIANA BALÃO",
-   "equipa": "CRIAR-T GD",
-   "jogos": 7,
-   "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GUILHERME NETO",
    "equipa": "AD OEIRAS A",
    "jogos": 7,
@@ -835,42 +783,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "RITA FARIA",
+   "nome": "HENRIQUE TEIXEIRA",
    "equipa": "CRIAR-T GD",
    "jogos": 7,
-   "numero": "1",
+   "numero": "9",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RITA GONÇALVES",
-   "equipa": "UD VILAFRANQUENSE B",
-   "jogos": 7,
-   "numero": "37",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RITA MARCELO",
-   "equipa": "CRIAR-T GD",
-   "jogos": 7,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -878,6 +800,32 @@
    "equipa": "HC SINTRA",
    "jogos": 7,
    "numero": "27",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SEBASTIÃO TEIXEIRA",
+   "equipa": "CRIAR-T GD",
+   "jogos": 7,
+   "numero": "6",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "THAÍS CREMONA",
+   "equipa": "CRIAR-T GD",
+   "jogos": 7,
+   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -896,19 +844,6 @@
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TOMÁS FERNANDES",
-   "equipa": "UD VILAFRANQUENSE B",
-   "jogos": 7,
-   "numero": "20",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -935,6 +870,71 @@
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIANA BALÃO",
+   "equipa": "CRIAR-T GD",
+   "jogos": 8,
+   "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RITA FARIA",
+   "equipa": "CRIAR-T GD",
+   "jogos": 8,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RITA GONÇALVES",
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogos": 8,
+   "numero": "37",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RITA MARCELO",
+   "equipa": "CRIAR-T GD",
+   "jogos": 8,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS FERNANDES",
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogos": 8,
+   "numero": "20",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   }
