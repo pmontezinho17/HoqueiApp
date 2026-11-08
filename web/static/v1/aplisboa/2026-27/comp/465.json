@@ -282,8 +282,8 @@
    "hora": "11:30:00",
    "casa": "AE FISICA D A",
    "fora": "FSE/AJ SALESIANA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 5,
+   "golos_fora": 7,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
   },
