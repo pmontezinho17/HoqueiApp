@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9555@hoquei.pages.dev
-DTSTAMP:20261107T000000Z
-DTSTART:20261107T153000Z
-DTEND:20261107T170000Z
-SUMMARY:🏑 Sub-13 🏑 Caco B vs Parede FC B
-LOCATION:Clube Atlético de Campo de Ourique (CACO)
-DESCRIPTION:Caco B 4–2 Parede FC B\nCAMP. REG. SUB-13 - 1ª FASE · Séri
- e D · SUB-13\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9555\nDado
- s da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9555
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9558@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T143000Z

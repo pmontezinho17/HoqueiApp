@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9748@hoquei.pages.dev
-DTSTAMP:20261107T000000Z
-DTSTART:20261107T161500Z
-DTEND:20261107T174500Z
-SUMMARY:🏑 Sub-17 🏑 Sporting CP B vs UD Vilafranquense
-LOCATION:Pavilhão do Sacavenense ( Hóquei Formação SCP)
-DESCRIPTION:Sporting CP B 10–1 UD Vilafranquense\nCAMP. REG. SUB-17 - 1ª
-  FASE · Série D · SUB-17\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev
- /jogo/9748\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
-URL:https://hoquei.pages.dev/jogo/9748
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9750@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T161500Z
