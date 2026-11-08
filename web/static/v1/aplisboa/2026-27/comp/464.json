@@ -211,8 +211,8 @@
    "hora": "16:00:00",
    "casa": "PAREDE FC B",
    "fora": "CACO B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 7,
+   "golos_fora": 4,
    "recinto": "PAV. PAREDE",
    "ao_vivo": false
   },
