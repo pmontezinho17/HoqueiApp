@@ -341,10 +341,10 @@
      "vitorias": 4,
      "empates": 1,
      "derrotas": 0,
-     "golos_marcados": 45,
+     "golos_marcados": 50,
      "golos_sofridos": 4,
-     "diferenca": 41,
-     "racio": 11.25,
+     "diferenca": 46,
+     "racio": 12.5,
      "pontos": 13
     },
     {
@@ -366,28 +366,28 @@
      "equipa": "HC LOURINHÃ",
      "logo": "/intranet/logos/21.png",
      "jogos": 6,
-     "vitorias": 2,
+     "vitorias": 1,
      "empates": 0,
-     "derrotas": 4,
-     "golos_marcados": 16,
-     "golos_sofridos": 27,
-     "diferenca": -11,
-     "racio": 0.59,
-     "pontos": 6
+     "derrotas": 5,
+     "golos_marcados": 7,
+     "golos_sofridos": 41,
+     "diferenca": -34,
+     "racio": 0.17,
+     "pontos": 3
     },
     {
      "posicao": 5,
      "equipa": "A STUART HCM B",
      "logo": "/intranet/logos/10.png",
      "jogos": 6,
-     "vitorias": 0,
+     "vitorias": 1,
      "empates": 0,
-     "derrotas": 6,
-     "golos_marcados": 2,
-     "golos_sofridos": 66,
-     "diferenca": -64,
-     "racio": 0.03,
-     "pontos": 0
+     "derrotas": 5,
+     "golos_marcados": 11,
+     "golos_sofridos": 57,
+     "diferenca": -46,
+     "racio": 0.19,
+     "pontos": 3
     }
    ]
   }

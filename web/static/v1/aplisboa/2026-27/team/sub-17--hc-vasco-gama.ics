@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9798@hoquei.pages.dev
-DTSTAMP:20261107T000000Z
-DTSTART:20261107T170000Z
-DTEND:20261107T183000Z
-SUMMARY:🏑 Sub-17 🏑 CD Boliqueime vs HC Vasco Gama
-LOCATION:Pavilhao Desportivo Boliqueime
-DESCRIPTION:CD Boliqueime 2–4 HC Vasco Gama\nCAMP. REG. SUB-17 - 1ª FASE
-  · Série F · SUB-17\nPAV. BOLIQUEIME\nhttps://hoquei.pages.dev/jogo/979
- 8\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9798
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9800@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T173000Z

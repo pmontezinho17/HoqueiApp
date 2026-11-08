@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9668@hoquei.pages.dev
-DTSTAMP:20261107T000000Z
-DTSTART:20261107T150000Z
-DTEND:20261107T163000Z
-SUMMARY:🏑 Sub-17 🏑 UF Entroncamento vs HC Turquel
-LOCATION:Pavilhão Albano Mateus
-DESCRIPTION:UF Entroncamento 0–6 HC Turquel\nCAMP. REG. SUB-17 - 1ª FASE
-  · Série A · SUB-17\nPAV. A. MATEUS- ENTRONCAMENTO\nhttps://hoquei.page
- s.dev/jogo/9668\nDados da Associação de Patinagem de Lisboa. Site não o
- ficial.
-URL:https://hoquei.pages.dev/jogo/9668
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9669@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T150000Z
