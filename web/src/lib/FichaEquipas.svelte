@@ -99,7 +99,7 @@
 												{#if k === 2}<span></span>{/if}
 												<span class="q {p.estado}"
 													aria-label={`${k + 1}º período: ${p.estado === 'jogou' ? 'jogou' : p.estado === 'entrou' ? 'entrou a meio' : 'não jogou'}${p.golos ? `, ${p.golos} golo${p.golos > 1 ? 's' : ''}` : ''}`}
-												>{p.golos || (p.estado === 'entrou' ? 'J' : '')}</span>
+												>{p.golos || ''}</span>
 											{/each}
 										</span>
 									{/if}
@@ -139,7 +139,7 @@
 	<!-- sem frases de conclusão por cima das tabelas, a pedido do dono a 08/11/2026: a legenda chega -->
 	<p class="legenda">
 		<span><i class="amostra jogou"></i> jogou o período</span>
-		<span><i class="amostra entrou"></i> entrou a meio (J)</span>
+		<span><i class="amostra entrou"></i> entrou a meio do período</span>
 		<span>o número no quadrado = golos nesse período</span>
 	</p>
 {/if}
@@ -230,12 +230,17 @@
 		align-items: center; justify-content: center; font-size: 0.55rem; font-weight: 800; line-height: 1; }
 	.q.fora { background: var(--borda); opacity: 0.6; }
 	.q.jogou { background: var(--acento); color: var(--cartao); }
-	/* o J inteiro a amarelo, escolha do dono a 08/11/2026: a ficha não diz a que minuto entrou */
-	.q.entrou { background: var(--j-fundo); color: var(--aviso); }
+	/* **Quem entrou a meio é só o amarelo, sem a letra.** O quadrado inteiro, escolha do dono a
+	   08/11/2026: a ficha não diz a que minuto entrou. A letra `J` saiu no mesmo dia, também por
+	   decisão dele, por duas razões medidas: num período com golos o número tomava o lugar dela,
+	   e o mesmo amarelo dizia coisas diferentes conforme houvesse golos; e o `J` é "Jogos" no
+	   cabeçalho de três tabelas da app (classificação, Mérito, equipa). No resto da app o `J` já
+	   era só cor — o total e os pontos do Mérito. */
+	.q.entrou { background: var(--j-quadrado); color: var(--j-quadrado-texto); }
 	.legenda { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: var(--t-micro); color: var(--suave);
 		margin: -0.6rem 0 0; }
 	.legenda span { display: inline-flex; align-items: center; gap: 4px; }
 	.amostra { display: inline-block; width: 12px; height: 12px; border-radius: 3px; }
 	.amostra.jogou { background: var(--acento); }
-	.amostra.entrou { background: var(--j-fundo); }
+	.amostra.entrou { background: var(--j-quadrado); }
 </style>
