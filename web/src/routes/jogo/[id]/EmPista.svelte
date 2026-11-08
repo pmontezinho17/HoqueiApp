@@ -110,9 +110,9 @@
 		gap: 3px; padding: 0 4px; box-sizing: border-box; }
 	.bloco.fora { background: var(--borda); opacity: 0.6; }
 	.bloco.jogou { background: var(--acento); color: var(--cartao); }
-	/* meio bloco: entrou a meio do período, e não se sabe a que minuto — a ficha não o diz */
-	.bloco.entrou { background: linear-gradient(90deg, var(--borda) 0 50%, var(--j-fundo) 50% 100%);
-		color: var(--aviso); justify-content: flex-end; }
+	/* bloco inteiro a amarelo, por escolha do dono a 08/11/2026: o meio bloco da simulação lia-se
+	   como "jogou metade" — e a ficha não diz a que minuto entrou, só que entrou */
+	.bloco.entrou { background: var(--j-fundo); color: var(--aviso); }
 	.j { font-size: 0.58rem; }
 	/* uma bola clara no verde: a bola escura dos eventos quase não se via lá dentro */
 	.bola { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
@@ -125,5 +125,5 @@
 	.legenda span { display: inline-flex; align-items: center; gap: 4px; }
 	.amostra { display: inline-block; width: 18px; height: 9px; border-radius: 3px; }
 	.amostra.jogou { background: var(--acento); }
-	.amostra.entrou { background: linear-gradient(90deg, var(--borda) 0 50%, var(--j-fundo) 50%); }
+	.amostra.entrou { background: var(--j-fundo); }
 </style>
