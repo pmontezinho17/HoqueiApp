@@ -211,8 +211,8 @@
    "hora": "14:45:00",
    "casa": "A STUART HCM A",
    "fora": "CRIAR-T GD",
-   "golos_casa": 0,
-   "golos_fora": 0,
+   "golos_casa": 4,
+   "golos_fora": 1,
    "recinto": "PAV.PROF.JOÃO CAMPELO",
    "ao_vivo": false
   },
@@ -225,8 +225,8 @@
    "hora": "14:30:00",
    "casa": "PAREDE FC A",
    "fora": "HC LOURINHÃ",
-   "golos_casa": 1,
-   "golos_fora": 1,
+   "golos_casa": 2,
+   "golos_fora": 2,
    "recinto": "PAV. PAREDE",
    "ao_vivo": false
   },

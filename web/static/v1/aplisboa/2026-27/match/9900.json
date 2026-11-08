@@ -3,9 +3,9 @@
  "competicao": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE A",
  "casa": "SPORTING CP A",
  "fora": "S ALENQUER BENFICA",
- "golos_casa": 4,
- "golos_fora": 3,
- "estado": null,
+ "golos_casa": 11,
+ "golos_fora": 5,
+ "estado": "Jogo Terminado",
  "data": "2026-11-08",
  "hora": "14:30:00",
  "recinto": "PAV.G.S.SACAVENENSE",
@@ -13,11 +13,11 @@
   "EVA VIEIRA"
  ],
  "faltas": [
-  2,
-  0
+  8,
+  1
  ],
- "situacao": "Intervalo 2º",
- "periodo": "Intervalo 2º",
+ "situacao": "Jogo Terminado",
+ "periodo": null,
  "relogio": null,
  "equipas": [
   {
@@ -69,7 +69,7 @@
      "numero": "4",
      "nome": "GUILHERME SILVA",
      "titular": false,
-     "golos": 1,
+     "golos": 2,
      "assistencias": 1,
      "defesas": 0,
      "penalidades": "0/0",
@@ -83,7 +83,7 @@
      "numero": "5",
      "nome": "FRANCISCO SILVA",
      "titular": true,
-     "golos": 1,
+     "golos": 2,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -111,7 +111,7 @@
      "numero": "7",
      "nome": "MIGUEL DIAS",
      "titular": true,
-     "golos": 0,
+     "golos": 2,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -139,7 +139,7 @@
      "numero": "9",
      "nome": "AFONSO DIAS",
      "titular": false,
-     "golos": 1,
+     "golos": 4,
      "assistencias": 1,
      "defesas": 0,
      "penalidades": "0/0",
@@ -256,7 +256,7 @@
      "numero": "8",
      "nome": "AFONSO SILVA",
      "titular": false,
-     "golos": 2,
+     "golos": 4,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -590,10 +590,405 @@
    "golos_casa": null,
    "golos_fora": null,
    "texto": "Final da 2ª parte"
+  },
+  {
+   "ordem": 13,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 3ª parte"
+  },
+  {
+   "ordem": 14,
+   "tipo": "golo",
+   "relogio": "7:40",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": "SPORTING CP A",
+   "jogador": "FRANCISCO SILVA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 5,
+   "golos_fora": 3,
+   "texto": "Golo para SPORTING CP A | FRANCISCO SILVA"
+  },
+  {
+   "ordem": 15,
+   "tipo": "golo",
+   "relogio": "5:19",
+   "parte": 3,
+   "minuto": 18,
+   "equipa": "SPORTING CP A",
+   "jogador": "MIGUEL DIAS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 6,
+   "golos_fora": 3,
+   "texto": "Golo para SPORTING CP A | MIGUEL DIAS"
+  },
+  {
+   "ordem": 16,
+   "tipo": "golo",
+   "relogio": "2:50",
+   "parte": 3,
+   "minuto": 21,
+   "equipa": "SPORTING CP A",
+   "jogador": "MIGUEL DIAS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 7,
+   "golos_fora": 3,
+   "texto": "Golo para SPORTING CP A | MIGUEL DIAS"
+  },
+  {
+   "ordem": 17,
+   "tipo": "falta_equipa",
+   "relogio": "1:51",
+   "parte": 3,
+   "minuto": 22,
+   "equipa": "SPORTING CP A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 3,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 3 para SPORTING CP A"
+  },
+  {
+   "ordem": 18,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 3,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 3ª parte"
+  },
+  {
+   "ordem": 19,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 4ª parte"
+  },
+  {
+   "ordem": 20,
+   "tipo": "falta_equipa",
+   "relogio": "7:03",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": "SPORTING CP A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 4,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 4 para SPORTING CP A"
+  },
+  {
+   "ordem": 21,
+   "tipo": "falta_equipa",
+   "relogio": "6:49",
+   "parte": 4,
+   "minuto": 25,
+   "equipa": "SPORTING CP A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 5,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 5 para SPORTING CP A"
+  },
+  {
+   "ordem": 22,
+   "tipo": "falta_equipa",
+   "relogio": "6:40",
+   "parte": 4,
+   "minuto": 25,
+   "equipa": "SPORTING CP A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 6,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 6 para SPORTING CP A"
+  },
+  {
+   "ordem": 23,
+   "tipo": "falta_equipa",
+   "relogio": "4:57",
+   "parte": 4,
+   "minuto": 27,
+   "equipa": "SPORTING CP A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 7,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 7 para SPORTING CP A"
+  },
+  {
+   "ordem": 24,
+   "tipo": "golo",
+   "relogio": "4:05",
+   "parte": 4,
+   "minuto": 27,
+   "equipa": "SPORTING CP A",
+   "jogador": "AFONSO DIAS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 8,
+   "golos_fora": 3,
+   "texto": "Golo para SPORTING CP A | AFONSO DIAS"
+  },
+  {
+   "ordem": 25,
+   "tipo": "falta_equipa",
+   "relogio": "2:37",
+   "parte": 4,
+   "minuto": 29,
+   "equipa": "SPORTING CP A",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 8,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 8 para SPORTING CP A"
+  },
+  {
+   "ordem": 26,
+   "tipo": "golo",
+   "relogio": "2:36",
+   "parte": 4,
+   "minuto": 29,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "AFONSO SILVA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 8,
+   "golos_fora": 4,
+   "texto": "Golo para S ALENQUER BENFICA | AFONSO SILVA"
+  },
+  {
+   "ordem": 27,
+   "tipo": "golo",
+   "relogio": "1:56",
+   "parte": 4,
+   "minuto": 30,
+   "equipa": "SPORTING CP A",
+   "jogador": "AFONSO DIAS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 9,
+   "golos_fora": 4,
+   "texto": "Golo para SPORTING CP A | AFONSO DIAS"
+  },
+  {
+   "ordem": 28,
+   "tipo": "golo",
+   "relogio": "0:55",
+   "parte": 4,
+   "minuto": 31,
+   "equipa": "SPORTING CP A",
+   "jogador": "AFONSO DIAS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 10,
+   "golos_fora": 4,
+   "texto": "Golo para SPORTING CP A | AFONSO DIAS"
+  },
+  {
+   "ordem": 29,
+   "tipo": "golo",
+   "relogio": "0:48",
+   "parte": 4,
+   "minuto": 31,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "AFONSO SILVA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 10,
+   "golos_fora": 5,
+   "texto": "Golo para S ALENQUER BENFICA | AFONSO SILVA"
+  },
+  {
+   "ordem": 30,
+   "tipo": "falta_equipa",
+   "relogio": "0:29",
+   "parte": 4,
+   "minuto": 31,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 1,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 1 para S ALENQUER BENFICA"
+  },
+  {
+   "ordem": 31,
+   "tipo": "golo",
+   "relogio": "0:12",
+   "parte": 4,
+   "minuto": 31,
+   "equipa": "SPORTING CP A",
+   "jogador": "GUILHERME SILVA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 11,
+   "golos_fora": 5,
+   "texto": "Golo para SPORTING CP A | GUILHERME SILVA"
+  },
+  {
+   "ordem": 32,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 4,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
- "merito": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "EVA VIEIRA",
+   "Árbitro Auxiliar": "VERA AGOSTINHO",
+   "Cronometrista": "BRUNO SILVA",
+   "Diretor de campo": "MIGUEL SEMEDO",
+   "Gestor de segurança": "DANIEL SANTIAGO"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 4,
+    "fora": 3
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 7,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 11,
+    "fora": 5
+   }
+  ],
+  "faltas_casa": [
+   2,
+   6
+  ],
+  "faltas_fora": [
+   0,
+   1
+  ],
+  "inicio": [
+   "14:30",
+   "14:53"
+  ],
+  "termo": [
+   "14:48",
+   "15:15"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
+ "merito": [
+  {
+   "equipa": "SPORTING CP A",
+   "atletas": 10,
+   "guardas_redes": 2,
+   "participantes": 10,
+   "completa": true,
+   "bonificacao": 14,
+   "penalizacao": 0,
+   "total": 14,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "10 atletas participantes",
+     "pontos": 10
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "3.4",
+     "texto": "equipa completa (2 GR e 8 JC)",
+     "pontos": 1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "S ALENQUER BENFICA",
+   "atletas": 10,
+   "guardas_redes": 2,
+   "participantes": 10,
+   "completa": true,
+   "bonificacao": 11,
+   "penalizacao": 0,
+   "total": 11,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "10 atletas participantes",
+     "pontos": 10
+    },
+    {
+     "regra": "3.4",
+     "texto": "equipa completa (2 GR e 8 JC)",
+     "pontos": 1
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 460,
  "categoria": "ESCOLARES",
  "jornada": "4ª JORNADA",

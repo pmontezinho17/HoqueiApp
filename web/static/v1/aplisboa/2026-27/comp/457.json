@@ -230,8 +230,8 @@
    "hora": "16:00:00",
    "casa": "UD VILAFRANQUENSE",
    "fora": "BIBLIOTECA IR",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 5,
+   "golos_fora": 10,
    "recinto": "PAV. VILAFRANQUENSE",
    "ao_vivo": false
   },
@@ -244,8 +244,8 @@
    "hora": "18:00:00",
    "casa": "S ALENQUER BENFICA",
    "fora": "SL BENFICA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 0,
    "recinto": "PAV.S.ALENQUER E BENFICA",
    "ao_vivo": false
   },
@@ -468,15 +468,15 @@
      "posicao": 1,
      "equipa": "SL BENFICA",
      "logo": "/intranet/logos/1.png",
-     "jogos": 4,
+     "jogos": 5,
      "vitorias": 4,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 0,
      "golos_marcados": 33,
      "golos_sofridos": 5,
      "diferenca": 28,
      "racio": 6.6,
-     "pontos": 12
+     "pontos": 13
     },
     {
      "posicao": 2,
@@ -496,18 +496,32 @@
      "posicao": 3,
      "equipa": "S ALENQUER BENFICA",
      "logo": "/intranet/logos/5.png",
-     "jogos": 4,
+     "jogos": 5,
      "vitorias": 3,
-     "empates": 0,
+     "empates": 1,
      "derrotas": 1,
      "golos_marcados": 16,
      "golos_sofridos": 12,
      "diferenca": 4,
      "racio": 1.33,
-     "pontos": 9
+     "pontos": 10
     },
     {
      "posicao": 4,
+     "equipa": "BIBLIOTECA IR",
+     "logo": "/intranet/logos/22.png",
+     "jogos": 5,
+     "vitorias": 1,
+     "empates": 0,
+     "derrotas": 4,
+     "golos_marcados": 14,
+     "golos_sofridos": 29,
+     "diferenca": -15,
+     "racio": 0.48,
+     "pontos": 3
+    },
+    {
+     "posicao": 5,
      "equipa": "HC LOURINHÃ",
      "logo": "/intranet/logos/21.png",
      "jogos": 5,
@@ -521,32 +535,18 @@
      "pontos": 3
     },
     {
-     "posicao": 5,
+     "posicao": 6,
      "equipa": "UD VILAFRANQUENSE",
      "logo": "/intranet/logos/15.png",
-     "jogos": 4,
+     "jogos": 5,
      "vitorias": 1,
      "empates": 0,
-     "derrotas": 3,
-     "golos_marcados": 8,
-     "golos_sofridos": 29,
-     "diferenca": -21,
-     "racio": 0.28,
-     "pontos": 3
-    },
-    {
-     "posicao": 6,
-     "equipa": "BIBLIOTECA IR",
-     "logo": "/intranet/logos/22.png",
-     "jogos": 4,
-     "vitorias": 0,
-     "empates": 0,
      "derrotas": 4,
-     "golos_marcados": 4,
-     "golos_sofridos": 24,
-     "diferenca": -20,
-     "racio": 0.17,
-     "pontos": 0
+     "golos_marcados": 13,
+     "golos_sofridos": 39,
+     "diferenca": -26,
+     "racio": 0.33,
+     "pontos": 3
     }
    ]
   }

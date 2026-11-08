@@ -211,8 +211,8 @@
    "hora": "15:00:00",
    "casa": "HC SINTRA",
    "fora": "CACO A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 7,
    "recinto": "PAV. HC SINTRA",
    "ao_vivo": false
   },
@@ -225,8 +225,8 @@
    "hora": "14:30:00",
    "casa": "CD PAÇO ARCOS A",
    "fora": "UD VILAFRANQUENSE A",
-   "golos_casa": 2,
-   "golos_fora": 4,
+   "golos_casa": 4,
+   "golos_fora": 8,
    "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
   },
