@@ -213,9 +213,13 @@
 	 * Lia-se bem a história do jogo, mas não se via de quem era cada golo sem ir ler os
 	 * números — e num 21–7 isso é trabalho a mais. Por baixo de cada equipa não há dúvida
 	 * nenhuma. A história completa continua no separador dos eventos.
+	 *
+	 * A parte, o relógio e o nome vêm separados para cada um ter a sua coluna. Centradas
+	 * linha a linha, as três coisas começavam num sítio diferente em cada golo, e o dono
+	 * achou-as difíceis de ler a 09/11/2026 num AD OEIRAS A–FSE/AJ SALESIANA A de sete golos.
 	 */
 	const marcadores = $derived.by(() => {
-		type Marcador = { tempo: string; nome: string };
+		type Marcador = { parte: string; relogio: string; nome: string };
 		const por = { casa: [] as Marcador[], fora: [] as Marcador[] };
 		const cronologia = f.cronologia as EventoJogo[];
 		// o relógio da APL, decrescente dentro da parte (07/11/2026): aqui leva a parte à
@@ -224,11 +228,10 @@
 		for (const e of cronologia) {
 			if (e.tipo !== 'golo') continue;
 			const t = tempos.get(e.ordem);
-			const tempo = t ? `${t.parte} ${t.relogio}`.trim() : '';
-			const nome = e.jogador ? nomeProprio(e.jogador) : '';
-			if (!tempo && !nome) continue;
-			if (e.equipa === f.casa) por.casa.push({ tempo, nome });
-			else if (e.equipa === f.fora) por.fora.push({ tempo, nome });
+			const m = { parte: t?.parte ?? '', relogio: t?.relogio ?? '', nome: e.jogador ? nomeProprio(e.jogador) : '' };
+			if (!m.parte && !m.relogio && !m.nome) continue;
+			if (e.equipa === f.casa) por.casa.push(m);
+			else if (e.equipa === f.fora) por.fora.push(m);
 		}
 		return por;
 	});
@@ -261,6 +264,8 @@
 	let k = $state(0);
 	/** altura natural do que colapsa, medida num invólucro que não é constrangido */
 	let alturaExtras = $state(0);
+	/** a largura do resultado, para os emblemas saberem até onde podem chegar — ver `.placar` */
+	let larguraCentro = $state(0);
 	let cromado = $state<HTMLElement | null>(null);
 	let extras = $state<HTMLElement | null>(null);
 	/**
@@ -344,7 +349,7 @@
 -->
 <div class="reserva" style="height: {alturaExpandida || ''}px">
 <div class="cromado" class:fixo={k === 1} bind:this={cromado}>
-<article class="heroi" style="--k: {k}; --alt: {alturaExtras}px">
+<article class="heroi" style="--k: {k}; --alt: {alturaExtras}px; --centro: {larguraCentro}px">
 	<!--
 	  **Volta para onde a pessoa estava, não para a lista de jogos.**
 
@@ -393,7 +398,7 @@
 			aria-label={f.categoria ? `Ver ${f.casa}` : null}>
 			<Emblema equipa={f.casa} src={data.emblemas[f.casa]} tamanho={44} />
 		</svelte:element>
-		<span class="centro">
+		<span class="centro" bind:clientWidth={larguraCentro}>
 			<span class="numeros" use:piscar={`${f.golos_casa}-${f.golos_fora}`}
 				>{f.golos_casa}<span class="tr">–</span>{f.golos_fora}</span
 			>
@@ -441,8 +446,8 @@
 
 			{#if temMarcadores}
 				<div class="marcadores">
-					<ul>{#each marcadores.casa as m, i (i)}<li>{#if m.tempo}<span class="tempo">{m.tempo}</span>{/if}{m.nome}</li>{/each}</ul>
-					<ul>{#each marcadores.fora as m, i (i)}<li>{#if m.tempo}<span class="tempo">{m.tempo}</span>{/if}{m.nome}</li>{/each}</ul>
+					<ul>{#each marcadores.casa as m, i (i)}<li><span class="parte">{m.parte}</span><span class="relogio">{m.relogio}</span><span class="nome">{m.nome}</span></li>{/each}</ul>
+					<ul>{#each marcadores.fora as m, i (i)}<li><span class="parte">{m.parte}</span><span class="relogio">{m.relogio}</span><span class="nome">{m.nome}</span></li>{/each}</ul>
 				</div>
 			{/if}
 
@@ -596,13 +601,36 @@
 	}
 	.escalaoTopo:hover span, .escalaoTopo:focus-visible span { color: var(--heroi-texto); }
 
+	/*
+	  **Aberto, cada emblema fica a prumo do nome da equipa; fechado, encosta-se ao resultado.**
+
+	  Eram duas regras para a mesma vertical: os emblemas a uma distância fixa do resultado, e
+	  os nomes ao centro de cada metade, em `.nomes`. Só coincidiam por acaso — o dono viu-os
+	  desencontrados a 09/11/2026, e medido a 360px de largura estavam 12px para fora de cada
+	  lado. Agora o placar tem as mesmas duas colunas e o mesmo espaço do `.nomes`, por isso
+	  aberto o centro do emblema é o centro do nome, seja qual for o resultado.
+
+	  O colapso continua a aproximá-los: o `translateX` leva cada emblema do meio da sua coluna
+	  (`--q`, a distância ao centro do placar) até `--e-4` do resultado (`--c`), à medida que o
+	  `--k` vai de 0 a 1. O `max` é o travão de um resultado largo, um 10–10, que de outra forma
+	  pisaria os emblemas: nunca ficam a menos de `--e-3` dele. A largura do resultado é medida
+	  (`--centro`), porque "Final", "Intervalo" e um relógio a correr não têm a mesma.
+	*/
 	.placar {
-		display: flex; align-items: center; justify-content: center;
-		gap: calc(var(--e-4) + (1 - var(--k)) * 2.2rem);
+		container-type: inline-size;
+		display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--e-3);
+		align-items: center;
+		--emb: calc(44px - var(--k) * 20px);
+		--q: calc(25cqw + var(--e-3) / 4);
+		--c: calc(var(--centro) / 2 + var(--emb) / 2);
+		--alvo: max(calc(var(--c) + var(--e-3)), calc(var(--q) - var(--k) * (var(--q) - var(--c) - var(--e-4))));
 	}
+	.placar > .centro { grid-row: 1; grid-column: 1 / -1; justify-self: center; }
 	/* a Emblema fixa width/height em linha; aqui a medida tem de variar com o colapso */
-	.emb { display: inline-flex; flex: 0 0 auto;
-		width: calc(44px - var(--k) * 20px); height: calc(44px - var(--k) * 20px); }
+	.emb { display: inline-flex; grid-row: 1; justify-self: center;
+		width: var(--emb); height: var(--emb); }
+	.emb:first-child { grid-column: 1; transform: translateX(calc(var(--q) - var(--alvo))); }
+	.emb:last-child { grid-column: 2; transform: translateX(calc(var(--alvo) - var(--q))); }
 	.emb :global(img), .emb :global(.iniciais) { width: 100% !important; height: 100% !important; }
 
 	.centro { display: flex; flex-direction: column; align-items: center; gap: 1px; }
@@ -684,15 +712,20 @@
 		display: grid; grid-template-columns: 1fr 1fr; gap: var(--e-3);
 		margin-top: var(--e-3);
 	}
+	/* Três colunas — parte, relógio, nome — e o bloco centrado debaixo da equipa: a parte e o
+	   nome começam sempre no mesmo sítio, e o relógio alinha à direita, pelos segundos. A
+	   `subgrid` é o que dá a cada linha as colunas da lista, e não as suas. */
 	.marcadores ul {
 		list-style: none; margin: 0; padding: 0;
 		font-size: var(--t-pequeno); color: var(--heroi-suave);
-		display: flex; flex-direction: column; gap: 2px;
+		display: grid; grid-template-columns: max-content max-content minmax(0, max-content);
+		column-gap: 0.35em; row-gap: 2px;
+		justify-self: center; max-width: 100%; text-align: left;
 	}
-	.marcadores li {
-		overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-	}
-	.marcadores .tempo { font-variant-numeric: tabular-nums; opacity: 0.8; margin-right: 0.35em; }
+	.marcadores li { display: grid; grid-column: 1 / -1; grid-template-columns: subgrid; }
+	.marcadores .parte, .marcadores .relogio { font-variant-numeric: tabular-nums; opacity: 0.8; }
+	.marcadores .relogio { text-align: right; }
+	.marcadores .nome { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 	/* a ligação para a competição, dentro do herói */
 	.prova {
