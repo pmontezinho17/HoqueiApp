@@ -23,7 +23,7 @@ ponteiro para aqui.
    mas não liberta.
 6. Só depois o resto, e só o que a tarefa pedir.
 
-**O conhecimento deste projecto vive em `docs/`.** São onze documentos numerados e são a
+**O conhecimento deste projecto vive em `docs/`.** São doze documentos numerados e são a
 fonte, sem segunda casa: o vault do andaime foi abandonado a 05/10/2026 precisamente para não
 haver duas. Os comentários do código citam estes documentos por caminho (`docs/04-...`), e é
 assim que se chega ao raciocínio a partir do sítio onde ele importa — quem mover ou renomear
@@ -106,7 +106,7 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
 | `scripts/` | o ciclo ao vivo (`aovivo.sh`) e utilitários |
 | `worker/relogio/` | o Cloudflare Worker que serve de relógio e cão de guarda às Actions |
 | `.github/workflows/` | `ci.yml`, `dados.yml`, `aovivo.yml`, `sonda.yml` |
-| `docs/` | o conhecimento: onze documentos numerados |
+| `docs/` | o conhecimento: doze documentos numerados |
 | `data-samples/` | HTML real da fonte, para os testes correrem sem rede |
 
 ## Rules
