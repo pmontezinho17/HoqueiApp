@@ -613,3 +613,38 @@ def test_a_marca_presa_apaga_se_mesmo_com_a_ficha_igual(tmp_path, monkeypatch):
     j = json.loads(agenda_f.read_text())["jogos"][0]
     assert "ao_vivo" not in j
     assert (j["gc"], j["gf"]) == (6, 1)
+
+
+def _encontros(tmp_path: pathlib.Path) -> None:
+    agenda = json.loads((tmp_path / "agenda.json").read_text())
+    agenda["jogos"][0]["prova"] = "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A"
+    (tmp_path / "agenda.json").write_text(json.dumps(agenda))
+
+
+def test_a_grelha_ao_vivo_vai_ao_registo_nos_encontros(tmp_path, monkeypatch, capsys):
+    """S22, 09/11/2026: a mesma página, zero pedidos a mais, uma linha por jogo e por ronda."""
+    _agenda(tmp_path)
+    _encontros(tmp_path)
+    fx = _ficha(None, "3ª Parte", "4:10", "3ª Parte (4:10)", 2, 1)
+    _correr(tmp_path, fx, monkeypatch)
+    err = capsys.readouterr().err
+    assert f"grelha #{ID} 3ª Parte 4:10 boletim=" in err
+
+
+def test_a_grelha_ao_vivo_fica_de_fora_nos_outros_escaloes(tmp_path, monkeypatch, capsys):
+    _agenda(tmp_path)
+    _correr(tmp_path, _ficha(None, "2ª Parte", "7:42", "2ª Parte (7:42)", 2, 1), monkeypatch)
+    assert "grelha #" not in capsys.readouterr().err
+
+
+def test_a_grelha_ao_vivo_nunca_deita_abaixo_a_ronda(tmp_path, monkeypatch, capsys):
+    _agenda(tmp_path)
+    _encontros(tmp_path)
+
+    def rebenta(_html):
+        raise ValueError("boletim estranho")
+
+    monkeypatch.setattr(cli, "resumo_ao_vivo", rebenta)
+    j = _correr(tmp_path, _ficha(None, "1ª Parte", "6:00", "1ª Parte (6:00)", 0, 0), monkeypatch)
+    assert j["ao_vivo"] is True
+    assert "erro=ValueError" in capsys.readouterr().err
