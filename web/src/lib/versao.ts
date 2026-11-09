@@ -42,7 +42,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.11';
+export const VERSAO = '1.12';
 
 /**
  * **O número que se vê sobe uma vez por entrega; o site de testes ganha uma marca por cima.**
@@ -154,6 +154,18 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.12',
+		data: '2026-11-16',
+		pontos: [
+			{
+				tipo: 'corrigido',
+				titulo: '⚽ Os marcadores lêem-se de relance',
+				texto:
+					'No topo do jogo, a parte, o minuto e o nome de quem marcou estão agora cada um na sua coluna, e já não começam num sítio diferente em cada golo. E cada emblema fica mesmo por cima do nome da sua equipa.'
+			}
+		]
+	},
 	{
 		versao: '1.11',
 		data: '2026-11-09',
