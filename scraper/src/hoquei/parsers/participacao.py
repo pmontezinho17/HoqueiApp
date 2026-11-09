@@ -1,4 +1,10 @@
-"""Quem jogou que período, lido do boletim oficial (`#acta`) — e nunca publicado.
+"""Quem jogou que período, lido do boletim oficial (`#acta`).
+
+**Publicado desde 07/11/2026, na tabela do separador Equipas** — decisão do dono nesse dia: *"isto não é
+assunto. Já estamos a colocar os nomes de todos os atletas noutros menus, e portanto este não
+será um novo problema"*. Até aí esta grelha não saía daqui (o parágrafo "Nada do que sai daqui"
+abaixo é desse tempo, e vale ainda para o `merito.py`, que continua a publicar só o agregado da
+equipa). Quem a publica é o `em_pista.py`, só nas provas com Mérito, e sem a licença.
 
 O que isto resolve, e porque é que não existia antes: o Artigo 92.º do regulamento da APL
 manda pontuar o **Mérito da Formação** dos Escolares e dos Benjamins a partir de coisas que
@@ -69,7 +75,7 @@ _CELULAS_MINIMAS = 19
 
 @dataclass(frozen=True)
 class AtletaBoletim:
-    """Uma linha de atleta do boletim. **Não vai para lado nenhum publicado.**"""
+    """Uma linha de atleta do boletim. Publicada pelo `em_pista.py`, sem a licença."""
     nome: str
     #: "GR" ou "JC"
     posicao: str
@@ -77,6 +83,10 @@ class AtletaBoletim:
     #: as quatro meias partes, por ordem; `True` onde a mesa pôs o `X`
     periodos: tuple[bool, bool, bool, bool]
     golos: int
+    #: a letra que a mesa escreveu em cada meia parte, em maiúsculas: "X", "J", ou "" vazia.
+    #: O `J` é quem entrou a meio (ver `docs/09-regulamento-apl.md`), e o `periodos` não o
+    #: distingue de um `X` — conta os dois como meia parte jogada.
+    marcas: tuple[str, str, str, str] = ("", "", "", "")
 
     @property
     def participou(self) -> bool:
@@ -113,6 +123,7 @@ def _atletas(tabela: Node, ignorar: frozenset[str] = frozenset()) -> list[Atleta
             periodos=tuple(bool(c[i]) and c[i].strip().upper() not in ignorar  # type: ignore[arg-type]
                            for i in _PERIODOS),
             golos=_numero(c[_TOTAL_DE_GOLOS]) or 0,
+            marcas=tuple((c[i] or "").strip().upper() for i in _PERIODOS),  # type: ignore[arg-type]
         ))
     return saida
 

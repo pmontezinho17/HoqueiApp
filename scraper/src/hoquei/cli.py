@@ -16,6 +16,8 @@ import httpx
 
 from .fonte import UA, Fonte
 from .merito import escalonar, merito_do_jogo, vale_merito
+from .em_pista import em_pista, resumo_ao_vivo
+from . import prejogo
 from .modelos import em_curso, para_dicionario
 from .parsers.calendario import calendario
 from .parsers.participacao import marcas_da_grelha, nao_atletas, participacao
@@ -254,6 +256,34 @@ def _merito_por_rever(caminho: pathlib.Path, hoje: date) -> bool:
     if not timedelta(days=DIAS_ENTRE_RELEITURAS) <= hoje - dia <= timedelta(days=DIAS_DE_VIGIA):
         return False
     return revisto is None or hoje - revisto >= timedelta(days=DIAS_ENTRE_RELEITURAS)
+
+
+def _em_pista_por_preencher(caminho: pathlib.Path, hoje: date) -> bool:
+    """Uma ficha com Mérito sem a grelha dos períodos (`em_pista`), que **nenhuma releitura vai ler**.
+
+    O separador nasceu a 07/11/2026, e as fichas lidas antes guardavam só o Mérito da equipa.
+    Das 109 com Mérito nesse dia, a releitura semanal (`_merito_por_rever`) ainda ia passar por
+    62, e essas enchem-se sozinhas, sem pedidos a mais. As outras **47** pedem-se uma vez: 26 já
+    tinham saído do mês de vigia, e 21 (de 10 e 11/10) tinham tido a última releitura nesse dia,
+    aos 27 e 28 dias do jogo — a seguinte cairia aos 34, já fora dele. Contei primeiro 26, por
+    tomar como relidas todas as fichas com menos de 30 dias; medido com esta função, são 47, e
+    o dono confirmou-os depois da correcção.
+
+    Depois de lida fica a chave, mesmo a `None`, e não se repete.
+    """
+    try:
+        dados = json.loads(caminho.read_text())
+    except (OSError, ValueError):
+        return False
+    if not dados.get("merito") or "em_pista" in dados:
+        return False
+    try:
+        dia = date.fromisoformat(dados.get("data") or "")
+        revisto = date.fromisoformat(dados["merito_revisto"]) if dados.get("merito_revisto") else None
+    except ValueError:
+        return False
+    proxima = (revisto or dia) + timedelta(days=DIAS_ENTRE_RELEITURAS)
+    return proxima - dia > timedelta(days=DIAS_DE_VIGIA) or hoje - dia > timedelta(days=DIAS_DE_VIGIA)
 
 
 def _pedido_a_reler(reler: str | None, jogo_id: int, com_merito: bool) -> bool:
@@ -608,7 +638,17 @@ def comando_aovivo(args) -> int:
     provas_tocadas: set[int] = set()
     with Fonte(args.tenant) as fonte:
         for j in acorda:
-            fx = ficha(fonte.jogo(j["id"]).html, j["id"])
+            pagina = fonte.jogo(j["id"]).html
+            fx = ficha(pagina, j["id"])
+            if vale_merito(j.get("prova") or ""):
+                # a medição da grelha durante o jogo (S22): a mesma página, zero pedidos, e
+                # nunca pode deitar abaixo uma ronda — ver `resumo_ao_vivo`
+                try:
+                    resumo = resumo_ao_vivo(pagina)
+                except Exception as e:  # noqa: BLE001
+                    resumo = f"erro={type(e).__name__}"
+                print(f"grelha #{j['id']} {fx.estado or fx.periodo or '?'} "
+                      f"{fx.relogio or '-'} {resumo}", file=sys.stderr)
             if fx.estado != "Jogo Terminado":
                 por_fechar += 1
             if fx.golos_casa is None:
@@ -626,6 +666,9 @@ def comando_aovivo(args) -> int:
             # a ronda completa revisita uma vez, já com o jogo fechado, e acerta.
             if "merito" in antigo:
                 dados["merito"] = antigo["merito"]
+            # a grelha dos períodos vem do mesmo boletim, e pela mesma razão não se lê aqui
+            if "em_pista" in antigo:
+                dados["em_pista"] = antigo["em_pista"]
             novo = json.dumps(dados, ensure_ascii=False, indent=1)
             if alvo.exists() and alvo.read_text() == novo:
                 # A ficha não mudou, mas a marca da agenda pode estar errada — e era só aqui
@@ -951,6 +994,10 @@ def comando_publicar(args) -> int:
                     "gc": j.golos_casa, "gf": j.golos_fora,
                     "recinto": j.recinto, "comp": prova.id,
                     "prova": prova.nome, "cat": prova.categoria,
+                    # Desde 04/11/2026, para as listas de jogos dizerem a jornada (S6). Zero
+                    # pedidos: vem no calendário que já se leu. Medido nesse dia: +21 KB nos
+                    # 296 KB da agenda, e +1,2 KB comprimida (15,8 para 17,0 KB).
+                    "jornada": j.jornada or None,
                     **{k: v for k, v in identificar(prova.categoria, prova.nome).items()
                        if k in ("grupo_id", "grupo_nome", "serie")},
                 })
@@ -988,6 +1035,7 @@ def comando_publicar(args) -> int:
                     vale_merito(prova.nome) and (_sem_chave(alvo, "merito")
                                                  or _j_por_explicar(alvo))) or (
                     args.rever_boletins and _boletim_por_chegar(alvo, hoje)) or reler_merito or (
+                    vale_merito(prova.nome) and _em_pista_por_preencher(alvo, hoje)) or (
                     _pedido_a_reler(args.reler, jogo.id, vale_merito(prova.nome)))
                 if not falta_campo_novo and _resultado_conhecido(alvo) == (
                         jogo.golos_casa, jogo.golos_fora, "Jogo Terminado"):
@@ -1027,6 +1075,12 @@ def comando_publicar(args) -> int:
                         # uma ficha relida por outra razão (um resultado corrigido) não volta
                         # a contar como por reler
                         dados["merito_revisto"] = antigo["merito_revisto"]
+                    # a grelha dos períodos, na tabela das Equipas: atleta a atleta, do mesmo HTML. Um boletim
+                    # que desaparece numa releitura não apaga a que já estava — a mesma razão
+                    # do `_merito_a_guardar`
+                    pista = em_pista(pagina, dados)
+                    dados["em_pista"] = (antigo["em_pista"] if pista is None and antigo.get("em_pista")
+                                         else pista)
                 # contexto para as migalhas no detalhe de jogo (W7.3): a ficha da fonte
                 # não sabe em que jornada nem em que série o jogo está
                 dados["competicao_id"] = prova.id
@@ -1087,6 +1141,10 @@ def comando_publicar(args) -> int:
         if j["gc"] is None and j["id"] in com_ficha:
             j["tem_ficha"] = True
     (destino / "agenda.json").write_text(json.dumps({"jogos": agenda}, ensure_ascii=False))
+
+    # #11 — o que se sabe de cada jogo por disputar, a partir do que acabou de se escrever.
+    # Zero pedidos: lê a agenda e o `match/` do disco. Ver `prejogo.py`.
+    pre_escritos, pre_apagados = prejogo.escrever(destino)
 
     # B4.11 — um feed de calendário por equipa+escalão, com os jogos que a agenda já tem.
     # Subscreve-se uma vez e corrige-se sozinho quando a federação adia um jogo.
@@ -1186,8 +1244,23 @@ def comando_publicar(args) -> int:
     nota = f"{restritas} sem dados individuais" if args.anonimizar_formacao else "nomes em todos os escalões"
     print(f"\nemblemas: {novos_emb} convertidos, {emb_existentes} já existentes")
     print(f"feeds de calendário: {len(escritos)}")
+    print(f"antes do jogo: {pre_escritos} escritos, {pre_apagados} apagados")
     print(f"{len(provas)} competições ({nota}), {total} jogos"
           f"\nfichas: {buscadas} buscadas, {saltadas} já actuais → {destino}")
+    return 0
+
+
+def comando_prejogo(args) -> int:
+    """Só o `prejogo/`, a partir do que está em disco — **sem abrir a fonte**.
+
+    Existe para o botão do site de testes com "só publicar o código" e para a publicação de um
+    `push` no `main`: nenhum dos dois corre o `publicar`, e os dois levam ao ar dados que não
+    foram escritos por este código. Sem isto, o site de testes mostrava a página do jogo sem a
+    secção nova até alguém ler a APL, e a primeira publicação depois de uma entrega mostrava-a
+    com os jogos da semana anterior.
+    """
+    escritos, apagados = prejogo.escrever(pathlib.Path(args.destino))
+    print(f"antes do jogo: {escritos} escritos, {apagados} apagados — 0 pedidos à fonte")
     return 0
 
 
@@ -1254,6 +1327,11 @@ def main(argv=None) -> int:
                    help="até quantas horas depois da hora marcada ainda se insiste num "
                         "jogo sem resultado (default 8)")
     v.set_defaults(func=comando_aovivo)
+
+    a = sub.add_parser("prejogo", parents=[comum],
+                       help="escrever só o prejogo/ a partir do que está em disco, sem pedir nada à fonte")
+    a.add_argument("--destino", required=True)
+    a.set_defaults(func=comando_prejogo)
 
     d = sub.add_parser("despejar", parents=[comum], help="escrever todas as competições em JSON")
     d.add_argument("--destino", required=True)

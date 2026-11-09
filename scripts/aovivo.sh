@@ -150,6 +150,8 @@ while [ "$(date +%s)" -lt "$fim" ]; do
   else
     echo "[$(date -u +%H:%M:%S)] ronda $ronda · sem novidade · ${vivos:-0} a decorrer · ${porvir:-0} por começar"
   fi
+  # a grelha dos Escolares e Benjamins durante o jogo, só contagens (S22, ver `resumo_ao_vivo`)
+  echo "$saida" | grep -E '^grelha ' | sed 's/^/    /' || true
 
   if [ "${vivos:-0}" -eq 0 ] && [ "${porvir:-0}" -eq 0 ]; then
     vazias=$((vazias + 1))

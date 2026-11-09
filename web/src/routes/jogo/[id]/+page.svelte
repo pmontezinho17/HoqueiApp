@@ -12,6 +12,10 @@
 	import Faixa from '$lib/Faixa.svelte';
 	import InfoJogo from './InfoJogo.svelte';
 	import MeritoDoJogo from './MeritoDoJogo.svelte';
+	import AntesDoJogo from './AntesDoJogo.svelte';
+	import { emPistaDoJogo } from '$lib/emPista';
+	import { temAntesDoJogo } from '$lib/antesDoJogo';
+	import { temposDaCronologia } from '$lib/cronologia';
 	import { contasDoJogo } from '$lib/meritoDoJogo';
 	import Icone from '$lib/Icone.svelte';
 	import Separadores from '$lib/Separadores.svelte';
@@ -102,7 +106,21 @@
 	const meritoPorConfirmar = $derived(
 		(merito?.linhas ?? []).reduce((n, l) => n + l.por_confirmar, 0)
 	);
-	const temSeparadores = $derived(temEventos || !!contas || temTabela || temEquipas || temInfo);
+	/**
+	 * O que se sabia antes do jogo (#11), só com alguma coisa para dizer — a decisão vive no
+	 * `temAntesDoJogo`. **Também depois do jogo**, desde 07/11/2026: *"mantemos o separador
+	 * depois do jogo, mas com os dados recolhidos até essa data"*. Aí deixa de ser o primeiro e
+	 * de abrir por omissão — depois do apito o que se quer ver é o jogo.
+	 */
+	const prejogo = $derived(temAntesDoJogo(data.prejogo) ? data.prejogo : null);
+	/**
+	 * Quem esteve em pista em cada período, nos Escolares e Benjamins. Foi um separador próprio a
+	 * 07/11/2026 e passou para dentro das Equipas no dia seguinte, por escolha do dono —
+	 * *"temos separadores a mais"*: eram sete nestes jogos, 53px cada a 375.
+	 */
+	const pista = $derived(emPistaDoJogo(f));
+	const depoisDoApito = $derived(aDecorrer || !data.porDisputar);
+	const temSeparadores = $derived(!!prejogo || temEventos || !!contas || temTabela || temEquipas || temInfo);
 
 	/**
 	 * A transmissão deste jogo, se houver — ver `directos.ts` para o porquê de ser uma lista
@@ -110,7 +128,7 @@
 	 */
 	const directo = $derived(directoDe(f.id));
 
-	type Tab = 'directo' | 'eventos' | 'merito' | 'tabela' | 'equipas' | 'info';
+	type Tab = 'directo' | 'antes' | 'eventos' | 'merito' | 'tabela' | 'equipas' | 'info';
 	let tab = $state<string>('eventos');
 	/** os separadores que existem neste jogo, pela ordem em que aparecem na barra */
 	const abas = $derived(
@@ -118,7 +136,11 @@
 			[
 				// primeiro de todos: quem tem onde ver o jogo não quer começar pela cronologia
 				['directo', !!directo],
+				// antes da classificação: é deste jogo, e a tabela é da série
+				['antes', !!prejogo && !depoisDoApito],
 				['eventos', temEventos],
+				// depois do apito, a seguir ao jogo em si
+				['antes', !!prejogo && depoisDoApito],
 				// ao lado da classificação, e antes dela: é deste jogo, e a tabela é da série
 				['merito', !!contas],
 				['tabela', temTabela],
@@ -135,6 +157,7 @@
 	 */
 	const NA_BARRA: Record<Tab, { rotulo: string; curto?: string; icone: string; classe?: string }> = {
 		directo: { rotulo: 'Ver em directo', curto: 'Directo', icone: 'directo', classe: 'aoVivo' },
+		antes: { rotulo: 'Pré-jogo', icone: 'antes' },
 		eventos: { rotulo: 'Eventos do jogo', curto: 'Eventos', icone: 'eventos' },
 		merito: { rotulo: 'Mérito deste jogo', curto: 'Mérito', icone: 'merito' },
 		tabela: { rotulo: 'Classificação', icone: 'tabela' },
@@ -176,7 +199,11 @@
 		// interessante entrar no menu de jogo, mas apresentar apenas o tab de informação"*. Sem
 		// isto chegava-se aqui na classificação da prova — correcta, mas não é o que quem vai ao
 		// pavilhão na véspera veio buscar: veio ver a hora e o recinto.
-		tab = semFicha && abas.includes('info') ? 'info' : abas[0];
+		//
+		// **E com o que se sabe antes do jogo, cai nele** (#11, 06/11/2026): é a razão de abrir um
+		// jogo de amanhã que não seja para saber onde é — e a hora e o recinto continuam no
+		// cabeçalho do separador ao lado.
+		tab = prejogo && !depoisDoApito ? 'antes' : semFicha && abas.includes('info') ? 'info' : abas[0];
 	});
 
 	/**
@@ -188,15 +215,20 @@
 	 * nenhuma. A história completa continua no separador dos eventos.
 	 */
 	const marcadores = $derived.by(() => {
-		const por = { casa: [] as string[], fora: [] as string[] };
-		for (const e of f.cronologia as EventoJogo[]) {
+		type Marcador = { tempo: string; nome: string };
+		const por = { casa: [] as Marcador[], fora: [] as Marcador[] };
+		const cronologia = f.cronologia as EventoJogo[];
+		// o relógio da APL, decrescente dentro da parte (07/11/2026): aqui leva a parte à
+		// frente, porque as duas partes estão na mesma lista e um 11:17 sozinho não diz qual
+		const tempos = temposDaCronologia(cronologia);
+		for (const e of cronologia) {
 			if (e.tipo !== 'golo') continue;
-			const minuto = e.minuto !== null ? `${e.minuto}'` : '';
+			const t = tempos.get(e.ordem);
+			const tempo = t ? `${t.parte} ${t.relogio}`.trim() : '';
 			const nome = e.jogador ? nomeProprio(e.jogador) : '';
-			const rotulo = [minuto, nome].filter(Boolean).join(' ');
-			if (!rotulo) continue;
-			if (e.equipa === f.casa) por.casa.push(rotulo);
-			else if (e.equipa === f.fora) por.fora.push(rotulo);
+			if (!tempo && !nome) continue;
+			if (e.equipa === f.casa) por.casa.push({ tempo, nome });
+			else if (e.equipa === f.fora) por.fora.push({ tempo, nome });
 		}
 		return por;
 	});
@@ -409,8 +441,8 @@
 
 			{#if temMarcadores}
 				<div class="marcadores">
-					<ul>{#each marcadores.casa as m, i (i)}<li>{m}</li>{/each}</ul>
-					<ul>{#each marcadores.fora as m, i (i)}<li>{m}</li>{/each}</ul>
+					<ul>{#each marcadores.casa as m, i (i)}<li>{#if m.tempo}<span class="tempo">{m.tempo}</span>{/if}{m.nome}</li>{/each}</ul>
+					<ul>{#each marcadores.fora as m, i (i)}<li>{#if m.tempo}<span class="tempo">{m.tempo}</span>{/if}{m.nome}</li>{/each}</ul>
 				</div>
 			{/if}
 
@@ -466,6 +498,8 @@
 				{#if directo && tab === 'directo'}
 					<Directo {directo} casa={f.casa} fora={f.fora} />
 				{/if}
+			{:else if aba === 'antes'}
+				{#if prejogo}<AntesDoJogo p={prejogo} emblemas={data.emblemas} comp={f.competicao_id ?? null} {depoisDoApito} />{/if}
 			{:else if aba === 'eventos'}
 				<Cronologia eventos={f.cronologia} casa={f.casa} fora={f.fora}
 					omitidos={f.individuais_omitidos ?? false} />
@@ -502,7 +536,7 @@
 						pela associação, e pode mudar até ao apito inicial.
 					</p>
 				{/if}
-				<FichaEquipas equipas={f.equipas} {porComecar} />
+				<FichaEquipas equipas={f.equipas} {porComecar} {pista} />
 			{:else if aba === 'info'}
 				<InfoJogo {f} {morada} {linkMapa} />
 			{/if}
@@ -658,6 +692,7 @@
 	.marcadores li {
 		overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 	}
+	.marcadores .tempo { font-variant-numeric: tabular-nums; opacity: 0.8; margin-right: 0.35em; }
 
 	/* a ligação para a competição, dentro do herói */
 	.prova {

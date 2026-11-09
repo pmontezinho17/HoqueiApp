@@ -63,6 +63,28 @@ export function porQuando(jogos: Jogo[]): Jogo[] {
 	);
 }
 
+/**
+ * O calendário de uma prova, jornada a jornada: as jornadas pela ordem da prova, e os jogos de
+ * cada uma por quando se jogam.
+ *
+ * **A ordem das jornadas é a da fonte, e não a das datas.** Os grupos nasciam da lista já
+ * ordenada por data, por isso uma jornada com um jogo antecipado saltava para o lugar desse
+ * jogo e levava a jornada inteira com ela. O dono viu-o a 06/11/2026 nos Sub-13, Série C: a 6ª
+ * jornada logo a seguir à 2ª, porque o A STUART HCM – PAREDE FC A se jogou a 5/10. A decisão
+ * dele foi a jornada: *"prefiro ver um jogo mais à frente já jogado, do que estar a passar uma
+ * jornada para trás"* — um jogo adiado de outra equipa tornava a ordem por data igualmente
+ * enganadora.
+ *
+ * Medido nesse dia nos 37 ficheiros de prova publicados: nos 25 com todas as jornadas
+ * numeradas, a fonte lista-as **sempre** por ordem; e em 9 deles a ordem por data trocava pelo
+ * menos duas. É a mesma "ordem da prova" que o `jornadaAtual` já usava.
+ */
+export function porJornada(jogos: Jogo[]): [string, Jogo[]][] {
+	const m = new Map<string, Jogo[]>();
+	for (const j of jogos) (m.get(j.jornada) ?? m.set(j.jornada, []).get(j.jornada)!).push(j);
+	return [...m].map(([jornada, daJornada]) => [jornada, porQuando(daJornada)]);
+}
+
 const DIAS_LONGOS = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira',
 	'quinta-feira', 'sexta-feira', 'sábado'];
 const MESES_LONGOS = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',

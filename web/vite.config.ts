@@ -79,9 +79,21 @@ export default defineConfig({
 				start_url: '/',
 				display: 'standalone',
 				background_color: '#0f1115',
-				// amarelo torrado: é a cor do ícone, e é ela que o Android usa para tingir o
-				// arranque e o alternador de aplicações. O acento da interface continua verde
-				theme_color: '#c8860d',
+				// **Igual ao `background_color`, e não o amarelo do ícone.** O `theme_color` foi o
+				// amarelo torrado `#c8860d` de 07/10 a 04/11/2026, e o dono viu nesse dia o que ele
+				// pinta também: a barra dos gestos do Android, debaixo da nossa barra de baixo,
+				// torrada sobre uma página cinzenta (Android 17, Chrome 156).
+				//
+				// É a única cor do manifesto que a página não reescreve: a barra de cima segue o
+				// `<meta name="theme-color">`, que o `tema.svelte.ts` muda com a escolha de tema, e
+				// esta não — o Chrome só lê o manifesto ao instalar e ao actualizar a app. Há
+				// telemóveis que pintam esta barra com o `theme_color` e outros que a deixam
+				// transparente sobre o `background_color` (relatado com Android 17 e Chrome 155
+				// num Pixel); **as duas iguais dão o mesmo resultado nos dois caminhos.** Escura
+				// porque uma faixa escura debaixo do tema claro é a barra de sempre do Android, e
+				// uma clara debaixo do tema escuro acende-se. O iPhone não usa nenhuma das duas:
+				// desenha a página por baixo da risca, e o `safe-area-inset-bottom` já trata disso
+				theme_color: '#0f1115',
 				icons: [
 					{ src: '/icones/icone-192.png', sizes: '192x192', type: 'image/png' },
 					{ src: '/icones/icone-512.png', sizes: '512x512', type: 'image/png' },

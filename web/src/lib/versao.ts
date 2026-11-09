@@ -42,7 +42,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.10';
+export const VERSAO = '1.11';
 
 /**
  * **O número que se vê sobe uma vez por entrega; o site de testes ganha uma marca por cima.**
@@ -154,6 +154,48 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.11',
+		data: '2026-11-09',
+		pontos: [
+			{
+				tipo: 'novo',
+				titulo: '🏒 Quem jogou cada período',
+				texto:
+					'Nos jogos de Escolares e Benjamins, o separador Equipas mostra agora quem jogou cada período, atleta a atleta, como na ficha oficial, e quantos golos marcou em cada um. Quem entrou a meio de um período (o J da ficha) aparece a amarelo, como no Mérito. Golos e assistências ficam juntos, e a tabela cabe no ecrã sem andar para o lado. Foi uma sugestão vossa — obrigado!'
+			},
+			{
+				tipo: 'novo',
+				titulo: '🗓️ Cada jogo diz a jornada',
+				texto:
+					'Na lista de jogos do dia, nos jogos da tua equipa e no mês do calendário, por baixo da hora de cada jogo aparece a jornada: J5 é a 5.ª jornada. As rondas das Taças e os torneios ficam sem sigla. Foi uma sugestão vossa — obrigado!'
+			},
+			{
+				tipo: 'novo',
+				titulo: '📋 Pré-jogo',
+				texto:
+					'Num jogo ainda por disputar há um separador novo, o Pré-jogo: a forma das duas equipas nos últimos cinco jogos, como correram os jogos entre elas esta época, a época lado a lado com o lugar de cada uma na série, quem costuma marcar primeiro ou ir a ganhar ao intervalo, em que altura do jogo marcam e sofrem, as faltas, os cartões e os penáltis, e os treinadores. Depois do jogo continua lá, com os números de antes dele.'
+			},
+			{
+				tipo: 'novo',
+				titulo: '⏱️ O tempo dos eventos como na ficha da APL',
+				texto:
+					'Nos eventos do jogo e nos marcadores, o tempo passou a ser o relógio de cada parte, a descer — numa parte de 18 minutos vai de 18:00 a 0:00, como no pavilhão e na ficha oficial. Antes contávamos os minutos do jogo inteiro, e a 2ª parte começava nos 18.'
+			},
+			{
+				tipo: 'novo',
+				titulo: '🧭 Uma barra de baixo nova',
+				texto:
+					'A barra com Jogos, O Meu Clube e Competições passou a flutuar ao centro, do tamanho dos três botões, e encolhe para só os ícones quando se desce a página. No Android, a faixa por baixo dela deixou de ser amarela.'
+			},
+			{
+				tipo: 'corrigido',
+				titulo: '🔢 O calendário da prova pela ordem das jornadas',
+				texto:
+					'Um jogo antecipado levava a jornada inteira para trás: nos Sub-13 a 6.ª jornada aparecia logo a seguir à 2.ª. Agora as jornadas vêm sempre por ordem, e o jogo antecipado fica na sua, com a data em que se jogou.'
+			}
+		]
+	},
 	{
 		versao: '1.10',
 		data: '2026-11-02',

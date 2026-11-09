@@ -1,0 +1,71 @@
+# Publica o observador quando ele muda, pela mesma razão que o `relogio.yml` publica o relógio.
+#
+# Até 30/10/2026 o observador publicava-se só à mão, com `npx wrangler deploy` a partir de uma
+# cópia local — a armadilha que a 16/10/2026 levou o relógio **antigo** ao ar, porque a cópia
+# do dono estava cinco commits atrás. Nasceu com o registo das idas à APL (B9.31): o Worker
+# passou a receber a contagem de cada ronda, e um código novo do lado das Actions com um
+# observador antigo do outro lado perdia essas contagens em silêncio, com um 404.
+#
+# **Corre quando a entrega de segunda chega ao `main`**, e não antes: é produção, e a consola
+# só existe lá.
+#
+# ## O que isto não faz
+#
+# **Não mexe nos segredos do Worker.** O `GITHUB_TOKEN` e a `CHAVE_RONDAS` foram postos com
+# `wrangler secret put`, e um `deploy` não lhes toca — ver o README do observador.
+name: PRODUÇÃO · Publicar o observador
+
+on:
+  push:
+    branches: [main]
+    paths: ['worker/observador/**']
+  workflow_dispatch:
+
+concurrency:
+  group: observador
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: worker/observador
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Testes do observador
+        run: node teste.mjs
+
+      - name: Publicar
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker/observador
+          wranglerVersion: '4.150.0'
+          command: deploy
+
+      # **Publicar não é ter publicado.** Duas perguntas que só o Worker novo responde bem: o
+      # `/api` traz o campo `contagem`, e o `/ronda` recusa quem não tem chave em vez de dar 404.
+      - name: O observador publicado responde
+        run: |
+          set -euo pipefail
+          base=https://hoquei-observador.torneiopa.workers.dev
+          curl -sS --max-time 20 "$base/" | grep -q '"contagem"' || {
+            echo "::error::o /api não traz o campo contagem — o observador publicado é o antigo"
+            exit 1
+          }
+          estado=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 -X POST "$base/ronda")
+          [ "$estado" = "401" ] || {
+            echo "::error::o /ronda sem chave respondeu $estado em vez de 401"
+            exit 1
+          }
+          echo "observador novo no ar: /api com contagem, /ronda fechado a quem não tem chave"

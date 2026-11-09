@@ -18,6 +18,17 @@ UA = "hoqueiAPP-research/0.1 (+https://github.com/pmontezinho17/HoqueiApp)"
 BASE = "https://{tenant}.assyssoftware.es/intranet/web/partido.asp?id={id}"
 RAIZ = pathlib.Path(__file__).resolve().parent.parent / "data-samples" / "sondagem"
 
+# A contagem de pedidos é a do raspador, importada pelo caminho: este script corre com o
+# `python3` da máquina, sem o ambiente do `uv`, e o `registo.py` é só stdlib de propósito.
+# A sonda pedia ~3 fichas de 3 em 3 minutos ao sábado e ao domingo, e até 30/10/2026 nenhum
+# contador as via — ver o B9.31.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "scraper" / "src"))
+try:
+    from hoquei.registo import registar
+except ImportError:                                       # fora do repositório: não conta
+    def registar(*_a, **_k):
+        return False
+
 
 def contexto_ssl():
     """O python.org do macOS nao usa o trust store do sistema -> certificate verify failed."""
@@ -188,6 +199,8 @@ def main():
                   f"ev={registo.get('eventos_cronologia', '?')} {registo.get('estado') or ''}"
                   f"{registo.get('erro', '')}", flush=True)
             time.sleep(1)                                 # 1 req/s, servidor pequeno
+        # uma ficha por jogo e por ronda, sem retentativas: os erros também foram pedidos
+        registar({"ficha": len(ids)})
         if args.rondas and ronda >= args.rondas:
             return
         if fim and datetime.now() >= fim:

@@ -57,7 +57,7 @@
  *             pedidos_fonte?: number, pedidos_falhados?: number } | null,
  *   rel: { cadencia_s: { mediana: number|null, minimo: number|null, maximo: number|null },
  *          buracos_acima_de_3min: string[], resultados: Evento[], erros: Evento[],
- *          publicacoes: number, eventos: number },
+ *          publicacoes: number, eventos: number, publicacoes_hora?: Record<string, number> },
  *   runs: { nome: string, evento?: string, estado: string, quando?: string }[],
  *   diario: { ts?: string, contagens?: Record<string, number> }[],
  *   ent: Record<string, Entrada>,
@@ -65,6 +65,9 @@
  *   porDia: Record<string, Record<string, number>>,
  *   sempre: { entradas: number, novos: number, dias: number } | null,
  *   entradasHora: Record<string, Record<string, { novos: number, volta: number }>>,
+ *   contagem?: 'rondas' | 'publicado',
+ *   idas?: { rondas: number, por_origem: Record<string, { rondas: number, pedidos: number }> } | null,
+ *   ultima?: { dia: string, hora: string, origem: string, total: number, falhados: number } | null,
  *   chave?: string,
  *   vista?: string,
  *   periodo?: Periodo | null
@@ -125,6 +128,17 @@ const TIPOS = [
 	{ chave: 'clasificacion', nome: 'classificação de uma prova', claro: '#1baf7a', escuro: '#199e70' },
 	{ chave: 'ficha', nome: 'ficha de um jogo', claro: '#eda100', escuro: '#c98500' }
 ];
+
+/**
+ * Quem vai à APL, como se lhe chama. A ordem é a da tabela: o que corre sempre primeiro.
+ * @type {Record<string, string>}
+ */
+const ORIGENS = {
+	producao: 'rondas de dados',
+	aovivo: 'ciclo ao vivo',
+	testes: 'botão do site de testes',
+	sonda: 'sonda dos jogos'
+};
 
 /**
  * As 24 horas do dia, sempre as 24, em colunas.
@@ -292,6 +306,45 @@ function colunasEntradas(horas) {
 		novos: Array.from({ length: 24 }, (_, h) => horas[h]?.novos ?? 0).reduce((x, y) => x + y, 0),
 		volta: Array.from({ length: 24 }, (_, h) => horas[h]?.volta ?? 0).reduce((x, y) => x + y, 0),
 		vazio: Object.keys(horas).length === 0
+	};
+}
+
+/**
+ * As actualizações publicadas por hora — o segundo dos dois gráficos que o dono pediu a
+ * 30/10/2026, separado das idas à APL: *"outro para informar o número de atualizações que
+ * foram feitas na aplicação"*.
+ *
+ * Uma série só, por isso uma cor só: é a mesma tinta das barras de um valor, e não uma quinta
+ * cor categórica a competir com as dos tipos de pedido ao lado.
+ *
+ * @param {Record<string, number>} porHora
+ */
+function colunasPublicacoes(porHora) {
+	const alto = tecto(Math.max(...Array.from({ length: 24 }, (_, h) => porHora[h] ?? 0), 0));
+	const agora = Number(
+		new Date().toLocaleString('sv-SE', { timeZone: 'Europe/Lisbon' }).slice(11, 13)
+	);
+	const barras = Array.from({ length: 24 }, (_, h) => {
+		const n = porHora[h] ?? 0;
+		const altura = n ? Math.max(1.5, (100 * n) / alto) : 0;
+		const titulo = n ? `${h}h: ${n} ${n === 1 ? 'actualização' : 'actualizações'}` : `${h}h: nada publicado`;
+		return `
+    <div class="col${agora === h ? ' agora' : ''}" title="${esc(titulo)}">
+      <span class="area">${valorNoTopo(n, altura)}<span class="pilha" style="height:${altura}%">${n ? '<i class="s" style="height:100%;background:var(--barra)"></i>' : ''}</span></span>
+      <span class="hh">${String(h).padStart(2, '0')}</span>
+    </div>`;
+	}).join('');
+	const marcas = [1, 0.5, 0]
+		.map(
+			(f) =>
+				`<span class="marca" style="bottom:calc(${f * 100}% - .5em)">${Math.round(alto * f)}</span>`
+		)
+		.join('');
+	return {
+		barras,
+		marcas,
+		linhas: `<i style="bottom:100%"></i><i style="bottom:50%"></i>`,
+		total: Object.values(porHora).reduce((a, b) => a + b, 0)
 	};
 }
 
@@ -558,6 +611,9 @@ export function pagina({
 	porDia = {},
 	sempre = null,
 	entradasHora = {},
+	contagem = 'publicado',
+	idas = null,
+	ultima = null,
 	actualizado = null,
 	chave,
 	vista = 'utilizadores',
@@ -592,6 +648,13 @@ export function pagina({
 	};
 	const s = estado?.saude;
 	const graf = colunas(horas);
+	const pub24 = colunasPublicacoes(rel.publicacoes_hora ?? {});
+	// **Rondas e publicações lado a lado, sem as subtrair.** A diferença é o desperdício, mas
+	// não é exactamente "rondas sem novidade": uma publicação de código (o `so_publicar`)
+	// muda os dados sem ronda nenhuma. Escrever "N rondas não trouxeram nada" seria uma conta
+	// que só parece exacta. Só as de produção: o botão do site de testes e a sonda não
+	// publicam aqui.
+	const rondasProducao = (idas?.por_origem.producao?.rondas ?? 0) + (idas?.por_origem.aovivo?.rondas ?? 0);
 	// **O construtor de endereços é um só.** Este gráfico montava os seus links à mão, com o
 	// dia e a chave, e esquecia-se da vista: clicar num dia na vista de sistema atirava para a
 	// de utilizadores. O dono apanhou-o. Um segundo sítio a construir endereços é um sítio que
@@ -990,14 +1053,26 @@ export function pagina({
     ${
 		sistema
 			? [
-					painel(
-						'pedidos à APL, agora',
-						estado?.pedidos_fonte ?? '—',
-						estado?.pedidos_falhados
-							? `<span class="pior">${estado.pedidos_falhados} falhados</span>`
-							: 'na última ronda',
-						estado?.pedidos_falhados ? 'mal' : ''
-					),
+					// **A última ida à APL, e não a última que publicou.** Era o `meta.json`, e a
+					// 30/10/2026 ele dizia "40 na última ronda" de uma ronda de véspera, enquanto a
+					// dessa madrugada — que também pediu 40 — não aparecia em lado nenhum.
+					ultima
+						? painel(
+								'pedidos à APL, agora',
+								ultima.total,
+								ultima.falhados
+									? `<span class="pior">${ultima.falhados} falhados</span> · ${esc(ultima.hora.slice(0, 5))}`
+									: `na última ronda, ${ultima.dia === dia ? '' : `${esc(diaCurto(ultima.dia))} `}às ${esc(ultima.hora.slice(0, 5))} · ${esc(ORIGENS[ultima.origem] ?? ultima.origem)}`,
+								ultima.falhados ? 'mal' : ''
+							)
+						: painel(
+								'pedidos à APL, agora',
+								estado?.pedidos_fonte ?? '—',
+								estado?.pedidos_falhados
+									? `<span class="pior">${estado.pedidos_falhados} falhados</span>`
+									: 'na última ronda que publicou',
+								estado?.pedidos_falhados ? 'mal' : ''
+							),
 					painel(
 						'cadência',
 						rel.cadencia_s.mediana != null ? `${rel.cadencia_s.mediana}s` : '—',
@@ -1062,7 +1137,11 @@ export function pagina({
     </div>
     <p class="vazio">
       ${graf.total ? `Pico de ${graf.maximo} numa hora.` : 'Nada registado neste dia.'}
-      Retentativas incluídas. <strong>Só conta as rondas que publicaram</strong> — ver o backlog.
+      Retentativas incluídas. ${
+			contagem === 'rondas'
+				? '<strong>Todas as idas à APL</strong>, publicassem ou não.'
+				: '<strong>Só as rondas que publicaram</strong> — este dia é anterior ao registo de cada ronda (B9.31).'
+		}
     </p>
   </section>
 
@@ -1076,6 +1155,38 @@ export function pagina({
       </div>
     </div>
     <p class="vazio">Cada dia é um link. Travessão = anterior a este contador.</p>
+  </section>
+
+  <section class="l8">
+    <h2>actualizações publicadas por hora — ${esc(ehHoje ? 'hoje' : dia)}</h2>
+    <div class="comEixo">
+      <div class="eixo">${pub24.marcas}</div>
+      <div class="area">
+        <div class="guias">${pub24.linhas}</div>
+        <div class="grafico">${pub24.barras}</div>
+      </div>
+    </div>
+    <p class="vazio">
+      ${pub24.total ? `<b>${pub24.total}</b> ${pub24.total === 1 ? 'vez' : 'vezes'} que os dados da app mudaram.` : 'Os dados da app não mudaram neste dia.'}
+      Só produção: o site de testes publica à parte.
+    </p>
+  </section>
+
+  <section class="l4">
+    <h2>quem foi à APL ${quando}</h2>
+    ${
+		idas
+			? `${tabela(
+					Object.keys(ORIGENS)
+						.filter((o) => idas.por_origem[o])
+						.map(
+							(o) =>
+								`<tr><th>${esc(ORIGENS[o])}</th><td class="n">${idas.por_origem[o].rondas} ${idas.por_origem[o].rondas === 1 ? 'ronda' : 'rondas'} · <b>${idas.por_origem[o].pedidos}</b> pedidos</td></tr>`
+						)
+				)}
+    <p class="vazio">${rondasProducao} ${rondasProducao === 1 ? 'ronda' : 'rondas'} de produção, e os dados da app mudaram ${rel.publicacoes} ${rel.publicacoes === 1 ? 'vez' : 'vezes'}.</p>`
+			: '<p class="vazio">Sem registo de rondas neste dia — começou a 30/10/2026, e antes só se viam as que publicavam.</p>'
+	}
   </section>
 
   <section class="l6">

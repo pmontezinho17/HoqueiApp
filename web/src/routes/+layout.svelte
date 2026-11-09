@@ -25,6 +25,7 @@
 	import { cor } from '$lib/cor.svelte';
 	import { APP_NOME } from '$lib/sitio';
 	import { marcarPresenca, marcarSessao } from '$lib/presenca';
+	import { aoRolar, type EstadoBarra } from '$lib/barra';
 
 	let { data, children } = $props();
 
@@ -72,6 +73,20 @@
 	let anterior: Seccao | null = null;
 	const seccao = $derived.by(() => (anterior = seccaoDe(page.url.pathname, anterior)));
 	const activa = (href: string) => seccao === href;
+
+	// A barra de baixo recolhe-se a descer — ver `lib/barra.ts`. Quem pede menos movimento fica
+	// com ela sempre inteira: uma barra que encolhe e cresce sozinha é movimento que ninguém
+	// pediu, e a regra global do CSS só lhe tirava a animação, não a mudança.
+	let barra = $state<EstadoBarra>({ recolhida: false, desde: 0 });
+	$effect(() => {
+		if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+		const seguir = () => {
+			const seguinte = aoRolar(barra, scrollY);
+			if (seguinte !== barra) barra = seguinte;
+		};
+		addEventListener('scroll', seguir, { passive: true });
+		return () => removeEventListener('scroll', seguir);
+	});
 
 	/** altura real do cabeçalho colado, publicada em `--topo` para quem precise de colar
 	 *  algo imediatamente abaixo dele */
@@ -172,15 +187,20 @@
   fonte" — o "em todas as páginas" era regra nossa, não promessa. Fica em dois cliques em vez
   de um, e em troca o rodapé deixa de empurrar a barra de navegação.
 -->
-<nav class="barra" aria-label="Secções">
+<nav class="barra" class:recolhida={barra.recolhida} aria-label="Secções">
 	{#each SECCOES as s (s.href)}
 		<a
 			href={s.href}
 			aria-current={activa(s.href) ? (page.url.pathname === s.href ? 'page' : 'true') : undefined}
 			data-guia={s.href === '/' ? undefined : `nav-${s.href.slice(1)}`}
 		>
-			<Icone nome={s.icone} tamanho={21} />
-			<span>{s.rotulo}{#if s.href === '/clube' && favoritos.lista.length}<i class="conta">{favoritos.lista.length}</i>{/if}</span>
+			<!-- o contador que se vê é o de cima do ícone; o do rótulo fica só para o leitor de ecrã,
+			     e por isso o do ícone é `aria-hidden` -->
+			<span class="simbolo">
+				<Icone nome={s.icone} tamanho={21} />
+				{#if s.href === '/clube' && favoritos.lista.length}<i class="conta sobre" aria-hidden="true">{favoritos.lista.length}</i>{/if}
+			</span>
+			<span class="rotulo">{s.rotulo}{#if s.href === '/clube' && favoritos.lista.length}<i class="conta">{favoritos.lista.length}</i>{/if}</span>
 		</a>
 	{/each}
 </nav>
@@ -228,6 +248,13 @@
 
 		--raio: 8px; --raio-cartao: 12px; --raio-pilula: 999px;
 
+		/* O espaço que a barra de baixo ocupa a contar do fundo do ecrã: os 52px dela, o ar
+		   por baixo, e a risca do iPhone. Era `52px + env(safe-area-inset-bottom)` repetido
+		   em seis sítios até a barra passar a flutuar a 05/11/2026. **É o da barra inteira,
+		   também quando ela está recolhida**: se a bolha e as caixas acompanhassem a barra a
+		   encolher, saltavam a cada inversão do dedo. */
+		--barra-ocupa: calc(52px + var(--e-3) + env(safe-area-inset-bottom));
+
 		/* Três níveis de texto e dois de separador, onde antes havia dois e um. É o que
 		   permite o cabeçalho de uma secção recuar atrás do conteúdo em vez de competir
 		   com ele. */
@@ -248,6 +275,14 @@
 		   vermelho de um total negativo fica a 3,5:1 por cima dele. Mais claro destacava mais e
 		   deixava o −1 a 2,6:1. */
 		--j-fundo: #fde68a;
+		/* **O quadrado de quem entrou a meio, na tabela das Equipas, e não o `--j-fundo`.** Sem a
+		   letra `J` (decisão do dono a 08/11/2026) é a cor sozinha que o distingue, e o castanho
+		   do escuro ficava a 1,78:1 do cartão. O `--j-fundo` não pode subir, porque tem texto por
+		   cima (ver acima). Medido a 08/11 no escuro: o `#fcd34d` vivo dava 12:1 contra o cartão
+		   mas **1,33:1 contra o verde** de quem jogou o período inteiro — sem a letra, quem
+		   confunda verde e amarelo deixava de os separar. O `#a16207` fica a 3,5:1 do cartão e a
+		   2,56:1 do verde, e o número a branco a 4,9:1. No claro fica o amarelo de sempre. */
+		--j-quadrado: #fde68a; --j-quadrado-texto: #92400e;
 		/* **Um vermelho próprio para "terminada", e não o `--vivo`.** O `--vivo` quer dizer
 		   "está a acontecer agora" e usá-lo para "já acabou" punha a mesma cor a dizer duas
 		   coisas opostas na mesma aplicação. Este é mais frio e mais escuro, e nunca aparece
@@ -298,6 +333,7 @@
 			--acento: var(--c-escuro, #34d399); --acento-fraco: var(--cf-escuro, #12271f);
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
 			--j-fundo: #544210;
+			--j-quadrado: #a16207; --j-quadrado-texto: #fff;
 			--terminado: #f2b8b5;
 			--directo: #f87171;
 			--estrela: #fbbf24;
@@ -314,6 +350,7 @@
 			--acento: var(--c-escuro, #34d399); --acento-fraco: var(--cf-escuro, #12271f);
 			--aviso: #fcd34d; --aviso-fundo: #3a2e0b; --vivo: #fb923c;
 			--j-fundo: #544210;
+			--j-quadrado: #a16207; --j-quadrado-texto: #fff;
 			--terminado: #f2b8b5;
 			--directo: #f87171;
 			--estrela: #fbbf24;
@@ -399,26 +436,71 @@
 		border: 0; background: none; padding: 0; font: inherit; cursor: pointer; }
 	.icone:hover, .icone:focus-visible { color: var(--acento); }
 
-	/* Barra de navegação em baixo, fixa.
+	/* Barra de navegação em baixo, a flutuar.
+	 *
+	 * Uma pílula do tamanho dos três botões, ao centro, e não uma faixa de lado a lado, por
+	 * pedido do dono a 05/11/2026, a partir de uma app de futebol que ele usa. O ar à volta dela
+	 * é a página, que segue o tema; a barra dos gestos do Android, mais abaixo, não segue (ver o
+	 * `theme_color` no `vite.config.ts`).
+	 *
+	 * **A largura vem dos botões, não do ecrã.** A primeira versão ia de margem a margem menos
+	 * 16px, e a recolher só perdia os rótulos e 6px de altura: 343px inteira e 343px recolhida, a
+	 * 375 de largura. O dono viu-a no telemóvel e o que faltava era isso mesmo — *"uma barra muito
+	 * grande para três botões, e quando eu ando para baixo fica quase do mesmo tamanho"*. Agora
+	 * são 3 × 88px inteira e 3 × 56px recolhida: a barra encolhe para metade da largura, que é o
+	 * que se vê na app que ele mostrou.
 	 *
 	 * `env(safe-area-inset-bottom)` não é enfeite: no iPhone a barra ficava por baixo da
 	 * risca de gestos e o terceiro separador era impossível de tocar. */
 	.barra {
-		position: fixed; inset: auto 0 0 0; z-index: 10;
-		background: var(--fundo); border-top: 1px solid var(--borda);
-		padding-bottom: env(safe-area-inset-bottom);
-		display: flex; justify-content: center;
+		position: fixed; z-index: 10;
+		left: 50%; transform: translateX(-50%);
+		bottom: calc(var(--e-3) + env(safe-area-inset-bottom));
+		padding: var(--e-0);
+		background: var(--cartao); border: 1px solid var(--borda);
+		border-radius: var(--raio-pilula);
+		box-shadow: 0 4px 18px rgb(0 0 0 / 0.14);
+		display: flex;
 	}
 	.barra a {
-		flex: 1 1 0; max-width: 10rem;
+		/* 88px é o que "O Meu Clube" pede a 11px, com ar dos dois lados */
+		width: 88px;
 		display: flex; flex-direction: column; align-items: center; justify-content: center;
-		gap: 2px; min-height: 52px; padding: var(--e-2) var(--e-1);
+		/* 46 e não 52: a borda e o enchimento da pílula fecham os 52 que o `--barra-ocupa` reserva */
+		gap: 2px; min-height: 46px;
+		border-radius: var(--raio-pilula);
 		font-size: var(--t-micro); text-decoration: none; color: var(--suave);
 		white-space: nowrap;
+		transition: width 0.25s ease, min-height 0.25s ease, gap 0.25s ease;
 	}
+	.simbolo { position: relative; display: inline-flex; }
+	.rotulo {
+		max-height: 1.5em; overflow: hidden;
+		transition: max-height 0.25s ease, opacity 0.15s ease;
+	}
+	/* **O contador vive em cima do ícone, nas duas formas.** Ao lado do rótulo, "O Meu Clube 10"
+	   mede 96px e não cabia nos 88 — medido a 06/11/2026 com dez equipas seguidas. */
+	.rotulo .conta {
+		position: absolute; width: 1px; height: 1px; overflow: hidden;
+		clip-path: inset(50%); white-space: nowrap;
+	}
+	.conta.sobre {
+		position: absolute; top: -5px; left: 70%; margin-left: 0;
+		line-height: 1.35;
+	}
+
+	/* Recolhida: só os ícones. Os 44px são o mínimo de toque que não se negocia, e o rótulo
+	   sai só da vista — com altura zero e transparente continua na árvore de acessibilidade, e
+	   quem lê por voz continua a ouvir "O Meu Clube". */
+	.barra.recolhida a { width: 56px; min-height: 44px; gap: 0; }
+	.barra.recolhida .rotulo { max-height: 0; opacity: 0; }
 	/* `page` na própria secção, `true` num jogo ou numa equipa aberta a partir dela: para quem
-	   lê por voz não é a mesma coisa, e para quem vê é */
-	.barra a[aria-current] { color: var(--acento); font-weight: 600; }
+	   lê por voz não é a mesma coisa, e para quem vê é. O fundo é o da app que o dono mostrou:
+	   recolhida, sem rótulos, a cor do ícone sozinha dizia pouco sobre onde se está. */
+	.barra a[aria-current] {
+		color: var(--acento); font-weight: 600;
+		background: color-mix(in srgb, var(--acento) 10%, transparent);
+	}
 	.barra a[aria-current] :global(svg) { color: var(--acento); }
 	.conta {
 		margin-left: var(--e-1); padding: 0 var(--e-2); border-radius: var(--raio-pilula);
@@ -429,11 +511,11 @@
 	/* o `padding-bottom` tem de limpar a barra fixa, senão o último jogo fica debaixo dela */
 	main {
 		max-width: 44rem; margin: 0 auto;
-		padding: var(--e-4) 0.9rem calc(52px + env(safe-area-inset-bottom) + var(--e-6));
+		padding: var(--e-4) 0.9rem calc(var(--barra-ocupa) + var(--e-6));
 	}
 
 	/* a altura da bolha (48px) mais o ar à volta dela */
-	main.comBolha { padding-bottom: calc(52px + env(safe-area-inset-bottom) + var(--e-6) + 60px); }
+	main.comBolha { padding-bottom: calc(var(--barra-ocupa) + var(--e-6) + 60px); }
 
 	.progresso {
 		position: fixed; inset: 0 0 auto 0; height: 3px; background: var(--acento);
