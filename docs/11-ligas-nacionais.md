@@ -94,12 +94,14 @@ uma chave que não é para nós.
 ## As fases
 
 Cada fase é uma entrega de segunda-feira, como as outras ([10-processo.md](10-processo.md)), e
-só começa depois de a anterior estar validada pelo dono.
+só começa depois de a anterior estar validada pelo dono. A primeira versão deste plano tinha o
+ao vivo numa fase 2 à parte; o dono juntou-o à fase 1 a 09/11/2026, e a numeração das outras
+fica como estava para não partir as referências.
 
 | Fase | O que entra | Pedidos a mais | Critério de aceitação |
 |---|---|---|---|
-| **1** | **Só o Placard**, sem ao vivo: resultados, calendário, classificação, fichas e marcadores | +1 a 2 por ronda (o calendário do Placard) e ~7 fichas por jornada, cada uma lida uma vez | as 14 equipas e os 182 jogos no site de testes, com a classificação a bater com a da FPP |
-| **2** | O ao vivo do Placard, pela "Jogos do Dia" | 1 a cada 30 s ao `hp.fpp.pt` enquanto houver jogos nacionais; zero ao servidor partilhado | um jogo acompanhado do princípio ao fim com o atraso medido, e a ficha pedida uma só vez no fim |
+| **1** | **O Placard, com ao vivo**: resultados, calendário, classificação, fichas e marcadores, e o placar a mexer pela "Jogos do Dia" | +1 a 2 por ronda (o calendário do Placard) e ~7 fichas por jornada, cada uma lida uma vez; durante os jogos, 1 a cada 30 s ao `hp.fpp.pt` e zero ao servidor partilhado | as 14 equipas e os 182 jogos no site de testes, com a classificação a bater com a da FPP; um jogo acompanhado do princípio ao fim com o atraso medido, e a ficha pedida uma só vez no fim |
+| **2** | *juntou-se à 1, por decisão do dono a 09/11* | — | — |
 | **3** | 2.ª e 3.ª divisão e o Feminino | até +9 calendários por ronda — só os das competições com jogos nesse dia — e ~40 fichas por semana | as zonas mostradas como séries, e o ao vivo das três a custar o mesmo pedido da fase 2 |
 | **4** | Sub-23 e as taças | +8 calendários (3 zonas dos Sub-23 e 5 taças), e as taças têm poucos jogos | — |
 | depois | Outras associações regionais (o Norte, sugestão #41 do arquivo privado) | por medir | — |
@@ -146,16 +148,52 @@ nacionais. O que se propõe, para validar no site de testes a cada fase:
   formação na APL. Para isso é preciso saber que é o mesmo clube nas duas fontes, e a
   proporção de clubes em que os nomes batem ainda não está medida.
 
-## O que fica por decidir
+## As decisões do dono (09/11/2026)
 
-Pelo dono, antes da fase 1:
+1. **A fonte** — a plataforma da FPP para os calendários, as classificações e as fichas, e a
+   "Jogos do Dia" do `hp.fpp.pt` para o ao vivo. A recomendação deste documento.
+2. **A FPP fica a saber antes.** Um email semelhante ao da APL, enviado pelo dono, e **a fase 1
+   só vai a produção depois de ele ter saído**. Pode construir-se e validar-se no site de testes
+   antes disso. O rascunho está em [`email-fpp.txt`](email-fpp.txt).
+3. **A fase 1 é o Placard com ao vivo**, e não só os resultados. Isso põe a medição do atraso da
+   "Jogos do Dia" antes da construção, e não depois.
 
-1. **A fonte** — a plataforma da FPP como fonte, e a "Jogos do Dia" do `hp.fpp.pt` só para o
-   ao vivo. É a recomendação deste documento.
-2. **A postura com a FPP** — a APL sabe que lemos os dados dela; a FPP não. O
-   [06-email-apl.md](06-email-apl.md) prevê um email semelhante à FPP quando se usarem
-   competições nacionais.
-3. **O tamanho da fase 1** — só o Placard e sem ao vivo, ou também a 2.ª divisão.
+## O email à FPP
+
+O rascunho para copiar e colar é o [`email-fpp.txt`](email-fpp.txt), em texto simples pela mesma
+razão do da APL: copiado de markdown, cola mal. Tem o mesmo esqueleto do
+[06-email-apl.md](06-email-apl.md), com três diferenças de propósito:
+
+- **Diz a cadência de hoje**, e não a de 01/10. O email da APL dizia "algumas vezes por dia",
+  que era verdade nessa data e deixou de ser com o ciclo ao vivo. Aqui o ao vivo está escrito:
+  um pedido de 30 em 30 segundos à "Jogos do Dia", para todos os jogos ao mesmo tempo.
+- **Não pergunta pelos nomes dos atletas.** A fase 1 é só o Placard, que é sénior. A pergunta
+  volta quando entrarem os Sub-23, que podem ter atletas menores.
+- **Começa pelo Placard**, e diz-o. Pedir parecer sobre as 18 competições de uma vez era
+  pedir sobre uma coisa que ainda não existe.
+
+Escolhas do dono, marcadas no texto: o `[CLUBE]`, o `[telefone]`, e a frase `[OPCIONAL]` sobre
+o conhecimento da APL — se a quer dizer à FPP é decisão dele. Os destinatários saíram da página
+de contactos da FPP (`fpp.pt/contactos/`, lida a 09/11/2026): `hoquei@fpp.pt` é o do
+departamento da modalidade, e o `comunicacao@fpp.pt` vai em cópia porque é quem publica o
+`hp.fpp.pt`. Se preferir um só, o `hoquei@` chega.
+
+## A medição antes de construir: o atraso da "Jogos do Dia"
+
+O ao vivo da fase 1 assenta numa página que ainda não vimos num jogo do princípio ao fim. Antes
+de escrever o ciclo, mede-se num sábado com jornada do Placard: a "Jogos do Dia" de 30 em 30
+segundos durante a janela dos jogos, e a ficha da plataforma de **um** desses jogos, com a mesma
+cadência, como referência — é a ficha que diz quando um golo entrou na base de dados.
+
+| | pedidos | a quem |
+|---|---|---|
+| "Jogos do Dia", das 18:00 às ~23:15 de 14/11/2026 | ~630 | `hp.fpp.pt` |
+| a ficha de um jogo do Placard, 1h45 de 30 em 30 s | ~210 | o servidor partilhado com a APL |
+
+A ficha de referência é **uma só** de propósito: num sábado à noite o ciclo ao vivo da APL pode
+estar a correr, e um jogo a mais por ronda cabe no limite, cinco não. O resultado é o atraso de
+cada golo entre a ficha e a "Jogos do Dia", e entra aqui. **Esta medição espera pela aprovação do
+dono**, porque são pedidos novos.
 
 ## Como reproduzir
 
