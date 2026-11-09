@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9846@hoquei.pages.dev
-DTSTAMP:20261108T000000Z
-DTSTART:20261108T193000Z
-DTEND:20261108T210000Z
-SUMMARY:🏑 Sub-19 🏑 Sporting CP vs CD Paço Arcos B
-LOCATION:Pavilhão do Sacavenense ( Hóquei Formação SCP)
-DESCRIPTION:Sporting CP 2–1 CD Paço Arcos B\nCAMP. REG. SUB-19 - 1ª FAS
- E · Série B · SUB-19\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jog
- o/9846\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9846
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9856@hoquei.pages.dev
 DTSTAMP:20261111T000000Z
 DTSTART:20261111T210000Z

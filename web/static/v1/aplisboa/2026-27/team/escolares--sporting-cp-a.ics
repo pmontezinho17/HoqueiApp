@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9900@hoquei.pages.dev
-DTSTAMP:20261108T000000Z
-DTSTART:20261108T143000Z
-DTEND:20261108T160000Z
-SUMMARY:🏑 Escolares 🏑 Sporting CP A vs S Alenquer Benfica
-LOCATION:Pavilhão do Sacavenense ( Hóquei Formação SCP)
-DESCRIPTION:Sporting CP A 11–5 S Alenquer Benfica\nENCONTROS DISTRITAIS E
- SCOLARES - 1ª FASE NIVEL I · Série A · ESCOLARES\nPAV.G.S.SACAVENENSE\
- nhttps://hoquei.pages.dev/jogo/9900\nDados da Associação de Patinagem de
-  Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9900
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9902@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T144500Z

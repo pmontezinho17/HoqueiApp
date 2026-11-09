@@ -3,8 +3,8 @@
  "competicao": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE E",
  "casa": "AE FISICA D B",
  "fora": "UD VILAFRANQUENSE B",
- "golos_casa": 1,
- "golos_fora": 2,
+ "golos_casa": 2,
+ "golos_fora": 1,
  "estado": "Jogo Terminado",
  "data": "2026-11-08",
  "hora": "10:00:00",
@@ -83,7 +83,7 @@
      "numero": "5",
      "nome": "DAVID RAMOS",
      "titular": true,
-     "golos": 0,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -214,7 +214,7 @@
      "numero": "5",
      "nome": "GONÇALO VICENTE",
      "titular": false,
-     "golos": 2,
+     "golos": 1,
      "assistencias": 0,
      "defesas": 0,
      "penalidades": "0/0",
@@ -464,17 +464,17 @@
   {
    "ordem": 9,
    "tipo": "golo",
-   "relogio": "1:13",
+   "relogio": "0:01",
    "parte": 4,
-   "minuto": 30,
-   "equipa": "UD VILAFRANQUENSE B",
-   "jogador": "GONÇALO VICENTE",
+   "minuto": 31,
+   "equipa": "AE FISICA D B",
+   "jogador": "DAVID RAMOS",
    "assistencia": null,
    "variante": null,
    "numero": null,
-   "golos_casa": 1,
-   "golos_fora": 2,
-   "texto": "Golo para UD VILAFRANQUENSE B | GONÇALO VICENTE"
+   "golos_casa": 2,
+   "golos_fora": 1,
+   "texto": "Golo para AE FISICA D B | DAVID RAMOS"
   },
   {
    "ordem": 10,
@@ -492,8 +492,108 @@
    "texto": "Jogo Terminado"
   }
  ],
- "boletim": null,
- "merito": null,
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "VASCO FERREIRA",
+   "Árbitro Auxiliar": "RITA NASCIMENTO",
+   "Cronometrista": "RENATO GONÇALVES",
+   "Diretor de campo": "JOÃO MAIA",
+   "Gestor de segurança": "ANTONIO ROCHA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 0,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 2,
+    "fora": 1
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "10:00",
+   "10:27"
+  ],
+  "termo": [
+   "10:22",
+   "10:49"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
+ "merito": [
+  {
+   "equipa": "AE FISICA D B",
+   "atletas": 9,
+   "guardas_redes": 1,
+   "participantes": 9,
+   "completa": false,
+   "bonificacao": 12,
+   "penalizacao": -1,
+   "total": 11,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "9 atletas participantes",
+     "pontos": 9
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE B",
+   "atletas": 7,
+   "guardas_redes": 1,
+   "participantes": 7,
+   "completa": false,
+   "bonificacao": 7,
+   "penalizacao": -2,
+   "total": 5,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "7 atletas participantes",
+     "pontos": 7
+    },
+    {
+     "regra": "4.1.1",
+     "texto": "apresentou 7 atletas",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  }
+ ],
  "competicao_id": 464,
  "categoria": "ESCOLARES",
  "jornada": "7ª JORNADA",

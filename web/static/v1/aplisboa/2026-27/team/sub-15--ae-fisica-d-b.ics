@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9584@hoquei.pages.dev
-DTSTAMP:20261108T000000Z
-DTSTART:20261108T163000Z
-DTEND:20261108T180000Z
-SUMMARY:🏑 Sub-15 🏑 HC Sintra vs AE Fisica D B
-LOCATION:Hockey Club de Sintra
-DESCRIPTION:HC Sintra 2–4 AE Fisica D B\nCAMP. REG. SUB-15 - 1ª FASE · 
- Série A · SUB-15\nPAV. HC SINTRA\nhttps://hoquei.pages.dev/jogo/9584\nDa
- dos da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9584
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9588@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T123000Z

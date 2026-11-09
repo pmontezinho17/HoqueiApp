@@ -230,8 +230,8 @@
    "hora": "19:30:00",
    "casa": "SPORTING CP",
    "fora": "CD PAÇO ARCOS B",
-   "golos_casa": 2,
-   "golos_fora": 1,
+   "golos_casa": 7,
+   "golos_fora": 4,
    "recinto": "PAV.G.S.SACAVENENSE",
    "ao_vivo": false
   },
@@ -244,8 +244,8 @@
    "hora": "20:15:00",
    "casa": "GD SESIMBRA",
    "fora": "APAC TOJAL",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 5,
+   "golos_fora": 4,
    "recinto": "PAV. SESIMBRA",
    "ao_vivo": false
   },
@@ -472,10 +472,10 @@
      "vitorias": 5,
      "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 25,
-     "golos_sofridos": 8,
-     "diferenca": 17,
-     "racio": 3.12,
+     "golos_marcados": 30,
+     "golos_sofridos": 11,
+     "diferenca": 19,
+     "racio": 2.73,
      "pontos": 15
     },
     {
@@ -494,6 +494,20 @@
     },
     {
      "posicao": 3,
+     "equipa": "GD SESIMBRA",
+     "logo": "/intranet/logos/66.png",
+     "jogos": 5,
+     "vitorias": 2,
+     "empates": 1,
+     "derrotas": 2,
+     "golos_marcados": 23,
+     "golos_sofridos": 24,
+     "diferenca": -1,
+     "racio": 0.96,
+     "pontos": 7
+    },
+    {
+     "posicao": 4,
      "equipa": "AE FISICA D",
      "logo": "/intranet/logos/11.png",
      "jogos": 5,
@@ -507,31 +521,17 @@
      "pontos": 7
     },
     {
-     "posicao": 4,
-     "equipa": "GD SESIMBRA",
-     "logo": "/intranet/logos/66.png",
-     "jogos": 4,
-     "vitorias": 1,
-     "empates": 1,
-     "derrotas": 2,
-     "golos_marcados": 18,
-     "golos_sofridos": 20,
-     "diferenca": -2,
-     "racio": 0.9,
-     "pontos": 4
-    },
-    {
      "posicao": 5,
      "equipa": "APAC TOJAL",
      "logo": "/intranet/logos/12.png",
-     "jogos": 4,
+     "jogos": 5,
      "vitorias": 1,
      "empates": 1,
-     "derrotas": 2,
-     "golos_marcados": 6,
-     "golos_sofridos": 14,
-     "diferenca": -8,
-     "racio": 0.43,
+     "derrotas": 3,
+     "golos_marcados": 10,
+     "golos_sofridos": 19,
+     "diferenca": -9,
+     "racio": 0.53,
      "pontos": 4
     },
     {
@@ -542,10 +542,10 @@
      "vitorias": 0,
      "empates": 1,
      "derrotas": 4,
-     "golos_marcados": 13,
-     "golos_sofridos": 25,
-     "diferenca": -12,
-     "racio": 0.52,
+     "golos_marcados": 16,
+     "golos_sofridos": 30,
+     "diferenca": -14,
+     "racio": 0.53,
      "pontos": 1
     }
    ]
