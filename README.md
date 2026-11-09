@@ -103,5 +103,5 @@ onde há agregação e pesquisa. Dados de menores têm protecção reforçada (a
   ramo.yml                   o site de testes, a cada merge no `dev`
   relogio.yml                publica o Worker do relógio a partir do `main`
   sonda.yml, saude.yml, vigia.yml, aviso.yml, sugestoes.yml
-/docs          Onze documentos numerados — o conhecimento do projecto
+/docs          Doze documentos numerados — o conhecimento do projecto
 ```
