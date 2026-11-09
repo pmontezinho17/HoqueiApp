@@ -16,7 +16,7 @@ import httpx
 
 from .fonte import UA, Fonte
 from .merito import escalonar, merito_do_jogo, vale_merito
-from .em_pista import em_pista
+from .em_pista import em_pista, resumo_ao_vivo
 from . import prejogo
 from .modelos import em_curso, para_dicionario
 from .parsers.calendario import calendario
@@ -638,7 +638,17 @@ def comando_aovivo(args) -> int:
     provas_tocadas: set[int] = set()
     with Fonte(args.tenant) as fonte:
         for j in acorda:
-            fx = ficha(fonte.jogo(j["id"]).html, j["id"])
+            pagina = fonte.jogo(j["id"]).html
+            fx = ficha(pagina, j["id"])
+            if vale_merito(j.get("prova") or ""):
+                # a medição da grelha durante o jogo (S22): a mesma página, zero pedidos, e
+                # nunca pode deitar abaixo uma ronda — ver `resumo_ao_vivo`
+                try:
+                    resumo = resumo_ao_vivo(pagina)
+                except Exception as e:  # noqa: BLE001
+                    resumo = f"erro={type(e).__name__}"
+                print(f"grelha #{j['id']} {fx.estado or fx.periodo or '?'} "
+                      f"{fx.relogio or '-'} {resumo}", file=sys.stderr)
             if fx.estado != "Jogo Terminado":
                 por_fechar += 1
             if fx.golos_casa is None:

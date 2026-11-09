@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 from datetime import date
 
-from hoquei.em_pista import em_pista
+from hoquei.em_pista import em_pista, resumo_ao_vivo
 from hoquei.modelos import para_dicionario
 from hoquei.parsers.jogo import ficha
 from hoquei.parsers.participacao import participacao
@@ -122,3 +122,18 @@ def test_anonimizar_tira_a_grelha_e_deixa_a_chave():
     from hoquei.privacidade import anonimizar_ficha
     dados = {"equipas": [], "cronologia": [], "em_pista": [{"equipa": "A", "atletas": [{}]}]}
     assert anonimizar_ficha(dados)["em_pista"] is None
+
+
+def test_o_resumo_ao_vivo_conta_por_periodo_e_nao_leva_nomes(ficha_escolares_com_boletim):
+    """A linha que o ciclo ao vivo escreve no registo (S22, 09/11/2026). O registo das Actions é
+    público: só contagens, e nem um nome."""
+    html = ficha_escolares_com_boletim
+    linha = resumo_ao_vivo(html)
+    assert linha == "boletim=sim casa=5·5·5·5 j=0 fora=5·5·5·5 j=0"
+    for lado in participacao(html):
+        for atleta in lado:
+            assert atleta.nome not in linha
+
+
+def test_o_resumo_ao_vivo_sem_boletim(ficha_escolares):
+    assert resumo_ao_vivo(ficha_escolares) == "boletim=ausente"
