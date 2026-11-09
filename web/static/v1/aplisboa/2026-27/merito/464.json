@@ -1,8 +1,8 @@
 {
  "competicao_id": 464,
  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE E",
- "jogos_lidos": 12,
- "jogos_sem_boletim": 2,
+ "jogos_lidos": 13,
+ "jogos_sem_boletim": 1,
  "linhas": [
   {
    "posicao": 1,
@@ -17,6 +17,17 @@
   },
   {
    "posicao": 2,
+   "equipa": "AE FISICA D B",
+   "jogos": 5,
+   "participantes": 47,
+   "bonificacao": 58,
+   "penalizacao": -4,
+   "pontos": 54,
+   "media": 10.8,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 3,
    "equipa": "FSE/AJ SALESIANA B",
    "jogos": 4,
    "participantes": 38,
@@ -27,7 +38,7 @@
    "por_confirmar": 0
   },
   {
-   "posicao": 3,
+   "posicao": 4,
    "equipa": "CACO B",
    "jogos": 5,
    "participantes": 44,
@@ -38,25 +49,14 @@
    "por_confirmar": 0
   },
   {
-   "posicao": 4,
-   "equipa": "AE FISICA D B",
-   "jogos": 4,
-   "participantes": 38,
-   "bonificacao": 46,
-   "penalizacao": -3,
-   "pontos": 43,
-   "media": 10.75,
-   "por_confirmar": 0
-  },
-  {
    "posicao": 5,
    "equipa": "UD VILAFRANQUENSE B",
-   "jogos": 5,
-   "participantes": 37,
-   "bonificacao": 52,
-   "penalizacao": -19,
-   "pontos": 33,
-   "media": 6.6,
+   "jogos": 6,
+   "participantes": 44,
+   "bonificacao": 59,
+   "penalizacao": -21,
+   "pontos": 38,
+   "media": 6.33,
    "por_confirmar": 0
   }
  ]

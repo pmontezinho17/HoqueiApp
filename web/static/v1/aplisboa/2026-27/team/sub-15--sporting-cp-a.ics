@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9608@hoquei.pages.dev
-DTSTAMP:20261108T000000Z
-DTSTART:20261108T180000Z
-DTEND:20261108T193000Z
-SUMMARY:🏑 Sub-15 🏑 Sporting CP A vs UD Vilafranquense A
-LOCATION:Pavilhão do Sacavenense ( Hóquei Formação SCP)
-DESCRIPTION:Sporting CP A 4–1 UD Vilafranquense A\nCAMP. REG. SUB-15 - 1
- ª FASE · Série B · SUB-15\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.d
- ev/jogo/9608\nDados da Associação de Patinagem de Lisboa. Site não ofic
- ial.
-URL:https://hoquei.pages.dev/jogo/9608
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9609@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T150000Z

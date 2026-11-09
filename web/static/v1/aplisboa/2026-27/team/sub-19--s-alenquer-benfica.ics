@@ -9,31 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9817@hoquei.pages.dev
-DTSTAMP:20261108T000000Z
-DTSTART:20261108T180000Z
-DTEND:20261108T193000Z
-SUMMARY:🏑 Sub-19 🏑 S Alenquer Benfica vs SL Benfica
-LOCATION:Sport Alenquer e Benfica
-DESCRIPTION:S Alenquer Benfica 0–0 SL Benfica\nCAMP. REG. SUB-19 - 1ª FA
- SE · Série A · SUB-19\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.d
- ev/jogo/9817\nDados da Associação de Patinagem de Lisboa. Site não ofic
- ial.
-URL:https://hoquei.pages.dev/jogo/9817
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9820@hoquei.pages.dev
-DTSTAMP:20261113T000000Z
-DTSTART:20261113T220000Z
-DTEND:20261113T233000Z
-SUMMARY:🏑 Sub-19 🏑 HC Turquel vs S Alenquer Benfica
-LOCATION:Hockey club Turquel
-DESCRIPTION:HC Turquel vs S Alenquer Benfica\nCAMP. REG. SUB-19 - 1ª FASE 
- · Série A · SUB-19\nPAV. HC TURQUEL\nhttps://hoquei.pages.dev/jogo/9820
- \nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9820
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9823@hoquei.pages.dev
 DTSTAMP:20261125T000000Z
 DTSTART:20261125T213000Z
@@ -45,6 +20,18 @@ DESCRIPTION:S Alenquer Benfica vs UD Vilafranquense\nCAMP. REG. SUB-19 - 1
  ges.dev/jogo/9823\nDados da Associação de Patinagem de Lisboa. Site não
   oficial.
 URL:https://hoquei.pages.dev/jogo/9823
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9820@hoquei.pages.dev
+DTSTAMP:20261127T000000Z
+DTSTART:20261127T220000Z
+DTEND:20261127T233000Z
+SUMMARY:🏑 Sub-19 🏑 HC Turquel vs S Alenquer Benfica
+LOCATION:Hockey club Turquel
+DESCRIPTION:HC Turquel vs S Alenquer Benfica\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série A · SUB-19\nPAV. HC TURQUEL\nhttps://hoquei.pages.dev/jogo/9820
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
+URL:https://hoquei.pages.dev/jogo/9820
 END:VEVENT
 BEGIN:VEVENT
 UID:jogo-9824@hoquei.pages.dev

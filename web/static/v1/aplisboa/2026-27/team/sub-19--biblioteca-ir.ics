@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9816@hoquei.pages.dev
-DTSTAMP:20261108T000000Z
-DTSTART:20261108T160000Z
-DTEND:20261108T173000Z
-SUMMARY:🏑 Sub-19 🏑 UD Vilafranquense vs Biblioteca IR
-LOCATION:Pavilhão José Mário Cerejo
-DESCRIPTION:UD Vilafranquense 5–10 Biblioteca IR\nCAMP. REG. SUB-19 - 1ª
-  FASE · Série A · SUB-19\nPAV. VILAFRANQUENSE\nhttps://hoquei.pages.dev
- /jogo/9816\nDados da Associação de Patinagem de Lisboa. Site não oficia
- l.
-URL:https://hoquei.pages.dev/jogo/9816
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9818@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T163000Z

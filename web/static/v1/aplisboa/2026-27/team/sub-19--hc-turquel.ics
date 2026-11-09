@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9820@hoquei.pages.dev
-DTSTAMP:20261113T000000Z
-DTSTART:20261113T220000Z
-DTEND:20261113T233000Z
-SUMMARY:🏑 Sub-19 🏑 HC Turquel vs S Alenquer Benfica
-LOCATION:Hockey club Turquel
-DESCRIPTION:HC Turquel vs S Alenquer Benfica\nCAMP. REG. SUB-19 - 1ª FASE 
- · Série A · SUB-19\nPAV. HC TURQUEL\nhttps://hoquei.pages.dev/jogo/9820
- \nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9820
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9822@hoquei.pages.dev
 DTSTAMP:20261120T000000Z
 DTSTART:20261120T220000Z
@@ -31,6 +19,18 @@ DESCRIPTION:Biblioteca IR vs HC Turquel\nCAMP. REG. SUB-19 - 1ª FASE · S
  érie A · SUB-19\nPAV. HC TURQUEL\nhttps://hoquei.pages.dev/jogo/9822\nDa
  dos da Associação de Patinagem de Lisboa. Site não oficial.
 URL:https://hoquei.pages.dev/jogo/9822
+END:VEVENT
+BEGIN:VEVENT
+UID:jogo-9820@hoquei.pages.dev
+DTSTAMP:20261127T000000Z
+DTSTART:20261127T220000Z
+DTEND:20261127T233000Z
+SUMMARY:🏑 Sub-19 🏑 HC Turquel vs S Alenquer Benfica
+LOCATION:Hockey club Turquel
+DESCRIPTION:HC Turquel vs S Alenquer Benfica\nCAMP. REG. SUB-19 - 1ª FASE 
+ · Série A · SUB-19\nPAV. HC TURQUEL\nhttps://hoquei.pages.dev/jogo/9820
+ \nDados da Associação de Patinagem de Lisboa. Site não oficial.
+URL:https://hoquei.pages.dev/jogo/9820
 END:VEVENT
 BEGIN:VEVENT
 UID:jogo-9826@hoquei.pages.dev

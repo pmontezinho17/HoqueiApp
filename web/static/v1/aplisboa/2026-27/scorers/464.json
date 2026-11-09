@@ -29,25 +29,25 @@
    "vermelhos": 0
   },
   {
-   "nome": "GONÇALO VICENTE",
-   "equipa": "UD VILAFRANQUENSE B",
-   "jogos": 6,
-   "numero": "5",
-   "golos": 11,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 12,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOÃO CONSTANTINO",
    "equipa": "FSE/AJ SALESIANA B",
    "jogos": 5,
    "numero": "4",
    "golos": 11,
    "assistencias": 0,
+   "defesas": 0,
+   "pontos": 11,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GONÇALO VICENTE",
+   "equipa": "UD VILAFRANQUENSE B",
+   "jogos": 6,
+   "numero": "5",
+   "golos": 10,
+   "assistencias": 1,
    "defesas": 0,
    "pontos": 11,
    "amarelos": 0,
@@ -185,6 +185,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DAVID RAMOS",
+   "equipa": "AE FISICA D B",
+   "jogos": 5,
+   "numero": "5",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RAFAEL GARCIA",
    "equipa": "FSE/AJ SALESIANA B",
    "jogos": 5,
@@ -306,19 +319,6 @@
    "equipa": "FSE/AJ SALESIANA B",
    "jogos": 4,
    "numero": "8",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DAVID RAMOS",
-   "equipa": "AE FISICA D B",
-   "jogos": 5,
-   "numero": "5",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,

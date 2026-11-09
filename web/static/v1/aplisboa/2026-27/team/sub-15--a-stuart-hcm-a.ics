@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9647@hoquei.pages.dev
-DTSTAMP:20261108T000000Z
-DTSTART:20261108T150000Z
-DTEND:20261108T163000Z
-SUMMARY:🏑 Sub-15 🏑 SL Benfica A vs A Stuart HCM A
-LOCATION:Pavilhão Desportivo de Murches
-DESCRIPTION:SL Benfica A 9–2 A Stuart HCM A\nCAMP. REG. SUB-15 - 1ª FASE
-  · Série D · SUB-15\nPAV. MURCHES\nhttps://hoquei.pages.dev/jogo/9647\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9647
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9649@hoquei.pages.dev
 DTSTAMP:20261115T000000Z
 DTSTART:20261115T153000Z
