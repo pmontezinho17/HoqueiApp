@@ -714,12 +714,18 @@
 	}
 	/* Três colunas — parte, relógio, nome — e o bloco centrado debaixo da equipa: a parte e o
 	   nome começam sempre no mesmo sítio, e o relógio alinha à direita, pelos segundos. A
-	   `subgrid` é o que dá a cada linha as colunas da lista, e não as suas. */
+	   `subgrid` é o que dá a cada linha as colunas da lista, e não as suas.
+
+	   **O `align-content: start` não é opcional.** As duas listas são vizinhas numa grelha, e a
+	   mais curta estica até à altura da outra; sem ele, as linhas dela repartiam essa altura
+	   entre si. O dono viu-o a 09/11/2026 no SPORTING CP B 12–2 CD PAÇO ARCOS B: os dois golos
+	   do PAÇO ARCOS ficaram um na 1.ª linha e o outro na 7.ª. Não se via nos jogos com que tinha
+	   testado, porque num 9–11 as listas têm quase a mesma altura e num 7–0 uma está vazia. */
 	.marcadores ul {
 		list-style: none; margin: 0; padding: 0;
 		font-size: var(--t-pequeno); color: var(--heroi-suave);
 		display: grid; grid-template-columns: max-content max-content minmax(0, max-content);
-		column-gap: 0.35em; row-gap: 2px;
+		column-gap: 0.35em; row-gap: 2px; align-content: start;
 		justify-self: center; max-width: 100%; text-align: left;
 	}
 	.marcadores li { display: grid; grid-column: 1 / -1; grid-template-columns: subgrid; }
