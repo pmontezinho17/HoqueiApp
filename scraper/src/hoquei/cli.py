@@ -33,7 +33,7 @@ from .recintos import conhecidas
 from .quadros import agregar
 from .rondas import (TOLERANCIA, acumular_pedidos, contar, diario_de, quedas,
                      registar, ultima)
-from .provas_a_pedir import FILTRAR_TABELAS, pedir_tabela, resumir
+from .provas_a_pedir import pedir_tabela, resumir
 
 
 def _temporada_corrente(fonte: Fonte) -> int:
@@ -923,9 +923,6 @@ def comando_publicar(args) -> int:
             return publicado_antes[id_prova]
 
         def _quer_tabela(prova, cal) -> bool:
-            """Com o interruptor desligado pede-se tudo, como sempre."""
-            if not FILTRAR_TABELAS:
-                return True
             antes = _anterior(prova.id)
             pedir, porque = pedir_tabela(
                 jogos_agora=[para_dicionario(j) for j in cal.jogos],
@@ -1196,9 +1193,8 @@ def comando_publicar(args) -> int:
         # número de graça. **Fora das `contagens`** de propósito: aquelas só crescem ao longo
         # da época e a guarda do B9.6 trata uma queda como suspeita — os pedidos sobem e
         # descem com o trabalho de cada ronda.
-        # Quantas tabelas se saltaram e porquê — ver `provas_a_pedir.py`. Com o interruptor
-        # desligado isto é sempre `{}`, e é assim que se distingue "não filtrámos" de
-        # "filtrámos e não havia nada para saltar".
+        # Quantas tabelas se saltaram e porquê — ver `provas_a_pedir.py`, para uma queda nos
+        # pedidos se distinguir de uma avaria.
         "tabelas_saltadas": len(tabelas_saltadas),
         "tabelas_saltadas_porque": resumir(list(tabelas_saltadas.values())),
         "pedidos_fonte": fonte.pedidos,

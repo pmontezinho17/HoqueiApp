@@ -32,7 +32,7 @@ import json
 import pathlib
 
 import pytest
-from hoquei import cli, provas_a_pedir
+from hoquei import cli
 
 AMOSTRAS = pathlib.Path(__file__).parents[2] / "data-samples/paginas"
 
@@ -107,8 +107,10 @@ def correr(tmp_path, monkeypatch):
         monkeypatch.setattr(cli, "Fonte", lambda *a, **k: fonte)
         monkeypatch.setattr(cli, "competicoes",
                             lambda html: competicoes_reais(html)[:PROVAS_NO_TESTE])
-        monkeypatch.setattr(provas_a_pedir, "FILTRAR_TABELAS", filtrar)
-        monkeypatch.setattr(cli, "FILTRAR_TABELAS", filtrar, raising=False)
+        # sem filtro é a ronda que pede todas as tabelas: a referência com que se compara a
+        # filtrada. Era o `FILTRAR_TABELAS = False` até 10/11/2026, quando o interruptor saiu.
+        if not filtrar:
+            monkeypatch.setattr(cli, "pedir_tabela", lambda **_k: (True, "a ronda que pede tudo"))
         monkeypatch.setattr(
             cli, "_agora",
             lambda: dt.datetime.combine(hoje, dt.time(14, 0), tzinfo=dt.timezone.utc))

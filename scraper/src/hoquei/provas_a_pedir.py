@@ -70,18 +70,11 @@ from __future__ import annotations
 
 import datetime as dt
 
-#: **O interruptor, ligado pelo dono a 13/10/2026.** A `False` a ronda pede tudo como sempre
-#: pediu e nada do que está aqui se aplica; a `True` é o que corre hoje.
-#:
-#: **Fica como travão de emergência, e é por isso que ainda existe.** Se uma prova ficar calada,
-#: pôr isto a `False` devolve o comportamento antigo na ronda seguinte — sem reverter código,
-#: sem publicar, sem esperar por ninguém. Continua registado em `web/src/lib/bandeiras.ts` com
-#: data: no dia em que o travão deixar de ser preciso, apaga-se o interruptor e fica só o filtro.
-#:
-#: O que se olha, agora que está ligado: o gráfico de pedidos por hora na consola. Os pedidos
-#: têm de cair e **nenhuma prova pode ficar calada**. O `meta.json` diz quantas tabelas se
-#: saltaram e porquê, para a queda se distinguir de uma avaria.
-FILTRAR_TABELAS = True
+#: **Sem interruptor desde 10/11/2026.** Esteve atrás do `FILTRAR_TABELAS`, ligado pelo dono a
+#: 13/10/2026 e mantido como travão de emergência até 09/11 — quatro fins de semana de jogos.
+#: Nesse prazo não houve registo de nenhuma tabela velha por causa dele, e o dono mandou tirá-lo
+#: a 10/11. Se uma prova ficar calada, o caminho de volta passa a ser um commit, como para o
+#: resto do raspador. A comparação com a ronda que pede tudo continua no `test_ronda.py`.
 
 #: Segunda-feira. A varredura completa corre no fecho do domingo — ver o ponto 2 acima.
 #: `0` é segunda em `date.weekday()`.

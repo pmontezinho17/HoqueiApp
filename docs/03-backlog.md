@@ -1549,6 +1549,11 @@ O dono leu o PR e mandou juntar e ligar. O interruptor **fica**, como travão de
 no registo é 09/11 — quatro fins de semana de jogos são prova bastante para o travão deixar de
 valer o que custa.
 
+**Tirado a 10/11/2026.** O teste dos interruptores falhou nesse dia, como devia. Nas quatro
+semanas não houve registo de nenhuma tabela velha por causa do filtro, e o dono escolheu
+tirá-lo a adiar a data. O filtro fica, com os testes. A ronda que pede tudo continua a ser a
+referência do `test_ronda.py`, agora por substituição da decisão e não pelo interruptor.
+
 **Uma assimetria que vale a pena ter escrita.** A regra do projecto é que um `git push` não
 publica, e isso é verdade para a **app**: quem leva código ao site é o `dados.yml`. Para o
 **raspador** não é: as rondas agendadas fazem `checkout` do ramo por omissão, logo uma alteração
