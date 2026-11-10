@@ -185,15 +185,28 @@ de escrever o ciclo, mede-se num sábado com jornada do Placard: a "Jogos do Dia
 segundos durante a janela dos jogos, e a ficha da plataforma de **um** desses jogos, com a mesma
 cadência, como referência — é a ficha que diz quando um golo entrou na base de dados.
 
+**Aprovada pelo dono a 09/11/2026, para sábado 21/11**, a 3.ª jornada. A primeira proposta era
+14/11, mas a GitHub só corre workflows agendados a partir do `main`, e o workflow só lá chega com
+a entrega de 16/11; o dono escolheu esperar uma semana a abrir uma excepção ao processo. Ganha-se
+com isso que os pedidos da medição apareçam na consola, porque o observador aprende a origem
+`medicao` na mesma entrega.
+
 | | pedidos | a quem |
 |---|---|---|
-| "Jogos do Dia", das 18:00 às ~23:15 de 14/11/2026 | ~630 | `hp.fpp.pt` |
-| a ficha de um jogo do Placard, 1h45 de 30 em 30 s | ~210 | o servidor partilhado com a APL |
+| "Jogos do Dia", das 17:25 às 23:00 de 21/11/2026 | ~670 | `hp.fpp.pt` |
+| a ficha do SPORTING CP–SL BENFICA das 19:30 (`partido.asp?id=18279`), das 19:20 até 10 minutos depois do fim | ~250 | o servidor partilhado com a APL |
 
 A ficha de referência é **uma só** de propósito: num sábado à noite o ciclo ao vivo da APL pode
-estar a correr, e um jogo a mais por ronda cabe no limite, cinco não. O resultado é o atraso de
-cada golo entre a ficha e a "Jogos do Dia", e entra aqui. **Esta medição espera pela aprovação do
-dono**, porque são pedidos novos.
+estar a correr, e um jogo a mais por ronda cabe no limite, cinco não. A janela apanha os jogos
+das 18:00, 18:30, 19:30 e 21:30 inteiros, e o das 17:00 a partir da segunda parte.
+
+**Como corre:** o workflow "MEDIÇÃO · Atraso da Jogos do Dia da FPP"
+(`.github/workflows/medir-direto.yml`) arranca às 17:25 e corre o
+`scraper/src/hoquei/medir_direto.py` num job só, que faz o próprio compasso. **A trava está no
+código:** fora de 21/11/2026 o script sai sem pedir nada. O diário — uma linha por mudança, só
+resultados, estados e contagens, sem nomes de atletas — fica em
+`data-samples/medicao-direto/2026-11-21.jsonl`, e o resumo da corrida dá o atraso de cada golo.
+O resultado entra aqui, e depois o workflow e o script saem.
 
 ## Como reproduzir
 

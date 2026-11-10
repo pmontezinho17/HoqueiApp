@@ -137,7 +137,9 @@ const ORIGENS = {
 	producao: 'rondas de dados',
 	aovivo: 'ciclo ao vivo',
 	testes: 'botão do site de testes',
-	sonda: 'sonda dos jogos'
+	sonda: 'sonda dos jogos',
+	// a FPP está no mesmo servidor da APL: ver docs/11-ligas-nacionais.md
+	medicao: 'medição da FPP'
 };
 
 /**
