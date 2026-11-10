@@ -775,6 +775,290 @@
   }
  ],
  "merito_revisto": "2026-10-31",
+ "em_pista": [
+  {
+   "equipa": "CRIAR-T GD",
+   "atletas": [
+    {
+     "numero": "01",
+     "nome": "TOMÁS LOPES",
+     "gr": true,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "02",
+     "nome": "FRANCISCO CARVOEIRO",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "03",
+     "nome": "ANTONIO PEREIRA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "04",
+     "nome": "MATEUS CABRERA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "05",
+     "nome": "LUCAS ALVES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "06",
+     "nome": "ANDRÉ SANTOS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "07",
+     "nome": "VASCO FRAÚSTO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      1,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "08",
+     "nome": "AFONSO MARCELO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "09",
+     "nome": "AFONSO NUNES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "equipa": "A STUART HCM A",
+   "atletas": [
+    {
+     "numero": "98",
+     "nome": "HENRIQUE FRANCISCO",
+     "gr": true,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "6",
+     "nome": "ANDRÉ GOUVEIA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "8",
+     "nome": "CLARA BARBOSA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "9",
+     "nome": "GONÇALO BORGES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "77",
+     "nome": "MATILDE VENTURA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "80",
+     "nome": "VICENTE BARROS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "91",
+     "nome": "DIOGO REIS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
  "competicao_id": 462,
  "categoria": "ESCOLARES",
  "jornada": "2ª JORNADA",

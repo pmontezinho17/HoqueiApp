@@ -920,6 +920,290 @@
   }
  ],
  "merito_revisto": "2026-11-07",
+ "em_pista": [
+  {
+   "equipa": "CD PAÇO ARCOS B",
+   "atletas": [
+    {
+     "numero": "01",
+     "nome": "FRANCISCO TRINDADE",
+     "gr": true,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "04",
+     "nome": "LEONOR MARQUES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "05",
+     "nome": "BIANCA ALVES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "06",
+     "nome": "GONÇALO PEREIRA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "08",
+     "nome": "TOMÁS RAMOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "09",
+     "nome": "JOÃO PINHEIRO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "equipa": "S ALENQUER BENFICA",
+   "atletas": [
+    {
+     "numero": "01",
+     "nome": "JOAO VICENTE",
+     "gr": true,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "04",
+     "nome": "TOMÁS LUCAS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      1,
+      0,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "14",
+     "nome": "CAETANO SILVA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "numero": "17",
+     "nome": "MATEUS MARQUES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      3,
+      0,
+      0,
+      3
+     ]
+    },
+    {
+     "numero": "27",
+     "nome": "DINIS GOMES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      2,
+      0
+     ]
+    },
+    {
+     "numero": "37",
+     "nome": "LOURENÇO PEREIRA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      1,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "55",
+     "nome": "DINIS TOMÉ",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "67",
+     "nome": "GABRIEL HELENO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      5,
+      0,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "86",
+     "nome": "LOURENÇO FERREIRA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "numero": "10",
+     "nome": "NUNO PEREIRA",
+     "gr": true,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
  "competicao_id": 466,
  "categoria": "BENJAMINS",
  "jornada": "2ª JORNADA",

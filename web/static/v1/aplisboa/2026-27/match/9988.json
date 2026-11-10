@@ -709,6 +709,290 @@
   }
  ],
  "merito_revisto": "2026-10-31",
+ "em_pista": [
+  {
+   "equipa": "CD PAÇO ARCOS A",
+   "atletas": [
+    {
+     "numero": "01",
+     "nome": "ANTÓNIO ANDRADE",
+     "gr": true,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "02",
+     "nome": "RAÚL VILÃO",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      "J"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "04",
+     "nome": "PACO TAVARES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "J",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "05",
+     "nome": "RICARDO SANTOS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "J",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "06",
+     "nome": "MIGUEL PAULINO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "J",
+      "J",
+      "X"
+     ],
+     "golos": [
+      1,
+      0,
+      0,
+      3
+     ]
+    },
+    {
+     "numero": "07",
+     "nome": "DINIS NEVES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "08",
+     "nome": "MARGARIDA VALENTE",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      "J"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "09",
+     "nome": "AFONSO RODRIGUES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      "J"
+     ],
+     "golos": [
+      0,
+      0,
+      1,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "equipa": "A STUART HCM",
+   "atletas": [
+    {
+     "numero": "98",
+     "nome": "HENRIQUE FRANCISCO",
+     "gr": true,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "3",
+     "nome": "TIAGO FORMIGA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      "J"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "8",
+     "nome": "FRANCISCO FORMIGA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "10",
+     "nome": "EMANUEL VAZ",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "12",
+     "nome": "SANTIAGO SANTOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "19",
+     "nome": "SARA DIAS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "44",
+     "nome": "OLIVER TEIXEIRA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      "J"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "80",
+     "nome": "VICENTE BARROS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
  "competicao_id": 465,
  "categoria": "BENJAMINS",
  "jornada": "1ª JORNADA",
