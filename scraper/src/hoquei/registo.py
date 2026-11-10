@@ -29,7 +29,10 @@ from datetime import datetime, timezone
 
 #: Quem pede à APL. Uma origem nova é um processo novo a pedir — e a regra do projecto manda
 #: contar o custo antes de o acrescentar. O observador recusa o que não estiver aqui.
-ORIGENS = ("producao", "aovivo", "testes", "sonda")
+#:
+#: A `medicao` é a do atraso da "Jogos do Dia" da FPP, a 21/11/2026 (`medir_direto.py`): pede
+#: fichas ao servidor que a FPP partilha com a APL, e por isso conta no mesmo gráfico.
+ORIGENS = ("producao", "aovivo", "testes", "sonda", "medicao")
 
 UA = "hoqueiAPP-registo/1.0 (+https://github.com/pmontezinho17/HoqueiApp)"
 
