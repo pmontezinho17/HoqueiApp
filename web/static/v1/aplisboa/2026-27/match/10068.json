@@ -1129,6 +1129,290 @@
   }
  ],
  "merito_revisto": "2026-11-07",
+ "em_pista": [
+  {
+   "equipa": "CACO B",
+   "atletas": [
+    {
+     "numero": "92",
+     "nome": "ENRICO MARCO",
+     "gr": true,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "2",
+     "nome": "MADALENA ABRANTES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "20",
+     "nome": "BENEDITA MATOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "28",
+     "nome": "MANUEL PEREIRA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "30",
+     "nome": "BEATRIZ KISHON",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "53",
+     "nome": "SANTIAGO MOURA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "54",
+     "nome": "GABRIEL PRETO",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "58",
+     "nome": "OLIVIA GRANJA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "66",
+     "nome": "KISHON RAFAEL",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "95",
+     "nome": "IARA BESSONE",
+     "gr": true,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE",
+   "atletas": [
+    {
+     "numero": "27",
+     "nome": "TIAGO JESUS",
+     "gr": true,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "3",
+     "nome": "MARIA MORGADO",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      2,
+      2
+     ]
+    },
+    {
+     "numero": "5",
+     "nome": "GONÇALO VICENTE",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      1,
+      2,
+      1,
+      0
+     ]
+    },
+    {
+     "numero": "17",
+     "nome": "JOANA ANDRADE",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      "X"
+     ],
+     "golos": [
+      3,
+      0,
+      5,
+      6
+     ]
+    },
+    {
+     "numero": "24",
+     "nome": "MARGARIDA MONTEIRO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      2,
+      1,
+      0,
+      3
+     ]
+    },
+    {
+     "numero": "88",
+     "nome": "VASCO DUARTE",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      1,
+      3,
+      2,
+      1
+     ]
+    }
+   ]
+  }
+ ],
  "competicao_id": 467,
  "categoria": "BENJAMINS",
  "jornada": "3ª JORNADA",

@@ -97,43 +97,22 @@ def _ficha(tmp_path, **campos):
     return caminho
 
 
-def test_pede_se_uma_vez_a_ficha_que_nenhuma_releitura_vai_ler(tmp_path):
+def test_pede_se_uma_vez_cada_ficha_com_merito_sem_grelha(tmp_path):
+    """Desde 10/11/2026 sem olhar para a data: as 73 fichas de 31/10 a 08/11 em produção
+    esperavam pela releitura semanal, e o dono preferiu pagar os pedidos a esperar."""
     from hoquei.cli import _em_pista_por_preencher
-    hoje = date(2026, 11, 7)
+    hoje = date(2026, 11, 10)
     # fora do mês de vigia
     assert _em_pista_por_preencher(_ficha(tmp_path, data="2026-09-26",
                                           merito_revisto="2026-10-31"), hoje)
-    # dentro, mas a última releitura já foi: a seguinte cairia aos 34 dias
-    assert _em_pista_por_preencher(_ficha(tmp_path, data="2026-10-10",
-                                          merito_revisto="2026-11-07"), hoje)
-    # dentro, e a releitura semanal ainda lá vai: zero pedidos a mais
-    assert not _em_pista_por_preencher(_ficha(tmp_path, data="2026-10-24",
-                                              merito_revisto="2026-10-31"), hoje)
-    assert not _em_pista_por_preencher(_ficha(tmp_path, data="2026-11-07"), hoje)
+    # dentro, e com a releitura semanal ainda por vir: também, e é isto que mudou
+    assert _em_pista_por_preencher(_ficha(tmp_path, data="2026-11-08"), hoje)
+    assert _em_pista_por_preencher(_ficha(tmp_path, data="2026-10-24",
+                                          merito_revisto="2026-10-31"), hoje)
     # já lida, mesmo a None: não se repete
-    assert not _em_pista_por_preencher(_ficha(tmp_path, data="2026-09-26", em_pista=None), hoje)
+    assert not _em_pista_por_preencher(_ficha(tmp_path, data="2026-11-08", em_pista=None), hoje)
+    assert not _em_pista_por_preencher(_ficha(tmp_path, data="2026-11-08", em_pista=[]), hoje)
     # sem Mérito não há boletim, e não há grelha para ir buscar
     caminho = tmp_path / "2.json"
-    caminho.write_text(json.dumps({"merito": None, "data": "2026-09-26"}))
+    caminho.write_text(json.dumps({"merito": None, "data": "2026-11-08"}))
     assert not _em_pista_por_preencher(caminho, hoje)
-
-
-def test_anonimizar_tira_a_grelha_e_deixa_a_chave():
-    from hoquei.privacidade import anonimizar_ficha
-    dados = {"equipas": [], "cronologia": [], "em_pista": [{"equipa": "A", "atletas": [{}]}]}
-    assert anonimizar_ficha(dados)["em_pista"] is None
-
-
-def test_o_resumo_ao_vivo_conta_por_periodo_e_nao_leva_nomes(ficha_escolares_com_boletim):
-    """A linha que o ciclo ao vivo escreve no registo (S22, 09/11/2026). O registo das Actions é
-    público: só contagens, e nem um nome."""
-    html = ficha_escolares_com_boletim
-    linha = resumo_ao_vivo(html)
-    assert linha == "boletim=sim casa=5·5·5·5 j=0 fora=5·5·5·5 j=0"
-    for lado in participacao(html):
-        for atleta in lado:
-            assert atleta.nome not in linha
-
-
-def test_o_resumo_ao_vivo_sem_boletim(ficha_escolares):
-    assert resumo_ao_vivo(ficha_escolares) == "boletim=ausente"

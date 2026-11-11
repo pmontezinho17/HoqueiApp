@@ -259,31 +259,28 @@ def _merito_por_rever(caminho: pathlib.Path, hoje: date) -> bool:
 
 
 def _em_pista_por_preencher(caminho: pathlib.Path, hoje: date) -> bool:
-    """Uma ficha com Mérito sem a grelha dos períodos (`em_pista`), que **nenhuma releitura vai ler**.
+    """Uma ficha com Mérito sem a grelha dos períodos (`em_pista`): pede-se uma vez.
 
     O separador nasceu a 07/11/2026, e as fichas lidas antes guardavam só o Mérito da equipa.
-    Das 109 com Mérito nesse dia, a releitura semanal (`_merito_por_rever`) ainda ia passar por
-    62, e essas enchem-se sozinhas, sem pedidos a mais. As outras **47** pedem-se uma vez: 26 já
-    tinham saído do mês de vigia, e 21 (de 10 e 11/10) tinham tido a última releitura nesse dia,
-    aos 27 e 28 dias do jogo — a seguinte cairia aos 34, já fora dele. Contei primeiro 26, por
-    tomar como relidas todas as fichas com menos de 30 dias; medido com esta função, são 47, e
-    o dono confirmou-os depois da correcção.
+    A primeira versão desta regra pedia só as **47** que nenhuma releitura ia ler — 26 fora do
+    mês de vigia e 21 cuja releitura seguinte já cairia fora dele — e deixava as outras 62 para a
+    releitura semanal, sem pedidos a mais. O preço era as fichas mais recentes, que são as que se
+    abrem, ficarem sem grelha até quatro a seis dias depois de a 1.11 chegar a produção.
 
-    Depois de lida fica a chave, mesmo a `None`, e não se repete.
+    A 10/11/2026 o dono abriu os Escolares e não viu a grelha: medido nesse dia em produção,
+    47 fichas com ela e **73 sem**, todas de 31/10 a 08/11. Escolheu pagar os 73 pedidos de uma
+    vez para não esperar até 14–16/11. Por isso a regra deixou de olhar para a data: qualquer
+    ficha com Mérito e sem a chave pede-se, uma vez. A releitura semanal continua igual, e
+    não custa mais por isto.
+
+    Depois de lida fica a chave, mesmo a `None`, e não se repete. O `hoje` fica na assinatura
+    porque é a forma das outras regras deste ciclo.
     """
     try:
         dados = json.loads(caminho.read_text())
     except (OSError, ValueError):
         return False
-    if not dados.get("merito") or "em_pista" in dados:
-        return False
-    try:
-        dia = date.fromisoformat(dados.get("data") or "")
-        revisto = date.fromisoformat(dados["merito_revisto"]) if dados.get("merito_revisto") else None
-    except ValueError:
-        return False
-    proxima = (revisto or dia) + timedelta(days=DIAS_ENTRE_RELEITURAS)
-    return proxima - dia > timedelta(days=DIAS_DE_VIGIA) or hoje - dia > timedelta(days=DIAS_DE_VIGIA)
+    return bool(dados.get("merito")) and "em_pista" not in dados
 
 
 def _pedido_a_reler(reler: str | None, jogo_id: int, com_merito: bool) -> bool:
