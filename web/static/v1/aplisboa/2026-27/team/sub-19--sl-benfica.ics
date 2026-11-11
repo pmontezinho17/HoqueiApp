@@ -21,6 +21,19 @@ DESCRIPTION:UD Vilafranquense vs SL Benfica\nCAMP. REG. SUB-19 - 1ª FASE
 URL:https://hoquei.pages.dev/jogo/9819
 END:VEVENT
 BEGIN:VEVENT
+UID:jogo-9817@hoquei.pages.dev
+DTSTAMP:20261118T000000Z
+DTSTART:20261118T220000Z
+DTEND:20261118T233000Z
+SUMMARY:🏑 Sub-19 🏑 S Alenquer Benfica vs SL Benfica
+LOCATION:Sport Alenquer e Benfica
+DESCRIPTION:S Alenquer Benfica 0–0 SL Benfica\nCAMP. REG. SUB-19 - 1ª FA
+ SE · Série A · SUB-19\nPAV.S.ALENQUER E BENFICA\nhttps://hoquei.pages.d
+ ev/jogo/9817\nDados da Associação de Patinagem de Lisboa. Site não ofic
+ ial.
+URL:https://hoquei.pages.dev/jogo/9817
+END:VEVENT
+BEGIN:VEVENT
 UID:jogo-9821@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T184500Z
