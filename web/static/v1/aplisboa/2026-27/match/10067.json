@@ -819,6 +819,290 @@
   }
  ],
  "merito_revisto": "2026-11-07",
+ "em_pista": [
+  {
+   "equipa": "APAC TOJAL",
+   "atletas": [
+    {
+     "numero": "1",
+     "nome": "DUARTE LOURO",
+     "gr": true,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "2",
+     "nome": "MARIANA CAMPOS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "3",
+     "nome": "LEONOR FERNANDES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      2
+     ]
+    },
+    {
+     "numero": "5",
+     "nome": "BENJAMIN LOPES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "6",
+     "nome": "DUARTE CAMPOS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "7",
+     "nome": "LOURENÇO COSTA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "8",
+     "nome": "LOURENÇO FRANCISCO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "numero": "9",
+     "nome": "DIOGO SANTOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "28",
+     "nome": "ISABELLA ALVES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "10",
+     "nome": "FRANCISCO MIRANDA",
+     "gr": true,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "equipa": "SPORTING CP",
+   "atletas": [
+    {
+     "numero": "1",
+     "nome": "DUARTE DAVID",
+     "gr": true,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "3",
+     "nome": "TOMÁS BRIGANTIN",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      2,
+      1
+     ]
+    },
+    {
+     "numero": "5",
+     "nome": "JOÃO MONTEIRO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "7",
+     "nome": "PEDRO MATOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      2
+     ]
+    },
+    {
+     "numero": "8",
+     "nome": "VASCO FIGUEIREDO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "numero": "10",
+     "nome": "GONÇALO DIAS",
+     "gr": true,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
  "competicao_id": 467,
  "categoria": "BENJAMINS",
  "jornada": "3ª JORNADA",

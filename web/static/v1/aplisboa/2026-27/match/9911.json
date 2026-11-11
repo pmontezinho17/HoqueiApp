@@ -795,6 +795,358 @@
   }
  ],
  "merito_revisto": "2026-11-07",
+ "em_pista": [
+  {
+   "equipa": "CACO A",
+   "atletas": [
+    {
+     "numero": "1",
+     "nome": "BERNARDO OLIVAL",
+     "gr": true,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "4",
+     "nome": "SIMAO RAFAEL",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "9",
+     "nome": "ANTÓNIO CABRAL",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      1,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "numero": "12",
+     "nome": "GABRIEL JOLIVET",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "17",
+     "nome": "DIOGO LOPES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "24",
+     "nome": "HENRIQUE VILELA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "49",
+     "nome": "DANIEL SIMÕES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "76",
+     "nome": "GUSTAVO ZURGA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "79",
+     "nome": "VASCO MALHEIRO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "numero": "82",
+     "nome": "MARIA FERREIRA",
+     "gr": true,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE A",
+   "atletas": [
+    {
+     "numero": "55",
+     "nome": "XAVIER CAEIRO",
+     "gr": true,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "3",
+     "nome": "MARIA MORGADO",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "6",
+     "nome": "FRANCISCO CARVALHO",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "17",
+     "nome": "JOANA ANDRADE",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "23",
+     "nome": "RICARDO HENRIQUES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "24",
+     "nome": "MARGARIDA MONTEIRO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "77",
+     "nome": "MATIAS MOREIRA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "81",
+     "nome": "MATEUS XAVIER",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "93",
+     "nome": "TOMÁS LEITÃO",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "61",
+     "nome": "RODRIGO VENTURA",
+     "gr": true,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
  "competicao_id": 461,
  "categoria": "ESCOLARES",
  "jornada": "4ª JORNADA",

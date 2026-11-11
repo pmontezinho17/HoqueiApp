@@ -710,6 +710,290 @@
   }
  ],
  "merito_revisto": "2026-11-07",
+ "em_pista": [
+  {
+   "equipa": "PAREDE FC",
+   "atletas": [
+    {
+     "numero": "1",
+     "nome": "MICAIAS CARDOSO",
+     "gr": true,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "12",
+     "nome": "ANNA SANTOS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "18",
+     "nome": "INÊS QUEIRÓS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "19",
+     "nome": "SANTIAGO FUENTES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "21",
+     "nome": "ANTONIO ROSA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "25",
+     "nome": "EVA LEHNERT",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "42",
+     "nome": "MARIA ROCHA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "44",
+     "nome": "INÊS MENDES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "54",
+     "nome": "SOFIA SANTOS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "10",
+     "nome": "BERNADO TEIXEIRA",
+     "gr": true,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "equipa": "UD VILAFRANQUENSE",
+   "atletas": [
+    {
+     "numero": "27",
+     "nome": "TIAGO JESUS",
+     "gr": true,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "3",
+     "nome": "MARIA MORGADO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      1,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "5",
+     "nome": "GONÇALO VICENTE",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      2,
+      1
+     ]
+    },
+    {
+     "numero": "17",
+     "nome": "JOANA ANDRADE",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "24",
+     "nome": "MARGARIDA MONTEIRO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "numero": "88",
+     "nome": "VASCO DUARTE",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
  "competicao_id": 467,
  "categoria": "BENJAMINS",
  "jornada": "5ª JORNADA",

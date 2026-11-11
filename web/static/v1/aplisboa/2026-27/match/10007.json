@@ -724,6 +724,307 @@
   }
  ],
  "merito_revisto": "2026-11-07",
+ "em_pista": [
+  {
+   "equipa": "SC TORRES",
+   "atletas": [
+    {
+     "numero": "10",
+     "nome": "VASCO GOMES",
+     "gr": true,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "2",
+     "nome": "MIGUEL TAVARES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "numero": "3",
+     "nome": "VICENTE VILHENA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "4",
+     "nome": "VICENTE SERRANO",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "5",
+     "nome": "LEIGH XAVIER",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "6",
+     "nome": "ZE SANTOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "7",
+     "nome": "VALENTIM PINTO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "8",
+     "nome": "GUSTAVO SANTOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "9",
+     "nome": "RODRIGO PEDRO",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      4,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS A",
+   "atletas": [
+    {
+     "numero": "1",
+     "nome": "ANTÓNIO ANDRADE",
+     "gr": true,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "2",
+     "nome": "RAÚL VILÃO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "4",
+     "nome": "PACO TAVARES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "5",
+     "nome": "RICARDO SANTOS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "6",
+     "nome": "MIGUEL PAULINO",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      2
+     ]
+    },
+    {
+     "numero": "7",
+     "nome": "DINIS NEVES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "8",
+     "nome": "MARGARIDA VALENTE",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "9",
+     "nome": "AFONSO RODRIGUES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
  "competicao_id": 465,
  "categoria": "BENJAMINS",
  "jornada": "6ª JORNADA",

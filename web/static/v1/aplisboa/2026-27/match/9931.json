@@ -1005,6 +1005,358 @@
   }
  ],
  "merito_revisto": "2026-11-07",
+ "em_pista": [
+  {
+   "equipa": "CRIAR-T GD",
+   "atletas": [
+    {
+     "numero": "1",
+     "nome": "TOMÁS LOPES",
+     "gr": true,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "2",
+     "nome": "AFONSO NUNES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "3",
+     "nome": "ANTONIO PEREIRA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "4",
+     "nome": "MATEUS CABRERA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "5",
+     "nome": "LUCAS ALVES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "6",
+     "nome": "SANTIAGO LOPES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "7",
+     "nome": "VASCO FRAÚSTO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "8",
+     "nome": "AFONSO MARCELO",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "9",
+     "nome": "FRANCISCO CARVOEIRO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "10",
+     "nome": "GUILHERME FORMIGA",
+     "gr": true,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "equipa": "HC LOURINHÃ",
+   "atletas": [
+    {
+     "numero": "88",
+     "nome": "NOAH ALVES",
+     "gr": true,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "4",
+     "nome": "THÉO FURTADO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      3,
+      0
+     ]
+    },
+    {
+     "numero": "5",
+     "nome": "VALENTIM MARTINS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "numero": "6",
+     "nome": "DUARTE MARTINS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      1,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "9",
+     "nome": "VASCO FERREIRA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "16",
+     "nome": "PEDRO PINTO",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "17",
+     "nome": "XAVIER FEIO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "78",
+     "nome": "MANUEL RODRIGUES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      2,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "99",
+     "nome": "MARTIM TORRÃO",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "97",
+     "nome": "TIAGO RIBEIRO",
+     "gr": true,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
  "competicao_id": 462,
  "categoria": "ESCOLARES",
  "jornada": "4ª JORNADA",

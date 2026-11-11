@@ -872,6 +872,324 @@
   }
  ],
  "merito_revisto": "2026-11-07",
+ "em_pista": [
+  {
+   "equipa": "CACO B",
+   "atletas": [
+    {
+     "numero": "92",
+     "nome": "LUISA ABREU",
+     "gr": true,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "2",
+     "nome": "MADALENA ABRANTES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      1,
+      0,
+      2,
+      0
+     ]
+    },
+    {
+     "numero": "8",
+     "nome": "GABRIEL PRETO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      1,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "numero": "20",
+     "nome": "BENEDITA MATOS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "30",
+     "nome": "BEATRIZ KISHON",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "53",
+     "nome": "SANTIAGO MOURA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "54",
+     "nome": "OLIVIA GRANJA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "58",
+     "nome": "IARA BESSONE",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "66",
+     "nome": "KISHON RAFAEL",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "equipa": "HC LOURINHÃ",
+   "atletas": [
+    {
+     "numero": "1",
+     "nome": "YASMIN BOZYK",
+     "gr": true,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "2",
+     "nome": "GONÇALO RAMOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      2,
+      1
+     ]
+    },
+    {
+     "numero": "3",
+     "nome": "SALVADOR SILVA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "4",
+     "nome": "AFONSO AUGUSTO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "5",
+     "nome": "MARTINA BARBOSA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      1,
+      0,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "7",
+     "nome": "JAIME CARVALHO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      1,
+      5,
+      0,
+      2
+     ]
+    },
+    {
+     "numero": "8",
+     "nome": "VICENTE DINIS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "9",
+     "nome": "SALVADOR IBRAHIM",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "10",
+     "nome": "BENJAMIN MIGUEL",
+     "gr": true,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
  "competicao_id": 467,
  "categoria": "BENJAMINS",
  "jornada": "4ª JORNADA",

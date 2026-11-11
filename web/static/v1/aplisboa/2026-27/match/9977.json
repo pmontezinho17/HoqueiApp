@@ -901,6 +901,341 @@
    "avisos": []
   }
  ],
+ "em_pista": [
+  {
+   "equipa": "PAREDE FC B",
+   "atletas": [
+    {
+     "numero": "47",
+     "nome": "HENRIQUE ANTUNES",
+     "gr": true,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "16",
+     "nome": "VASCO SANTOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "19",
+     "nome": "MARIA CATRAU",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "22",
+     "nome": "LOURENÇO MENDES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "25",
+     "nome": "GONÇALO SANTOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "28",
+     "nome": "LOURENÇO GUERREIRO",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      2,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "42",
+     "nome": "MARIA ROCHA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "44",
+     "nome": "INÊS MENDES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "54",
+     "nome": "SOFIA SANTOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      1,
+      0
+     ]
+    },
+    {
+     "numero": "67",
+     "nome": "TOMAS MARÇAL",
+     "gr": true,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "equipa": "CACO B",
+   "atletas": [
+    {
+     "numero": "80",
+     "nome": "DUARTE FERREIRA",
+     "gr": true,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "19",
+     "nome": "VASCO HENRIQUES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "32",
+     "nome": "GABRIEL VIEIRA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "35",
+     "nome": "JOANA RODRIGUES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "39",
+     "nome": "MARTIM RODRIGUES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      1,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "65",
+     "nome": "BAUTISTA MENDE",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "88",
+     "nome": "FRANCISCO LUIS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "97",
+     "nome": "CATARINA DOMINGOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "99",
+     "nome": "AVA MENDE",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      1,
+      0,
+      1,
+      0
+     ]
+    }
+   ]
+  }
+ ],
  "competicao_id": 464,
  "categoria": "ESCOLARES",
  "jornada": "7ª JORNADA",

@@ -768,6 +768,307 @@
   }
  ],
  "merito_revisto": "2026-11-07",
+ "em_pista": [
+  {
+   "equipa": "HC LOURINHÃ",
+   "atletas": [
+    {
+     "numero": "1",
+     "nome": "YASMIN BOZYK",
+     "gr": true,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "2",
+     "nome": "GONÇALO RAMOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "3",
+     "nome": "SALVADOR SILVA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "5",
+     "nome": "MARTINA BARBOSA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "6",
+     "nome": "BENJAMIN MIGUEL",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "7",
+     "nome": "JAIME CARVALHO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      "X"
+     ],
+     "golos": [
+      1,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "numero": "8",
+     "nome": "VICENTE DINIS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "9",
+     "nome": "SALVADOR IBRAHIM",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "10",
+     "nome": "AFONSO AUGUSTO",
+     "gr": true,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "equipa": "SPORTING CP",
+   "atletas": [
+    {
+     "numero": "1",
+     "nome": "DUARTE DAVID",
+     "gr": true,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "3",
+     "nome": "TOMÁS BRIGANTIN",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "4",
+     "nome": "SEBASTIAO CUSTÓDIO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "5",
+     "nome": "JOÃO MONTEIRO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "6",
+     "nome": "SALVADOR FRAZÃO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      1,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "8",
+     "nome": "VASCO FIGUEIREDO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      1,
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "numero": "9",
+     "nome": "EDUARDO ALENCAR",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "numero": "10",
+     "nome": "GONÇALO DIAS",
+     "gr": true,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
  "competicao_id": 467,
  "categoria": "BENJAMINS",
  "jornada": "5ª JORNADA",
