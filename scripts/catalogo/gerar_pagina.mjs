@@ -16,7 +16,7 @@ import { fileURLToPath } from 'node:url';
 
 import { lerTokens, lerCores, lerVersao, lerEscaloes } from './tokens.mjs';
 import { COMPONENTES } from './componentes.mjs';
-import { PRODUTO, FIXO, LIVRE, NAO_ENTREGUES, DEVOLVER, RITMO, PORQUE_MUDOU } from './conteudo.mjs';
+import { PRODUTO, FIXO, LIVRE, NAO_ENTREGUES, DEVOLVER, RITMO, PORQUE_MUDOU, DIFERENCAS } from './conteudo.mjs';
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
 const CAPTURAS = join(AQUI, 'capturas');
@@ -290,6 +290,15 @@ section.bloco > .subtitulo { color: var(--tinta-2); margin-bottom: 1.6rem; max-w
 	border-radius: 0 8px 8px 0; padding: 1.1rem 1.3rem; display: grid; gap: 0.5rem; }
 .mudou h2 { font-size: 1.1rem; }
 .mudou p { color: var(--tinta-2); max-width: 70ch; }
+.diferencas { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.4rem 0.9rem;
+	margin: 0.6rem 0 0; font-size: 0.9rem; }
+.diferencas dt { font-family: var(--codigo); font-size: 0.78rem; color: var(--marca);
+	padding-top: 0.15rem; white-space: nowrap; }
+.diferencas dd { margin: 0; color: var(--tinta-2); }
+@media (max-width: 560px) {
+	.diferencas { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; }
+	.diferencas dd { margin-bottom: 0.5rem; }
+}
 
 .regras { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.9rem;
 	grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); }
@@ -395,8 +404,13 @@ table.tokens th[scope="row"] { font-weight: 400; }
 	border: 1px solid rgba(128,128,128,.35); vertical-align: -0.2rem; margin-right: 0.4rem; }
 .igual { color: var(--tinta-3); font-size: 0.8rem; }
 .escala { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.55rem; }
-.escala li { display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; min-width: 0; }
-.exemplo { white-space: nowrap; }
+.escala li { display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; min-width: 0;
+	max-width: 100%; }
+/* A amostra do degrau maior (--t-placar, 28px) mede 413px e não cabe num telemóvel de
+   390. Medido a 12/11/2026: era a única coisa nesta página a provocar deslocamento
+   lateral. Mantém-se em linha única, porque é assim que o tamanho se lê, e rola dentro
+   do seu próprio espaço em vez de empurrar a página. */
+.exemplo { white-space: nowrap; max-width: 100%; overflow-x: auto; }
 .medida { font-size: 0.78rem; color: var(--tinta-3); font-family: var(--codigo); }
 .barra { display: inline-block; height: 0.75rem; background: var(--marca); border-radius: 2px; }
 .caixa { display: inline-block; width: 2.4rem; height: 1.5rem; background: var(--marca-fraca);
@@ -473,7 +487,7 @@ footer { padding-block: 2rem; color: var(--tinta-3); font-size: 0.84rem; }
 		sozinho, em cada um dos seus estados e nos dois temas. Com o que é fixo, o que é livre,
 		e como é que cada peça volta para dentro da app.</p>
 	<p class="carimbo">
-		<span>versão ${e(versao)}</span>
+		<span>versão ${e(versao)} — a que está em produção</span>
 		<span>${e(data)}</span>
 		<span>dados reais de ${e(indiceComp.dia)}</span>
 		<span>${COMPONENTES.length} componentes · ${totalEstados} estados · ${icones.length} ícones</span>
@@ -485,6 +499,10 @@ footer { padding-block: 2rem; color: var(--tinta-3); font-size: 0.84rem; }
 		<h2>${e(PORQUE_MUDOU.titulo)}</h2>
 		<p>${PORQUE_MUDOU.texto}</p>
 	</div>
+	<h4 style="margin-top:1.8rem">O que mudou, componente a componente</h4>
+	<dl class="diferencas">
+		${DIFERENCAS.map(([ids, texto]) => `<dt>${e(ids)}</dt><dd>${texto}</dd>`).join('')}
+	</dl>
 </section>
 
 <section class="bloco">

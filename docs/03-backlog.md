@@ -317,7 +317,7 @@ novo, para uma eventual insistência.
 | Calendário de cada clube e do meu clube | W4.7, W4.8, W4.5 | 4 |
 | Notificações de alterações, com confirmação | B5.1–B5.3, B5.8, W5.9–W5.11 — **muda de forma**, ver Decisão 4 | 5 |
 | Adicionar ao calendário jogos de um clube/escalão | ✅ **feito a 02/10** — B4.11 + W4.12 (feed ICS) | 4 |
-| Catálogo de componentes para entregar a um designer | 🟡 **segunda entrega a 19/10/2026**, por componente e não por página, depois de o designer recusar a primeira. 43 componentes com identificador, 52 estados. `scripts/catalogo/` gera tudo. O que falta é o trabalho dele voltar. [issue #4](https://github.com/pmontezinho17/ok4sticks-sugestoes/issues/4) | — |
+| Catálogo de componentes para entregar a um designer | 🟡 **terceira entrega a 12/11/2026**, posta em dia com produção (1.11): 51 componentes com identificador, 68 estados, 136 recortes. Por componente desde 19/10, depois de o designer recusar a primeira volta. `scripts/catalogo/` gera tudo a partir do código. O que falta é o trabalho dele voltar. [issue #4](https://github.com/pmontezinho17/ok4sticks-sugestoes/issues/4) | — |
 
 ---
 
@@ -3877,7 +3877,7 @@ errado.
 só dispara quando aparece um clube novo, mas é o único que toca na postura com a fonte, e essa
 não se negoceia por tamanho.
 
-## O catálogo de componentes, e porque é que ele não é um documento (18–19/10/2026)
+## O catálogo de componentes, e porque é que ele não é um documento (18/10–12/11/2026)
 
 O pedido chegou por email a 10/10/2026 e está aberto como [issue #4](https://github.com/pmontezinho17/ok4sticks-sugestoes/issues/4)
 no repositório de sugestões: *"catalogar todos os componentes existentes na aplicação e criar
@@ -3944,6 +3944,58 @@ A segunda versão inverte a ordem: **43 componentes, cada um com identificador, 
 anatomia e estados**, recortados de onde vivem na app; os ecrãs ficam no fim, só para
 mostrar onde encaixam. O identificador é a parte que faz o trabalho: `C09` é sempre a linha
 de jogo, e é por ele que ele devolve e eu substituo.
+
+### Terceira volta: o catálogo tinha ficado a descrever outra aplicação (12/11/2026)
+
+Três semanas depois da segunda entrega, o dono pediu para rever o catálogo antes de o voltar
+a enviar. Fui medir contra `origin/main` — **produção, 1.11** — em vez de olhar para o `dev`:
+seis componentes `.svelte` novos e trinta e quatro alterados. O catálogo descrevia a
+aplicação de 19/10.
+
+**A lição não é "mudou muita coisa".** É que uma ronda de capturas que acaba com zero falhas
+não prova nada. Quando as pílulas de escalão passaram a campos de selecção, a 21/10, o
+selector antigo continuou a encontrar **alguma coisa** no mesmo sítio e a captura saiu
+limpa — com os selects novos, debaixo do nome "Pílulas de escalão" e com a anatomia "pílula
+Todos, pílula por escalão". Um designer a ler aquilo desenha a coisa errada com confiança. É
+por isso que cada componente leva agora uma `anatomia` escrita: é o que se compara com a
+imagem quando a captura não falha.
+
+#### O que esta volta mudou
+
+| | |
+|---|---|
+| **C04** | Era "Pílulas de escalão", passa a **campo de selecção** (`Escolha.svelte`). As pílulas desapareceram a 21/10 |
+| **C05 e C06** | Eram "Separadores de texto" e "de ícone" — a mesma ideia em dois sítios. Há um `Separadores.svelte` só (C05); o C06 passa a ser a **faixa que se arrasta**, que estava escondida ali dentro |
+| **C08** | Era "Interruptor de duas vias", que já não existe. É agora a **barra fixa de controlos** (`TopoFixo.svelte`), que apareceu no lugar dele |
+| **C44–C51** | Oito componentes novos: antes do jogo, mérito deste jogo, legenda da classificação, aviso de actualização, caixa de novidades, convite para instalar, transmissão, faixa do site de testes |
+
+Os cinco últimos **não são novos na aplicação — são novos no catálogo**. Só aparecem em
+situações raras (uma versão nova, um iPhone por instalar, o site de testes) e tinham-me
+escapado nas duas primeiras voltas. Nenhuma das duas rondas anteriores deu por isso, porque
+nenhuma cruzou a lista do catálogo com a lista de ficheiros `.svelte` do repositório. Agora
+cruza-se.
+
+#### Três estados que não existiam nos dados, e um que não se alcança
+
+O convite para instalar só aparece no iPhone, e o `decidirConvite()` decide pelo `userAgent`
+e pelo `navigator.standalone` — que tem **três** valores que importam: `true` é "já
+instalada", `false` é "Safari", e *não existir* é uma vista embutida. O capturador passou a
+poder fingir um aparelho, e saem os dois convites. A faixa do site de testes decide-se pelo
+anfitrião, e por isso é capturada em `testes.hoquei.pages.dev` — é a única imagem deste
+catálogo que não vem de produção, e está marcada como tal.
+
+O aviso de actualização (C47) **não se alcança**: precisa de um service worker a detectar
+versão nova, e em desenvolvimento não há. A transmissão (C50) também não: a lista está vazia
+por desenho. Ficam no catálogo sem imagem e com a razão escrita, que é melhor do que uma
+imagem de outra coisa.
+
+#### Um defeito meu, apanhado a medir
+
+A página do catálogo tinha **deslocamento lateral a 390 px**: a amostra do maior degrau de
+texto (`--t-placar`, 28 px) mede 413 px com `white-space: nowrap`. Estava lá desde a segunda
+versão e ninguém tinha dado por ela, porque o `localhost` sem `<meta viewport>` apresenta uma
+janela de 980 px e nenhuma emulação de telemóvel o corrige. Verificado depois: `scrollWidth`
+igual a 390 e zero elementos a transbordar.
 
 ### Três armadilhas de captura, cada uma com uma ronda perdida
 
