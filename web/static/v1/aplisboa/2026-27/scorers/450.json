@@ -1,6 +1,6 @@
 {
  "competicao_id": 450,
- "jogos_considerados": 15,
+ "jogos_considerados": 16,
  "jogadores": [
   {
    "nome": "DINIS MOREIRA",
@@ -16,6 +16,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "TOMÁS RIBEIRO",
+   "equipa": "AD OEIRAS B",
+   "jogos": 7,
+   "numero": "4",
+   "golos": 10,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 12,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "RODRIGO MARTINHO",
    "equipa": "SL BENFICA A",
    "jogos": 7,
@@ -26,19 +39,6 @@
    "pontos": 13,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TOMÁS RIBEIRO",
-   "equipa": "AD OEIRAS B",
-   "jogos": 6,
-   "numero": "4",
-   "golos": 8,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 10,
-   "amarelos": 0,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -94,16 +94,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "SANTIAGO DIAS",
+   "nome": "TIAGO MATOS",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 5,
-   "numero": "7",
-   "golos": 4,
+   "jogos": 6,
+   "numero": "9",
+   "golos": 5,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 4,
+   "pontos": 5,
    "amarelos": 0,
-   "azuis": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -117,6 +117,32 @@
    "pontos": 4,
    "amarelos": 1,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SANTIAGO DIAS",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 6,
+   "numero": "7",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RODRIGO MORAIS",
+   "equipa": "AD OEIRAS B",
+   "jogos": 7,
+   "numero": "9",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -148,12 +174,12 @@
   {
    "nome": "FRANCISCO FATELA",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "8",
    "golos": 3,
-   "assistencias": 2,
+   "assistencias": 4,
    "defesas": 0,
-   "pontos": 5,
+   "pontos": 7,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -161,7 +187,7 @@
   {
    "nome": "VICENTE SILVA",
    "equipa": "AD OEIRAS B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "8",
    "golos": 3,
    "assistencias": 1,
@@ -185,19 +211,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO MATOS",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 5,
-   "numero": "9",
-   "golos": 3,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "GIL ESPADA",
    "equipa": "A STUART HCM A",
    "jogos": 6,
@@ -208,19 +221,6 @@
    "pontos": 3,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RODRIGO MORAIS",
-   "equipa": "AD OEIRAS B",
-   "jogos": 6,
-   "numero": "9",
-   "golos": 3,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -289,6 +289,45 @@
    "vermelhos": 0
   },
   {
+   "nome": "XAVIER LOPES",
+   "equipa": "AD OEIRAS B",
+   "jogos": 4,
+   "numero": "6",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SIMÃO COSTA",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 6,
+   "numero": "2",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 1,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "FILIPE PASSARINHO",
+   "equipa": "AD OEIRAS B",
+   "jogos": 7,
+   "numero": "5",
+   "golos": 1,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DIOGO POTIER",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 1,
@@ -341,22 +380,9 @@
    "vermelhos": 0
   },
   {
-   "nome": "XAVIER LOPES",
-   "equipa": "AD OEIRAS B",
-   "jogos": 3,
-   "numero": "6",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "TOMÁS DUARTE",
    "equipa": "AD OEIRAS B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "2",
    "golos": 1,
    "assistencias": 0,
@@ -382,7 +408,7 @@
   {
    "nome": "SANTIAGO SILVA",
    "equipa": "AD OEIRAS B",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "7",
    "golos": 1,
    "assistencias": 0,
@@ -408,7 +434,7 @@
   {
    "nome": "RODRIGO MARTINS",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "4",
    "golos": 0,
    "assistencias": 2,
@@ -445,32 +471,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "SIMÃO COSTA",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 5,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 1,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "FILIPE PASSARINHO",
-   "equipa": "AD OEIRAS B",
-   "jogos": 6,
-   "numero": "5",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "FRANCISCO MARQUES",
    "equipa": "A STUART HCM A",
    "jogos": 1,
@@ -487,19 +487,6 @@
    "nome": "RODRIGO GARRANCHO",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 1,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "CARLOS ROCHA",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 2,
    "numero": "3",
    "golos": 0,
    "assistencias": 0,
@@ -549,6 +536,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "CARLOS ROCHA",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 3,
+   "numero": "3",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "DIOGO PINHO",
    "equipa": "AD OEIRAS B",
    "jogos": 4,
@@ -562,36 +562,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "GABRIEL SANTOS",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 4,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 3,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOÃO MARQUES",
    "equipa": "A STUART HCM A",
    "jogos": 4,
    "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TIAGO SILVA",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 4,
-   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -614,6 +588,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "GABRIEL SANTOS",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 5,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 3,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "SIMÃO RÉQUIO",
    "equipa": "A STUART HCM A",
    "jogos": 5,
@@ -624,6 +611,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO SILVA",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 5,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -644,19 +644,6 @@
    "equipa": "A STUART HCM A",
    "jogos": 6,
    "numero": "61",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DINIS MATOS",
-   "equipa": "AD OEIRAS B",
-   "jogos": 6,
-   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -731,10 +718,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO VÁRZEA",
+   "nome": "DINIS MATOS",
    "equipa": "AD OEIRAS B",
-   "jogos": 6,
-   "numero": "1",
+   "jogos": 7,
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -761,6 +748,19 @@
    "equipa": "SL BENFICA A",
    "jogos": 7,
    "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO VÁRZEA",
+   "equipa": "AD OEIRAS B",
+   "jogos": 7,
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
