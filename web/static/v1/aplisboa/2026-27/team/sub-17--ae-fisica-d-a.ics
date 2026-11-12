@@ -21,6 +21,18 @@ DESCRIPTION:Caco B vs AE Fisica D A\nCAMP. REG. SUB-17 - 1ª FASE · Série
 URL:https://hoquei.pages.dev/jogo/9779
 END:VEVENT
 BEGIN:VEVENT
+UID:jogo-9771@hoquei.pages.dev
+DTSTAMP:20261118T000000Z
+DTSTART:20261118T200000Z
+DTEND:20261118T213000Z
+SUMMARY:🏑 Sub-17 🏑 AE Fisica D A vs AD Oeiras B
+LOCATION:Fisica Torres Vedras
+DESCRIPTION:AE Fisica D A vs AD Oeiras B\nCAMP. REG. SUB-17 - 1ª FASE · S
+ érie E · SUB-17\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jo
+ go/9771\nDados da Associação de Patinagem de Lisboa. Site não oficial.
+URL:https://hoquei.pages.dev/jogo/9771
+END:VEVENT
+BEGIN:VEVENT
 UID:jogo-9782@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T163000Z
