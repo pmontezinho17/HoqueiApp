@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9721@hoquei.pages.dev
-DTSTAMP:20261111T000000Z
-DTSTART:20261111T213000Z
-DTEND:20261111T230000Z
-SUMMARY:🏑 Sub-17 🏑 AE Fisica D B vs SL Benfica A
-LOCATION:Fisica Torres Vedras
-DESCRIPTION:AE Fisica D B vs SL Benfica A\nCAMP. REG. SUB-17 - 1ª FASE · 
- Série C · SUB-17\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/j
- ogo/9721\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9721
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9729@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T210000Z
