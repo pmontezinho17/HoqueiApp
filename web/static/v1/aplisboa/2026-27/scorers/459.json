@@ -1,6 +1,6 @@
 {
  "competicao_id": 459,
- "jogos_considerados": 14,
+ "jogos_considerados": 15,
  "jogadores": [
   {
    "nome": "JOÃO FERNANDES",
@@ -18,13 +18,26 @@
   {
    "nome": "FRANCISCO MAURICIO",
    "equipa": "UF ENTRONCAMENTO",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "78",
    "golos": 10,
-   "assistencias": 7,
+   "assistencias": 9,
    "defesas": 0,
-   "pontos": 17,
+   "pontos": 19,
    "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PAULO FERNANDES",
+   "equipa": "CACO",
+   "jogos": 5,
+   "numero": "77",
+   "golos": 8,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 11,
+   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -42,19 +55,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "PAULO FERNANDES",
-   "equipa": "CACO",
-   "jogos": 4,
-   "numero": "77",
-   "golos": 7,
-   "assistencias": 3,
-   "defesas": 0,
-   "pontos": 10,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOÃO COUTO",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 5,
@@ -65,6 +65,19 @@
    "pontos": 7,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LOURENÇO SANTOS",
+   "equipa": "UF ENTRONCAMENTO",
+   "jogos": 5,
+   "numero": "12",
+   "golos": 5,
+   "assistencias": 6,
+   "defesas": 0,
+   "pontos": 11,
+   "amarelos": 2,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -81,9 +94,22 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM ALBINO",
+   "nome": "MIGUEL JOÃO",
    "equipa": "UF ENTRONCAMENTO",
    "jogos": 4,
+   "numero": "10",
+   "golos": 5,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 7,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARTIM ALBINO",
+   "equipa": "UF ENTRONCAMENTO",
+   "jogos": 5,
    "numero": "21",
    "golos": 5,
    "assistencias": 2,
@@ -96,7 +122,7 @@
   {
    "nome": "MARTIM LOPES",
    "equipa": "UF ENTRONCAMENTO",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "76",
    "golos": 5,
    "assistencias": 1,
@@ -104,32 +130,6 @@
    "pontos": 6,
    "amarelos": 1,
    "azuis": 2,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LOURENÇO SANTOS",
-   "equipa": "UF ENTRONCAMENTO",
-   "jogos": 4,
-   "numero": "12",
-   "golos": 4,
-   "assistencias": 5,
-   "defesas": 0,
-   "pontos": 9,
-   "amarelos": 2,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MIGUEL JOÃO",
-   "equipa": "UF ENTRONCAMENTO",
-   "jogos": 3,
-   "numero": "10",
-   "golos": 4,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 6,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -156,6 +156,19 @@
    "pontos": 5,
    "amarelos": 0,
    "azuis": 2,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PEDRO TORRES",
+   "equipa": "UF ENTRONCAMENTO",
+   "jogos": 5,
+   "numero": "57",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 1,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -224,19 +237,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "PEDRO TORRES",
-   "equipa": "UF ENTRONCAMENTO",
-   "jogos": 4,
-   "numero": "57",
-   "golos": 3,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "CAIO HELENO",
    "equipa": "A STUART HCM",
    "jogos": 5,
@@ -265,7 +265,7 @@
   {
    "nome": "RODRIGO SANTOS",
    "equipa": "CACO",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "5",
    "golos": 2,
    "assistencias": 3,
@@ -278,7 +278,7 @@
   {
    "nome": "DANIEL ANTUNES",
    "equipa": "CACO",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "66",
    "golos": 2,
    "assistencias": 2,
@@ -317,27 +317,14 @@
   {
    "nome": "HUGO MATOS",
    "equipa": "UF ENTRONCAMENTO",
-   "jogos": 3,
-   "numero": "8",
+   "jogos": 4,
+   "numero": "08",
    "golos": 2,
    "assistencias": 1,
    "defesas": 0,
    "pontos": 3,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "JOÃO HENRIQUES",
-   "equipa": "CACO",
-   "jogos": 4,
-   "numero": "4",
-   "golos": 2,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -351,6 +338,19 @@
    "pontos": 3,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO HENRIQUES",
+   "equipa": "CACO",
+   "jogos": 5,
+   "numero": "4",
+   "golos": 2,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -380,6 +380,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DAVI OLIVEIRA",
+   "equipa": "CACO",
+   "jogos": 4,
+   "numero": "76",
+   "golos": 1,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOSÉ PARAÍBA",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 4,
@@ -393,10 +406,10 @@
    "vermelhos": 1
   },
   {
-   "nome": "PEDRO CARDÃO",
-   "equipa": "CACO",
-   "jogos": 4,
-   "numero": "3",
+   "nome": "ANTONIO PINHEIRO",
+   "equipa": "A STUART HCM",
+   "jogos": 5,
+   "numero": "21",
    "golos": 1,
    "assistencias": 2,
    "defesas": 0,
@@ -406,10 +419,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANTONIO PINHEIRO",
-   "equipa": "A STUART HCM",
+   "nome": "PEDRO CARDÃO",
+   "equipa": "CACO",
    "jogos": 5,
-   "numero": "21",
+   "numero": "3",
    "golos": 1,
    "assistencias": 2,
    "defesas": 0,
@@ -445,32 +458,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DAVI OLIVEIRA",
-   "equipa": "CACO",
-   "jogos": 3,
-   "numero": "76",
-   "golos": 1,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO PIRES",
-   "equipa": "CACO",
-   "jogos": 3,
-   "numero": "2",
-   "golos": 1,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "AFONSO VIEIRA",
    "equipa": "A STUART HCM",
    "jogos": 4,
@@ -484,23 +471,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO DIAS",
+   "nome": "GONÇALO PIRES",
    "equipa": "CACO",
-   "jogos": 2,
-   "numero": "45",
+   "jogos": 4,
+   "numero": "2",
    "golos": 1,
-   "assistencias": 0,
+   "assistencias": 1,
    "defesas": 0,
-   "pontos": 1,
+   "pontos": 2,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO LOURENÇO",
+   "nome": "JOÃO DIAS",
    "equipa": "CACO",
-   "jogos": 3,
-   "numero": "8",
+   "jogos": 2,
+   "numero": "45",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -533,6 +520,19 @@
    "pontos": 1,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO LOURENÇO",
+   "equipa": "CACO",
+   "jogos": 4,
+   "numero": "78",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -588,10 +588,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "ALEXANDRE FERNANDES",
-   "equipa": "UF ENTRONCAMENTO",
+   "nome": "DANIEL ALMEIDA",
+   "equipa": "FSE/AJ SALESIANA",
    "jogos": 3,
-   "numero": "55",
+   "numero": "3",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -601,10 +601,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DANIEL ALMEIDA",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 3,
-   "numero": "3",
+   "nome": "ALEXANDRE FERNANDES",
+   "equipa": "UF ENTRONCAMENTO",
+   "jogos": 4,
+   "numero": "55",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -705,19 +705,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO MARUJO",
-   "equipa": "CACO",
-   "jogos": 3,
-   "numero": "26",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "ALEXANDRE PILÃO",
    "equipa": "PAREDE FC",
    "jogos": 3,
@@ -783,29 +770,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "FRANCISCO CARDOSO",
-   "equipa": "UF ENTRONCAMENTO",
+   "nome": "AFONSO MARUJO",
+   "equipa": "CACO",
    "jogos": 4,
-   "numero": "32",
+   "numero": "26",
    "golos": 0,
    "assistencias": 0,
-   "defesas": 2,
+   "defesas": 1,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARTIM GUIA",
-   "equipa": "UF ENTRONCAMENTO",
-   "jogos": 4,
-   "numero": "29",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -826,19 +800,6 @@
    "equipa": "PAREDE FC",
    "jogos": 4,
    "numero": "66",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RODRIGO MUHAREIA",
-   "equipa": "CACO",
-   "jogos": 4,
-   "numero": "50",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -913,6 +874,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "FRANCISCO CARDOSO",
+   "equipa": "UF ENTRONCAMENTO",
+   "jogos": 5,
+   "numero": "32",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 2,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOAQUIM RESINA",
    "equipa": "A STUART HCM",
    "jogos": 5,
@@ -939,6 +913,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MARTIM GUIA",
+   "equipa": "UF ENTRONCAMENTO",
+   "jogos": 5,
+   "numero": "29",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "RAFAEL GASPAR",
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 5,
@@ -949,6 +936,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "RODRIGO MUHAREIA",
+   "equipa": "CACO",
+   "jogos": 5,
+   "numero": "50",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
