@@ -1,6 +1,6 @@
 {
  "competicao_id": 443,
- "jogos_considerados": 24,
+ "jogos_considerados": 25,
  "jogadores": [
   {
    "nome": "FRANCISCO FATELA",
@@ -18,7 +18,7 @@
   {
    "nome": "MANUEL CAPELA",
    "equipa": "AD OEIRAS A",
-   "jogos": 7,
+   "jogos": 8,
    "numero": "4",
    "golos": 26,
    "assistencias": 3,
@@ -44,12 +44,12 @@
   {
    "nome": "RODRIGO VALLE",
    "equipa": "CACO A",
-   "jogos": 8,
+   "jogos": 9,
    "numero": "57",
    "golos": 18,
-   "assistencias": 6,
+   "assistencias": 7,
    "defesas": 0,
-   "pontos": 24,
+   "pontos": 25,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -57,12 +57,12 @@
   {
    "nome": "JOSÉ NUNES",
    "equipa": "CACO A",
-   "jogos": 8,
+   "jogos": 9,
    "numero": "16",
-   "golos": 17,
+   "golos": 18,
    "assistencias": 4,
    "defesas": 0,
-   "pontos": 21,
+   "pontos": 22,
    "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
@@ -96,12 +96,12 @@
   {
    "nome": "TOMÁS DUARTE",
    "equipa": "AD OEIRAS A",
-   "jogos": 7,
+   "jogos": 8,
    "numero": "2",
    "golos": 14,
-   "assistencias": 3,
+   "assistencias": 5,
    "defesas": 0,
-   "pontos": 17,
+   "pontos": 19,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -115,6 +115,19 @@
    "assistencias": 3,
    "defesas": 0,
    "pontos": 17,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "AFONSO CARVALHEIRA",
+   "equipa": "CACO A",
+   "jogos": 9,
+   "numero": "3",
+   "golos": 11,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 14,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -135,39 +148,13 @@
   {
    "nome": "HENRIQUE VILELA",
    "equipa": "CACO A",
-   "jogos": 8,
+   "jogos": 9,
    "numero": "24",
    "golos": 10,
    "assistencias": 4,
    "defesas": 0,
    "pontos": 14,
    "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "AFONSO CARVALHEIRA",
-   "equipa": "CACO A",
-   "jogos": 8,
-   "numero": "3",
-   "golos": 10,
-   "assistencias": 3,
-   "defesas": 0,
-   "pontos": 13,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TIAGO SOUSA",
-   "equipa": "CACO A",
-   "jogos": 8,
-   "numero": "6",
-   "golos": 10,
-   "assistencias": 3,
-   "defesas": 0,
-   "pontos": 13,
-   "amarelos": 1,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -185,6 +172,45 @@
    "vermelhos": 0
   },
   {
+   "nome": "TIAGO SOUSA",
+   "equipa": "CACO A",
+   "jogos": 9,
+   "numero": "6",
+   "golos": 10,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 13,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "XAVIER LOPES",
+   "equipa": "AD OEIRAS A",
+   "jogos": 8,
+   "numero": "5",
+   "golos": 9,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 11,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME BARREIROS",
+   "equipa": "AD OEIRAS A",
+   "jogos": 8,
+   "numero": "6",
+   "golos": 8,
+   "assistencias": 6,
+   "defesas": 0,
+   "pontos": 14,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "MIGUEL AZEVEDO",
    "equipa": "SC TORRES",
    "jogos": 8,
@@ -198,35 +224,22 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME BARREIROS",
+   "nome": "CONSTANÇA COSTA",
    "equipa": "AD OEIRAS A",
-   "jogos": 7,
-   "numero": "6",
-   "golos": 7,
-   "assistencias": 6,
+   "jogos": 8,
+   "numero": "3",
+   "golos": 6,
+   "assistencias": 3,
    "defesas": 0,
-   "pontos": 13,
+   "pontos": 9,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
   {
-   "nome": "XAVIER LOPES",
-   "equipa": "AD OEIRAS A",
-   "jogos": 7,
-   "numero": "5",
-   "golos": 7,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 9,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "SIMAO RAFAEL",
    "equipa": "CACO A",
-   "jogos": 8,
+   "jogos": 9,
    "numero": "4",
    "golos": 6,
    "assistencias": 3,
@@ -237,22 +250,9 @@
    "vermelhos": 0
   },
   {
-   "nome": "CONSTANÇA COSTA",
-   "equipa": "AD OEIRAS A",
-   "jogos": 7,
-   "numero": "3",
-   "golos": 5,
-   "assistencias": 3,
-   "defesas": 0,
-   "pontos": 8,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DUARTE NEVES",
    "equipa": "CACO A",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "5",
    "golos": 5,
    "assistencias": 2,
@@ -265,7 +265,7 @@
   {
    "nome": "FRANCISCO LEITE",
    "equipa": "CACO A",
-   "jogos": 8,
+   "jogos": 9,
    "numero": "23",
    "golos": 5,
    "assistencias": 0,
@@ -278,7 +278,7 @@
   {
    "nome": "DIOGO PINHO",
    "equipa": "AD OEIRAS A",
-   "jogos": 7,
+   "jogos": 8,
    "numero": "7",
    "golos": 4,
    "assistencias": 3,
@@ -328,10 +328,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "GUILHERME AMORIM",
-   "equipa": "AD OEIRAS A",
-   "jogos": 7,
-   "numero": "8",
+   "nome": "GASTÃO BOTELHO",
+   "equipa": "APAC TOJAL",
+   "jogos": 8,
+   "numero": "15",
    "golos": 3,
    "assistencias": 1,
    "defesas": 0,
@@ -341,10 +341,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "GASTÃO BOTELHO",
-   "equipa": "APAC TOJAL",
+   "nome": "GUILHERME AMORIM",
+   "equipa": "AD OEIRAS A",
    "jogos": 8,
-   "numero": "15",
+   "numero": "8",
    "golos": 3,
    "assistencias": 1,
    "defesas": 0,
@@ -627,19 +627,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "PEDRO MONTEIRO",
-   "equipa": "AD OEIRAS A",
-   "jogos": 4,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "RODRIGO SILVA",
    "equipa": "APAC TOJAL",
    "jogos": 4,
@@ -666,10 +653,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO BELÉM",
-   "equipa": "HC SINTRA",
-   "jogos": 6,
-   "numero": "4",
+   "nome": "PEDRO MONTEIRO",
+   "equipa": "AD OEIRAS A",
+   "jogos": 5,
+   "numero": "77",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -679,10 +666,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DINIS MATOS",
-   "equipa": "AD OEIRAS A",
+   "nome": "AFONSO BELÉM",
+   "equipa": "HC SINTRA",
    "jogos": 6,
-   "numero": "10",
+   "numero": "4",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -731,10 +718,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE SILVA",
-   "equipa": "HC SINTRA",
+   "nome": "DINIS MATOS",
+   "equipa": "AD OEIRAS A",
    "jogos": 7,
-   "numero": "23",
+   "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -744,10 +731,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "BERNARDO OLIVAL",
-   "equipa": "CACO A",
-   "jogos": 8,
-   "numero": "1",
+   "nome": "DUARTE SILVA",
+   "equipa": "HC SINTRA",
+   "jogos": 7,
+   "numero": "23",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -796,19 +783,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO SILVESTRE",
-   "equipa": "CACO A",
-   "jogos": 8,
-   "numero": "61",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "RAPHAEL SILVA",
    "equipa": "CD PAÇO ARCOS A",
    "jogos": 8,
@@ -848,6 +822,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "BERNARDO OLIVAL",
+   "equipa": "CACO A",
+   "jogos": 9,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DUARTE PAULO",
    "equipa": "SC TORRES",
    "jogos": 9,
@@ -865,6 +852,19 @@
    "equipa": "SC TORRES",
    "jogos": 9,
    "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO SILVESTRE",
+   "equipa": "CACO A",
+   "jogos": 9,
+   "numero": "61",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
