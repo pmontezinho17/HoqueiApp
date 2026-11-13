@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T23:00:36+00:00",
+ "generated_at": "2026-11-13T03:30:29+00:00",
  "tenant": "aplisboa",
  "temporada_id": 5,
  "competicoes": 37,
@@ -7,27 +7,27 @@
  "fichas_publicadas": 610,
  "fonte": "https://aplisboa.assyssoftware.es/intranet/web/",
  "feeds_ics": 215,
- "tabelas_saltadas": 34,
+ "tabelas_saltadas": 32,
  "tabelas_saltadas_porque": {
-  "sem jogos no dia": 34
+  "sem jogos no dia": 32
  },
- "pedidos_fonte": 44,
+ "pedidos_fonte": 45,
  "pedidos_falhados": 0,
  "pedidos_por_tipo": {
   "calendario": 37,
-  "clasificacion": 3,
+  "clasificacion": 5,
   "competiciones": 2,
-  "ficha": 2
+  "ficha": 1
  },
  "pedidos_dia": {
-  "dia": "2026-11-12",
+  "dia": "2026-11-13",
   "por_tipo": {
-   "competiciones": 4,
-   "calendario": 74,
-   "clasificacion": 7,
-   "ficha": 3
+   "competiciones": 2,
+   "calendario": 37,
+   "clasificacion": 5,
+   "ficha": 1
   },
-  "total": 88
+  "total": 45
  },
  "merito_relido": 0,
  "merito_mudou": 0,
