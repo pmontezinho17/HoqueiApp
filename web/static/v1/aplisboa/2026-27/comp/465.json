@@ -450,8 +450,8 @@
    "hora": "14:30:00",
    "casa": "FSE/AJ SALESIANA",
    "fora": "AD OEIRAS A",
-   "golos_casa": 1,
-   "golos_fora": 5,
+   "golos_casa": 3,
+   "golos_fora": 11,
    "recinto": "PAV. SALESIANA",
    "ao_vivo": false
   },
@@ -464,8 +464,8 @@
    "hora": "18:30:00",
    "casa": "CACO A",
    "fora": "SC TORRES",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 3,
+   "golos_fora": 4,
    "recinto": "PAV.C.A.C.OURIQUE",
    "ao_vivo": false
   },
@@ -492,8 +492,8 @@
    "hora": "14:45:00",
    "casa": "A STUART HCM",
    "fora": "CD PAÇO ARCOS A",
-   "golos_casa": 0,
-   "golos_fora": 1,
+   "golos_casa": 3,
+   "golos_fora": 3,
    "recinto": "PAV.PROF.JOÃO CAMPELO",
    "ao_vivo": false
   },
