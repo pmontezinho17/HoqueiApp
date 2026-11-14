@@ -1,11 +1,11 @@
 {
  "competicao_id": 467,
- "jogos_considerados": 18,
+ "jogos_considerados": 19,
  "jogadores": [
   {
    "nome": "JOANA ANDRADE",
    "equipa": "UD VILAFRANQUENSE",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "17",
    "golos": 36,
    "assistencias": 8,
@@ -18,12 +18,25 @@
   {
    "nome": "JAIME CARVALHO",
    "equipa": "HC LOURINHÃ",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "7",
-   "golos": 32,
+   "golos": 33,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 33,
+   "pontos": 34,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARGARIDA MONTEIRO",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 7,
+   "numero": "24",
+   "golos": 32,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 34,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -37,19 +50,6 @@
    "assistencias": 1,
    "defesas": 0,
    "pontos": 32,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARGARIDA MONTEIRO",
-   "equipa": "UD VILAFRANQUENSE",
-   "jogos": 6,
-   "numero": "24",
-   "golos": 28,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 30,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -70,12 +70,12 @@
   {
    "nome": "GONÇALO VICENTE",
    "equipa": "UD VILAFRANQUENSE",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "5",
-   "golos": 20,
+   "golos": 21,
    "assistencias": 2,
    "defesas": 0,
-   "pontos": 22,
+   "pontos": 23,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -83,12 +83,12 @@
   {
    "nome": "MARIA MORGADO",
    "equipa": "UD VILAFRANQUENSE",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "3",
-   "golos": 17,
+   "golos": 18,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 18,
+   "pontos": 19,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -135,7 +135,7 @@
   {
    "nome": "VASCO DUARTE",
    "equipa": "UD VILAFRANQUENSE",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "88",
    "golos": 13,
    "assistencias": 0,
@@ -289,10 +289,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTINA BARBOSA",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 4,
-   "numero": "5",
+   "nome": "LOURENÇO COSTA",
+   "equipa": "APAC TOJAL",
+   "jogos": 5,
+   "numero": "7",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -302,10 +302,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO COSTA",
-   "equipa": "APAC TOJAL",
+   "nome": "MARTINA BARBOSA",
+   "equipa": "HC LOURINHÃ",
    "jogos": 5,
-   "numero": "7",
+   "numero": "5",
    "golos": 2,
    "assistencias": 0,
    "defesas": 0,
@@ -356,7 +356,7 @@
   {
    "nome": "SALVADOR SILVA",
    "equipa": "HC LOURINHÃ",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "3",
    "golos": 1,
    "assistencias": 1,
@@ -471,6 +471,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DINIS NUNES",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 1,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "EMIR RIZWAN",
    "equipa": "CACO B",
    "jogos": 1,
@@ -497,10 +510,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO RIBEIRO",
-   "equipa": "HC LOURINHÃ",
+   "nome": "MARTINHO PADINHA",
+   "equipa": "UD VILAFRANQUENSE",
    "jogos": 1,
-   "numero": "1",
+   "numero": "18",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -514,6 +527,19 @@
    "equipa": "APAC TOJAL",
    "jogos": 2,
    "numero": "6",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOÃO RIBEIRO",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 2,
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -692,32 +718,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO AUGUSTO",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 6,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "BENJAMIN MIGUEL",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 6,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DUARTE DAVID",
    "equipa": "SPORTING CP",
    "jogos": 6,
@@ -783,19 +783,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "SALVADOR IBRAHIM",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 6,
-   "numero": "9",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "SANTIAGO MOURA",
    "equipa": "CACO B",
    "jogos": 6,
@@ -809,9 +796,48 @@
    "vermelhos": 0
   },
   {
+   "nome": "AFONSO AUGUSTO",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 7,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "BENJAMIN MIGUEL",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 7,
+   "numero": "4",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SALVADOR IBRAHIM",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 7,
+   "numero": "9",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TIAGO JESUS",
    "equipa": "UD VILAFRANQUENSE",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "27",
    "golos": 0,
    "assistencias": 0,
@@ -824,7 +850,7 @@
   {
    "nome": "VICENTE DINIS",
    "equipa": "HC LOURINHÃ",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "8",
    "golos": 0,
    "assistencias": 0,
@@ -837,7 +863,7 @@
   {
    "nome": "YASMIN BOZYK",
    "equipa": "HC LOURINHÃ",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "6",
    "golos": 0,
    "assistencias": 0,

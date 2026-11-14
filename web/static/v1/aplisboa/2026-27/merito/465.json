@@ -1,8 +1,8 @@
 {
  "competicao_id": 465,
  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
- "jogos_lidos": 28,
- "jogos_sem_boletim": 0,
+ "jogos_lidos": 29,
+ "jogos_sem_boletim": 2,
  "linhas": [
   {
    "posicao": 1,
@@ -28,17 +28,28 @@
   },
   {
    "posicao": 3,
-   "equipa": "HC SINTRA",
-   "jogos": 7,
-   "participantes": 68,
-   "bonificacao": 77,
-   "penalizacao": -1,
-   "pontos": 76,
-   "media": 10.86,
+   "equipa": "AE FISICA D A",
+   "jogos": 8,
+   "participantes": 74,
+   "bonificacao": 87,
+   "penalizacao": -2,
+   "pontos": 85,
+   "media": 10.62,
    "por_confirmar": 0
   },
   {
    "posicao": 4,
+   "equipa": "HC SINTRA",
+   "jogos": 8,
+   "participantes": 77,
+   "bonificacao": 86,
+   "penalizacao": -2,
+   "pontos": 84,
+   "media": 10.5,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 5,
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 7,
    "participantes": 65,
@@ -46,17 +57,6 @@
    "penalizacao": -10,
    "pontos": 72,
    "media": 10.29,
-   "por_confirmar": 0
-  },
-  {
-   "posicao": 5,
-   "equipa": "AE FISICA D A",
-   "jogos": 7,
-   "participantes": 64,
-   "bonificacao": 73,
-   "penalizacao": -2,
-   "pontos": 71,
-   "media": 10.14,
    "por_confirmar": 0
   },
   {

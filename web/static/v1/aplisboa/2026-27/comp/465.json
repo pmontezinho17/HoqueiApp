@@ -450,8 +450,8 @@
    "hora": "14:30:00",
    "casa": "FSE/AJ SALESIANA",
    "fora": "AD OEIRAS A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 1,
+   "golos_fora": 5,
    "recinto": "PAV. SALESIANA",
    "ao_vivo": false
   },
@@ -478,8 +478,8 @@
    "hora": "11:30:00",
    "casa": "AE FISICA D A",
    "fora": "HC SINTRA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 7,
+   "golos_fora": 6,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
   },
@@ -492,8 +492,8 @@
    "hora": "14:45:00",
    "casa": "A STUART HCM",
    "fora": "CD PAÇO ARCOS A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 1,
    "recinto": "PAV.PROF.JOÃO CAMPELO",
    "ao_vivo": false
   },
