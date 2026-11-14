@@ -384,8 +384,8 @@
    "hora": "16:00:00",
    "casa": "CD PAÇO ARCOS A",
    "fora": "HC SINTRA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 28,
+   "golos_fora": 0,
    "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
   },
@@ -412,7 +412,7 @@
    "hora": "14:00:00",
    "casa": "AD OEIRAS A",
    "fora": "APAC TOJAL",
-   "golos_casa": 8,
+   "golos_casa": 15,
    "golos_fora": 1,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
@@ -466,31 +466,31 @@
    "linhas": [
     {
      "posicao": 1,
+     "equipa": "CD PAÇO ARCOS A",
+     "logo": "/intranet/logos/7.png",
+     "jogos": 9,
+     "vitorias": 8,
+     "empates": 0,
+     "derrotas": 1,
+     "golos_marcados": 141,
+     "golos_sofridos": 10,
+     "diferenca": 131,
+     "racio": 14.1,
+     "pontos": 24
+    },
+    {
+     "posicao": 2,
      "equipa": "AD OEIRAS A",
      "logo": "/intranet/logos/6.png",
      "jogos": 9,
      "vitorias": 8,
      "empates": 0,
      "derrotas": 1,
-     "golos_marcados": 88,
+     "golos_marcados": 95,
      "golos_sofridos": 13,
-     "diferenca": 75,
-     "racio": 6.77,
+     "diferenca": 82,
+     "racio": 7.31,
      "pontos": 24
-    },
-    {
-     "posicao": 2,
-     "equipa": "CD PAÇO ARCOS A",
-     "logo": "/intranet/logos/7.png",
-     "jogos": 8,
-     "vitorias": 7,
-     "empates": 0,
-     "derrotas": 1,
-     "golos_marcados": 113,
-     "golos_sofridos": 10,
-     "diferenca": 103,
-     "racio": 11.3,
-     "pontos": 21
     },
     {
      "posicao": 3,
@@ -515,9 +515,9 @@
      "empates": 0,
      "derrotas": 6,
      "golos_marcados": 31,
-     "golos_sofridos": 90,
-     "diferenca": -59,
-     "racio": 0.34,
+     "golos_sofridos": 97,
+     "diferenca": -66,
+     "racio": 0.32,
      "pontos": 9
     },
     {
@@ -538,14 +538,14 @@
      "posicao": 6,
      "equipa": "HC SINTRA",
      "logo": "/intranet/logos/8.png",
-     "jogos": 8,
+     "jogos": 9,
      "vitorias": 0,
      "empates": 0,
-     "derrotas": 8,
+     "derrotas": 9,
      "golos_marcados": 6,
-     "golos_sofridos": 87,
-     "diferenca": -81,
-     "racio": 0.07,
+     "golos_sofridos": 115,
+     "diferenca": -109,
+     "racio": 0.05,
      "pontos": 0
     }
    ]

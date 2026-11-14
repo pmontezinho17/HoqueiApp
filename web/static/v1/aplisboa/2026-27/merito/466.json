@@ -1,18 +1,18 @@
 {
  "competicao_id": 466,
  "nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE B",
- "jogos_lidos": 12,
+ "jogos_lidos": 13,
  "jogos_sem_boletim": 0,
  "linhas": [
   {
    "posicao": 1,
    "equipa": "S ALENQUER BENFICA",
-   "jogos": 4,
-   "participantes": 40,
-   "bonificacao": 53,
+   "jogos": 5,
+   "participantes": 50,
+   "bonificacao": 67,
    "penalizacao": -1,
-   "pontos": 52,
-   "media": 13.0,
+   "pontos": 66,
+   "media": 13.2,
    "por_confirmar": 1
   },
   {
@@ -51,11 +51,11 @@
   {
    "posicao": 5,
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 4,
-   "participantes": 24,
-   "bonificacao": 24,
-   "penalizacao": -32,
-   "pontos": -8,
+   "jogos": 5,
+   "participantes": 30,
+   "bonificacao": 30,
+   "penalizacao": -40,
+   "pontos": -10,
    "media": -2.0,
    "por_confirmar": 0
   }

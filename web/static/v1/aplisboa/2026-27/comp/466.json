@@ -211,8 +211,8 @@
    "hora": "15:30:00",
    "casa": "S ALENQUER BENFICA",
    "fora": "CD PAÇO ARCOS B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 41,
+   "golos_fora": 0,
    "recinto": "PAV.S.ALENQUER E BENFICA",
    "ao_vivo": false
   },
