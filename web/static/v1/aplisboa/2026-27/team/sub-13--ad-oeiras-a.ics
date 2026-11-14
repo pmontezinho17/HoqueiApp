@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9472@hoquei.pages.dev
-DTSTAMP:20261113T000000Z
-DTSTART:20261113T203000Z
-DTEND:20261113T220000Z
-SUMMARY:🏑 Sub-13 🏑 Caco A vs AD Oeiras A
-LOCATION:Clube Atlético de Campo de Ourique (CACO)
-DESCRIPTION:Caco A 2–4 AD Oeiras A\nCAMP. REG. SUB-13 - 1ª FASE · Séri
- e A · SUB-13\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9472\nDado
- s da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9472
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9479@hoquei.pages.dev
 DTSTAMP:20261114T000000Z
 DTSTART:20261114T140000Z
