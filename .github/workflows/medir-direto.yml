@@ -1,0 +1,73 @@
+name: MEDIÇÃO · Atraso da Jogos do Dia da FPP
+
+# Para quê: saber quanto a página "Jogos do Dia" do hp.fpp.pt se atrasa em relação à ficha da
+# plataforma, antes de construir o ao vivo do Placard em cima dela (docs/11-ligas-nacionais.md).
+# Corre uma vez, no sábado 21/11/2026, a 3.ª jornada do Placard. Aprovado pelo dono a 09/11.
+#
+# Quanto pede, contado antes de o pôr aqui:
+# - a "Jogos do Dia", de 30 em 30 s das 17:25 às 23:00 — ~670 pedidos ao hp.fpp.pt, que é
+#   outro servidor;
+# - a ficha do SPORTING CP–SL BENFICA (19:30) com a mesma cadência, das 19:20 até 10 minutos
+#   depois do fim — ~250 pedidos ao servidor que a FPP partilha com a APL. Um jogo só, porque
+#   o ciclo ao vivo da APL pode estar a correr à mesma hora.
+#
+# **A trava está no código** (`DIA` em scraper/src/hoquei/medir_direto.py): noutro dia o script
+# sai sem pedir nada, corra o workflow por que razão correr. Quando a resposta estiver no
+# documento, este ficheiro sai.
+#
+# Um job longo e não um cron de 30 em 30 s, pela mesma razão da sonda: o agendador da GitHub
+# atrasa-se, e isso estragava uma medição de atraso. O cron só dá o arranque; se arrancar tarde,
+# perde-se o princípio da janela e não mais do que isso.
+on:
+  schedule:
+    - cron: '25 17 21 11 *'    # 21/11 às 17:25 em Lisboa (em novembro, Lisboa é UTC)
+  workflow_dispatch:
+
+concurrency:
+  group: medir-direto
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  medir:
+    runs-on: ubuntu-latest
+    # 5h35 de janela, mais a montagem e o commit; o limite da GitHub é 6h
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # a mesma chave de escrita da sonda e do dados.yml: o diário commita no `main`
+          ssh-key: ${{ secrets.CHAVE_ESCRITA }}
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Medir
+        working-directory: scraper
+        # as fichas vão ao servidor partilhado com a APL, e por isso contam na consola
+        env:
+          OBSERVADOR: https://hoquei-observador.torneiopa.workers.dev
+          CHAVE_RONDAS: ${{ secrets.CHAVE_RONDAS }}
+          ORIGEM_RONDA: medicao
+        run: |
+          uv run python -m hoquei.medir_direto \
+            --dia 2026-11-21 --inicio 17:25 --fim 23:00 \
+            --referencia 18279 --ref-inicio 19:20 \
+            --destino ../data-samples/medicao-direto >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Guardar o diário
+        if: always()
+        run: |
+          if [ -z "$(git status --porcelain -- data-samples/medicao-direto)" ]; then
+            echo "nada medido"
+            exit 0
+          fi
+          git config user.name  "hoquei-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data-samples/medicao-direto
+          git commit -m "Medição da Jogos do Dia: $(date -u '+%Y-%m-%d %H:%M') UTC [skip ci]"
+          git pull --rebase --autostash origin main
+          git push
