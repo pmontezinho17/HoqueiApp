@@ -1,5 +1,9 @@
 /**
- * Os ecrãs do catálogo de componentes, e o que cada um mostra.
+ * Os ecrãs do catálogo, e o que cada um mostra.
+ *
+ * **Os ecrãs são o contexto, não o produto desta entrega.** Depois de 19/10/2026 o catálogo
+ * passou a ser por componente (ver `componentes.mjs`); isto fica para se perceber onde é que
+ * cada peça encaixa e quanta coisa há num ecrã ao mesmo tempo.
  *
  * Esta lista é a parte que envelhece: um ecrã novo acrescenta-se aqui e o `capturar.mjs`
  * passa a fotografá-lo nos dois temas sem mais nada.
@@ -39,15 +43,14 @@ export const ECRAS = [
 		nota: 'O ecrã de entrada, e o mais aberto de todos. A fita dos dias é o único sítio da app que se arrasta na horizontal.'
 	},
 	{
-		id: '02-jogos-filtrados',
-		titulo: 'Jogos do dia, filtrados por escalão',
+		id: '02-jogos-por-local',
+		titulo: 'Jogos do dia, agrupados por local',
 		url: '/',
-		mostra: ['pílulas de escalão (uma escolhida)', 'LinhaJogo'],
-		nota: 'O mesmo ecrã com um escalão escolhido. As pílulas mudam de dia para dia — só aparecem os escalões que jogam.',
+		mostra: ['C04 campo de selecção', 'C09 linha de jogo'],
+		nota: 'O mesmo ecrã agrupado por local: um cartão por pavilhão. O filtro e o agrupamento são dois campos de selecção desde 21/10/2026.',
 		prepara: async (pag) => {
-			// o índice 0 é o "Todos"; o 1 é o primeiro escalão que haja nesse dia
-			await pag.locator('[data-guia=escaloes] button').nth(1).click();
-			await pag.waitForTimeout(400);
+			await pag.locator('select').nth(1).selectOption('local');
+			await pag.waitForTimeout(500);
 		}
 	},
 	{
@@ -57,6 +60,22 @@ export const ECRAS = [
 		mostra: ['Holofote', 'Faixa', 'Cronologia', 'Bola'],
 		nota: 'Lance a lance. O holofote é o cabeçalho do jogo e encolhe ao rolar — aqui está por encolher.',
 		prepara: separador('Eventos do jogo')
+	},
+	{
+		id: '03b-jogo-pre-jogo',
+		titulo: 'Jogo — pré-jogo',
+		url: '/jogo/10000',
+		mostra: ['C44 antes do jogo'],
+		nota: 'As sete secções que comparam as duas equipas antes do apito. É o separador mais recente e o mais comprido.',
+		prepara: separador('Pré-jogo')
+	},
+	{
+		id: '03c-jogo-merito',
+		titulo: 'Jogo — Mérito',
+		url: '/jogo/10000',
+		mostra: ['C45 mérito deste jogo'],
+		nota: 'A conta do Mérito deste jogo, regra a regra. Só nos Escolares e Benjamins.',
+		prepara: separador('Mérito deste jogo')
 	},
 	{
 		id: '04-jogo-equipas',
@@ -144,14 +163,14 @@ export const ECRAS = [
 	{
 		id: '15-equipa-jogos',
 		titulo: 'Equipa — jogos em lista',
-		url: `${EQUIPA}?aba=jogos&vista=lista`,
+		url: `${EQUIPA}?aba=jogos`,
 		mostra: ['LinhaJogo'],
 		nota: 'Todos os jogos da equipa, em lista.'
 	},
 	{
 		id: '16-equipa-calendario',
 		titulo: 'Equipa — jogos em calendário',
-		url: `${EQUIPA}?aba=jogos&vista=calendario`,
+		url: `${EQUIPA}?aba=calendario`,
 		mostra: ['CalendarioMes', 'Emblema'],
 		nota: 'A mesma informação num mês. A grelha de calendário só existe aqui.'
 	},
