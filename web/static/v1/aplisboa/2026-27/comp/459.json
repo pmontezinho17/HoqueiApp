@@ -231,7 +231,7 @@
    "casa": "CACO",
    "fora": "UF ENTRONCAMENTO",
    "golos_casa": 1,
-   "golos_fora": 3,
+   "golos_fora": 6,
    "recinto": "PAV.C.A.C.OURIQUE",
    "ao_vivo": false
   },
@@ -486,10 +486,10 @@
      "vitorias": 3,
      "empates": 1,
      "derrotas": 1,
-     "golos_marcados": 37,
+     "golos_marcados": 40,
      "golos_sofridos": 16,
-     "diferenca": 21,
-     "racio": 2.31,
+     "diferenca": 24,
+     "racio": 2.5,
      "pontos": 10
     },
     {
@@ -501,9 +501,9 @@
      "empates": 0,
      "derrotas": 2,
      "golos_marcados": 19,
-     "golos_sofridos": 14,
-     "diferenca": 5,
-     "racio": 1.36,
+     "golos_sofridos": 17,
+     "diferenca": 2,
+     "racio": 1.12,
      "pontos": 9
     },
     {
