@@ -225,8 +225,8 @@
    "hora": "12:45:00",
    "casa": "AE FISICA D B",
    "fora": "CRIAR-T GD",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 10,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
   },
