@@ -1,7 +1,7 @@
 {
  "competicao_id": 463,
  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE D",
- "jogos_lidos": 14,
+ "jogos_lidos": 15,
  "jogos_sem_boletim": 0,
  "linhas": [
   {
@@ -18,16 +18,27 @@
   {
    "posicao": 2,
    "equipa": "SC TORRES",
-   "jogos": 6,
-   "participantes": 54,
-   "bonificacao": 67,
-   "penalizacao": -6,
-   "pontos": 61,
-   "media": 10.17,
+   "jogos": 7,
+   "participantes": 63,
+   "bonificacao": 79,
+   "penalizacao": -7,
+   "pontos": 72,
+   "media": 10.29,
    "por_confirmar": 0
   },
   {
    "posicao": 3,
+   "equipa": "A STUART HCM B",
+   "jogos": 6,
+   "participantes": 56,
+   "bonificacao": 61,
+   "penalizacao": -5,
+   "pontos": 56,
+   "media": 9.33,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 4,
    "equipa": "SPORTING CP B",
    "jogos": 5,
    "participantes": 41,
@@ -35,17 +46,6 @@
    "penalizacao": -3,
    "pontos": 47,
    "media": 9.4,
-   "por_confirmar": 0
-  },
-  {
-   "posicao": 4,
-   "equipa": "A STUART HCM B",
-   "jogos": 5,
-   "participantes": 46,
-   "bonificacao": 50,
-   "penalizacao": -5,
-   "pontos": 45,
-   "media": 9.0,
    "por_confirmar": 0
   },
   {
