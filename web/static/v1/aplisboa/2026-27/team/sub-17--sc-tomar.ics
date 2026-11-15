@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9670@hoquei.pages.dev
-DTSTAMP:20261114T000000Z
-DTSTART:20261114T120000Z
-DTEND:20261114T133000Z
-SUMMARY:🏑 Sub-17 🏑 SC Tomar vs HC Turquel
-LOCATION:Pavilhão Jacome Ratton
-DESCRIPTION:SC Tomar 4–6 HC Turquel\nCAMP. REG. SUB-17 - 1ª FASE · Sér
- ie A · SUB-17\nPAV.JACOME RATTON\nhttps://hoquei.pages.dev/jogo/9670\nDad
- os da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9670
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9671@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T163000Z

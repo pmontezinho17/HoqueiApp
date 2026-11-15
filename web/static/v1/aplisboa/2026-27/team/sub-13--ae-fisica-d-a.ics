@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9528@hoquei.pages.dev
-DTSTAMP:20261114T000000Z
-DTSTART:20261114T143000Z
-DTEND:20261114T160000Z
-SUMMARY:🏑 Sub-13 🏑 CD Mafra vs AE Fisica D A
-LOCATION:Pavilhão Clube Desportivo de Mafra
-DESCRIPTION:CD Mafra 0–17 AE Fisica D A\nCAMP. REG. SUB-13 - 1ª FASE · 
- Série C · SUB-13\nPAV. MAFRA\nhttps://hoquei.pages.dev/jogo/9528\nDados 
- da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9528
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9531@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T144500Z

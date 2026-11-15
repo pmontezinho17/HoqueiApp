@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9729@hoquei.pages.dev
-DTSTAMP:20261114T000000Z
-DTSTART:20261114T210000Z
-DTEND:20261114T223000Z
-SUMMARY:🏑 Sub-17 🏑 Parede FC vs AE Fisica D B
-LOCATION:Fisica Torres Vedras
-DESCRIPTION:Parede FC vs AE Fisica D B\nCAMP. REG. SUB-17 - 1ª FASE · Sé
- rie C · SUB-17\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo
- /9729\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9729
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9730@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T163000Z

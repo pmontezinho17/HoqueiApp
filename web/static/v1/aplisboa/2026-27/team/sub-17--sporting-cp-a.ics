@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9777@hoquei.pages.dev
-DTSTAMP:20261114T000000Z
-DTSTART:20261114T214500Z
-DTEND:20261114T231500Z
-SUMMARY:🏑 Sub-17 🏑 Sporting CP A vs AD Oeiras B
-LOCATION:Sports Association of Oeiras
-DESCRIPTION:Sporting CP A vs AD Oeiras B\nCAMP. REG. SUB-17 - 1ª FASE · S
- érie E · SUB-17\nPAV. A.D.OEIRAS\nhttps://hoquei.pages.dev/jogo/9777\nDa
- dos da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9777
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9781@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T163000Z

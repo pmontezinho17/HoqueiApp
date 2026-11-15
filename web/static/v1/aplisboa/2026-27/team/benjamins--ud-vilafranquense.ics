@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-10080@hoquei.pages.dev
-DTSTAMP:20261114T000000Z
-DTSTART:20261114T143000Z
-DTEND:20261114T160000Z
-SUMMARY:🏑 Benjamins 🏑 UD Vilafranquense vs HC Lourinhã
-LOCATION:Pavilhão José Mário Cerejo
-DESCRIPTION:UD Vilafranquense 31–1 HC Lourinhã\nENCONTROS DISTRITAIS BEN
- JAMINS - 1ª FASE NIVEL II · Série C · BENJAMINS\nPAV. VILAFRANQUENSE\n
- https://hoquei.pages.dev/jogo/10080\nDados da Associação de Patinagem de
-  Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/10080
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-10083@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T090000Z
