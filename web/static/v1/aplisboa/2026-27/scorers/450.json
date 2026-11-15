@@ -1,6 +1,6 @@
 {
  "competicao_id": 450,
- "jogos_considerados": 16,
+ "jogos_considerados": 17,
  "jogadores": [
   {
    "nome": "DINIS MOREIRA",
@@ -18,7 +18,7 @@
   {
    "nome": "TOMÁS RIBEIRO",
    "equipa": "AD OEIRAS B",
-   "jogos": 7,
+   "jogos": 8,
    "numero": "4",
    "golos": 10,
    "assistencias": 2,
@@ -55,23 +55,36 @@
    "vermelhos": 0
   },
   {
-   "nome": "GABRIEL CARDOSO",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 6,
-   "numero": "9",
-   "golos": 5,
+   "nome": "GUSTAVO COSTA",
+   "equipa": "A STUART HCM A",
+   "jogos": 7,
+   "numero": "17",
+   "golos": 6,
    "assistencias": 1,
    "defesas": 0,
-   "pontos": 6,
+   "pontos": 7,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
   {
-   "nome": "GUSTAVO COSTA",
-   "equipa": "A STUART HCM A",
+   "nome": "VICENTE SILVA",
+   "equipa": "AD OEIRAS B",
+   "jogos": 7,
+   "numero": "8",
+   "golos": 6,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 7,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GABRIEL CARDOSO",
+   "equipa": "FSE/AJ SALESIANA",
    "jogos": 6,
-   "numero": "17",
+   "numero": "9",
    "golos": 5,
    "assistencias": 1,
    "defesas": 0,
@@ -94,6 +107,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "RODRIGO MORAIS",
+   "equipa": "AD OEIRAS B",
+   "jogos": 8,
+   "numero": "9",
+   "golos": 5,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 6,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "TIAGO MATOS",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 6,
@@ -102,6 +128,19 @@
    "assistencias": 0,
    "defesas": 0,
    "pontos": 5,
+   "amarelos": 0,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LUCAS HELENO",
+   "equipa": "A STUART HCM A",
+   "jogos": 7,
+   "numero": "77",
+   "golos": 4,
+   "assistencias": 6,
+   "defesas": 0,
+   "pontos": 10,
    "amarelos": 0,
    "azuis": 1,
    "vermelhos": 0
@@ -133,32 +172,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "RODRIGO MORAIS",
-   "equipa": "AD OEIRAS B",
-   "jogos": 7,
-   "numero": "9",
-   "golos": 4,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "LUCAS HELENO",
-   "equipa": "A STUART HCM A",
-   "jogos": 6,
-   "numero": "77",
-   "golos": 3,
-   "assistencias": 5,
-   "defesas": 0,
-   "pontos": 8,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "FRANCISCO PIÇARRA",
    "equipa": "SL BENFICA A",
    "jogos": 7,
@@ -185,19 +198,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "VICENTE SILVA",
-   "equipa": "AD OEIRAS B",
-   "jogos": 6,
-   "numero": "8",
-   "golos": 3,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GUILHERME GOMES",
    "equipa": "SL BENFICA A",
    "jogos": 7,
@@ -211,9 +211,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "FILIPE PASSARINHO",
+   "equipa": "AD OEIRAS B",
+   "jogos": 8,
+   "numero": "5",
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GIL ESPADA",
    "equipa": "A STUART HCM A",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "45",
    "golos": 3,
    "assistencias": 0,
@@ -291,7 +304,7 @@
   {
    "nome": "XAVIER LOPES",
    "equipa": "AD OEIRAS B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "6",
    "golos": 1,
    "assistencias": 1,
@@ -312,19 +325,6 @@
    "pontos": 2,
    "amarelos": 1,
    "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "FILIPE PASSARINHO",
-   "equipa": "AD OEIRAS B",
-   "jogos": 7,
-   "numero": "5",
-   "golos": 1,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -380,6 +380,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOÃO MARQUES",
+   "equipa": "A STUART HCM A",
+   "jogos": 5,
+   "numero": "4",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TOMÁS DUARTE",
    "equipa": "AD OEIRAS B",
    "jogos": 5,
@@ -395,8 +408,21 @@
   {
    "nome": "LOURENÇO BARRENTO",
    "equipa": "A STUART HCM A",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "30",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SANTIAGO ALMEIDA",
+   "equipa": "A STUART HCM A",
+   "jogos": 7,
+   "numero": "99",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -408,7 +434,7 @@
   {
    "nome": "SANTIAGO SILVA",
    "equipa": "AD OEIRAS B",
-   "jogos": 7,
+   "jogos": 8,
    "numero": "7",
    "golos": 1,
    "assistencias": 0,
@@ -549,9 +575,9 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO PINHO",
-   "equipa": "AD OEIRAS B",
-   "jogos": 4,
+   "nome": "AFONSO GUERREIRO",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 5,
    "numero": "3",
    "golos": 0,
    "assistencias": 0,
@@ -562,21 +588,8 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO MARQUES",
-   "equipa": "A STUART HCM A",
-   "jogos": 4,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "AFONSO GUERREIRO",
-   "equipa": "FSE/AJ SALESIANA",
+   "nome": "DIOGO PINHO",
+   "equipa": "AD OEIRAS B",
    "jogos": 5,
    "numero": "3",
    "golos": 0,
@@ -601,19 +614,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "SIMÃO RÉQUIO",
-   "equipa": "A STUART HCM A",
-   "jogos": 5,
-   "numero": "20",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "TIAGO SILVA",
    "equipa": "CD PAÇO ARCOS B",
    "jogos": 5,
@@ -631,19 +631,6 @@
    "equipa": "FSE/AJ SALESIANA",
    "jogos": 6,
    "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "BERNARDO COSTA",
-   "equipa": "A STUART HCM A",
-   "jogos": 6,
-   "numero": "61",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -692,36 +679,23 @@
    "vermelhos": 0
   },
   {
-   "nome": "SANTIAGO ALMEIDA",
+   "nome": "SIMÃO RÉQUIO",
    "equipa": "A STUART HCM A",
    "jogos": 6,
-   "numero": "99",
+   "numero": "20",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
-   "azuis": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO REIS",
+   "nome": "BERNARDO COSTA",
    "equipa": "A STUART HCM A",
-   "jogos": 6,
-   "numero": "12",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DINIS MATOS",
-   "equipa": "AD OEIRAS B",
    "jogos": 7,
-   "numero": "10",
+   "numero": "61",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -757,9 +731,35 @@
    "vermelhos": 0
   },
   {
+   "nome": "TIAGO REIS",
+   "equipa": "A STUART HCM A",
+   "jogos": 7,
+   "numero": "12",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DINIS MATOS",
+   "equipa": "AD OEIRAS B",
+   "jogos": 8,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TIAGO VÁRZEA",
    "equipa": "AD OEIRAS B",
-   "jogos": 7,
+   "jogos": 8,
    "numero": "1",
    "golos": 0,
    "assistencias": 0,

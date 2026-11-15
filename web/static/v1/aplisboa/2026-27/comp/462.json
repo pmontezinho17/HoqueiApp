@@ -253,8 +253,8 @@
    "hora": "15:00:00",
    "casa": "APAC TOJAL",
    "fora": "A STUART HCM A",
-   "golos_casa": 1,
-   "golos_fora": 2,
+   "golos_casa": 4,
+   "golos_fora": 5,
    "recinto": "PAV. A.P.A.C.TOJAL",
    "ao_vivo": false
   },

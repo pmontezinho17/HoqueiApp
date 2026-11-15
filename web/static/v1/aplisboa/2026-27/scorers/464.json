@@ -1,6 +1,6 @@
 {
  "competicao_id": 464,
- "jogos_considerados": 15,
+ "jogos_considerados": 16,
  "jogadores": [
   {
    "nome": "GONCALO RODRIGUES",
@@ -31,12 +31,12 @@
   {
    "nome": "JOÃO CONSTANTINO",
    "equipa": "FSE/AJ SALESIANA B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "4",
-   "golos": 11,
+   "golos": 13,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 11,
+   "pontos": 13,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -57,12 +57,12 @@
   {
    "nome": "LOURENÇO GUERREIRO",
    "equipa": "PAREDE FC B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "28",
-   "golos": 7,
+   "golos": 9,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 7,
+   "pontos": 9,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -159,6 +159,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MARIA ROCHA",
+   "equipa": "PAREDE FC B",
+   "jogos": 7,
+   "numero": "42",
+   "golos": 4,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "VASCO HENRIQUES",
    "equipa": "CACO B",
    "jogos": 7,
@@ -180,6 +193,19 @@
    "assistencias": 3,
    "defesas": 0,
    "pontos": 6,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "LOURENÇO FERNANDES",
+   "equipa": "FSE/AJ SALESIANA B",
+   "jogos": 4,
+   "numero": "6",
+   "golos": 3,
+   "assistencias": 1,
+   "defesas": 0,
+   "pontos": 4,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -213,8 +239,8 @@
   {
    "nome": "VASCO RODRIGUES",
    "equipa": "FSE/AJ SALESIANA B",
-   "jogos": 5,
-   "numero": "1",
+   "jogos": 6,
+   "numero": "9",
    "golos": 3,
    "assistencias": 1,
    "defesas": 0,
@@ -226,34 +252,8 @@
   {
    "nome": "RAFAEL GARCIA",
    "equipa": "FSE/AJ SALESIANA B",
-   "jogos": 5,
-   "numero": "9",
-   "golos": 3,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MARIA ROCHA",
-   "equipa": "PAREDE FC B",
    "jogos": 6,
-   "numero": "42",
-   "golos": 3,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SOFIA SANTOS",
-   "equipa": "PAREDE FC B",
-   "jogos": 6,
-   "numero": "54",
+   "numero": "10",
    "golos": 3,
    "assistencias": 0,
    "defesas": 0,
@@ -276,9 +276,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "SOFIA SANTOS",
+   "equipa": "PAREDE FC B",
+   "jogos": 7,
+   "numero": "54",
+   "golos": 3,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "LOURENÇO MENDES",
    "equipa": "PAREDE FC B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "22",
    "golos": 2,
    "assistencias": 1,
@@ -343,7 +356,7 @@
   {
    "nome": "MARIANA GOARMON",
    "equipa": "FSE/AJ SALESIANA B",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "8",
    "golos": 2,
    "assistencias": 0,
@@ -356,7 +369,7 @@
   {
    "nome": "VASCO SANTOS",
    "equipa": "PAREDE FC B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "16",
    "golos": 1,
    "assistencias": 1,
@@ -393,19 +406,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ANTONIO ROSA",
-   "equipa": "PAREDE FC B",
-   "jogos": 2,
-   "numero": "21",
-   "golos": 1,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "BAUTISTA MENDE",
    "equipa": "CACO B",
    "jogos": 2,
@@ -419,10 +419,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO FERNANDES",
-   "equipa": "FSE/AJ SALESIANA B",
+   "nome": "ANTONIO ROSA",
+   "equipa": "PAREDE FC B",
    "jogos": 3,
-   "numero": "10",
+   "numero": "21",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -434,8 +434,8 @@
   {
    "nome": "LUCA FRIOLI",
    "equipa": "FSE/AJ SALESIANA B",
-   "jogos": 3,
-   "numero": "6",
+   "jogos": 4,
+   "numero": "7",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -460,7 +460,7 @@
   {
    "nome": "EVA CÍRIACO",
    "equipa": "FSE/AJ SALESIANA B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "3",
    "golos": 1,
    "assistencias": 0,
@@ -473,7 +473,7 @@
   {
    "nome": "JOSÉ GARIN",
    "equipa": "FSE/AJ SALESIANA B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "5",
    "golos": 1,
    "assistencias": 0,
@@ -588,19 +588,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "LUCAS LAMAROSA",
-   "equipa": "FSE/AJ SALESIANA B",
-   "jogos": 3,
-   "numero": "7",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "VICENTE MARQUES",
    "equipa": "AE FISICA D B",
    "jogos": 3,
@@ -614,10 +601,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "INÊS MENDES",
-   "equipa": "PAREDE FC B",
+   "nome": "LUCAS LAMAROSA",
+   "equipa": "FSE/AJ SALESIANA B",
    "jogos": 4,
-   "numero": "44",
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -629,19 +616,6 @@
   {
    "nome": "AFONSO FERREIRA",
    "equipa": "AE FISICA D B",
-   "jogos": 5,
-   "numero": "2",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "ANTONIO LENCASTRE",
-   "equipa": "FSE/AJ SALESIANA B",
    "jogos": 5,
    "numero": "2",
    "golos": 0,
@@ -679,10 +653,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARIA CATRAU",
+   "nome": "INÊS MENDES",
    "equipa": "PAREDE FC B",
    "jogos": 5,
-   "numero": "19",
+   "numero": "44",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -712,6 +686,19 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "ANTONIO LENCASTRE",
+   "equipa": "FSE/AJ SALESIANA B",
+   "jogos": 6,
+   "numero": "2",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -770,26 +757,13 @@
    "vermelhos": 0
   },
   {
-   "nome": "HENRIQUE ANTUNES",
+   "nome": "MARIA CATRAU",
    "equipa": "PAREDE FC B",
    "jogos": 6,
-   "numero": "47",
+   "numero": "19",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TOMAS MARÇAL",
-   "equipa": "PAREDE FC B",
-   "jogos": 6,
-   "numero": "67",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 2,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -803,6 +777,32 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "HENRIQUE ANTUNES",
+   "equipa": "PAREDE FC B",
+   "jogos": 7,
+   "numero": "47",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMAS MARÇAL",
+   "equipa": "PAREDE FC B",
+   "jogos": 7,
+   "numero": "67",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 2,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
