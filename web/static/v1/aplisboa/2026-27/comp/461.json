@@ -239,8 +239,8 @@
    "hora": "16:00:00",
    "casa": "CACO A",
    "fora": "CD PAÇO ARCOS A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 4,
+   "golos_fora": 0,
    "recinto": "PAV.C.A.C.OURIQUE",
    "ao_vivo": false
   },

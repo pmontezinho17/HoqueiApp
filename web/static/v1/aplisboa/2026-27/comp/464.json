@@ -253,8 +253,8 @@
    "hora": "15:30:00",
    "casa": "FSE/AJ SALESIANA B",
    "fora": "PAREDE FC B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 4,
+   "golos_fora": 3,
    "recinto": "PAV. SALESIANA",
    "ao_vivo": false
   },

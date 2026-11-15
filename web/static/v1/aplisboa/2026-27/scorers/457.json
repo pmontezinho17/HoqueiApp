@@ -1,6 +1,6 @@
 {
  "competicao_id": 457,
- "jogos_considerados": 16,
+ "jogos_considerados": 17,
  "jogadores": [
   {
    "nome": "VASCO MOREIRA",
@@ -57,13 +57,13 @@
   {
    "nome": "MIGUEL TORRÃO",
    "equipa": "HC LOURINHÃ",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "99",
    "golos": 7,
-   "assistencias": 1,
+   "assistencias": 3,
    "defesas": 0,
-   "pontos": 8,
-   "amarelos": 2,
+   "pontos": 10,
+   "amarelos": 3,
    "azuis": 1,
    "vermelhos": 1
   },
@@ -94,6 +94,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "SANTIAGO PEREIRA",
+   "equipa": "SL BENFICA",
+   "jogos": 3,
+   "numero": "87",
+   "golos": 6,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 8,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "JOSÉ BRANCO",
    "equipa": "HC TURQUEL",
    "jogos": 5,
@@ -104,19 +117,6 @@
    "pontos": 10,
    "amarelos": 0,
    "azuis": 2,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SANTIAGO PEREIRA",
-   "equipa": "SL BENFICA",
-   "jogos": 3,
-   "numero": "87",
-   "golos": 5,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 7,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -135,7 +135,7 @@
   {
    "nome": "GUILHERME SOUSA",
    "equipa": "BIBLIOTECA IR",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "9",
    "golos": 5,
    "assistencias": 2,
@@ -172,6 +172,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "AFONSO MAURICIO",
+   "equipa": "BIBLIOTECA IR",
+   "jogos": 6,
+   "numero": "2",
+   "golos": 4,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 7,
+   "amarelos": 2,
+   "azuis": 4,
+   "vermelhos": 0
+  },
+  {
    "nome": "PEDRO GOUVEIA",
    "equipa": "UD VILAFRANQUENSE",
    "jogos": 6,
@@ -182,6 +195,19 @@
    "pontos": 6,
    "amarelos": 0,
    "azuis": 3,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MARTIM PESSA",
+   "equipa": "BIBLIOTECA IR",
+   "jogos": 5,
+   "numero": "7",
+   "golos": 3,
+   "assistencias": 4,
+   "defesas": 0,
+   "pontos": 7,
+   "amarelos": 1,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -198,6 +224,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "SANTIAGO GONÇALVES",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 6,
+   "numero": "77",
+   "golos": 3,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 3,
+   "vermelhos": 0
+  },
+  {
    "nome": "DIOGO ATAÍDE",
    "equipa": "SL BENFICA",
    "jogos": 2,
@@ -208,19 +247,6 @@
    "pontos": 4,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "AFONSO MAURICIO",
-   "equipa": "BIBLIOTECA IR",
-   "jogos": 5,
-   "numero": "2",
-   "golos": 3,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 2,
-   "azuis": 3,
    "vermelhos": 0
   },
   {
@@ -239,7 +265,7 @@
   {
    "nome": "JOÃO HENRIQUES",
    "equipa": "BIBLIOTECA IR",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "4",
    "golos": 3,
    "assistencias": 0,
@@ -252,8 +278,8 @@
   {
    "nome": "MARTIM COSTA",
    "equipa": "HC LOURINHÃ",
-   "jogos": 4,
-   "numero": "18",
+   "jogos": 5,
+   "numero": "10",
    "golos": 2,
    "assistencias": 3,
    "defesas": 0,
@@ -289,19 +315,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO HENRIQUES",
-   "equipa": "BIBLIOTECA IR",
-   "jogos": 4,
-   "numero": "8",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "MIGUEL SIMÕES",
    "equipa": "S ALENQUER BENFICA",
    "jogos": 4,
@@ -315,16 +328,29 @@
    "vermelhos": 0
   },
   {
-   "nome": "MARTIM PESSA",
+   "nome": "DIOGO HENRIQUES",
    "equipa": "BIBLIOTECA IR",
-   "jogos": 4,
-   "numero": "7",
-   "golos": 1,
-   "assistencias": 3,
+   "jogos": 5,
+   "numero": "8",
+   "golos": 2,
+   "assistencias": 0,
    "defesas": 0,
-   "pontos": 4,
-   "amarelos": 0,
+   "pontos": 2,
+   "amarelos": 2,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PEDRO FAÍSCA",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 6,
+   "numero": "3",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 1,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -333,24 +359,11 @@
    "jogos": 4,
    "numero": "9",
    "golos": 1,
-   "assistencias": 2,
+   "assistencias": 3,
    "defesas": 0,
-   "pontos": 3,
+   "pontos": 4,
    "amarelos": 1,
    "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SANTIAGO GONÇALVES",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 5,
-   "numero": "77",
-   "golos": 1,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 3,
-   "amarelos": 0,
-   "azuis": 3,
    "vermelhos": 0
   },
   {
@@ -395,8 +408,8 @@
   {
    "nome": "LOURENÇO OLIVEIRA",
    "equipa": "HC LOURINHÃ",
-   "jogos": 5,
-   "numero": "88",
+   "jogos": 6,
+   "numero": "74",
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
@@ -408,8 +421,8 @@
   {
    "nome": "MATIAS BALTAZAR",
    "equipa": "HC LOURINHÃ",
-   "jogos": 5,
-   "numero": "9",
+   "jogos": 6,
+   "numero": "30",
    "golos": 1,
    "assistencias": 1,
    "defesas": 0,
@@ -475,6 +488,19 @@
    "equipa": "S ALENQUER BENFICA",
    "jogos": 1,
    "numero": "12",
+   "golos": 1,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 1,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO QUINTINO",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 3,
+   "numero": "35",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -601,19 +627,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO SANTOS",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 1,
-   "numero": "27",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "ANDRÉ ROSADO",
    "equipa": "SL BENFICA",
    "jogos": 1,
@@ -696,19 +709,6 @@
    "equipa": "BIBLIOTECA IR",
    "jogos": 1,
    "numero": "8",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MATEUS TORRADO",
-   "equipa": "BIBLIOTECA IR",
-   "jogos": 1,
-   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -809,16 +809,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO MARQUES",
-   "equipa": "BIBLIOTECA IR",
+   "nome": "AFONSO SANTOS",
+   "equipa": "HC LOURINHÃ",
    "jogos": 2,
-   "numero": "10",
+   "numero": "79",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
-   "azuis": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -874,6 +874,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "MATEUS TORRADO",
+   "equipa": "BIBLIOTECA IR",
+   "jogos": 2,
+   "numero": "6",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "TOMÁS FLORÊNCIO",
    "equipa": "HC LOURINHÃ",
    "jogos": 2,
@@ -897,6 +910,19 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 1,
+   "vermelhos": 0
+  },
+  {
+   "nome": "AFONSO MARQUES",
+   "equipa": "BIBLIOTECA IR",
+   "jogos": 3,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -943,32 +969,6 @@
    "equipa": "SL BENFICA",
    "jogos": 3,
    "numero": "19",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TIAGO QUINTINO",
-   "equipa": "UD VILAFRANQUENSE",
-   "jogos": 3,
-   "numero": "35",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "AFONSO GROSA",
-   "equipa": "BIBLIOTECA IR",
-   "jogos": 4,
-   "numero": "3",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1030,6 +1030,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "AFONSO GROSA",
+   "equipa": "BIBLIOTECA IR",
+   "jogos": 5,
+   "numero": "3",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "FRANCISCO MONTEIRO",
    "equipa": "HC TURQUEL",
    "jogos": 5,
@@ -1039,45 +1052,6 @@
    "defesas": 0,
    "pontos": 0,
    "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GONÇALO SOUSA",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 5,
-   "numero": "91",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 2,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "GUILHERME PAIVA",
-   "equipa": "BIBLIOTECA IR",
-   "jogos": 5,
-   "numero": "5",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "JOSÉ CARREIRA",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 5,
-   "numero": "19",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -1092,45 +1066,6 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "MATEUS GASPAR",
-   "equipa": "BIBLIOTECA IR",
-   "jogos": 5,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "PEDRO FAÍSCA",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 5,
-   "numero": "74",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TOMÁS SOUSA",
-   "equipa": "HC LOURINHÃ",
-   "jogos": 5,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -1170,6 +1105,71 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GONÇALO SOUSA",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 6,
+   "numero": "91",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 2,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "GUILHERME PAIVA",
+   "equipa": "BIBLIOTECA IR",
+   "jogos": 6,
+   "numero": "5",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 2,
+   "vermelhos": 0
+  },
+  {
+   "nome": "JOSÉ CARREIRA",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 6,
+   "numero": "19",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MATEUS GASPAR",
+   "equipa": "BIBLIOTECA IR",
+   "jogos": 6,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 1,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TOMÁS SOUSA",
+   "equipa": "HC LOURINHÃ",
+   "jogos": 6,
+   "numero": "88",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   }
  ],

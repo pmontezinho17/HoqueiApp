@@ -1,17 +1,17 @@
 {
  "competicao_id": 461,
  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE B",
- "jogos_lidos": 15,
+ "jogos_lidos": 16,
  "jogos_sem_boletim": 0,
  "linhas": [
   {
    "posicao": 1,
    "equipa": "CACO A",
-   "jogos": 6,
-   "participantes": 60,
-   "bonificacao": 84,
+   "jogos": 7,
+   "participantes": 70,
+   "bonificacao": 98,
    "penalizacao": 0,
-   "pontos": 84,
+   "pontos": 98,
    "media": 14.0,
    "por_confirmar": 0
   },
@@ -51,12 +51,12 @@
   {
    "posicao": 5,
    "equipa": "CD PAÇO ARCOS A",
-   "jogos": 5,
-   "participantes": 35,
-   "bonificacao": 38,
-   "penalizacao": -23,
-   "pontos": 15,
-   "media": 3.0,
+   "jogos": 6,
+   "participantes": 42,
+   "bonificacao": 45,
+   "penalizacao": -25,
+   "pontos": 20,
+   "media": 3.33,
    "por_confirmar": 0
   }
  ]

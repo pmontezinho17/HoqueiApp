@@ -272,8 +272,8 @@
    "hora": "17:30:00",
    "casa": "CACO",
    "fora": "FSE/AJ SALESIANA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 4,
+   "golos_fora": 2,
    "recinto": "PAV.C.A.C.OURIQUE",
    "ao_vivo": false
   },
@@ -480,6 +480,20 @@
     },
     {
      "posicao": 2,
+     "equipa": "CACO",
+     "logo": "/intranet/logos/26.png",
+     "jogos": 6,
+     "vitorias": 4,
+     "empates": 0,
+     "derrotas": 2,
+     "golos_marcados": 23,
+     "golos_sofridos": 19,
+     "diferenca": 4,
+     "racio": 1.21,
+     "pontos": 12
+    },
+    {
+     "posicao": 3,
      "equipa": "UF ENTRONCAMENTO",
      "logo": "/intranet/logos/24.png",
      "jogos": 5,
@@ -491,20 +505,6 @@
      "diferenca": 24,
      "racio": 2.5,
      "pontos": 10
-    },
-    {
-     "posicao": 3,
-     "equipa": "CACO",
-     "logo": "/intranet/logos/26.png",
-     "jogos": 5,
-     "vitorias": 3,
-     "empates": 0,
-     "derrotas": 2,
-     "golos_marcados": 19,
-     "golos_sofridos": 17,
-     "diferenca": 2,
-     "racio": 1.12,
-     "pontos": 9
     },
     {
      "posicao": 4,
@@ -538,14 +538,14 @@
      "posicao": 6,
      "equipa": "FSE/AJ SALESIANA",
      "logo": "/intranet/logos/9.png",
-     "jogos": 5,
+     "jogos": 6,
      "vitorias": 0,
      "empates": 1,
-     "derrotas": 4,
-     "golos_marcados": 13,
-     "golos_sofridos": 34,
-     "diferenca": -21,
-     "racio": 0.38,
+     "derrotas": 5,
+     "golos_marcados": 15,
+     "golos_sofridos": 38,
+     "diferenca": -23,
+     "racio": 0.39,
      "pontos": 1
     }
    ]

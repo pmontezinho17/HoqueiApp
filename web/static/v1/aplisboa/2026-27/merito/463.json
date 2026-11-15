@@ -1,18 +1,18 @@
 {
  "competicao_id": 463,
  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL II - SERIE D",
- "jogos_lidos": 15,
+ "jogos_lidos": 16,
  "jogos_sem_boletim": 0,
  "linhas": [
   {
    "posicao": 1,
    "equipa": "AD OEIRAS B",
-   "jogos": 6,
-   "participantes": 60,
-   "bonificacao": 82,
+   "jogos": 7,
+   "participantes": 70,
+   "bonificacao": 96,
    "penalizacao": 0,
-   "pontos": 82,
-   "media": 13.67,
+   "pontos": 96,
+   "media": 13.71,
    "por_confirmar": 0
   },
   {
@@ -40,12 +40,12 @@
   {
    "posicao": 4,
    "equipa": "SPORTING CP B",
-   "jogos": 5,
-   "participantes": 41,
-   "bonificacao": 50,
-   "penalizacao": -3,
-   "pontos": 47,
-   "media": 9.4,
+   "jogos": 6,
+   "participantes": 50,
+   "bonificacao": 59,
+   "penalizacao": -5,
+   "pontos": 54,
+   "media": 9.0,
    "por_confirmar": 0
   },
   {
