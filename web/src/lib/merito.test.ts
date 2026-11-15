@@ -69,10 +69,21 @@ describe('ficheiros de mérito publicados', () => {
 				);
 	});
 
+	/**
+	 * **Meia centésima é o arredondamento a funcionar, não um erro.** O raspador escreve a média
+	 * com duas casas, e um valor que cai exactamente a meio fica a 0,005 do verdadeiro. O
+	 * `toBeCloseTo(x, 2)` exige menos de 0,005, estritamente, e por isso recusava-o: a 14/11/2026
+	 * a AE Física D A dos Benjamins ficou com 85 pontos em 8 jogos, 10,625, publicada 10,62, e
+	 * este teste ficou vermelho com os dados certos. Passa a aceitar até meia centésima, com
+	 * folga para a vírgula flutuante.
+	 */
 	it.skipIf(ficheiros.length === 0)('a média é os pontos a dividir pelos jogos', () => {
 		for (const [nome, d] of ficheiros)
 			for (const l of d.linhas)
-				expect(l.media, `${nome} ${l.equipa}`).toBeCloseTo(l.pontos / l.jogos, 2);
+				expect(
+					Math.abs(l.media - l.pontos / l.jogos),
+					`${nome} ${l.equipa}`
+				).toBeLessThanOrEqual(0.005 + 1e-9);
 	});
 
 	it.skipIf(ficheiros.length === 0)('nenhum nome de atleta escapou para o ficheiro', () => {
