@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9919@hoquei.pages.dev
-DTSTAMP:20261115T000000Z
-DTSTART:20261115T160000Z
-DTEND:20261115T173000Z
-SUMMARY:🏑 Escolares 🏑 Caco A vs CD Paço Arcos A
-LOCATION:Clube Atlético de Campo de Ourique (CACO)
-DESCRIPTION:Caco A 4–0 CD Paço Arcos A\nENCONTROS DISTRITAIS ESCOLARES -
-  1ª FASE NIVEL I · Série B · ESCOLARES\nPAV.C.A.C.OURIQUE\nhttps://hoq
- uei.pages.dev/jogo/9919\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
-URL:https://hoquei.pages.dev/jogo/9919
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9921@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T161500Z

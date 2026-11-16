@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9879@hoquei.pages.dev
-DTSTAMP:20261115T000000Z
-DTSTART:20261115T173000Z
-DTEND:20261115T190000Z
-SUMMARY:🏑 Sub-19 🏑 Caco vs FSE/AJ Salesiana
-LOCATION:Clube Atlético de Campo de Ourique (CACO)
-DESCRIPTION:Caco 4–2 FSE/AJ Salesiana\nCAMP. REG. SUB-19 - 1ª FASE · S
- érie C · SUB-19\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pages.dev/jogo/9879\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9879
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9883@hoquei.pages.dev
 DTSTAMP:20261124T000000Z
 DTSTART:20261124T214500Z

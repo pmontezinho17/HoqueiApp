@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9589@hoquei.pages.dev
-DTSTAMP:20261115T000000Z
-DTSTART:20261115T150000Z
-DTEND:20261115T163000Z
-SUMMARY:🏑 Sub-15 🏑 Criar-T GD vs CD Paço Arcos A
-LOCATION:Pavilhão de Hóquei do CRIAR-T
-DESCRIPTION:Criar-T GD 0–6 CD Paço Arcos A\nCAMP. REG. SUB-15 - 1ª FASE
-  · Série A · SUB-15\nPAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T\nhttps://hoq
- uei.pages.dev/jogo/9589\nDados da Associação de Patinagem de Lisboa. Sit
- e não oficial.
-URL:https://hoquei.pages.dev/jogo/9589
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9592@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T133000Z
