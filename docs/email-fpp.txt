@@ -1,0 +1,37 @@
+Para: hoquei@fpp.pt
+Cc: comunicacao@fpp.pt
+Assunto: Aplicação não oficial de resultados — competições nacionais de hóquei em patins
+
+
+Exmos. Senhores,
+
+Chamo-me Pedro Montezinho. Sou pai de um atleta do [CLUBE] e trabalho na área de software.
+
+Construí, por iniciativa própria e sem qualquer fim comercial, uma aplicação web chamada OK4Sticks, que apresenta os resultados, calendários, classificações e fichas de jogo do hóquei em patins de forma pensada para telemóvel:
+
+https://hoquei.pages.dev
+
+Hoje mostra as competições da Associação de Patinagem de Lisboa. [OPCIONAL: Faço-o com o conhecimento da Associação.] Gostaria de acrescentar as competições nacionais, começando apenas pelo Campeonato Placard, e escrevo-vos antes de o fazer: para vos dar conhecimento, e para pedir o vosso parecer.
+
+Como funcionaria. A aplicação leria a informação que a Federação já publica, sem alterar nada e identificando a FPP como fonte:
+
+- os calendários, as classificações e as fichas de jogo, da plataforma da Federação (fpp.assyssoftware.es), algumas vezes por dia e só nos dias em que há jogos. Cada ficha é lida uma vez, depois de o jogo terminar;
+- durante os jogos, a página "Jogos do Dia" de hp.fpp.pt, uma vez de 30 em 30 segundos, para todos os jogos ao mesmo tempo.
+
+Os pedidos são feitos por um único processo central, nunca um por cada pessoa que usa a aplicação, com um limite de um pedido por segundo e um identificador com o endereço do projecto, para que o possam reconhecer e contactar-me. Num dia sem jogos não se pede nada.
+
+O que gostaria de perguntar:
+
+1. Veem algum inconveniente em que a aplicação mostre as competições nacionais e seja partilhada com atletas, pais e clubes?
+
+2. Emblemas dos clubes. A aplicação mostra os emblemas que constam da plataforma. Sei que são marca de cada clube e não da Federação. Se entenderem que devo pedir autorização aos clubes, ou simplesmente não os mostrar, digam-me.
+
+3. Acesso aos dados — e esta pergunta não precisa de resposta agora. A forma disponível é ler as páginas públicas. Preferia receber a informação de forma estruturada, porque seria mais fiável para mim e mais leve para os vossos servidores. Se a Federação disponibilizar, hoje ou no futuro, uma ligação de dados para este efeito, teria todo o gosto em passar a usá-la. Se não existir, continuo com o mesmo cuidado de não sobrecarregar o serviço.
+
+Se houver qualquer aspecto que queiram ver alterado, ou se preferirem que a aplicação não mostre as competições nacionais, faço-o sem qualquer problema. O objectivo é facilitar a vida a quem acompanha o hóquei em patins, e preferia fazê-lo com o vosso conhecimento.
+
+Fico ao dispor para qualquer esclarecimento, ou para uma conversa se acharem útil.
+
+Com os melhores cumprimentos,
+Pedro Montezinho
+[telefone] · info.ok4sticks@gmail.com

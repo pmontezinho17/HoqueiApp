@@ -42,6 +42,11 @@ Testados e sem resposta: `apporto`, `appaveiro`, `apbraga`, `apmadeira`, `apacor
 `apviseu`, `apcoimbra`, `apfaro`, `apsantarem`. Provavelmente usam outros nomes de subdomínio —
 vale a pena descobrir mais tarde (ver B0.6 no backlog).
 
+**Os inquilinos partilham o servidor.** Medido a 09/11/2026: `fpp.assyssoftware.es` e
+`aplisboa.assyssoftware.es` resolvem os dois para 85.152.58.11. O limite de um pedido por segundo
+é do servidor, por isso vale para a soma de todos os inquilinos que se leiam — ver
+[11-ligas-nacionais.md](11-ligas-nacionais.md), onde isso decidiu o desenho do ao vivo nacional.
+
 **Implicação importante:** escrever o parser uma vez dá acesso ao campeonato nacional inteiro
 (1ª/2ª/3ª Divisão, Taça de Portugal, Supertaça, Elite Cup, femininos, todos os escalões de
 formação) e não apenas à região de Lisboa.

@@ -51,7 +51,7 @@ import type { JogoAgenda } from './tipos';
  * escrita de que "sem ficha não há nada para mostrar lá dentro". **Era falso, e desde 09/10.**
  * Nessa data a página do jogo passou a montar uma ficha a partir da agenda quando a fonte ainda
  * não publicou a sua — ver `fichaDaAgenda.ts` — e a mostrar os separadores que existem, com uma
- * nota a dizer que o onze e o boletim aparecem quando o jogo começar. Eu escrevi a condição a
+ * nota a dizer que as equipas e o boletim aparecem quando o jogo começar. Eu escrevi a condição a
  * olhar para o nome do campo e não para o que o ecrã faz.
  *
  * O dono trouxe a ideia certa: *"num dia por disputar, acho que seria interessante entrar no
