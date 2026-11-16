@@ -244,6 +244,19 @@ Os PRs de segurança do Dependabot apontam sempre ao `main`, e isso não se conf
 `target-branch` só vale para as subidas de versão. Os que corrigem alertas críticos vão directos,
 como correcção. Os outros juntam-se num PR para o `dev` e entram no pacote, como o #127.
 
+**Um alerta aberto não é sinal de que ninguém olhou para ele.** A 16/11/2026 estavam seis
+abertos, todos em dependências que só correm na construção: nenhuma vai no site publicado, e as
+Functions não importam nem o SvelteKit nem o `cookie`. Fechou-se o único que tinha remédio
+pequeno, o `adapter-static` 3.0.11. Medido: os 1817 ficheiros do `build` saíram com o mesmo
+*hash*. Os outros cinco ficam abertos e não se aplicam aqui:
+
+| alerta | porque não se aplica | quando fecha |
+|---|---|---|
+| `@sveltejs/kit` < 3.0.0, dois baixos | um precisa de `use:enhance` e o outro de `setHeaders` com `cache-control`; o projecto não usa nenhum | na migração para o SvelteKit 3, que é uma decisão à parte (o #151 tenta-a contra o `main`, e não se funde) |
+| `cookie` < 0.7.0 | só o servidor do SvelteKit o usa, e o site não tem servidor | com o SvelteKit 3 |
+| `minimatch` < 11.0.1 | negação de serviço com um padrão de *glob* escolhido pelo atacante; os padrões são os nossos, na construção | quando o `workbox-build` largar o `glob` 11. A actualização do Dependabot falhou a 16/11 exactamente por isso |
+| `deepmerge` ≤ 4.3.1 | só junta a nossa própria configuração | não há versão corrigida |
+
 ### 7 · Depois de publicar
 
 A verificação corre sozinha e pergunta ao site sete coisas. O relógio da Cloudflare sonda produção
