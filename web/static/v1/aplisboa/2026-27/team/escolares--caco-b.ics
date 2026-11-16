@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9979@hoquei.pages.dev
-DTSTAMP:20261115T000000Z
-DTSTART:20261115T143000Z
-DTEND:20261115T160000Z
-SUMMARY:🏑 Escolares 🏑 Caco B vs AE Fisica D B
-LOCATION:Clube Atlético de Campo de Ourique (CACO)
-DESCRIPTION:Caco B 2–4 AE Fisica D B\nENCONTROS DISTRITAIS ESCOLARES - 1
- ª FASE NIVEL II · Série E · ESCOLARES\nPAV.C.A.C.OURIQUE\nhttps://hoqu
- ei.pages.dev/jogo/9979\nDados da Associação de Patinagem de Lisboa. Site
-  não oficial.
-URL:https://hoquei.pages.dev/jogo/9979
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9981@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T150000Z
