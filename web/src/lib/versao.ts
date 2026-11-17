@@ -42,7 +42,7 @@
  * segunda saísse também como `1.0`, a caixa não apareceria a ninguém e os seis pontos que o
  * dono reviu nunca seriam lidos. Daí 1.1.
  */
-export const VERSAO = '1.12';
+export const VERSAO = '1.13';
 
 /**
  * **O número que se vê sobe uma vez por entrega; o site de testes ganha uma marca por cima.**
@@ -154,6 +154,18 @@ export type Novidade = {
  * simples: se não se nota a usar, não entra aqui.
  */
 export const NOVIDADES: Novidade[] = [
+	{
+		versao: '1.13',
+		data: '2026-11-23',
+		pontos: [
+			{
+				tipo: 'novo',
+				titulo: '🇵🇹 Os seniores nas divisões nacionais',
+				texto:
+					'O Campeonato Placard, a 2.ª e a 3.ª divisão estão na app, com resultados, calendários, classificações e fichas de jogo, lidos da plataforma da Federação. Em Competições aparecem num bloco Nacional, por cima das provas de Lisboa, e as zonas Norte e Sul são séries como as da APL. Foi o pedido que mais nos fizeram — obrigado!'
+			}
+		]
+	},
 	{
 		versao: '1.12',
 		data: '2026-11-16',

@@ -169,6 +169,30 @@ nacionais. O que se propõe, para validar no site de testes a cada fase:
    #42), e uma fase 1 só com a 1.ª divisão não respondia a nenhum deles. O Feminino continua na
    fase 3, porque o dono só nomeou as duas divisões.
 
+## O que está construído, e o que falta (17/11/2026)
+
+No ramo `feat/placard-fase1`, por enviar ao `dev`:
+
+| | estado |
+|---|---|
+| Raspador: `--categorias`, `--intervalo`, emblemas `fpp-`, calendários `.ics` com UID e links `fpp-`, as categorias com o nome da app (`1.ª DIVISÃO`…) | ✅ testado sem rede com HTML verdadeiro de 17/11 |
+| "PRODUÇÃO · Dados e publicação": a FPP depois da APL, pela agenda dela, de 2 em 2 s, a falhar sozinha e com aviso próprio; os emblemas novos no commit | ✅ escrito; só corre quando chegar ao `main` |
+| O ciclo ao vivo deixa de repor a árvore da FPP e os emblemas do arranque | ✅ provado num repositório de teste |
+| "DEV · Site de testes": duas finalidades das ligas nacionais | ✅ escrito; corre quando chegar ao `dev` |
+| A 9.ª verificação depois de publicar | ✅ |
+| App: as duas fontes no layout, `/jogo/fpp-…`, Competições em Nacional e Lisboa, crachás, Jogos do dia, páginas de jogo e de equipa, textos da origem dos dados | ✅ visto a 375×812 nos dois temas com o Placard e a 2.ª reais |
+| O ao vivo pela "Jogos do Dia" | ⏳ depois da medição de 21/11 |
+| O relógio e o cão de guarda a olhar também para a agenda da FPP | ⏳ com o ao vivo |
+| A consola a separar os pedidos da FPP dos da APL | ⏳ hoje contam juntos como `producao`, o que está certo para o servidor mas não mostra quanto é de cada |
+| A página da equipa com as duas fontes (o passo C) | ⏳ **o dono quer avaliar várias opções** (17/11). Hoje a FPP tem páginas suas; o "O Meu Clube" já junta os escalões das duas quando o clube tem o mesmo emblema |
+
+**Decisão do dono a 17/11/2026: vai tudo de uma vez**, incluindo o ao vivo. Nada nacional vai a
+produção antes de o passo D estar validado.
+
+Medido na leitura local de 17/11 (Placard e 2.ª, autorizada pelo dono): 75 páginas e 36
+emblemas, 111 pedidos; 67 fichas, 546 jogos, 42 equipas. **12 nomes de clube são iguais nas
+duas fontes**, e entre eles o PAREDE FC, que joga a 2.ª Sul — os pedidos #39 e #42.
+
 ## O email à FPP
 
 O rascunho para copiar e colar é o [`email-fpp.txt`](email-fpp.txt), em texto simples pela mesma
