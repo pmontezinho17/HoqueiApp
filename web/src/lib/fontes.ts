@@ -1,6 +1,35 @@
 import { registar, type Inquilino } from './inquilinos';
 import type { Competicao, EquipaIndice, JogoAgenda } from './tipos';
 
+/**
+ * **Os clubes que a FPP escreve de outra maneira**, e o nome da equipa da APL de quem herdam o
+ * emblema. É o emblema que diz à app que é o mesmo clube: o "O Meu Clube" agrupa por ele.
+ *
+ * Medido a 17/11/2026 nos 97 nomes das três divisões, comparando os emblemas das duas fontes
+ * (diferença de 0 a 256 numa grelha de 16×16): os que diferem só no patrocinador ou na escrita
+ * e têm o emblema igual (0) juntaram-se logo; os outros seis o dono confirmou um a um nesse dia —
+ * o CANDELARIA SC, que tem o nome igual e o emblema diferente (119), o HCP GRANDOLA (27), o GD
+ * CRIAR - T (13), o HC MEALHADA, o SC TOMAR e o S. ALENQUER B. Os 20 com o nome igual nas duas
+ * fontes não precisam de estar aqui: juntam-se pelo nome.
+ */
+export const MESMO_CLUBE: Record<string, string> = {
+	'HC SINTRA/PLANTA LIVRE': 'HC SINTRA',
+	'HC VASCO DA GAMA/JASCENSAO': 'HC VASCO GAMA',
+	'F. SALESIANOS/AJ SALESIANA': 'FSE/AJ SALESIANA',
+	'A STUART HC MASSAMA': 'A STUART HCM',
+	// a própria FPP escreve o clube de duas maneiras: "CD PAÇO ARCOS" na 2.ª, isto na 3.ª
+	'CD PAÇO DE ARCOS B': 'CD PAÇO ARCOS',
+	'HCP GRANDOLA': 'HC GRANDOLA',
+	'GD CRIAR - T': 'CRIAR-T GD',
+	'HC MEALHADA': 'HC MEALHADA (S17)',
+	'HC MEALHADA B': 'HC MEALHADA (S17)',
+	'SC TOMAR / IPT': 'SC TOMAR',
+	// "S ALENQUER B" é o Benfica de Alenquer, e não uma equipa B (ver `clubes.ts`)
+	'S. ALENQUER B': 'S ALENQUER BENFICA',
+	'S. ALENQUER B B': 'S ALENQUER BENFICA',
+	'HC TURQUEL B': 'HC TURQUEL'
+};
+
 /** O que o layout carrega de cada fonte. */
 export interface IndicesDeUmaFonte {
 	competicoes: Competicao[];
@@ -31,6 +60,13 @@ export function juntarFontes(apl: IndicesDeUmaFonte, fpp: IndicesDeUmaFonte | nu
 		competicoes: [...apl.competicoes, ...marcar(fpp.competicoes)],
 		agenda: [...apl.agenda, ...marcar(fpp.agenda)],
 		equipas: [...apl.equipas, ...marcar(fpp.equipas)],
-		emblemas: { ...fpp.emblemas, ...apl.emblemas }
+		emblemas: { ...fpp.emblemas, ...doMesmoClube(apl.emblemas), ...apl.emblemas }
 	};
+}
+
+/** Os emblemas da APL com o nome que a FPP usa, para as equipas de `MESMO_CLUBE`. */
+function doMesmoClube(emblemasDaApl: Record<string, string>): Record<string, string> {
+	const r: Record<string, string> = {};
+	for (const [fpp, apl] of Object.entries(MESMO_CLUBE)) if (emblemasDaApl[apl]) r[fpp] = emblemasDaApl[apl];
+	return r;
 }

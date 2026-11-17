@@ -14,11 +14,16 @@ import json
 import pathlib
 
 _FICHEIRO = pathlib.Path(__file__).parent / "dados" / "recintos.json"
+_DADOS = json.loads(_FICHEIRO.read_text(encoding="utf-8"))
 _MORADAS: dict[str, str] = {
-    nome: dados["morada"]
-    for nome, dados in json.loads(_FICHEIRO.read_text(encoding="utf-8"))["recintos"].items()
-    if dados.get("morada")
+    nome: dados["morada"] for nome, dados in _DADOS["recintos"].items() if dados.get("morada")
 }
+# **Os outros nomes do mesmo pavilhão herdam a morada dele** — a FPP chama "PAV. AD OEIRAS" ao
+# que a APL chama "PAV. A.D.OEIRAS". Medido a 17/11/2026: dos 90 recintos das ligas nacionais,
+# só 2 tinham morada antes disto. Ver a secção `outros_nomes` do ficheiro.
+_MORADAS.update({
+    outro: _MORADAS[nome] for outro, nome in _DADOS.get("outros_nomes", {}).items() if nome in _MORADAS
+})
 
 
 def localizacao(recinto: str | None) -> str | None:

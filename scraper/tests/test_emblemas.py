@@ -115,3 +115,18 @@ def test_a_apl_fica_sem_prefixo_e_as_outras_fontes_ganham_o_nome():
     assert chave_do_emblema("12", "fpp") == "fpp-12"
     assert caminho_publico(chave_do_emblema("12", "fpp")) == "/emblemas/fpp-12.webp"
     assert chave_do_emblema("12", "fpp") != chave_do_emblema("12", "aplisboa")
+
+
+def test_o_turquel_do_zeca_pinto_fica_com_o_emblema_do_turquel():
+    """A 17/11/2026: a APL deu o emblema do Mafra ao HC TURQUEL (B) e (E), e o dono confirmou."""
+    from hoquei.emblemas import corrigir_emblemas
+
+    publicado = {"HC TURQUEL": "/emblemas/4.webp", "CD MAFRA": "/emblemas/32.webp",
+                 "HC TURQUEL (B)": "/emblemas/32.webp", "HC TURQUEL (E)": "/emblemas/32.webp"}
+    certo = corrigir_emblemas(publicado, "aplisboa")
+    assert certo["HC TURQUEL (B)"] == certo["HC TURQUEL (E)"] == "/emblemas/4.webp"
+    assert certo["CD MAFRA"] == "/emblemas/32.webp"
+    # noutra fonte não se toca em nada, e sem o clube no mapa a equipa fica como estava
+    assert corrigir_emblemas(publicado, "fpp") == publicado
+    assert corrigir_emblemas({"HC TURQUEL (B)": "/emblemas/32.webp"}, "aplisboa") == {
+        "HC TURQUEL (B)": "/emblemas/32.webp"}
