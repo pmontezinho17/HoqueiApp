@@ -74,6 +74,9 @@ def ronda(tmp_path, monkeypatch):
     reais = cli.competicoes
     # as duas competições com calendário gravado — as outras cinco pediam páginas que não há
     monkeypatch.setattr(cli, "competicoes", lambda html: [p for p in reais(html) if p.id in (348, 349)])
+    fonte.registos = []
+    monkeypatch.setattr("hoquei.registo.registar",
+                        lambda por_tipo, falhados=0, **k: fonte.registos.append((por_tipo, falhados, k)))
     emblemas_pedidos = {}
     monkeypatch.setattr(cli, "garantir",
                         lambda logos, destino, buscar: (emblemas_pedidos.update(logos) or (0, 0)))
@@ -155,3 +158,13 @@ def test_os_calendarios_das_equipas_tem_uid_proprio(ronda):
     texto = "".join(f.read_text(encoding="utf-8") for f in ics)
     assert "UID:jogo-fpp-" in texto and "UID:jogo-1" not in texto
     assert "Federação de Patinagem de Portugal" in texto.replace("\r\n ", "")
+
+
+def test_os_emblemas_contam_como_idas_a_fonte(ronda):
+    """A 17/11/2026 a primeira leitura nacional pediu ~90 emblemas e a consola não os via."""
+    fonte, destino, *_ = ronda
+    # um por emblema e não por equipa: as 28 equipas têm 24 emblemas, porque o B usa o do A.
+    # 24 falhados porque o `garantir` deste teste não converte nenhum.
+    emblemas = len(set(_json(destino, "emblemas.json").values()))
+    assert emblemas == 24
+    assert ({"emblema": emblemas}, emblemas, {"tenant": "fpp"}) in fonte.registos
