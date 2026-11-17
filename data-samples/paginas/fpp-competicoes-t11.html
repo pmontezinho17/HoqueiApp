@@ -1,0 +1,350 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Federa&ccedil;&atilde;o de Patinagem de Portugal - Intranet</title>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed|Titillium+Web|Roboto);
+
+@font-face {
+    font-family: "Digital";
+    src: url("/intranet/includes/SF Digital Readout Medium.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family:"Roboto"; font-size:10px; background-color:#e9eaed; margin:10px 0px;
+}
+ul {
+	list-style-type:none;
+}
+a {
+	color:#000; text-decoration:none;
+}
+table {
+	border-collapse:collapse;
+}
+div#contenido {
+	width:100%;
+}
+div#cabecera {
+	width:100%;
+}
+div#cabecera img {
+	margin:0px auto; display:block;
+}
+div#menu {
+	width:100%; margin-top:10px; border-top:#208000 5px solid; background-color:#800020; color:#fff; height:37px;
+}
+div#menu ul {
+	margin:10px auto; text-align:center; font-size:14px;
+}
+div#menu ul li {
+	margin:0px; padding:10px; display:inline; background-color:#800020;
+}
+div#menu ul li a {
+	display:inline; background-color:#800020; color:#fff;
+}
+div#menu .menu_activo {
+	background-color:#208000;
+}
+div#menu .menu_activo a {
+	background-color:#208000;
+}
+div#principal {
+	width:100%-40px; padding:2px 20px; text-align:center;
+}
+div#titulo {
+	width:100%;	margin:10px 0px; background-position:left center; background-repeat:repeat-x; background-image:url(../imagenes/ribbon.png); text-align:center;
+}
+div#titulo h1 {
+	padding:0px 15px; font-size:36px; text-align:center; margin:0px auto; font-weight:normal; background-color:#e9eaed; display:inline-block;
+}
+div#equipos {
+	display:inline-block; width:100%; border-bottom:#808080 1px solid; margin:1em auto; text-align:center;
+}
+.equipos_logo {
+	display:inline-block; padding:4px 5px 4px 5px; background-color:#f0f0f0; margin:5px 3px 5px 2px; box-shadow:1px 2px 5px -1px #000; border-radius:20px 20px 20px 20px;
+}
+.equipos_logo_activo {
+	display:inline-block; padding:4px 5px 7px 5px; background-color:#b0e0e6; margin:-1px 3px 8px 2px; box-shadow:1px 2px 5px -1px #000; border-radius:20px 20px 20px 20px;
+}
+.equipos_logo img {
+	height:30px; display:block;
+}
+.equipos_logo:hover {
+	background-color:#b0e0e6;
+}
+.boxJornada {
+	width:100%; border:#800020 1px solid; margin:5px auto; background-color:#fff; display:block; max-width:980px;
+}
+.boxJornadaAct {
+	width:540px; border:#800020 1px solid; margin:5px; background-color:#fff; display:inline-block;
+}
+.boxDatos {
+	width:950px; border:#800020 1px solid; margin:5px; background-color:#fff; display:inline-block;
+}
+.boxHead {
+	background-color:#800020; color:#fff; padding:5px; font-size:12px; text-align:center;
+}
+.boxBody {
+	padding:5px;
+}
+.jornada {
+	width:100%;
+}
+.jornada tr {
+	border-bottom:#208000 1px solid;
+}
+.jornada td {
+	padding:2px 0px;
+}
+.jornada tr:last-child {
+	border-bottom:none;
+}
+.jornada tr:hover {
+    background-color:rgba(32,128,0,.2); cursor: pointer;
+}
+.jornada .tdJogo {
+	font-size:12px; width:40px; padding:0px; text-align:center; line-height:18px;
+}
+.jornada .tdDatos {
+	font-size:12px; width:75px; padding:0px; text-align:left; line-height:18px;
+}
+.jornada .tdLogo {
+	vertical-align:middle; width:24px; text-align:center;
+}
+.jornada .tdLogo img {
+	margin:0px auto; height:16px; width:16px;
+}
+.jornada .tdNombre{
+	font-size:12px; text-align:left; width:22%; line-height:18px;
+}
+.jornada .tdGol {
+	font-size:12px; text-align:center; line-height:18px;
+}
+
+.tbDatos {
+	width:100%;
+}
+.tbDatos tr {
+	border-bottom:#208000 1px solid;
+}
+.tbDatos td {
+	padding:2px 5px;
+}
+.tbDatos tr:first-child {
+	border-bottom:none; background-color:#800020; color:#fff;
+}
+.tbDatos tr:last-child {
+	border-bottom:none;
+}
+.tbDatos tr:hover {
+    background-color:rgba(32,128,0,.2); cursor: pointer;
+}
+.tbDatos .tdNombre{
+	font-size:12px; line-height:18px; text-align:left;
+}
+.tbDatos .tdLogo {
+	vertical-align:middle; width:20px; text-align:center;
+}
+.tbDatos .tdLogo img {
+	margin:0px auto; height:16px; width:16px;
+}
+.tbDatos .tdnLic{
+	font-size:12px; line-height:18px; width:50px; text-align:center;
+}
+.tbDatos .tdValor{
+	font-size:12px; line-height:18px; width:30px; text-align:center;
+}
+
+/*Competiciones Nuevo*/
+.boxCompeticion {
+	display:block; box-sizing: border-box; width:100%; max-width:980px; margin:0.5em auto; padding:5px; border:#ccc 1px solid; border-radius:5px 5px 5px 5px; box-shadow:3px 3px 4px -1px #333; cursor:pointer;
+}
+/*Competiciones*/
+/*.boxCompeticion {
+	display:inline-block; box-sizing: border-box; width:100%; height:100px; max-width:300px; margin:0.5em;	float:left; padding:5px; border:#ccc 1px solid; border-radius:5px 5px 5px 5px; box-shadow:3px 3px 4px -1px #333;
+}*/
+.boxCompeticionLog {
+	height:70px; width:70px; margin:0px 10px 0px 0px; display:block; float:left;
+}
+.boxCompeticionNom {
+	font-size:12px; font-weight:bold; color:#000; margin:2px; /*margin:10px 0px 0px;*/ padding:0px;
+}
+.boxCompeticionDes {
+	margin:0px; padding:0px; font-size:0.8em;
+}
+.boxCompeticionAge {
+	background-color:#d2ffff;
+}
+.boxCompeticionAct {
+	background-color:#d2ffd2;
+}
+.boxCompeticionTer {
+	background-color:#ffd2d2;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="contenido">
+<div id="cabecera"><img src="../imagenes/banner.png" height="90" border="0"></div>
+
+<script language="javascript" type="text/javascript">
+<!--
+function enviar(){
+  id=document.getElementById('temporada').options[document.getElementById('temporada').selectedIndex].value;
+  location.href='./?seccion=competiciones&id_temp='+id+'&id_modal=1';
+}
+function verComp(id){
+	if(document.getElementById("c"+id).style.display=="none") document.getElementById("c"+id).style.display="block"; else document.getElementById("c"+id).style.display="none";
+}
+//-->
+</script>
+<div id="menu"><ul><li class="menu_activo">TEMPORADA 2026/2027</li></ul></div>
+<div id="principal">
+<div style="width:100%; margin:0px; padding:0px; text-align:left;">
+<p style="text-align:right; margin-top:5px; font-size:14px;">Temporada: <select name="temporada" id="temporada" onchange="enviar();">
+<option value="11">2026/2027</option>
+
+<option value="11">2026/2027</option>
+
+<option value="10">2025/2026</option>
+
+<option value="9">2024/2025</option>
+
+<option value="8">2023/2024</option>
+
+<option value="7">2022/2023</option>
+
+<option value="6">2021/2022</option>
+
+<option value="5">2020/2021</option>
+
+<option value="4">2019/2020</option>
+
+<option value="3">2018/2019</option>
+
+<option value="2">2017/2018</option>
+
+<option value="1">2016/2017</option>
+</select></p>
+
+<div class="boxCompeticion boxCompeticionAge">
+<p class="boxCompeticionNom"><a href="./?seccion=agenda&id_temp=11&id_modal=1">AGENDA DEPORTIVA</a></p></div>
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(103);">
+<p class="boxCompeticionNom">CAMPEONATO NACIONAL 1ª DIVISAO</p></div>
+<div class="boxJornada" id="c103" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=348&id_temp=11&id_modal=1';">
+    <td class="tdNombre">CAMPEONATO NACIONAL PLACARD</td></tr>
+</tbody></table></div></div>
+
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(105);">
+<p class="boxCompeticionNom">CAMPEONATO NACIONAL SENIORES FEMININOS</p></div>
+<div class="boxJornada" id="c105" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=351&id_temp=11&id_modal=1';">
+    <td class="tdNombre">CAMPEONATO NACIONAL SENIORES FEMININOS - ZONA NORTE -</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=352&id_temp=11&id_modal=1';">
+    <td class="tdNombre">CAMPEONATO NACIONAL SENIORES FEMININOS - ZONA CENTRO -</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=353&id_temp=11&id_modal=1';">
+    <td class="tdNombre">CAMPEONATO NACIONAL SENIORES FEMININOS - ZONA SUL -</td></tr>
+</tbody></table></div></div>
+
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(104);">
+<p class="boxCompeticionNom">CAMPEONATO NACIONAL 2ª DIVISAO</p></div>
+<div class="boxJornada" id="c104" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=349&id_temp=11&id_modal=1';">
+    <td class="tdNombre">CAMPEONATO NACIONAL 2ª DIVISAO - ZONA NORTE</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=350&id_temp=11&id_modal=1';">
+    <td class="tdNombre">CAMPEONATO NACIONAL 2ª DIVISAO - ZONA SUL</td></tr>
+</tbody></table></div></div>
+
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(106);">
+<p class="boxCompeticionNom">CAMPEONATO NACIONAL 3ª DIVISAO</p></div>
+<div class="boxJornada" id="c106" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=354&id_temp=11&id_modal=1';">
+    <td class="tdNombre">CAMPEONATO NACIONAL 3ª DIVISAO - ZONA NORTE A</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=355&id_temp=11&id_modal=1';">
+    <td class="tdNombre">CAMPEONATO NACIONAL 3ª DIVISAO - ZONA NORTE B</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=356&id_temp=11&id_modal=1';">
+    <td class="tdNombre">CAMPEONATO NACIONAL 3ª DIVISAO - ZONA SUL A</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=357&id_temp=11&id_modal=1';">
+    <td class="tdNombre">CAMPEONATO NACIONAL 3ª DIVISAO - ZONA SUL B</td></tr>
+</tbody></table></div></div>
+
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(109);">
+<p class="boxCompeticionNom">ELITE CUP</p></div>
+<div class="boxJornada" id="c109" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=361&id_temp=11&id_modal=1';">
+    <td class="tdNombre">ELITE CUP MASCULINA</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=362&id_temp=11&id_modal=1';">
+    <td class="tdNombre">ELITE CUP FEMININA</td></tr>
+</tbody></table></div></div>
+
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(108);">
+<p class="boxCompeticionNom">SUPERTAÇA</p></div>
+<div class="boxJornada" id="c108" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=346&id_temp=11&id_modal=1';">
+    <td class="tdNombre">SUPERTAÇA SENIORES MASCULINOS - ANTONIO LIVRAMENTO</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=347&id_temp=11&id_modal=1';">
+    <td class="tdNombre">SUPERTAÇA SENIORES FEMININOS</td></tr>
+</tbody></table></div></div>
+
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(110);">
+<p class="boxCompeticionNom">TAÇA</p></div>
+<div class="boxJornada" id="c110" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=363&id_temp=11&id_modal=1';">
+    <td class="tdNombre">TAÇA DE PORTUGAL SENIORES MASCULINOS</td></tr>
+</tbody></table></div></div>
+
+<div class="boxCompeticion boxCompeticionAct" onclick="verComp(107);">
+<p class="boxCompeticionNom">CAMPEONATO NACIONAL SUB-23</p></div>
+<div class="boxJornada" id="c107" style="display:none;">
+<div class="boxBody">
+<table class="jornada"><tbody>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=358&id_temp=11&id_modal=1';">
+    <td class="tdNombre">CAMPEONATO NACIONAL SUB-23 - ZONA NORTE</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=359&id_temp=11&id_modal=1';">
+    <td class="tdNombre">CAMPEONATO NACIONAL SUB-23 - ZONA CENTRO</td></tr>
+
+  <tr onclick="location.href='./?seccion=calendario&grupo=&id_comp=360&id_temp=11&id_modal=1';">
+    <td class="tdNombre">CAMPEONATO NACIONAL SUB-23 - ZONA SUL</td></tr>
+</tbody></table></div></div>
+
+</div></body></html>
