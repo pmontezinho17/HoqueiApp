@@ -9,6 +9,9 @@
 	import { diaInicial } from '$lib/dia';
 	import { AGRUPAMENTOS, type Agrupamento } from '$lib/agrupar';
 	import Escolha from '$lib/Escolha.svelte';
+	import FitaLigas from '$lib/FitaLigas.svelte';
+	import { correspondeNumaFita, ligaDoJogo, opcoesDeAmbito, opcoesDeLiga, opcoesNumaFita } from '$lib/ligas';
+	import { page } from '$app/state';
 	import { guia } from '$lib/guia.svelte';
 	import { caminhoEquipa } from '$lib/slug';
 	import type { JogoAgenda } from '$lib/tipos';
@@ -91,7 +94,38 @@
 	// seguir é por clube E escalão
 	const chave = (e: string, c: string) => `${c}\u0000${e}`;
 	const seguidas = $derived(new Set(favoritos.lista.map((f) => chave(f.equipa, f.categoria))));
-	const doDia = $derived(jogosDe(dia));
+	// ENSAIO do filtro de ligas (17/11/2026), escolhido por `?ensaio=1|2|3`. Não vai para o `dev`.
+	const ensaio = $derived(Number(page.url.searchParams.get('ensaio') ?? '1'));
+	let liga = $state<string | null>(null);
+	let sub = $state<string | null>(null);
+	const filtrar = (js: JogoAgenda[]) => js.filter((j) => {
+		if (ensaio === 2) return correspondeNumaFita(j, liga);
+		if (ensaio === 3) {
+			if (liga === null) return true;
+			if ((liga === 'NACIONAL') !== (j.inq === 'fpp')) return false;
+			return sub === null || j.cat === sub;
+		}
+		return liga === null || ligaDoJogo(j) === liga;
+	});
+	const todosDoDia = $derived(jogosDe(dia));
+	const opcoes = $derived(ensaio === 2 ? opcoesNumaFita(todosDoDia) : ensaio === 3 ? opcoesDeAmbito(todosDoDia) : opcoesDeLiga(todosDoDia));
+	const subOpcoes = $derived.by(() => {
+		if (ensaio !== 3 || liga === null) return [];
+		const js = todosDoDia.filter((j) => (liga === 'NACIONAL') === (j.inq === 'fpp'));
+		const n = new Map<string, number>();
+		for (const j of js) n.set(j.cat, (n.get(j.cat) ?? 0) + 1);
+		const cats = [...n.keys()].sort(porEscalao);
+		return [{ valor: null, rotulo: liga === 'NACIONAL' ? 'Todas as divisões' : 'Todos os escalões', n: js.length },
+			...cats.map((c) => ({ valor: c, rotulo: c === '1.ª DIVISÃO' ? 'Placard' : c.charAt(0) + c.slice(1).toLowerCase(), n: n.get(c)! }))];
+	});
+	$effect(() => {
+		if (liga !== null && !opcoes.some((o) => o.valor === liga)) liga = null;
+	});
+	$effect(() => {
+		void liga;
+		sub = null;
+	});
+	const doDia = $derived(filtrar(todosDoDia));
 
 	/**
 	 * O minuto a que vamos, para a secção dos jogos a decorrer.
@@ -173,12 +207,20 @@
   O `data-guia="escaloes"` fica: é o alvo de um passo do tour guiado, e sem ele o passo aponta
   para o nada.
 -->
-{#if escaloes.length}
+{#if escaloes.length || todosDoDia.length}
 	<div class="controlos" data-guia="escaloes" style="--fita: {alturaFita}px">
-		<Escolha rotulo="Filtrar por escalão" bind:valor={escalao} opcoes={[
-			{ valor: null, rotulo: 'Todos os escalões' },
-			...escaloes.map((e) => ({ valor: e, rotulo: e.replace('SENIORES ', 'SEN. ') }))
-		]} />
+		{#if opcoes.length > 2 || ensaio === 2}
+			<div class="ligas"><FitaLigas rotulo="Filtrar por liga" {opcoes} bind:valor={liga} /></div>
+		{/if}
+		{#if subOpcoes.length > 2}
+			<div class="ligas"><FitaLigas rotulo="Filtrar dentro da liga" opcoes={subOpcoes} bind:valor={sub} pequena /></div>
+		{/if}
+		{#if ensaio === 1}
+			<Escolha rotulo="Filtrar por escalão" bind:valor={escalao} opcoes={[
+				{ valor: null, rotulo: 'Todos os escalões' },
+				...escaloes.map((e) => ({ valor: e, rotulo: e.replace('SENIORES ', 'SEN. ') }))
+			]} />
+		{/if}
 		<Escolha rotulo="Agrupar os jogos" bind:valor={agrupamento}
 			opcoes={AGRUPAMENTOS.map((a) => ({ valor: a.id, rotulo: `Agrupar: ${a.rotulo}` }))} />
 	</div>
@@ -188,7 +230,7 @@
 	{#snippet pagina(d)}
 		<PaginaDia
 			dia={d}
-			jogos={jogosDe(d)}
+			jogos={filtrar(jogosDe(d))}
 			emblemas={data.emblemas}
 			{eSeguida}
 			{escalao}
@@ -216,7 +258,9 @@
 	   diferentes e não chegam a sobrepor-se, mas se um dia chegarem, a ordem de quem tapa quem
 	   já está decidida. O fundo opaco e o `padding-bottom` existem para os jogos não
 	   aparecerem por baixo da barra enquanto passam. */
+	.ligas { flex: 0 0 100%; min-width: 0; }
 	.controlos {
+		flex-wrap: wrap;
 		position: sticky;
 		top: calc(var(--topo, 60px) + var(--fita, 44px));
 		z-index: 7;
