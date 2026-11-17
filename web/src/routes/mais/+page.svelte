@@ -16,6 +16,8 @@
 	 * cá; o porquê por extenso é aqui.
 	 */
 	import { APP_NOME } from '$lib/sitio';
+	/** A plataforma da FPP. A da APL vem do `meta.json` dela; a da FPP não se carrega no layout. */
+	const FONTE_DA_FPP = 'https://fpp.assyssoftware.es/intranet/web/';
 
 	let { data } = $props();
 
@@ -34,7 +36,8 @@
 	<h2>Dados</h2>
 	<p>
 		Resultados, calendários e classificações das competições da
-		<strong>Associação de Patinagem de Lisboa</strong>.
+		<strong>Associação de Patinagem de Lisboa</strong> e das divisões nacionais da
+		<strong>Federação de Patinagem de Portugal</strong>.
 	</p>
 	<dl>
 		<dt>Últimos dados novos</dt><dd>{quando}</dd>
@@ -141,7 +144,8 @@
 		Não tem qualquer ligação à Associação de Patinagem de Lisboa nem à Federação de
 		Patinagem de Portugal. Os dados são recolhidos da
 		<a href={data.meta.fonte} rel="noreferrer">plataforma pública da associação</a>
-		e republicados tal como lá aparecem.
+		e da <a href={FONTE_DA_FPP} rel="noreferrer">federação</a>, e republicados tal como lá
+		aparecem.
 	</p>
 </section>
 

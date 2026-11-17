@@ -1,6 +1,7 @@
 import { carregarCompeticao, carregarJogo, carregarMerito, carregarPrejogo } from '$lib/dados';
 import { comNomesDaAgenda, fichaDaAgenda } from '$lib/fichaDaAgenda';
 import { emCurso } from '$lib/formato';
+import { lerIdDaRota, registar } from '$lib/inquilinos';
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
@@ -23,13 +24,18 @@ export const prerender = false;
  * que é o que deve dar.
  */
 export const load: PageLoad = async ({ params, fetch, parent }) => {
-	const id = Number(params.id);
-	if (!Number.isFinite(id)) throw error(404, 'Este endereço não é de um jogo.');
+	// `9644` é da APL e `fpp-18262` da FPP (`lib/inquilinos.ts`). O endereço diz a fonte, e
+	// regista-se já: se a agenda da FPP não se leu — sem rede, com a APL em cache —, a ficha
+	// ia procurar-se na árvore da APL e dava "não existe".
+	const lido = lerIdDaRota(params.id);
+	if (!lido) throw error(404, 'Este endereço não é de um jogo.');
+	const { id, inq } = lido;
+	registar(inq, { competicoes: [], jogos: [id] });
 
 	// A agenda já diz quais os jogos a decorrer; num desses a ficha tem de vir da rede e
 	// não de uma cópia de 20 s atrás, senão entra-se num jogo que a lista dava 2–1 e vê-se 1–0.
 	const { agenda } = await parent();
-	const naAgenda = agenda.find((j) => j.id === id) ?? null;
+	const naAgenda = agenda.find((j) => j.id === id && (j.inq ?? 'aplisboa') === inq) ?? null;
 	const aoVivo = !!naAgenda && emCurso(naAgenda);
 
 	let ficha = null;

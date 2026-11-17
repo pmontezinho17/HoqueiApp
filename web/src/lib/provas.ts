@@ -67,10 +67,17 @@ export type Prova = {
 	series: string[];
 	/** false quando nenhuma competição do grupo tem jogos por disputar */
 	viva: boolean;
+	/** a fonte do grupo; ausente na APL, como em todo o lado (`lib/inquilinos.ts`) */
+	inq?: Competicao['inq'];
 };
 
 /** A ordem por que os escalões aparecem. Do mais velho para o mais novo, como na app toda. */
 export const ORDEM_ESCALOES = [
+	// as divisões nacionais primeiro, de cima para baixo: são seniores, e vêm antes dos
+	// seniores da APL pela mesma razão que estes vêm antes dos sub-23
+	'1.ª DIVISÃO',
+	'2.ª DIVISÃO',
+	'3.ª DIVISÃO',
 	'SENIORES MASCULINOS',
 	'SENIORES FEMININOS',
 	'SUB-23',
@@ -105,7 +112,8 @@ export function agruparProvas(
 					nome: c.grupo_nome ?? c.nome,
 					categoria: c.categoria,
 					series: [],
-					viva: false
+					viva: false,
+					...(c.inq ? { inq: c.inq } : {})
 				})
 				.get(id)!;
 		if (c.serie) g.series.push(c.serie);
@@ -199,4 +207,23 @@ export function semPrefixoComum(nomes: string[]): string[] {
 	const quantos = corte + ' - '.length;
 	const curtos = nomes.map((n) => n.slice(quantos).trim());
 	return curtos.some((c) => c === '') ? nomes : curtos;
+}
+
+/**
+ * A grelha das Competições em dois blocos, **Nacional** e **Lisboa**, quando há as duas fontes.
+ *
+ * O plano das ligas nacionais (`docs/11-ligas-nacionais.md`, "Como se mostra") pôs este primeiro
+ * nível para quem chega à procura dos seniores do seu clube não ter de adivinhar se a 2.ª
+ * divisão é da APL. **Sem a FPP publicada é um bloco só e sem título** — a app é a de sempre,
+ * que é o estado de produção até à entrega das ligas nacionais e o de um telemóvel que ainda
+ * não as leu.
+ */
+export function porAmbito<T extends [string, Prova[]]>(lista: T[]): { titulo: string | null; lista: T[] }[] {
+	const nacional = lista.filter(([, provas]) => provas.some((p) => p.inq === 'fpp'));
+	if (!nacional.length) return [{ titulo: null, lista }];
+	const lisboa = lista.filter((x) => !nacional.includes(x));
+	return [
+		{ titulo: 'Nacional', lista: nacional },
+		...(lisboa.length ? [{ titulo: 'Lisboa', lista: lisboa }] : [])
+	];
 }

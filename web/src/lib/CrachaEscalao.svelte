@@ -15,7 +15,9 @@
 
 	const CONHECIDOS = new Set([
 		'bambis', 'benjamins', 'escolares', 'seniores-femininos', 'seniores-masculinos',
-		'sub-13', 'sub-15', 'sub-17', 'sub-19', 'sub-23', 'torneios-particulares'
+		'sub-13', 'sub-15', 'sub-17', 'sub-19', 'sub-23', 'torneios-particulares',
+		// as divisões nacionais, desde 17/11/2026 — ver `docs/11-ligas-nacionais.md`
+		'1-divisao', '2-divisao', '3-divisao'
 	]);
 
 	let { categoria, tamanho = 18 }: { categoria: string | null | undefined; tamanho?: number } =

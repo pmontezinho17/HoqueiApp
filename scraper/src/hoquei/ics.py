@@ -18,6 +18,7 @@ import unicodedata
 from zoneinfo import ZoneInfo
 
 from .nomes import clube, escalao
+from .inquilinos import ORIGINAL, nome, prefixo
 from .recintos import localizacao
 
 LISBOA = ZoneInfo("Europe/Lisbon")
@@ -89,9 +90,11 @@ def _utc(data: str, hora: str | None) -> tuple[str, str] | None:
     return f(local), f(fim)
 
 
-def _uid(jogo: dict) -> str:
+def _uid(jogo: dict, tenant: str = ORIGINAL) -> str:
+    # **o prefixo da fonte também aqui**: um UID repetido faz o calendário do telemóvel
+    # fundir dois jogos num só, e os números dos jogos repetem-se entre a APL e a FPP
     if jogo.get("id"):
-        return f"jogo-{jogo['id']}@{DOMINIO_UID}"
+        return f"jogo-{prefixo(tenant)}{jogo['id']}@{DOMINIO_UID}"
     # jogos sem id na fonte (apuramentos por definir): chave estável pelo conteúdo
     return f"{jogo['data']}-{slug(jogo['casa'])}-{slug(jogo['fora'])}@{DOMINIO_UID}"
 
@@ -107,7 +110,7 @@ def _resumo(jogo: dict) -> str:
             f"{clube(jogo['casa'])} vs {clube(jogo['fora'])}")
 
 
-def _descricao(jogo: dict) -> str:
+def _descricao(jogo: dict, tenant: str = ORIGINAL) -> str:
     # o confronto por extenso abre a descrição: o título é abreviado de propósito, e quem
     # abre o evento quer ver quem jogou contra quem sem ter de adivinhar a ordem
     gc, gf = jogo.get("gc"), jogo.get("gf")
@@ -123,13 +126,13 @@ def _descricao(jogo: dict) -> str:
     if jogo.get("recinto"):
         linhas.append(jogo["recinto"])
     if jogo.get("id"):
-        linhas.append(f"https://{DOMINIO}/jogo/{jogo['id']}")
-    linhas.append("Dados da Associação de Patinagem de Lisboa. Site não oficial.")
+        linhas.append(f"https://{DOMINIO}/jogo/{prefixo(tenant)}{jogo['id']}")
+    linhas.append(f"Dados da {nome(tenant)}. Site não oficial.")
     return "\n".join(linhas)
 
 
 def feed(equipa: str, categoria: str, jogos: list[dict],
-         hoje: str | None = None) -> str:
+         hoje: str | None = None, tenant: str = ORIGINAL) -> str:
     """O calendário de uma equipa, pronto a servir.
 
     **Só de hoje em diante.** Um calendário pessoal serve para saber onde é preciso estar,
@@ -154,7 +157,7 @@ def feed(equipa: str, categoria: str, jogos: list[dict],
     ]
     for jogo in sorted(jogos, key=lambda j: (j["data"], j.get("hora") or "99:99")):
         linhas.append("BEGIN:VEVENT")
-        linhas.append(f"UID:{_uid(jogo)}")
+        linhas.append(f"UID:{_uid(jogo, tenant)}")
         # DTSTAMP determinista, derivado da data do jogo. Com `datetime.now()` o ficheiro
         # mudava a cada corrida do cron e a app republicava de 6 em 6 horas para sempre,
         # mesmo sem um único dado novo — foi o que já aconteceu com o meta.json.
@@ -172,7 +175,7 @@ def feed(equipa: str, categoria: str, jogos: list[dict],
         onde = localizacao(jogo.get("recinto"))
         if onde:
             linhas.append(f"LOCATION:{_escapar(onde)}")
-        linhas.append(f"DESCRIPTION:{_escapar(_descricao(jogo))}")
+        linhas.append(f"DESCRIPTION:{_escapar(_descricao(jogo, tenant))}")
         if jogo.get("id"):
             linhas.append(f"URL:https://{DOMINIO}/jogo/{jogo['id']}")
         linhas.append("END:VEVENT")

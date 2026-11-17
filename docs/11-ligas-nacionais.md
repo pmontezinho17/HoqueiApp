@@ -6,7 +6,8 @@ de uma vez. Trouxe três sites que conhecia. Este documento é o plano: o que se
 escolhida, o custo de cada fase em pedidos e o que fica por decidir. É o item **S10** do
 [03-backlog.md](03-backlog.md).
 
-**Nada disto está construído.** O que aqui está foi medido com 29 pedidos, um por segundo e com
+**A construção começou a 17/11/2026**, no ramo `feat/placard-fase1`; até aí nada estava
+construído. O que aqui está foi medido com 29 pedidos, um por segundo e com
 o `User-Agent` do raspador: 20 à plataforma da FPP, 7 ao `hp.fpp.pt` e 2 ao `hoqueipatins.pt`.
 
 ## As três fontes, e a que se usa
@@ -102,7 +103,7 @@ fica como estava para não partir as referências.
 |---|---|---|---|
 | **1** | **O Placard, com ao vivo**: resultados, calendário, classificação, fichas e marcadores, e o placar a mexer pela "Jogos do Dia" | +1 a 2 por ronda (o calendário do Placard) e ~7 fichas por jornada, cada uma lida uma vez; durante os jogos, 1 a cada 30 s ao `hp.fpp.pt` e zero ao servidor partilhado | as 14 equipas e os 182 jogos no site de testes, com a classificação a bater com a da FPP; um jogo acompanhado do princípio ao fim com o atraso medido, e a ficha pedida uma só vez no fim |
 | **2** | *juntou-se à 1, por decisão do dono a 09/11* | — | — |
-| **3** | 2.ª e 3.ª divisão e o Feminino | até +9 calendários por ronda — só os das competições com jogos nesse dia — e ~40 fichas por semana | as zonas mostradas como séries, e o ao vivo das três a custar o mesmo pedido da fase 2 |
+| **3** | ~~2.ª e 3.ª divisão~~ (juntaram-se à 1, por decisão do dono a 17/11) e o Feminino | até +9 calendários por ronda — só os das competições com jogos nesse dia — e ~40 fichas por semana | as zonas mostradas como séries, e o ao vivo das três a custar o mesmo pedido da fase 2 |
 | **4** | Sub-23 e as taças | +8 calendários (3 zonas dos Sub-23 e 5 taças), e as taças têm poucos jogos | — |
 | depois | Outras associações regionais (o Norte, sugestão #41 do arquivo privado) | por medir | — |
 
@@ -157,6 +158,40 @@ nacionais. O que se propõe, para validar no site de testes a cada fase:
    antes disso. O rascunho está em [`email-fpp.txt`](email-fpp.txt).
 3. **A fase 1 é o Placard com ao vivo**, e não só os resultados. Isso põe a medição do atraso da
    "Jogos do Dia" antes da construção, e não depois.
+
+### E a 17/11/2026
+
+4. **O email à FPP saiu**, enviado pelo dono a 17/11/2026. A condição da decisão 2 está cumprida:
+   o que for validado no site de testes pode ir a produção numa entrega de segunda.
+5. **A 2.ª e a 3.ª divisão entram já, com o Placard**, e não numa fase 3 depois dele. O motivo
+   foi medido no arquivo de sugestões: dos seis pedidos de seniores até 17/11, os que se repetem
+   são de clubes que não jogam no Placard (o B do Sporting, #27; os seniores do Parede, #39 e
+   #42), e uma fase 1 só com a 1.ª divisão não respondia a nenhum deles. O Feminino continua na
+   fase 3, porque o dono só nomeou as duas divisões.
+
+## O que está construído, e o que falta (17/11/2026)
+
+No ramo `feat/placard-fase1`, por enviar ao `dev`:
+
+| | estado |
+|---|---|
+| Raspador: `--categorias`, `--intervalo`, emblemas `fpp-`, calendários `.ics` com UID e links `fpp-`, as categorias com o nome da app (`1.ª DIVISÃO`…) | ✅ testado sem rede com HTML verdadeiro de 17/11 |
+| "PRODUÇÃO · Dados e publicação": a FPP depois da APL, pela agenda dela, de 2 em 2 s, a falhar sozinha e com aviso próprio; os emblemas novos no commit | ✅ escrito; só corre quando chegar ao `main` |
+| O ciclo ao vivo deixa de repor a árvore da FPP e os emblemas do arranque | ✅ provado num repositório de teste |
+| "DEV · Site de testes": duas finalidades das ligas nacionais | ✅ escrito; corre quando chegar ao `dev` |
+| A 9.ª verificação depois de publicar | ✅ |
+| App: as duas fontes no layout, `/jogo/fpp-…`, Competições em Nacional e Lisboa, crachás, Jogos do dia, páginas de jogo e de equipa, textos da origem dos dados | ✅ visto a 375×812 nos dois temas com o Placard e a 2.ª reais |
+| O ao vivo pela "Jogos do Dia" | ⏳ depois da medição de 21/11 |
+| O relógio e o cão de guarda a olhar também para a agenda da FPP | ⏳ com o ao vivo |
+| A consola a separar os pedidos da FPP dos da APL | ✅ origens `producao_fpp`, `aovivo_fpp` e `testes_fpp`. Até o observador novo chegar ao `main`, ele recusa-as e a contagem vai com a origem de sempre, junta à da APL: certa no total, sem se perder |
+| A página da equipa com as duas fontes (o passo C) | ⏳ **o dono quer avaliar várias opções** (17/11). Hoje a FPP tem páginas suas; o "O Meu Clube" já junta os escalões das duas quando o clube tem o mesmo emblema |
+
+**Decisão do dono a 17/11/2026: vai tudo de uma vez**, incluindo o ao vivo. Nada nacional vai a
+produção antes de o passo D estar validado.
+
+Medido na leitura local de 17/11 (Placard e 2.ª, autorizada pelo dono): 75 páginas e 36
+emblemas, 111 pedidos; 67 fichas, 546 jogos, 42 equipas. **12 nomes de clube são iguais nas
+duas fontes**, e entre eles o PAREDE FC, que joga a 2.ª Sul — os pedidos #39 e #42.
 
 ## O email à FPP
 

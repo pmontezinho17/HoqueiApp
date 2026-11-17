@@ -158,6 +158,9 @@ assert.strictEqual(ra.hora, '00:30:00');
 // o que não tem a forma de uma ronda não entra
 const base = { origem: 'producao', quando: '2026-10-30T02:44:51Z', por_tipo: { ficha: 1 } };
 assert.strictEqual(validarRonda({ ...base, origem: 'portatil' }, agora), null, 'origem desconhecida');
+// as ligas nacionais contam à parte, com o mesmo servidor por trás
+for (const o of ['producao_fpp', 'aovivo_fpp', 'testes_fpp'])
+	assert.strictEqual(validarRonda({ ...base, origem: o }, agora)?.origem, o, o);
 assert.strictEqual(validarRonda({ ...base, por_tipo: {} }, agora), null, 'sem pedidos');
 assert.strictEqual(validarRonda({ ...base, por_tipo: { ficha: 0 } }, agora), null, 'só zeros');
 assert.strictEqual(validarRonda({ ...base, por_tipo: { ficha: 1.5 } }, agora), null, 'não inteiro');

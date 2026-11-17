@@ -101,3 +101,17 @@ def test_toda_a_equipa_publicada_tem_emblema():
         f"{len(sem)} equipas publicadas sem emblema — uma grafia nova na fonte?\n  "
         + "\n  ".join(sem[:20])
     )
+
+
+def test_a_apl_fica_sem_prefixo_e_as_outras_fontes_ganham_o_nome():
+    """Os números dos emblemas repetem-se entre fontes: a APL e a FPP têm, cada uma, o seu `12`.
+
+    A APL fica sem prefixo porque os caminhos dela estão no contrato `/v1` que os telemóveis
+    têm em cache; um `fpp-12` nunca pode cair em cima do `12` da APL.
+    """
+    from hoquei.emblemas import chave_do_emblema
+
+    assert chave_do_emblema("12", "aplisboa") == "12"
+    assert chave_do_emblema("12", "fpp") == "fpp-12"
+    assert caminho_publico(chave_do_emblema("12", "fpp")) == "/emblemas/fpp-12.webp"
+    assert chave_do_emblema("12", "fpp") != chave_do_emblema("12", "aplisboa")

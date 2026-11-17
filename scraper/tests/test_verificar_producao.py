@@ -116,12 +116,15 @@ def site_so_estaticos(url: str, metodo: str = "GET", corpo: bytes | None = None)
     raise AssertionError(url)
 
 
-def correr(vp, monkeypatch, site, tentativas=1, base=None):
+def correr(vp, monkeypatch, site, tentativas=1, base=None, ligas=False):
     """Por omissão finge ser **produção**: é lá que todas as verificações se aplicam.
 
     A da consola salta-se fora de produção de propósito — ver o `consola_viva` —, e um teste
     que corresse contra um anfitrião qualquer estaria a medir menos do que diz.
     """
+    # **Sem a FPP por omissão**, para o resultado não depender de haver uma leitura local da
+    # FPP na árvore de quem corre os testes. Os testes dela ligam-na à mão.
+    monkeypatch.setattr(vp, "_publicou_ligas", lambda: ligas)
     monkeypatch.setattr(vp, "_pedir", site)
     return vp.verificar(base or vp.PRODUCAO, tentativas=tentativas, dormir=lambda _s: None)
 
@@ -338,7 +341,8 @@ class TestAsTentativas:
     def test_uma_excepcao_de_rede_e_uma_falha_e_nao_um_estouro(self, vp, monkeypatch):
         def site(url: str, metodo: str = "GET", corpo: bytes | None = None):
             raise OSError("sem DNS")
-        falhas = correr(vp, monkeypatch, site, tentativas=1)
+        # com a FPP no envio, para a verificação dela também ir à rede (sem ela não pede nada)
+        falhas = correr(vp, monkeypatch, site, tentativas=1, ligas=True)
         assert len(falhas) == len(vp.VERIFICACOES)
         assert all("não se conseguiu verificar" in f for f in falhas)
 
@@ -448,3 +452,39 @@ class TestOBeaconDe21Outubro:
         falhas = correr(vp, monkeypatch, com_google)
         assert len(falhas) == 1
         assert "googletagmanager" in falhas[0]
+
+
+class TestAsLigasNacionais:
+    """A 9.ª verificação: se a publicação levou a FPP, o site tem de a servir."""
+
+    def test_sem_a_fpp_no_envio_nao_pede_nada(self, vp, monkeypatch):
+        monkeypatch.setattr(vp, "_publicou_ligas", lambda: False)
+        pedidos = []
+        monkeypatch.setattr(vp, "_pedir", lambda url, *a, **k: pedidos.append(url))
+        assert vp.ligas_nacionais_servidas("https://hoquei.pages.dev") is None
+        assert pedidos == []
+
+    def test_com_a_fpp_no_envio_e_o_site_a_servi_la(self, vp, monkeypatch):
+        monkeypatch.setattr(vp, "_publicou_ligas", lambda: True)
+        urls = []
+        def site(url, *a, **k):
+            urls.append(url)
+            return site_bom(url)
+        monkeypatch.setattr(vp, "_pedir", site)
+        assert vp.ligas_nacionais_servidas("https://hoquei.pages.dev") is None
+        assert all("/v1/fpp/2026-27/" in u for u in urls) and len(urls) == 3
+
+    def test_com_a_fpp_no_envio_e_o_site_sem_ela(self, vp, monkeypatch):
+        """O dia em que a árvore nacional fica de fora do envio, ou a borda a perde."""
+        monkeypatch.setattr(vp, "_publicou_ligas", lambda: True)
+        monkeypatch.setattr(vp, "_pedir",
+                            lambda url, *a, **k: (404, {}, b"") if "/fpp/" in url else site_bom(url))
+        erro = vp.ligas_nacionais_servidas("https://hoquei.pages.dev")
+        assert erro and "/v1/fpp/2026-27/agenda.json" in erro and "404" in erro
+
+    def test_uma_lista_de_competicoes_vazia_e_falha(self, vp, monkeypatch):
+        monkeypatch.setattr(vp, "_publicou_ligas", lambda: True)
+        vazia = json.dumps({"competicoes": []}).encode()
+        monkeypatch.setattr(vp, "_pedir", lambda url, *a, **k:
+                            (200, CACHE_NOSSA, vazia) if url.endswith("/fpp/2026-27/competitions.json") else site_bom(url))
+        assert "nenhuma" in vp.ligas_nacionais_servidas("https://hoquei.pages.dev")

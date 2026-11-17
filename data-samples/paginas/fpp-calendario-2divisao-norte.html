@@ -1,0 +1,2864 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Federa&ccedil;&atilde;o de Patinagem de Portugal - Intranet</title>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed|Titillium+Web|Roboto);
+
+@font-face {
+    font-family: "Digital";
+    src: url("/intranet/includes/SF Digital Readout Medium.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family:"Roboto"; font-size:10px; background-color:#e9eaed; margin:10px 0px;
+}
+ul {
+	list-style-type:none;
+}
+a {
+	color:#000; text-decoration:none;
+}
+table {
+	border-collapse:collapse;
+}
+div#contenido {
+	width:100%;
+}
+div#cabecera {
+	width:100%;
+}
+div#cabecera img {
+	margin:0px auto; display:block;
+}
+div#menu {
+	width:100%; margin-top:10px; border-top:#208000 5px solid; background-color:#800020; color:#fff; height:37px;
+}
+div#menu ul {
+	margin:10px auto; text-align:center; font-size:14px;
+}
+div#menu ul li {
+	margin:0px; padding:10px; display:inline; background-color:#800020;
+}
+div#menu ul li a {
+	display:inline; background-color:#800020; color:#fff;
+}
+div#menu .menu_activo {
+	background-color:#208000;
+}
+div#menu .menu_activo a {
+	background-color:#208000;
+}
+div#principal {
+	width:100%-40px; padding:2px 20px; text-align:center;
+}
+div#titulo {
+	width:100%;	margin:10px 0px; background-position:left center; background-repeat:repeat-x; background-image:url(../imagenes/ribbon.png); text-align:center;
+}
+div#titulo h1 {
+	padding:0px 15px; font-size:36px; text-align:center; margin:0px auto; font-weight:normal; background-color:#e9eaed; display:inline-block;
+}
+div#equipos {
+	display:inline-block; width:100%; border-bottom:#808080 1px solid; margin:1em auto; text-align:center;
+}
+.equipos_logo {
+	display:inline-block; padding:4px 5px 4px 5px; background-color:#f0f0f0; margin:5px 3px 5px 2px; box-shadow:1px 2px 5px -1px #000; border-radius:20px 20px 20px 20px;
+}
+.equipos_logo_activo {
+	display:inline-block; padding:4px 5px 7px 5px; background-color:#b0e0e6; margin:-1px 3px 8px 2px; box-shadow:1px 2px 5px -1px #000; border-radius:20px 20px 20px 20px;
+}
+.equipos_logo img {
+	height:30px; display:block;
+}
+.equipos_logo:hover {
+	background-color:#b0e0e6;
+}
+.boxJornada {
+	width:100%; border:#800020 1px solid; margin:5px auto; background-color:#fff; display:block; max-width:980px;
+}
+.boxJornadaAct {
+	width:540px; border:#800020 1px solid; margin:5px; background-color:#fff; display:inline-block;
+}
+.boxDatos {
+	width:950px; border:#800020 1px solid; margin:5px; background-color:#fff; display:inline-block;
+}
+.boxHead {
+	background-color:#800020; color:#fff; padding:5px; font-size:12px; text-align:center;
+}
+.boxBody {
+	padding:5px;
+}
+.jornada {
+	width:100%;
+}
+.jornada tr {
+	border-bottom:#208000 1px solid;
+}
+.jornada td {
+	padding:2px 0px;
+}
+.jornada tr:last-child {
+	border-bottom:none;
+}
+.jornada tr:hover {
+    background-color:rgba(32,128,0,.2); cursor: pointer;
+}
+.jornada .tdJogo {
+	font-size:12px; width:40px; padding:0px; text-align:center; line-height:18px;
+}
+.jornada .tdDatos {
+	font-size:12px; width:75px; padding:0px; text-align:left; line-height:18px;
+}
+.jornada .tdLogo {
+	vertical-align:middle; width:24px; text-align:center;
+}
+.jornada .tdLogo img {
+	margin:0px auto; height:16px; width:16px;
+}
+.jornada .tdNombre{
+	font-size:12px; text-align:left; width:22%; line-height:18px;
+}
+.jornada .tdGol {
+	font-size:12px; text-align:center; line-height:18px;
+}
+
+.tbDatos {
+	width:100%;
+}
+.tbDatos tr {
+	border-bottom:#208000 1px solid;
+}
+.tbDatos td {
+	padding:2px 5px;
+}
+.tbDatos tr:first-child {
+	border-bottom:none; background-color:#800020; color:#fff;
+}
+.tbDatos tr:last-child {
+	border-bottom:none;
+}
+.tbDatos tr:hover {
+    background-color:rgba(32,128,0,.2); cursor: pointer;
+}
+.tbDatos .tdNombre{
+	font-size:12px; line-height:18px; text-align:left;
+}
+.tbDatos .tdLogo {
+	vertical-align:middle; width:20px; text-align:center;
+}
+.tbDatos .tdLogo img {
+	margin:0px auto; height:16px; width:16px;
+}
+.tbDatos .tdnLic{
+	font-size:12px; line-height:18px; width:50px; text-align:center;
+}
+.tbDatos .tdValor{
+	font-size:12px; line-height:18px; width:30px; text-align:center;
+}
+
+/*Competiciones Nuevo*/
+.boxCompeticion {
+	display:block; box-sizing: border-box; width:100%; max-width:980px; margin:0.5em auto; padding:5px; border:#ccc 1px solid; border-radius:5px 5px 5px 5px; box-shadow:3px 3px 4px -1px #333; cursor:pointer;
+}
+/*Competiciones*/
+/*.boxCompeticion {
+	display:inline-block; box-sizing: border-box; width:100%; height:100px; max-width:300px; margin:0.5em;	float:left; padding:5px; border:#ccc 1px solid; border-radius:5px 5px 5px 5px; box-shadow:3px 3px 4px -1px #333;
+}*/
+.boxCompeticionLog {
+	height:70px; width:70px; margin:0px 10px 0px 0px; display:block; float:left;
+}
+.boxCompeticionNom {
+	font-size:12px; font-weight:bold; color:#000; margin:2px; /*margin:10px 0px 0px;*/ padding:0px;
+}
+.boxCompeticionDes {
+	margin:0px; padding:0px; font-size:0.8em;
+}
+.boxCompeticionAge {
+	background-color:#d2ffff;
+}
+.boxCompeticionAct {
+	background-color:#d2ffd2;
+}
+.boxCompeticionTer {
+	background-color:#ffd2d2;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="contenido">
+<div id="cabecera"><img src="../imagenes/banner.png" height="90" border="0"></div>
+
+<!-- MENU -->
+<div id="menu"><ul>
+  <li><a href="./?seccion=competiciones&id_modal=1&id_temp=11">Competiciones</a></li><li class="menu_activo"><a href="./?seccion=calendario&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Calendario</a></li><li><a href="./?seccion=clasificacion&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Clasificaci&oacute;n</a></li><li><a href="./?seccion=goles&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Golos</a></li>
+  <li><a href="./?seccion=asistencias&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Asistencias</a></li>
+  <li><a href="./?seccion=penalties&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Penalties</a></li>
+  <li><a href="./?seccion=directas&id_comp=349&id_equipo=&id_modal=1&id_temp=11">L.D.</a></li>
+  <li><a href="./?seccion=defensas&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Defensas</a></li><li><a href="./?seccion=tarjetas&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Tarjetas</a></li><li><a href="./?seccion=plantillas&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Plantillas</a></li></ul></div>
+<div id="principal">
+<div id="titulo"><h1>CAMPEONATO NACIONAL 2ª DIVISAO - ZONA NORTE</h1></div>
+<!-- FILTRO EQUIPOS -->
+<div id="equipos">
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=349&id_equipo=1835&id_modal=1&id_temp=11"><img src="/intranet/logos/21.png" border="0" title="A ACADEMICA C"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=349&id_equipo=1836&id_modal=1&id_temp=11"><img src="/intranet/logos/22.png" border="0" title="AA ESPINHO"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=349&id_equipo=1838&id_modal=1&id_temp=11"><img src="/intranet/logos/3.png" border="0" title="AD VALONGO B"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=349&id_equipo=1839&id_modal=1&id_temp=11"><img src="/intranet/logos/30.png" border="0" title="ADJ VILA PRAIA"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=349&id_equipo=1844&id_modal=1&id_temp=11"><img src="/intranet/logos/24.png" border="0" title="CD POVOA"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=349&id_equipo=1840&id_modal=1&id_temp=11"><img src="/intranet/logos/19.png" border="0" title="CH CARVALHOS"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=349&id_equipo=1842&id_modal=1&id_temp=11"><img src="/intranet/logos/54.png" border="0" title="CRPF LAVRA"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=349&id_equipo=1837&id_modal=1&id_temp=11"><img src="/intranet/logos/23.png" border="0" title="FAMALICENSE AC"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=349&id_equipo=1841&id_modal=1&id_temp=11"><img src="/intranet/logos/1.png" border="0" title="FC PORTO B"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=349&id_equipo=1845&id_modal=1&id_temp=11"><img src="/intranet/logos/20.png" border="0" title="HA CAMBRA"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=349&id_equipo=1847&id_modal=1&id_temp=11"><img src="/intranet/logos/82.png" border="0" title="HC MEALHADA"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=349&id_equipo=1848&id_modal=1&id_temp=11"><img src="/intranet/logos/5.png" border="0" title="OC BARCELOS B"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=349&id_equipo=1843&id_modal=1&id_temp=11"><img src="/intranet/logos/77.png" border="0" title="TERMAS OC / MULTISAC"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=calendario&grupo=&id_comp=349&id_equipo=1846&id_modal=1&id_temp=11"><img src="/intranet/logos/4.png" border="0" title="UD OLIVEIRENSE B"></a></div>
+</div>
+<div class="boxJornada">
+<div class="boxHead">1ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18444');">
+  <td class="tdJogo">185</td>
+  
+  <td class="tdDatos">24/10/2026</td>
+  <td class="tdJogo">18:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</a></td>
+  <td class="tdGol">3 - 5</td>
+  <td class="tdNombre">PAV. DAVID CORREIA DE ANDRADE</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18445');">
+  <td class="tdJogo">186</td>
+  
+  <td class="tdDatos">27/10/2026</td>
+  <td class="tdJogo">22:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</a></td>
+  <td class="tdGol">0 - 5</td>
+  <td class="tdNombre">PAV. MUN. BARCELOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18446');">
+  <td class="tdJogo">187</td>
+  
+  <td class="tdDatos">24/10/2026</td>
+  <td class="tdJogo">19:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</a></td>
+  <td class="tdGol">1 - 3</td>
+  <td class="tdNombre">PAV. CRPF LAVRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18447');">
+  <td class="tdJogo">188</td>
+  
+  <td class="tdDatos">27/10/2026</td>
+  <td class="tdJogo">21:30</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</a></td>
+  <td class="tdGol">5 - 1</td>
+  <td class="tdNombre">PAV. GDC FANZERES</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18448');">
+  <td class="tdJogo">189</td>
+  
+  <td class="tdDatos">27/10/2026</td>
+  <td class="tdJogo">22:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</a></td>
+  <td class="tdGol">1 - 5</td>
+  <td class="tdNombre">PAV. SIMOLDES ARENA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18449');">
+  <td class="tdJogo">190</td>
+  
+  <td class="tdDatos">24/10/2026</td>
+  <td class="tdJogo">18:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</a></td>
+  <td class="tdGol">3 - 3</td>
+  <td class="tdNombre">PAV. ACADEMICA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18450');">
+  <td class="tdJogo">191</td>
+  
+  <td class="tdDatos">27/10/2026</td>
+  <td class="tdJogo">21:30</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</a></td>
+  <td class="tdGol">5 - 3</td>
+  <td class="tdNombre">PAV. MUN. VALONGO</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">2ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18451');">
+  <td class="tdJogo">192</td>
+  
+  <td class="tdDatos">31/10/2026</td>
+  <td class="tdJogo">18:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</a></td>
+  <td class="tdGol">1 - 3</td>
+  <td class="tdNombre">PAV. AA ESPINHO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18452');">
+  <td class="tdJogo">193</td>
+  
+  <td class="tdDatos">31/10/2026</td>
+  <td class="tdJogo">18:30</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</a></td>
+  <td class="tdGol">8 - 1</td>
+  <td class="tdNombre">PAV. FERNANDO LINHARES DE CASTRO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18453');">
+  <td class="tdJogo">194</td>
+  
+  <td class="tdDatos">31/10/2026</td>
+  <td class="tdJogo">18:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</a></td>
+  <td class="tdGol">7 - 0</td>
+  <td class="tdNombre">PAV. MUN. FAMALICAO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18454');">
+  <td class="tdJogo">195</td>
+  
+  <td class="tdDatos">31/10/2026</td>
+  <td class="tdJogo">19:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</a></td>
+  <td class="tdGol">7 - 0</td>
+  <td class="tdNombre">PAV. MUN. VALE DE CAMBRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18455');">
+  <td class="tdJogo">196</td>
+  
+  <td class="tdDatos">31/10/2026</td>
+  <td class="tdJogo">18:30</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</a></td>
+  <td class="tdGol">4 - 2</td>
+  <td class="tdNombre">PAV. CH CARVALHOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18456');">
+  <td class="tdJogo">197</td>
+  
+  <td class="tdDatos">31/10/2026</td>
+  <td class="tdJogo">18:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</a></td>
+  <td class="tdGol">4 - 0</td>
+  <td class="tdNombre">PAV. MUN. DA MEALHADA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18457');">
+  <td class="tdJogo">198</td>
+  
+  <td class="tdDatos">31/10/2026</td>
+  <td class="tdJogo">19:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</a></td>
+  <td class="tdGol">5 - 1</td>
+  <td class="tdNombre">PAV. MUN. VILA PRAIA ANCORA</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">3ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18458');">
+  <td class="tdJogo">199</td>
+  
+  <td class="tdDatos">07/11/2026</td>
+  <td class="tdJogo">21:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</a></td>
+  <td class="tdGol">4 - 3</td>
+  <td class="tdNombre">PAV. AA ESPINHO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18459');">
+  <td class="tdJogo">200</td>
+  
+  <td class="tdDatos">07/11/2026</td>
+  <td class="tdJogo">18:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</a></td>
+  <td class="tdGol">2 - 6</td>
+  <td class="tdNombre">PAV. DAVID CORREIA DE ANDRADE</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18460');">
+  <td class="tdJogo">201</td>
+  
+  <td class="tdDatos">10/11/2026</td>
+  <td class="tdJogo">21:30</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</a></td>
+  <td class="tdGol">1 - 1</td>
+  <td class="tdNombre">PAV. MUN. BARCELOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18461');">
+  <td class="tdJogo">202</td>
+  
+  <td class="tdDatos">07/11/2026</td>
+  <td class="tdJogo">19:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</a></td>
+  <td class="tdGol">2 - 1</td>
+  <td class="tdNombre">PAV. CRPF LAVRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18462');">
+  <td class="tdJogo">203</td>
+  
+  <td class="tdDatos">10/11/2026</td>
+  <td class="tdJogo">21:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</a></td>
+  <td class="tdGol">3 - 1</td>
+  <td class="tdNombre">PAV. DRAGAO ARENA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18463');">
+  <td class="tdJogo">204</td>
+  
+  <td class="tdDatos">10/11/2026</td>
+  <td class="tdJogo">22:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</a></td>
+  <td class="tdGol">6 - 3</td>
+  <td class="tdNombre">PAV. SIMOLDES ARENA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18464');">
+  <td class="tdJogo">205</td>
+  
+  <td class="tdDatos">10/11/2026</td>
+  <td class="tdJogo">21:30</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</a></td>
+  <td class="tdGol">7 - 2</td>
+  <td class="tdNombre">PAV. MUN. VALONGO</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">4ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18465');">
+  <td class="tdJogo">206</td>
+  
+  <td class="tdDatos">15/11/2026</td>
+  <td class="tdJogo">16:30</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</a></td>
+  <td class="tdGol">8 - 0</td>
+  <td class="tdNombre">PAV. FERNANDO LINHARES DE CASTRO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18466');">
+  <td class="tdJogo">207</td>
+  
+  <td class="tdDatos">14/11/2026</td>
+  <td class="tdJogo">18:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</a></td>
+  <td class="tdGol">6 - 3</td>
+  <td class="tdNombre">PAV. MUN. FAMALICAO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18467');">
+  <td class="tdJogo">208</td>
+  
+  <td class="tdDatos">14/11/2026</td>
+  <td class="tdJogo">18:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</a></td>
+  <td class="tdGol">2 - 5</td>
+  <td class="tdNombre">PAV. MUN. VALE DE CAMBRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18468');">
+  <td class="tdJogo">209</td>
+  
+  <td class="tdDatos">14/11/2026</td>
+  <td class="tdJogo">18:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</a></td>
+  <td class="tdGol">8 - 2</td>
+  <td class="tdNombre">PAV. CH CARVALHOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18469');">
+  <td class="tdJogo">210</td>
+  
+  <td class="tdDatos">14/11/2026</td>
+  <td class="tdJogo">19:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</a></td>
+  <td class="tdGol">2 - 3</td>
+  <td class="tdNombre">PAV. CRPF LAVRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18470');">
+  <td class="tdJogo">211</td>
+  
+  <td class="tdDatos">14/11/2026</td>
+  <td class="tdJogo">19:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</a></td>
+  <td class="tdGol">2 - 3</td>
+  <td class="tdNombre">PAV. MUN. VILA PRAIA ANCORA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18471');">
+  <td class="tdJogo">212</td>
+  
+  <td class="tdDatos">17/11/2026</td>
+  <td class="tdJogo">22:00</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. SIMOLDES ARENA</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">5ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18472');">
+  <td class="tdJogo">213</td>
+  
+  <td class="tdDatos">21/11/2026</td>
+  <td class="tdJogo">18.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. FERNANDO LINHARES DE CASTRO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18473');">
+  <td class="tdJogo">214</td>
+  
+  <td class="tdDatos">21/11/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. AA ESPINHO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18474');">
+  <td class="tdJogo">215</td>
+  
+  <td class="tdDatos">21/11/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. DAVID CORREIA DE ANDRADE</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18475');">
+  <td class="tdJogo">216</td>
+  
+  <td class="tdDatos">24/11/2026</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. BARCELOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18476');">
+  <td class="tdJogo">217</td>
+  
+  <td class="tdDatos">21/11/2026</td>
+  <td class="tdJogo">19.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CRPF LAVRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18477');">
+  <td class="tdJogo">218</td>
+  
+  <td class="tdDatos">24/11/2026</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. GDC FANZERES</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18478');">
+  <td class="tdJogo">219</td>
+  
+  <td class="tdDatos">24/11/2026</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALONGO</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">6ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18479');">
+  <td class="tdJogo">220</td>
+  
+  <td class="tdDatos">28/11/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. FAMALICAO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18480');">
+  <td class="tdJogo">221</td>
+  
+  <td class="tdDatos">28/11/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALE DE CAMBRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18481');">
+  <td class="tdJogo">222</td>
+  
+  <td class="tdDatos">28/11/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CH CARVALHOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18482');">
+  <td class="tdJogo">223</td>
+  
+  <td class="tdDatos">28/11/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. DA MEALHADA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18483');">
+  <td class="tdJogo">224</td>
+  
+  <td class="tdDatos">28/11/2026</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VILA PRAIA ANCORA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18484');">
+  <td class="tdJogo">225</td>
+  
+  <td class="tdDatos">28/11/2026</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. 3 DO EUC</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18485');">
+  <td class="tdJogo">226</td>
+  
+  <td class="tdDatos">01/12/2026</td>
+  <td class="tdJogo">22.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. SIMOLDES ARENA</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">7ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18486');">
+  <td class="tdJogo">227</td>
+  
+  <td class="tdDatos">05/12/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. FAMALICAO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18487');">
+  <td class="tdJogo">228</td>
+  
+  <td class="tdDatos">05/12/2026</td>
+  <td class="tdJogo">17.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. FERNANDO LINHARES DE CASTRO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18488');">
+  <td class="tdJogo">229</td>
+  
+  <td class="tdDatos">05/12/2026</td>
+  <td class="tdJogo">18.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. AA ESPINHO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18489');">
+  <td class="tdJogo">230</td>
+  
+  <td class="tdDatos">05/12/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. DAVID CORREIA DE ANDRADE</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18490');">
+  <td class="tdJogo">231</td>
+  
+  <td class="tdDatos">05/12/2026</td>
+  <td class="tdJogo">17.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. BARCELOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18491');">
+  <td class="tdJogo">232</td>
+  
+  <td class="tdDatos">05/12/2026</td>
+  <td class="tdJogo">19.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CRPF LAVRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18492');">
+  <td class="tdJogo">233</td>
+  
+  <td class="tdDatos">19/12/2026</td>
+  <td class="tdJogo">18.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALONGO</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">8ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18493');">
+  <td class="tdJogo">234</td>
+  
+  <td class="tdDatos">08/12/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALE DE CAMBRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18494');">
+  <td class="tdJogo">235</td>
+  
+  <td class="tdDatos">08/12/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CH CARVALHOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18495');">
+  <td class="tdJogo">236</td>
+  
+  <td class="tdDatos">08/12/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. DA MEALHADA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18496');">
+  <td class="tdJogo">237</td>
+  
+  <td class="tdDatos">08/12/2026</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VILA PRAIA ANCORA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18497');">
+  <td class="tdJogo">238</td>
+  
+  <td class="tdDatos">08/12/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. ACADEMICA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18498');">
+  <td class="tdJogo">239</td>
+  
+  <td class="tdDatos">08/12/2026</td>
+  <td class="tdJogo">22.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. SIMOLDES ARENA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18499');">
+  <td class="tdJogo">240</td>
+  
+  <td class="tdDatos">08/12/2026</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. GDC FANZERES</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">9ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18500');">
+  <td class="tdJogo">241</td>
+  
+  <td class="tdDatos">12/12/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALE DE CAMBRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18501');">
+  <td class="tdJogo">242</td>
+  
+  <td class="tdDatos">12/12/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. FAMALICAO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18502');">
+  <td class="tdJogo">243</td>
+  
+  <td class="tdDatos">12/12/2026</td>
+  <td class="tdJogo">18.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. FERNANDO LINHARES DE CASTRO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18503');">
+  <td class="tdJogo">244</td>
+  
+  <td class="tdDatos">12/12/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. AA ESPINHO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18504');">
+  <td class="tdJogo">245</td>
+  
+  <td class="tdDatos">12/12/2026</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. DAVID CORREIA DE ANDRADE</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18505');">
+  <td class="tdJogo">246</td>
+  
+  <td class="tdDatos">15/12/2026</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. BARCELOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18506');">
+  <td class="tdJogo">247</td>
+  
+  <td class="tdDatos">15/12/2026</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALONGO</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">10ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18507');">
+  <td class="tdJogo">248</td>
+  
+  <td class="tdDatos">09/01/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CH CARVALHOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18508');">
+  <td class="tdJogo">249</td>
+  
+  <td class="tdDatos">09/01/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. DA MEALHADA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18509');">
+  <td class="tdJogo">250</td>
+  
+  <td class="tdDatos">09/01/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VILA PRAIA ANCORA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18510');">
+  <td class="tdJogo">251</td>
+  
+  <td class="tdDatos">09/01/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. ACADEMICA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18511');">
+  <td class="tdJogo">252</td>
+  
+  <td class="tdDatos">12/01/2027</td>
+  <td class="tdJogo">22.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. SIMOLDES ARENA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18512');">
+  <td class="tdJogo">253</td>
+  
+  <td class="tdDatos">12/01/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. GDC FANZERES</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18513');">
+  <td class="tdJogo">254</td>
+  
+  <td class="tdDatos">09/01/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CRPF LAVRA</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">11ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18514');">
+  <td class="tdJogo">255</td>
+  
+  <td class="tdDatos">23/01/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CH CARVALHOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18515');">
+  <td class="tdJogo">256</td>
+  
+  <td class="tdDatos">23/01/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALE DE CAMBRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18516');">
+  <td class="tdJogo">257</td>
+  
+  <td class="tdDatos">23/01/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. FAMALICAO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18517');">
+  <td class="tdJogo">258</td>
+  
+  <td class="tdDatos">23/01/2027</td>
+  <td class="tdJogo">17.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. FERNANDO LINHARES DE CASTRO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18518');">
+  <td class="tdJogo">259</td>
+  
+  <td class="tdDatos">23/01/2027</td>
+  <td class="tdJogo">18.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. AA ESPINHO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18519');">
+  <td class="tdJogo">260</td>
+  
+  <td class="tdDatos">23/01/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. DAVID CORREIA DE ANDRADE</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18520');">
+  <td class="tdJogo">261</td>
+  
+  <td class="tdDatos">26/01/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALONGO</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">12ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18521');">
+  <td class="tdJogo">262</td>
+  
+  <td class="tdDatos">02/02/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALONGO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18522');">
+  <td class="tdJogo">263</td>
+  
+  <td class="tdDatos">30/01/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VILA PRAIA ANCORA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18523');">
+  <td class="tdJogo">264</td>
+  
+  <td class="tdDatos">30/01/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. ACADEMICA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18524');">
+  <td class="tdJogo">265</td>
+  
+  <td class="tdDatos">02/02/2027</td>
+  <td class="tdJogo">22.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. SIMOLDES ARENA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18525');">
+  <td class="tdJogo">266</td>
+  
+  <td class="tdDatos">02/02/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. GDC FANZERES</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18526');">
+  <td class="tdJogo">267</td>
+  
+  <td class="tdDatos">30/01/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CRPF LAVRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18527');">
+  <td class="tdJogo">268</td>
+  
+  <td class="tdDatos">02/02/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. BARCELOS</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">13ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18528');">
+  <td class="tdJogo">269</td>
+  
+  <td class="tdDatos">06/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. DA MEALHADA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18529');">
+  <td class="tdJogo">270</td>
+  
+  <td class="tdDatos">06/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CH CARVALHOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18530');">
+  <td class="tdJogo">271</td>
+  
+  <td class="tdDatos">06/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALE DE CAMBRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18531');">
+  <td class="tdJogo">272</td>
+  
+  <td class="tdDatos">06/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. FAMALICAO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18532');">
+  <td class="tdJogo">273</td>
+  
+  <td class="tdDatos">06/02/2027</td>
+  <td class="tdJogo">18.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. FERNANDO LINHARES DE CASTRO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18533');">
+  <td class="tdJogo">274</td>
+  
+  <td class="tdDatos">06/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. AA ESPINHO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18534');">
+  <td class="tdJogo">275</td>
+  
+  <td class="tdDatos">06/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. DAVID CORREIA DE ANDRADE</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">14ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18535');">
+  <td class="tdJogo">276</td>
+  
+  <td class="tdDatos">09/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. AA ESPINHO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18536');">
+  <td class="tdJogo">277</td>
+  
+  <td class="tdDatos">09/02/2027</td>
+  <td class="tdJogo">18.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. FERNANDO LINHARES DE CASTRO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18537');">
+  <td class="tdJogo">278</td>
+  
+  <td class="tdDatos">09/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. FAMALICAO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18538');">
+  <td class="tdJogo">279</td>
+  
+  <td class="tdDatos">09/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALE DE CAMBRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18539');">
+  <td class="tdJogo">280</td>
+  
+  <td class="tdDatos">09/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CH CARVALHOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18540');">
+  <td class="tdJogo">281</td>
+  
+  <td class="tdDatos">09/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. DA MEALHADA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18541');">
+  <td class="tdJogo">282</td>
+  
+  <td class="tdDatos">09/02/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VILA PRAIA ANCORA</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">15ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18542');">
+  <td class="tdJogo">283</td>
+  
+  <td class="tdDatos">23/02/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALONGO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18543');">
+  <td class="tdJogo">284</td>
+  
+  <td class="tdDatos">20/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. DAVID CORREIA DE ANDRADE</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18544');">
+  <td class="tdJogo">285</td>
+  
+  <td class="tdDatos">23/02/2027</td>
+  <td class="tdJogo">22.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. BARCELOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18545');">
+  <td class="tdJogo">286</td>
+  
+  <td class="tdDatos">20/02/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CRPF LAVRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18546');">
+  <td class="tdJogo">287</td>
+  
+  <td class="tdDatos">23/02/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. GDC FANZERES</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18547');">
+  <td class="tdJogo">288</td>
+  
+  <td class="tdDatos">23/02/2027</td>
+  <td class="tdJogo">22.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. SIMOLDES ARENA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18548');">
+  <td class="tdJogo">289</td>
+  
+  <td class="tdDatos">20/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. ACADEMICA</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">16ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18549');">
+  <td class="tdJogo">290</td>
+  
+  <td class="tdDatos">27/02/2027</td>
+  <td class="tdJogo">18.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. FERNANDO LINHARES DE CASTRO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18550');">
+  <td class="tdJogo">291</td>
+  
+  <td class="tdDatos">27/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. FAMALICAO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18551');">
+  <td class="tdJogo">292</td>
+  
+  <td class="tdDatos">27/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALE DE CAMBRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18552');">
+  <td class="tdJogo">293</td>
+  
+  <td class="tdDatos">27/02/2027</td>
+  <td class="tdJogo">18.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CH CARVALHOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18553');">
+  <td class="tdJogo">294</td>
+  
+  <td class="tdDatos">27/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. DA MEALHADA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18554');">
+  <td class="tdJogo">295</td>
+  
+  <td class="tdDatos">27/02/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VILA PRAIA ANCORA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18555');">
+  <td class="tdJogo">296</td>
+  
+  <td class="tdDatos">27/02/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. ACADEMICA</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">17ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18556');">
+  <td class="tdJogo">297</td>
+  
+  <td class="tdDatos">09/03/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALONGO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18557');">
+  <td class="tdJogo">298</td>
+  
+  <td class="tdDatos">06/03/2027</td>
+  <td class="tdJogo">21.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. AA ESPINHO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18558');">
+  <td class="tdJogo">299</td>
+  
+  <td class="tdDatos">06/03/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. DAVID CORREIA DE ANDRADE</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18559');">
+  <td class="tdJogo">300</td>
+  
+  <td class="tdDatos">09/03/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. BARCELOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18560');">
+  <td class="tdJogo">301</td>
+  
+  <td class="tdDatos">06/03/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. DA MEALHADA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18561');">
+  <td class="tdJogo">302</td>
+  
+  <td class="tdDatos">09/03/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. GDC FANZERES</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18562');">
+  <td class="tdJogo">303</td>
+  
+  <td class="tdDatos">09/03/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. ACADEMICA</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">18ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18563');">
+  <td class="tdJogo">304</td>
+  
+  <td class="tdDatos">20/03/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. FAMALICAO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18564');">
+  <td class="tdJogo">305</td>
+  
+  <td class="tdDatos">20/03/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALE DE CAMBRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18565');">
+  <td class="tdJogo">306</td>
+  
+  <td class="tdDatos">20/03/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CH CARVALHOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18566');">
+  <td class="tdJogo">307</td>
+  
+  <td class="tdDatos">20/03/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. DA MEALHADA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18567');">
+  <td class="tdJogo">308</td>
+  
+  <td class="tdDatos">20/03/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VILA PRAIA ANCORA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18568');">
+  <td class="tdJogo">309</td>
+  
+  <td class="tdDatos">20/03/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. ACADEMICA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18569');">
+  <td class="tdJogo">310</td>
+  
+  <td class="tdDatos">23/03/2027</td>
+  <td class="tdJogo">22.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. SIMOLDES ARENA</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">19ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18570');">
+  <td class="tdJogo">311</td>
+  
+  <td class="tdDatos">30/03/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALONGO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18571');">
+  <td class="tdJogo">312</td>
+  
+  <td class="tdDatos">26/03/2027</td>
+  <td class="tdJogo">18.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. FERNANDO LINHARES DE CASTRO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18572');">
+  <td class="tdJogo">313</td>
+  
+  <td class="tdDatos">26/03/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. AA ESPINHO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18573');">
+  <td class="tdJogo">314</td>
+  
+  <td class="tdDatos">26/03/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. DAVID CORREIA DE ANDRADE</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18574');">
+  <td class="tdJogo">315</td>
+  
+  <td class="tdDatos">30/03/2027</td>
+  <td class="tdJogo">22.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. BARCELOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18575');">
+  <td class="tdJogo">316</td>
+  
+  <td class="tdDatos">26/03/2027</td>
+  <td class="tdJogo">21.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CRPF LAVRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18576');">
+  <td class="tdJogo">317</td>
+  
+  <td class="tdDatos">30/03/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. GDC FANZERES</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">20ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18577');">
+  <td class="tdJogo">318</td>
+  
+  <td class="tdDatos">03/04/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALE DE CAMBRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18578');">
+  <td class="tdJogo">319</td>
+  
+  <td class="tdDatos">03/04/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CH CARVALHOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18579');">
+  <td class="tdJogo">320</td>
+  
+  <td class="tdDatos">03/04/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. DA MEALHADA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18580');">
+  <td class="tdJogo">321</td>
+  
+  <td class="tdDatos">03/04/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VILA PRAIA ANCORA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18581');">
+  <td class="tdJogo">322</td>
+  
+  <td class="tdDatos">03/04/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. ACADEMICA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18582');">
+  <td class="tdJogo">323</td>
+  
+  <td class="tdDatos">06/04/2027</td>
+  <td class="tdJogo">22.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. SIMOLDES ARENA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18583');">
+  <td class="tdJogo">324</td>
+  
+  <td class="tdDatos">06/04/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. GDC FANZERES</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">21ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18584');">
+  <td class="tdJogo">325</td>
+  
+  <td class="tdDatos">13/04/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALONGO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18585');">
+  <td class="tdJogo">326</td>
+  
+  <td class="tdDatos">10/04/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. FAMALICAO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18586');">
+  <td class="tdJogo">327</td>
+  
+  <td class="tdDatos">10/04/2027</td>
+  <td class="tdJogo">18.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. FERNANDO LINHARES DE CASTRO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18587');">
+  <td class="tdJogo">328</td>
+  
+  <td class="tdDatos">10/04/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. AA ESPINHO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18588');">
+  <td class="tdJogo">329</td>
+  
+  <td class="tdDatos">10/04/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. DAVID CORREIA DE ANDRADE</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18589');">
+  <td class="tdJogo">330</td>
+  
+  <td class="tdDatos">13/04/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. BARCELOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18590');">
+  <td class="tdJogo">331</td>
+  
+  <td class="tdDatos">10/04/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CRPF LAVRA</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">22ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18591');">
+  <td class="tdJogo">332</td>
+  
+  <td class="tdDatos">17/04/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CH CARVALHOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18592');">
+  <td class="tdJogo">333</td>
+  
+  <td class="tdDatos">17/04/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. DA MEALHADA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18593');">
+  <td class="tdJogo">334</td>
+  
+  <td class="tdDatos">17/04/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VILA PRAIA ANCORA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18594');">
+  <td class="tdJogo">335</td>
+  
+  <td class="tdDatos">17/04/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. ACADEMICA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18595');">
+  <td class="tdJogo">336</td>
+  
+  <td class="tdDatos">20/04/2027</td>
+  <td class="tdJogo">22.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. SIMOLDES ARENA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18596');">
+  <td class="tdJogo">337</td>
+  
+  <td class="tdDatos">20/04/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. GDC FANZERES</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18597');">
+  <td class="tdJogo">338</td>
+  
+  <td class="tdDatos">17/04/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CRPF LAVRA</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">23ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18598');">
+  <td class="tdJogo">339</td>
+  
+  <td class="tdDatos">27/04/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALONGO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18599');">
+  <td class="tdJogo">340</td>
+  
+  <td class="tdDatos">24/04/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALE DE CAMBRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18600');">
+  <td class="tdJogo">341</td>
+  
+  <td class="tdDatos">24/04/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. FAMALICAO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18601');">
+  <td class="tdJogo">342</td>
+  
+  <td class="tdDatos">24/04/2027</td>
+  <td class="tdJogo">18.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. FERNANDO LINHARES DE CASTRO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18602');">
+  <td class="tdJogo">343</td>
+  
+  <td class="tdDatos">24/04/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. AA ESPINHO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18603');">
+  <td class="tdJogo">344</td>
+  
+  <td class="tdDatos">24/04/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. DAVID CORREIA DE ANDRADE</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18604');">
+  <td class="tdJogo">345</td>
+  
+  <td class="tdDatos">27/04/2027</td>
+  <td class="tdJogo">22.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. BARCELOS</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">24ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18605');">
+  <td class="tdJogo">346</td>
+  
+  <td class="tdDatos">08/05/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. DA MEALHADA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18606');">
+  <td class="tdJogo">347</td>
+  
+  <td class="tdDatos">08/05/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VILA PRAIA ANCORA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18607');">
+  <td class="tdJogo">348</td>
+  
+  <td class="tdDatos">08/05/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. ACADEMICA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18608');">
+  <td class="tdJogo">349</td>
+  
+  <td class="tdDatos">11/05/2027</td>
+  <td class="tdJogo">22.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. SIMOLDES ARENA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18609');">
+  <td class="tdJogo">350</td>
+  
+  <td class="tdDatos">11/05/2027</td>
+  <td class="tdJogo">21.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. GDC FANZERES</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18610');">
+  <td class="tdJogo">351</td>
+  
+  <td class="tdDatos">08/05/2027</td>
+  <td class="tdJogo">19.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CRPF LAVRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18611');">
+  <td class="tdJogo">352</td>
+  
+  <td class="tdDatos">11/05/2027</td>
+  <td class="tdJogo">22.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. BARCELOS</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">25ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18612');">
+  <td class="tdJogo">353</td>
+  
+  <td class="tdDatos">15/05/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. DA MEALHADA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18613');">
+  <td class="tdJogo">354</td>
+  
+  <td class="tdDatos">15/05/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CH CARVALHOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18614');">
+  <td class="tdJogo">355</td>
+  
+  <td class="tdDatos">15/05/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALE DE CAMBRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18615');">
+  <td class="tdJogo">356</td>
+  
+  <td class="tdDatos">15/05/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. FAMALICAO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18616');">
+  <td class="tdJogo">357</td>
+  
+  <td class="tdDatos">15/05/2027</td>
+  <td class="tdJogo">18.30</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. FERNANDO LINHARES DE CASTRO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18617');">
+  <td class="tdJogo">358</td>
+  
+  <td class="tdDatos">15/05/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. AA ESPINHO</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18618');">
+  <td class="tdJogo">359</td>
+  
+  <td class="tdDatos">15/05/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. DAVID CORREIA DE ANDRADE</td></tr>
+</tbody></table></div></div>
+
+<div class="boxJornada">
+<div class="boxHead">26ª JORNADA</div>
+<div class="boxBody">
+<table class="jornada"><tbody>
+  <tr>
+    <td class="tdJogo"><b>Jogo</b></td>
+	
+    <td class="tdDatos"><b>Fecha</b></td>
+    <td class="tdJogo"><b>Hora</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Local</b></td>
+    <td class="tdLogo">&nbsp;</td>
+    <td class="tdNombre"><b>Visitante</b></td>
+    <td class="tdGol"><b>Res.</b></td>
+    <td class="tdNombre"><b>Pista</b></td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18619');">
+  <td class="tdJogo">360</td>
+  
+  <td class="tdDatos">22/05/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VILA PRAIA ANCORA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18620');">
+  <td class="tdJogo">361</td>
+  
+  <td class="tdDatos">22/05/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. ACADEMICA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18621');">
+  <td class="tdJogo">362</td>
+  
+  <td class="tdDatos">22/05/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. SIMOLDES ARENA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18622');">
+  <td class="tdJogo">363</td>
+  
+  <td class="tdDatos">22/05/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. GDC FANZERES</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18623');">
+  <td class="tdJogo">364</td>
+  
+  <td class="tdDatos">22/05/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. CRPF LAVRA</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18624');">
+  <td class="tdJogo">365</td>
+  
+  <td class="tdDatos">22/05/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. BARCELOS</td></tr>
+
+<tr onclick="window.open('./partido.asp?id=18625');">
+  <td class="tdJogo">366</td>
+  
+  <td class="tdDatos">22/05/2027</td>
+  <td class="tdJogo">18.00</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</a></td>
+  <td class="tdGol"> - </td>
+  <td class="tdNombre">PAV. MUN. VALONGO</td></tr>
+</tbody></table></div></div>
+</div>
+</div></body></html>

@@ -24,6 +24,7 @@ from __future__ import annotations
 import json
 import os
 import sys
+import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 
@@ -32,7 +33,19 @@ from datetime import datetime, timezone
 #:
 #: A `medicao` é a do atraso da "Jogos do Dia" da FPP, a 21/11/2026 (`medir_direto.py`): pede
 #: fichas ao servidor que a FPP partilha com a APL, e por isso conta no mesmo gráfico.
-ORIGENS = ("producao", "aovivo", "testes", "sonda", "medicao")
+#:
+#: As `_fpp` são as mesmas três com a FPP (`docs/11-ligas-nacionais.md`). O servidor é um só e
+#: por isso o total junta tudo, mas o dono quer ver quanto é de cada fonte: numa terça sem
+#: jogos nacionais a FPP não pede nada, e num sábado de Placard pede mais do que a APL.
+ORIGENS = ("producao", "aovivo", "testes", "sonda", "medicao",
+           "producao_fpp", "aovivo_fpp", "testes_fpp")
+
+
+def origem_da_fonte(origem: str, tenant: str | None) -> str:
+    """`producao` + FPP → `producao_fpp`. A `medicao` já é da FPP e fica como está."""
+    if tenant == "fpp" and f"{origem}_fpp" in ORIGENS:
+        return f"{origem}_fpp"
+    return origem
 
 UA = "hoqueiAPP-registo/1.0 (+https://github.com/pmontezinho17/HoqueiApp)"
 
@@ -58,7 +71,7 @@ def carga(por_tipo: dict | None, falhados: int, origem: str, quando: datetime,
 
 
 def registar(por_tipo: dict | None, falhados: int = 0, *, ambiente=None, abrir=None,
-             agora: datetime | None = None) -> bool:
+             agora: datetime | None = None, tenant: str | None = None) -> bool:
     """Envia a contagem ao observador. `True` só se ele a aceitou.
 
     Liga-se por três variáveis, que só os workflows põem: `OBSERVADOR` (o endereço),
@@ -72,9 +85,23 @@ def registar(por_tipo: dict | None, falhados: int = 0, *, ambiente=None, abrir=N
     if not (base and chave and origem):
         return False
     corrida = ambiente.get("GITHUB_RUN_ID")
-    c = carga(por_tipo, falhados, origem, agora or datetime.now(timezone.utc), corrida)
+    quando = agora or datetime.now(timezone.utc)
+    c = carga(por_tipo, falhados, origem_da_fonte(origem, tenant), quando, corrida)
     if c is None:
         return False
+    estado = _enviar(c, base, chave, abrir)
+    if estado == 400 and c["origem"] != origem:
+        # **Um observador antigo recusa a origem nova, e a contagem não se perde por isso.** O
+        # observador só aprende as `_fpp` quando chega ao `main`, e o botão do site de testes
+        # corre no `dev` antes disso: sem isto, os ~300 pedidos da primeira leitura das ligas
+        # nacionais não apareciam na consola. Volta a mandar com a origem de sempre, junta à
+        # da APL — certa no total, que é o que o servidor sente.
+        estado = _enviar({**c, "origem": origem}, base, chave, abrir)
+    return estado is not None and 200 <= estado < 300
+
+
+def _enviar(c: dict, base: str, chave: str, abrir) -> int | None:
+    """Manda uma contagem. Devolve o estado HTTP, ou `None` se nem chegou a haver resposta."""
     pedido = urllib.request.Request(
         f"{base.rstrip('/')}/ronda",
         data=json.dumps(c).encode(),
@@ -87,7 +114,10 @@ def registar(por_tipo: dict | None, falhados: int = 0, *, ambiente=None, abrir=N
     )
     try:
         with (abrir or urllib.request.urlopen)(pedido, timeout=5) as r:
-            return 200 <= r.status < 300
+            return r.status
+    except urllib.error.HTTPError as e:
+        print(f"registo da ronda no observador recusado: HTTP {e.code}", file=sys.stderr)
+        return e.code
     except Exception as e:  # observador em baixo, rede, 401 — nada disto pára uma ronda
         print(f"registo da ronda no observador falhou: {e}", file=sys.stderr)
-        return False
+        return None

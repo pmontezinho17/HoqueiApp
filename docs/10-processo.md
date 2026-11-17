@@ -259,7 +259,7 @@ pequeno, o `adapter-static` 3.0.11. Medido: os 1817 ficheiros do `build` saíram
 
 ### 7 · Depois de publicar
 
-A verificação corre sozinha e pergunta ao site sete coisas. O relógio da Cloudflare sonda produção
+A verificação corre sozinha e pergunta ao site nove coisas. O relógio da Cloudflare sonda produção
 de 10 em 10 minutos, 24 h por dia. E a consola diz quantas pessoas abriram a app — o único número
 que é exacto.
 

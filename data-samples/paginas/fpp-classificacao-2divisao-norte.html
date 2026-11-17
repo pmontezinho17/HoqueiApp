@@ -1,0 +1,452 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Federa&ccedil;&atilde;o de Patinagem de Portugal - Intranet</title>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed|Titillium+Web|Roboto);
+
+@font-face {
+    font-family: "Digital";
+    src: url("/intranet/includes/SF Digital Readout Medium.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family:"Roboto"; font-size:10px; background-color:#e9eaed; margin:10px 0px;
+}
+ul {
+	list-style-type:none;
+}
+a {
+	color:#000; text-decoration:none;
+}
+table {
+	border-collapse:collapse;
+}
+div#contenido {
+	width:100%;
+}
+div#cabecera {
+	width:100%;
+}
+div#cabecera img {
+	margin:0px auto; display:block;
+}
+div#menu {
+	width:100%; margin-top:10px; border-top:#208000 5px solid; background-color:#800020; color:#fff; height:37px;
+}
+div#menu ul {
+	margin:10px auto; text-align:center; font-size:14px;
+}
+div#menu ul li {
+	margin:0px; padding:10px; display:inline; background-color:#800020;
+}
+div#menu ul li a {
+	display:inline; background-color:#800020; color:#fff;
+}
+div#menu .menu_activo {
+	background-color:#208000;
+}
+div#menu .menu_activo a {
+	background-color:#208000;
+}
+div#principal {
+	width:100%-40px; padding:2px 20px; text-align:center;
+}
+div#titulo {
+	width:100%;	margin:10px 0px; background-position:left center; background-repeat:repeat-x; background-image:url(../imagenes/ribbon.png); text-align:center;
+}
+div#titulo h1 {
+	padding:0px 15px; font-size:36px; text-align:center; margin:0px auto; font-weight:normal; background-color:#e9eaed; display:inline-block;
+}
+div#equipos {
+	display:inline-block; width:100%; border-bottom:#808080 1px solid; margin:1em auto; text-align:center;
+}
+.equipos_logo {
+	display:inline-block; padding:4px 5px 4px 5px; background-color:#f0f0f0; margin:5px 3px 5px 2px; box-shadow:1px 2px 5px -1px #000; border-radius:20px 20px 20px 20px;
+}
+.equipos_logo_activo {
+	display:inline-block; padding:4px 5px 7px 5px; background-color:#b0e0e6; margin:-1px 3px 8px 2px; box-shadow:1px 2px 5px -1px #000; border-radius:20px 20px 20px 20px;
+}
+.equipos_logo img {
+	height:30px; display:block;
+}
+.equipos_logo:hover {
+	background-color:#b0e0e6;
+}
+.boxJornada {
+	width:100%; border:#800020 1px solid; margin:5px auto; background-color:#fff; display:block; max-width:980px;
+}
+.boxJornadaAct {
+	width:540px; border:#800020 1px solid; margin:5px; background-color:#fff; display:inline-block;
+}
+.boxDatos {
+	width:950px; border:#800020 1px solid; margin:5px; background-color:#fff; display:inline-block;
+}
+.boxHead {
+	background-color:#800020; color:#fff; padding:5px; font-size:12px; text-align:center;
+}
+.boxBody {
+	padding:5px;
+}
+.jornada {
+	width:100%;
+}
+.jornada tr {
+	border-bottom:#208000 1px solid;
+}
+.jornada td {
+	padding:2px 0px;
+}
+.jornada tr:last-child {
+	border-bottom:none;
+}
+.jornada tr:hover {
+    background-color:rgba(32,128,0,.2); cursor: pointer;
+}
+.jornada .tdJogo {
+	font-size:12px; width:40px; padding:0px; text-align:center; line-height:18px;
+}
+.jornada .tdDatos {
+	font-size:12px; width:75px; padding:0px; text-align:left; line-height:18px;
+}
+.jornada .tdLogo {
+	vertical-align:middle; width:24px; text-align:center;
+}
+.jornada .tdLogo img {
+	margin:0px auto; height:16px; width:16px;
+}
+.jornada .tdNombre{
+	font-size:12px; text-align:left; width:22%; line-height:18px;
+}
+.jornada .tdGol {
+	font-size:12px; text-align:center; line-height:18px;
+}
+
+.tbDatos {
+	width:100%;
+}
+.tbDatos tr {
+	border-bottom:#208000 1px solid;
+}
+.tbDatos td {
+	padding:2px 5px;
+}
+.tbDatos tr:first-child {
+	border-bottom:none; background-color:#800020; color:#fff;
+}
+.tbDatos tr:last-child {
+	border-bottom:none;
+}
+.tbDatos tr:hover {
+    background-color:rgba(32,128,0,.2); cursor: pointer;
+}
+.tbDatos .tdNombre{
+	font-size:12px; line-height:18px; text-align:left;
+}
+.tbDatos .tdLogo {
+	vertical-align:middle; width:20px; text-align:center;
+}
+.tbDatos .tdLogo img {
+	margin:0px auto; height:16px; width:16px;
+}
+.tbDatos .tdnLic{
+	font-size:12px; line-height:18px; width:50px; text-align:center;
+}
+.tbDatos .tdValor{
+	font-size:12px; line-height:18px; width:30px; text-align:center;
+}
+
+/*Competiciones Nuevo*/
+.boxCompeticion {
+	display:block; box-sizing: border-box; width:100%; max-width:980px; margin:0.5em auto; padding:5px; border:#ccc 1px solid; border-radius:5px 5px 5px 5px; box-shadow:3px 3px 4px -1px #333; cursor:pointer;
+}
+/*Competiciones*/
+/*.boxCompeticion {
+	display:inline-block; box-sizing: border-box; width:100%; height:100px; max-width:300px; margin:0.5em;	float:left; padding:5px; border:#ccc 1px solid; border-radius:5px 5px 5px 5px; box-shadow:3px 3px 4px -1px #333;
+}*/
+.boxCompeticionLog {
+	height:70px; width:70px; margin:0px 10px 0px 0px; display:block; float:left;
+}
+.boxCompeticionNom {
+	font-size:12px; font-weight:bold; color:#000; margin:2px; /*margin:10px 0px 0px;*/ padding:0px;
+}
+.boxCompeticionDes {
+	margin:0px; padding:0px; font-size:0.8em;
+}
+.boxCompeticionAge {
+	background-color:#d2ffff;
+}
+.boxCompeticionAct {
+	background-color:#d2ffd2;
+}
+.boxCompeticionTer {
+	background-color:#ffd2d2;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="contenido">
+<div id="cabecera"><img src="../imagenes/banner.png" height="90" border="0"></div>
+
+<!-- MENU -->
+<div id="menu"><ul>
+  <li><a href="./?seccion=competiciones&id_modal=1&id_temp=11">Competiciones</a></li><li><a href="./?seccion=calendario&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Calendario</a></li><li class="menu_activo"><a href="./?seccion=clasificacion&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Clasificaci&oacute;n</a></li><li><a href="./?seccion=goles&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Golos</a></li>
+  <li><a href="./?seccion=asistencias&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Asistencias</a></li>
+  <li><a href="./?seccion=penalties&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Penalties</a></li>
+  <li><a href="./?seccion=directas&id_comp=349&id_equipo=&id_modal=1&id_temp=11">L.D.</a></li>
+  <li><a href="./?seccion=defensas&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Defensas</a></li><li><a href="./?seccion=tarjetas&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Tarjetas</a></li><li><a href="./?seccion=plantillas&id_comp=349&id_equipo=&id_modal=1&id_temp=11">Plantillas</a></li></ul></div>
+<div id="principal">
+<div id="titulo"><h1>CAMPEONATO NACIONAL 2ª DIVISAO - ZONA NORTE</h1></div>
+<!-- FILTRO EQUIPOS -->
+<div id="equipos">
+
+<div class="equipos_logo "><a href="./?seccion=clasificacion&grupo=&id_comp=349&id_equipo=1835&id_modal=1&id_temp=11"><img src="/intranet/logos/21.png" border="0" title="A ACADEMICA C"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=clasificacion&grupo=&id_comp=349&id_equipo=1836&id_modal=1&id_temp=11"><img src="/intranet/logos/22.png" border="0" title="AA ESPINHO"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=clasificacion&grupo=&id_comp=349&id_equipo=1838&id_modal=1&id_temp=11"><img src="/intranet/logos/3.png" border="0" title="AD VALONGO B"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=clasificacion&grupo=&id_comp=349&id_equipo=1839&id_modal=1&id_temp=11"><img src="/intranet/logos/30.png" border="0" title="ADJ VILA PRAIA"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=clasificacion&grupo=&id_comp=349&id_equipo=1844&id_modal=1&id_temp=11"><img src="/intranet/logos/24.png" border="0" title="CD POVOA"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=clasificacion&grupo=&id_comp=349&id_equipo=1840&id_modal=1&id_temp=11"><img src="/intranet/logos/19.png" border="0" title="CH CARVALHOS"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=clasificacion&grupo=&id_comp=349&id_equipo=1842&id_modal=1&id_temp=11"><img src="/intranet/logos/54.png" border="0" title="CRPF LAVRA"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=clasificacion&grupo=&id_comp=349&id_equipo=1837&id_modal=1&id_temp=11"><img src="/intranet/logos/23.png" border="0" title="FAMALICENSE AC"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=clasificacion&grupo=&id_comp=349&id_equipo=1841&id_modal=1&id_temp=11"><img src="/intranet/logos/1.png" border="0" title="FC PORTO B"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=clasificacion&grupo=&id_comp=349&id_equipo=1845&id_modal=1&id_temp=11"><img src="/intranet/logos/20.png" border="0" title="HA CAMBRA"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=clasificacion&grupo=&id_comp=349&id_equipo=1847&id_modal=1&id_temp=11"><img src="/intranet/logos/82.png" border="0" title="HC MEALHADA"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=clasificacion&grupo=&id_comp=349&id_equipo=1848&id_modal=1&id_temp=11"><img src="/intranet/logos/5.png" border="0" title="OC BARCELOS B"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=clasificacion&grupo=&id_comp=349&id_equipo=1843&id_modal=1&id_temp=11"><img src="/intranet/logos/77.png" border="0" title="TERMAS OC / MULTISAC"></a></div>
+
+<div class="equipos_logo "><a href="./?seccion=clasificacion&grupo=&id_comp=349&id_equipo=1846&id_modal=1&id_temp=11"><img src="/intranet/logos/4.png" border="0" title="UD OLIVEIRENSE B"></a></div>
+</div>
+<div class="boxDatos">
+<table class="tbDatos"><tbody>
+<tr>
+  <td>&nbsp;</td>
+  <td class="tdLogo">&nbsp;</td>
+  <td class="tdNombre">Equipo</td>
+  <td class="tdValor">JJ</td>
+  <td class="tdValor">JV</td>
+  <td class="tdValor">JE</td>
+  <td class="tdValor">JD</td>
+  <td class="tdValor">GM</td>
+  <td class="tdValor">GS</td>
+  <td class="tdValor">GA</td>
+  <td class="tdValor">GM/GS</td>
+  <td class="tdValor">TP</td></tr>
+
+<tr>
+  <td class="tdValor">1</td>
+  <td class="tdLogo"><img src="/intranet/logos/23.png"></td>
+  <td class="tdNombre">FAMALICENSE AC</td>
+  <td class="tdValor">4</td>
+  <td class="tdValor">4</td>
+  <td class="tdValor">0</td>
+  <td class="tdValor">0</td>
+  <td class="tdValor">22</td>
+  <td class="tdValor">6</td>
+  <td class="tdValor">16</td>
+  <td class="tdValor">3,67</td>
+  <td class="tdValor"><b>12</b></td></tr>
+
+<tr>
+  <td class="tdValor">2</td>
+  <td class="tdLogo"><img src="/intranet/logos/24.png"></td>
+  <td class="tdNombre">CD POVOA</td>
+  <td class="tdValor">4</td>
+  <td class="tdValor">3</td>
+  <td class="tdValor">0</td>
+  <td class="tdValor">1</td>
+  <td class="tdValor">24</td>
+  <td class="tdValor">5</td>
+  <td class="tdValor">19</td>
+  <td class="tdValor">4,80</td>
+  <td class="tdValor"><b>9</b></td></tr>
+
+<tr>
+  <td class="tdValor">3</td>
+  <td class="tdLogo"><img src="/intranet/logos/19.png"></td>
+  <td class="tdNombre">CH CARVALHOS</td>
+  <td class="tdValor">4</td>
+  <td class="tdValor">3</td>
+  <td class="tdValor">0</td>
+  <td class="tdValor">1</td>
+  <td class="tdValor">18</td>
+  <td class="tdValor">7</td>
+  <td class="tdValor">11</td>
+  <td class="tdValor">2,57</td>
+  <td class="tdValor"><b>9</b></td></tr>
+
+<tr>
+  <td class="tdValor">4</td>
+  <td class="tdLogo"><img src="/intranet/logos/1.png"></td>
+  <td class="tdNombre">FC PORTO B</td>
+  <td class="tdValor">4</td>
+  <td class="tdValor">3</td>
+  <td class="tdValor">0</td>
+  <td class="tdValor">1</td>
+  <td class="tdValor">13</td>
+  <td class="tdValor">8</td>
+  <td class="tdValor">5</td>
+  <td class="tdValor">1,62</td>
+  <td class="tdValor"><b>9</b></td></tr>
+
+<tr>
+  <td class="tdValor">5</td>
+  <td class="tdLogo"><img src="/intranet/logos/3.png"></td>
+  <td class="tdNombre">AD VALONGO B</td>
+  <td class="tdValor">4</td>
+  <td class="tdValor">3</td>
+  <td class="tdValor">0</td>
+  <td class="tdValor">1</td>
+  <td class="tdValor">15</td>
+  <td class="tdValor">14</td>
+  <td class="tdValor">1</td>
+  <td class="tdValor">1,07</td>
+  <td class="tdValor"><b>9</b></td></tr>
+
+<tr>
+  <td class="tdValor">6</td>
+  <td class="tdLogo"><img src="/intranet/logos/82.png"></td>
+  <td class="tdNombre">HC MEALHADA</td>
+  <td class="tdValor">4</td>
+  <td class="tdValor">2</td>
+  <td class="tdValor">1</td>
+  <td class="tdValor">1</td>
+  <td class="tdValor">11</td>
+  <td class="tdValor">8</td>
+  <td class="tdValor">3</td>
+  <td class="tdValor">1,38</td>
+  <td class="tdValor"><b>7</b></td></tr>
+
+<tr>
+  <td class="tdValor">7</td>
+  <td class="tdLogo"><img src="/intranet/logos/22.png"></td>
+  <td class="tdNombre">AA ESPINHO</td>
+  <td class="tdValor">4</td>
+  <td class="tdValor">2</td>
+  <td class="tdValor">0</td>
+  <td class="tdValor">2</td>
+  <td class="tdValor">13</td>
+  <td class="tdValor">15</td>
+  <td class="tdValor">-2</td>
+  <td class="tdValor">0,87</td>
+  <td class="tdValor"><b>6</b></td></tr>
+
+<tr>
+  <td class="tdValor">8</td>
+  <td class="tdLogo"><img src="/intranet/logos/20.png"></td>
+  <td class="tdNombre">HA CAMBRA</td>
+  <td class="tdValor">4</td>
+  <td class="tdValor">1</td>
+  <td class="tdValor">1</td>
+  <td class="tdValor">2</td>
+  <td class="tdValor">11</td>
+  <td class="tdValor">11</td>
+  <td class="tdValor">0</td>
+  <td class="tdValor">1,00</td>
+  <td class="tdValor"><b>4</b></td></tr>
+
+<tr>
+  <td class="tdValor">9</td>
+  <td class="tdLogo"><img src="/intranet/logos/30.png"></td>
+  <td class="tdNombre">ADJ VILA PRAIA</td>
+  <td class="tdValor">4</td>
+  <td class="tdValor">1</td>
+  <td class="tdValor">0</td>
+  <td class="tdValor">3</td>
+  <td class="tdValor">13</td>
+  <td class="tdValor">15</td>
+  <td class="tdValor">-2</td>
+  <td class="tdValor">0,87</td>
+  <td class="tdValor"><b>3</b></td></tr>
+
+<tr>
+  <td class="tdValor">10</td>
+  <td class="tdLogo"><img src="/intranet/logos/4.png"></td>
+  <td class="tdNombre">UD OLIVEIRENSE B</td>
+  <td class="tdValor">3</td>
+  <td class="tdValor">1</td>
+  <td class="tdValor">0</td>
+  <td class="tdValor">2</td>
+  <td class="tdValor">7</td>
+  <td class="tdValor">12</td>
+  <td class="tdValor">-5</td>
+  <td class="tdValor">0,58</td>
+  <td class="tdValor"><b>3</b></td></tr>
+
+<tr>
+  <td class="tdValor">11</td>
+  <td class="tdLogo"><img src="/intranet/logos/54.png"></td>
+  <td class="tdNombre">CRPF LAVRA</td>
+  <td class="tdValor">4</td>
+  <td class="tdValor">1</td>
+  <td class="tdValor">0</td>
+  <td class="tdValor">3</td>
+  <td class="tdValor">5</td>
+  <td class="tdValor">14</td>
+  <td class="tdValor">-9</td>
+  <td class="tdValor">0,36</td>
+  <td class="tdValor"><b>3</b></td></tr>
+
+<tr>
+  <td class="tdValor">12</td>
+  <td class="tdLogo"><img src="/intranet/logos/77.png"></td>
+  <td class="tdNombre">TERMAS OC / MULTISAC</td>
+  <td class="tdValor">4</td>
+  <td class="tdValor">1</td>
+  <td class="tdValor">0</td>
+  <td class="tdValor">3</td>
+  <td class="tdValor">11</td>
+  <td class="tdValor">21</td>
+  <td class="tdValor">-10</td>
+  <td class="tdValor">0,52</td>
+  <td class="tdValor"><b>3</b></td></tr>
+
+<tr>
+  <td class="tdValor">13</td>
+  <td class="tdLogo"><img src="/intranet/logos/21.png"></td>
+  <td class="tdNombre">A ACADEMICA C</td>
+  <td class="tdValor">3</td>
+  <td class="tdValor">0</td>
+  <td class="tdValor">1</td>
+  <td class="tdValor">2</td>
+  <td class="tdValor">6</td>
+  <td class="tdValor">15</td>
+  <td class="tdValor">-9</td>
+  <td class="tdValor">0,40</td>
+  <td class="tdValor"><b>1</b></td></tr>
+
+<tr>
+  <td class="tdValor">14</td>
+  <td class="tdLogo"><img src="/intranet/logos/5.png"></td>
+  <td class="tdNombre">OC BARCELOS B</td>
+  <td class="tdValor">4</td>
+  <td class="tdValor">0</td>
+  <td class="tdValor">1</td>
+  <td class="tdValor">3</td>
+  <td class="tdValor">3</td>
+  <td class="tdValor">21</td>
+  <td class="tdValor">-18</td>
+  <td class="tdValor">0,14</td>
+  <td class="tdValor"><b>1</b></td></tr>
+</tbody></table></div>
+
+</div>
+</div></body></html>

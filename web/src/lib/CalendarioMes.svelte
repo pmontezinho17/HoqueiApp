@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Emblema from './Emblema.svelte';
+	import { caminhoJogo } from './inquilinos';
 	import { disputado, type Jogo } from './tipos';
 	import { diaDeLisboa, horaNoAparelho } from '$lib/dia';
 	import { adversario, jogoPrecisaDeMarca, jornadaCurta, localDoDia } from '$lib/calendario';
@@ -77,7 +78,7 @@
 								{#each doDia as j (j.id ?? j.casa)}
 									{@const outro = adversario(j, equipa)}
 									<svelte:element this={j.id && disputado(j) ? 'a' : 'div'}
-										href={j.id && disputado(j) ? `/jogo/${j.id}` : null} class="jogo">
+										href={j.id && disputado(j) ? caminhoJogo(j.id) : null} class="jogo">
 										<Emblema equipa={outro} src={emblemas[outro]} tamanho={18} />
 										<!-- Fora do fuso de Lisboa, só a hora do aparelho: a célula não tem lugar para
 										     duas, e a de Lisboa está a um toque, na ficha. -->

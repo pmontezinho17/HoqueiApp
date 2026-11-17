@@ -31,8 +31,8 @@ export const PERGUNTAS: Pergunta[] = [
 	{
 		p: 'Isto é oficial?',
 		r: `Não. Esta app não tem qualquer ligação à Associação de Patinagem de Lisboa nem
-		    à Federação. É um projecto pessoal que lê o que a associação publica e o mostra
-		    de outra maneira. O que é oficial é a fonte, não isto.`
+		    à Federação. É um projecto pessoal que lê o que a associação e a federação publicam
+		    e o mostra de outra maneira. O que é oficial é a fonte, não isto.`
 	},
 	{
 		p: 'Falta um jogo, ou um resultado está errado. Porquê?',
