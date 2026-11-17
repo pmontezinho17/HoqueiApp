@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-10081@hoquei.pages.dev
-DTSTAMP:20261114T000000Z
-DTSTART:20261114T150000Z
-DTEND:20261114T163000Z
-SUMMARY:🏑 Benjamins 🏑 APAC Tojal vs Parede FC
-LOCATION:APAC Tojal - Associação de Patinagem Atlético Clube do Tojal
-DESCRIPTION:APAC Tojal vs Parede FC\nENCONTROS DISTRITAIS BENJAMINS - 1ª F
- ASE NIVEL II · Série C · BENJAMINS\nPAV. A.P.A.C.TOJAL\nhttps://hoquei.
- pages.dev/jogo/10081\nDados da Associação de Patinagem de Lisboa. Site n
- ão oficial.
-URL:https://hoquei.pages.dev/jogo/10081
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-10082@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T144500Z

@@ -9,30 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9856@hoquei.pages.dev
-DTSTAMP:20261112T000000Z
-DTSTART:20261112T211500Z
-DTEND:20261112T224500Z
-SUMMARY:🏑 Sub-19 🏑 Sporting CP vs AE Fisica D
-LOCATION:Pavilhão do Sacavenense ( Hóquei Formação SCP)
-DESCRIPTION:Sporting CP vs AE Fisica D\nCAMP. REG. SUB-19 - 1ª FASE · Sé
- rie B · SUB-19\nPAV.G.S.SACAVENENSE\nhttps://hoquei.pages.dev/jogo/9856\n
- Dados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9856
-END:VEVENT
-BEGIN:VEVENT
-UID:jogo-9850@hoquei.pages.dev
-DTSTAMP:20261115T000000Z
-DTSTART:20261115T150000Z
-DTEND:20261115T163000Z
-SUMMARY:🏑 Sub-19 🏑 AE Fisica D vs GD Sesimbra
-LOCATION:Fisica Torres Vedras
-DESCRIPTION:AE Fisica D vs GD Sesimbra\nCAMP. REG. SUB-19 - 1ª FASE · Sé
- rie B · SUB-19\nPAV. FÍSICA TORRES VEDRAS\nhttps://hoquei.pages.dev/jogo
- /9850\nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9850
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9852@hoquei.pages.dev
 DTSTAMP:20261122T000000Z
 DTSTART:20261122T180000Z

@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-10016@hoquei.pages.dev
-DTSTAMP:20261114T000000Z
-DTSTART:20261114T144500Z
-DTEND:20261114T161500Z
-SUMMARY:🏑 Benjamins 🏑 A Stuart HCM vs CD Paço Arcos A
-LOCATION:Pavilhão João Campelo - A. Stuart Hóquei Clube de Massamá
-DESCRIPTION:A Stuart HCM vs CD Paço Arcos A\nENCONTROS DISTRITAIS BENJAMIN
- S - 1ª FASE NIVEL I · Série A · BENJAMINS\nPAV.PROF.JOÃO CAMPELO\nhtt
- ps://hoquei.pages.dev/jogo/10016\nDados da Associação de Patinagem de Li
- sboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/10016
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-10018@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T150000Z

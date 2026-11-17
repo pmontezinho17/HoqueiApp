@@ -1,0 +1,932 @@
+{
+ "id": 10016,
+ "competicao": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I - SERIE A",
+ "casa": "A STUART HCM",
+ "fora": "CD PAÇO ARCOS A",
+ "golos_casa": 3,
+ "golos_fora": 3,
+ "estado": "Jogo Terminado",
+ "data": "2026-11-14",
+ "hora": "14:45:00",
+ "recinto": "PAV.PROF.JOÃO CAMPELO",
+ "arbitros": [
+  "JOAO VENTURA"
+ ],
+ "faltas": [
+  0,
+  0
+ ],
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
+ "equipas": [
+  {
+   "nome": "A STUART HCM",
+   "jogadores": [
+    {
+     "numero": "98",
+     "nome": "HENRIQUE FRANCISCO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "2",
+     "nome": "FRANCISCO FORMIGA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "EMANUEL VAZ",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "12",
+     "nome": "SANTIAGO SANTOS",
+     "titular": true,
+     "golos": 3,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "19",
+     "nome": "SARA DIAS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "21",
+     "nome": "DINIS COSTA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "25",
+     "nome": "AFONSO LEITAO",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "80",
+     "nome": "VICENTE BARROS",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "JOSE BARROS",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "PEDRO BAPTISTA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "T"
+    },
+    {
+     "numero": null,
+     "nome": "GABRIELA SILVA",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "MAS"
+    }
+   ]
+  },
+  {
+   "nome": "CD PAÇO ARCOS A",
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "ANTÓNIO ANDRADE",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "2",
+     "nome": "RAÚL VILÃO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "PACO TAVARES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "5",
+     "nome": "RICARDO SANTOS",
+     "titular": true,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "6",
+     "nome": "MIGUEL PAULINO",
+     "titular": true,
+     "golos": 2,
+     "assistencias": 1,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "DINIS NEVES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "MARGARIDA VALENTE",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "9",
+     "nome": "AFONSO RODRIGUES",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "JOSÉ NEVES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "CLAUDIO VENANCIO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "T"
+    }
+   ]
+  }
+ ],
+ "cronologia": [
+  {
+   "ordem": 0,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 1,
+   "minuto": 0,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 1ª Parte"
+  },
+  {
+   "ordem": 1,
+   "tipo": "golo",
+   "relogio": "3:40",
+   "parte": 1,
+   "minuto": 4,
+   "equipa": "CD PAÇO ARCOS A",
+   "jogador": "RICARDO SANTOS",
+   "assistencia": "MIGUEL PAULINO",
+   "variante": null,
+   "numero": null,
+   "golos_casa": 0,
+   "golos_fora": 1,
+   "texto": "Golo para CD PAÇO ARCOS A | RICARDO SANTOS | Assistência por MIGUEL PAULINO"
+  },
+  {
+   "ordem": 2,
+   "tipo": "golo",
+   "relogio": "2:55",
+   "parte": 1,
+   "minuto": 5,
+   "equipa": "A STUART HCM",
+   "jogador": "SANTIAGO SANTOS",
+   "assistencia": "DINIS COSTA",
+   "variante": null,
+   "numero": null,
+   "golos_casa": 1,
+   "golos_fora": 1,
+   "texto": "Golo para A STUART HCM | SANTIAGO SANTOS | Assistência por DINIS COSTA"
+  },
+  {
+   "ordem": 3,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 1,
+   "minuto": 8,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 1ª parte"
+  },
+  {
+   "ordem": 4,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 2,
+   "minuto": 8,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 2ª parte"
+  },
+  {
+   "ordem": 5,
+   "tipo": "golo",
+   "relogio": "6:32",
+   "parte": 2,
+   "minuto": 9,
+   "equipa": "A STUART HCM",
+   "jogador": "SANTIAGO SANTOS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 2,
+   "golos_fora": 1,
+   "texto": "Golo para A STUART HCM | SANTIAGO SANTOS"
+  },
+  {
+   "ordem": 6,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 2,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 2ª parte"
+  },
+  {
+   "ordem": 7,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 3ª parte"
+  },
+  {
+   "ordem": 8,
+   "tipo": "golo",
+   "relogio": "7:51",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": "CD PAÇO ARCOS A",
+   "jogador": "MIGUEL PAULINO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 2,
+   "golos_fora": 2,
+   "texto": "Golo para CD PAÇO ARCOS A | MIGUEL PAULINO"
+  },
+  {
+   "ordem": 9,
+   "tipo": "golo",
+   "relogio": "2:43",
+   "parte": 3,
+   "minuto": 21,
+   "equipa": "CD PAÇO ARCOS A",
+   "jogador": "MIGUEL PAULINO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 2,
+   "golos_fora": 3,
+   "texto": "Golo para CD PAÇO ARCOS A | MIGUEL PAULINO"
+  },
+  {
+   "ordem": 10,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 3,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 3ª parte"
+  },
+  {
+   "ordem": 11,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 4ª parte"
+  },
+  {
+   "ordem": 12,
+   "tipo": "golo",
+   "relogio": "5:48",
+   "parte": 4,
+   "minuto": 26,
+   "equipa": "A STUART HCM",
+   "jogador": "SANTIAGO SANTOS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 3,
+   "golos_fora": 3,
+   "texto": "Golo para A STUART HCM | SANTIAGO SANTOS"
+  },
+  {
+   "ordem": 13,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 4,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
+  }
+ ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "JOAO VENTURA",
+   "Árbitro Auxiliar": "FERNANDO TAVARES",
+   "Cronometrista": "NUNO COSTA",
+   "Diretor de campo": "JOSE ROCHA",
+   "Gestor de segurança": "JOANA POTRA"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 2,
+    "fora": 1
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 1,
+    "fora": 2
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 3,
+    "fora": 3
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   0,
+   0
+  ],
+  "inicio": [
+   "14:45",
+   "15:10"
+  ],
+  "termo": [
+   "15:05",
+   "15:35"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
+ "merito": [
+  {
+   "equipa": "A STUART HCM",
+   "atletas": 8,
+   "guardas_redes": 1,
+   "participantes": 8,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -1,
+   "total": 8,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "8 atletas participantes",
+     "pontos": 8
+    },
+    {
+     "regra": "3.3",
+     "texto": "mesmo número de golos",
+     "pontos": 1
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "CD PAÇO ARCOS A",
+   "atletas": 8,
+   "guardas_redes": 1,
+   "participantes": 8,
+   "completa": false,
+   "bonificacao": 9,
+   "penalizacao": -1,
+   "total": 8,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "8 atletas participantes",
+     "pontos": 8
+    },
+    {
+     "regra": "3.3",
+     "texto": "mesmo número de golos",
+     "pontos": 1
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    }
+   ],
+   "avisos": []
+  }
+ ],
+ "em_pista": [
+  {
+   "equipa": "A STUART HCM",
+   "atletas": [
+    {
+     "numero": "98",
+     "nome": "HENRIQUE FRANCISCO",
+     "gr": true,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "2",
+     "nome": "FRANCISCO FORMIGA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "10",
+     "nome": "EMANUEL VAZ",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "12",
+     "nome": "SANTIAGO SANTOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      1,
+      1,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "19",
+     "nome": "SARA DIAS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "21",
+     "nome": "DINIS COSTA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "25",
+     "nome": "AFONSO LEITAO",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "80",
+     "nome": "VICENTE BARROS",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS A",
+   "atletas": [
+    {
+     "numero": "1",
+     "nome": "ANTÓNIO ANDRADE",
+     "gr": true,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "2",
+     "nome": "RAÚL VILÃO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "4",
+     "nome": "PACO TAVARES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "5",
+     "nome": "RICARDO SANTOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      1,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "6",
+     "nome": "MIGUEL PAULINO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      2,
+      0
+     ]
+    },
+    {
+     "numero": "7",
+     "nome": "DINIS NEVES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "8",
+     "nome": "MARGARIDA VALENTE",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "9",
+     "nome": "AFONSO RODRIGUES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
+ "competicao_id": 465,
+ "categoria": "BENJAMINS",
+ "jornada": "8ª JORNADA",
+ "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-i",
+ "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL I",
+ "serie": "A"
+}

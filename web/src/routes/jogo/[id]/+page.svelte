@@ -57,7 +57,7 @@
 	 *
 	 * **Dizê-lo é metade da correcção.** Sem isto a página ficava correcta e muda: quem
 	 * entrasse num jogo de amanhã via as equipas e a hora e não entendia porque é que não
-	 * havia onze nem cronologia. O que falta não é um erro, é uma coisa que ainda não
+	 * havia equipas nem cronologia. O que falta não é um erro, é uma coisa que ainda não
 	 * aconteceu, e isso explica-se numa linha.
 	 */
 	const semFicha = $derived(!!data.semFicha);
@@ -478,13 +478,17 @@
 </div>
 
 <!-- No separador do directo esta nota não vem a propósito nenhum: quem está a ver o jogo não
-     está à espera do onze, e a frase aparecia por cima do vídeo. -->
+     está à espera das equipas, e a frase aparecia por cima do vídeo.
+
+     **"As equipas" e não "o onze".** A frase dizia "o onze" desde 09/10/2026, e quem a leu a
+     07/11 escreveu-nos a pedir a troca: onze é o futebol, no hóquei em patins jogam cinco, e
+     para quem é do meio a palavra soa a erro (registo #43 do `ok4sticks-sugestoes`). -->
 {#if semFicha && tab !== 'directo'}
 	<p class="semFicha">
 		{#if f.golos_casa !== null}
 			A ficha deste jogo não foi publicada pela fonte. O resultado vem da lista de jogos.
 		{:else}
-			O onze, os golos e o boletim aparecem aqui quando o jogo começar. Até lá, a fonte
+			As equipas, os golos e o boletim aparecem aqui quando o jogo começar. Até lá, a fonte
 			ainda não publicou a ficha.
 		{/if}
 	</p>

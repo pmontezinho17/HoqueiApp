@@ -1,11 +1,22 @@
 {
  "competicao_id": 462,
  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE C",
- "jogos_lidos": 14,
+ "jogos_lidos": 16,
  "jogos_sem_boletim": 0,
  "linhas": [
   {
    "posicao": 1,
+   "equipa": "PAREDE FC A",
+   "jogos": 6,
+   "participantes": 60,
+   "bonificacao": 80,
+   "penalizacao": 0,
+   "pontos": 80,
+   "media": 13.33,
+   "por_confirmar": 0
+  },
+  {
+   "posicao": 2,
    "equipa": "HC LOURINHÃ",
    "jogos": 6,
    "participantes": 60,
@@ -16,47 +27,36 @@
    "por_confirmar": 0
   },
   {
-   "posicao": 2,
-   "equipa": "PAREDE FC A",
-   "jogos": 5,
-   "participantes": 50,
-   "bonificacao": 66,
-   "penalizacao": 0,
-   "pontos": 66,
-   "media": 13.2,
-   "por_confirmar": 0
-  },
-  {
    "posicao": 3,
    "equipa": "CRIAR-T GD",
-   "jogos": 6,
-   "participantes": 57,
-   "bonificacao": 69,
+   "jogos": 7,
+   "participantes": 67,
+   "bonificacao": 80,
    "penalizacao": -3,
-   "pontos": 66,
+   "pontos": 77,
    "media": 11.0,
    "por_confirmar": 0
   },
   {
    "posicao": 4,
    "equipa": "A STUART HCM A",
-   "jogos": 6,
-   "participantes": 52,
-   "bonificacao": 61,
-   "penalizacao": -6,
-   "pontos": 55,
-   "media": 9.17,
+   "jogos": 7,
+   "participantes": 61,
+   "bonificacao": 73,
+   "penalizacao": -7,
+   "pontos": 66,
+   "media": 9.43,
    "por_confirmar": 0
   },
   {
    "posicao": 5,
    "equipa": "APAC TOJAL",
-   "jogos": 5,
-   "participantes": 48,
-   "bonificacao": 51,
+   "jogos": 6,
+   "participantes": 58,
+   "bonificacao": 62,
    "penalizacao": -2,
-   "pontos": 49,
-   "media": 9.8,
+   "pontos": 60,
+   "media": 10.0,
    "por_confirmar": 0
   }
  ]

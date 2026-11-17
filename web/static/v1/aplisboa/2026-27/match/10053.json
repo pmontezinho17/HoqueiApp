@@ -1,0 +1,1482 @@
+{
+ "id": 10053,
+ "competicao": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II - SERIE B",
+ "casa": "S ALENQUER BENFICA",
+ "fora": "CD PAÇO ARCOS B",
+ "golos_casa": 41,
+ "golos_fora": 0,
+ "estado": "Jogo Terminado",
+ "data": "2026-11-14",
+ "hora": "15:30:00",
+ "recinto": "PAV.S.ALENQUER E BENFICA",
+ "arbitros": [
+  "MARTIM GONÇALVES"
+ ],
+ "faltas": [
+  0,
+  1
+ ],
+ "situacao": "Jogo Terminado",
+ "periodo": null,
+ "relogio": null,
+ "equipas": [
+  {
+   "nome": "S ALENQUER BENFICA",
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "SANTIAGO GONÇALVES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "17",
+     "nome": "MATEUS MARQUES",
+     "titular": true,
+     "golos": 12,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "25",
+     "nome": "NUNO PEREIRA",
+     "titular": false,
+     "golos": 2,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "27",
+     "nome": "DINIS GOMES",
+     "titular": false,
+     "golos": 4,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "34",
+     "nome": "LOURENÇO PEREIRA",
+     "titular": false,
+     "golos": 1,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "55",
+     "nome": "DINIS TOMÉ",
+     "titular": false,
+     "golos": 2,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "67",
+     "nome": "GABRIEL HELENO",
+     "titular": true,
+     "golos": 9,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "86",
+     "nome": "LOURENÇO FERREIRA",
+     "titular": true,
+     "golos": 4,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "88",
+     "nome": "TOMÁS LUCAS",
+     "titular": true,
+     "golos": 7,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "10",
+     "nome": "JOAO VICENTE",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "ANA SERRANO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "JOÃO SERRANO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "T"
+    },
+    {
+     "numero": null,
+     "nome": "ALEXANDRE PIRES",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "MAS"
+    }
+   ]
+  },
+  {
+   "nome": "CD PAÇO ARCOS B",
+   "jogadores": [
+    {
+     "numero": "1",
+     "nome": "JOÃO PINHEIRO",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "4",
+     "nome": "LEONOR MARQUES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "5",
+     "nome": "BIANCA ALVES",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "6",
+     "nome": "GONÇALO PEREIRA",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "7",
+     "nome": "FRANCISCO TRINDADE",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": "8",
+     "nome": "TOMÁS RAMOS",
+     "titular": true,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
+     "numero": null,
+     "nome": "TATIANA ROQUE",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "D"
+    },
+    {
+     "numero": null,
+     "nome": "BRUNO CAETANO",
+     "titular": false,
+     "golos": null,
+     "assistencias": null,
+     "defesas": null,
+     "penalidades": null,
+     "livres_diretos": null,
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": "T"
+    }
+   ]
+  }
+ ],
+ "cronologia": [
+  {
+   "ordem": 0,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 1,
+   "minuto": 0,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 1ª Parte"
+  },
+  {
+   "ordem": 1,
+   "tipo": "golo",
+   "relogio": "7:40",
+   "parte": 1,
+   "minuto": 0,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "GABRIEL HELENO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 1,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | GABRIEL HELENO"
+  },
+  {
+   "ordem": 2,
+   "tipo": "golo",
+   "relogio": "7:18",
+   "parte": 1,
+   "minuto": 0,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "MATEUS MARQUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 2,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | MATEUS MARQUES"
+  },
+  {
+   "ordem": 3,
+   "tipo": "falta_equipa",
+   "relogio": "7:05",
+   "parte": 1,
+   "minuto": 0,
+   "equipa": "CD PAÇO ARCOS B",
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": 1,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Falta 1 para CD PAÇO ARCOS B"
+  },
+  {
+   "ordem": 4,
+   "tipo": "golo",
+   "relogio": "6:36",
+   "parte": 1,
+   "minuto": 1,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "LOURENÇO FERREIRA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 3,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | LOURENÇO FERREIRA"
+  },
+  {
+   "ordem": 5,
+   "tipo": "golo",
+   "relogio": "6:11",
+   "parte": 1,
+   "minuto": 1,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "MATEUS MARQUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 4,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | MATEUS MARQUES"
+  },
+  {
+   "ordem": 6,
+   "tipo": "golo",
+   "relogio": "6:04",
+   "parte": 1,
+   "minuto": 1,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "GABRIEL HELENO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 5,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | GABRIEL HELENO"
+  },
+  {
+   "ordem": 7,
+   "tipo": "golo",
+   "relogio": "5:05",
+   "parte": 1,
+   "minuto": 2,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "GABRIEL HELENO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 6,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | GABRIEL HELENO"
+  },
+  {
+   "ordem": 8,
+   "tipo": "golo",
+   "relogio": "3:08",
+   "parte": 1,
+   "minuto": 4,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "GABRIEL HELENO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 7,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | GABRIEL HELENO"
+  },
+  {
+   "ordem": 9,
+   "tipo": "golo",
+   "relogio": "2:52",
+   "parte": 1,
+   "minuto": 5,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "TOMÁS LUCAS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 8,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | TOMÁS LUCAS"
+  },
+  {
+   "ordem": 10,
+   "tipo": "golo",
+   "relogio": "2:28",
+   "parte": 1,
+   "minuto": 5,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "GABRIEL HELENO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 9,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | GABRIEL HELENO"
+  },
+  {
+   "ordem": 11,
+   "tipo": "golo",
+   "relogio": "2:10",
+   "parte": 1,
+   "minuto": 5,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "MATEUS MARQUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 10,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | MATEUS MARQUES"
+  },
+  {
+   "ordem": 12,
+   "tipo": "golo",
+   "relogio": "1:34",
+   "parte": 1,
+   "minuto": 6,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "TOMÁS LUCAS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 11,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | TOMÁS LUCAS"
+  },
+  {
+   "ordem": 13,
+   "tipo": "golo",
+   "relogio": "0:56",
+   "parte": 1,
+   "minuto": 7,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "GABRIEL HELENO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 12,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | GABRIEL HELENO"
+  },
+  {
+   "ordem": 14,
+   "tipo": "golo",
+   "relogio": "0:22",
+   "parte": 1,
+   "minuto": 7,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "GABRIEL HELENO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 13,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | GABRIEL HELENO"
+  },
+  {
+   "ordem": 15,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 1,
+   "minuto": 8,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 1ª parte"
+  },
+  {
+   "ordem": 16,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 2,
+   "minuto": 8,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 2ª parte"
+  },
+  {
+   "ordem": 17,
+   "tipo": "golo",
+   "relogio": "6:40",
+   "parte": 2,
+   "minuto": 9,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "DINIS GOMES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 14,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | DINIS GOMES"
+  },
+  {
+   "ordem": 18,
+   "tipo": "golo",
+   "relogio": "6:22",
+   "parte": 2,
+   "minuto": 9,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "DINIS GOMES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 15,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | DINIS GOMES"
+  },
+  {
+   "ordem": 19,
+   "tipo": "golo",
+   "relogio": "4:29",
+   "parte": 2,
+   "minuto": 11,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "NUNO PEREIRA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 16,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | NUNO PEREIRA"
+  },
+  {
+   "ordem": 20,
+   "tipo": "golo",
+   "relogio": "4:01",
+   "parte": 2,
+   "minuto": 11,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "NUNO PEREIRA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 17,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | NUNO PEREIRA"
+  },
+  {
+   "ordem": 21,
+   "tipo": "golo",
+   "relogio": "3:34",
+   "parte": 2,
+   "minuto": 12,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "DINIS GOMES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 18,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | DINIS GOMES"
+  },
+  {
+   "ordem": 22,
+   "tipo": "golo",
+   "relogio": "0:54",
+   "parte": 2,
+   "minuto": 15,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "DINIS TOMÉ",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 19,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | DINIS TOMÉ"
+  },
+  {
+   "ordem": 23,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 2,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 2ª parte"
+  },
+  {
+   "ordem": 24,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 3ª parte"
+  },
+  {
+   "ordem": 25,
+   "tipo": "golo",
+   "relogio": "7:54",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "MATEUS MARQUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 20,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | MATEUS MARQUES"
+  },
+  {
+   "ordem": 26,
+   "tipo": "golo",
+   "relogio": "7:44",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "GABRIEL HELENO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 21,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | GABRIEL HELENO"
+  },
+  {
+   "ordem": 27,
+   "tipo": "golo",
+   "relogio": "7:23",
+   "parte": 3,
+   "minuto": 16,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "GABRIEL HELENO",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 22,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | GABRIEL HELENO"
+  },
+  {
+   "ordem": 28,
+   "tipo": "golo",
+   "relogio": "6:29",
+   "parte": 3,
+   "minuto": 17,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "MATEUS MARQUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 23,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | MATEUS MARQUES"
+  },
+  {
+   "ordem": 29,
+   "tipo": "golo",
+   "relogio": "6:23",
+   "parte": 3,
+   "minuto": 17,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "MATEUS MARQUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 24,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | MATEUS MARQUES"
+  },
+  {
+   "ordem": 30,
+   "tipo": "golo",
+   "relogio": "6:02",
+   "parte": 3,
+   "minuto": 17,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "MATEUS MARQUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 25,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | MATEUS MARQUES"
+  },
+  {
+   "ordem": 31,
+   "tipo": "golo",
+   "relogio": "5:20",
+   "parte": 3,
+   "minuto": 18,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "MATEUS MARQUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 26,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | MATEUS MARQUES"
+  },
+  {
+   "ordem": 32,
+   "tipo": "golo",
+   "relogio": "5:14",
+   "parte": 3,
+   "minuto": 18,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "TOMÁS LUCAS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 27,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | TOMÁS LUCAS"
+  },
+  {
+   "ordem": 33,
+   "tipo": "golo",
+   "relogio": "5:06",
+   "parte": 3,
+   "minuto": 18,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "MATEUS MARQUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 28,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | MATEUS MARQUES"
+  },
+  {
+   "ordem": 34,
+   "tipo": "golo",
+   "relogio": "4:54",
+   "parte": 3,
+   "minuto": 19,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "TOMÁS LUCAS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 29,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | TOMÁS LUCAS"
+  },
+  {
+   "ordem": 35,
+   "tipo": "golo",
+   "relogio": "4:47",
+   "parte": 3,
+   "minuto": 19,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "TOMÁS LUCAS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 30,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | TOMÁS LUCAS"
+  },
+  {
+   "ordem": 36,
+   "tipo": "golo",
+   "relogio": "4:31",
+   "parte": 3,
+   "minuto": 19,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "LOURENÇO FERREIRA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 31,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | LOURENÇO FERREIRA"
+  },
+  {
+   "ordem": 37,
+   "tipo": "golo",
+   "relogio": "3:13",
+   "parte": 3,
+   "minuto": 20,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "LOURENÇO FERREIRA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 32,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | LOURENÇO FERREIRA"
+  },
+  {
+   "ordem": 38,
+   "tipo": "golo",
+   "relogio": "3:06",
+   "parte": 3,
+   "minuto": 20,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "LOURENÇO FERREIRA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 33,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | LOURENÇO FERREIRA"
+  },
+  {
+   "ordem": 39,
+   "tipo": "golo",
+   "relogio": "2:59",
+   "parte": 3,
+   "minuto": 21,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "TOMÁS LUCAS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 34,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | TOMÁS LUCAS"
+  },
+  {
+   "ordem": 40,
+   "tipo": "golo",
+   "relogio": "2:17",
+   "parte": 3,
+   "minuto": 21,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "MATEUS MARQUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 35,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | MATEUS MARQUES"
+  },
+  {
+   "ordem": 41,
+   "tipo": "golo",
+   "relogio": "1:41",
+   "parte": 3,
+   "minuto": 22,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "MATEUS MARQUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 36,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | MATEUS MARQUES"
+  },
+  {
+   "ordem": 42,
+   "tipo": "golo",
+   "relogio": "1:11",
+   "parte": 3,
+   "minuto": 22,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "TOMÁS LUCAS",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 37,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | TOMÁS LUCAS"
+  },
+  {
+   "ordem": 43,
+   "tipo": "golo",
+   "relogio": "0:27",
+   "parte": 3,
+   "minuto": 23,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "MATEUS MARQUES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 38,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | MATEUS MARQUES"
+  },
+  {
+   "ordem": 44,
+   "tipo": "fim_parte",
+   "relogio": "0:00",
+   "parte": 3,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Final da 3ª parte"
+  },
+  {
+   "ordem": 45,
+   "tipo": "inicio_parte",
+   "relogio": "8:00",
+   "parte": 4,
+   "minuto": 24,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Início da 4ª parte"
+  },
+  {
+   "ordem": 46,
+   "tipo": "golo",
+   "relogio": "4:01",
+   "parte": 4,
+   "minuto": 27,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "LOURENÇO PEREIRA",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 39,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | LOURENÇO PEREIRA"
+  },
+  {
+   "ordem": 47,
+   "tipo": "golo",
+   "relogio": "3:35",
+   "parte": 4,
+   "minuto": 28,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "DINIS TOMÉ",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 40,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | DINIS TOMÉ"
+  },
+  {
+   "ordem": 48,
+   "tipo": "golo",
+   "relogio": "2:54",
+   "parte": 4,
+   "minuto": 29,
+   "equipa": "S ALENQUER BENFICA",
+   "jogador": "DINIS GOMES",
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": 41,
+   "golos_fora": 0,
+   "texto": "Golo para S ALENQUER BENFICA | DINIS GOMES"
+  },
+  {
+   "ordem": 49,
+   "tipo": "fim_jogo",
+   "relogio": "FIN",
+   "parte": 4,
+   "minuto": null,
+   "equipa": null,
+   "jogador": null,
+   "assistencia": null,
+   "variante": null,
+   "numero": null,
+   "golos_casa": null,
+   "golos_fora": null,
+   "texto": "Jogo Terminado"
+  }
+ ],
+ "boletim": {
+  "oficiais": {
+   "Árbitro 1 (ch. dupla)": "MARTIM GONÇALVES",
+   "Árbitro Auxiliar": "CARLA RAMOS",
+   "Cronometrista": "DIOGO GOMES",
+   "Diretor de campo": "VERA AGOSTINHO",
+   "Gestor de segurança": "João Ventura"
+  },
+  "parciais": [
+   {
+    "nome": "1ª parte",
+    "casa": 19,
+    "fora": 0
+   },
+   {
+    "nome": "2ª parte",
+    "casa": 22,
+    "fora": 0
+   },
+   {
+    "nome": "Resultado final",
+    "casa": 41,
+    "fora": 0
+   }
+  ],
+  "faltas_casa": [
+   0,
+   0
+  ],
+  "faltas_fora": [
+   1,
+   0
+  ],
+  "inicio": [
+   "15:30",
+   "16:00"
+  ],
+  "termo": [
+   "15:55",
+   "16:27"
+  ],
+  "capitao_casa": null,
+  "capitao_fora": null
+ },
+ "merito": [
+  {
+   "equipa": "S ALENQUER BENFICA",
+   "atletas": 10,
+   "guardas_redes": 2,
+   "participantes": 10,
+   "completa": true,
+   "bonificacao": 14,
+   "penalizacao": 0,
+   "total": 14,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "10 atletas participantes",
+     "pontos": 10
+    },
+    {
+     "regra": "3.2",
+     "texto": "marcou mais golos",
+     "pontos": 3
+    },
+    {
+     "regra": "3.4",
+     "texto": "equipa completa (2 GR e 8 JC)",
+     "pontos": 1
+    }
+   ],
+   "avisos": []
+  },
+  {
+   "equipa": "CD PAÇO ARCOS B",
+   "atletas": 6,
+   "guardas_redes": 1,
+   "participantes": 6,
+   "completa": false,
+   "bonificacao": 6,
+   "penalizacao": -8,
+   "total": -2,
+   "parcelas": [
+    {
+     "regra": "3.1",
+     "texto": "6 atletas participantes",
+     "pontos": 6
+    },
+    {
+     "regra": "4.1.1",
+     "texto": "apresentou 6 atletas",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.2",
+     "texto": "só um guarda-redes",
+     "pontos": -1
+    },
+    {
+     "regra": "4.1.3",
+     "texto": "2 com 3 meias partes seguidas",
+     "pontos": -2
+    },
+    {
+     "regra": "4.1.6",
+     "texto": "1 fizeram as quatro meias partes",
+     "pontos": -4
+    }
+   ],
+   "avisos": []
+  }
+ ],
+ "em_pista": [
+  {
+   "equipa": "S ALENQUER BENFICA",
+   "atletas": [
+    {
+     "numero": "1",
+     "nome": "SANTIAGO GONÇALVES",
+     "gr": true,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "17",
+     "nome": "MATEUS MARQUES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      3,
+      0,
+      9,
+      0
+     ]
+    },
+    {
+     "numero": "25",
+     "nome": "NUNO PEREIRA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      2,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "27",
+     "nome": "DINIS GOMES",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      3,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "34",
+     "nome": "LOURENÇO PEREIRA",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "55",
+     "nome": "DINIS TOMÉ",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      1,
+      0,
+      1
+     ]
+    },
+    {
+     "numero": "67",
+     "nome": "GABRIEL HELENO",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      7,
+      0,
+      2,
+      0
+     ]
+    },
+    {
+     "numero": "86",
+     "nome": "LOURENÇO FERREIRA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      1,
+      0,
+      3,
+      0
+     ]
+    },
+    {
+     "numero": "88",
+     "nome": "TOMÁS LUCAS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      ""
+     ],
+     "golos": [
+      2,
+      0,
+      5,
+      0
+     ]
+    },
+    {
+     "numero": "10",
+     "nome": "JOAO VICENTE",
+     "gr": true,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "equipa": "CD PAÇO ARCOS B",
+   "atletas": [
+    {
+     "numero": "1",
+     "nome": "JOÃO PINHEIRO",
+     "gr": true,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "4",
+     "nome": "LEONOR MARQUES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "5",
+     "nome": "BIANCA ALVES",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      ""
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "6",
+     "nome": "GONÇALO PEREIRA",
+     "gr": false,
+     "marcas": [
+      "X",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "7",
+     "nome": "FRANCISCO TRINDADE",
+     "gr": false,
+     "marcas": [
+      "",
+      "X",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "numero": "8",
+     "nome": "TOMÁS RAMOS",
+     "gr": false,
+     "marcas": [
+      "X",
+      "",
+      "X",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
+ "competicao_id": 466,
+ "categoria": "BENJAMINS",
+ "jornada": "7ª JORNADA",
+ "grupo_id": "benjamins--encontros-distritais-benjamins-1-fase-nivel-ii",
+ "grupo_nome": "ENCONTROS DISTRITAIS BENJAMINS - 1ª FASE NIVEL II",
+ "serie": "B"
+}

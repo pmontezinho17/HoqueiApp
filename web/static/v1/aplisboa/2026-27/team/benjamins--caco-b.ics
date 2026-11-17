@@ -9,19 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-10079@hoquei.pages.dev
-DTSTAMP:20261114T000000Z
-DTSTART:20261114T170000Z
-DTEND:20261114T183000Z
-SUMMARY:🏑 Benjamins 🏑 Caco B vs Sporting CP
-LOCATION:Clube Atlético de Campo de Ourique (CACO)
-DESCRIPTION:Caco B vs Sporting CP\nENCONTROS DISTRITAIS BENJAMINS - 1ª FAS
- E NIVEL II · Série C · BENJAMINS\nPAV.C.A.C.OURIQUE\nhttps://hoquei.pag
- es.dev/jogo/10079\nDados da Associação de Patinagem de Lisboa. Site não
-  oficial.
-URL:https://hoquei.pages.dev/jogo/10079
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-10083@hoquei.pages.dev
 DTSTAMP:20261121T000000Z
 DTSTART:20261121T090000Z

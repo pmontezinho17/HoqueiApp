@@ -1,8 +1,8 @@
 {
  "competicao_id": 460,
  "nome": "ENCONTROS DISTRITAIS ESCOLARES - 1ª FASE NIVEL I - SERIE A",
- "jogos_lidos": 7,
- "jogos_sem_boletim": 1,
+ "jogos_lidos": 8,
+ "jogos_sem_boletim": 0,
  "linhas": [
   {
    "posicao": 1,
@@ -18,12 +18,12 @@
   {
    "posicao": 2,
    "equipa": "SPORTING CP A",
-   "jogos": 3,
-   "participantes": 30,
-   "bonificacao": 39,
+   "jogos": 4,
+   "participantes": 40,
+   "bonificacao": 53,
    "penalizacao": 0,
-   "pontos": 39,
-   "media": 13.0,
+   "pontos": 53,
+   "media": 13.25,
    "por_confirmar": 0
   },
   {
@@ -40,12 +40,12 @@
   {
    "posicao": 4,
    "equipa": "S ALENQUER BENFICA",
-   "jogos": 3,
-   "participantes": 29,
-   "bonificacao": 31,
+   "jogos": 4,
+   "participantes": 39,
+   "bonificacao": 42,
    "penalizacao": -10,
-   "pontos": 21,
-   "media": 7.0,
+   "pontos": 32,
+   "media": 8.0,
    "por_confirmar": 0
   }
  ]
