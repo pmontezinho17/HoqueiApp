@@ -28,6 +28,26 @@ def id_do_logo(url: str | None) -> str | None:
     return m.group(1) if m else None
 
 
+#: A associação cujos emblemas ficam com o número da fonte, sem prefixo. É a que já estava
+#: publicada antes de haver uma segunda fonte, e as apps em cache conhecem esses caminhos.
+FONTE_ORIGINAL = "aplisboa"
+
+
+def chave_do_emblema(id_logo: str, tenant: str) -> str:
+    """O nome do ficheiro do emblema na nossa origem.
+
+    **Cada fonte numera os seus emblemas, e os números repetem-se.** A APL e a FPP correm o
+    mesmo programa com bases de dados separadas: os 31 emblemas da APL publicados a
+    12/11/2026 são `0.webp` a `9x.webp`, e os da FPP começam também nos números pequenos. Sem
+    prefixo, o emblema de um clube do Placard substituía o de um clube da APL com o mesmo
+    número, e os dois ecrãs mostravam o errado.
+
+    A APL fica sem prefixo porque os caminhos dela já estão no contrato `/v1` que os
+    telemóveis têm em cache. As outras fontes ganham o nome à frente: `fpp-12`.
+    """
+    return id_logo if tenant == FONTE_ORIGINAL else f"{tenant}-{id_logo}"
+
+
 def caminho_publico(id_logo: str) -> str:
     return f"/emblemas/{id_logo}.webp"
 
