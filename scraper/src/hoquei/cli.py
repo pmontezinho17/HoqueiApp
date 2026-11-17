@@ -27,7 +27,7 @@ from .tabela import calcular, calcular_de_json, vale_calcular
 from .parsers.competicoes import competicoes, temporadas
 from .parsers.jogo import ficha
 from .privacidade import anonimizar_ficha, escalao_permite_individual
-from .emblemas import caminho_publico, chave_do_emblema, garantir, id_do_logo
+from .emblemas import caminho_publico, chave_do_emblema, corrigir_emblemas, garantir, id_do_logo
 from .inquilinos import categoria_publicada
 from .grupos import identificar
 from .ics import feed, nome_ficheiro
@@ -1179,7 +1179,7 @@ def comando_publicar(args) -> int:
     # mapa nome→emblema: a agenda e a classificação precisam do emblema sem carregar
     # o ficheiro de cada competição
     (destino / "emblemas.json").write_text(
-        json.dumps(emblema_da_equipa, ensure_ascii=False, indent=1))
+        json.dumps(corrigir_emblemas(emblema_da_equipa, args.tenant), ensure_ascii=False, indent=1))
 
     agenda.sort(key=lambda j: (j["data"], j["hora"] or "99:99"))
     # Um jogo por disputar só é clicável na app se houver ficha para mostrar. A app não

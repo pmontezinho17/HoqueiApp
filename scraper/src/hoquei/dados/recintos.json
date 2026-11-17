@@ -127,5 +127,31 @@
       "morada": "Pavilhão João Rocha",
       "jogos": 1
     }
+  },
+  "_outros_nomes_leia_me": [
+    "Outros nomes do mesmo recinto → o nome com que está na lista de cima.",
+    "A FPP e a APL chamam ao mesmo pavilhão coisas diferentes ('PAV. AD OEIRAS' e 'PAV. A.D.OEIRAS').",
+    "Os pares óbvios juntaram-se a 17/11/2026; os outros foram confirmados um a um pelo dono nesse dia.",
+    "Um nome aqui herda a morada do de cima, e só essa: nunca se escreve uma morada nova nesta secção."
+  ],
+  "outros_nomes": {
+    "PAV. AD OEIRAS": "PAV. A.D.OEIRAS",
+    "PAV. DE TOJAL": "PAV. A.P.A.C.TOJAL",
+    "PAV. GIMNODESPORTIVO DE PAÇO DE ARCOS": "PAV. PAÇO DE ARCOS",
+    "PAV. GD SESIMBRA": "PAV. SESIMBRA",
+    "PAV. DESP. MURCHES": "PAV. MURCHES",
+    "PAV. UD VILAFRANQUENSE": "PAV. VILAFRANQUENSE",
+    "PAV. SINTRA": "PAV. HC SINTRA",
+    "PAV. JUV. SALESIANA": "PAV. SALESIANA",
+    "PAV. DO SPORT GRUPO SACAVENENSE": "PAV.G.S.SACAVENENSE",
+    "PAV. DA FISICA": "PAV. FÍSICA TORRES VEDRAS",
+    "PAV. DR. JOSE MARIA ANTUNES JUNIOR": "PAV. FÍSICA TORRES VEDRAS",
+    "PAV. BIR": "PAV. VALADO DE FRADES",
+    "PAV. ESC. SEC. FERNANDO LOPES GRAÇA": "PAV. PAREDE",
+    "PAV. ZECA CARMO E JOAO LOTA": "PAV.S.ALENQUER E BENFICA",
+    "PAV. DO CRIART": "PAV.MUNI.LEONEL FERNANDES-G.D.CRIAR-T",
+    "PAV. VASCO DA GAMA": "PAV. SINES",
+    "PAV. MASSAMA": "PAV.PROF.JOÃO CAMPELO",
+    "PAV. JOAO ROCHA": "PAVILHÃO JOÃO ROCHA"
   }
 }

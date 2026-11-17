@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it } from 'vitest';
-import { juntarFontes } from './fontes';
+import { juntarFontes, MESMO_CLUBE } from './fontes';
 import {
 	caminhoJogo,
 	daCompeticao,
@@ -96,5 +96,29 @@ describe('os números das duas fontes não se cruzam', () => {
 		const f = ler('fpp', 'agenda.json').jogos.map((j: JogoAgenda) => j.id).filter(Boolean);
 		expect(f.length).toBeGreaterThan(100);
 		expect(f.filter((id: number) => a.has(id))).toEqual([]);
+	});
+});
+
+describe('os clubes que a FPP escreve de outra maneira', () => {
+	const ler = (fonte: string) => {
+		const u = new URL(`../../static/v1/${fonte}/2026-27/emblemas.json`, import.meta.url);
+		return existsSync(u) ? (JSON.parse(readFileSync(u, 'utf-8')) as Record<string, string>) : null;
+	};
+
+	it('cada um herda o emblema do clube da APL, e por isso junta-se a ele', () => {
+		const apl = { competicoes: [], agenda: [], equipas: [], emblemas: { 'HC SINTRA': '/emblemas/8.webp' } };
+		const fpp = { competicoes: [], agenda: [], equipas: [],
+			emblemas: { 'HC SINTRA/PLANTA LIVRE': '/emblemas/fpp-71.webp' } };
+		expect(juntarFontes(apl, fpp).emblemas['HC SINTRA/PLANTA LIVRE']).toBe('/emblemas/8.webp');
+	});
+
+	it.skipIf(!ler('aplisboa'))('o clube da APL de cada um existe e tem emblema', () => {
+		const apl = ler('aplisboa')!;
+		for (const [fpp, nome] of Object.entries(MESMO_CLUBE)) expect(apl[nome], `${fpp} → ${nome}`).toBeTruthy();
+	});
+
+	it.skipIf(!ler('fpp'))('cada nome da FPP existe nos dados dela', () => {
+		const fpp = ler('fpp')!;
+		for (const nome of Object.keys(MESMO_CLUBE)) expect(fpp[nome], nome).toBeTruthy();
 	});
 });
