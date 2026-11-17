@@ -18,6 +18,26 @@ NOMES = {
 }
 
 
+#: **O nome com que cada categoria da fonte aparece na app.** A FPP chama às divisões
+#: `CAMPEONATO NACIONAL 2ª DIVISAO`, sem acento e com o nome da prova lá dentro: num cartão de
+#: 375 px eram quatro linhas, e numa página de equipa repetia o que o título da prova já diz. A
+#: tradução acontece **à entrada**, antes de qualquer ficheiro ser escrito, para todos os ecrãs —
+#: e os slugs, os `grupo_id` e os calendários — verem o mesmo nome. O filtro `--categorias`
+#: continua a usar o nome da fonte, que é o que não muda de época para época.
+CATEGORIAS: dict[str, dict[str, str]] = {
+    "fpp": {
+        "CAMPEONATO NACIONAL 1ª DIVISAO": "1.ª DIVISÃO",
+        "CAMPEONATO NACIONAL 2ª DIVISAO": "2.ª DIVISÃO",
+        "CAMPEONATO NACIONAL 3ª DIVISAO": "3.ª DIVISÃO",
+    },
+}
+
+
+def categoria_publicada(tenant: str, categoria: str) -> str:
+    """O nome da categoria na app. Uma que não esteja na lista fica como a fonte a dá."""
+    return CATEGORIAS.get(tenant, {}).get(categoria.strip().upper(), categoria)
+
+
 def prefixo(tenant: str) -> str:
     """`""` para a APL, `"fpp-"` para a FPP. Antecede ids de jogo e de emblema."""
     return "" if tenant == ORIGINAL else f"{tenant}-"

@@ -116,12 +116,15 @@ def site_so_estaticos(url: str, metodo: str = "GET", corpo: bytes | None = None)
     raise AssertionError(url)
 
 
-def correr(vp, monkeypatch, site, tentativas=1, base=None):
+def correr(vp, monkeypatch, site, tentativas=1, base=None, ligas=False):
     """Por omissão finge ser **produção**: é lá que todas as verificações se aplicam.
 
     A da consola salta-se fora de produção de propósito — ver o `consola_viva` —, e um teste
     que corresse contra um anfitrião qualquer estaria a medir menos do que diz.
     """
+    # **Sem a FPP por omissão**, para o resultado não depender de haver uma leitura local da
+    # FPP na árvore de quem corre os testes. Os testes dela ligam-na à mão.
+    monkeypatch.setattr(vp, "_publicou_ligas", lambda: ligas)
     monkeypatch.setattr(vp, "_pedir", site)
     return vp.verificar(base or vp.PRODUCAO, tentativas=tentativas, dormir=lambda _s: None)
 
@@ -339,8 +342,7 @@ class TestAsTentativas:
         def site(url: str, metodo: str = "GET", corpo: bytes | None = None):
             raise OSError("sem DNS")
         # com a FPP no envio, para a verificação dela também ir à rede (sem ela não pede nada)
-        monkeypatch.setattr(vp, "_publicou_ligas", lambda: True)
-        falhas = correr(vp, monkeypatch, site, tentativas=1)
+        falhas = correr(vp, monkeypatch, site, tentativas=1, ligas=True)
         assert len(falhas) == len(vp.VERIFICACOES)
         assert all("não se conseguiu verificar" in f for f in falhas)
 

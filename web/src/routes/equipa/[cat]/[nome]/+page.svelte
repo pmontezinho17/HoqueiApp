@@ -361,7 +361,7 @@
 			<div class="subscrever" data-guia="equipa-calendario">
 				<AdicionarCalendario
 					equipa={data.equipa} categoria={data.categoria} {jogos}
-					recintos={data.recintos} />
+					recintos={data.recintos} inq={data.inq} />
 			</div>
 		{:else if a === 'classificacao' && oQueMostrar === 'merito'}
 			<!-- Nos Escolares e nos Benjamins a classificação **é** o Mérito. Uma tabela por série em

@@ -1,4 +1,5 @@
 import { carregarCompeticao, carregarMerito, carregarQuadro } from '$lib/dados';
+import { ORIGINAL } from '$lib/inquilinos';
 import { slug } from '$lib/slug';
 import { error } from '@sveltejs/kit';
 import type { EquipaIndice } from '$lib/tipos';
@@ -31,5 +32,5 @@ export const load: PageLoad = async ({ params, fetch, parent }) => {
 			};
 		})
 	);
-	return { equipa: alvo.equipa, categoria: alvo.categoria, provas };
+	return { equipa: alvo.equipa, categoria: alvo.categoria, inq: alvo.inq ?? ORIGINAL, provas };
 };

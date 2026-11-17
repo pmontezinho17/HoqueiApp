@@ -5,6 +5,7 @@
 """
 from __future__ import annotations
 
+from dataclasses import replace
 import argparse
 import json
 import pathlib
@@ -27,6 +28,7 @@ from .parsers.competicoes import competicoes, temporadas
 from .parsers.jogo import ficha
 from .privacidade import anonimizar_ficha, escalao_permite_individual
 from .emblemas import caminho_publico, chave_do_emblema, garantir, id_do_logo
+from .inquilinos import categoria_publicada
 from .grupos import identificar
 from .ics import feed, nome_ficheiro
 from .recintos import conhecidas
@@ -75,8 +77,10 @@ def _tudo(fonte: Fonte, id_temp: int, com_classificacao: bool = False,
     ou se um resultado mudou, por isso a decisão vem **depois** de o ler e antes do segundo
     pedido.
     """
-    provas = so_das_categorias(
-        competicoes(fonte.seccao("competiciones", id_temp=id_temp).html), categorias)
+    tenant = getattr(fonte, "tenant", "aplisboa")
+    provas = [replace(p, categoria=categoria_publicada(tenant, p.categoria))
+              for p in so_das_categorias(
+                  competicoes(fonte.seccao("competiciones", id_temp=id_temp).html), categorias)]
     for i, prova in enumerate(provas, 1):
         print(f"  [{i}/{len(provas)}] {prova.categoria} · {prova.nome}", file=sys.stderr)
         html = fonte.seccao("calendario", id_comp=prova.id, id_temp=id_temp, grupo="").html

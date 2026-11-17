@@ -68,6 +68,7 @@ def ronda(tmp_path, monkeypatch):
 
     def criar(tenant, **k):
         chamada.update(tenant=tenant, **k)
+        fonte.tenant = tenant
         return fonte
     monkeypatch.setattr(cli, "Fonte", criar)
     reais = cli.competicoes
@@ -124,6 +125,20 @@ def test_as_zonas_sao_series_e_o_placard_nao(ronda):
     assert provas[349]["serie"] == "NORTE" and provas[348]["serie"] is None
     agenda = _json(destino, "agenda.json")["jogos"]
     assert {j["comp"] for j in agenda} == {348, 349}
+
+
+def test_as_categorias_aparecem_com_o_nome_da_app_e_nao_o_da_fonte(ronda):
+    """`CAMPEONATO NACIONAL 2ª DIVISAO` são quatro linhas num cartão de 375 px; o filtro do
+    workflow usa o nome da fonte e a app recebe o seu, em todos os ficheiros."""
+    _, destino, *_ = ronda
+    cats = {c["categoria"] for c in _json(destino, "competitions.json")["competicoes"]}
+    assert cats == {"1.ª DIVISÃO", "2.ª DIVISÃO"}
+    assert {j["cat"] for j in _json(destino, "agenda.json")["jogos"]} == cats
+    assert {e["categoria"] for e in _json(destino, "teams.json")["equipas"]} == cats
+    assert {c["grupo_id"] for c in _json(destino, "competitions.json")["competicoes"]} == {
+        "1-divisao--campeonato-nacional-placard", "2-divisao--campeonato-nacional-2-divisao"}
+    # os calendários das equipas seguem o slug da categoria, como a página da equipa
+    assert (destino / "team" / "2-divisao--fc-porto-b.ics").exists()
 
 
 def test_o_meta_diz_que_a_fonte_e_a_fpp(ronda):

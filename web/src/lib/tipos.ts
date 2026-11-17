@@ -1,6 +1,15 @@
 // Espelha o contrato em docs/02-arquitetura-e-stack.md.
 
-export interface Competicao {
+import type { Inquilino } from './inquilinos';
+
+/**
+ * `inq` **não vem nos ficheiros**: é a app que o põe ao juntar as fontes (`fontes.ts`), e só nas
+ * linhas da FPP. Uma linha sem ele é da APL — que é o que todos os ficheiros publicados até
+ * 17/11/2026 são, e o que um telemóvel com uma app antiga continua a ler.
+ */
+interface DeUmaFonte { inq?: Inquilino; }
+
+export interface Competicao extends DeUmaFonte {
 	id: number; nome: string; categoria: string;
 	/** séries da mesma prova partilham `grupo_id`; `serie` é null em prova de série única */
 	grupo_id?: string; grupo_nome?: string; serie?: string | null;
@@ -296,7 +305,7 @@ export interface FicheiroMerito {
 export interface IndiceCompeticoes { temporada: number; competicoes: Competicao[]; }
 
 /** Linha da agenda transversal: campos ao mínimo, porque são ~800 numa só resposta. */
-export interface JogoAgenda {
+export interface JogoAgenda extends DeUmaFonte {
 	id: number | null;
 	data: string;
 	hora: string | null;
@@ -322,7 +331,7 @@ export interface JogoAgenda {
 }
 export interface Agenda { jogos: JogoAgenda[]; }
 
-export interface EquipaIndice { equipa: string; categoria: string; competicoes: number[]; }
+export interface EquipaIndice extends DeUmaFonte { equipa: string; categoria: string; competicoes: number[]; }
 export interface IndiceEquipas { equipas: EquipaIndice[]; }
 
 /** Seguir é por clube **e** escalão: quem segue os sub-15 não quer os seniores. */

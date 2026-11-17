@@ -4,6 +4,7 @@
 	 * `$lib/antesDoJogo.ts`; aqui só se desenha.
 	 */
 	import Emblema from '$lib/Emblema.svelte';
+	import { caminhoJogo } from '$lib/inquilinos';
 	import {
 		linhasDaDisciplina,
 		linhasDaForma,
@@ -44,7 +45,7 @@
 
 {#snippet jogo(j: JogoNaForma | null)}
 	{#if j}
-		<a href="/jogo/{j.id}" class="jogo" aria-label="{diaCurto(j.data)}: {j.casa} {j.gc}–{j.gf} {j.fora}, {NOME[j.resultado]}">
+		<a href={caminhoJogo(j.id)} class="jogo" aria-label="{diaCurto(j.data)}: {j.casa} {j.gc}–{j.gf} {j.fora}, {NOME[j.resultado]}">
 			<Emblema equipa={j.casa} src={emblemas[j.casa]} tamanho={22} />
 			<b class="r {j.resultado}">{j.gc}–{j.gf}</b>
 			<Emblema equipa={j.fora} src={emblemas[j.fora]} tamanho={22} />
@@ -115,7 +116,7 @@
 			{#each p.confrontos as j (j.id)}
 				{@const jogo = comoFoiJogado(j, p.casa.equipa)}
 				<li>
-					<a href="/jogo/{j.id}" class="confronto">
+					<a href={caminhoJogo(j.id)} class="confronto">
 						<span class="quando">{diaCurto(j.data)}{#if outraProva(j, comp)}<small>{outraProva(j, comp)}</small>{/if}</span>
 						<span class="eq casa">{jogo.casa}</span>
 						<span class="res">{jogo.gc}–{jogo.gf}</span>

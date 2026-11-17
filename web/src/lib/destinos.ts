@@ -41,6 +41,7 @@
  * jogo por disputar ficou quatro semanas sem saída nenhuma até um utilizador reparar.
  */
 
+import { caminhoJogo } from './inquilinos';
 import { caminhoEquipa } from './slug';
 import type { JogoAgenda } from './tipos';
 
@@ -63,7 +64,7 @@ import type { JogoAgenda } from './tipos';
  * um só, e é o mesmo em toda a lista.
  */
 export function destinoDoJogo(jogo: Pick<JogoAgenda, 'id'>): string | null {
-	return jogo.id ? `/jogo/${jogo.id}` : null;
+	return jogo.id ? caminhoJogo(jogo.id) : null;
 }
 
 /**
