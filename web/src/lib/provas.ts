@@ -210,7 +210,7 @@ export function semPrefixoComum(nomes: string[]): string[] {
 }
 
 /**
- * A grelha das Competições em dois blocos, **Nacional** e **Lisboa**, quando há as duas fontes.
+ * A grelha das Competições em dois blocos, **Nacional** e **APL**, quando há as duas fontes.
  *
  * O plano das ligas nacionais (`docs/11-ligas-nacionais.md`, "Como se mostra") pôs este primeiro
  * nível para quem chega à procura dos seniores do seu clube não ter de adivinhar se a 2.ª
@@ -224,6 +224,7 @@ export function porAmbito<T extends [string, Prova[]]>(lista: T[]): { titulo: st
 	const lisboa = lista.filter((x) => !nacional.includes(x));
 	return [
 		{ titulo: 'Nacional', lista: nacional },
-		...(lisboa.length ? [{ titulo: 'Lisboa', lista: lisboa }] : [])
+		// "APL" e não "Lisboa": pedido do dono a 17/11/2026, o mesmo nome do botão dos Jogos
+		...(lisboa.length ? [{ titulo: 'APL', lista: lisboa }] : [])
 	];
 }

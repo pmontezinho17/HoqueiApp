@@ -5,10 +5,11 @@
 	import PaginaDia from '$lib/PaginaDia.svelte';
 	import { afterNavigate, replaceState } from '$app/navigation';
 	import { favoritos } from '$lib/favoritos.svelte';
-	import { porEscalao } from '$lib/escaloes';
 	import { diaInicial } from '$lib/dia';
 	import { AGRUPAMENTOS, type Agrupamento } from '$lib/agrupar';
 	import Escolha from '$lib/Escolha.svelte';
+	import FitaLigas from '$lib/FitaLigas.svelte';
+	import { escolhasDaLiga, filtrarDoDia, opcoesDeLiga } from '$lib/ligas';
 	import { guia } from '$lib/guia.svelte';
 	import { caminhoEquipa } from '$lib/slug';
 	import type { JogoAgenda } from '$lib/tipos';
@@ -77,6 +78,11 @@
 	/** a altura real da fita de datas, para a barra dos filtros colar por baixo dela */
 	let alturaFita = $state(0);
 
+	/**
+	 * A liga escolhida nos botões, e a escolha da lista ao lado — o escalão na APL, a zona numa
+	 * divisão nacional. Ver `lib/ligas.ts`, onde vive a decisão e o porquê.
+	 */
+	let liga = $state<string | null>(null);
 	let escalao = $state<string | null>(null);
 	/**
 	 * Como agrupar os jogos do dia: por escalão, por hora ou por recinto.
@@ -92,6 +98,8 @@
 	const chave = (e: string, c: string) => `${c}\u0000${e}`;
 	const seguidas = $derived(new Set(favoritos.lista.map((f) => chave(f.equipa, f.categoria))));
 	const doDia = $derived(jogosDe(dia));
+	const ligas = $derived(opcoesDeLiga(doDia));
+	const escolhas = $derived(escolhasDaLiga(doDia, liga));
 
 	/**
 	 * O minuto a que vamos, para a secção dos jogos a decorrer.
@@ -108,12 +116,18 @@
 		const t = setInterval(() => (agora = Date.now()), 60_000);
 		return () => clearInterval(t);
 	});
-	// a mesma ordem dos blocos da lista, de `escaloes.ts`: estavam em dois sítios e divergiam
-	const escaloes = $derived([...new Set(doDia.map((j) => j.cat))].sort(porEscalao));
-	// ao mudar de dia o escalão escolhido pode não existir lá; o chip volta a "Todos"
+	// Ao mudar de dia a liga ou a escolha podem não existir lá; voltam a "Todos". E mudar de
+	// liga limpa a escolha: um escalão da APL não é uma zona da 2.ª divisão.
 	$effect(() => {
-		if (escalao && !escaloes.includes(escalao)) escalao = null;
+		if (liga !== null && !ligas.some((o) => o.valor === liga)) liga = null;
 	});
+	$effect(() => {
+		if (escalao !== null && !escolhas?.opcoes.some((o) => o.valor === escalao)) escalao = null;
+	});
+	const escolherLiga = (l: string | null) => {
+		liga = l;
+		escalao = null;
+	};
 
 	const eSeguida = (cat: string) => (equipa: string) => seguidas.has(chave(equipa, cat));
 
@@ -170,15 +184,28 @@
   resultado já custou caro uma vez, e os escalões deixam de estar escondidos numa fita que é
   preciso arrastar para ver que existem mais.
 
+  **E por cima delas, desde 17/11/2026, os botões das ligas** (`lib/ligas.ts`). É a fita de
+  chips de volta, mas para outra coisa: com as ligas nacionais um sábado passa a ~70 jogos, e a
+  primeira pergunta deixa de ser o escalão e passa a ser *qual campeonato*. A lista da esquerda
+  muda com a liga — escalões na APL, zonas numa divisão, nada no Placard.
+
   O `data-guia="escaloes"` fica: é o alvo de um passo do tour guiado, e sem ele o passo aponta
   para o nada.
 -->
-{#if escaloes.length}
+{#if doDia.length}
 	<div class="controlos" data-guia="escaloes" style="--fita: {alturaFita}px">
-		<Escolha rotulo="Filtrar por escalão" bind:valor={escalao} opcoes={[
-			{ valor: null, rotulo: 'Todos os escalões' },
-			...escaloes.map((e) => ({ valor: e, rotulo: e.replace('SENIORES ', 'SEN. ') }))
-		]} />
+		<!-- os botões só quando há mais do que uma liga: "Todos" e uma liga são a mesma coisa -->
+		{#if ligas.length > 2}
+			<div class="ligas">
+				<FitaLigas rotulo="Filtrar por liga" opcoes={ligas} valor={liga} escolher={escolherLiga} />
+			</div>
+		{/if}
+		{#if escolhas}
+			<Escolha rotulo={escolhas.rotulo} bind:valor={escalao} opcoes={[
+				{ valor: null, rotulo: escolhas.todos },
+				...escolhas.opcoes
+			]} />
+		{/if}
 		<Escolha rotulo="Agrupar os jogos" bind:valor={agrupamento}
 			opcoes={AGRUPAMENTOS.map((a) => ({ valor: a.id, rotulo: `Agrupar: ${a.rotulo}` }))} />
 	</div>
@@ -188,10 +215,9 @@
 	{#snippet pagina(d)}
 		<PaginaDia
 			dia={d}
-			jogos={jogosDe(d)}
+			jogos={filtrarDoDia(jogosDe(d), liga, escalao)}
 			emblemas={data.emblemas}
 			{eSeguida}
-			{escalao}
 			{agrupamento}
 			{agora}
 		/>
@@ -216,7 +242,9 @@
 	   diferentes e não chegam a sobrepor-se, mas se um dia chegarem, a ordem de quem tapa quem
 	   já está decidida. O fundo opaco e o `padding-bottom` existem para os jogos não
 	   aparecerem por baixo da barra enquanto passam. */
+	.ligas { flex: 0 0 100%; min-width: 0; }
 	.controlos {
+		flex-wrap: wrap;
 		position: sticky;
 		top: calc(var(--topo, 60px) + var(--fita, 44px));
 		z-index: 7;
