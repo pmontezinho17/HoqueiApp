@@ -28,9 +28,7 @@ def id_do_logo(url: str | None) -> str | None:
     return m.group(1) if m else None
 
 
-#: A associação cujos emblemas ficam com o número da fonte, sem prefixo. É a que já estava
-#: publicada antes de haver uma segunda fonte, e as apps em cache conhecem esses caminhos.
-FONTE_ORIGINAL = "aplisboa"
+from .inquilinos import prefixo
 
 
 def chave_do_emblema(id_logo: str, tenant: str) -> str:
@@ -45,7 +43,7 @@ def chave_do_emblema(id_logo: str, tenant: str) -> str:
     A APL fica sem prefixo porque os caminhos dela já estão no contrato `/v1` que os
     telemóveis têm em cache. As outras fontes ganham o nome à frente: `fpp-12`.
     """
-    return id_logo if tenant == FONTE_ORIGINAL else f"{tenant}-{id_logo}"
+    return f"{prefixo(tenant)}{id_logo}"
 
 
 def caminho_publico(id_logo: str) -> str:

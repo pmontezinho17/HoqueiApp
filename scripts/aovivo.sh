@@ -96,6 +96,37 @@ actualizar_dados_commitados() {
   DADOS_NOVOS=1
 }
 
+# **E as árvores que este ciclo não escreve, que são as mesmas contas de 05/10 com outro nome.**
+#
+# Desde as ligas nacionais (`docs/11-ligas-nacionais.md`) o `web/static/v1` tem uma segunda
+# árvore, a da FPP, que só o `dados.yml` escreve. O `publicar` abaixo copia o `v1` **inteiro**
+# para o build; sem isto copiava a FPP tal como estava no arranque, e de 30 em 30 segundos
+# repunha os resultados nacionais de há três horas por cima dos que o `dados.yml` acabou de
+# commitar. O mesmo para os emblemas: um emblema novo commitado a meio da janela não chegava
+# ao site até ao ciclo seguinte.
+#
+# Aqui não há dados locais a proteger — o ciclo nunca escreve nestas pastas —, por isso
+# traz-se o que estiver no `origin/main` sem reiniciar a contagem das rondas.
+#
+# Dois vectores paralelos e não um `declare -A`: o script também corre à mão num Mac, e o bash
+# do macOS é o 3.2, que não tem vectores associativos.
+OUTRAS_ARVORES=(web/static/v1/fpp web/static/emblemas)
+SHA_OUTRAS=()
+for i in "${!OUTRAS_ARVORES[@]}"; do
+  SHA_OUTRAS[$i]=$(git rev-parse "HEAD:${OUTRAS_ARVORES[$i]}" 2>/dev/null || true)
+done
+
+actualizar_outras_arvores() {
+  local i sha
+  for i in "${!OUTRAS_ARVORES[@]}"; do
+    sha=$(git rev-parse "origin/main:${OUTRAS_ARVORES[$i]}" 2>/dev/null) || continue
+    [ "$sha" = "${SHA_OUTRAS[$i]}" ] && continue
+    echo "    ${OUTRAS_ARVORES[$i]} mudou em origin/main — a trazer"
+    git checkout -q "origin/main" -- "${OUTRAS_ARVORES[$i]}" || continue
+    SHA_OUTRAS[$i]=$sha
+  done
+}
+
 #: Quantas publicações do ciclo passam entre duas verificações do site publicado.
 #:
 #: **Não é a cada uma, e a razão é aritmética.** A 11/10/2026 houve 809 publicações num dia; a
@@ -108,6 +139,7 @@ publicacoes=0
 publicar() {
   # `/.` copia o conteúdo: sem isso o `cp -R` aninha e cria build/v1/v1
   cp -R web/static/v1/. web/build/v1/ || return 1
+  cp -R web/static/emblemas/. web/build/emblemas/ || return 1
   (cd web && npx wrangler pages deploy build \
       --project-name hoquei --branch main >/dev/null 2>&1) || return 1
 
@@ -133,6 +165,7 @@ while [ "$(date +%s)" -lt "$fim" ]; do
   git fetch -q origin main 2>/dev/null
   reconstruir_se_houver_codigo_novo
   actualizar_dados_commitados
+  actualizar_outras_arvores
   # A ronda que vem logo depois de chegarem dados novos conta como a primeira: é nas rondas
   # `1 mod 10` que o comando vai buscar os jogos de hoje que ficaram sem resultado, e é
   # precisamente depois de trocar a base que isso faz falta.

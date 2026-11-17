@@ -281,3 +281,20 @@ class TestDominioDoUid:
             assert "https://exemplo.pt/jogo/9547" in "\n".join(saida)
         finally:
             ics.DOMINIO = anterior
+
+
+def test_a_apl_fica_com_os_uid_e_os_links_de_sempre():
+    """Os calendários da APL já estão subscritos: mudar-lhes o UID duplicava cada jogo."""
+    texto = "\n".join(desdobrar(cal("PAREDE FC B", "SUB-13", [JOGO])))
+    assert "UID:jogo-9547@" in texto
+    assert "/jogo/9547" in texto
+    assert "Associação de Patinagem de Lisboa" in texto
+
+
+def test_a_fpp_tem_uid_e_links_com_o_prefixo_e_diz_de_onde_vem():
+    jogo = {**JOGO, "cat": "CAMPEONATO NACIONAL 1ª DIVISAO", "casa": "AD OEIRAS", "fora": "OC BARCELOS SAD"}
+    texto = "\n".join(desdobrar(feed("AD OEIRAS", jogo["cat"], [jogo], hoje=HOJE, tenant="fpp")))
+    # o mesmo número de jogo na APL e na FPP não pode dar o mesmo evento no telemóvel
+    assert "UID:jogo-fpp-9547@" in texto and "UID:jogo-9547@" not in texto
+    assert "/jogo/fpp-9547" in texto
+    assert "Federação de Patinagem de Portugal" in texto and "Lisboa." not in texto

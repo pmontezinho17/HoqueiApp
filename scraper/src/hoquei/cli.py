@@ -908,7 +908,7 @@ def _actualizar_calendario(destino: pathlib.Path, jogo: dict, gc: int, gf: int,
     alvo.write_text(json.dumps(d, ensure_ascii=False, indent=1))
 
 
-def _buscar_emblema(url: str) -> bytes:
+def _buscar_emblema(url: str, intervalo: float = 1.0) -> bytes:
     """Um emblema da fonte, **com o mesmo compasso de um segundo** das outras páginas.
 
     Até 12/11/2026 isto era um `httpx.get` seco, sem espera: um emblema novo de vez em quando
@@ -918,7 +918,7 @@ def _buscar_emblema(url: str) -> bytes:
     como antes; só passam a esperar a sua vez.
     """
     import time as relogio
-    relogio.sleep(1.0)
+    relogio.sleep(intervalo)
     return httpx.get(url, timeout=30, headers={"User-Agent": UA}).raise_for_status().content
 
 
@@ -935,7 +935,8 @@ def comando_publicar(args) -> int:
     for pasta in ("comp", "match", "merito", "scorers"):
         (destino / pasta).mkdir(parents=True, exist_ok=True)
 
-    with Fonte(args.tenant) as fonte:
+    intervalo = getattr(args, "intervalo", 1.0)
+    with Fonte(args.tenant, intervalo=intervalo) as fonte:
         id_temp = args.id_temp or _temporada_corrente(fonte)
         provas, total, buscadas, saltadas, restritas = [], 0, 0, 0, 0
         #: as releituras do Mérito desta ronda, e em quantas ele mudou — ver `_merito_por_rever`
@@ -1159,7 +1160,7 @@ def comando_publicar(args) -> int:
     # e ver tudo o que essa equipa joga, sem o cliente abrir as 37 competições.
     novos_emb, emb_existentes = garantir(
         logos, pathlib.Path(args.emblemas or (destino / ".." / ".." / ".." / "emblemas")).resolve(),
-        _buscar_emblema)
+        lambda url: _buscar_emblema(url, intervalo))
 
     # mapa nome→emblema: a agenda e a classificação precisam do emblema sem carregar
     # o ficheiro de cada competição
@@ -1192,7 +1193,7 @@ def comando_publicar(args) -> int:
         nome = nome_ficheiro(eq, cat)
         escritos.add(nome)
         alvo = pasta_ics / nome
-        novo = feed(eq, cat, seus)
+        novo = feed(eq, cat, seus, tenant=args.tenant)
         # só escreve quando muda: o ficheiro é determinista de propósito, e reescrevê-lo
         # igual faria o git ver alterações e a app republicar a cada corrida do cron
         if not alvo.exists() or alvo.read_text(encoding="utf-8") != novo:
@@ -1336,6 +1337,9 @@ def main(argv=None) -> int:
     b.add_argument("--reler", default=None, metavar="merito|ID,ID",
                    help="voltar a pedir estas fichas mesmo sem mudanças: `merito` para as das provas "
                         "com Mérito, ou ids separados por vírgulas — só no site de testes")
+    b.add_argument("--intervalo", type=float, default=1.0, metavar="SEGUNDOS",
+                   help="espera entre pedidos; a FPP usa 2, porque partilha o servidor com a APL "
+                        "e o ciclo ao vivo desta pode estar a pedir ao mesmo tempo")
     b.add_argument("--categorias", action="append", default=None, metavar="CATEGORIA",
                    help="só as provas desta categoria da fonte (repetível); sem ele, todas")
     b.add_argument("--anonimizar-formacao", action="store_true",
