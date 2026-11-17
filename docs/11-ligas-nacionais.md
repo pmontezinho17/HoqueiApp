@@ -183,7 +183,7 @@ No ramo `feat/placard-fase1`, por enviar ao `dev`:
 | App: as duas fontes no layout, `/jogo/fpp-…`, Competições em Nacional e Lisboa, crachás, Jogos do dia, páginas de jogo e de equipa, textos da origem dos dados | ✅ visto a 375×812 nos dois temas com o Placard e a 2.ª reais |
 | O ao vivo pela "Jogos do Dia" | ⏳ depois da medição de 21/11 |
 | O relógio e o cão de guarda a olhar também para a agenda da FPP | ⏳ com o ao vivo |
-| A consola a separar os pedidos da FPP dos da APL | ⏳ hoje contam juntos como `producao`, o que está certo para o servidor mas não mostra quanto é de cada |
+| A consola a separar os pedidos da FPP dos da APL | ✅ origens `producao_fpp`, `aovivo_fpp` e `testes_fpp`. Até o observador novo chegar ao `main`, ele recusa-as e a contagem vai com a origem de sempre, junta à da APL: certa no total, sem se perder |
 | A página da equipa com as duas fontes (o passo C) | ⏳ **o dono quer avaliar várias opções** (17/11). Hoje a FPP tem páginas suas; o "O Meu Clube" já junta os escalões das duas quando o clube tem o mesmo emblema |
 
 **Decisão do dono a 17/11/2026: vai tudo de uma vez**, incluindo o ao vivo. Nada nacional vai a
