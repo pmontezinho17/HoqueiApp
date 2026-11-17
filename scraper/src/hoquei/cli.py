@@ -1165,6 +1165,16 @@ def comando_publicar(args) -> int:
     novos_emb, emb_existentes = garantir(
         logos, pathlib.Path(args.emblemas or (destino / ".." / ".." / ".." / "emblemas")).resolve(),
         lambda url: _buscar_emblema(url, intervalo))
+    # **Os emblemas também são idas à fonte, e não contavam.** São pedidos fora da `Fonte`, por
+    # isso o `__exit__` dela nunca os via, e a consola não os mostrava. Na APL não se notava — um
+    # emblema novo de vez em quando —; a primeira leitura das ligas nacionais, a 17/11/2026,
+    # pediu ~90 ao servidor partilhado e a consola deu só as 188 páginas. Conta-se cada
+    # tentativa, porque um emblema que falhou também foi pedido.
+    if (emb_pedidos := len(logos) - emb_existentes):
+        # com outro nome: o `registar` deste ficheiro é o do diário das contagens (`rondas.py`)
+        from . import registo
+        registo.registar({"emblema": emb_pedidos}, len(logos) - emb_existentes - novos_emb,
+                         tenant=args.tenant)
 
     # mapa nome→emblema: a agenda e a classificação precisam do emblema sem carregar
     # o ficheiro de cada competição

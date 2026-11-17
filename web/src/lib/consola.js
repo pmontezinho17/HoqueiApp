@@ -126,7 +126,10 @@ const TIPOS = [
 	{ chave: 'competiciones', nome: 'lista de competições', claro: '#2a78d6', escuro: '#3987e5' },
 	{ chave: 'calendario', nome: 'calendário de uma prova', claro: '#eb6834', escuro: '#d95926' },
 	{ chave: 'clasificacion', nome: 'classificação de uma prova', claro: '#1baf7a', escuro: '#199e70' },
-	{ chave: 'ficha', nome: 'ficha de um jogo', claro: '#eda100', escuro: '#c98500' }
+	{ chave: 'ficha', nome: 'ficha de um jogo', claro: '#eda100', escuro: '#c98500' },
+	// desde 17/11/2026: os emblemas são pedidos ao mesmo servidor e não se contavam
+	// e são raros: só entram na legenda nos dias em que houve algum
+	{ chave: 'emblema', nome: 'emblema de um clube', claro: '#8b5cf6', escuro: '#9d74f7', raro: true }
 ];
 
 /**
@@ -736,7 +739,7 @@ export function pagina({
    --borda:#e3e6ea; --borda2:#eef0f3;
    --bem:#0a7d54; --mal:#c2410c; --barra:#0a7d54;
    --t-competiciones:#2a78d6; --t-calendario:#eb6834; --t-clasificacion:#1baf7a;
-   --t-ficha:#eda100;
+   --t-ficha:#eda100; --t-emblema:#8b5cf6;
    /* quem volta em tom calmo, quem é novo em destaque: o crescimento é o que se quer ver */
    --e-volta:#9fb3c8; --e-novos:#0a7d54;
  }
@@ -748,7 +751,7 @@ export function pagina({
      /* os mesmos quatro tons, re-escalados para a superfície escura e validados contra ela —
         não é uma inversão automática */
      --t-competiciones:#3987e5; --t-calendario:#d95926; --t-clasificacion:#199e70;
-     --t-ficha:#c98500;
+     --t-ficha:#c98500; --t-emblema:#9d74f7;
      --e-volta:#53657a; --e-novos:#34d399;
    }
  }
@@ -757,7 +760,7 @@ export function pagina({
    --borda:#272b33; --borda2:#1f232a;
    --bem:#34d399; --mal:#fb923c; --barra:#34d399;
    --t-competiciones:#3987e5; --t-calendario:#d95926; --t-clasificacion:#199e70;
-   --t-ficha:#c98500;
+   --t-ficha:#c98500; --t-emblema:#9d74f7;
    --e-volta:#53657a; --e-novos:#34d399;
  }
  * { box-sizing:border-box }
@@ -1133,7 +1136,7 @@ export function pagina({
     </div>
     <div class="legenda">
       <span class="total"><b>${graf.total}</b> no total</span>
-      ${TIPOS.map(
+      ${TIPOS.filter((t) => !t.raro || totaisPorTipo[t.chave]).map(
 			(t) =>
 				`<span><i style="background:var(--t-${t.chave})"></i>${esc(t.nome)} <b>${
 					totaisPorTipo[t.chave] ?? 0
