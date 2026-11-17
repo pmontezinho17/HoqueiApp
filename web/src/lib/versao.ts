@@ -162,7 +162,13 @@ export const NOVIDADES: Novidade[] = [
 				tipo: 'novo',
 				titulo: '🇵🇹 Os seniores nas divisões nacionais',
 				texto:
-					'O Campeonato Placard, a 2.ª e a 3.ª divisão estão na app, com resultados, calendários, classificações e fichas de jogo, lidos da plataforma da Federação. Em Competições aparecem num bloco Nacional, por cima das provas de Lisboa, e as zonas Norte e Sul são séries como as da APL. Foi o pedido que mais nos fizeram — obrigado!'
+					'O Campeonato Placard, a 2.ª e a 3.ª divisão estão na app, com resultados, calendários, classificações e fichas de jogo, lidos da plataforma da Federação. Em Competições aparecem num bloco Nacional, por cima das provas da APL, e as zonas Norte e Sul são séries como as da APL. Foi o pedido que mais nos fizeram — obrigado!'
+			},
+			{
+				tipo: 'novo',
+				titulo: '🔘 Os jogos do dia por liga',
+				texto:
+					'Por baixo dos dias há agora um botão por liga — Todos, APL, Placard, 2.ª e 3.ª Divisão —, cada um com quantos jogos tem nesse dia. Ao lado escolhes o escalão na APL, ou a zona Norte ou Sul numa divisão.'
 			}
 		]
 	},

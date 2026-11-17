@@ -144,9 +144,9 @@ export const PASSOS: Passo[] = [
 	},
 	{
 		alvo: 'escaloes',
-		titulo: 'Só o escalão que interessa',
+		titulo: 'Só o que interessa',
 		texto:
-			'Num sábado cheio há 40 jogos de nove escalões. Toca num chip e fica só esse; toca outra vez e volta tudo.'
+			'Num sábado cheio há perto de 70 jogos. Toca numa liga e fica só essa; ao lado escolhes o escalão na APL, ou a zona numa divisão. Em Todos volta tudo.'
 	},
 	{
 		alvo: 'nav-competicoes',
