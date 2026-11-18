@@ -245,7 +245,7 @@
    "casa": "S ALENQUER BENFICA",
    "fora": "SL BENFICA",
    "golos_casa": 0,
-   "golos_fora": 0,
+   "golos_fora": 8,
    "recinto": "PAV.S.ALENQUER E BENFICA",
    "ao_vivo": false
   },
@@ -469,14 +469,14 @@
      "equipa": "SL BENFICA",
      "logo": "/intranet/logos/1.png",
      "jogos": 6,
-     "vitorias": 5,
-     "empates": 1,
+     "vitorias": 6,
+     "empates": 0,
      "derrotas": 0,
-     "golos_marcados": 39,
+     "golos_marcados": 47,
      "golos_sofridos": 6,
-     "diferenca": 33,
-     "racio": 6.5,
-     "pontos": 16
+     "diferenca": 41,
+     "racio": 7.83,
+     "pontos": 18
     },
     {
      "posicao": 2,
@@ -498,13 +498,13 @@
      "logo": "/intranet/logos/5.png",
      "jogos": 5,
      "vitorias": 3,
-     "empates": 1,
-     "derrotas": 1,
+     "empates": 0,
+     "derrotas": 2,
      "golos_marcados": 16,
-     "golos_sofridos": 12,
-     "diferenca": 4,
-     "racio": 1.33,
-     "pontos": 10
+     "golos_sofridos": 20,
+     "diferenca": -4,
+     "racio": 0.8,
+     "pontos": 9
     },
     {
      "posicao": 4,

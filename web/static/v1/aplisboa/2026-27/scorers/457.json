@@ -5,12 +5,12 @@
   {
    "nome": "VASCO MOREIRA",
    "equipa": "SL BENFICA",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "97",
-   "golos": 10,
-   "assistencias": 2,
+   "golos": 12,
+   "assistencias": 3,
    "defesas": 0,
-   "pontos": 12,
+   "pontos": 15,
    "amarelos": 0,
    "azuis": 1,
    "vermelhos": 0
@@ -18,12 +18,12 @@
   {
    "nome": "TOMÁS NEVES",
    "equipa": "SL BENFICA",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "8",
-   "golos": 9,
-   "assistencias": 3,
+   "golos": 11,
+   "assistencias": 5,
    "defesas": 0,
-   "pontos": 12,
+   "pontos": 16,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -50,6 +50,19 @@
    "assistencias": 3,
    "defesas": 0,
    "pontos": 11,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SANTIAGO PEREIRA",
+   "equipa": "SL BENFICA",
+   "jogos": 4,
+   "numero": "87",
+   "golos": 8,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 10,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -89,19 +102,6 @@
    "assistencias": 4,
    "defesas": 0,
    "pontos": 10,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SANTIAGO PEREIRA",
-   "equipa": "SL BENFICA",
-   "jogos": 3,
-   "numero": "87",
-   "golos": 6,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 8,
    "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
@@ -148,7 +148,7 @@
   {
    "nome": "JOÃO NASCIMENTO",
    "equipa": "S ALENQUER BENFICA",
-   "jogos": 4,
+   "jogos": 5,
    "numero": "38",
    "golos": 5,
    "assistencias": 1,
@@ -211,19 +211,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "VICENTE SOARES",
-   "equipa": "SL BENFICA",
-   "jogos": 5,
-   "numero": "6",
-   "golos": 3,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 5,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "SANTIAGO GONÇALVES",
    "equipa": "HC LOURINHÃ",
    "jogos": 6,
@@ -237,9 +224,22 @@
    "vermelhos": 0
   },
   {
+   "nome": "VICENTE SOARES",
+   "equipa": "SL BENFICA",
+   "jogos": 6,
+   "numero": "6",
+   "golos": 3,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DIOGO ATAÍDE",
    "equipa": "SL BENFICA",
-   "jogos": 2,
+   "jogos": 3,
    "numero": "7",
    "golos": 3,
    "assistencias": 1,
@@ -276,6 +276,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DIOGO FONSECA",
+   "equipa": "SL BENFICA",
+   "jogos": 5,
+   "numero": "9",
+   "golos": 2,
+   "assistencias": 5,
+   "defesas": 0,
+   "pontos": 7,
+   "amarelos": 1,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "MARTIM COSTA",
    "equipa": "HC LOURINHÃ",
    "jogos": 5,
@@ -291,12 +304,12 @@
   {
    "nome": "TIAGO PEIXOTO",
    "equipa": "SL BENFICA",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "11",
    "golos": 2,
-   "assistencias": 1,
+   "assistencias": 2,
    "defesas": 0,
-   "pontos": 3,
+   "pontos": 4,
    "amarelos": 0,
    "azuis": 1,
    "vermelhos": 0
@@ -315,19 +328,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "MIGUEL SIMÕES",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 4,
-   "numero": "49",
-   "golos": 2,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIOGO HENRIQUES",
    "equipa": "BIBLIOTECA IR",
    "jogos": 5,
@@ -338,6 +338,19 @@
    "pontos": 2,
    "amarelos": 2,
    "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "MIGUEL SIMÕES",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 5,
+   "numero": "49",
+   "golos": 2,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 2,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -354,16 +367,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "DIOGO FONSECA",
+   "nome": "ALEXANDRE LORY",
    "equipa": "SL BENFICA",
-   "jogos": 4,
-   "numero": "9",
+   "jogos": 2,
+   "numero": "77",
    "golos": 1,
-   "assistencias": 3,
+   "assistencias": 2,
    "defesas": 0,
-   "pontos": 4,
-   "amarelos": 1,
-   "azuis": 1,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -486,8 +499,8 @@
   {
    "nome": "RODRIGO FARIA",
    "equipa": "S ALENQUER BENFICA",
-   "jogos": 1,
-   "numero": "12",
+   "jogos": 2,
+   "numero": "50",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -510,10 +523,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "MANUEL BICA",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 4,
-   "numero": "70",
+   "nome": "DAVID REIS",
+   "equipa": "UD VILAFRANQUENSE",
+   "jogos": 5,
+   "numero": "13",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -523,10 +536,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DAVID REIS",
-   "equipa": "UD VILAFRANQUENSE",
+   "nome": "MANUEL BICA",
+   "equipa": "S ALENQUER BENFICA",
    "jogos": 5,
-   "numero": "13",
+   "numero": "70",
    "golos": 1,
    "assistencias": 0,
    "defesas": 0,
@@ -575,19 +588,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "ALEXANDRE LORY",
-   "equipa": "SL BENFICA",
-   "jogos": 1,
-   "numero": "77",
-   "golos": 0,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 1,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "GUSTAVO GUERREIRO",
    "equipa": "SL BENFICA",
    "jogos": 1,
@@ -603,7 +603,7 @@
   {
    "nome": "DAVID SANTOS",
    "equipa": "S ALENQUER BENFICA",
-   "jogos": 3,
+   "jogos": 4,
    "numero": "9",
    "golos": 0,
    "assistencias": 1,
@@ -640,6 +640,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "DIEGO MATOS",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 1,
+   "numero": "79",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "DIEGO PEDRO",
    "equipa": "HC LOURINHÃ",
    "jogos": 1,
@@ -657,6 +670,19 @@
    "equipa": "SL BENFICA",
    "jogos": 1,
    "numero": "33",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DUARTE ALVES",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 1,
+   "numero": "18",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -718,19 +744,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "PEDRO FONSECA",
-   "equipa": "SL BENFICA",
-   "jogos": 1,
-   "numero": "19",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 1,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "RAFAEL PEREIRA",
    "equipa": "S ALENQUER BENFICA",
    "jogos": 1,
@@ -748,19 +761,6 @@
    "equipa": "BIBLIOTECA IR",
    "jogos": 1,
    "numero": "6",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SANTIAGO SANTOS",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 1,
-   "numero": "20",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -848,19 +848,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "DUARTE SANCHES",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 2,
-   "numero": "87",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "JOSÉ ELIAS",
    "equipa": "BIBLIOTECA IR",
    "jogos": 2,
@@ -878,6 +865,32 @@
    "equipa": "BIBLIOTECA IR",
    "jogos": 2,
    "numero": "6",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PEDRO FONSECA",
+   "equipa": "SL BENFICA",
+   "jogos": 2,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 1,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "SANTIAGO SANTOS",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 2,
+   "numero": "24",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -965,10 +978,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "JOÃO ANTUNES",
-   "equipa": "SL BENFICA",
+   "nome": "DUARTE SANCHES",
+   "equipa": "S ALENQUER BENFICA",
    "jogos": 3,
-   "numero": "19",
+   "numero": "22",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -1004,6 +1017,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "JOÃO ANTUNES",
+   "equipa": "SL BENFICA",
+   "jogos": 4,
+   "numero": "19",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "PEDRO ADELINO",
    "equipa": "S ALENQUER BENFICA",
    "jogos": 4,
@@ -1014,19 +1040,6 @@
    "pontos": 0,
    "amarelos": 0,
    "azuis": 2,
-   "vermelhos": 0
-  },
-  {
-   "nome": "PEDRO SANTOS",
-   "equipa": "S ALENQUER BENFICA",
-   "jogos": 4,
-   "numero": "99",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -1063,6 +1076,19 @@
    "golos": 0,
    "assistencias": 0,
    "defesas": 2,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "PEDRO SANTOS",
+   "equipa": "S ALENQUER BENFICA",
+   "jogos": 5,
+   "numero": "99",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
