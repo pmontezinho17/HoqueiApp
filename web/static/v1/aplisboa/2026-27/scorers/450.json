@@ -1,6 +1,6 @@
 {
  "competicao_id": 450,
- "jogos_considerados": 17,
+ "jogos_considerados": 18,
  "jogadores": [
   {
    "nome": "DINIS MOREIRA",
@@ -55,6 +55,19 @@
    "vermelhos": 0
   },
   {
+   "nome": "GABRIEL CARDOSO",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 7,
+   "numero": "9",
+   "golos": 6,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 8,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GUSTAVO COSTA",
    "equipa": "A STUART HCM A",
    "jogos": 7,
@@ -81,16 +94,29 @@
    "vermelhos": 0
   },
   {
-   "nome": "GABRIEL CARDOSO",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 6,
-   "numero": "9",
-   "golos": 5,
-   "assistencias": 1,
+   "nome": "SANTIAGO DIAS",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 7,
+   "numero": "7",
+   "golos": 6,
+   "assistencias": 0,
    "defesas": 0,
    "pontos": 6,
    "amarelos": 0,
-   "azuis": 0,
+   "azuis": 2,
+   "vermelhos": 0
+  },
+  {
+   "nome": "TIAGO MATOS",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 7,
+   "numero": "9",
+   "golos": 6,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 6,
+   "amarelos": 0,
+   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -120,19 +146,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "TIAGO MATOS",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 6,
-   "numero": "9",
-   "golos": 5,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 5,
-   "amarelos": 0,
-   "azuis": 1,
-   "vermelhos": 0
-  },
-  {
    "nome": "LUCAS HELENO",
    "equipa": "A STUART HCM A",
    "jogos": 7,
@@ -146,28 +159,28 @@
    "vermelhos": 0
   },
   {
+   "nome": "LOURENÇO OLIVEIRA",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 7,
+   "numero": "7",
+   "golos": 4,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 6,
+   "amarelos": 1,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "PAULO BORDALO",
    "equipa": "FSE/AJ SALESIANA",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "6",
    "golos": 4,
    "assistencias": 0,
    "defesas": 0,
    "pontos": 4,
    "amarelos": 1,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SANTIAGO DIAS",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 6,
-   "numero": "7",
-   "golos": 4,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 4,
-   "amarelos": 0,
    "azuis": 0,
    "vermelhos": 0
   },
@@ -187,7 +200,7 @@
   {
    "nome": "FRANCISCO FATELA",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "8",
    "golos": 3,
    "assistencias": 4,
@@ -237,16 +250,16 @@
    "vermelhos": 0
   },
   {
-   "nome": "LOURENÇO OLIVEIRA",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 6,
-   "numero": "7",
+   "nome": "RODRIGO MARTINS",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 7,
+   "numero": "4",
    "golos": 2,
-   "assistencias": 2,
+   "assistencias": 3,
    "defesas": 0,
-   "pontos": 4,
-   "amarelos": 1,
-   "azuis": 1,
+   "pontos": 5,
+   "amarelos": 0,
+   "azuis": 0,
    "vermelhos": 0
   },
   {
@@ -265,7 +278,7 @@
   {
    "nome": "PEDRO CUNHA",
    "equipa": "FSE/AJ SALESIANA",
-   "jogos": 6,
+   "jogos": 7,
    "numero": "5",
    "golos": 2,
    "assistencias": 0,
@@ -276,10 +289,36 @@
    "vermelhos": 0
   },
   {
+   "nome": "SIMÃO COSTA",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 7,
+   "numero": "2",
+   "golos": 1,
+   "assistencias": 3,
+   "defesas": 0,
+   "pontos": 4,
+   "amarelos": 1,
+   "azuis": 1,
+   "vermelhos": 0
+  },
+  {
    "nome": "FILIPA GONÇALVES",
    "equipa": "SL BENFICA A",
    "jogos": 4,
    "numero": "6",
+   "golos": 1,
+   "assistencias": 2,
+   "defesas": 0,
+   "pontos": 3,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DINIS LOPES",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 6,
+   "numero": "4",
    "golos": 1,
    "assistencias": 2,
    "defesas": 0,
@@ -312,19 +351,6 @@
    "pontos": 2,
    "amarelos": 0,
    "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "SIMÃO COSTA",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 6,
-   "numero": "2",
-   "golos": 1,
-   "assistencias": 1,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 1,
-   "azuis": 1,
    "vermelhos": 0
   },
   {
@@ -445,36 +471,10 @@
    "vermelhos": 0
   },
   {
-   "nome": "DINIS LOPES",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 5,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "RODRIGO MARTINS",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 6,
-   "numero": "4",
-   "golos": 0,
-   "assistencias": 2,
-   "defesas": 0,
-   "pontos": 2,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "IVO MATOS",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 1,
-   "numero": "6",
+   "jogos": 2,
+   "numero": "3",
    "golos": 0,
    "assistencias": 1,
    "defesas": 0,
@@ -575,19 +575,6 @@
    "vermelhos": 0
   },
   {
-   "nome": "AFONSO GUERREIRO",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 5,
-   "numero": "3",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
    "nome": "DIOGO PINHO",
    "equipa": "AD OEIRAS B",
    "jogos": 5,
@@ -601,65 +588,26 @@
    "vermelhos": 0
   },
   {
+   "nome": "AFONSO GUERREIRO",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 6,
+   "numero": "3",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "GABRIEL SANTOS",
    "equipa": "CD PAÇO ARCOS B",
-   "jogos": 5,
+   "jogos": 6,
    "numero": "10",
    "golos": 0,
    "assistencias": 0,
    "defesas": 3,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "TIAGO SILVA",
-   "equipa": "CD PAÇO ARCOS B",
-   "jogos": 5,
-   "numero": "1",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "AFONSO BOAVENTURA",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 6,
-   "numero": "10",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "DIOGO RODRIGUES",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 6,
-   "numero": "11",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
-   "pontos": 0,
-   "amarelos": 0,
-   "azuis": 0,
-   "vermelhos": 0
-  },
-  {
-   "nome": "NUNO GONZALEZ",
-   "equipa": "FSE/AJ SALESIANA",
-   "jogos": 6,
-   "numero": "20",
-   "golos": 0,
-   "assistencias": 0,
-   "defesas": 0,
    "pontos": 0,
    "amarelos": 0,
    "azuis": 0,
@@ -692,10 +640,49 @@
    "vermelhos": 0
   },
   {
+   "nome": "TIAGO SILVA",
+   "equipa": "CD PAÇO ARCOS B",
+   "jogos": 6,
+   "numero": "1",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "AFONSO BOAVENTURA",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 7,
+   "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
    "nome": "BERNARDO COSTA",
    "equipa": "A STUART HCM A",
    "jogos": 7,
    "numero": "61",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "DIOGO RODRIGUES",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 7,
+   "numero": "11",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
@@ -722,6 +709,19 @@
    "equipa": "SL BENFICA A",
    "jogos": 7,
    "numero": "10",
+   "golos": 0,
+   "assistencias": 0,
+   "defesas": 0,
+   "pontos": 0,
+   "amarelos": 0,
+   "azuis": 0,
+   "vermelhos": 0
+  },
+  {
+   "nome": "NUNO GONZALEZ",
+   "equipa": "FSE/AJ SALESIANA",
+   "jogos": 7,
+   "numero": "1",
    "golos": 0,
    "assistencias": 0,
    "defesas": 0,
