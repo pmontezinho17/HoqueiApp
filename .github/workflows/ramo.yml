@@ -45,8 +45,9 @@ run-name: "DEV · ${{ github.event_name == 'push' && 'merge no dev' || inputs.fi
 #   isso o custo escrito é "ao servidor da APL e da FPP". Medido nos calendários de 17/11/2026.
 #
 # **Só no botão, por escolha do dono**: zero pedidos quando ninguém está a testar, e a idade dos
-# dados é a do último clique. O ciclo ao vivo não corre aqui. E o botão **recusa** pedir enquanto
-# o ciclo ao vivo de produção estiver a correr, e espera que acabe uma ronda de produção — dois
+# dados é a do último clique. O ciclo ao vivo da APL não corre aqui; o ensaio do ao vivo nacional
+# corre, mas só quando alguém escolhe essa finalidade (19/11/2026). E o botão **recusa** pedir à APL
+# enquanto o ciclo ao vivo de produção estiver a correr (as ligas nacionais não: pedem de 2 em 2 s), e espera que acabe uma ronda de produção — dois
 # raspadores ao mesmo tempo eram dois pedidos por segundo à APL. Fica uma janela: uma ronda
 # agendada de produção que arranque a meio de uma destas. É curta e rara, e está dita aqui.
 #
@@ -97,6 +98,7 @@ on:
           - tudo do zero — ~560 pedidos, ~10 minutos
           - ligas nacionais, o que mudou — ~15 pedidos ao servidor da APL e da FPP
           - ligas nacionais do zero — ~300 pedidos ao servidor da APL e da FPP, ~10 minutos
+          - ligas nacionais ao vivo — a Jogos do Dia de 30 em 30 s e ~130 pedidos por dia ao servidor da APL e da FPP
       jogos:
         description: Só para "reler os jogos" — ids separados por vírgulas, por exemplo 9988,9989
         type: string
@@ -111,12 +113,15 @@ concurrency:
 
 permissions:
   contents: read
-  # para ver se o ciclo ao vivo ou uma ronda de produção estão a correr
-  actions: read
+  # para ver se o ciclo ao vivo ou uma ronda de produção estão a correr — e `write` desde
+  # 19/11/2026 para o ao vivo nacional pedir a corrida seguinte quando as 6 h de um job acabam
+  actions: write
 
 jobs:
   publicar:
     runs-on: ubuntu-latest
+    # o limite da GitHub, escrito: o ao vivo nacional usa quase tudo e reveza-se antes do fim
+    timeout-minutes: 358
     env:
       FINALIDADE: ${{ inputs.finalidade || 'só publicar o código — 0 pedidos à APL' }}
       JOGOS: ${{ inputs.jogos }}
@@ -186,6 +191,9 @@ jobs:
           esac
           echo "pede=$pede" >> "$GITHUB_OUTPUT"
           echo "fonte=$fonte" >> "$GITHUB_OUTPUT"
+          case "$FINALIDADE" in
+            ligas\ nacionais\ ao\ vivo*) echo "aovivo=true" >> "$GITHUB_OUTPUT" ;;
+          esac
           echo "guardar=$guardar" >> "$GITHUB_OUTPUT"
           echo "### Dados: $origem — $FINALIDADE" >> "$GITHUB_STEP_SUMMARY"
 
@@ -197,7 +205,11 @@ jobs:
           set -euo pipefail
           a_correr() { gh run list --repo "$GITHUB_REPOSITORY" --workflow "$1" --status in_progress --json databaseId --jq length; }
           for _ in $(seq 1 20); do
-            if [ "$(a_correr aovivo.yml)" != 0 ]; then
+            # **As ligas nacionais pedem de 2 em 2 s, e por isso cabem ao lado do ciclo ao vivo
+            # da APL** — a mesma conta do passo da FPP no `dados.yml`: meio pedido por segundo de
+            # cada um. Até 19/11/2026 o botão recusava-as num sábado até às 20:45, e o dono queria
+            # testá-las precisamente durante os jogos.
+            if [ "${{ steps.origem.outputs.fonte }}" != fpp ] && [ "$(a_correr aovivo.yml)" != 0 ]; then
               echo "::error::O ciclo ao vivo está a correr: há jogos a decorrer e ele já está a pedir à APL. Tenta quando acabarem."
               exit 1
             fi
@@ -334,6 +346,41 @@ jobs:
           # ambiente — nada a obriga a ser igual ao ramo, e o `dados.yml` já usa `--branch main`
           # da mesma maneira.
           command: pages deploy build --project-name hoquei --branch testes
+
+      # **O ensaio do ao vivo das ligas nacionais** (`scripts/aovivo_nacional_testes.sh`): o placar
+      # da "Jogos do Dia" de 30 em 30 s, e a ronda normal da FPP para as fichas. Aprovado pelo dono
+      # a 19/11/2026 para o fim-de-semana de 21–22/11, com o custo escrito no script.
+      - name: Ao vivo nacional no site de testes
+        id: aovivo
+        if: steps.origem.outputs.aovivo == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          GH_TOKEN: ${{ github.token }}
+          OBSERVADOR: https://hoquei-observador.torneiopa.workers.dev
+          CHAVE_RONDAS: ${{ secrets.CHAVE_RONDAS }}
+          ORIGEM_RONDA: testes
+          MINUTOS: 320
+        run: ./scripts/aovivo_nacional_testes.sh
+
+      # Os dados do fim do ao vivo vão para o R2, senão o merge seguinte publicava os do início.
+      - name: Guardar no R2 o que o ao vivo trouxe
+        id: guardar_aovivo
+        if: always() && steps.aovivo.outcome != 'skipped' && steps.aovivo.outcome != ''
+        run: tar -czf testes-v1.tar.gz -C web/static v1 emblemas && du -h testes-v1.tar.gz
+
+      - name: Enviar para o R2, depois do ao vivo
+        if: always() && steps.guardar_aovivo.outcome == 'success'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4.149.0'
+          command: >-
+            r2 object put ok4sticks-historico/testes/v1.tar.gz
+            --file=testes-v1.tar.gz
+            --content-type=application/gzip
+            --remote
 
       # **O endereço fixo, e não o nome do ramo.** Era calculado a partir do ramo e dizia
       # `dev.hoquei.pages.dev`, que não é onde isto publica: a flag `--branch testes` acima é que

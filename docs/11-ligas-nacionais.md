@@ -181,7 +181,7 @@ No ramo `feat/placard-fase1`, por enviar ao `dev`:
 | "DEV · Site de testes": duas finalidades das ligas nacionais | ✅ escrito; corre quando chegar ao `dev` |
 | A 9.ª verificação depois de publicar | ✅ |
 | App: as duas fontes no layout, `/jogo/fpp-…`, Competições em Nacional e Lisboa, crachás, Jogos do dia, páginas de jogo e de equipa, textos da origem dos dados | ✅ visto a 375×812 nos dois temas com o Placard e a 2.ª reais |
-| O ao vivo pela "Jogos do Dia" | ⏳ depois da medição de 21/11 |
+| O ao vivo pela "Jogos do Dia" | 🟡 **ensaio no site de testes a 21–22/11**, aprovado pelo dono a 19/11 com o custo (~1 000 pedidos por dia ao `hp.fpp.pt` e ~130 ao servidor partilhado): finalidade "ligas nacionais ao vivo" do "DEV · Site de testes", `scraper/src/hoquei/direto.py` e `scripts/aovivo_nacional_testes.sh`. Escrito contra uma amostra só; a versão de produção sai do que o ensaio e a medição mostrarem |
 | O relógio e o cão de guarda a olhar também para a agenda da FPP | ⏳ com o ao vivo |
 | A consola a separar os pedidos da FPP dos da APL | ✅ origens `producao_fpp`, `aovivo_fpp` e `testes_fpp`. Até o observador novo chegar ao `main`, ele recusa-as e a contagem vai com a origem de sempre, junta à da APL: certa no total, sem se perder |
 | A página da equipa com as duas fontes (o passo C) | ⏳ **o dono quer avaliar várias opções** (17/11). Hoje a FPP tem páginas suas; o "O Meu Clube" já junta os escalões das duas quando o clube tem o mesmo emblema |
