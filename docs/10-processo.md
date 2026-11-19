@@ -227,11 +227,18 @@ tudo pelo PR semanal, e tinha razão. Desde o C9 o site de testes tem dados seus
 raspador do `dev` — ver o passo 4 —, e a excepção acabou: uma alteração ao raspador testa-se no
 `dev` e vai a produção à segunda, como as outras.
 
-**O PR da semana abre-se em rascunho com o primeiro merge no `dev` depois de uma entrega**, do
-`dev` para o `main`. Cada merge seguinte entra nele sozinho, por isso o pacote está sempre à vista
-no GitHub e não depende de ninguém se lembrar. Na segunda passa a pronto, com a lista revista, e o
+**O PR da próxima entrega abre-se em rascunho logo a seguir a cada entrega ser publicada**, do
+`dev` para o `main`, e faz parte de dar a entrega por terminada: verificar produção, e abrir o
+PR seguinte. Cada merge no `dev` entra nele sozinho, por isso o pacote está sempre à vista no
+GitHub e não depende de ninguém se lembrar. Na segunda passa a pronto, com a lista revista, e o
 dono funde. A 30/10/2026 o dono perguntou se o pacote não ficava só no meu conhecimento; ficava, e
 não devia.
+
+Até 17/11/2026 a regra dizia "com o primeiro merge no `dev` depois de uma entrega", e eu
+deixei-a passar: a entrega da 1.12 saiu a 16/11, entraram cinco PRs no `dev` (#200 a #204), e
+nenhum PR para o `main` foi aberto. Foi o dono quem deu por isso — *"não devia ser eu a avisar
+desta situação"*. Abrir logo a seguir à publicação tira a regra da dependência de um evento que
+pode passar despercebido.
 
 * **O nome começa pela versão que vai para produção**, e só depois o dia: `Versão 1.10 — entrega
   de 2/11/2026`. Pedido do dono a 30/10/2026: é a versão que se vê no telemóvel, e é por ela que
