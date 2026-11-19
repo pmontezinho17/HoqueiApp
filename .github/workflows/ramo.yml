@@ -46,8 +46,8 @@ run-name: "DEV · ${{ github.event_name == 'push' && 'merge no dev' || inputs.fi
 #
 # **Só no botão, por escolha do dono**: zero pedidos quando ninguém está a testar, e a idade dos
 # dados é a do último clique. O ciclo ao vivo da APL não corre aqui; o ensaio do ao vivo nacional
-# corre, mas só quando alguém escolhe essa finalidade (19/11/2026). E o botão **recusa** pedir enquanto
-# o ciclo ao vivo de produção estiver a correr, e espera que acabe uma ronda de produção — dois
+# corre, mas só quando alguém escolhe essa finalidade (19/11/2026). E o botão **recusa** pedir à APL
+# enquanto o ciclo ao vivo de produção estiver a correr (as ligas nacionais não: pedem de 2 em 2 s), e espera que acabe uma ronda de produção — dois
 # raspadores ao mesmo tempo eram dois pedidos por segundo à APL. Fica uma janela: uma ronda
 # agendada de produção que arranque a meio de uma destas. É curta e rara, e está dita aqui.
 #
