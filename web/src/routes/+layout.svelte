@@ -17,6 +17,10 @@
 	import { seccaoDe, type Seccao } from '$lib/seccao';
 	import Desatualizado from '$lib/Desatualizado.svelte';
 	import Icone from '$lib/Icone.svelte';
+	import Luzinhas from '$lib/Luzinhas.svelte';
+	import PaiNatal from '$lib/PaiNatal.svelte';
+	import Neve from '$lib/Neve.svelte';
+	import { natal, natalNoEndereco } from '$lib/natal.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import MenuMais from '$lib/MenuMais.svelte';
 	import CaixaNovidades from '$lib/CaixaNovidades.svelte';
@@ -28,6 +32,18 @@
 	import { aoRolar, type EstadoBarra } from '$lib/barra';
 
 	let { data, children } = $props();
+
+	/**
+	 * O Natal, pelo calendário (`lib/natal.svelte.ts`). O `?natal=` do endereço vale até a app
+	 * fechar: sem isto perdia-se no primeiro toque, porque os links da app não levam o endereço
+	 * de onde vieram, e quem estava a ver os enfeites no site de testes ficava sem eles.
+	 */
+	let natalPedido: string | null = null;
+	$effect(() => {
+		const p = page.url.searchParams.get('natal');
+		if (p === '1' || p === '0') natalPedido = p;
+		natal.ativo = natalNoEndereco(new URL(`https://x/?natal=${natalPedido ?? ''}`));
+	});
 
 	/**
 	 * Estamos num site de ramo? Só se sabe no browser — o `adapter-static` pré-constrói estas
@@ -131,11 +147,12 @@
 <a class="salto" href="#conteudo">Saltar para o conteúdo</a>
 
 <header bind:clientHeight={alturaTopo}>
+	{#if natal.ativo}<Luzinhas />{/if}
 	<div class="topo">
 		<!-- O descritor do desporto saiu do cabeçalho porque o nome novo é mais largo e aqui
 		     cabem só a marca, a frescura dos dados e dois ícones — ele continua no manifesto e
 		     na página "Sobre a app e os dados". -->
-		<a class="marca" href="/">{marcaBase}{#if marcaSufixo}<span>{marcaSufixo}</span>{/if}</a>
+		<a class="marca" class:natal={natal.ativo} href="/">{#if natal.ativo}<svg class="gorro" viewBox="0 0 24 20" width="21" height="17" aria-hidden="true"><path d="M2 17 Q6 2 19 4 Q14 8 14 17 Z" fill="#d32f2f" /><circle cx="19.5" cy="4" r="2.4" fill="#fff" stroke="#ddd" stroke-width="0.5" /><rect x="0.5" y="15" width="16" height="4.5" rx="2.2" fill="#fff" stroke="#ddd" stroke-width="0.5" /></svg>{/if}{marcaBase}{#if marcaSufixo}<span>{marcaSufixo}</span>{/if}</a>
 		<div class="acoes">
 			<Desatualizado geradoEm={data.meta.generated_at} />
 			<a class="icone" href="/procurar" aria-label="Procurar equipa" data-guia="procurar">
@@ -188,6 +205,13 @@
   de um, e em troca o rodapé deixa de empurrar a barra de navegação.
 -->
 <nav class="barra" class:recolhida={barra.recolhida} aria-label="Secções">
+	{#if natal.ativo}
+		<!-- três bolas penduradas na pílula, uma por botão; decorativas, e o dedo passa-lhes ao lado -->
+		<span class="bolas" aria-hidden="true"><i></i><i></i><i></i></span>
+		<!-- e o Pai Natal com a prenda, sentado na ponta da pílula: os dias sem jogos quase nunca
+		     aparecem (a fita só mostra dias com jogos), e era lá que ele estava -->
+		<span class="espreita" aria-hidden="true"><PaiNatal tamanho={40} /></span>
+	{/if}
 	{#each SECCOES as s (s.href)}
 		<a
 			href={s.href}
@@ -208,6 +232,8 @@
 <!-- fora do `<header>` de propósito: lá dentro o véu ficava preso ao contexto de
      empilhamento do cabeçalho e não cobria a barra de navegação de baixo -->
 <MenuMais bind:aberto={menuAberto} topo={alturaTopo} />
+
+{#if natal.ativo}<Neve />{/if}
 
 <AutoRefrescar agenda={data.agenda} />
 <!-- Num site de ramo o service worker **não se regista**, e é o `AvisoVersao` que o faz.
@@ -427,6 +453,19 @@
 	}
 	.topo { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
 	.marca { font-weight: 700; font-size: 0.98rem; text-decoration: none; }
+	/* o gorro de Pai Natal no "O", torto como deve ser — ver lib/natal.svelte.ts */
+	.marca.natal { position: relative; }
+	.gorro { position: absolute; left: -8px; top: -11px; transform: rotate(-18deg); pointer-events: none; }
+	.bolas { position: absolute; left: 0; right: 0; top: 100%; display: flex; justify-content: space-around;
+		pointer-events: none; }
+	.bolas i { width: 9px; height: 9px; margin-top: -2px; border-radius: 50%; position: relative;
+		background: #e53935; box-shadow: inset -2px -2px 0 rgb(0 0 0 / 0.18); }
+	.bolas i:nth-child(2) { background: #fbc02d; }
+	.bolas i:nth-child(3) { background: #43a047; }
+	.espreita { position: absolute; left: -16px; bottom: calc(100% - 9px); pointer-events: none; }
+	.espreita :global(svg) { margin: 0; }
+	.bolas i::before { content: ''; position: absolute; left: 3px; top: -3px; width: 3px; height: 3px;
+		background: #9e9e9e; border-radius: 1px; }
 	/* sem `margin-left`: ".DEV" cola-se ao nome, porque faz parte dele */
 	.marca span { font-weight: 400; color: var(--suave); font-size: 0.72rem; }
 	.acoes { display: flex; align-items: center; gap: 0.15rem; }

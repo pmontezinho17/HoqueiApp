@@ -10,6 +10,8 @@
 	 * Vive num componente próprio por causa da faixa que se arrasta: estão três dias montados
 	 * ao mesmo tempo, e o estado "que blocos estão fechados" é de cada dia.
 	 */
+	import PaiNatal from './PaiNatal.svelte';
+	import { natal } from './natal.svelte';
 	import LinhaJogo from './LinhaJogo.svelte';
 	import { dataLonga, emCurso, nomeProva } from './formato';
 	import { porEscalao } from './escaloes';
@@ -116,7 +118,10 @@
 </script>
 
 {#if jogos.length === 0}
-	<p class="vazio">Sem jogos em {dataLonga(dia)}.</p>
+	<p class="vazio">
+		{#if natal.ativo}<PaiNatal />{/if}
+		Sem jogos em {dataLonga(dia)}.{#if natal.ativo}<br />O Pai Natal também descansa.{/if}
+	</p>
 {:else}
 	{#if aoVivo.length}
 		<section class="bloco destacada vivo" data-guia="vivo">
