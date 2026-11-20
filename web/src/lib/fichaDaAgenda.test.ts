@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { comNomesDaAgenda, fichaDaAgenda } from './fichaDaAgenda';
+import { situacaoADecorrer } from './formato';
 import type { JogoAgenda } from './tipos';
 
 const jogo = (extra: Partial<JogoAgenda> = {}): JogoAgenda => ({
@@ -46,6 +47,27 @@ describe('a ficha montada da agenda', () => {
 		expect([f.golos_casa, f.golos_fora]).toEqual([3, 1]);
 		expect(f.situacao).toBe('Jogo Terminado');
 		expect(f.estado).toBe('Jogo Terminado');
+	});
+
+	/** O CD Cucujães – CH Carvalhos B de 20/11/2026, tal como a agenda do site de testes o tinha. */
+	it('um jogo a decorrer com resultado não se diz terminado', () => {
+		const f = fichaDaAgenda(jogo({ gc: 1, gf: 0, ao_vivo: true, situacao: '1ª P - 16:59' }), true);
+		expect([f.golos_casa, f.golos_fora]).toEqual([1, 0]);
+		expect(f.estado).toBeNull();
+		expect(f.situacao).toBe('1ª P - 16:59');
+		expect(situacaoADecorrer(f.situacao)).toBe(true);
+	});
+
+	it('a decorrer sem situação escrita, diz-se a decorrer e não por começar', () => {
+		const f = fichaDaAgenda(jogo({ gc: 0, gf: 0, ao_vivo: true }), true);
+		expect(situacaoADecorrer(f.situacao)).toBe(true);
+		expect(f.situacao).not.toMatch(/come[çc]ar/i);
+	});
+
+	/** A marca `ao_vivo` esquecida na agenda, fora da janela do jogo: o `emCurso` dá falso. */
+	it('com a marca mas fora da janela, um resultado é final', () => {
+		const f = fichaDaAgenda(jogo({ gc: 2, gf: 2, ao_vivo: true }), false);
+		expect(f.situacao).toBe('Jogo Terminado');
 	});
 
 	it('respeita a situação que a ronda ao vivo escreveu na agenda', () => {

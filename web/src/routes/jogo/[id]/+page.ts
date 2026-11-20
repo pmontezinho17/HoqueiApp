@@ -49,7 +49,7 @@ export const load: PageLoad = async ({ params, fetch, parent }) => {
 		// Nem ficha nem entrada na agenda: o jogo não existe nesta época. Aqui o 404 é a
 		// resposta certa, e a página de erro já não fala de internet num 404.
 		if (!naAgenda) throw error(404, 'Este jogo não existe na época em curso.');
-		ficha = fichaDaAgenda(naAgenda);
+		ficha = fichaDaAgenda(naAgenda, aoVivo);
 		semFicha = true;
 	}
 
