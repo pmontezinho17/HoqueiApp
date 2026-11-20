@@ -35,6 +35,9 @@
 	{:else if nome === 'aparencia'}
 		<!-- meio sol, meia lua: a escolha entre claro e escuro -->
 		<circle cx="10" cy="10" r="6" /><path d="M10 4v12a6 6 0 0 0 0-12Z" fill="currentColor" stroke="none" />
+	{:else if nome === 'natal'}
+		<!-- um pinheiro de Natal, em três andares, com o tronco: o interruptor dos enfeites -->
+		<path d="M10 2.5 13.5 7h-2l3 4h-2l3 4.5h-11l3-4.5h-2l3-4h-2Z" /><path d="M10 15.5V18" />
 	{:else if nome === 'cores'}
 		<!-- a paleta -->
 		<path d="M10 3a7 7 0 1 0 0 14c1 0 1.5-.6 1.5-1.3 0-.8-.8-1.2-.8-2 0-.6.5-1.2 1.3-1.2H14a3 3 0 0 0 3-3C17 5.9 13.9 3 10 3Z" />

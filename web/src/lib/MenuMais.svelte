@@ -167,18 +167,20 @@
 				{/each}
 			</div>
 			<!-- os enfeites de Natal, só na época deles: fora dela não há nada para desligar -->
-			<!-- Um interruptor e não dois botões: a primeira versão tinha dois do tamanho dos do tema,
-			     e o dono achou-os "gigantes" (20/11/2026) — "como se fosse um comprimido". Ligado é
-			     o automático: os enfeites aparecem na época sozinhos. -->
-			{#if natal.emEpoca}
-				<label class="interruptor-natal">
-					<span>Enfeites de Natal</span>
-					<button type="button" role="switch" aria-checked={!natal.desligado}
-						aria-label="Enfeites de Natal" class:ligado={!natal.desligado}
-						onclick={() => escolherNatal(natal.desligado)}><i></i></button>
-				</label>
-			{/if}
 		</div>
+
+		<!-- Um interruptor e não dois botões: a primeira versão tinha dois do tamanho dos do tema,
+		     e o dono achou-os "gigantes" (20/11/2026) — "como se fosse um comprimido". Ligado é o
+		     automático: os enfeites aparecem na época sozinhos. Com ícone e linha próprios, como a
+		     Aparência e a Cor, a pedido dele no mesmo dia. -->
+		{#if natal.emEpoca}
+			<label class="interruptor-natal">
+				<span class="rotulo"><Icone nome="natal" tamanho={18} />Enfeites de Natal</span>
+				<button type="button" role="switch" aria-checked={!natal.desligado}
+					aria-label="Enfeites de Natal" class:ligado={!natal.desligado}
+					onclick={() => escolherNatal(natal.desligado)}><i></i></button>
+			</label>
+		{/if}
 
 		<div class="cores">
 			<span class="rotulo"><Icone nome="cores" tamanho={18} />Cor</span>
@@ -338,7 +340,8 @@
 
 	.aparencia { padding: var(--e-2) var(--e-3) var(--e-3); }
 	.interruptor-natal { display: flex; align-items: center; justify-content: space-between;
-		margin-top: var(--e-3); font-size: 0.82rem; color: var(--texto-2, var(--suave)); cursor: pointer; }
+		min-height: 48px; padding: var(--e-2) var(--e-3); cursor: pointer; }
+	.interruptor-natal .rotulo { display: flex; align-items: center; gap: var(--e-3); }
 	/* o comprimido: 36×20, com a bolinha a deslizar; a área de toque é a linha inteira */
 	.interruptor-natal button { position: relative; width: 36px; height: 20px; flex: 0 0 auto;
 		padding: 0; border: 0; border-radius: 999px; background: var(--borda); cursor: pointer;
