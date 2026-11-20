@@ -18,7 +18,9 @@
 	import Desatualizado from '$lib/Desatualizado.svelte';
 	import Icone from '$lib/Icone.svelte';
 	import Luzinhas from '$lib/Luzinhas.svelte';
-	import PaiNatal from '$lib/PaiNatal.svelte';
+	import EnfeiteIcone from '$lib/EnfeiteIcone.svelte';
+	import NeveNaBarra from '$lib/NeveNaBarra.svelte';
+	import Treno from '$lib/Treno.svelte';
 	import Neve from '$lib/Neve.svelte';
 	import { natal, natalNoEndereco } from '$lib/natal.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
@@ -205,13 +207,7 @@
   de um, e em troca o rodapé deixa de empurrar a barra de navegação.
 -->
 <nav class="barra" class:recolhida={barra.recolhida} aria-label="Secções">
-	{#if natal.ativo}
-		<!-- três bolas penduradas na pílula, uma por botão; decorativas, e o dedo passa-lhes ao lado -->
-		<span class="bolas" aria-hidden="true"><i></i><i></i><i></i></span>
-		<!-- e o Pai Natal com a prenda, sentado na ponta da pílula: os dias sem jogos quase nunca
-		     aparecem (a fita só mostra dias com jogos), e era lá que ele estava -->
-		<span class="espreita" aria-hidden="true"><PaiNatal tamanho={40} /></span>
-	{/if}
+	{#if natal.ativo}<NeveNaBarra />{/if}
 	{#each SECCOES as s (s.href)}
 		<a
 			href={s.href}
@@ -222,6 +218,7 @@
 			     e por isso o do ícone é `aria-hidden` -->
 			<span class="simbolo">
 				<Icone nome={s.icone} tamanho={21} />
+				{#if natal.ativo}<EnfeiteIcone nome={s.icone} />{/if}
 				{#if s.href === '/clube' && favoritos.lista.length}<i class="conta sobre" aria-hidden="true">{favoritos.lista.length}</i>{/if}
 			</span>
 			<span class="rotulo">{s.rotulo}{#if s.href === '/clube' && favoritos.lista.length}<i class="conta">{favoritos.lista.length}</i>{/if}</span>
@@ -233,7 +230,7 @@
      empilhamento do cabeçalho e não cobria a barra de navegação de baixo -->
 <MenuMais bind:aberto={menuAberto} topo={alturaTopo} />
 
-{#if natal.ativo}<Neve />{/if}
+{#if natal.ativo}<Neve /><Treno topo={alturaTopo} />{/if}
 
 <AutoRefrescar agenda={data.agenda} />
 <!-- Num site de ramo o service worker **não se regista**, e é o `AvisoVersao` que o faz.
@@ -456,16 +453,6 @@
 	/* o gorro de Pai Natal no "O", torto como deve ser — ver lib/natal.svelte.ts */
 	.marca.natal { position: relative; }
 	.gorro { position: absolute; left: -8px; top: -11px; transform: rotate(-18deg); pointer-events: none; }
-	.bolas { position: absolute; left: 0; right: 0; top: 100%; display: flex; justify-content: space-around;
-		pointer-events: none; }
-	.bolas i { width: 9px; height: 9px; margin-top: -2px; border-radius: 50%; position: relative;
-		background: #e53935; box-shadow: inset -2px -2px 0 rgb(0 0 0 / 0.18); }
-	.bolas i:nth-child(2) { background: #fbc02d; }
-	.bolas i:nth-child(3) { background: #43a047; }
-	.espreita { position: absolute; left: -16px; bottom: calc(100% - 9px); pointer-events: none; }
-	.espreita :global(svg) { margin: 0; }
-	.bolas i::before { content: ''; position: absolute; left: 3px; top: -3px; width: 3px; height: 3px;
-		background: #9e9e9e; border-radius: 1px; }
 	/* sem `margin-left`: ".DEV" cola-se ao nome, porque faz parte dele */
 	.marca span { font-weight: 400; color: var(--suave); font-size: 0.72rem; }
 	.acoes { display: flex; align-items: center; gap: 0.15rem; }
