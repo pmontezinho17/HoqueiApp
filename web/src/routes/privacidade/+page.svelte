@@ -95,6 +95,12 @@
 			<code>azul</code>, <code>vermelho</code> e assim. Enquanto ficares no verde
 			<strong>não fica nada escrito</strong>: a chave só nasce se escolheres outra.
 		</dd>
+		<dt>Os enfeites de Natal, se os desligares</dt>
+		<dd>
+			Numa chave chamada <code>hoquei:natal:v1</code>, com a palavra
+			<code>desligado</code>. Enquanto ficarem em automático — de 1 de dezembro ao Dia de Reis
+			— <strong>não fica nada escrito</strong>: a chave só nasce se os desligares.
+		</dd>
 		<dt>O convite para guardar a app no ecrã principal, se o dispensares</dt>
 		<dd>
 			Numa chave chamada <code>hoquei:convite-visto:v1</code>, com um

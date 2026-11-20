@@ -26,6 +26,7 @@
 	import { novidades, HA_NOVIDADES } from './novidades.svelte';
 	import { tema, TEMAS } from './tema.svelte';
 	import { cor, CORES } from './cor.svelte';
+	import { escolherNatal, natal } from './natal.svelte';
 	import { RECOLHER_FEEDBACK } from './feedback';
 	import Icone from './Icone.svelte';
 	import { partilhar, PODE_PARTILHAR_NATIVO } from './partilha';
@@ -165,6 +166,16 @@
 					>
 				{/each}
 			</div>
+			<!-- os enfeites de Natal, só na época deles: fora dela não há nada para desligar -->
+			{#if natal.emEpoca}
+				<span class="sub">Enfeites de Natal</span>
+				<div class="escolhas" role="group" aria-label="Enfeites de Natal">
+					<button class:activo={!natal.desligado} aria-pressed={!natal.desligado}
+						onclick={() => escolherNatal(true)}>Automático</button>
+					<button class:activo={natal.desligado} aria-pressed={natal.desligado}
+						onclick={() => escolherNatal(false)}>Desligados</button>
+				</div>
+			{/if}
 		</div>
 
 		<div class="cores">
@@ -324,6 +335,7 @@
 	.risca { height: 1px; margin: var(--e-2) var(--e-3); background: var(--borda-fraca); }
 
 	.aparencia { padding: var(--e-2) var(--e-3) var(--e-3); }
+	.sub { display: block; margin-top: var(--e-3); font-size: 0.78rem; color: var(--suave); }
 	.escolhas { display: flex; gap: var(--e-1); margin-top: var(--e-2); }
 	.escolhas button {
 		flex: 1;

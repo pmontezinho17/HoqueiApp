@@ -25,5 +25,45 @@ export function natalNoEndereco(url: URL, dia: string = diaDeLisboa()): boolean 
 	return epocaDeNatal(dia);
 }
 
-/** O estado partilhado: o layout decide, e os enfeites espalhados pelos ecrãs leem daqui. */
-export const natal = $state({ ativo: false });
+/**
+ * O estado partilhado: o layout decide, e os enfeites espalhados pelos ecrãs leem daqui.
+ *
+ * - `emEpoca` — é Natal pelo calendário (ou pelo `?natal=1`);
+ * - `desligado` — quem usa a app desligou os enfeites, no menu ☰, em Aparência;
+ * - `ativo` — os dois juntos: é o que os enfeites consultam.
+ */
+export const natal = $state({ ativo: false, emEpoca: false, desligado: false });
+
+/**
+ * **Desligar os enfeites, e voltar a ligá-los.** Pedido do dono a 20/11/2026: *"tem de haver a
+ * possibilidade de o utilizador conseguir desligar este modo natalício… mas que seja automático
+ * com o sistema"*. Automático é a omissão e **não se guarda nada**, como o tema "Sistema" e a
+ * cor verde: a chave só nasce se alguém os desligar, e a política de privacidade di-lo.
+ */
+const CHAVE = 'hoquei:natal:v1';
+
+export function carregarNatal(armazem: Pick<Storage, 'getItem'> | null = guardado()) {
+	try {
+		natal.desligado = armazem?.getItem(CHAVE) === 'desligado';
+	} catch {
+		// armazenamento bloqueado: fica o automático
+	}
+}
+
+export function escolherNatal(automatico: boolean, armazem: Pick<Storage, 'setItem' | 'removeItem'> | null = guardado()) {
+	natal.desligado = !automatico;
+	try {
+		if (automatico) armazem?.removeItem(CHAVE);
+		else armazem?.setItem(CHAVE, 'desligado');
+	} catch {
+		// não guardar é mau, não é motivo para não obedecer nesta sessão
+	}
+}
+
+function guardado(): Storage | null {
+	try {
+		return typeof localStorage === 'undefined' ? null : localStorage;
+	} catch {
+		return null;
+	}
+}

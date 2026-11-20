@@ -174,7 +174,7 @@ export const NOVIDADES: Novidade[] = [
 				tipo: 'novo',
 				titulo: '🎄 A app vestida de Natal',
 				texto:
-					'De 1 de dezembro ao Dia de Reis há luzinhas no topo, um gorro no nome da app, bolas na barra de baixo, o Pai Natal com uma prenda e uma neve muito suave. Quem tem o telemóvel com menos movimento vê tudo menos a neve.'
+					'De 1 de dezembro ao Dia de Reis há luzinhas no topo, um gorro no nome da app, neve em cima da barra de baixo e um enfeite em cada botão, o trenó do Pai Natal a passar e uma neve muito suave. Quem tem o telemóvel com menos movimento vê tudo menos a neve e o trenó. E podes desligar os enfeites no menu ☰, em Aparência.'
 			}
 		]
 	},

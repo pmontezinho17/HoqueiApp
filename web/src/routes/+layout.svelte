@@ -22,7 +22,7 @@
 	import NeveNaBarra from '$lib/NeveNaBarra.svelte';
 	import Treno from '$lib/Treno.svelte';
 	import Neve from '$lib/Neve.svelte';
-	import { natal, natalNoEndereco } from '$lib/natal.svelte';
+	import { carregarNatal, natal, natalNoEndereco } from '$lib/natal.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import MenuMais from '$lib/MenuMais.svelte';
 	import CaixaNovidades from '$lib/CaixaNovidades.svelte';
@@ -44,7 +44,8 @@
 	$effect(() => {
 		const p = page.url.searchParams.get('natal');
 		if (p === '1' || p === '0') natalPedido = p;
-		natal.ativo = natalNoEndereco(new URL(`https://x/?natal=${natalPedido ?? ''}`));
+		natal.emEpoca = natalNoEndereco(new URL(`https://x/?natal=${natalPedido ?? ''}`));
+		natal.ativo = natal.emEpoca && !natal.desligado;
 	});
 
 	/**
@@ -115,6 +116,7 @@
 	$effect(() => favoritos.carregar());
 	// a cor escolhida vive no aparelho e só existe no browser, como o tema
 	$effect(() => cor.carregar());
+	$effect(() => carregarNatal());
 
 	// a preferência de tema também só existe no browser, e aplica-se ao `<html>`
 	$effect(() => tema.carregar());
