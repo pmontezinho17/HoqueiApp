@@ -506,8 +506,8 @@
    "hora": "10:00:00",
    "casa": "SC TORRES",
    "fora": "FSE/AJ SALESIANA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 5,
+   "golos_fora": 5,
    "recinto": "PAV. SC TORRES",
    "ao_vivo": false
   },
@@ -520,8 +520,8 @@
    "hora": "15:00:00",
    "casa": "AD OEIRAS A",
    "fora": "A STUART HCM",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 14,
+   "golos_fora": 1,
    "recinto": "PAV. A.D.OEIRAS",
    "ao_vivo": false
   },
@@ -548,8 +548,8 @@
    "hora": "13:30:00",
    "casa": "CD PAÇO ARCOS A",
    "fora": "AE FISICA D A",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 13,
+   "golos_fora": 5,
    "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
   },
