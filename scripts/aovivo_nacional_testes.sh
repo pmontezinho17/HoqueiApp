@@ -28,6 +28,10 @@ CATEGORIAS=(--categorias "CAMPEONATO NACIONAL 1ª DIVISAO"
             --categorias "CAMPEONATO NACIONAL 3ª DIVISAO")
 
 agora() { date +%s; }
+# **O dia fica o da corrida.** A 20/11/2026 a primeira corrida passou a meia-noite e o "hoje" do
+# `direto` passou a ser sábado: os 18 jogos de sábado contavam como por acabar e a corrida não
+# saía — ia ler a página de 30 em 30 s pela noite fora e revezar-se até à tarde.
+HOJE=${HOJE:-$(TZ=Europe/Lisbon date +%F)}
 fim=$(( $(agora) + MINUTOS * 60 ))
 ultima_ronda=$(agora)                 # a leitura que abriu esta corrida acabou de ser feita
 ronda_marcada=0
@@ -68,8 +72,8 @@ ronda_normal() {
 
 echo "ao vivo nacional no site de testes: até $MINUTOS min, de $INTERVALO em $INTERVALO s"
 while [ "$(agora)" -lt "$fim" ]; do
-  # `DIRETO_ARGS` só para ensaiar o ciclo à mão com a amostra (`--pagina … --hoje …`)
-  saida=$(cd scraper && uv run python -m hoquei.direto --destino "../$DESTINO" ${DIRETO_ARGS:-} 2>&1)
+  # `DIRETO_ARGS` só para ensaiar o ciclo à mão com a amostra (`--pagina …`, com `HOJE=` fora)
+  saida=$(cd scraper && uv run python -m hoquei.direto --destino "../$DESTINO" --hoje "$HOJE" ${DIRETO_ARGS:-} 2>&1)
   paginas=$((paginas + 1))
   mudou=$(valor "$saida" mudou); acabaram=$(valor "$saida" acabaram)
   pendentes=$(valor "$saida" pendentes); vivos=$(valor "$saida" a_decorrer)
@@ -88,7 +92,7 @@ while [ "$(agora)" -lt "$fim" ]; do
     if ronda_normal; then
       ronda_marcada=0
       # a ronda reescreve a agenda a partir dos calendários; volta-se a pôr o placar por cima
-      (cd scraper && uv run python -m hoquei.direto --destino "../$DESTINO" >/dev/null 2>&1) || true
+      (cd scraper && uv run python -m hoquei.direto --destino "../$DESTINO" --hoje "$HOJE" >/dev/null 2>&1) || true
       paginas=$((paginas + 1))
       mudou=1
     fi

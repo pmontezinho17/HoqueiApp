@@ -106,3 +106,15 @@ def test_pendentes_conta_o_que_ainda_pode_mudar():
         {"hora": "15:00", "gc": None},                    # passou da janela: já não se espera
     ]
     assert pendentes(jogos, agora) == 3
+
+
+def test_pendentes_nao_passa_a_meia_noite_para_o_dia_seguinte():
+    """A corrida de 20/11/2026: o CD Cucujães – CH Carvalhos B das 21:30 acabou 8–3, e às 00:51
+    a corrida continuava a ler a página. A hora marcada ia para o dia do relógio."""
+    from datetime import datetime
+    from hoquei.direto import LISBOA, pendentes
+    agora = datetime(2026, 11, 21, 0, 51, tzinfo=LISBOA)
+    assert pendentes([{"data": "2026-11-20", "hora": "21:30", "gc": None}], agora) == 0
+    # e um jogo das 23:30 continua a contar depois da meia-noite, enquanto está na janela
+    assert pendentes([{"data": "2026-11-20", "hora": "23:30", "gc": 1, "gf": 1,
+                       "ao_vivo": True}], agora) == 1

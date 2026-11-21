@@ -191,6 +191,11 @@ def pendentes(de_hoje: list[dict], agora: datetime) -> int:
     mostra — ou que mostra com um estado que não sabemos ler — não está marcado, e um ciclo que
     parasse por aí saía a meio do jogo. Conta enquanto não tiver resultado ou estiver marcado,
     até 2h30 depois da hora marcada.
+
+    **O início é o do dia do jogo, e não o de hoje.** Até 21/11/2026 a hora marcada punha-se no
+    dia do relógio, e a primeira corrida a sério passou a meia-noite: às 00:51 o jogo das 21:30
+    de sexta contava como daí a vinte horas, e a corrida ficou a ler a página de 30 em 30 s pela
+    noite fora, a caminho de se revezar até sábado à tarde.
     """
     n = 0
     for j in de_hoje:
@@ -199,8 +204,9 @@ def pendentes(de_hoje: list[dict], agora: datetime) -> int:
         hora = j.get("hora")
         if not hora:
             continue
-        h, m = map(int, hora.split(":"))
-        inicio = agora.replace(hour=h, minute=m, second=0, microsecond=0)
+        h, m = map(int, hora.split(":")[:2])
+        dia = datetime.fromisoformat(j["data"]).date() if j.get("data") else agora.date()
+        inicio = datetime(dia.year, dia.month, dia.day, h, m, tzinfo=agora.tzinfo)
         if (agora - inicio).total_seconds() < DURACAO_MAXIMA_MIN * 60:
             n += 1
     return n
