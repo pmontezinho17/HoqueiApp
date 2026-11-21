@@ -26,6 +26,7 @@
 	import { novidades, HA_NOVIDADES } from './novidades.svelte';
 	import { tema, TEMAS } from './tema.svelte';
 	import { cor, CORES } from './cor.svelte';
+	import { escolherNatal, natal } from './natal.svelte';
 	import { RECOLHER_FEEDBACK } from './feedback';
 	import Icone from './Icone.svelte';
 	import { partilhar, PODE_PARTILHAR_NATIVO } from './partilha';
@@ -165,7 +166,21 @@
 					>
 				{/each}
 			</div>
+			<!-- os enfeites de Natal, só na época deles: fora dela não há nada para desligar -->
 		</div>
+
+		<!-- Um interruptor e não dois botões: a primeira versão tinha dois do tamanho dos do tema,
+		     e o dono achou-os "gigantes" (20/11/2026) — "como se fosse um comprimido". Ligado é o
+		     automático: os enfeites aparecem na época sozinhos. Com ícone e linha próprios, como a
+		     Aparência e a Cor, a pedido dele no mesmo dia. -->
+		{#if natal.emEpoca}
+			<label class="interruptor-natal">
+				<span class="rotulo"><Icone nome="natal" tamanho={18} />Enfeites de Natal</span>
+				<button type="button" role="switch" aria-checked={!natal.desligado}
+					aria-label="Enfeites de Natal" class:ligado={!natal.desligado}
+					onclick={() => escolherNatal(natal.desligado)}><i></i></button>
+			</label>
+		{/if}
 
 		<div class="cores">
 			<span class="rotulo"><Icone nome="cores" tamanho={18} />Cor</span>
@@ -324,6 +339,20 @@
 	.risca { height: 1px; margin: var(--e-2) var(--e-3); background: var(--borda-fraca); }
 
 	.aparencia { padding: var(--e-2) var(--e-3) var(--e-3); }
+	.interruptor-natal { display: flex; align-items: center; justify-content: space-between;
+		min-height: 48px; padding: var(--e-2) var(--e-3); cursor: pointer; }
+	.interruptor-natal .rotulo { display: flex; align-items: center; gap: var(--e-3); }
+	/* o comprimido: 36×20, com a bolinha a deslizar; a área de toque é a linha inteira */
+	.interruptor-natal button { position: relative; width: 36px; height: 20px; flex: 0 0 auto;
+		padding: 0; border: 0; border-radius: 999px; background: var(--borda); cursor: pointer;
+		transition: background 0.2s ease; }
+	.interruptor-natal button.ligado { background: var(--acento); }
+	.interruptor-natal i { position: absolute; top: 2px; left: 2px; width: 16px; height: 16px;
+		border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgb(0 0 0 / 0.25);
+		transition: transform 0.2s ease; }
+	.interruptor-natal button.ligado i { transform: translateX(16px); }
+	.interruptor-natal button:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+	@media (prefers-reduced-motion: reduce) { .interruptor-natal button, .interruptor-natal i { transition: none; } }
 	.escolhas { display: flex; gap: var(--e-1); margin-top: var(--e-2); }
 	.escolhas button {
 		flex: 1;

@@ -169,6 +169,12 @@ export const NOVIDADES: Novidade[] = [
 				titulo: '🔘 Os jogos do dia por liga',
 				texto:
 					'Por baixo dos dias há agora um botão por liga — Todos, APL, Placard, 2.ª e 3.ª Divisão —, cada um com quantos jogos tem nesse dia. Ao lado escolhes o escalão na APL, ou a zona Norte ou Sul numa divisão.'
+			},
+			{
+				tipo: 'novo',
+				titulo: '🎄 A app vestida de Natal',
+				texto:
+					'De 1 de dezembro ao Dia de Reis há luzinhas no topo, um gorro no nome da app, neve em cima da barra de baixo e um enfeite em cada botão, o trenó do Pai Natal a passar e uma neve muito suave. Quem tem o telemóvel com menos movimento vê tudo menos a neve e o trenó. E podes desligar os enfeites no menu ☰, em Aparência.'
 			}
 		]
 	},

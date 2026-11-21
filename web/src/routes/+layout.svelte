@@ -17,6 +17,12 @@
 	import { seccaoDe, type Seccao } from '$lib/seccao';
 	import Desatualizado from '$lib/Desatualizado.svelte';
 	import Icone from '$lib/Icone.svelte';
+	import Luzinhas from '$lib/Luzinhas.svelte';
+	import EnfeiteIcone from '$lib/EnfeiteIcone.svelte';
+	import NeveNaBarra from '$lib/NeveNaBarra.svelte';
+	import Treno from '$lib/Treno.svelte';
+	import Neve from '$lib/Neve.svelte';
+	import { carregarNatal, natal, natalNoEndereco } from '$lib/natal.svelte';
 	import { favoritos } from '$lib/favoritos.svelte';
 	import MenuMais from '$lib/MenuMais.svelte';
 	import CaixaNovidades from '$lib/CaixaNovidades.svelte';
@@ -28,6 +34,19 @@
 	import { aoRolar, type EstadoBarra } from '$lib/barra';
 
 	let { data, children } = $props();
+
+	/**
+	 * O Natal, pelo calendário (`lib/natal.svelte.ts`). O `?natal=` do endereço vale até a app
+	 * fechar: sem isto perdia-se no primeiro toque, porque os links da app não levam o endereço
+	 * de onde vieram, e quem estava a ver os enfeites no site de testes ficava sem eles.
+	 */
+	let natalPedido: string | null = null;
+	$effect(() => {
+		const p = page.url.searchParams.get('natal');
+		if (p === '1' || p === '0') natalPedido = p;
+		natal.emEpoca = natalNoEndereco(new URL(`https://x/?natal=${natalPedido ?? ''}`));
+		natal.ativo = natal.emEpoca && !natal.desligado;
+	});
 
 	/**
 	 * Estamos num site de ramo? Só se sabe no browser — o `adapter-static` pré-constrói estas
@@ -97,6 +116,7 @@
 	$effect(() => favoritos.carregar());
 	// a cor escolhida vive no aparelho e só existe no browser, como o tema
 	$effect(() => cor.carregar());
+	$effect(() => carregarNatal());
 
 	// a preferência de tema também só existe no browser, e aplica-se ao `<html>`
 	$effect(() => tema.carregar());
@@ -131,11 +151,12 @@
 <a class="salto" href="#conteudo">Saltar para o conteúdo</a>
 
 <header bind:clientHeight={alturaTopo}>
+	{#if natal.ativo}<Luzinhas />{/if}
 	<div class="topo">
 		<!-- O descritor do desporto saiu do cabeçalho porque o nome novo é mais largo e aqui
 		     cabem só a marca, a frescura dos dados e dois ícones — ele continua no manifesto e
 		     na página "Sobre a app e os dados". -->
-		<a class="marca" href="/">{marcaBase}{#if marcaSufixo}<span>{marcaSufixo}</span>{/if}</a>
+		<a class="marca" class:natal={natal.ativo} href="/">{#if natal.ativo}<svg class="gorro" viewBox="0 0 24 20" width="21" height="17" aria-hidden="true"><path d="M2 17 Q6 2 19 4 Q14 8 14 17 Z" fill="#d32f2f" /><circle cx="19.5" cy="4" r="2.4" fill="#fff" stroke="#ddd" stroke-width="0.5" /><rect x="0.5" y="15" width="16" height="4.5" rx="2.2" fill="#fff" stroke="#ddd" stroke-width="0.5" /></svg>{/if}{marcaBase}{#if marcaSufixo}<span>{marcaSufixo}</span>{/if}</a>
 		<div class="acoes">
 			<Desatualizado geradoEm={data.meta.generated_at} />
 			<a class="icone" href="/procurar" aria-label="Procurar equipa" data-guia="procurar">
@@ -188,6 +209,7 @@
   de um, e em troca o rodapé deixa de empurrar a barra de navegação.
 -->
 <nav class="barra" class:recolhida={barra.recolhida} aria-label="Secções">
+	{#if natal.ativo}<NeveNaBarra />{/if}
 	{#each SECCOES as s (s.href)}
 		<a
 			href={s.href}
@@ -198,6 +220,7 @@
 			     e por isso o do ícone é `aria-hidden` -->
 			<span class="simbolo">
 				<Icone nome={s.icone} tamanho={21} />
+				{#if natal.ativo}<EnfeiteIcone nome={s.icone} />{/if}
 				{#if s.href === '/clube' && favoritos.lista.length}<i class="conta sobre" aria-hidden="true">{favoritos.lista.length}</i>{/if}
 			</span>
 			<span class="rotulo">{s.rotulo}{#if s.href === '/clube' && favoritos.lista.length}<i class="conta">{favoritos.lista.length}</i>{/if}</span>
@@ -208,6 +231,8 @@
 <!-- fora do `<header>` de propósito: lá dentro o véu ficava preso ao contexto de
      empilhamento do cabeçalho e não cobria a barra de navegação de baixo -->
 <MenuMais bind:aberto={menuAberto} topo={alturaTopo} />
+
+{#if natal.ativo}<Neve /><Treno topo={alturaTopo} />{/if}
 
 <AutoRefrescar agenda={data.agenda} />
 <!-- Num site de ramo o service worker **não se regista**, e é o `AvisoVersao` que o faz.
@@ -427,6 +452,9 @@
 	}
 	.topo { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
 	.marca { font-weight: 700; font-size: 0.98rem; text-decoration: none; }
+	/* o gorro de Pai Natal no "O", torto como deve ser — ver lib/natal.svelte.ts */
+	.marca.natal { position: relative; }
+	.gorro { position: absolute; left: -8px; top: -11px; transform: rotate(-18deg); pointer-events: none; }
 	/* sem `margin-left`: ".DEV" cola-se ao nome, porque faz parte dele */
 	.marca span { font-weight: 400; color: var(--suave); font-size: 0.72rem; }
 	.acoes { display: flex; align-items: center; gap: 0.15rem; }
