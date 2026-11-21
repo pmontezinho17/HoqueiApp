@@ -993,8 +993,8 @@
    "participantes": 7,
    "completa": false,
    "bonificacao": 10,
-   "penalizacao": -3,
-   "total": 7,
+   "penalizacao": -4,
+   "total": 6,
    "parcelas": [
     {
      "regra": "3.1",
@@ -1018,8 +1018,8 @@
     },
     {
      "regra": "4.1.3",
-     "texto": "1 com 3 meias partes seguidas",
-     "pontos": -1
+     "texto": "2 com 3 meias partes seguidas",
+     "pontos": -2
     }
    ],
    "avisos": []
@@ -1048,6 +1048,7 @@
    "avisos": []
   }
  ],
+ "merito_revisto": "2026-11-21",
  "em_pista": [
   {
    "equipa": "UD VILAFRANQUENSE",
@@ -1077,7 +1078,7 @@
       "X",
       "X",
       "",
-      ""
+      "X"
      ],
      "golos": [
       1,
@@ -1128,7 +1129,7 @@
       "",
       "X",
       "X",
-      ""
+      "X"
      ],
      "golos": [
       0,
