@@ -79,7 +79,11 @@
 	 * num jogo a decorrer: aos dois minutos ainda só há o "Início da 1ª Parte", e era
 	 * precisamente aí que se abria o jogo à procura do que estava a acontecer.
 	 */
-	const temEventos = $derived(aDecorrer || f.cronologia.some((e) => !ESTRUTURA.has(e.tipo)));
+	// **Menos sem ficha**: nas ligas nacionais o placar ao vivo vem da lista da federação e não há
+	// cronologia nenhuma até a ficha chegar, e o separador abria vazio (20/11/2026).
+	const temEventos = $derived(
+		(aDecorrer && !semFicha) || f.cronologia.some((e) => !ESTRUTURA.has(e.tipo))
+	);
 	const temEquipas = $derived(f.equipas.some((e) => e.jogadores.length > 0));
 	const temInfo = $derived(
 		!!(f.data || f.hora || f.recinto || f.arbitros.length || f.boletim?.parciais?.length)

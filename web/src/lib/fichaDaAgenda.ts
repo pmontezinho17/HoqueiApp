@@ -37,8 +37,20 @@ import type { FichaJogo, JogoAgenda } from './tipos';
 
 const FECHADO = 'Jogo Terminado';
 
-export function fichaDaAgenda(j: JogoAgenda): FichaJogo {
-	const disputado = j.gc !== null && j.gf !== null;
+/**
+ * `aDecorrer` é o `emCurso` da agenda, que o `+page.ts` já calcula: vem de fora para isto
+ * continuar uma função pura, sem relógio lá dentro.
+ *
+ * **Um jogo a decorrer tem resultado e não está terminado.** Até 20/11/2026 "tem resultado"
+ * queria dizer "acabou", e na APL isso nunca falhou porque um jogo a decorrer tem sempre ficha
+ * — é dela que vem o resultado. Nas ligas nacionais o placar ao vivo vem da "Jogos do Dia" da
+ * federação (`scraper/src/hoquei/direto.py`) e a ficha só chega depois do apito final: no
+ * primeiro jogo nacional seguido ao vivo, o CD Cucujães – CH Carvalhos B, a lista dizia
+ * "AO VIVO 1–0" e a página do jogo dizia "1 – 0 Final" à primeira parte. Quem deu por isso foi
+ * o dono, no telemóvel.
+ */
+export function fichaDaAgenda(j: JogoAgenda, aDecorrer = false): FichaJogo {
+	const disputado = !aDecorrer && j.gc !== null && j.gf !== null;
 	return {
 		id: j.id as number,
 		competicao: j.prova ?? null,
@@ -51,7 +63,7 @@ export function fichaDaAgenda(j: JogoAgenda): FichaJogo {
 		// resultado está terminado, um jogo marcado está por começar. Inventar "1ª Parte" aqui
 		// punha a app a afirmar o que não observou.
 		estado: disputado ? FECHADO : null,
-		situacao: disputado ? FECHADO : (j.situacao ?? 'Por começar'),
+		situacao: disputado ? FECHADO : (j.situacao ?? (aDecorrer ? 'A decorrer' : 'Por começar')),
 		periodo: j.periodo ?? null,
 		relogio: j.relogio ?? null,
 		data: j.data,
