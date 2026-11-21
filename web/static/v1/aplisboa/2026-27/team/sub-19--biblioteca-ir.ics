@@ -9,18 +9,6 @@ X-WR-TIMEZONE:Europe/Lisbon
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:jogo-9822@hoquei.pages.dev
-DTSTAMP:20261120T000000Z
-DTSTART:20261120T220000Z
-DTEND:20261120T233000Z
-SUMMARY:🏑 Sub-19 🏑 Biblioteca IR vs HC Turquel
-LOCATION:Hockey club Turquel
-DESCRIPTION:Biblioteca IR 0–15 HC Turquel\nCAMP. REG. SUB-19 - 1ª FASE 
- · Série A · SUB-19\nPAV. HC TURQUEL\nhttps://hoquei.pages.dev/jogo/9822
- \nDados da Associação de Patinagem de Lisboa. Site não oficial.
-URL:https://hoquei.pages.dev/jogo/9822
-END:VEVENT
-BEGIN:VEVENT
 UID:jogo-9825@hoquei.pages.dev
 DTSTAMP:20261129T000000Z
 DTSTART:20261129T110000Z
