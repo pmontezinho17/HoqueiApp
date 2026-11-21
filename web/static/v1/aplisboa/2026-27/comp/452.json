@@ -426,8 +426,8 @@
    "hora": "11:45:00",
    "casa": "SL BENFICA B",
    "fora": "CRIAR-T GD",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 4,
+   "golos_fora": 1,
    "recinto": "PAV. MURCHES",
    "ao_vivo": false
   },
@@ -480,6 +480,20 @@
     },
     {
      "posicao": 2,
+     "equipa": "SL BENFICA B",
+     "logo": "/intranet/logos/1.png",
+     "jogos": 10,
+     "vitorias": 7,
+     "empates": 0,
+     "derrotas": 3,
+     "golos_marcados": 49,
+     "golos_sofridos": 21,
+     "diferenca": 28,
+     "racio": 2.33,
+     "pontos": 21
+    },
+    {
+     "posicao": 3,
      "equipa": "CD PAÇO ARCOS A",
      "logo": "/intranet/logos/7.png",
      "jogos": 9,
@@ -490,20 +504,6 @@
      "golos_sofridos": 20,
      "diferenca": 35,
      "racio": 2.75,
-     "pontos": 18
-    },
-    {
-     "posicao": 3,
-     "equipa": "SL BENFICA B",
-     "logo": "/intranet/logos/1.png",
-     "jogos": 9,
-     "vitorias": 6,
-     "empates": 0,
-     "derrotas": 3,
-     "golos_marcados": 45,
-     "golos_sofridos": 20,
-     "diferenca": 25,
-     "racio": 2.25,
      "pontos": 18
     },
     {
@@ -524,14 +524,14 @@
      "posicao": 5,
      "equipa": "CRIAR-T GD",
      "logo": "/intranet/logos/17.png",
-     "jogos": 9,
+     "jogos": 10,
      "vitorias": 2,
      "empates": 0,
-     "derrotas": 7,
-     "golos_marcados": 24,
-     "golos_sofridos": 53,
-     "diferenca": -29,
-     "racio": 0.45,
+     "derrotas": 8,
+     "golos_marcados": 25,
+     "golos_sofridos": 57,
+     "diferenca": -32,
+     "racio": 0.44,
      "pontos": 6
     },
     {

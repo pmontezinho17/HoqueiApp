@@ -239,8 +239,8 @@
    "hora": "12:00:00",
    "casa": "CD PAÇO ARCOS B",
    "fora": "AD OEIRAS B",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 1,
+   "golos_fora": 3,
    "recinto": "PAV. PAÇO DE ARCOS",
    "ao_vivo": false
   },
@@ -253,8 +253,8 @@
    "hora": "12:00:00",
    "casa": "AE FISICA D B",
    "fora": "S ALENQUER BENFICA",
-   "golos_casa": null,
-   "golos_fora": null,
+   "golos_casa": 0,
+   "golos_fora": 21,
    "recinto": "PAV. FÍSICA TORRES VEDRAS",
    "ao_vivo": false
   },
