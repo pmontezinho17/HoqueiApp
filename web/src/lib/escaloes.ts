@@ -19,6 +19,12 @@ export const ORDEM = [
 	'SUB-23',
 	'SENIORES FEMININOS',
 	'SENIORES MASCULINOS',
+	// As divisões nacionais a seguir aos seniores da APL, e de cima para baixo: aqui a ordem
+	// "do mais novo para o mais velho" não tem sentido nenhum, e quem lê uma lista de
+	// divisões espera a 1.ª antes da 2.ª.
+	'1.ª DIVISÃO',
+	'2.ª DIVISÃO',
+	'3.ª DIVISÃO',
 	'TORNEIOS PARTICULARES'
 ] as const;
 

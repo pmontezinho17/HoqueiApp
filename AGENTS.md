@@ -211,8 +211,9 @@ conhecimento dela. Isso impõe regras que não são negociáveis por conveniênc
   lá. O preço foi o contador de "aberturas", que volta pelo lado do cliente.
 - **Publicar não é ter publicado: confirma-se a pedir ao site.** O
   `scripts/verificar_producao.py` corre depois de cada publicação, nos **dois** publicadores, e
-  verifica seis coisas no site que está no ar — as Functions, a consola, os links directos, a
-  cache do `/v1/*`, o contrato `/v1` e o `/versao.json`. Nasceu a 13/10/2026, depois de
+  verifica nove coisas no site que está no ar — as Functions, a consola, os links directos, a
+  cache do `/v1/*`, o contrato `/v1`, as ligas nacionais quando a publicação as leva, o
+  `/versao.json`, a página sem código de terceiros e a caixa de sugestões. Nasceu a 13/10/2026, depois de
   produção servir **só os ficheiros estáticos durante 18 horas**: sem consola, sem contador,
   com os links de jogo a dar 404 e com os dados a congelar sete dias na borda. O CI estava
   verde e estava certo — o código, o build e o upload estavam bem, e a Cloudflare serviu mal.

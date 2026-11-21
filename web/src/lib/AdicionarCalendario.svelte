@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Folha from '$lib/Folha.svelte';
 	import { SITIO } from './sitio';
+	import { CAMINHOS, caminhoJogo, ORIGINAL, type Inquilino } from './inquilinos';
 	import { dataCurta, horaComLisboa } from '$lib/formato';
 	import { clube, escalao } from '$lib/nomes';
 	import { slug } from '$lib/slug';
@@ -11,11 +12,14 @@
 		equipa,
 		categoria,
 		jogos,
-		recintos = {}
+		recintos = {},
+		inq = ORIGINAL
 	}: {
 		equipa: string;
 		categoria: string;
 		jogos: Jogo[];
+		/** de que fonte é a equipa: cada uma publica os calendários na sua árvore */
+		inq?: Inquilino;
 		/** nome do recinto → morada. O nome sozinho não geocodifica: tocar na localização
 		 *  do evento não levava a lado nenhum. */
 		recintos?: Record<string, string>;
@@ -25,7 +29,7 @@
 	let copiado = $state(false);
 	let mostrarTodos = $state(false);
 
-	const caminho = $derived(`/v1/aplisboa/2026-27/team/${slug(categoria)}--${slug(equipa)}.ics`);
+	const caminho = $derived(`${CAMINHOS[inq]}/team/${slug(categoria)}--${slug(equipa)}.ics`);
 	const url = $derived(
 		typeof location === 'undefined' ? caminho : new URL(caminho, location.origin).href
 	);
@@ -75,7 +79,7 @@
 		}
 		if (j.recinto) p.set('location', recintos[j.recinto] ?? j.recinto);
 		const detalhes = [`${clube(j.casa)} vs ${clube(j.fora)}`];
-		if (j.id) detalhes.push(`${SITIO}/jogo/${j.id}`);
+		if (j.id) detalhes.push(`${SITIO}${caminhoJogo(j.id)}`);
 		p.set('details', detalhes.join('\n'));
 		return `https://calendar.google.com/calendar/render?${p}`;
 	}

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { rolarSoSePreciso } from '$lib/rolar';
 	import Emblema from './Emblema.svelte';
+	import { caminhoJogo } from './inquilinos';
 	import { disputado, type Jogo } from './tipos';
 
 	let {
@@ -40,7 +41,7 @@
 	<div class="forma" use:rolarSoSePreciso>
 		{#each recentes as r (r.jogo.id ?? r.adversario)}
 			<svelte:element
-				this={r.jogo.id ? 'a' : 'div'} href={r.jogo.id ? `/jogo/${r.jogo.id}` : null}
+				this={r.jogo.id ? 'a' : 'div'} href={r.jogo.id ? caminhoJogo(r.jogo.id) : null}
 				class="item"
 				aria-label={`${curta(r.data)}: ${r.resultado} contra ${r.adversario}`}
 			>

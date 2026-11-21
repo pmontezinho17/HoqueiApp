@@ -28,6 +28,49 @@ def id_do_logo(url: str | None) -> str | None:
     return m.group(1) if m else None
 
 
+from .inquilinos import prefixo
+
+
+def chave_do_emblema(id_logo: str, tenant: str) -> str:
+    """O nome do ficheiro do emblema na nossa origem.
+
+    **Cada fonte numera os seus emblemas, e os números repetem-se.** A APL e a FPP correm o
+    mesmo programa com bases de dados separadas: os 31 emblemas da APL publicados a
+    12/11/2026 são `0.webp` a `9x.webp`, e os da FPP começam também nos números pequenos. Sem
+    prefixo, o emblema de um clube do Placard substituía o de um clube da APL com o mesmo
+    número, e os dois ecrãs mostravam o errado.
+
+    A APL fica sem prefixo porque os caminhos dela já estão no contrato `/v1` que os
+    telemóveis têm em cache. As outras fontes ganham o nome à frente: `fpp-12`.
+    """
+    return f"{prefixo(tenant)}{id_logo}"
+
+
+#: **Equipas a que a fonte deu o emblema de outro clube**, e o clube cujo emblema é o delas.
+#:
+#: No torneio Zeca Pinto de 2026/27 a APL inscreveu o `CD MAFRA (B)`, o `HC TURQUEL (B)` e o
+#: `HC TURQUEL (E)` seguidos (ids 1826, 1827 e 1828) e as três com o emblema do Mafra. O dono
+#: confirmou a 17/11/2026: *"o Turquel é um emblema branco ao contrário do Mafra que é um
+#: emblema verde e amarelo"*. Sem isto, o "O Meu Clube" juntava as duas do Turquel ao Mafra,
+#: porque agrupa os clubes pelo emblema.
+EMBLEMA_DE_OUTRA_EQUIPA: dict[str, dict[str, str]] = {
+    "aplisboa": {
+        "HC TURQUEL (B)": "HC TURQUEL",
+        "HC TURQUEL (E)": "HC TURQUEL",
+    },
+}
+
+
+def corrigir_emblemas(emblemas: dict[str, str], tenant: str) -> dict[str, str]:
+    """O mapa nome → emblema com as correcções acima. Uma equipa da lista que não esteja no
+    mapa, ou cujo clube não tenha emblema, fica como estava."""
+    certo = dict(emblemas)
+    for equipa, clube in EMBLEMA_DE_OUTRA_EQUIPA.get(tenant, {}).items():
+        if equipa in certo and clube in certo:
+            certo[equipa] = certo[clube]
+    return certo
+
+
 def caminho_publico(id_logo: str) -> str:
     return f"/emblemas/{id_logo}.webp"
 

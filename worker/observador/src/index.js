@@ -466,8 +466,11 @@ async function observar(env) {
  * registo.py`: uma origem que não esteja aqui é recusada, porque um processo novo a pedir à
  * fonte tem de ter sido pensado e contado antes.
  */
-// a `medicao` é a do atraso da "Jogos do Dia" da FPP, a 21/11/2026: pede ao mesmo servidor
-export const ORIGENS = ['producao', 'aovivo', 'testes', 'sonda', 'medicao'];
+// a `medicao` é a do atraso da "Jogos do Dia" da FPP, a 21/11/2026: pede ao mesmo servidor.
+// As `_fpp` são as ligas nacionais (`docs/11-ligas-nacionais.md`): o mesmo servidor, contadas à
+// parte porque o dono quer ver quanto pede cada fonte.
+export const ORIGENS = ['producao', 'aovivo', 'testes', 'sonda', 'medicao',
+	'producao_fpp', 'aovivo_fpp', 'testes_fpp'];
 
 /**
  * Uma contagem de ronda, validada, ou `null`.

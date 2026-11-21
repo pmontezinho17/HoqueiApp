@@ -34,7 +34,7 @@
 	 */
 	import CrachaEscalao from '$lib/CrachaEscalao.svelte';
 	import { competicoesVivas } from '$lib/clubes';
-	import { agruparProvas, enderecoDoMenu, filtrarProvas, semPrefixoComum } from '$lib/provas';
+	import { agruparProvas, enderecoDoMenu, filtrarProvas, porAmbito, semPrefixoComum } from '$lib/provas';
 	import { APP_NOME } from '$lib/sitio';
 	import { slug } from '$lib/slug';
 	import type { Competicao } from '$lib/tipos';
@@ -60,6 +60,8 @@
 	const pedido = $derived(page.url.searchParams.get('tudo') === '1');
 	const mostrarTudo = $derived(pedido || tudo.nadaVivo);
 	const lista = $derived(filtrarProvas(tudo.escaloes, mostrarTudo));
+	/** Nacional e Lisboa, cada um com a sua grelha. Um bloco só, sem título, sem a FPP. */
+	const blocos = $derived(porAmbito(lista));
 
 	const aberto = $derived(page.url.searchParams.get('escalao'));
 
@@ -72,11 +74,11 @@
 	 * O `Math.min` é para a última linha, que pode estar incompleta: com nove escalões e três
 	 * colunas não acontece, mas com dez acontecia, e aí o painel nunca aparecia.
 	 */
-	const fimDaLinhaAberta = $derived.by(() => {
+	const fimDaLinhaAberta = (lista: [string, unknown[]][]) => {
 		const i = lista.findIndex(([e]) => slug(e) === aberto);
 		if (i < 0) return -1;
 		return Math.min(Math.floor(i / COLUNAS) * COLUNAS + COLUNAS - 1, lista.length - 1);
-	});
+	};
 
 	/** O endereço deste ecrã com uma coisa trocada e o resto preservado. @see lib/provas.ts */
 	const endereco = (troca: { escalao?: string | null; tudo?: boolean }) =>
@@ -112,6 +114,10 @@
 	</a>
 {/if}
 
+{#each blocos as bloco (bloco.titulo)}
+{@const lista = bloco.lista}
+{@const fim = fimDaLinhaAberta(lista)}
+{#if bloco.titulo}<h2 class="ambito">{bloco.titulo}</h2>{/if}
 <ul class="grelha">
 	{#each lista as [escalao, provas], i (escalao)}
 		{@const estaAberto = slug(escalao) === aberto && provas.length > 1}
@@ -137,7 +143,7 @@
 			As três colunas são fixas em todas as larguras — ver o CSS. Se um dia deixarem de
 			ser, esta conta tem de mudar com elas.
 		-->
-		{#if aberto && i === fimDaLinhaAberta}
+		{#if aberto && i === fim}
 			{@const dentro = lista.find(([e]) => slug(e) === aberto)}
 			{#if dentro && dentro[1].length > 1}
 				{@const curtos = semPrefixoComum(dentro[1].map((g) => g.nome))}
@@ -156,8 +162,13 @@
 		{/if}
 	{/each}
 </ul>
+{/each}
 
 <style>
+	/* o título de cada bloco, quando há dois: discreto, como os rótulos de secção da app */
+	.ambito { margin: 1.1rem 0 0.5rem; font-size: 0.72rem; font-weight: 600;
+		letter-spacing: 0.06em; text-transform: uppercase; color: var(--suave); }
+	.ambito:first-of-type { margin-top: 0.2rem; }
 	/* três por linha, como no ecrã de escolha de equipas */
 	.grelha {
 		display: grid;

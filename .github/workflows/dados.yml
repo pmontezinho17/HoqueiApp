@@ -157,13 +157,37 @@ jobs:
             ${{ inputs.publicar_sempre && '--forcar' || '' }} \
             ${{ (inputs.so_fotografia || env.SO_PUBLICAR == 'true') && '--nao-pedir' || '' }} >> "$GITHUB_OUTPUT"
 
+      # **A FPP decide pela agenda dela, e não pela da APL** (`docs/11-ligas-nacionais.md`).
+      # Os jogos nacionais são sobretudo ao sábado e os da APL espalham-se pela semana: com uma
+      # decisão só, uma terça com jogos da APL pedia a FPP para nada, e um sábado só com jogos
+      # nacionais deixava-os sem resultado. Antes da primeira publicação a agenda da FPP não
+      # existe no CDN, e a regra de sempre vale: em dúvida, corre.
+      - name: Há razão para pedir à FPP?
+        id: vale_fpp
+        working-directory: scraper
+        run: |
+          uv run python -m hoquei.vale_pedir \
+            --agenda https://hoquei.pages.dev/v1/fpp/2026-27/agenda.json \
+            --cron "${{ github.event.schedule }}" \
+            ${{ inputs.publicar_sempre && '--forcar' || '' }} \
+            ${{ (inputs.so_fotografia || env.SO_PUBLICAR == 'true') && '--nao-pedir' || '' }} >> "$GITHUB_OUTPUT"
+
+      - name: Pede-se a alguma das fontes?
+        id: pede
+        run: |
+          if [ "${{ steps.vale.outputs.correr }}" = true ] || [ "${{ steps.vale_fpp.outputs.correr }}" = true ]; then
+            echo "correr=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "correr=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Nada a pedir à fonte
-        if: steps.vale.outputs.correr != 'true'
+        if: steps.pede.outputs.correr != 'true'
         run: |
           {
             echo "### Ronda saltada"
             echo ""
-            echo "${{ steps.vale.outputs.porque }} — nenhum pedido feito à APL."
+            echo "APL: ${{ steps.vale.outputs.porque }}. FPP: ${{ steps.vale_fpp.outputs.porque }}. Nenhum pedido feito."
             echo ""
             echo "A ronda das 00:30 corre sempre, e é ela que estabelece o dia seguinte."
           } >> "$GITHUB_STEP_SUMMARY"
@@ -213,14 +237,60 @@ jobs:
           --destino ../web/static/v1/aplisboa/2026-27
           ${{ github.event.schedule == '30 23 * * *' && '--rever-boletins --rever-merito' || '' }}
 
+      # ─────────────────────────────────────────────────────────────────────────────────────
+      # **As ligas nacionais: o Placard, a 2.ª e a 3.ª divisão** — decisão do dono a 09/11 e
+      # 17/11/2026, ver `docs/11-ligas-nacionais.md`.
+      #
+      # **Depois da APL e nunca ao mesmo tempo**, porque o servidor é o mesmo (85.152.58.11): o
+      # limite de um pedido por segundo é dele, e não um por associação. **E de dois em dois
+      # segundos**, porque o ciclo ao vivo da APL pode estar a correr noutra máquina nesse
+      # momento, a meio pedido por segundo no pico (15 jogos de 30 em 30 s); com a FPP a um por
+      # segundo o servidor via 1,5. A dois segundos, o pior caso fica no limite.
+      #
+      # **Quanto custa** (medido nos calendários de 17/11/2026): por ronda, a lista de
+      # competições, os 7 calendários e as classificações que a regra das tabelas pedir — 8 a
+      # 15 pedidos —, mais uma ficha por jogo acabado, lida uma vez: ~49 por fim-de-semana. A
+      # primeira ronda lê tudo o que já se jogou: ~180 fichas, ~300 pedidos, ~10 minutos.
+      #
+      # **Uma falha aqui não leva a APL com ela.** `continue-on-error`, e o passo seguinte
+      # devolve a árvore da FPP ao último commit: dados a meio ou suspeitos (a guarda das
+      # contagens sai com 2) morrem no runner, e a APL publica-se na mesma.
+      - name: Regenerar /v1 · ligas nacionais
+        id: fpp
+        if: steps.vale_fpp.outputs.correr == 'true'
+        continue-on-error: true
+        working-directory: scraper
+        env:
+          OBSERVADOR: https://hoquei-observador.torneiopa.workers.dev
+          CHAVE_RONDAS: ${{ secrets.CHAVE_RONDAS }}
+          ORIGEM_RONDA: producao
+        run: >-
+          uv run python -m hoquei.cli publicar --tenant fpp --intervalo 2
+          --categorias "CAMPEONATO NACIONAL 1ª DIVISAO"
+          --categorias "CAMPEONATO NACIONAL 2ª DIVISAO"
+          --categorias "CAMPEONATO NACIONAL 3ª DIVISAO"
+          --destino ../web/static/v1/fpp/2026-27
+          ${{ github.event.schedule == '30 23 * * *' && '--rever-boletins' || '' }}
+
+      - name: A ronda da FPP falhou — a árvore dela volta ao último commit
+        if: steps.fpp.outcome == 'failure'
+        run: |
+          git checkout -- web/static/v1/fpp web/static/emblemas 2>/dev/null || true
+          git clean -fdq -- web/static/v1/fpp web/static/emblemas
+          echo "### A ronda da FPP falhou — a APL publica-se na mesma" >> "$GITHUB_STEP_SUMMARY"
+
       - name: Comitar se houver novidade
         id: commit
-        if: steps.vale.outputs.correr == 'true'
+        if: steps.pede.outputs.correr == 'true'
         run: |
           # O meta.json tem um carimbo temporal que muda em TODAS as corridas, por isso
           # não serve para decidir se houve novidade: sem o excluir, isto comitava e
           # publicava de 2 em 2 horas para sempre, sem nada ter acontecido nos jogos.
-          if git diff --quiet -- web/static/v1 ':!web/static/v1/**/meta.json'; then
+          # Os emblemas novos contam como novidade e vão no commit: até à FPP nunca tinha
+          # havido um emblema novo, e os 31 da APL foram commitados à mão a 30/09/2026. Sem os
+          # commitar, cada ronda voltava a pedi-los, e o ciclo ao vivo publicava sem eles.
+          if git diff --quiet -- web/static/v1 ':!web/static/v1/**/meta.json' \
+             && [ -z "$(git ls-files --others --exclude-standard -- web/static/v1 web/static/emblemas)" ]; then
             echo "sem alterações nos dados"
             git checkout -- web/static/v1
             echo "mudou=false" >> "$GITHUB_OUTPUT"
@@ -232,7 +302,7 @@ jobs:
           # O diário das contagens vai no mesmo commit, mas **fora** de web/static/v1:
           # lá dentro, uma linha nova por ronda fazia a verificação acima ver sempre
           # alterações e publicar de 2 em 2 horas para sempre.
-          git add web/static/v1 data-samples/rondas
+          git add web/static/v1 web/static/emblemas data-samples/rondas
           git commit -m "Dados: $(date -u '+%Y-%m-%d %H:%M') UTC [skip ci]"
 
           # O `push` com nova tentativa, e não um `push` seco (P11.12).
@@ -307,7 +377,7 @@ jobs:
       # código ficava no repositório sem chegar ao site até os dados mudarem por conta
       # própria — num dia sem jogos, dias.
       - uses: actions/setup-node@v4
-        if: (steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || env.SO_PUBLICAR == 'true'
+        if: (steps.pede.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || env.SO_PUBLICAR == 'true'
         with:
           node-version: 22
           cache: npm
@@ -321,10 +391,14 @@ jobs:
       - name: Antes do jogo, a partir das fichas commitadas — 0 pedidos à fonte
         if: env.SO_PUBLICAR == 'true'
         working-directory: scraper
-        run: uv run python -m hoquei.cli prejogo --destino ../web/static/v1/aplisboa/2026-27
+        run: |
+          uv run python -m hoquei.cli prejogo --destino ../web/static/v1/aplisboa/2026-27
+          if [ -d ../web/static/v1/fpp/2026-27 ]; then
+            uv run python -m hoquei.cli prejogo --destino ../web/static/v1/fpp/2026-27
+          fi
 
       - name: Construir a PWA
-        if: (steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || env.SO_PUBLICAR == 'true'
+        if: (steps.pede.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || env.SO_PUBLICAR == 'true'
         working-directory: web
         run: npm ci && npm run build
 
@@ -337,7 +411,7 @@ jobs:
       # O resultado seria um contador que desaparece ao sábado à tarde e volta sozinho.
       - name: Publicar no Cloudflare Pages
         id: publicacao
-        if: (steps.vale.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || env.SO_PUBLICAR == 'true'
+        if: (steps.pede.outputs.correr == 'true' && (steps.commit.outputs.mudou == 'true' || inputs.publicar_sempre)) || env.SO_PUBLICAR == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -580,4 +654,40 @@ jobs:
                 --jq "[.[] | select(.title == \"A ronda de dados está a falhar\")] | .[0].number // empty")
           if [ -n "$n" ]; then
             gh issue close "$n" --comment "A ronda voltou a correr. Fechada pelo \`dados.yml\`."
+          fi
+
+      # A ronda da FPP falha sozinha, de propósito (ver "Regenerar /v1 · ligas nacionais"), e por
+      # isso o `failure()` dos passos acima nunca a vê: sem um aviso próprio, uma FPP parada
+      # durante dias passava por uma corrida verde.
+      - name: A ronda da FPP está a falhar
+        if: steps.fpp.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DONO: ${{ github.repository_owner }}
+        run: |
+          titulo="A ronda das ligas nacionais está a falhar"
+          corpo=$(printf '%s\n' \
+            "A ronda da FPP de $(TZ=Europe/Lisbon date '+%F às %H:%M') falhou, e os dados nacionais ficaram como estavam no último commit." \
+            "A APL publicou-se na mesma." \
+            "" \
+            "Corrida: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")
+          n=$(gh issue list --state open --label ronda --limit 20 --json number,title \
+                --jq "[.[] | select(.title == \"$titulo\")] | .[0].number // empty")
+          if [ -n "$n" ]; then
+            gh issue comment "$n" --body "$corpo"
+          else
+            gh issue create --title "$titulo" --body "$corpo" --label ronda --assignee "$DONO"
+          fi
+
+      - name: A ronda da FPP voltou ao normal
+        if: steps.fpp.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh issue list --state open --label ronda --limit 20 --json number,title \
+                --jq "[.[] | select(.title == \"A ronda das ligas nacionais está a falhar\")] | .[0].number // empty")
+          if [ -n "$n" ]; then
+            gh issue close "$n" --comment "A ronda da FPP voltou a correr. Fechada pelo \`dados.yml\`."
           fi

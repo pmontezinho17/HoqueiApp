@@ -208,7 +208,10 @@ const ESCALAO_CURTO: Record<string, string> = {
 	ESCOLARES: 'ESCOL',
 	'SENIORES MASCULINOS': 'SEN M',
 	'SENIORES FEMININOS': 'SEN F',
-	'TORNEIOS PARTICULARES': 'TORN'
+	'TORNEIOS PARTICULARES': 'TORN',
+	'1.ª DIVISÃO': '1.ª DIV',
+	'2.ª DIVISÃO': '2.ª DIV',
+	'3.ª DIVISÃO': '3.ª DIV'
 };
 
 /**

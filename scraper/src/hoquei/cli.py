@@ -5,6 +5,7 @@
 """
 from __future__ import annotations
 
+from dataclasses import replace
 import argparse
 import json
 import pathlib
@@ -26,7 +27,8 @@ from .tabela import calcular, calcular_de_json, vale_calcular
 from .parsers.competicoes import competicoes, temporadas
 from .parsers.jogo import ficha
 from .privacidade import anonimizar_ficha, escalao_permite_individual
-from .emblemas import caminho_publico, garantir, id_do_logo
+from .emblemas import caminho_publico, chave_do_emblema, corrigir_emblemas, garantir, id_do_logo
+from .inquilinos import categoria_publicada
 from .grupos import identificar
 from .ics import feed, nome_ficheiro
 from .recintos import conhecidas
@@ -41,8 +43,29 @@ def _temporada_corrente(fonte: Fonte) -> int:
     return temporadas(fonte.seccao("competiciones").html)[0].id
 
 
+def so_das_categorias(provas: list, categorias: list[str] | None) -> list:
+    """As provas das categorias pedidas, ou todas quando não se pede nenhuma.
+
+    **Pela categoria e não pelo número da prova**, porque o número muda de época para época e
+    a categoria não: o Placard é a prova 348 em 2026/27, e a categoria dele é
+    `CAMPEONATO NACIONAL 1ª DIVISAO` todos os anos. É o que deixa a FPP entrar por fases
+    (`docs/11-ligas-nacionais.md`) sem pedir os 18 calendários dela: a fase 1 é um.
+
+    Uma categoria pedida que não exista na fonte é um erro e não uma lista vazia. Uma ronda
+    que publicasse zero provas por causa de uma gralha apagava o Placard da app sem avisar.
+    """
+    if not categorias:
+        return provas
+    pedidas = {c.strip().upper() for c in categorias}
+    escolhidas = [p for p in provas if p.categoria.strip().upper() in pedidas]
+    faltam = pedidas - {p.categoria.strip().upper() for p in escolhidas}
+    if faltam:
+        raise SystemExit(f"categoria(s) que a fonte não tem: {', '.join(sorted(faltam))}")
+    return escolhidas
+
+
 def _tudo(fonte: Fonte, id_temp: int, com_classificacao: bool = False,
-          quer_tabela=None):
+          quer_tabela=None, categorias: list[str] | None = None):
     """Percorre as competições da época e devolve (competicao, calendario, classificacao).
 
     `quer_tabela(prova, calendario)` decide, prova a prova, se vale a pena gastar o pedido da
@@ -54,7 +77,10 @@ def _tudo(fonte: Fonte, id_temp: int, com_classificacao: bool = False,
     ou se um resultado mudou, por isso a decisão vem **depois** de o ler e antes do segundo
     pedido.
     """
-    provas = competicoes(fonte.seccao("competiciones", id_temp=id_temp).html)
+    tenant = getattr(fonte, "tenant", "aplisboa")
+    provas = [replace(p, categoria=categoria_publicada(tenant, p.categoria))
+              for p in so_das_categorias(
+                  competicoes(fonte.seccao("competiciones", id_temp=id_temp).html), categorias)]
     for i, prova in enumerate(provas, 1):
         print(f"  [{i}/{len(provas)}] {prova.categoria} · {prova.nome}", file=sys.stderr)
         html = fonte.seccao("calendario", id_comp=prova.id, id_temp=id_temp, grupo="").html
@@ -111,13 +137,15 @@ def comando_despejar(args) -> int:
         id_temp = args.id_temp or _temporada_corrente(fonte)
         provas, total = [], 0
         for prova, cal, tabela in _tudo(fonte, id_temp, com_classificacao=True,
-                                        quer_tabela=_quer_tabela):
+                                        quer_tabela=_quer_tabela,
+                                        categorias=getattr(args, "categorias", None)):
             # emblemas: guardamos o id da fonte e reescrevemos o campo para a nossa origem,
             # o que também resolve a inconsistência de URLs absolutos vs relativos
             for eq in cal.equipas:
                 if (idl := id_do_logo(eq.logo)):
-                    logos.setdefault(idl, f"https://{args.tenant}.assyssoftware.es/intranet/logos/{idl}.png")
-                    emblema_da_equipa[eq.nome] = caminho_publico(idl)
+                    chave = chave_do_emblema(idl, args.tenant)
+                    logos.setdefault(chave, f"https://{args.tenant}.assyssoftware.es/intranet/logos/{idl}.png")
+                    emblema_da_equipa[eq.nome] = caminho_publico(chave)
 
             provas.append({**para_dicionario(prova), **identificar(prova.categoria, prova.nome)})
             # **Saltar a tabela não é publicar uma tabela vazia.** Reutiliza-se a da última
@@ -137,7 +165,7 @@ def comando_despejar(args) -> int:
             # entre os URLs absolutos do calendário e os relativos da classificação
             for eq in conteudo["equipas"]:
                 idl = id_do_logo(eq.get("logo"))
-                eq["logo"] = caminho_publico(idl) if idl else None
+                eq["logo"] = caminho_publico(chave_do_emblema(idl, args.tenant)) if idl else None
             (destino / "comp" / f"{prova.id}.json").write_text(
                 json.dumps(conteudo, ensure_ascii=False, indent=1))
             total += len(cal.jogos)
@@ -884,6 +912,20 @@ def _actualizar_calendario(destino: pathlib.Path, jogo: dict, gc: int, gf: int,
     alvo.write_text(json.dumps(d, ensure_ascii=False, indent=1))
 
 
+def _buscar_emblema(url: str, intervalo: float = 1.0) -> bytes:
+    """Um emblema da fonte, **com o mesmo compasso de um segundo** das outras páginas.
+
+    Até 12/11/2026 isto era um `httpx.get` seco, sem espera: um emblema novo de vez em quando
+    na APL não se notava. A primeira ronda do Placard traz 14 de uma vez, e o servidor é o
+    mesmo que serve a APL (`docs/11-ligas-nacionais.md`) — 14 pedidos colados uns aos outros
+    contra a regra de um por segundo. Os emblemas ficam fora da `Fonte` e da contagem dela
+    como antes; só passam a esperar a sua vez.
+    """
+    import time as relogio
+    relogio.sleep(intervalo)
+    return httpx.get(url, timeout=30, headers={"User-Agent": UA}).raise_for_status().content
+
+
 def comando_publicar(args) -> int:
     """Gera a árvore /v1 completa que a PWA consome.
 
@@ -897,7 +939,8 @@ def comando_publicar(args) -> int:
     for pasta in ("comp", "match", "merito", "scorers"):
         (destino / pasta).mkdir(parents=True, exist_ok=True)
 
-    with Fonte(args.tenant) as fonte:
+    intervalo = getattr(args, "intervalo", 1.0)
+    with Fonte(args.tenant, intervalo=intervalo) as fonte:
         id_temp = args.id_temp or _temporada_corrente(fonte)
         provas, total, buscadas, saltadas, restritas = [], 0, 0, 0, 0
         #: as releituras do Mérito desta ronda, e em quantas ele mudou — ver `_merito_por_rever`
@@ -937,13 +980,15 @@ def comando_publicar(args) -> int:
         emblema_da_equipa: dict[str, str] = {}
 
         for prova, cal, tabela in _tudo(fonte, id_temp, com_classificacao=True,
-                                        quer_tabela=_quer_tabela):
+                                        quer_tabela=_quer_tabela,
+                                        categorias=getattr(args, "categorias", None)):
             # emblemas: guardamos o id da fonte e reescrevemos o campo para a nossa origem,
             # o que também resolve a inconsistência de URLs absolutos vs relativos
             for eq in cal.equipas:
                 if (idl := id_do_logo(eq.logo)):
-                    logos.setdefault(idl, f"https://{args.tenant}.assyssoftware.es/intranet/logos/{idl}.png")
-                    emblema_da_equipa[eq.nome] = caminho_publico(idl)
+                    chave = chave_do_emblema(idl, args.tenant)
+                    logos.setdefault(chave, f"https://{args.tenant}.assyssoftware.es/intranet/logos/{idl}.png")
+                    emblema_da_equipa[eq.nome] = caminho_publico(chave)
 
             provas.append({**para_dicionario(prova), **identificar(prova.categoria, prova.nome)})
             # **Saltar a tabela não é publicar uma tabela vazia.** Reutiliza-se a da última
@@ -963,7 +1008,7 @@ def comando_publicar(args) -> int:
             # entre os URLs absolutos do calendário e os relativos da classificação
             for eq in conteudo["equipas"]:
                 idl = id_do_logo(eq.get("logo"))
-                eq["logo"] = caminho_publico(idl) if idl else None
+                eq["logo"] = caminho_publico(chave_do_emblema(idl, args.tenant)) if idl else None
             (destino / "comp" / f"{prova.id}.json").write_text(
                 json.dumps(conteudo, ensure_ascii=False, indent=1))
             total += len(cal.jogos)
@@ -1119,12 +1164,22 @@ def comando_publicar(args) -> int:
     # e ver tudo o que essa equipa joga, sem o cliente abrir as 37 competições.
     novos_emb, emb_existentes = garantir(
         logos, pathlib.Path(args.emblemas or (destino / ".." / ".." / ".." / "emblemas")).resolve(),
-        lambda url: httpx.get(url, timeout=30, headers={"User-Agent": UA}).raise_for_status().content)
+        lambda url: _buscar_emblema(url, intervalo))
+    # **Os emblemas também são idas à fonte, e não contavam.** São pedidos fora da `Fonte`, por
+    # isso o `__exit__` dela nunca os via, e a consola não os mostrava. Na APL não se notava — um
+    # emblema novo de vez em quando —; a primeira leitura das ligas nacionais, a 17/11/2026,
+    # pediu ~90 ao servidor partilhado e a consola deu só as 188 páginas. Conta-se cada
+    # tentativa, porque um emblema que falhou também foi pedido.
+    if (emb_pedidos := len(logos) - emb_existentes):
+        # com outro nome: o `registar` deste ficheiro é o do diário das contagens (`rondas.py`)
+        from . import registo
+        registo.registar({"emblema": emb_pedidos}, len(logos) - emb_existentes - novos_emb,
+                         tenant=args.tenant)
 
     # mapa nome→emblema: a agenda e a classificação precisam do emblema sem carregar
     # o ficheiro de cada competição
     (destino / "emblemas.json").write_text(
-        json.dumps(emblema_da_equipa, ensure_ascii=False, indent=1))
+        json.dumps(corrigir_emblemas(emblema_da_equipa, args.tenant), ensure_ascii=False, indent=1))
 
     agenda.sort(key=lambda j: (j["data"], j["hora"] or "99:99"))
     # Um jogo por disputar só é clicável na app se houver ficha para mostrar. A app não
@@ -1152,7 +1207,7 @@ def comando_publicar(args) -> int:
         nome = nome_ficheiro(eq, cat)
         escritos.add(nome)
         alvo = pasta_ics / nome
-        novo = feed(eq, cat, seus)
+        novo = feed(eq, cat, seus, tenant=args.tenant)
         # só escreve quando muda: o ficheiro é determinista de propósito, e reescrevê-lo
         # igual faria o git ver alterações e a app republicar a cada corrida do cron
         if not alvo.exists() or alvo.read_text(encoding="utf-8") != novo:
@@ -1296,6 +1351,11 @@ def main(argv=None) -> int:
     b.add_argument("--reler", default=None, metavar="merito|ID,ID",
                    help="voltar a pedir estas fichas mesmo sem mudanças: `merito` para as das provas "
                         "com Mérito, ou ids separados por vírgulas — só no site de testes")
+    b.add_argument("--intervalo", type=float, default=1.0, metavar="SEGUNDOS",
+                   help="espera entre pedidos; a FPP usa 2, porque partilha o servidor com a APL "
+                        "e o ciclo ao vivo desta pode estar a pedir ao mesmo tempo")
+    b.add_argument("--categorias", action="append", default=None, metavar="CATEGORIA",
+                   help="só as provas desta categoria da fonte (repetível); sem ele, todas")
     b.add_argument("--anonimizar-formacao", action="store_true",
                    help="omitir nomes de atletas, árbitros e equipa técnica abaixo de sub-17")
     b.set_defaults(func=comando_publicar)

@@ -35,7 +35,8 @@
 <p class="resumo">
 	Esta aplicação <strong>não tem conta, não tem servidor e não te segue</strong>. Os teus
 	favoritos ficam no teu telemóvel e nunca nos chegam. O que publicamos são os dados que a
-	Associação de Patinagem de Lisboa já publica no seu site.
+	Associação de Patinagem de Lisboa e a Federação de Patinagem de Portugal já publicam nos
+	seus sites.
 </p>
 
 <section>
@@ -304,7 +305,10 @@
 			exemplo) passa a ir buscar esse endereço periodicamente.
 		</dd>
 		<dt>Ligações para a fonte</dt>
-		<dd>Levam-te ao site da Associação de Patinagem de Lisboa, que tem regras próprias.</dd>
+		<dd>
+			Levam-te ao site da Associação de Patinagem de Lisboa ou ao da Federação de Patinagem
+			de Portugal, que têm regras próprias.
+		</dd>
 		<dt>"Escreve-nos"</dt>
 		<dd>
 			Abre o teu programa de email com o texto já escrito. <strong>Nada sai do teu aparelho
@@ -342,7 +346,7 @@
 	<p>
 		Não temos ligação à Associação de Patinagem de Lisboa nem à Federação de Patinagem de
 		Portugal. É um projecto feito por adeptos, sem fins comerciais, e os dados são da
-		associação.
+		associação e da federação.
 	</p>
 </section>
 

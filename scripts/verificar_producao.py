@@ -57,6 +57,7 @@ import argparse
 import json
 import re
 import ssl
+import pathlib
 import sys
 import time
 import urllib.error
@@ -64,6 +65,11 @@ import urllib.request
 
 PRODUCAO = "https://hoquei.pages.dev"
 V1 = "/v1/aplisboa/2026-27"
+#: A árvore das ligas nacionais (`docs/11-ligas-nacionais.md`): a mesma forma, outro sítio.
+V1_FPP = "/v1/fpp/2026-27"
+#: Onde está a cópia que esta publicação levou. Os dois publicadores correm a partir da raiz do
+#: repositório, e é por ela que se sabe se a FPP foi no envio.
+ARVORE_FPP = pathlib.Path(__file__).resolve().parent.parent / "web/static" / V1_FPP.lstrip("/")
 UA = "hoqueiAPP-verificacao (github.com/pmontezinho17/HoqueiApp)"
 
 #: Três tentativas, com um segundo de intervalo. Um soluço de rede não é uma avaria do site, e
@@ -212,6 +218,36 @@ def contrato_intacto(base: str) -> str | None:
             return mal
         if nome == "agenda.json" and (mal := _um_prejogo(base, d.get("jogos") or [])):
             return mal
+    return None
+
+
+def _publicou_ligas() -> bool:
+    return (ARVORE_FPP / "meta.json").exists()
+
+
+def ligas_nacionais_servidas(base: str) -> str | None:
+    """**Se a publicação levou a FPP, o site serve-a.** Se não levou, não há nada prometido.
+
+    A condição vem da cópia local e não do site, e de propósito: perguntar ao site se tem a
+    FPP para decidir se a verifica não apanhava nunca o dia em que ela desaparece. Antes da
+    primeira publicação com as ligas nacionais esta verificação passa sem pedir nada.
+    """
+    if not _publicou_ligas():
+        return None
+    for nome, chaves in (("agenda.json", ("jogos",)), ("meta.json", ("generated_at", "temporada_id")),
+                         ("competitions.json", ("competicoes",))):
+        estado, _, corpo = _pedir(f"{base}{V1_FPP}/{nome}")
+        if estado != 200:
+            return f"{V1_FPP}/{nome} devolveu HTTP {estado}"
+        try:
+            d = json.loads(corpo)
+        except json.JSONDecodeError as e:
+            return f"{V1_FPP}/{nome} não é JSON válido: {e}"
+        faltam = [c for c in chaves if c not in d]
+        if faltam:
+            return f"{V1_FPP}/{nome} não tem {', '.join(faltam)} — o contrato mudou"
+        if nome == "competitions.json" and not d["competicoes"]:
+            return f"{V1_FPP}/competitions.json não tem competição nenhuma"
     return None
 
 
@@ -435,6 +471,7 @@ VERIFICACOES = [
     ("os links directos abrem", links_directos_abrem),
     ("a cache dos dados é a nossa", cache_dos_dados),
     ("o contrato /v1 está intacto", contrato_intacto),
+    ("as ligas nacionais estão servidas", ligas_nacionais_servidas),
     ("a versão é servida", versao_servida),
     ("não há código de terceiros na página", sem_codigo_de_terceiros),
     ("a caixa de sugestões tem onde escrever", base_de_dados_ligada),

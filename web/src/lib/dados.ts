@@ -1,6 +1,5 @@
+import { CAMINHOS, ORIGINAL, daCompeticao, doJogo, type Inquilino } from './inquilinos';
 import type { Agenda, FicheiroCompeticao, FicheiroMerito, FichaJogo, IndiceCompeticoes, IndiceEquipas, Meta, Prejogo, Quadro } from './tipos';
-
-const CAMINHO = '/v1/aplisboa/2026-27';
 
 /**
  * De onde vêm os dados: **sempre da própria origem**, em produção e no site de testes.
@@ -26,9 +25,16 @@ export class NaoPublicado extends Error {
 	}
 }
 
-/** Lê um ficheiro de dados, com o caminho **relativo à raiz do `/v1`** — `/merito/461.json`. */
-async function json<T>(sufixo: string, fetchFn: typeof fetch, opcoes?: RequestInit): Promise<T> {
-	return pedir<T>(`${CAMINHO}${sufixo}`, fetchFn, opcoes);
+/**
+ * Lê um ficheiro de dados, com o caminho **relativo à raiz da fonte** — `/merito/461.json`.
+ *
+ * A fonte de um ficheiro de uma competição ou de um jogo vem do registo de `inquilinos.ts`, e
+ * não de quem chama: assim nenhum ecrã precisa de saber que há duas, e um que se esqueça de
+ * perguntar não lê a árvore errada. Os índices, que são o que enche o registo, dizem-na à mão.
+ */
+async function json<T>(sufixo: string, fetchFn: typeof fetch, opcoes?: RequestInit,
+	inq: Inquilino = ORIGINAL): Promise<T> {
+	return pedir<T>(`${CAMINHOS[inq]}${sufixo}`, fetchFn, opcoes);
 }
 
 async function pedir<T>(caminho: string, fetchFn: typeof fetch, opcoes?: RequestInit): Promise<T> {
@@ -47,15 +53,15 @@ async function pedir<T>(caminho: string, fetchFn: typeof fetch, opcoes?: Request
 	return JSON.parse(texto) as T;
 }
 
-export const carregarIndice = (f: typeof fetch) =>
-	json<IndiceCompeticoes>(`/competitions.json`, f);
+export const carregarIndice = (f: typeof fetch, inq: Inquilino = ORIGINAL) =>
+	json<IndiceCompeticoes>(`/competitions.json`, f, undefined, inq);
 
 /** Moradas dos recintos: a fonte só publica o nome, que não geocodifica. */
 export const carregarRecintos = (f: typeof fetch) =>
 	json<{ recintos: Record<string, string> }>(`/recintos.json`, f);
 
 export const carregarCompeticao = (id: number, f: typeof fetch) =>
-	json<FicheiroCompeticao>(`/comp/${id}.json`, f);
+	json<FicheiroCompeticao>(`/comp/${id}.json`, f, undefined, daCompeticao(id));
 
 /**
  * A ficha de um jogo. Com `aoVivo`, salta **todas** as caches.
@@ -69,28 +75,28 @@ export const carregarJogo = (id: number, f: typeof fetch, aoVivo = false) =>
 	// `no-cache` revalida sempre com o servidor, mas mantém o mesmo URL — ao contrário de
 	// um `?v=` por pedido, que encheria a cache do service worker com uma entrada nova de
 	// 30 em 30 segundos durante um jogo.
-	json<FichaJogo>(`/match/${id}.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);
+	json<FichaJogo>(`/match/${id}.json`, f, aoVivo ? { cache: 'no-cache' } : undefined, doJogo(id));
 
 export const carregarQuadro = (comp: number, f: typeof fetch) =>
-	json<Quadro>(`/scorers/${comp}.json`, f);
+	json<Quadro>(`/scorers/${comp}.json`, f, undefined, daCompeticao(comp));
 
 /**
  * A tabela de Mérito da Formação de uma prova. Só existe nos Encontros Distritais de
  * Escolares e Benjamins — em todas as outras dá `NaoPublicado`, e isso não é um erro.
  */
 export const carregarMerito = (comp: number, f: typeof fetch) =>
-	json<FicheiroMerito>(`/merito/${comp}.json`, f);
+	json<FicheiroMerito>(`/merito/${comp}.json`, f, undefined, daCompeticao(comp));
 
 /**
  * O que se sabe de um jogo antes de ele começar. Só existe enquanto o jogo está por disputar —
  * o raspador apaga-o quando há resultado — e nunca nos Torneios Particulares.
  */
 export const carregarPrejogo = (id: number, f: typeof fetch) =>
-	json<Prejogo>(`/prejogo/${id}.json`, f);
+	json<Prejogo>(`/prejogo/${id}.json`, f, undefined, doJogo(id));
 
 /** nome da equipa → caminho do emblema na nossa origem */
-export const carregarEmblemas = (f: typeof fetch) =>
-	json<Record<string, string>>(`/emblemas.json`, f);
+export const carregarEmblemas = (f: typeof fetch, inq: Inquilino = ORIGINAL) =>
+	json<Record<string, string>>(`/emblemas.json`, f, undefined, inq);
 
 /**
  * A agenda. Com `aoVivo`, salta **todas** as caches — pela mesma razão que a ficha.
@@ -105,13 +111,13 @@ export const carregarEmblemas = (f: typeof fetch) =>
  * na cronologia, e a lista de jogos dizia 0–0 — com o relógio a andar, o que torna a
  * mentira pior, porque parece fresca. A ficha ia à rede; a lista não.
  */
-export const carregarAgenda = (f: typeof fetch, aoVivo = false) =>
-	json<Agenda>(`/agenda.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);
+export const carregarAgenda = (f: typeof fetch, aoVivo = false, inq: Inquilino = ORIGINAL) =>
+	json<Agenda>(`/agenda.json`, f, aoVivo ? { cache: 'no-cache' } : undefined, inq);
 
-export const carregarEquipas = (f: typeof fetch) =>
-	json<IndiceEquipas>(`/teams.json`, f);
+export const carregarEquipas = (f: typeof fetch, inq: Inquilino = ORIGINAL) =>
+	json<IndiceEquipas>(`/teams.json`, f, undefined, inq);
 
 /** A hora dos dados. É ela que escreve o "agora mesmo" no cabeçalho, por isso vir de uma
  *  cópia velha é a app a dizer que está fresca quando não está. */
-export const carregarMeta = (f: typeof fetch, aoVivo = false) =>
-	json<Meta>(`/meta.json`, f, aoVivo ? { cache: 'no-cache' } : undefined);
+export const carregarMeta = (f: typeof fetch, aoVivo = false, inq: Inquilino = ORIGINAL) =>
+	json<Meta>(`/meta.json`, f, aoVivo ? { cache: 'no-cache' } : undefined, inq);

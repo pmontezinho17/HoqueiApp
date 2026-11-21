@@ -76,7 +76,7 @@ def test_a_fonte_regista_ao_fechar_mesmo_quando_a_ronda_rebenta(monkeypatch):
     """Os pedidos feitos antes de um erro foram feitos do lado da APL, e contam."""
     registados = []
     monkeypatch.setattr("hoquei.registo.registar",
-                        lambda por_tipo, falhados=0: registados.append((dict(por_tipo), falhados)))
+                        lambda por_tipo, falhados=0, **_k: registados.append((dict(por_tipo), falhados)))
     try:
         with Fonte("aplisboa") as fonte:
             fonte.por_tipo["calendario"] = 5
@@ -85,3 +85,50 @@ def test_a_fonte_regista_ao_fechar_mesmo_quando_a_ronda_rebenta(monkeypatch):
     except RuntimeError:
         pass
     assert registados == [({"calendario": 5}, 1)]
+
+
+def test_a_fpp_conta_a_parte_com_a_origem_dela():
+    vistos = []
+
+    def abrir(pedido, timeout):
+        vistos.append(json.loads(pedido.data)["origem"])
+        return _Resposta(204)
+
+    assert registar({"ficha": 3}, ambiente=AMBIENTE, abrir=abrir, agora=QUANDO, tenant="fpp")
+    assert registar({"ficha": 3}, ambiente={**AMBIENTE, "ORIGEM_RONDA": "testes"}, abrir=abrir,
+                    agora=QUANDO, tenant="fpp")
+    assert registar({"ficha": 3}, ambiente={**AMBIENTE, "ORIGEM_RONDA": "medicao"}, abrir=abrir,
+                    agora=QUANDO, tenant="fpp")
+    assert registar({"ficha": 3}, ambiente=AMBIENTE, abrir=abrir, agora=QUANDO, tenant="aplisboa")
+    assert vistos == ["producao_fpp", "testes_fpp", "medicao", "producao"]
+
+
+def test_um_observador_antigo_recusa_a_origem_nova_e_a_contagem_vai_com_a_de_sempre():
+    """O botão do site de testes corre no `dev` antes de o observador novo chegar ao `main`."""
+    import io
+    import urllib.error
+    vistos = []
+
+    def abrir(pedido, timeout):
+        origem = json.loads(pedido.data)["origem"]
+        vistos.append(origem)
+        if origem.endswith("_fpp"):
+            raise urllib.error.HTTPError(pedido.full_url, 400, "não tem a forma", {}, io.BytesIO())
+        return _Resposta(204)
+
+    assert registar({"ficha": 3}, ambiente={**AMBIENTE, "ORIGEM_RONDA": "testes"}, abrir=abrir,
+                    agora=QUANDO, tenant="fpp") is True
+    assert vistos == ["testes_fpp", "testes"]
+
+
+def test_uma_chave_errada_nao_se_repete_com_outra_origem():
+    import io
+    import urllib.error
+    vistos = []
+
+    def abrir(pedido, timeout):
+        vistos.append(1)
+        raise urllib.error.HTTPError(pedido.full_url, 401, "chave errada", {}, io.BytesIO())
+
+    assert registar({"ficha": 3}, ambiente=AMBIENTE, abrir=abrir, agora=QUANDO, tenant="fpp") is False
+    assert vistos == [1]
