@@ -225,6 +225,20 @@
    "nome": "CACO B",
    "jogadores": [
     {
+     "numero": "92",
+     "nome": "SANTIAGO MOURA",
+     "titular": false,
+     "golos": 0,
+     "assistencias": 0,
+     "defesas": 0,
+     "penalidades": "0/0",
+     "livres_diretos": "0/0",
+     "cartoes_amarelos": 0,
+     "cartoes_azuis": 0,
+     "cartoes_vermelhos": 0,
+     "papel": null
+    },
+    {
      "numero": "2",
      "nome": "MADALENA ABRANTES",
      "titular": false,
@@ -326,20 +340,6 @@
      "numero": "66",
      "nome": "KISHON RAFAEL",
      "titular": true,
-     "golos": 0,
-     "assistencias": 0,
-     "defesas": 0,
-     "penalidades": "0/0",
-     "livres_diretos": "0/0",
-     "cartoes_amarelos": 0,
-     "cartoes_azuis": 0,
-     "cartoes_vermelhos": 0,
-     "papel": null
-    },
-    {
-     "numero": "92",
-     "nome": "SANTIAGO MOURA",
-     "titular": false,
      "golos": 0,
      "assistencias": 0,
      "defesas": 0,
@@ -944,7 +944,7 @@
    "avisos": []
   }
  ],
- "merito_revisto": "2026-11-14",
+ "merito_revisto": "2026-11-21",
  "em_pista": [
   {
    "equipa": "APAC TOJAL",
@@ -1125,9 +1125,26 @@
    "equipa": "CACO B",
    "atletas": [
     {
+     "numero": "92",
+     "nome": "SANTIAGO MOURA",
+     "gr": true,
+     "marcas": [
+      "",
+      "X",
+      "",
+      "X"
+     ],
+     "golos": [
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    {
      "numero": "2",
      "nome": "MADALENA ABRANTES",
-     "gr": true,
+     "gr": false,
      "marcas": [
       "",
       "X",
@@ -1252,23 +1269,6 @@
       "",
       "X",
       ""
-     ],
-     "golos": [
-      0,
-      0,
-      0,
-      0
-     ]
-    },
-    {
-     "numero": "92",
-     "nome": "SANTIAGO MOURA",
-     "gr": false,
-     "marcas": [
-      "",
-      "X",
-      "",
-      "X"
      ],
      "golos": [
       0,
