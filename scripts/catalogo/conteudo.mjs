@@ -155,23 +155,39 @@ export const DEVOLVER = [
 	}
 ];
 
-/** O ritmo de entrega, que é o que o pedido original dizia: alterações progressivas. */
+/** O que mudou nesta versão, e porquê. Vai no topo da página. */
+export const PORQUE_MUDOU = {
+	titulo: 'Terceira versão — e o que mudou desde a segunda',
+	texto:
+		'A primeira entrega (18/10) eram os ecrãs inteiros, e não servia: <em>"eu assim não ' +
+		'desenho páginas, desenho apenas components"</em>. A segunda (19/10) passou a ser por ' +
+		'componente, com nome e número. <strong>Esta é a mesma coisa posta em dia:</strong> entre ' +
+		'19/10 e 12/11 entraram seis componentes novos e mudaram trinta e quatro, e o catálogo ' +
+		'tinha ficado a descrever uma aplicação que já não existia. Os números que já existiam ' +
+		'ficaram onde estavam; os novos entram a partir do <code>C44</code>. Três mudaram de ' +
+		'significado porque o componente foi substituído — está dito em cada um.'
+};
+
+/** O que esta ronda corrigiu e acrescentou, para quem já viu a versão anterior. */
+export const DIFERENCAS = [
+	['C04', 'Era "Pílulas de escalão". As pílulas desapareceram a 21/10 e o filtro passou a um <strong>campo de selecção</strong>. O catálogo antigo mandava desenhar o que já não existe.'],
+	['C05 e C06', 'Eram "Separadores de texto" e "Separadores de ícone", a mesma ideia em dois sítios. Agora há um componente só (C05); o C06 passa a ser a <strong>faixa que se arrasta</strong>.'],
+	['C08', 'Era "Interruptor de duas vias", que já não existe — as duas vistas passaram a mais uma selecção. É agora a <strong>barra fixa de controlos</strong>.'],
+	['C01', 'A barra de secções <strong>recolhe ao rolar</strong> desde 31/10.'],
+	['C09', 'A linha de jogo ganhou as <strong>barras do Mérito</strong> nos escalões de formação, e a linha inteira passou a ser um só alvo.'],
+	['C10', 'O bloco de jogos agrupa agora por <strong>escalão, hora ou local</strong>.'],
+	['C18', 'A ficha de equipas ganhou as <strong>meias partes</strong> de cada atleta, os cartões por cor e a equipa técnica.'],
+	['C21', 'O placar mostra a <strong>parte do jogo</strong> e as <strong>faltas</strong> de cada equipa.'],
+	['C32', 'Os ícones passaram de 26 a <strong>29</strong>: entraram o <code>antes</code>, o <code>marcadores</code> e o <code>merito</code>.'],
+	['C44 a C51', 'Oito componentes que faltavam: <strong>antes do jogo</strong>, <strong>mérito deste jogo</strong>, <strong>legenda da classificação</strong>, <strong>aviso de actualização</strong>, <strong>caixa de novidades</strong>, <strong>convite para instalar</strong>, <strong>transmissão</strong> e <strong>faixa do site de testes</strong>. Os cinco últimos só aparecem em situações raras e tinham-me escapado.']
+];
+
+/** O ritmo de entrega: uma peça de cada vez, vista na app antes da seguinte. */
 export const RITMO = [
-	'Começa pelos <strong>ícones</strong> (C32): são 26 desenhos pequenos, entram sem discussão, e vês o resultado na app no mesmo dia.',
+	'Começa pelos <strong>ícones</strong> (C32): 29 desenhos pequenos, entram sem discussão, e vês o resultado na app no mesmo dia.',
 	'Depois o <strong>ícone da aplicação</strong>, que é uma peça só e está provisório desde o primeiro dia.',
 	'Depois os componentes <strong>que aparecem em todos os ecrãs</strong> — C01 barra de secções, C02 cabeçalho, C09 linha de jogo. Mexer num destes muda a app inteira de uma vez.',
+	'A seguir a <strong>linha comparada do C44</strong>: é um padrão só, repete-se em cinco secções, e é o componente mais recente e o que menos desenho tem.',
 	'Só então os restantes, pela ordem que quiseres. Diz-me o identificador de cada um que começas, para eu não estar a mexer no mesmo.',
 	'As <strong>cores</strong> ficam para o fim: mexem em tudo ao mesmo tempo e são as mais caras de verificar.'
 ];
-
-/** O que mudou da primeira entrega para esta, e porquê. Vai no topo da página. */
-export const PORQUE_MUDOU = {
-	titulo: 'O que mudou nesta versão',
-	texto:
-		'A primeira entrega, a 18/10/2026, eram os 25 ecrãs fotografados inteiros. O retorno foi ' +
-		'que não servia: <em>"é mais uma overview das páginas (…) eu assim não desenho páginas, ' +
-		'desenho apenas components, que depois irão formar as páginas"</em>. Tinha razão. Esta ' +
-		'versão é o contrário: <strong>43 componentes, cada um com nome e identificador, ' +
-		'fotografado sozinho em cada um dos seus estados</strong>. Os ecrãs continuam no fim, ' +
-		'mas já só para mostrar onde é que cada peça encaixa.'
-};

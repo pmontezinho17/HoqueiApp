@@ -32,6 +32,29 @@ const RAIZ = join(AQUI, '..', '..');
 const DESTINO = join(AQUI, 'capturas', 'componentes');
 const BASE = process.env.BASE ?? 'http://localhost:5173';
 
+/**
+ * Os aparelhos que se fingem, para os estados que só existem num deles.
+ *
+ * O convite para instalar (C49) só aparece no iPhone e no iPad — no Android o sistema trata
+ * disto sozinho —, e o `decidirConvite()` decide pelo `userAgent` e pelo
+ * `navigator.standalone`. O `standalone` tem **três** valores que importam e não dois: `true`
+ * é "já está instalada", `false` é "Safari", e **não existir** é uma vista embutida dentro de
+ * outra aplicação. O Playwright não o define, por isso é preciso pô-lo à mão para distinguir
+ * os dois convites.
+ */
+const APARELHOS = {
+	iphone: {
+		userAgent:
+			'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Mobile/15E148 Safari/604.1',
+		standalone: false
+	},
+	'iphone-embutido': {
+		userAgent:
+			'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148',
+		standalone: undefined
+	}
+};
+
 /** Um nome de ficheiro a partir do nome do estado: sem acentos, sem espaços. */
 const fatiar = (s) =>
 	s
@@ -41,8 +64,22 @@ const fatiar = (s) =>
 		.replace(/[^a-z0-9]+/g, '-')
 		.replace(/^-|-$/g, '');
 
-async function capturar(contexto, comp, estado, tema) {
+async function capturar(navegador, comp, estado, tema) {
+	// O endereço e o aparelho são do **contexto** e não da página: um `userAgent` próprio ou
+	// um site diferente não se trocam numa aba já aberta. Os estados comuns reusam o contexto
+	// de omissão; só os poucos que precisam de outro aparelho abrem o seu.
+	const aparelho = estado.aparelho ? APARELHOS[estado.aparelho] : null;
+	if (estado.aparelho && !aparelho) throw new Error(`aparelho "${estado.aparelho}" não existe`);
+	const contexto = aparelho
+		? await navegador.newContext({ ...CONTEXTO, userAgent: aparelho.userAgent })
+		: comum;
 	const pag = await contexto.newPage();
+	if (aparelho) {
+		await pag.addInitScript((v) => {
+			// `undefined` quer dizer "não definir" — é assim que uma vista embutida se apresenta
+			if (v !== null) Object.defineProperty(navigator, 'standalone', { value: v, configurable: true });
+		}, aparelho.standalone === undefined ? null : aparelho.standalone);
+	}
 
 	const chaves = {
 		'hoquei:tema:v1': tema,
@@ -74,7 +111,7 @@ async function capturar(contexto, comp, estado, tema) {
 		});
 	}
 
-	await pag.goto(new URL(estado.url, BASE).toString(), { waitUntil: 'networkidle' });
+	await pag.goto(new URL(estado.url, estado.base ?? BASE).toString(), { waitUntil: 'networkidle' });
 	await pag.waitForTimeout(500);
 	if (estado.prepara) await estado.prepara(pag);
 	await pag.evaluate(() => {
@@ -108,20 +145,24 @@ async function capturar(contexto, comp, estado, tema) {
 	const ficheiro = `${comp.id}-${fatiar(comp.nome)}--${fatiar(estado.nome)}--${tema}.png`;
 	await alvo.screenshot({ path: join(DESTINO, ficheiro) });
 	await pag.close();
+	if (aparelho) await contexto.close();
 	// a largura em px de CSS é a que o catálogo usa para mostrar a imagem no tamanho real:
 	// o ficheiro tem o dobro dos pixels, por ser de dupla densidade
 	return { ficheiro, largura: Math.round(caixa.width), altura: Math.round(caixa.height) };
 }
 
-mkdirSync(DESTINO, { recursive: true });
-const navegador = await chromium.launch();
-const contexto = await navegador.newContext({
+/** O telemóvel em que este projecto verifica tudo o que é visível — ver o `AGENTS.md`. */
+const CONTEXTO = {
 	viewport: { width: 375, height: 812 },
 	deviceScaleFactor: 2,
 	locale: 'pt-PT',
 	timezoneId: 'Europe/Lisbon',
 	reducedMotion: 'reduce'
-});
+};
+
+mkdirSync(DESTINO, { recursive: true });
+const navegador = await chromium.launch();
+const comum = await navegador.newContext(CONTEXTO);
 
 // Um componente que falhe **não pára a ronda**: o catálogo com 52 de 53 estados serve, e a
 // lista das falhas no fim diz logo que selector é que deixou de encontrar o que procurava.
@@ -132,7 +173,7 @@ for (const comp of COMPONENTES) {
 		const temas = [];
 		for (const tema of ['claro', 'escuro']) {
 			try {
-				temas.push({ tema, ...(await capturar(contexto, comp, estado, tema)) });
+				temas.push({ tema, ...(await capturar(navegador, comp, estado, tema)) });
 			} catch (erro) {
 				falhas.push(`${comp.id} ${comp.nome} · ${estado.nome} · ${tema}: ${erro.message.split('\n')[0]}`);
 			}
